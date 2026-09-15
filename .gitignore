@@ -1,25 +1,22 @@
 # Node
-npm-debug.log
-node_modules
+node_modules/
+frontend/dist/
+npm-debug.log*
 
-# Mac
+# Java / Maven
+backend/target/
+*.class
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
 .DS_Store
-
-# Windows
 Thumbs.db
 
-# WebStorm
-.idea/
-
-#VSCode metadata
-.vscode
-
-coverage/
-
-# production
-/dist
-/es
-/umd
-/static
-
-package-lock.json
+# Environment
+.env
+.env.*
+!.env.example

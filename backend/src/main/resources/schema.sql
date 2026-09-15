@@ -1,0 +1,6 @@
+CREATE TABLE question (
+  id BIGINT PRIMARY KEY,
+  source VARCHAR(255) NOT NULL,
+  concept VARCHAR(255) NOT NULL,
+  stem CLOB NOT NULL
+);

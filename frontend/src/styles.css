@@ -1,0 +1,17 @@
+:root {
+  color: #2a1e13;
+  background: #ead7b8;
+  font-family: Inter, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+.page { min-height: 100vh; padding: 32px 6vw; background: #f5e8d3; }
+header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; border-bottom: 1px solid #d6c0a0; }
+.brand { font: 600 24px Georgia, "Noto Serif SC", serif; }
+.status { color: #927c64; font-size: 13px; }
+.hero { max-width: 980px; padding-top: 10vh; }
+.eyebrow { color: #b45c3d; font: 12px ui-monospace, monospace; letter-spacing: .18em; }
+h1 { margin: 20px 0 36px; font: 500 clamp(44px, 7vw, 100px)/1.02 Georgia, "Noto Serif SC", serif; }
+.markdown { max-width: 720px; padding: 24px 28px; border-left: 3px solid #b45c3d; background: #fffaf1; line-height: 1.75; }
+.markdown h2 { margin-top: 0; font-family: Georgia, "Noto Serif SC", serif; }
+@media (max-width: 640px) { .page { padding: 22px; } .hero { padding-top: 8vh; } header { align-items: flex-start; gap: 12px; flex-direction: column; } }
