@@ -1,0 +1,23 @@
+AGENTS.md
+  s_d24d8e1725abbe::t_38e924cf04d78b 1-173
+ravenspec/changes/root-agent-rules/CHANGE.md
+  s_d24d8e1725abbe::t_ee6ff7313255cb 1-29
+ravenspec/changes/root-agent-rules/verification.json
+  s_d24d8e1725abbe::t_e90173ab0db36f 1-84
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "3312ed1ad9e88776e08928368845fc8956554d22",
+  "prompts": {},
+  "sessions": {
+    "s_d24d8e1725abbe": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0a2ef-5273-7d62-a5f9-a7e885d9041c",
+        "model": "gpt-6-astra-ga"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    }
+  }
+}
