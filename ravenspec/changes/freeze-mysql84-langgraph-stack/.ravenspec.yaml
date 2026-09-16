@@ -1,0 +1,4 @@
+schema: sdd
+change: freeze-mysql84-langgraph-stack
+baseCommit: e54ec4ac6710f94a32af449212b30227aeadb36d
+status: spec

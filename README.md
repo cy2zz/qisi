@@ -1,123 +1,49 @@
-# 启思｜AI 高中数学思维老师
+# qisi-dashboard｜启思AI高中数学思维老师
 
-> 工作区整理日期：2026-09-16。**当前唯一实施基线：`qisi-3.0`，目录为 `qisi-sdd-v3/`。**
-> 本工作区是设计方案和 SDD 开发规格，不是已经实现的 Web 应用。不要把规格校验通过当成应用验收通过或学生已经学会。
+## 当前决定与实现状态
 
-## 1. 从哪里开始
+当前开发规格为 **qisi-3.1，2026-09-16**。设计V6.1、双人约十天开发规划V3.1、PRD V3.1；统一入口qisi-sdd-v3/README.md。
 
-| 你要做什么 | 阅读入口 |
-| --- | --- |
-| 理解产品与多 Agent 设计 | [设计方案 V6](qisi-sdd-v3/design-v6.md) |
-| 查看两个人约十天的分工与联调规划 | [开发规划 V3](qisi-sdd-v3/plan.md) |
-| 把任务交给 AI 一步步实施 | [SDD PRD V3](qisi-sdd-v3/prd.md) + [开发约束](qisi-sdd-v3/AGENTS.md) |
-| 查任务、契约、验收 | `qisi-sdd-v3/tasks.json`、`contracts/`、`acceptance/` |
-| 向他人交付完整规格 | `qisi-sdd-v3.zip` |
-| 查原始方案与调研来源 | [研究资料索引](research-evidence/README.md) |
-| 查本次删除和迁移明细 | `cleanup-report.json` |
+**确定技术栈：Next.js 16 + React 19 + TypeScript + Node.js 24 LTS + Tailwind CSS/shadcn/ui + LangGraph.js Graph API + AI SDK Core + MySQL 8.4 LTS/mysql2。** 配套Zod、Markdown/KaTeX、sharp、Vitest与Playwright。详见qisi-sdd-v3/adr/ADR-001-stack.md及stack.json。
 
-产品目标是**识别学生的数学思维卡点，通过动态教学台阶启发学生自主完成，并在撤去帮助后验证独立执行与迁移**，不是展示解题答案。
+这是选型和SDD规格更新，**不是应用迁移完成**。frontend/仍是React/Vite骨架，backend/仍是Java17/Spring Boot/MyBatis/H2骨架。本次未删除或修改业务代码。A01将在本仓库根建立目标Next.js应用src/，保留现有骨架与数据直到迁移验证完成，不另建应用仓库。
 
-- 两位开发者 A/B，约 10 个开发日；同仓全栈 Web，页面与服务端功能一起开发、联调，不做原生客户端或独立前后端项目。
-- 从题库随机或指定选题，不靠固定演示题，也不能因准备失败静默缩小题池或换题。
-- 产品采用 Preparation、Diagnosis、Strategy、Assessment 四个专职 Agent，配合 Renderer/Guard 和受控工作流。
-- 输入支持 Markdown / LaTeX 与手写图片；手写先转写并由学生确认，再进入诊断。
-- 展示教学决策依据和证据摘要，不展示模型隐藏思维链。
-- 多 Agent 是产品能力；是否让开发 AI 并行工作，是另一个需要明确授权与写入范围的决定。
+## 目录
 
-## 2. 整理后的目录
+- frontend/、backend/：历史应用骨架，不代表新选定技术栈。
+- qisi-sdd-v3/：当前qisi-3.1规格；文件名保留v3以维持已有引用。
+  - design-v6.md、plan.md、prd.md：设计、双人开发规划、可执行PRD。
+  - adr/ADR-001-stack.md、stack.json、runtime.json：选型、职责和预算。
+  - tasks.json：A01–A10/B01–B10，A/B均按页面+服务端+持久化+测试交付。
+  - contracts/：严格Schema、MySQL DDL、LangGraph与事务边界。
+  - acceptance/：60项产品AT + 12项技术ST；含学习效果取证协议。
+  - scripts/：规格校验、明确选择的真实MySQL冒烟、打包工具。
+  - publication/：历史成功发布证据及当前本地版本状态；不代表本版已同步POPO。
+- qisi-sdd-v3.zip：当前本地规格附件，不是应用安装包。
+- ravenspec/changes/freeze-mysql84-langgraph-stack/：本次变更范围与实际验证记录。
+- research-evidence/：原始方案/调研和来源快照。
+- cleanup-report.json：以前目录清理的历史审计，路径描述不代表当前布局。
+
+## 交给开发AI
+
+先读qisi-sdd-v3/AGENTS.md → ADR-001 → stack.json → prd.md → 对应tasks.json/契约/AT/ST/fixture。A从A01，B从B01；单AI按依赖交替，不因产品多Agent自行启动开发子Agent。
+
+A负责全局依赖/配置/MySQL迁移/公共UI/输入/Assessment/报告/历史；B负责ModelPort/AI SDK/LangGraph/saver/其余Agent/教学与教师视图。完整写集以任务卡为准。依赖精确patch和镜像摘要待实际安装后锁定；不得用空测试或fixture冒充真实数据库、模型或学习效果。
+
+## 当前可运行的规格验证
 
 ```text
-D:/math/
-├── README.md                    # 工作区总入口（本文件）
-├── qisi-sdd-v3/                  # 唯一有效的 qisi-3.0 规格与发布工作区
-│   ├── README.md / AGENTS.md     # 规格说明 / AI 开发约束
-│   ├── design-v6.md              # 产品设计
-│   ├── plan.md / prd.md          # 开发规划 / 可执行 PRD
-│   ├── requirements.json        # P0 需求
-│   ├── tasks.json               # A01–A10、B01–B10 任务卡
-│   ├── traceability.csv         # 需求—任务—验收追溯
-│   ├── contracts/               # Schema、接口、状态与数据约束
-│   ├── acceptance/              # 验收案例、评测协议、结果模板
-│   ├── fixtures/                # 自拟正反例与轨迹，不冒充高考题或学生数据
-│   ├── prompts/                 # 产品 Agent 与 A/B/单开发者启动指令
-│   ├── changes/ / handoffs/      # 变更与交接模板
-│   ├── evidence/                # 随规格分发的精简开源证据
-│   ├── scripts/                 # 规格验证、语义规则、打包工具
-│   ├── publication/             # 发布工具、现行发布输入、备份与成功凭证
-│   └── manifest.json            # 固定交付文件清单及 SHA256
-├── qisi-sdd-v3.zip               # 已发布的完整规格附件，不是应用安装包
-├── research-evidence/            # 原始方案、历史调研、来源快照与采集脚本
-├── cleanup-report.json          # 本次清理路径、理由、哈希及验证记录
-└── .claude/                      # 原有工具配置，未修改
+python qisi-sdd-v3/scripts/validate_spec.py
+python qisi-sdd-v3/scripts/validate_stack.py
+python -m unittest discover -s qisi-sdd-v3/scripts -p test_validate_mysql.py
 ```
 
-`qisi-web/` 尚未创建。后续应用按规格默认实现到 `D:/math/qisi-web`；若届时已有代码，先检查和适配，不清空或覆盖。
+需要Python和qisi-sdd-v3/requirements-dev.txt中的jsonschema。MySQL8.4 DDL实测另见contracts/mysql.md；默认不连接数据库。应用npm命令由A01实现，不能在未完成迁移时宣称已经可以运行新栈。
 
-## 3. 如何交给开发 AI
+## POPO和历史基线
 
-1. 先阅读 `qisi-sdd-v3/README.md` 和 `AGENTS.md`，确认这是规格而非现成应用。
-2. 阅读 `design-v6.md`、`plan.md`、`prd.md`，再查看 `tasks.json` 中任务的依赖与 owner。
-3. 根据开发模式选择启动指令：
-   - 开发 A：`prompts/developer-a.md`，从 A01 起步。
-   - 开发 B：`prompts/developer-b.md`，从 B01 起步。
-   - 单个 AI：`prompts/developer-single.md`，按依赖交替实施 A/B 任务。
-4. 每张任务卡结合 `contracts/README.md`、相关 Schema、`acceptance/cases.json` 和 fixture 执行：变更说明 → 失败测试 → 实现完整功能 → 联调验收 → 记录证据 → 交接复核。
-5. 严守写入范围：A 负责全局配置、共享基础、题库/输入/评估/报告/历史及 AssessmentAgent；B 负责契约、工作流、其余 Agent、教学与教师视图。精确归属以任务卡和 `AGENTS.md` 为准。
+本轮仅更新Git并按用户授权推送develop，未重新发布POPO。旧文档设计V6/规划V3/PRD V3及附件仍对应qisi-3.0；最近成功回读记录时间为2026-09-16 11:10:16（Asia/Shanghai），属于历史记录。
 
-**不能仅凭页面、Mock 对话或静态 Schema 检查宣布完成。** 主办方题库、模型 Key、部署环境仍需提供；缺少外部条件时据实标记，不用自拟数据冒充真实评测。规格中的应用 npm 命令需要在开发任务中实现，并非在本目录已可直接运行。
+publication/live-publication-status.json、publication-verification.json及attachment.json保留不改；本版状态以publication/local-revision-status.json（not_published）为准。旧ZIP/规格可从e54ec4ac6710f94a32af449212b30227aeadb36d取回。不要因为旧记录为published_and_verified而误称qisi-3.1已上线。
 
-## 4. POPO 文档与本地交付状态
-
-以下是**本地保存的最近一次成功发布记录**，回读校验时间为 **2026-09-16 11:10:16（Asia/Shanghai）**。本次目录清理没有重新联网回读，也没有修改在线文档。
-
-| 文档 | 在线地址 | 对应本地文件 |
-| --- | --- | --- |
-| 多 Agent 数学思维老师设计方案 V6 | [打开 POPO](https://docs.popo.netease.com/lingxi/a3ceafa9c4ac4a1ebab7ebd04068a9c2) | `qisi-sdd-v3/design-v6.md` |
-| 双人约十天开发规划 V3 | [打开 POPO](https://docs.popo.netease.com/lingxi/98264ae3b38941a5aaf1b62e59abc31c) | `qisi-sdd-v3/plan.md` |
-| 多 Agent Web SDD PRD V3 | [打开 POPO](https://docs.popo.netease.com/lingxi/0de4566fcbef4f9ebd7f9e474cf4b718) | `qisi-sdd-v3/prd.md` |
-
-PRD 已附本地同一份 ZIP。权威发布凭证位于 `qisi-sdd-v3/publication/`：
-
-- `live-publication-status.json`：最近一次实际发布状态 `published_and_verified`。
-- `publication-verification.json`：三份文档标题、正文、表格、代码、链接及附件的回读比较结果。
-- `documents.json`、`attachment.json`：文档 ID 与附件地址、大小、哈希。
-- `*-prepublish.json`：覆盖前备份；`*-update.json`、`*-readback.json/html`：成功响应与最终回读内容。
-- `package-verification.json`、`extracted-package-check.json`：ZIP 与独立解压验证记录。
-
-**版本说明：** ZIP 内的 `publication/publication-status.json` 只是固定的发布目标元数据，不代表尚未发布。规格包 README 中打包时留下的“线上尚未读取/同步”描述属于历史快照；后续同步状态以包外 `live-publication-status.json` 和回读报告为准。本次没有为改写历史状态而修改已发布快照。
-
-发布工具 `run-popo.mjs`、`build-document.cjs`、`sync-publish.cjs`、`verify-publication.cjs` 及其必要输入继续保留。不应为目录清理而运行发布脚本；重新发布需明确授权、有效登录及写前并发编辑检查。
-
-## 5. 完整性与验证
-
-已发布 ZIP 固定信息：
-
-- 文件：`qisi-sdd-v3.zip`
-- 大小：227,571 字节
-- 内容：83 个文件（82 个清单文件 + `manifest.json`）
-- SHA256：`d4f62ea542b0c969e3ea6afade3377a9d20b2e41e7e5a32bbb98d71c75aca23b`
-
-只读检查 ZIP 哈希：
-
-```powershell
-Get-FileHash -LiteralPath 'D:\math\qisi-sdd-v3.zip' -Algorithm SHA256
-```
-
-规格验证入口是 `qisi-sdd-v3/scripts/validate_spec.py`，Python 依赖声明在 `requirements-dev.txt`。**验证脚本会重写 `spec-validation.json`，打包脚本会重写 manifest 和 ZIP。** 为保持已发布文件一致，复验应把 ZIP 解压到独立临时目录，再执行该副本的 `python -B scripts/validate_spec.py`，不要直接重写交付目录。
-
-本次已在临时解压副本中重新通过 **647 项规格检查，0 失败**，并离线重建、比较三份发布正文，全部通过；临时副本已清理，详情见 `cleanup-report.json`。647 项检查的含义仅是规格结构、引用、夹具与部分语义约束一致；不等于已运行 Web、真实模型或学生学习实验。开源复用方案仍是 planned，不能当成已安装、实测可用的依赖清单。
-
-## 6. 本次清理了什么
-
-共删除 **334 个冗余文件，合计 3,903,772 字节（约 3.72 MiB 文件内容）**，另迁移整理 10 个独有资料文件。此数字是删除文件的大小之和，不是文件系统实际释放空间；本次新增的 README 与清理记录另占少量空间。
-
-- 删除被替代的 `qisi-sdd/`、`qisi-sdd-week1/` 及其旧 ZIP。
-- 删除两份 `qisi-*-check-*` 独立解压副本和 Python 缓存。
-- 删除根目录旧版设计、旧发布响应、旧构建与验证脚本。
-- 删除现行目录中不属于交付包的一次性规格生成/修补脚本，以及空文件、失败同步记录和重复的发布前快照。
-- 根目录重复的来源核查文档与现行 `evidence/source-audit-previous.md` 完全相同，因此仅保留后者。
-- 原始方案/调研 JSON 和 Markdown、评审稿、采集脚本，以及从旧目录找出的三份独有技术文档快照，集中保留到 `research-evidence/`；迁移前后哈希一致。
-
-没有改动当前规格清单内文件、已发布 ZIP、最新成功发布凭证或 `.claude` 配置。研究原始证据与包内精简证据有少量有意重复：前者用于溯源，后者确保 ZIP 能独立交付，不作为垃圾删除。
-
-完整删除清单及删除前哈希见 `cleanup-report.json`；它是审计记录，不是旧文件备份。
+主办方题库、模型密钥及部署环境仍需提供。完成原题不等于学会；真实质量以卡点诊断、有效干预、学生自主产物及撤架后新任务表现评估。

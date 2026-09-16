@@ -1,3 +1,11 @@
+# qisi-3.1本地变更提示（2026-09-16）
+
+本目录既有成功发布记录只对应qisi-3.0。本轮未发布POPO；当前状态见local-revision-status.json。当前package-verification.json验证新qisi-3.1 ZIP，旧包核验保存在package-verification-qisi-3.0.json和Git e54ec4a。
+
+下面内容是历史发布流程说明；其中既有IDs/回读记录不能当作新版本已发布的证据。再次发布需用户明确授权、读取popo-doc技能、写前并发检查及回读验证。不要现在执行sync-publish。
+
+---
+
 # POPO发布说明
 
 本规格包是固定的qisi-3.0交付快照，不把可变的线上状态写进不可变ZIP。publication-status.json仅定义发布目标；实际回读结果保存在发布工作区的live-publication-status.json和publication-verification.json（两者不随ZIP打包），并在最终交付说明中报告。不能仅凭原链接、CLI退出码或本包存在判断同步成功。

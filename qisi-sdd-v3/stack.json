@@ -1,0 +1,45 @@
+{
+  "baseline": "qisi-3.1",
+  "decision_date": "2026-09-16",
+  "repository": "qisi-dashboard",
+  "application_root": "repository_root",
+  "node": "24 LTS",
+  "next": "16",
+  "react": "19",
+  "language": "TypeScript",
+  "ui": [
+    "Tailwind CSS",
+    "shadcn/ui"
+  ],
+  "database": "MySQL 8.4 LTS",
+  "database_driver": "mysql2",
+  "orm": "none",
+  "orchestration": "LangGraph.js Graph API",
+  "model_sdk": "AI SDK Core",
+  "validation": "Zod",
+  "math": [
+    "react-markdown",
+    "remark-math",
+    "rehype-katex",
+    "katex"
+  ],
+  "image_processing": "sharp",
+  "tests": [
+    "Vitest",
+    "Playwright",
+    "real MySQL 8.4 integration"
+  ],
+  "deployment": "Docker: one Node application + MySQL + private media volume",
+  "dependency_status": "selected_not_installed",
+  "exact_versions": null,
+  "database_image_digest": null,
+  "existing_scaffold": "frontend React/Vite; backend Java17/SpringBoot/MyBatis/H2; not migrated",
+  "database_checkpoint": "project-owned minimal MySqlCheckpointSaver over BaseCheckpointSaver",
+  "checkpoint_owner": "B",
+  "database_migration_owner": "A",
+  "first_gate": [
+    "A01",
+    "B01"
+  ],
+  "adr": "adr/ADR-001-stack.md"
+}

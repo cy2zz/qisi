@@ -1,54 +1,54 @@
-# 启思｜双人十天多Agent全栈Web SDD规格包
+# 启思｜双人约十天多Agent全栈Web SDD规格包
 
-基线qisi-3.0，2026-09-15；设计V6、规划V3、PRD V3。18条P0需求、20张任务卡（A01–A10/B01–B10）、60项验收、48个严格数据Schema。约10开发日，不以日期为理由删功能。
+当前基线 **qisi-3.1（2026-09-16）**：设计V6.1、规划V3.1、PRD V3.1。文件名沿用design-v6.md / plan.md / prd.md，避免断开已有引用。
 
-这是规格包，不是已经实现的应用。所有任务planned，所有AT specified/not_run。校验报告仅证明规格结构/引用/夹具/部分不变量一致，不证明数学/应用/模型/学生学习效果。
+本版冻结MySQL 8.4 LTS及LangGraph.js Graph API，替代qisi-3.0的SQLite/原生TS编排决定。完整决策见 **adr/ADR-001-stack.md**，机器选型见 **stack.json**。
 
-## 如何交给AI
+Next.js 16 / React 19 / TypeScript / Node24 LTS / Tailwind CSS / shadcn/ui / LangGraph.js / AI SDK Core / MySQL8.4+mysql2 / Zod / Markdown+KaTeX / sharp / Vitest / Playwright。
 
-把PRD和本ZIP一起提供，或将解压目录放进开发工作区。开发AI先读取AGENTS.md。建议应用目录D:/math/qisi-web；若已有项目先审查，不覆盖。附录中npm命令由A01实现，不是本规格目录现在已经能运行的应用命令。
+## 状态与范围
 
-- 开发A复制prompts/developer-a.md，起步A01。
-- 开发B复制prompts/developer-b.md，起步B01。
-- 单个AI复制prompts/developer-single.md，按依赖顺序交替完成A/B。
+这是规格包，不是已实现应用。全部20张任务planned、60项产品AT及12项技术ST specified/not_run；18条P0未删减。现有frontend/backend仍是Java/Vite骨架；依赖未安装、精确patch未锁定。静态校验不证明MySQL DDL已运行、LangGraph恢复、真实模型能力或学生学会。
 
-## 阅读顺序与文件用途
+## 给开发AI的顺序
 
-1. design-v6.md：为什么这样设计、台阶/多Agent/学习证据和边界。
-2. plan.md：每天A/B做什么、何时联调与闸门。
-3. prd.md：页面行为、功能、完整任务卡和AT用例。
-4. reuse.md + evidence：哪些复用、具体仓库、已有质量证据及待准入项。
-5. contracts：严格JSON Schema、内部函数、角色权限、状态转换、SQL、Port约定及跨字段规则。
-6. tasks.json/requirements.json/traceability.csv：机器调度和覆盖关系。
-7. fixtures/acceptance/prompts：正负结构例子、行为脚本、角色约束、实际验收取证。
-8. AGENTS.md/changes/handoffs：SDD实施与协作。
+1. AGENTS.md → adr/ADR-001-stack.md → stack.json → prd.md。
+2. 应用位置是qisi-dashboard仓库根，Next.js源码src/、规格qisi-sdd-v3/；不另建同级/嵌套应用。A01按ADR保留并迁移必要旧骨架行为，不直接清目录。
+3. tasks.json领取A01或B01；prompts/developer-a.md / developer-b.md / developer-single.md提供启动指令。产品多Agent不是开发子Agent授权。
+4. contracts/README.md + mysql.md + workflow-persistence.md；相关Schema、acceptance/cases.json、stack-cases.json、fixture。
+5. 建失败测试 → 纵向实现页面/服务端/持久化 → 实际验证 → handoffs。每卡独立检查点，完成后按授权依赖继续。
 
-## 先验证规格
+A拥有全局依赖/迁移/数据库门面/公共UI和输入/评估/历史；B拥有模型I/O/图/saver/教学及其他Agent。数据库迁移只有A写；AssessmentAgent只有A写。A01/B01的共同恢复门禁必须先过，不能D7才首次接真实数据库。
 
-Python3与jsonschema依赖；requirements-dev.txt给出校验器版本。当前环境已有则直接运行，缺依赖时先安装后如实记录。
+## 文件用途
+
+- design-v6.md / plan.md / prd.md：产品思路、十天里程碑、逐张SDD任务及验收。
+- stack.json / runtime.json / adr/：选型、预算、部署与迁移决定。
+- contracts/：严格Schema、16个应用边界、MySQL DDL（19表）、持久化一致性协议。
+- tasks.json / requirements.json / traceability.csv：20张任务、18条需求与60项产品AT追溯。
+- acceptance/stack-cases.json：新增12项真实技术门禁；不替代产品AT。
+- reuse.md / reuse-lock.json / evidence/：复用选择和待准入证据。reuse-lock不是npm锁文件。
+- changes/、handoffs/：规格变更与实施交接；本次SDD变更见仓库ravenspec/changes/freeze-mysql84-langgraph-stack/。
+
+## 规格验证与打包
 
 ```text
-python scripts/validate_spec.py
+python qisi-sdd-v3/scripts/validate_spec.py
+python qisi-sdd-v3/scripts/validate_stack.py
+python -m unittest discover -s qisi-sdd-v3/scripts -p test_validate_mysql.py
+python qisi-sdd-v3/scripts/package.py
 ```
 
-ZIP只附验证/语义规则/打包脚本。build_*等生成工具保留在编写者本地，不是实施前置；开发AI直接维护解压后的规格和应用测试，不重新生成覆盖人工修改。打包/验证脚本只检查文档，不是应用逻辑。
+以上从仓库根执行；Python依赖见requirements-dev.txt。运行validate_spec会更新本地报告，package会重建manifest/ZIP，不能拿这些命令悄悄改写历史发布凭证。
 
-## 线上文档（沿用原ID，不创建重复）
+真实MySQL DDL冒烟另执行scripts/validate_mysql.py，默认拒绝连接，必须提供显式许可和空的qisi_spec_*测试库。环境缺失返回not_run/非零；该检查本身也不证明应用恢复成功。应用npm命令由A01实现，不是当前规格包已经能执行的命令。
 
-设计：https://docs.popo.netease.com/lingxi/a3ceafa9c4ac4a1ebab7ebd04068a9c2
+## POPO状态与旧基线
 
-规划：https://docs.popo.netease.com/lingxi/98264ae3b38941a5aaf1b62e59abc31c
+本轮只同步Git，**没有更新POPO**。publication/local-revision-status.json标记qisi-3.1为not_published；已有live-publication-status.json与回读/附件证据仍只证明qisi-3.0那次成功发布，不适用于本版。
 
-PRD：https://docs.popo.netease.com/lingxi/0de4566fcbef4f9ebd7f9e474cf4b718
+原文档ID保持不变：设计a3ceafa9c4ac4a1ebab7ebd04068a9c2，规划98264ae3b38941a5aaf1b62e59abc31c，PRD0de4566fcbef4f9ebd7f9e474cf4b718。不要自动新建重复文档或执行发布脚本。
 
-publication/publication-status.json定义发布目标；实际同步结果见发布工作区的publication/live-publication-status.json、回读校验报告或最终交付说明（可变状态不随ZIP打包）。仅有以上链接不代表线上内容已更新；本地包可独立用于开发。
+旧发布包可从Git提交e54ec4ac6710f94a32af449212b30227aeadb36d取回；旧ZIP SHA256为d4f62ea542b0c969e3ea6afade3377a9d20b2e41e7e5a32bbb98d71c75aca23b。本版包hash以当前manifest及publication/package-verification.json为准。
 
-## 依赖与诚实边界
-
-主办方题库/模型key/部署环境由人类提供。自拟夹具可开发但不能冒充随机真题覆盖。部分开源有同日此前本地归档证据；本轮联网核验未成功，尚未安装运行，reuse-lock.json为planned不是npm锁文件。
-
-单体Web指同仓同服务端运行时，不表示没有后台业务。四专职Agent+Renderer/Guard采用类型化受控工作流，默认不依赖LangGraph平台。10天后仍按验收交付，不能以“页面好了”宣布教学能力完成。
-
-## 本次交付补充（2026-09-16）
-
-acceptance/evaluation-protocol.md给出真实模型/强基线/题库抽样/真人观察的取证协议；contracts/vision-output.schema.json定义手写模型最小输出。证据等级与来源哈希在evidence/manifest.json。静态校验结果见spec-validation.json；ZIP完整性见publication/package-verification.json（包外核验记录）。POPO读取无有效响应，本地文件已完成不代表在线已发布。
+题库、模型key、MySQL/部署环境由项目方提供；缺外部条件标blocked_external，仍继续独立可做工作。不用fixture代替随机官方题库，不把模拟学生或原题完成当真实学习证据。

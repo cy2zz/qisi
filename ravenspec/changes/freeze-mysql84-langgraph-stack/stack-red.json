@@ -1,0 +1,275 @@
+﻿{
+  "scope": "static_specification_only",
+  "passed": 10,
+  "failed": 57,
+  "checks": [
+    {
+      "check": "stack:baseline",
+      "passed": false
+    },
+    {
+      "check": "stack:node",
+      "passed": false
+    },
+    {
+      "check": "stack:next",
+      "passed": false
+    },
+    {
+      "check": "stack:react",
+      "passed": false
+    },
+    {
+      "check": "stack:language",
+      "passed": false
+    },
+    {
+      "check": "stack:database",
+      "passed": false
+    },
+    {
+      "check": "stack:database_driver",
+      "passed": false
+    },
+    {
+      "check": "stack:orchestration",
+      "passed": false
+    },
+    {
+      "check": "stack:model_sdk",
+      "passed": false
+    },
+    {
+      "check": "stack:orm",
+      "passed": false
+    },
+    {
+      "check": "patch versions honestly pending",
+      "passed": false
+    },
+    {
+      "check": "runtime graph runner",
+      "passed": false
+    },
+    {
+      "check": "runtime mysql only",
+      "passed": false
+    },
+    {
+      "check": "domain owns final transaction",
+      "passed": false
+    },
+    {
+      "check": "no model sdk automatic retries",
+      "passed": false
+    },
+    {
+      "check": "single recovery worker",
+      "passed": true
+    },
+    {
+      "check": "dependency:mysql2",
+      "passed": false
+    },
+    {
+      "check": "dependency:@langchain/langgraph",
+      "passed": false
+    },
+    {
+      "check": "dependency:@langchain/langgraph-checkpoint",
+      "passed": false
+    },
+    {
+      "check": "dependency:ai",
+      "passed": false
+    },
+    {
+      "check": "dependency:tailwindcss",
+      "passed": false
+    },
+    {
+      "check": "dependency:zod",
+      "passed": true
+    },
+    {
+      "check": "dependency:@playwright/test",
+      "passed": true
+    },
+    {
+      "check": "no sqlite runtime dependency",
+      "passed": false
+    },
+    {
+      "check": "mysql 19 unique tables",
+      "passed": false
+    },
+    {
+      "check": "all tables InnoDB",
+      "passed": false
+    },
+    {
+      "check": "native JSON columns",
+      "passed": false
+    },
+    {
+      "check": "mysql explicit foreign keys",
+      "passed": false
+    },
+    {
+      "check": "probe cap enforced contract",
+      "passed": true
+    },
+    {
+      "check": "no sqlite SQL",
+      "passed": false
+    },
+    {
+      "check": "table:workflow_checkpoints",
+      "passed": false
+    },
+    {
+      "check": "table:workflow_writes",
+      "passed": false
+    },
+    {
+      "check": "table:schema_migrations",
+      "passed": false
+    },
+    {
+      "check": "file:adr/ADR-001-stack.md",
+      "passed": false
+    },
+    {
+      "check": "file:contracts/workflow-persistence.md",
+      "passed": false
+    },
+    {
+      "check": "file:contracts/mysql.md",
+      "passed": false
+    },
+    {
+      "check": "file:acceptance/stack-cases.json",
+      "passed": false
+    },
+    {
+      "check": "file:scripts/validate_mysql.py",
+      "passed": false
+    },
+    {
+      "check": "file:publication/local-revision-status.json",
+      "passed": false
+    },
+    {
+      "check": "stack acceptance exists",
+      "passed": false
+    },
+    {
+      "check": "baseline:README.md",
+      "passed": false
+    },
+    {
+      "check": "no active old app directory:README.md",
+      "passed": false
+    },
+    {
+      "check": "stack reference:README.md",
+      "passed": false
+    },
+    {
+      "check": "baseline:AGENTS.md",
+      "passed": false
+    },
+    {
+      "check": "no active old app directory:AGENTS.md",
+      "passed": false
+    },
+    {
+      "check": "stack reference:AGENTS.md",
+      "passed": false
+    },
+    {
+      "check": "baseline:prd.md",
+      "passed": false
+    },
+    {
+      "check": "no active old app directory:prd.md",
+      "passed": true
+    },
+    {
+      "check": "stack reference:prd.md",
+      "passed": false
+    },
+    {
+      "check": "baseline:plan.md",
+      "passed": false
+    },
+    {
+      "check": "no active old app directory:plan.md",
+      "passed": true
+    },
+    {
+      "check": "stack reference:plan.md",
+      "passed": false
+    },
+    {
+      "check": "baseline:design-v6.md",
+      "passed": false
+    },
+    {
+      "check": "no active old app directory:design-v6.md",
+      "passed": true
+    },
+    {
+      "check": "stack reference:design-v6.md",
+      "passed": false
+    },
+    {
+      "check": "baseline:contracts/README.md",
+      "passed": false
+    },
+    {
+      "check": "no active old app directory:contracts/README.md",
+      "passed": false
+    },
+    {
+      "check": "stack reference:contracts/README.md",
+      "passed": false
+    },
+    {
+      "check": "baseline:prompts/developer-a.md",
+      "passed": false
+    },
+    {
+      "check": "no active old app directory:prompts/developer-a.md",
+      "passed": true
+    },
+    {
+      "check": "stack reference:prompts/developer-a.md",
+      "passed": false
+    },
+    {
+      "check": "baseline:prompts/developer-b.md",
+      "passed": false
+    },
+    {
+      "check": "no active old app directory:prompts/developer-b.md",
+      "passed": true
+    },
+    {
+      "check": "stack reference:prompts/developer-b.md",
+      "passed": false
+    },
+    {
+      "check": "baseline:prompts/developer-single.md",
+      "passed": false
+    },
+    {
+      "check": "no active old app directory:prompts/developer-single.md",
+      "passed": true
+    },
+    {
+      "check": "stack reference:prompts/developer-single.md",
+      "passed": false
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "baseline": "qisi-3.1",
+  "recorded_at": "2026-09-16T09:46:35.621595+00:00",
+  "scope": "specification_revision_only",
+  "commands": [
+    {
+      "name": "specification",
+      "command": [
+        "D:\\Python312\\python.exe",
+        "qisi-sdd-v3/scripts/validate_spec.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "{\n  \"baseline\": \"qisi-3.1\",\n  \"generated_at\": \"2026-09-16T09:46:34.804485+00:00\",\n  \"scope\": \"specification_only\",\n  \"passed\": 830,\n  \"failed\": 0,\n  \"application_tests\": \"not_run\",\n  \"mysql_ddl_tests\": \"not_run\",\n  \"langgraph_runtime_tests\": \"not_run\",\n  \"real_model_tests\": \"not_run\",\n  \"student_learning_evaluation\": \"not_evaluated\",\n  \"limitations\": [\n    \"Semantic oracles cover the supplied cases, not all production behavior.\",\n    \"MySQL DDL is not executed by this validator; validate_mysql.py and application integration tests must run against real MySQL 8.4.\",\n    \"No official question bank, provider calls, deployment or learning experiment was executed.\"\n  ]\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "static_stack",
+      "command": [
+        "D:\\Python312\\python.exe",
+        "qisi-sdd-v3/scripts/validate_stack.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "{\n  \"scope\": \"static_specification_only\",\n  \"passed\": 126,\n  \"failed\": 0,\n  \"checks\": [\n    {\n      \"check\": \"stack:baseline\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"stack:node\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"stack:next\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"stack:react\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"stack:language\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"stack:database\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"stack:database_driver\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"stack:orchestration\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"stack:model_sdk\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"stack:orm\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"patch versions honestly pending\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"runtime graph runner\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"runtime mysql only\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"domain owns final transaction\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no model sdk automatic retries\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"single recovery worker\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"dependency:mysql2\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"dependency:@langchain/langgraph\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"dependency:@langchain/langgraph-checkpoint\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"dependency:ai\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"dependency:tailwindcss\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"dependency:zod\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"dependency:@playwright/test\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no sqlite runtime dependency\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"mysql 19 unique tables\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"all tables InnoDB\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"native JSON columns\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"mysql explicit foreign keys\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"probe cap enforced contract\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no sqlite SQL\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"table:workflow_checkpoints\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"table:workflow_writes\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"table:schema_migrations\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"file:adr/ADR-001-stack.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"file:contracts/workflow-persistence.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"file:contracts/mysql.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"file:acceptance/stack-cases.json\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"file:scripts/validate_mysql.py\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"file:publication/local-revision-status.json\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"stack cases unique\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"stack runtime acceptance not fabricated\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"baseline:README.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no active old app directory:README.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"stack reference:README.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"baseline:AGENTS.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no active old app directory:AGENTS.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"stack reference:AGENTS.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"baseline:prd.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no active old app directory:prd.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"stack reference:prd.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"baseline:plan.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no active old app directory:plan.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"stack reference:plan.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"baseline:design-v6.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no active old app directory:design-v6.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"stack reference:design-v6.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"baseline:contracts/README.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no active old app directory:contracts/README.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"stack reference:contracts/README.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"baseline:prompts/developer-a.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no active old app directory:prompts/developer-a.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"stack reference:prompts/developer-a.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"baseline:prompts/developer-b.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no active old app directory:prompts/developer-b.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"stack reference:prompts/developer-b.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"baseline:prompts/developer-single.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no active old app directory:prompts/developer-single.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"stack reference:prompts/developer-single.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"unique task cards:plan.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:plan.md:A01\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:plan.md:B01\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:plan.md:A02\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:plan.md:B02\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:plan.md:A03\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:plan.md:B03\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:plan.md:A04\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:plan.md:B04\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:plan.md:A05\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:plan.md:B05\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:plan.md:A06\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:plan.md:B06\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:plan.md:A07\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:plan.md:B07\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:plan.md:A08\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:plan.md:B08\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:plan.md:A09\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:plan.md:B09\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:plan.md:A10\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:plan.md:B10\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"unique task cards:prd.md\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:prd.md:A01\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:prd.md:B01\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:prd.md:A02\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:prd.md:B02\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:prd.md:A03\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:prd.md:B03\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:prd.md:A04\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:prd.md:B04\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:prd.md:A05\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:prd.md:B05\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:prd.md:A06\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:prd.md:B06\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:prd.md:A07\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:prd.md:B07\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:prd.md:A08\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:prd.md:B08\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:prd.md:A09\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:prd.md:B09\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:prd.md:A10\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"task steps synchronized:prd.md:B10\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no stale directive:plan.md:SQLite迁移\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no stale directive:plan.md:默认原生TS编排ADR\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no stale directive:plan.md:LangGraph.js为候选非必装\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no stale directive:plan.md:候选暂不作为基线依赖\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no stale directive:prd.md:SQLite迁移\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no stale directive:prd.md:默认原生TS编排ADR\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no stale directive:prd.md:LangGraph.js为候选非必装\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no stale directive:prd.md:候选暂不作为基线依赖\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no stale directive:reuse.md:SQLite迁移\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no stale directive:reuse.md:默认原生TS编排ADR\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no stale directive:reuse.md:LangGraph.js为候选非必装\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no stale directive:reuse.md:候选暂不作为基线依赖\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no stale directive:prompts/developer-b.md:SQLite迁移\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no stale directive:prompts/developer-b.md:默认原生TS编排ADR\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no stale directive:prompts/developer-b.md:LangGraph.js为候选非必装\",\n      \"passed\": true\n    },\n    {\n      \"check\": \"no stale directive:prompts/developer-b.md:候选暂不作为基线依赖\",\n      \"passed\": true\n    }\n  ]\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "mysql_runner_safety_unit",
+      "command": [
+        "D:\\Python312\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "qisi-sdd-v3/scripts",
+        "-p",
+        "test_validate_mysql.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "",
+      "stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "name": "mysql_runtime_not_run",
+      "command": [
+        "D:\\Python312\\python.exe",
+        "qisi-sdd-v3/scripts/validate_mysql.py"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "stdout": "{\"scope\": \"mysql_ddl_only\", \"status\": \"not_run\", \"reason\": \"not_run: set QISI_MYSQL_SPEC_TEST=1 and an isolated empty MySQL 8.4 test database\"}\n",
+      "stderr": ""
+    },
+    {
+      "name": "diff_whitespace_crlf_aware",
+      "command": [
+        "git",
+        "-c",
+        "core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "",
+      "stderr": "warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it\n"
+    }
+  ],
+  "mysql8_4_runtime": "not_run_no_authorized_test_database",
+  "langgraph_runtime": "not_run",
+  "application_tests": "not_run",
+  "real_model_tests": "not_run",
+  "learning_evaluation": "not_evaluated",
+  "review": "self_review_not_second_developer",
+  "raven_automated_workflow": "not_run_skill_dispatch_unavailable",
+  "popo": "not_published",
+  "git_push": "pending",
+  "whitespace_note": "Protected original CRLF preserved; cr-at-eol is command-local, not global config."
+}

@@ -22,20 +22,45 @@
       "next.config.*",
       "tsconfig.json",
       "vitest.config.*",
-      "playwright.config.*"
+      "playwright.config.*",
+      ".nvmrc",
+      ".node-version",
+      ".env.example",
+      ".gitignore",
+      ".dockerignore",
+      "Dockerfile",
+      "compose.yaml",
+      "eslint.config.*",
+      "postcss.config.*",
+      "components.json",
+      "src/app/page.tsx",
+      "src/app/globals.css",
+      "src/components/ui/**",
+      "src/lib/utils.ts",
+      "src/lib/db/**",
+      "migrations/**",
+      "scripts/db/**",
+      "scripts/tests/**",
+      "scripts/seed/**",
+      "tests/integration/db/**",
+      "artifacts/reuse/**"
     ],
     "steps": [
-      "检查应用目录与依赖准入并锁版本",
-      "建立匿名owner、SQLite迁移、请求幂等/版本/CAS接口",
-      "实现MathMarkdown和空Web页面、加载安全DTO",
-      "用本地fixture走一次写库刷新链路，预留ModelPort而非假装真模型"
+      "读取ADR-001，在qisi-dashboard仓库根建立Next.js 16/React 19/TypeScript/Node 24 LTS应用；保留frontend/backend，不删除历史骨架",
+      "安装并精确锁定全部选定依赖，初始化Tailwind CSS/shadcn/ui；提交package-lock、Node版本和依赖准入证据",
+      "建立MySQL 8.4 Compose、健康检查、独立持久卷及迁移脚本；mysql2连接池设置UTC/utf8mb4/READ COMMITTED，检查默认认证与生产TLS",
+      "实现匿名owner、MySQL StorePort、请求幂等/版本/CAS与短事务；由A统一合入B提出的checkpoint表迁移",
+      "实现MathMarkdown、安全DTO与Web骨架；用FixtureProvider跑页面→图→校验→MySQL→刷新链路，并协同B验证杀进程续跑"
     ],
     "input": [
       "README.md",
       "AGENTS.md",
       "prd.md",
       "contracts/README.md",
-      "contracts/domain.schema.json"
+      "contracts/domain.schema.json",
+      "stack.json",
+      "adr/ADR-001-stack.md",
+      "acceptance/stack-cases.json"
     ],
     "output": "可运行的纵向功能 + 对应测试 + handoffs/A01.md",
     "acceptance": [
@@ -47,7 +72,11 @@
     "test_commands": [
       "npm run typecheck",
       "npm run test:task -- A01",
-      "npm run test:e2e:task -- A01"
+      "npm run test:e2e:task -- A01",
+      "npm run build",
+      "npm run db:migrate",
+      "npm run test:db",
+      "npm run test:stack -- A01"
     ],
     "handoff_required": [
       "changed_files",
@@ -59,9 +88,19 @@
     "failure_first": [
       "AT01: 页面/服务端同进程；已提交安全响应从磁盘恢复",
       "AT08: 安全显示正常公式；坏公式保留原文不白屏",
-      "AT58: reuse-lock有精确版本和证据；没跑不标accepted"
+      "AT58: reuse-lock有精确版本和证据；没跑不标accepted",
+      "ST01: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run",
+      "ST02: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run",
+      "ST03: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run",
+      "ST04: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run"
     ],
-    "excluded_write_scope": []
+    "excluded_write_scope": [],
+    "stack_acceptance": [
+      "ST01",
+      "ST02",
+      "ST03",
+      "ST04"
+    ]
   },
   {
     "id": "B01",
@@ -82,20 +121,29 @@
       "src/prompts/**",
       "tests/agents/**",
       "tests/workflows/**",
-      "docs/adr/001-orchestration.md"
+      "docs/adr/001-orchestration.md",
+      "src/model/**",
+      "tests/model/**"
     ],
     "steps": [
-      "将contracts映射为严格Zod类型并实现跨字段校验",
-      "实现四Agent独立入口与Renderer/Guard接口",
-      "建立ModelPort、FixtureProvider和一次真实provider能力探测入口",
-      "实现确定性工作流节点、预算器和StorePort，记录默认原生TS编排ADR"
+      "与A先冻结共享契约及MySQL迁移接口；业务Schema映射严格Zod，跨字段PolicyGate由代码执行",
+      "实现Preparation/Diagnosis/Strategy/Assessment四Agent独立入口及Renderer/Guard；Assessment业务实现仍归A",
+      "用LangGraph.js StateGraph定义有界节点/分支，应用统一预算器；关闭SDK隐式重试和图自动节点重试，不启用第二套Agent循环",
+      "ModelPort封装AI SDK Core与具体provider adapter，实现FixtureProvider及真实文本/结构化/图片/取消/usage能力探测；依赖由A锁定",
+      "按workflow-persistence.md实现MySqlCheckpointSaver薄适配；run_id作thread_id，checkpoint不替代node_runs审计或最终业务事务",
+      "与A联测MySQL checkpoint读写、pending writes、刷新/杀进程恢复；独立commit前再次校验lease/版本/期限，不能只用MemorySaver验收"
     ],
     "input": [
       "README.md",
       "AGENTS.md",
       "prd.md",
       "contracts/README.md",
-      "contracts/domain.schema.json"
+      "contracts/domain.schema.json",
+      "stack.json",
+      "adr/ADR-001-stack.md",
+      "contracts/workflow-persistence.md",
+      "contracts/mysql.md",
+      "acceptance/stack-cases.json"
     ],
     "output": "可运行的纵向功能 + 对应测试 + handoffs/B01.md",
     "acceptance": [
@@ -105,7 +153,8 @@
     "test_commands": [
       "npm run typecheck",
       "npm run test:task -- B01",
-      "npm run test:e2e:task -- B01"
+      "npm run test:e2e:task -- B01",
+      "npm run test:stack -- B01"
     ],
     "handoff_required": [
       "changed_files",
@@ -115,10 +164,18 @@
       "next_dependency"
     ],
     "failure_first": [
-      "AT13: 真实经过对应独立契约与提示节点，不是一调用伪造四阶段"
+      "AT13: 真实经过对应独立契约与提示节点，不是一调用伪造四阶段",
+      "ST05: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run",
+      "ST06: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run",
+      "ST07: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run"
     ],
     "excluded_write_scope": [
       "src/agents/assessment/**"
+    ],
+    "stack_acceptance": [
+      "ST05",
+      "ST06",
+      "ST07"
     ]
   },
   {
@@ -153,7 +210,9 @@
       "AGENTS.md",
       "prd.md",
       "contracts/README.md",
-      "contracts/domain.schema.json"
+      "contracts/domain.schema.json",
+      "stack.json",
+      "adr/ADR-001-stack.md"
     ],
     "output": "可运行的纵向功能 + 对应测试 + handoffs/A02.md",
     "acceptance": [
@@ -179,7 +238,8 @@
       "AT03: 命中同一次选题记录；池哈希及题库版本相同",
       "AT04: 逐项异常计数可追原始记录；不伪称全部就绪"
     ],
-    "excluded_write_scope": []
+    "excluded_write_scope": [],
+    "stack_acceptance": []
   },
   {
     "id": "B02",
@@ -213,7 +273,9 @@
       "AGENTS.md",
       "prd.md",
       "contracts/README.md",
-      "contracts/domain.schema.json"
+      "contracts/domain.schema.json",
+      "stack.json",
+      "adr/ADR-001-stack.md"
     ],
     "output": "可运行的纵向功能 + 对应测试 + handoffs/B02.md",
     "acceptance": [
@@ -241,7 +303,8 @@
     ],
     "excluded_write_scope": [
       "src/agents/assessment/**"
-    ]
+    ],
+    "stack_acceptance": []
   },
   {
     "id": "A03",
@@ -276,7 +339,9 @@
       "AGENTS.md",
       "prd.md",
       "contracts/README.md",
-      "contracts/domain.schema.json"
+      "contracts/domain.schema.json",
+      "stack.json",
+      "adr/ADR-001-stack.md"
     ],
     "output": "可运行的纵向功能 + 对应测试 + handoffs/A03.md",
     "acceptance": [
@@ -302,7 +367,8 @@
       "AT10: 拒绝危险文件或NOT_FOUND；私有文件无公开URL",
       "AT11: 记录确认revision后才生成Submission；重复确认幂等"
     ],
-    "excluded_write_scope": []
+    "excluded_write_scope": [],
+    "stack_acceptance": []
   },
   {
     "id": "B03",
@@ -342,7 +408,9 @@
       "AGENTS.md",
       "prd.md",
       "contracts/README.md",
-      "contracts/domain.schema.json"
+      "contracts/domain.schema.json",
+      "stack.json",
+      "adr/ADR-001-stack.md"
     ],
     "output": "可运行的纵向功能 + 对应测试 + handoffs/B03.md",
     "acceptance": [
@@ -370,7 +438,8 @@
     ],
     "excluded_write_scope": [
       "src/agents/assessment/**"
-    ]
+    ],
+    "stack_acceptance": []
   },
   {
     "id": "A04",
@@ -404,7 +473,9 @@
       "AGENTS.md",
       "prd.md",
       "contracts/README.md",
-      "contracts/domain.schema.json"
+      "contracts/domain.schema.json",
+      "stack.json",
+      "adr/ADR-001-stack.md"
     ],
     "output": "可运行的纵向功能 + 对应测试 + handoffs/A04.md",
     "acceptance": [
@@ -430,7 +501,8 @@
       "AT31: owner级首次/已见记录继续存在，不能洗白",
       "AT32: assistance_requested=true，help_exposed=false；不能独立通过"
     ],
-    "excluded_write_scope": []
+    "excluded_write_scope": [],
+    "stack_acceptance": []
   },
   {
     "id": "B04",
@@ -463,7 +535,9 @@
       "AGENTS.md",
       "prd.md",
       "contracts/README.md",
-      "contracts/domain.schema.json"
+      "contracts/domain.schema.json",
+      "stack.json",
+      "adr/ADR-001-stack.md"
     ],
     "output": "可运行的纵向功能 + 对应测试 + handoffs/B04.md",
     "acceptance": [
@@ -495,7 +569,8 @@
     ],
     "excluded_write_scope": [
       "src/agents/assessment/**"
-    ]
+    ],
+    "stack_acceptance": []
   },
   {
     "id": "A05",
@@ -530,7 +605,9 @@
       "AGENTS.md",
       "prd.md",
       "contracts/README.md",
-      "contracts/domain.schema.json"
+      "contracts/domain.schema.json",
+      "stack.json",
+      "adr/ADR-001-stack.md"
     ],
     "output": "可运行的纵向功能 + 对应测试 + handoffs/A05.md",
     "acceptance": [
@@ -558,7 +635,8 @@
       "AT37: 独立通过为false并保留真实原因；无掌握百分比",
       "AT59: 禁止额外字段和旧画像；独立性只由代码计算"
     ],
-    "excluded_write_scope": []
+    "excluded_write_scope": [],
+    "stack_acceptance": []
   },
   {
     "id": "B05",
@@ -595,7 +673,9 @@
       "AGENTS.md",
       "prd.md",
       "contracts/README.md",
-      "contracts/domain.schema.json"
+      "contracts/domain.schema.json",
+      "stack.json",
+      "adr/ADR-001-stack.md"
     ],
     "output": "可运行的纵向功能 + 对应测试 + handoffs/B05.md",
     "acceptance": [
@@ -631,7 +711,8 @@
     ],
     "excluded_write_scope": [
       "src/agents/assessment/**"
-    ]
+    ],
+    "stack_acceptance": []
   },
   {
     "id": "A06",
@@ -668,7 +749,9 @@
       "AGENTS.md",
       "prd.md",
       "contracts/README.md",
-      "contracts/domain.schema.json"
+      "contracts/domain.schema.json",
+      "stack.json",
+      "adr/ADR-001-stack.md"
     ],
     "output": "可运行的纵向功能 + 对应测试 + handoffs/A06.md",
     "acceptance": [
@@ -696,7 +779,8 @@
       "AT38: 只见自己会话，已记录帮助仍在；跨owner返回NOT_FOUND",
       "AT47: 先仅删图片/临时稿，再按会话级联删文本/事件；题库不受影响"
     ],
-    "excluded_write_scope": []
+    "excluded_write_scope": [],
+    "stack_acceptance": []
   },
   {
     "id": "B06",
@@ -733,7 +817,9 @@
       "AGENTS.md",
       "prd.md",
       "contracts/README.md",
-      "contracts/domain.schema.json"
+      "contracts/domain.schema.json",
+      "stack.json",
+      "adr/ADR-001-stack.md"
     ],
     "output": "可运行的纵向功能 + 对应测试 + handoffs/B06.md",
     "acceptance": [
@@ -765,7 +851,8 @@
     ],
     "excluded_write_scope": [
       "src/agents/assessment/**"
-    ]
+    ],
+    "stack_acceptance": []
   },
   {
     "id": "A07",
@@ -795,7 +882,7 @@
     "steps": [
       "并发、相同request不同payload、旧版本和跨owner测试",
       "提交后断网复用结果，删除中回调不可复活",
-      "持久卷/备份/恢复和单实例Node部署，不能误部署成无盘serverless",
+      "MySQL 8.4与私有媒体卷备份/恢复；单Node实例+数据库服务部署，故障期间拒绝成功响应，不自动降级内存数据库",
       "安全扫描RSC/HTML/网络、私有图访问与Origin"
     ],
     "input": [
@@ -803,7 +890,10 @@
       "AGENTS.md",
       "prd.md",
       "contracts/README.md",
-      "contracts/domain.schema.json"
+      "contracts/domain.schema.json",
+      "stack.json",
+      "adr/ADR-001-stack.md",
+      "acceptance/stack-cases.json"
     ],
     "output": "可运行的纵向功能 + 对应测试 + handoffs/A07.md",
     "acceptance": [
@@ -816,7 +906,9 @@
     "test_commands": [
       "npm run typecheck",
       "npm run test:task -- A07",
-      "npm run test:e2e:task -- A07"
+      "npm run test:e2e:task -- A07",
+      "npm run test:db",
+      "npm run test:stack -- A07"
     ],
     "handoff_required": [
       "changed_files",
@@ -829,9 +921,19 @@
       "AT42: REQUEST_CONFLICT/VERSION_CONFLICT/BUSY；只一次有效提交",
       "AT44: 返回原安全响应；曝光保持，不重复增加turn",
       "AT46: lease失效不可提交，不重建已删除会话",
-      "AT48: 私有值不出现；Origin/归属检查；日志无明文凭据"
+      "AT48: 私有值不出现；Origin/归属检查；日志无明文凭据",
+      "ST08: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run",
+      "ST09: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run",
+      "ST10: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run",
+      "ST11: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run"
     ],
-    "excluded_write_scope": []
+    "excluded_write_scope": [],
+    "stack_acceptance": [
+      "ST08",
+      "ST09",
+      "ST10",
+      "ST11"
+    ]
   },
   {
     "id": "B07",
@@ -857,7 +959,7 @@
       "tests/agents/security.test.ts"
     ],
     "steps": [
-      "节点日志按input/model/prompt哈希重用，重启续跑只恢复未完成节点",
+      "LangGraph/MySQL checkpoint结合node_runs/input/model/prompt哈希恢复；覆盖checkpoint写前后、领域commit前后杀进程，验证只一次有效提交",
       "所有模型尝试计全局call/token/time预算，最多一次schema修复和文本重写",
       "执行提示注入、私有答案泄露、假证据与越权角色负例",
       "确认中性fallback不生成虚构曝光，正常消息也先检查后显示"
@@ -867,7 +969,10 @@
       "AGENTS.md",
       "prd.md",
       "contracts/README.md",
-      "contracts/domain.schema.json"
+      "contracts/domain.schema.json",
+      "stack.json",
+      "adr/ADR-001-stack.md",
+      "acceptance/stack-cases.json"
     ],
     "output": "可运行的纵向功能 + 对应测试 + handoffs/B07.md",
     "acceptance": [
@@ -880,7 +985,8 @@
     "test_commands": [
       "npm run typecheck",
       "npm run test:task -- B07",
-      "npm run test:e2e:task -- B07"
+      "npm run test:e2e:task -- B07",
+      "npm run test:stack -- B07"
     ],
     "handoff_required": [
       "changed_files",
@@ -893,10 +999,22 @@
       "AT28: 最多一次重写；中性fallback；未经检查内容不进入HTTP流",
       "AT43: 已完成同hash节点复用；活动lease检查；可能重计费如实记录",
       "AT45: 硬截止中止；所有尝试共享预算；不绕开守卫",
-      "AT49: 内容不能改系统指令/调用工具/执行脚本；危险链接禁用"
+      "AT49: 内容不能改系统指令/调用工具/执行脚本；危险链接禁用",
+      "ST06: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run",
+      "ST07: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run",
+      "ST08: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run",
+      "ST09: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run",
+      "ST12: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run"
     ],
     "excluded_write_scope": [
       "src/agents/assessment/**"
+    ],
+    "stack_acceptance": [
+      "ST06",
+      "ST07",
+      "ST08",
+      "ST09",
+      "ST12"
     ]
   },
   {
@@ -933,7 +1051,9 @@
       "AGENTS.md",
       "prd.md",
       "contracts/README.md",
-      "contracts/domain.schema.json"
+      "contracts/domain.schema.json",
+      "stack.json",
+      "adr/ADR-001-stack.md"
     ],
     "output": "可运行的纵向功能 + 对应测试 + handoffs/A08.md",
     "acceptance": [
@@ -961,7 +1081,8 @@
       "AT30: 先锁计划，无中间对错反馈，最终才独立分判",
       "AT50: 公开完整分母/失败/未就绪/未覆盖，不能只挑成功题"
     ],
-    "excluded_write_scope": []
+    "excluded_write_scope": [],
+    "stack_acceptance": []
   },
   {
     "id": "B08",
@@ -995,7 +1116,9 @@
       "AGENTS.md",
       "prd.md",
       "contracts/README.md",
-      "contracts/domain.schema.json"
+      "contracts/domain.schema.json",
+      "stack.json",
+      "adr/ADR-001-stack.md"
     ],
     "output": "可运行的纵向功能 + 对应测试 + handoffs/B08.md",
     "acceptance": [
@@ -1027,7 +1150,8 @@
     ],
     "excluded_write_scope": [
       "src/agents/assessment/**"
-    ]
+    ],
+    "stack_acceptance": []
   },
   {
     "id": "A09",
@@ -1064,7 +1188,9 @@
       "AGENTS.md",
       "prd.md",
       "contracts/README.md",
-      "contracts/domain.schema.json"
+      "contracts/domain.schema.json",
+      "stack.json",
+      "adr/ADR-001-stack.md"
     ],
     "output": "可运行的纵向功能 + 对应测试 + handoffs/A09.md",
     "acceptance": [
@@ -1092,7 +1218,8 @@
       "AT53: 记录是否真人/授权与样本边界；未做为not_run，不伪造学会",
       "AT56: 所有核心功能可达；错误态不丢输入，加载状态真实"
     ],
-    "excluded_write_scope": []
+    "excluded_write_scope": [],
+    "stack_acceptance": []
   },
   {
     "id": "B09",
@@ -1132,7 +1259,9 @@
       "AGENTS.md",
       "prd.md",
       "contracts/README.md",
-      "contracts/domain.schema.json"
+      "contracts/domain.schema.json",
+      "stack.json",
+      "adr/ADR-001-stack.md"
     ],
     "output": "可运行的纵向功能 + 对应测试 + handoffs/B09.md",
     "acceptance": [
@@ -1166,7 +1295,8 @@
     ],
     "excluded_write_scope": [
       "src/agents/assessment/**"
-    ]
+    ],
+    "stack_acceptance": []
   },
   {
     "id": "A10",
@@ -1190,7 +1320,7 @@
       "scripts/release-check.*"
     ],
     "steps": [
-      "从干净环境npm ci/build/启动，恢复磁盘状态与删除操作",
+      "从干净环境npm ci/build/启动；迁移MySQL 8.4、健康检查，恢复数据库与媒体备份并验证删除操作",
       "逐项汇总P0测试、题库覆盖和依赖准入证据",
       "检查密钥/手写数据不入仓库与录像，整理运行和回滚说明",
       "仅全部发布闸门通过才标可演示，否则列明未完成和追加日程"
@@ -1200,7 +1330,10 @@
       "AGENTS.md",
       "prd.md",
       "contracts/README.md",
-      "contracts/domain.schema.json"
+      "contracts/domain.schema.json",
+      "stack.json",
+      "adr/ADR-001-stack.md",
+      "acceptance/stack-cases.json"
     ],
     "output": "可运行的纵向功能 + 对应测试 + handoffs/A10.md",
     "acceptance": [
@@ -1214,7 +1347,8 @@
     "test_commands": [
       "npm run typecheck",
       "npm run test:task -- A10",
-      "npm run test:e2e:task -- A10"
+      "npm run test:e2e:task -- A10",
+      "npm run test:stack -- A10"
     ],
     "handoff_required": [
       "changed_files",
@@ -1228,9 +1362,17 @@
       "AT46: lease失效不可提交，不重建已删除会话",
       "AT48: 私有值不出现；Origin/归属检查；日志无明文凭据",
       "AT54: 完整Web可演示、磁盘可恢复、密钥不入客户端；缺外部条件不宣布全验收",
-      "AT58: reuse-lock有精确版本和证据；没跑不标accepted"
+      "AT58: reuse-lock有精确版本和证据；没跑不标accepted",
+      "ST01: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run",
+      "ST10: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run",
+      "ST11: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run"
     ],
-    "excluded_write_scope": []
+    "excluded_write_scope": [],
+    "stack_acceptance": [
+      "ST01",
+      "ST10",
+      "ST11"
+    ]
   },
   {
     "id": "B10",
@@ -1264,7 +1406,10 @@
       "AGENTS.md",
       "prd.md",
       "contracts/README.md",
-      "contracts/domain.schema.json"
+      "contracts/domain.schema.json",
+      "stack.json",
+      "adr/ADR-001-stack.md",
+      "acceptance/stack-cases.json"
     ],
     "output": "可运行的纵向功能 + 对应测试 + handoffs/B10.md",
     "acceptance": [
@@ -1277,7 +1422,8 @@
     "test_commands": [
       "npm run typecheck",
       "npm run test:task -- B10",
-      "npm run test:e2e:task -- B10"
+      "npm run test:e2e:task -- B10",
+      "npm run test:stack -- B10"
     ],
     "handoff_required": [
       "changed_files",
@@ -1290,10 +1436,16 @@
       "AT13: 真实经过对应独立契约与提示节点，不是一调用伪造四阶段",
       "AT40: 先计当前task whole_task曝光再返回；未来rubric无泄露，无预取",
       "AT41: 包含证据、竞争假设、已预存探针、动作理由和后续更新；不含隐藏CoT",
-      "AT55: 使用实时服务或明确标注回放；答辩展示真实依据和边界"
+      "AT55: 使用实时服务或明确标注回放；答辩展示真实依据和边界",
+      "ST05: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run",
+      "ST12: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run"
     ],
     "excluded_write_scope": [
       "src/agents/assessment/**"
+    ],
+    "stack_acceptance": [
+      "ST05",
+      "ST12"
     ]
   }
 ]

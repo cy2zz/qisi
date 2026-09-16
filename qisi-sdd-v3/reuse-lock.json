@@ -59,13 +59,6 @@
       "test_evidence": null
     },
     {
-      "package": "better-sqlite3",
-      "resolved_version": null,
-      "status": "planned",
-      "license_evidence": null,
-      "test_evidence": null
-    },
-    {
       "package": "sharp",
       "resolved_version": null,
       "status": "planned",
@@ -85,6 +78,99 @@
       "status": "planned",
       "license_evidence": null,
       "test_evidence": null
+    },
+    {
+      "package": "typescript",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "@types/node",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "@types/react",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "@types/react-dom",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "tailwindcss",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "@tailwindcss/postcss",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "shadcn",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "@langchain/langgraph",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "@langchain/langgraph-checkpoint",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "@langchain/core",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "ai",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "mysql2",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
     }
-  ]
+  ],
+  "baseline": "qisi-3.1",
+  "constraints": {
+    "next": "16.x",
+    "react": "19.x",
+    "react-dom": "19.x",
+    "node": "24.x LTS",
+    "mysql_server": "8.4.x LTS",
+    "note": "shadcn is a source generator; actual generated component dependencies and provider-specific AI SDK adapter must be added and verified in A01/B01. All installed versions exact in package-lock; this file is not an npm lockfile."
+  }
 }

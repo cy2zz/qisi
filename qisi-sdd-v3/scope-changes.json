@@ -1,6 +1,6 @@
 {
-  "version": "qisi-3.0",
-  "supersedes": "week1-2.0",
+  "version": "qisi-3.1",
+  "supersedes": "qisi-3.0",
   "restored": [
     "four_agents",
     "seven_interventions",
@@ -25,5 +25,11 @@
     "school_admin"
   ],
   "work_days": 10,
-  "person_days": 20
+  "person_days": 20,
+  "technology_change": {
+    "database": "SQLite -> MySQL 8.4 LTS",
+    "runner": "native TS orchestration -> LangGraph.js Graph API",
+    "model_io": "AI SDK Core behind ModelPort",
+    "product_scope_removed": []
+  }
 }

@@ -1,10 +1,10 @@
-# 服务端契约、状态和实现规则｜qisi-3.0
+# 服务端契约、状态和实现规则｜qisi-3.1
 
 48个严格JSON Schema见domain.schema.json，16个应用内函数见server-functions.json，角色见agents.json，状态见state-transitions.json。Schema只控制结构，本文件中的引用、数学、授权、曝光与幂等规则必须另写代码测试。所有日期UTC ISO8601；UI按本地时区显示。
 
 ## 1. 目录与归属
 
-唯一应用目录qisi-web；规范包可放在其spec/，源代码从src开始。A维护src/shared、全局构建配置、bank/media/input/assessment/report/history；B维护contracts、agents（assessment子目录由A负责）、workflows、tutor/teacher。B01建立Agent公共接口时为A保留assessment空导出，不抢写其业务实现。A01和B01只冻结公共契约，不能为“架构准备”拖延一整天。
+唯一应用目录是qisi-dashboard仓库根；规范包固定在qisi-sdd-v3/，Next.js源码从根src/开始；现有frontend/backend暂保留，迁移步骤见adr/ADR-001-stack.md。A维护src/shared、全局构建配置、bank/media/input/assessment/report/history；B维护contracts、agents（assessment子目录由A负责）、workflows、tutor/teacher。B01建立Agent公共接口时为A保留assessment空导出，不抢写其业务实现。A01和B01只冻结公共契约，不能为“架构准备”拖延一整天。
 
 A/B的具体日任务以tasks.json为准。同一天禁止父glob跨写他人的已分配子目录：例如B09 src/agents/**明确排除src/agents/assessment/**，A08 tests/e2e/**修改B拥有的用例前先交接。共享文件单人写、另一人提patch建议；不互相覆盖。
 
@@ -58,7 +58,7 @@ events、exposures和check_attempts以数据库为准，SessionState JSON是可�
 3. 调模型前计算node input_hash（包括model/prompt/config），写started事件；调用结束独立短事务保存私有结果。节点复用只在全部哈希一致且lease有效时允许。
 4. PolicyGate/Guard通过后重新检查owner/session存在、版本与lease、deadline。单事务写最终消息、事件、实际曝光、state、version+1、request succeeded；再返回安全投影。
 5. deadline过期或删除撤销lease后，迟到调用结果不能提交，也不能重建session。断网但已commit用原request恢复，曝光保守保留。未检查或未提交的文本不能当已经显示。
-6. 进程重启枚举未过期run；input_hash匹配的已完成节点复用；远程结果未知的节点可以重试但计费可能重复。只有一个Node实例运行恢复器；不要双实例抢SQLite。
+6. 进程重启枚举未过期run；input_hash匹配的已完成节点复用；远程结果未知的节点可以重试但计费可能重复。首版只有一个Node实例运行恢复器；MySQL行锁/CAS/lease防重复提交，不据此宣称多应用副本已验收。LangGraph恢复按contracts/workflow-persistence.md执行，checkpoint不能复活被删会话。
 7. reserve与final都可能提升version：内部run带reserved_version和start_version，公开轮询展示最新version；同一run最终提交用reserved_version。客户端不得继续用旧version提交并发轮。最简单实现每次状态变更都version+1，客户端只用服务端返回版本。
 8. failed request保存错误与已发生副作用状态；相同request重试只复现结果不重跑，UI“重试”产生新request_id但绑定原任务和冻结输入；final评分重试复用同attempt的首次plan/answer，不开放编辑后冒充首测。
 
@@ -104,7 +104,7 @@ correctSubmission保存旧/新revision；依赖旧revision的diagnosis/strategy/
 
 ## 10. 开发验收命令约定
 
-A01创建npm scripts：dev、build、start、typecheck、lint、test、test:e2e、test:task、test:e2e:task、eval:roles、eval:teaching、bank:audit、release:check。test:task A04根据spec/tasks.json取AT集合，选择对应unit/integration测试；test:e2e:task同理。测试title带ATxx标识、用例注册到tests/coverage-manifest.json。没有可执行测试不能以“0 tests passed”视为成功；对应层为空时需输出not_applicable和人工项待办。人工/model_review不能由自动脚本填passed。
+A01创建npm scripts：dev、build、start、typecheck、lint、test、test:e2e、test:task、test:e2e:task、eval:roles、eval:teaching、bank:audit、release:check。test:task A04根据qisi-sdd-v3/tasks.json取AT集合，选择对应unit/integration测试；test:e2e:task同理。测试title带ATxx标识、用例注册到tests/coverage-manifest.json。没有可执行测试不能以“0 tests passed”视为成功；对应层为空时需输出not_applicable和人工项待办。人工/model_review不能由自动脚本填passed。
 
 默认FixtureProvider只用于确定性测试；eval:*必须要求REAL_MODEL=1并检查真实usage/response元信息，缺凭据失败并给配置项，不自动转Mock冒充。所有人工/模型用例保持not_run，直到证据JSON包含执行人、commit、题库/model/prompt版本和实际结果。
 
@@ -113,3 +113,15 @@ A01创建npm scripts：dev、build、start、typecheck、lint、test、test:e2e�
 视觉模型只输出vision-output.schema.json定义的VisionOutput：lines[{index,text,uncertain}]。它不输出TranscriptDraft的id/media_id/revision/confirmed，也不输出explicitly_confirmed。A03在服务端严格解析、验证行号递增且唯一、合计文本不超过12000字符，再分配标识/revision=1/confirmed=false，各行explicitly_confirmed=false，构造TranscriptDraft并验证领域Schema。模型返回服务端字段时拒绝，不直接信任；用户确认只通过ConfirmTranscriptInput和revision校验生效。独立检验计划/答案的转写也走相同流程，不能在转写里暗带评分。
 
 任务可用planned/in_progress/implemented_waiting_review/done/blocked_external状态。机器tasks初始全部planned；本包静态验证器针对初始交付状态，不作为应用开发后禁止状态变化的检查。开发后由A01建立应用内的任务/覆盖校验，保持引用与验收规则不变。每卡完成写交接后，可自动领取授权owner的下一就绪卡，无需反复询问是否继续；只有真实外部阻塞、权限不足或改变P0/写集时停下说明。双人交付需另一人复核；单AI串行可先做独立复核阶段并记录self_review，不能冒充第二人签字，最终发布仍由项目方确认。
+
+## 12. qisi-3.1技术栈执行门禁
+
+唯一决定：adr/ADR-001-stack.md与stack.json。MySQL 8.4 LTS/mysql2 + LangGraph.js Graph API + AI SDK Core；实际骨架未迁移。SQL语法验证不再使用SQLite内存库，真实DDL检查用scripts/validate_mysql.py。
+
+A01额外建立db:migrate、db:seed:fixture、test:db、test:stack命令：
+- db:migrate映射版本化MySQL迁移，先验证server/schema版本，失败停止；不能空脚本返回0。
+- test:db运行tests/integration/db中的真实8.4测试；缺数据库失败并记录blocked_external，不自动换Mock。
+- test:stack -- A01/B01/A07/B07/A10/B10按tasks.json的stack_acceptance选择ST用例。自动/模型/人工分类；没有实际证据的ST不得passed；真正不适用的层单独注明原因。
+- tests/coverage-manifest.json同时映射AT与ST；前者60项、后者12项，各自分母分别报告。
+
+A拥有src/shared/**、src/components/ui/**、src/lib/utils.ts、src/lib/db/**、migrations/**、根配置和依赖；B拥有src/model/**与src/workflows/**（含saver）。B不复制共享DB连接池、A不建立第二套模型I/O。schema_migrations也由A统一维护。所有新命令必须由实际测试驱动。

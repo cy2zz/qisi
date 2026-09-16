@@ -1,10 +1,29 @@
-# 启思｜多Agent Web SDD PRD V3
+# 启思｜多Agent Web SDD PRD V3.1
 
-> 交付基线：qisi-3.0；规格核验日期：2026-09-16。设计V6、开发规划V3与PRD V3配套使用，完整机器契约、测试夹具、A/B启动提示和校验脚本见PRD末尾的qisi-sdd-v3.zip附件。本交付是开发规格，不是已实现的应用或学习效果证明。
+> 交付基线：qisi-3.1；规格核验日期：2026-09-16。设计V6.1、开发规划V3.1与PRD V3.1配套使用，完整机器契约、测试夹具、A/B启动提示和校验脚本见仓库当前qisi-sdd-v3.zip；POPO仍是历史qisi-3.0附件，本次未同步。本交付是开发规格，不是已实现的应用或学习效果证明。
 
-唯一实施基线qisi-3.0；2026-09-15。两位开发者A/B，约10开发日，全栈Web单体，不是前后端分开开发。设计V6、规划V3和本PRD同版本使用，替代week1-2.0五日裁剪版。
+唯一实施基线qisi-3.1；2026-09-16。两位开发者A/B，约10开发日，全栈Web单体，不是前后端分开开发。设计V6.1、规划V3.1和本PRD同版本使用，替代qisi-3.0的技术栈决定，并保留其全部产品范围。
 
 **交付状态：规格设计。未实现应用，未运行真实模型/学生实验。** 本PRD正文包含产品行为、实现步骤、A/B任务、接口与验收；随附qisi-sdd-v3.zip提供严格Schema、用例、提示约束、SQL与校验脚本。开发AI应先读取正文，再读取附件，不能在附件缺失时自行猜测关键契约。
+
+## 已确认技术栈（ADR-001，qisi-3.1）
+
+| 层 | 唯一实施选择 |
+| --- | --- |
+| Web / 语言 | Next.js 16 App Router + React 19 + TypeScript + Node.js 24 LTS |
+| UI | Tailwind CSS + shadcn/ui |
+| 多Agent编排 | LangGraph.js Graph API（正式基线，不再是候选） |
+| 模型接入 | AI SDK Core，经项目ModelPort；provider按比赛资源与实际能力测试选择 |
+| 数据库 | MySQL Community Server 8.4 LTS + mysql2；InnoDB/utf8mb4，无ORM |
+| 验证/渲染 | Zod；react-markdown + remark-math + rehype-katex/KaTeX |
+| 手写 | sharp校验解码 + 多模态转写 + 学生确认，不新增Python服务 |
+| 测试/部署 | Vitest + Playwright + 真实MySQL集成；单Node应用 + MySQL + 私有媒体卷 |
+
+决定与现状必须区分：以上选型已获确认；精确patch和镜像digest待A01真实安装后锁定；仓库现有Java/Vite骨架尚未迁移。实施位置是qisi-dashboard仓库根src/，不另建应用仓库。
+
+核心调整：LangGraph复用节点/分支/恢复能力；AI SDK只做模型I/O；MySQL保存业务与checkpoint。最终状态/帮助曝光/幂等/取消仍由代码PolicyGate和StorePort事务控制，不由checkpoint替代。MySQL saver的薄适配由B01负责、全部迁移由A01负责；先通过ST01–ST07，D7补完整故障门禁ST08–ST12。A/B任务、迁移/图协议见stack.json、adr/ADR-001-stack.md、contracts/mysql.md、contracts/workflow-persistence.md、acceptance/stack-cases.json。
+
+这是规格更新，不是依赖集成或应用验收。原18条P0、20张任务、60项AT全部保留；新增12项ST不替代教学质量与独立学习证据。
 
 ## 1. 产品目标和非目标
 
@@ -17,7 +36,7 @@ P0目标：任意题库题目可选；识别学生当前思维卡点；有证据
 ## 2. 给开发AI的第一条指令
 
 ```text
-你正在实现启思qisi-3.0，只做一个全栈Web应用。
+你正在实现启思qisi-3.1，只做一个全栈Web应用。
 先读本PRD与附件README/AGENTS，确认应用目录和当前任务状态。
 若附件可读取，运行 python scripts/validate_spec.py 核对规格完整性。
 按任务依赖领取A01或B01；不要一口气实现20张任务。
@@ -28,7 +47,7 @@ P0目标：任意题库题目可选；识别学生当前思维卡点；有证据
 任务完成需输出修改文件、真实执行命令、AT结果和证据路径、遗留项与下一任务。
 ```
 
-若仅有PRD网页没有附件，先从本PRD末尾附件取得qisi-sdd-v3.zip；如平台权限不允许自动取附件，请向任务发起人索取文件，仅阻塞机器契约相关实施，不偷偷使用旧版week1包。本文中的任务卡足够确定先做什么，但不允许用人工摘录代替严格Schema后声称契约验收通过。
+若只有历史POPO网页或附件，不能作为qisi-3.1基线；先从develop取得当前qisi-sdd-v3.zip，核对manifest.baseline；无仓库权限时向发起人索取本版文件，只阻塞机器契约相关实施。本文中的任务卡足够确定先做什么，但不允许用人工摘录代替严格Schema后声称契约验收通过。
 
 ## 3. A/B分工与协作
 
@@ -107,7 +126,7 @@ P0目标：任意题库题目可选；识别学生当前思维卡点；有证据
 
 主链路：确认输入→Diagnosis→必要时route_review→Strategy→代码PolicyGate→Renderer→Guard→短事务提交。Guard拒绝最多一次重写+再Guard，仍失败中性提示。Assessment链路隔离旧诊断画像，结果由代码再算独立资格。
 
-默认原生TypeScript编排+SQLite节点日志；LangGraph.js为候选非必装，避免在未核验条件下把框架选择变成依赖阻塞。多Agent真实存在于职责/契约/上下文隔离，不由是否导入某个包定义。
+默认 LangGraph.js Graph API（不是候选）+ MySQL 8.4 LTS checkpoint/节点日志。AI SDK Core封装在ModelPort，只处理模型I/O，不启用第二套自动Agent循环。业务状态提交由StorePort.commitChecked和PolicyGate负责，不由图checkpoint代替。四角色仍独立契约/上下文/提示与回归。MySQL saver为项目自有薄适配器，A01/B01必须通过恢复门禁后才能称已集成，见contracts/workflow-persistence.md。
 
 ## 6. 台阶、诊断和干预规则
 
@@ -132,7 +151,7 @@ P0目标：任意题库题目可选；识别学生当前思维卡点；有证据
 
 预算：turn正常4最多7调用/90秒；prepare正常2最多4/180秒；vision正常1最多2/45秒；grade正常2最多3/60秒。所有重试共用预算，默认并发模型调用4。不能流未检查token。暖轮p50≤15秒、p95≤35秒是待测目标，不是已达结果。
 
-修订不抹掉真实帮助；求助请求不等于帮助真的发出。两种状态分别持久化。24h清原图/临时稿；7d清会话文本。主动删除级联、迟到结果不复活。单实例Node+SQLite私有持久卷；不部署成无盘、多副本或独立后端。
+修订不抹掉真实帮助；求助请求不等于帮助真的发出。两种状态分别持久化。24h清原图/临时稿；7d清会话文本。主动删除级联、迟到结果不复活。部署为一个Node应用实例 + MySQL 8.4数据库服务 + 私有媒体卷；数据库服务不是独立业务后端。首版不部署多应用副本，不使用无持久介质的serverless执行恢复器。MySQL保存业务及checkpoint，图片放私有媒体卷。
 
 ## 8. SDD开发协议与必要脚本
 
@@ -151,9 +170,9 @@ D1真实模型准入：配置MODEL_BASE_URL、MODEL_API_STYLE、MODEL_API_KEY、
 
 ## 9. 可复用组件与准入
 
-通用组件优先复用，教学状态/判断自研。默认选Next.js/React、react-markdown+remark-math+rehype-katex/KaTeX、Zod、SQLite驱动、sharp、Vitest、Playwright。具体仓库和证据等级见reuse.md；react-markdown/KaTeX已有本地README与许可核验材料，其余新选型尚需安装/兼容/许可/安全检查，不声称本轮联网核验成功。
+通用组件优先复用，教学状态/判断自研。确定选Next.js 16/React 19/TypeScript/Node 24 LTS、Tailwind CSS/shadcn/ui、LangGraph.js Graph API、AI SDK Core、MySQL 8.4 LTS/mysql2、react-markdown+remark-math+rehype-katex/KaTeX、Zod、sharp、Vitest、Playwright。具体仓库和证据等级见reuse.md；react-markdown/KaTeX已有本地README与许可核验材料，其余新选型尚需安装/兼容/许可/安全检查，不声称本轮联网核验成功。
 
-A01/D2锁实际兼容版本和package-lock、Node版本，生成reuse-lock.json和artifacts/reuse证据。未锁版本、未运行烟测不标accepted。禁止为了用上开源而fork不匹配的完整教学Demo；SocraticAI/诊断Skill只借鉴，LangGraph为候选，OCR/Python/CAS额外服务不默认引入。
+A01/D2锁实际兼容版本和package-lock、Node版本，生成reuse-lock.json和artifacts/reuse证据。未锁版本、未运行烟测不标accepted。禁止为了用上开源而fork不匹配的完整教学Demo；SocraticAI/诊断Skill只借鉴，LangGraph.js为基线编排库，OCR/Python/CAS额外服务不默认引入。
 
 ## 10. 验收与发布策略
 
@@ -201,71 +220,87 @@ A01/D2锁实际兼容版本和package-lock、Node版本，生成reuse-lock.json�
 
 ## 附录B｜A/B逐张SDD任务卡
 
-每卡1人日基准，允许根据真实缺陷调整日历；不得跳过依赖或伪造done。任务命令由A01脚本契约提供，人工/model_review仍需独立证据。
+每卡约1人日基准；D1/B01的适配风险可延伸到D2，门禁不过不降低标准。每张卡完成包含纵向Web功能及验收。ST是新增技术门禁，不能替代原60项AT。
 
-
-### A01｜D1｜全栈脚手架、持久层和公共渲染（A，1人日）
+### A01｜D1｜全栈脚手架、持久层和公共渲染（A，约1人日）
 
 前置：无，D1契约先约定。需求：FR01, FR04, FR15, FR16。
 
-输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json。
+输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md, acceptance/stack-cases.json。
 
-独占写集：`package.json`, `package-lock.json`, `src/app/layout.tsx`, `src/shared/**`, `tests/shared/**`, `tests/e2e/smoke.spec.ts`, `next.config.*`, `tsconfig.json`, `vitest.config.*`, `playwright.config.*`。
+独占写集：`package.json`, `package-lock.json`, `src/app/layout.tsx`, `src/shared/**`, `tests/shared/**`, `tests/e2e/smoke.spec.ts`, `next.config.*`, `tsconfig.json`, `vitest.config.*`, `playwright.config.*`, `.nvmrc`, `.node-version`, `.env.example`, `.gitignore`, `.dockerignore`, `Dockerfile`, `compose.yaml`, `eslint.config.*`, `postcss.config.*`, `components.json`, `src/app/page.tsx`, `src/app/globals.css`, `src/components/ui/**`, `src/lib/utils.ts`, `src/lib/db/**`, `migrations/**`, `scripts/db/**`, `scripts/tests/**`, `scripts/seed/**`, `tests/integration/db/**`, `artifacts/reuse/**`。
 
 实施顺序：
-1. 检查应用目录与依赖准入并锁版本。
-2. 建立匿名owner、SQLite迁移、请求幂等/版本/CAS接口。
-3. 实现MathMarkdown和空Web页面、加载安全DTO。
-4. 用本地fixture走一次写库刷新链路，预留ModelPort而非假装真模型。
+1. 读取ADR-001，在qisi-dashboard仓库根建立Next.js 16/React 19/TypeScript/Node 24 LTS应用；保留frontend/backend，不删除历史骨架。
+2. 安装并精确锁定全部选定依赖，初始化Tailwind CSS/shadcn/ui；提交package-lock、Node版本和依赖准入证据。
+3. 建立MySQL 8.4 Compose、健康检查、独立持久卷及迁移脚本；mysql2连接池设置UTC/utf8mb4/READ COMMITTED，检查默认认证与生产TLS。
+4. 实现匿名owner、MySQL StorePort、请求幂等/版本/CAS与短事务；由A统一合入B提出的checkpoint表迁移。
+5. 实现MathMarkdown、安全DTO与Web骨架；用FixtureProvider跑页面→图→校验→MySQL→刷新链路，并协同B验证杀进程续跑。
 
 先失败后通过的验收：
 - AT01: 页面/服务端同进程；已提交安全响应从磁盘恢复
 - AT08: 安全显示正常公式；坏公式保留原文不白屏
 - AT58: reuse-lock有精确版本和证据；没跑不标accepted
+- ST01: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run
+- ST02: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run
+- ST03: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run
+- ST04: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run
+
+技术门禁：ST01, ST02, ST03, ST04。
 
 验证命令：
 ```text
 npm run typecheck
 npm run test:task -- A01
 npm run test:e2e:task -- A01
+npm run build
+npm run db:migrate
+npm run test:db
+npm run test:stack -- A01
 ```
 
 输出：可运行的纵向功能 + 对应测试 + handoffs/A01.md。交接必须包含：changed_files, commands_and_actual_results, acceptance_status, known_failures, next_dependency。
 
-
-### B01｜D1｜领域契约、四Agent壳和工作流内核（B，1人日）
+### B01｜D1｜领域契约、四Agent壳和工作流内核（B，约1人日）
 
 前置：无，D1契约先约定。需求：FR01, FR06, FR15。
 
-输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json。
+输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md, contracts/workflow-persistence.md, contracts/mysql.md, acceptance/stack-cases.json。
 
-独占写集：`src/contracts/**`, `src/agents/**`, `src/workflows/**`, `src/prompts/**`, `tests/agents/**`, `tests/workflows/**`, `docs/adr/001-orchestration.md`。
+独占写集：`src/contracts/**`, `src/agents/**`, `src/workflows/**`, `src/prompts/**`, `tests/agents/**`, `tests/workflows/**`, `docs/adr/001-orchestration.md`, `src/model/**`, `tests/model/**`。
 排除：src/agents/assessment/**；跨公共文件由owner合入。
 
 实施顺序：
-1. 将contracts映射为严格Zod类型并实现跨字段校验。
-2. 实现四Agent独立入口与Renderer/Guard接口。
-3. 建立ModelPort、FixtureProvider和一次真实provider能力探测入口。
-4. 实现确定性工作流节点、预算器和StorePort，记录默认原生TS编排ADR。
+1. 与A先冻结共享契约及MySQL迁移接口；业务Schema映射严格Zod，跨字段PolicyGate由代码执行。
+2. 实现Preparation/Diagnosis/Strategy/Assessment四Agent独立入口及Renderer/Guard；Assessment业务实现仍归A。
+3. 用LangGraph.js StateGraph定义有界节点/分支，应用统一预算器；关闭SDK隐式重试和图自动节点重试，不启用第二套Agent循环。
+4. ModelPort封装AI SDK Core与具体provider adapter，实现FixtureProvider及真实文本/结构化/图片/取消/usage能力探测；依赖由A锁定。
+5. 按workflow-persistence.md实现MySqlCheckpointSaver薄适配；run_id作thread_id，checkpoint不替代node_runs审计或最终业务事务。
+6. 与A联测MySQL checkpoint读写、pending writes、刷新/杀进程恢复；独立commit前再次校验lease/版本/期限，不能只用MemorySaver验收。
 
 先失败后通过的验收：
 - AT13: 真实经过对应独立契约与提示节点，不是一调用伪造四阶段
+- ST05: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run
+- ST06: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run
+- ST07: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run
+
+技术门禁：ST05, ST06, ST07。
 
 验证命令：
 ```text
 npm run typecheck
 npm run test:task -- B01
 npm run test:e2e:task -- B01
+npm run test:stack -- B01
 ```
 
 输出：可运行的纵向功能 + 对应测试 + handoffs/B01.md。交接必须包含：changed_files, commands_and_actual_results, acceptance_status, known_failures, next_dependency。
 
-
-### A02｜D2｜全量导入、选题和准备状态Web（A，1人日）
+### A02｜D2｜全量导入、选题和准备状态Web（A，约1人日）
 
 前置：A01, B01。需求：FR02, FR03。
 
-输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json。
+输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
 独占写集：`src/features/bank/**`, `src/app/bank/**`, `src/app/api/bank/**`, `tests/bank/**`, `tests/e2e/bank.spec.ts`。
 
@@ -280,6 +315,8 @@ npm run test:e2e:task -- B01
 - AT03: 命中同一次选题记录；池哈希及题库版本相同
 - AT04: 逐项异常计数可追原始记录；不伪称全部就绪
 
+技术门禁：继承A01/B01已通过基线。
+
 验证命令：
 ```text
 npm run typecheck
@@ -289,12 +326,11 @@ npm run test:e2e:task -- A02
 
 输出：可运行的纵向功能 + 对应测试 + handoffs/A02.md。交接必须包含：changed_files, commands_and_actual_results, acceptance_status, known_failures, next_dependency。
 
-
-### B02｜D2｜备课Agent、核对、图与检验任务池（B，1人日）
+### B02｜D2｜备课Agent、核对、图与检验任务池（B，约1人日）
 
 前置：B01, A01。需求：FR03, FR06。
 
-输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json。
+输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
 独占写集：`src/agents/preparation/**`, `src/workflows/prepare.ts`, `src/features/preparation/**`, `src/prompts/preparation.md`, `tests/preparation/**`。
 排除：src/agents/assessment/**；跨公共文件由owner合入。
@@ -310,6 +346,8 @@ npm run test:e2e:task -- A02
 - AT06: 旧hash包失效；prepare结果绑定新hash/版本
 - AT07: 不自动认证；出现冲突needs_review及问题记录
 
+技术门禁：继承A01/B01已通过基线。
+
 验证命令：
 ```text
 npm run typecheck
@@ -319,12 +357,11 @@ npm run test:e2e:task -- B02
 
 输出：可运行的纵向功能 + 对应测试 + handoffs/B02.md。交接必须包含：changed_files, commands_and_actual_results, acceptance_status, known_failures, next_dependency。
 
-
-### A03｜D3｜手写上传、确认和输入组件（A，1人日）
+### A03｜D3｜手写上传、确认和输入组件（A，约1人日）
 
 前置：A01, B01。需求：FR04, FR05, FR16。
 
-输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json。
+输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
 独占写集：`src/features/media/**`, `src/app/api/media/**`, `src/features/input/**`, `tests/media/**`, `tests/e2e/media.spec.ts`。
 
@@ -339,6 +376,8 @@ npm run test:e2e:task -- B02
 - AT10: 拒绝危险文件或NOT_FOUND；私有文件无公开URL
 - AT11: 记录确认revision后才生成Submission；重复确认幂等
 
+技术门禁：继承A01/B01已通过基线。
+
 验证命令：
 ```text
 npm run typecheck
@@ -348,12 +387,11 @@ npm run test:e2e:task -- A03
 
 输出：可运行的纵向功能 + 对应测试 + handoffs/A03.md。交接必须包含：changed_files, commands_and_actual_results, acceptance_status, known_failures, next_dependency。
 
-
-### B03｜D3｜真实教学轮与可见页面（B，1人日）
+### B03｜D3｜真实教学轮与可见页面（B，约1人日）
 
 前置：B01, B02, A02。需求：FR06, FR07, FR10。
 
-输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json。
+输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
 独占写集：`src/features/tutor/**`, `src/app/learn/[sessionId]/page.tsx`, `src/workflows/turn.ts`, `src/agents/renderer/**`, `src/agents/guard/**`, `src/prompts/renderer.md`, `src/prompts/guard.md`, `tests/tutor/**`, `tests/e2e/tutor.spec.ts`。
 排除：src/agents/assessment/**；跨公共文件由owner合入。
@@ -369,6 +407,8 @@ npm run test:e2e:task -- A03
 - AT15: 只展示题干与自主输入，不预先泄露完整步骤
 - AT27: 不含完整解法、未来rubric和私有诊断原文
 
+技术门禁：继承A01/B01已通过基线。
+
 验证命令：
 ```text
 npm run typecheck
@@ -378,12 +418,11 @@ npm run test:e2e:task -- B03
 
 输出：可运行的纵向功能 + 对应测试 + handoffs/B03.md。交接必须包含：changed_files, commands_and_actual_results, acceptance_status, known_failures, next_dependency。
 
-
-### A04｜D4｜独立检验状态与计划锁定页面（A，1人日）
+### A04｜D4｜独立检验状态与计划锁定页面（A，约1人日）
 
 前置：A02, B02, A03。需求：FR11, FR12。
 
-输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json。
+输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
 独占写集：`src/features/assessment/**`, `src/app/learn/[sessionId]/check/**`, `tests/assessment/**`, `tests/e2e/assessment.spec.ts`。
 
@@ -398,6 +437,8 @@ npm run test:e2e:task -- B03
 - AT31: owner级首次/已见记录继续存在，不能洗白
 - AT32: assistance_requested=true，help_exposed=false；不能独立通过
 
+技术门禁：继承A01/B01已通过基线。
+
 验证命令：
 ```text
 npm run typecheck
@@ -407,12 +448,11 @@ npm run test:e2e:task -- A04
 
 输出：可运行的纵向功能 + 对应测试 + handoffs/A04.md。交接必须包含：changed_files, commands_and_actual_results, acceptance_status, known_failures, next_dependency。
 
-
-### B04｜D4｜证据诊断和有区分力的探针（B，1人日）
+### B04｜D4｜证据诊断和有区分力的探针（B，约1人日）
 
 前置：B03, A03。需求：FR05, FR08。
 
-输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json。
+输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
 独占写集：`src/agents/diagnosis/**`, `src/prompts/diagnosis.md`, `src/features/tutor/evidence.ts`, `tests/diagnosis/**`。
 排除：src/agents/assessment/**；跨公共文件由owner合入。
@@ -430,6 +470,8 @@ npm run test:e2e:task -- A04
 - AT22: 按canonical goal计数拦截；选择解释/低风险帮助/待定
 - AT23: 显示前已保存expected/counterevidence/next_action；不事后改预期
 
+技术门禁：继承A01/B01已通过基线。
+
 验证命令：
 ```text
 npm run typecheck
@@ -439,12 +481,11 @@ npm run test:e2e:task -- B04
 
 输出：可运行的纵向功能 + 对应测试 + handoffs/B04.md。交接必须包含：changed_files, commands_and_actual_results, acceptance_status, known_failures, next_dependency。
 
-
-### A05｜D5｜独立评分接线与证据报告（A，1人日）
+### A05｜D5｜独立评分接线与证据报告（A，约1人日）
 
 前置：A04, B03。需求：FR11, FR13。
 
-输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json。
+输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
 独占写集：`src/agents/assessment/**`, `src/prompts/assessment.md`, `src/features/assessment/grade.ts`, `src/features/report/**`, `src/app/learn/[sessionId]/report/**`, `tests/report/**`。
 
@@ -460,6 +501,8 @@ npm run test:e2e:task -- B04
 - AT37: 独立通过为false并保留真实原因；无掌握百分比
 - AT59: 禁止额外字段和旧画像；独立性只由代码计算
 
+技术门禁：继承A01/B01已通过基线。
+
 验证命令：
 ```text
 npm run typecheck
@@ -469,12 +512,11 @@ npm run test:e2e:task -- A05
 
 输出：可运行的纵向功能 + 对应测试 + handoffs/A05.md。交接必须包含：changed_files, commands_and_actual_results, acceptance_status, known_failures, next_dependency。
 
-
-### B05｜D5｜七类策略、动态台阶与路线归属（B，1人日）
+### B05｜D5｜七类策略、动态台阶与路线归属（B，约1人日）
 
 前置：B04, B02, A04。需求：FR07, FR09, FR10。
 
-输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json。
+输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
 独占写集：`src/agents/strategy/**`, `src/prompts/strategy.md`, `src/features/tutor/route.ts`, `src/features/tutor/ladder.ts`, `src/workflows/policy.ts`, `tests/strategy/**`。
 排除：src/agents/assessment/**；跨公共文件由owner合入。
@@ -494,6 +536,8 @@ npm run test:e2e:task -- A05
 - AT26: 尝试降支架但保留关键条件；遇失败可恢复不羞辱学生
 - AT60: 数学依赖无环，source及canonical目标保留；教学重试另存
 
+技术门禁：继承A01/B01已通过基线。
+
 验证命令：
 ```text
 npm run typecheck
@@ -503,12 +547,11 @@ npm run test:e2e:task -- B05
 
 输出：可运行的纵向功能 + 对应测试 + handoffs/B05.md。交接必须包含：changed_files, commands_and_actual_results, acceptance_status, known_failures, next_dependency。
 
-
-### A06｜D6｜真正新任务重测、历史与隐私删除（A，1人日）
+### A06｜D6｜真正新任务重测、历史与隐私删除（A，约1人日）
 
 前置：A05, B05。需求：FR12, FR13, FR16。
 
-输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json。
+输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
 独占写集：`src/features/assessment/reassess.ts`, `src/features/history/**`, `src/app/history/**`, `src/shared/retention.ts`, `src/shared/delete.ts`, `tests/history/**`, `tests/e2e/privacy.spec.ts`。
 
@@ -524,6 +567,8 @@ npm run test:e2e:task -- B05
 - AT38: 只见自己会话，已记录帮助仍在；跨owner返回NOT_FOUND
 - AT47: 先仅删图片/临时稿，再按会话级联删文本/事件；题库不受影响
 
+技术门禁：继承A01/B01已通过基线。
+
 验证命令：
 ```text
 npm run typecheck
@@ -533,12 +578,11 @@ npm run test:e2e:task -- A06
 
 输出：可运行的纵向功能 + 对应测试 + handoffs/A06.md。交接必须包含：changed_files, commands_and_actual_results, acceptance_status, known_failures, next_dependency。
 
-
-### B06｜D6｜输入修订与教师决策依据（B，1人日）
+### B06｜D6｜输入修订与教师决策依据（B，约1人日）
 
 前置：B04, B05, A05。需求：FR05, FR10, FR14。
 
-输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json。
+输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
 独占写集：`src/features/tutor/corrections.ts`, `src/features/teacher/**`, `src/app/teacher/**`, `tests/teacher/**`, `tests/corrections/**`, `tests/e2e/teacher.spec.ts`。
 排除：src/agents/assessment/**；跨公共文件由owner合入。
@@ -556,6 +600,8 @@ npm run test:e2e:task -- A06
 - AT40: 先计当前task whole_task曝光再返回；未来rubric无泄露，无预取
 - AT41: 包含证据、竞争假设、已预存探针、动作理由和后续更新；不含隐藏CoT
 
+技术门禁：继承A01/B01已通过基线。
+
 验证命令：
 ```text
 npm run typecheck
@@ -565,19 +611,18 @@ npm run test:e2e:task -- B06
 
 输出：可运行的纵向功能 + 对应测试 + handoffs/B06.md。交接必须包含：changed_files, commands_and_actual_results, acceptance_status, known_failures, next_dependency。
 
-
-### A07｜D7｜存储故障、归属和部署纵向加固（A，1人日）
+### A07｜D7｜存储故障、归属和部署纵向加固（A，约1人日）
 
 前置：A06, B06。需求：FR15, FR16, FR18。
 
-输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json。
+输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md, acceptance/stack-cases.json。
 
 独占写集：`src/shared/**`, `tests/shared/**`, `tests/security/**`, `tests/e2e/recovery.spec.ts`, `Dockerfile`, `.dockerignore`, `scripts/start-production.*`, `docs/deploy.md`。
 
 实施顺序：
 1. 并发、相同request不同payload、旧版本和跨owner测试。
 2. 提交后断网复用结果，删除中回调不可复活。
-3. 持久卷/备份/恢复和单实例Node部署，不能误部署成无盘serverless。
+3. MySQL 8.4与私有媒体卷备份/恢复；单Node实例+数据库服务部署，故障期间拒绝成功响应，不自动降级内存数据库。
 4. 安全扫描RSC/HTML/网络、私有图访问与Origin。
 
 先失败后通过的验收：
@@ -585,28 +630,35 @@ npm run test:e2e:task -- B06
 - AT44: 返回原安全响应；曝光保持，不重复增加turn
 - AT46: lease失效不可提交，不重建已删除会话
 - AT48: 私有值不出现；Origin/归属检查；日志无明文凭据
+- ST08: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run
+- ST09: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run
+- ST10: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run
+- ST11: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run
+
+技术门禁：ST08, ST09, ST10, ST11。
 
 验证命令：
 ```text
 npm run typecheck
 npm run test:task -- A07
 npm run test:e2e:task -- A07
+npm run test:db
+npm run test:stack -- A07
 ```
 
 输出：可运行的纵向功能 + 对应测试 + handoffs/A07.md。交接必须包含：changed_files, commands_and_actual_results, acceptance_status, known_failures, next_dependency。
 
-
-### B07｜D7｜工作流恢复、预算和守卫攻击回归（B，1人日）
+### B07｜D7｜工作流恢复、预算和守卫攻击回归（B，约1人日）
 
 前置：B06, A06。需求：FR06, FR10, FR15, FR16。
 
-输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json。
+输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md, acceptance/stack-cases.json。
 
 独占写集：`src/workflows/**`, `src/agents/guard/**`, `tests/workflows/**`, `tests/guard/**`, `tests/agents/security.test.ts`。
 排除：src/agents/assessment/**；跨公共文件由owner合入。
 
 实施顺序：
-1. 节点日志按input/model/prompt哈希重用，重启续跑只恢复未完成节点。
+1. LangGraph/MySQL checkpoint结合node_runs/input/model/prompt哈希恢复；覆盖checkpoint写前后、领域commit前后杀进程，验证只一次有效提交。
 2. 所有模型尝试计全局call/token/time预算，最多一次schema修复和文本重写。
 3. 执行提示注入、私有答案泄露、假证据与越权角色负例。
 4. 确认中性fallback不生成虚构曝光，正常消息也先检查后显示。
@@ -616,22 +668,29 @@ npm run test:e2e:task -- A07
 - AT43: 已完成同hash节点复用；活动lease检查；可能重计费如实记录
 - AT45: 硬截止中止；所有尝试共享预算；不绕开守卫
 - AT49: 内容不能改系统指令/调用工具/执行脚本；危险链接禁用
+- ST06: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run
+- ST07: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run
+- ST08: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run
+- ST09: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run
+- ST12: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run
+
+技术门禁：ST06, ST07, ST08, ST09, ST12。
 
 验证命令：
 ```text
 npm run typecheck
 npm run test:task -- B07
 npm run test:e2e:task -- B07
+npm run test:stack -- B07
 ```
 
 输出：可运行的纵向功能 + 对应测试 + handoffs/B07.md。交接必须包含：changed_files, commands_and_actual_results, acceptance_status, known_failures, next_dependency。
 
-
-### A08｜D8｜全题库审计与端到端验证（A，1人日）
+### A08｜D8｜全题库审计与端到端验证（A，约1人日）
 
 前置：A07, B07。需求：FR02, FR03, FR11, FR17。
 
-输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json。
+输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
 独占写集：`scripts/bank-audit.*`, `scripts/evaluate-app.*`, `tests/e2e/**`, `artifacts/eval/bank/**`, `artifacts/eval/e2e/**`。
 
@@ -647,6 +706,8 @@ npm run test:e2e:task -- B07
 - AT30: 先锁计划，无中间对错反馈，最终才独立分判
 - AT50: 公开完整分母/失败/未就绪/未覆盖，不能只挑成功题
 
+技术门禁：继承A01/B01已通过基线。
+
 验证命令：
 ```text
 npm run typecheck
@@ -656,12 +717,11 @@ npm run test:e2e:task -- A08
 
 输出：可运行的纵向功能 + 对应测试 + handoffs/A08.md。交接必须包含：changed_files, commands_and_actual_results, acceptance_status, known_failures, next_dependency。
 
-
-### B08｜D8｜角色回归与强基线教学比较（B，1人日）
+### B08｜D8｜角色回归与强基线教学比较（B，约1人日）
 
 前置：B07, A07。需求：FR08, FR09, FR17。
 
-输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json。
+输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
 独占写集：`scripts/evaluate-teaching.*`, `tests/eval/**`, `artifacts/eval/roles/**`, `artifacts/eval/baseline/**`。
 排除：src/agents/assessment/**；跨公共文件由owner合入。
@@ -679,6 +739,8 @@ npm run test:e2e:task -- A08
 - AT51: 报告诊断/过提示/unknown/成本，不能声称统计因果或只比答案准确率
 - AT52: 各角色有正反用例、独立结果；模拟与真实模型标签分开
 
+技术门禁：继承A01/B01已通过基线。
+
 验证命令：
 ```text
 npm run typecheck
@@ -688,12 +750,11 @@ npm run test:e2e:task -- B08
 
 输出：可运行的纵向功能 + 对应测试 + handoffs/B08.md。交接必须包含：changed_files, commands_and_actual_results, acceptance_status, known_failures, next_dependency。
 
-
-### A09｜D9｜体验修复、验收人复查与演示路径（A，1人日）
+### A09｜D9｜体验修复、验收人复查与演示路径（A，约1人日）
 
 前置：A08, B08。需求：FR13, FR17, FR18。
 
-输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json。
+输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
 独占写集：`src/features/bank/**`, `src/features/media/**`, `src/features/assessment/**`, `src/features/report/**`, `src/features/history/**`, `tests/e2e/**`, `docs/demo.md`。
 
@@ -709,6 +770,8 @@ npm run test:e2e:task -- B08
 - AT53: 记录是否真人/授权与样本边界；未做为not_run，不伪造学会
 - AT56: 所有核心功能可达；错误态不丢输入，加载状态真实
 
+技术门禁：继承A01/B01已通过基线。
+
 验证命令：
 ```text
 npm run typecheck
@@ -718,12 +781,11 @@ npm run test:e2e:task -- A09
 
 输出：可运行的纵向功能 + 对应测试 + handoffs/A09.md。交接必须包含：changed_files, commands_and_actual_results, acceptance_status, known_failures, next_dependency。
 
-
-### B09｜D9｜教学质量修复和全场景回归（B，1人日）
+### B09｜D9｜教学质量修复和全场景回归（B，约1人日）
 
 前置：B08, A08。需求：FR03, FR07, FR08, FR09, FR10, FR17。
 
-输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json。
+输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
 独占写集：`src/agents/**`, `src/prompts/**`, `src/features/tutor/**`, `src/features/teacher/**`, `tests/agents/**`, `tests/tutor/**`, `artifacts/eval/final/**`。
 排除：src/agents/assessment/**；跨公共文件由owner合入。
@@ -742,6 +804,8 @@ npm run test:e2e:task -- A09
 - AT28: 最多一次重写；中性fallback；未经检查内容不进入HTTP流
 - AT57: 无针对demo硬编码；保留失败记录并重跑关键P0
 
+技术门禁：继承A01/B01已通过基线。
+
 验证命令：
 ```text
 npm run typecheck
@@ -751,17 +815,16 @@ npm run test:e2e:task -- B09
 
 输出：可运行的纵向功能 + 对应测试 + handoffs/B09.md。交接必须包含：changed_files, commands_and_actual_results, acceptance_status, known_failures, next_dependency。
 
-
-### A10｜D10｜发布冻结、部署验收和交付缓冲（A，1人日）
+### A10｜D10｜发布冻结、部署验收和交付缓冲（A，约1人日）
 
 前置：A09, B09。需求：FR01, FR16, FR18。
 
-输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json。
+输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md, acceptance/stack-cases.json。
 
 独占写集：`docs/release.md`, `docs/deploy.md`, `artifacts/release/**`, `scripts/release-check.*`。
 
 实施顺序：
-1. 从干净环境npm ci/build/启动，恢复磁盘状态与删除操作。
+1. 从干净环境npm ci/build/启动；迁移MySQL 8.4、健康检查，恢复数据库与媒体备份并验证删除操作。
 2. 逐项汇总P0测试、题库覆盖和依赖准入证据。
 3. 检查密钥/手写数据不入仓库与录像，整理运行和回滚说明。
 4. 仅全部发布闸门通过才标可演示，否则列明未完成和追加日程。
@@ -772,22 +835,27 @@ npm run test:e2e:task -- B09
 - AT48: 私有值不出现；Origin/归属检查；日志无明文凭据
 - AT54: 完整Web可演示、磁盘可恢复、密钥不入客户端；缺外部条件不宣布全验收
 - AT58: reuse-lock有精确版本和证据；没跑不标accepted
+- ST01: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run
+- ST10: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run
+- ST11: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run
+
+技术门禁：ST01, ST10, ST11。
 
 验证命令：
 ```text
 npm run typecheck
 npm run test:task -- A10
 npm run test:e2e:task -- A10
+npm run test:stack -- A10
 ```
 
 输出：可运行的纵向功能 + 对应测试 + handoffs/A10.md。交接必须包含：changed_files, commands_and_actual_results, acceptance_status, known_failures, next_dependency。
 
-
-### B10｜D10｜提示冻结、现场联测与答辩材料（B，1人日）
+### B10｜D10｜提示冻结、现场联测与答辩材料（B，约1人日）
 
 前置：B09, A09。需求：FR06, FR14, FR17, FR18。
 
-输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json。
+输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md, acceptance/stack-cases.json。
 
 独占写集：`docs/teaching-demo.md`, `docs/model-card.md`, `artifacts/release/teaching/**`。
 排除：src/agents/assessment/**；跨公共文件由owner合入。
@@ -803,16 +871,20 @@ npm run test:e2e:task -- A10
 - AT40: 先计当前task whole_task曝光再返回；未来rubric无泄露，无预取
 - AT41: 包含证据、竞争假设、已预存探针、动作理由和后续更新；不含隐藏CoT
 - AT55: 使用实时服务或明确标注回放；答辩展示真实依据和边界
+- ST05: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run
+- ST12: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run
+
+技术门禁：ST05, ST12。
 
 验证命令：
 ```text
 npm run typecheck
 npm run test:task -- B10
 npm run test:e2e:task -- B10
+npm run test:stack -- B10
 ```
 
 输出：可运行的纵向功能 + 对应测试 + handoffs/B10.md。交接必须包含：changed_files, commands_and_actual_results, acceptance_status, known_failures, next_dependency。
-
 
 ## 附录C｜60项Given/When/Then验收
 
@@ -1266,6 +1338,6 @@ npm run test:e2e:task -- B10
 
 本PRD配套附件qisi-sdd-v3.zip。它包含requirements/tasks/traceability、48类严格Schema、状态/角色/16内部函数、SQL/Port、16正例/20负例/16行为脚本、角色测试、启动提示和静态校验。实现时每次改Schema同步fixture与AT。
 
-设计：[多Agent设计V6](https://docs.popo.netease.com/lingxi/a3ceafa9c4ac4a1ebab7ebd04068a9c2)；规划：[双人约十天规划V3](https://docs.popo.netease.com/lingxi/98264ae3b38941a5aaf1b62e59abc31c)。
+设计：[多Agent设计V6.1](https://docs.popo.netease.com/lingxi/a3ceafa9c4ac4a1ebab7ebd04068a9c2)；规划：[双人约十天规划V3.1](https://docs.popo.netease.com/lingxi/98264ae3b38941a5aaf1b62e59abc31c)。
 
 本规格交付不包含真实key/正式题库/应用实现/真实学生测试数据。不要把静态校验报告用于声称已达到比赛效果。

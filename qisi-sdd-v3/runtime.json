@@ -1,6 +1,6 @@
 {
-  "version": "qisi-3.0",
-  "runner": "typed_typescript_sqlite_journal",
+  "version": "qisi-3.1",
+  "runner": "langgraphjs_graph_api",
   "single_instance": true,
   "workflows": {
     "turn": {
@@ -49,5 +49,28 @@
     "warm_turn_p50_ms": 15000,
     "warm_turn_p95_ms": 35000,
     "status": "not_measured"
+  },
+  "model_sdk": "ai_sdk_core",
+  "model_sdk_max_retries": 0,
+  "business_commit_owner": "StorePort.commitChecked",
+  "database": {
+    "engine": "mysql",
+    "version_line": "8.4",
+    "driver": "mysql2",
+    "engine_storage": "InnoDB",
+    "charset": "utf8mb4",
+    "transaction_isolation": "READ COMMITTED",
+    "time_zone": "+00:00",
+    "pool_max": 10,
+    "checkpoint_store": "same_mysql_database",
+    "automatic_in_memory_fallback": false
+  },
+  "graph": {
+    "api": "StateGraph",
+    "checkpoint_thread_key": "run_id",
+    "recursion_limit": 32,
+    "node_retry_policy": "disabled_use_budgeted_ModelPort",
+    "checkpoint_authorizes_commit": false,
+    "client_supplied_checkpoint_ids": false
   }
 }

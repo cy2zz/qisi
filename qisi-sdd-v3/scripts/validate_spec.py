@@ -1,6 +1,6 @@
 """Validate SDD artifacts only; never reports application/model/learning success."""
 from pathlib import Path
-import json,copy,csv,sqlite3,hashlib,sys,datetime
+import json,copy,csv,hashlib,sys,datetime
 from jsonschema import Draft202012Validator,FormatChecker
 from semantic_rules import errors as semantic_errors
 R=Path(__file__).resolve().parents[1]
@@ -19,7 +19,7 @@ def acyclic(mapping):
   active.remove(k);done.add(k);return True
  return all(visit(k) for k in mapping)
 
-required=['README.md','AGENTS.md','design-v6.md','plan.md','prd.md','reuse.md','requirements.json','tasks.json','traceability.csv','runtime.json','reuse-lock.json','scope-changes.json','env.example','contracts/domain.schema.json','contracts/README.md','contracts/database.sql','contracts/ports.ts','contracts/agents.json','contracts/state-transitions.json','contracts/server-functions.json','acceptance/cases.json','acceptance/role-cases.json','acceptance/evaluation-protocol.md','acceptance/result-template.json','fixtures/index.json','fixtures/negative-cases.json','fixtures/branch-cases.json','prompts/developer-a.md','prompts/developer-b.md','prompts/developer-single.md','prompts/vision.md','changes/template.md','handoffs/template.md','requirements-dev.txt','publication/publication-status.json']
+required=['README.md','AGENTS.md','design-v6.md','plan.md','prd.md','reuse.md','requirements.json','tasks.json','traceability.csv','runtime.json','reuse-lock.json','scope-changes.json','env.example','contracts/domain.schema.json','contracts/README.md','contracts/database.sql','contracts/ports.ts','contracts/agents.json','contracts/state-transitions.json','contracts/server-functions.json','acceptance/cases.json','acceptance/role-cases.json','acceptance/evaluation-protocol.md','acceptance/result-template.json','fixtures/index.json','fixtures/negative-cases.json','fixtures/branch-cases.json','prompts/developer-a.md','prompts/developer-b.md','prompts/developer-single.md','prompts/vision.md','changes/template.md','handoffs/template.md','requirements-dev.txt','publication/publication-status.json','stack.json','adr/ADR-001-stack.md','contracts/mysql.md','contracts/workflow-persistence.md','acceptance/stack-cases.json','scripts/validate_stack.py','scripts/validate_mysql.py','publication/local-revision-status.json']
 for p in required:check('file:'+p,(R/p).is_file())
 for p in R.rglob('*'):
  if p.suffix in ('.md','.json','.csv','.py','.ts','.sql') and '__pycache__' not in p.parts and (str(p.relative_to(R)).replace('\\','/') in required or p.relative_to(R).parts[0] in ('contracts','acceptance','fixtures','prompts','changes','handoffs') or p.relative_to(R).as_posix() in ('scripts/validate_spec.py','scripts/semantic_rules.py','scripts/package.py','publication/README.md')):
@@ -83,20 +83,15 @@ check('probe global limit',rt['probe_limit_per_canonical_goal']==2)
 check('role repair bounded',rt['schema_repairs_per_run']==1 and rt['text_rewrites_per_run']==1 and rt['route_reviews_per_turn']==1)
 for w,b in rt['workflows'].items():check('budget:'+w,0<b['normal_calls']<=b['max_calls']<=7 and b['deadline_ms']>0 and b['input_tokens_cap']>0 and b['output_tokens_cap']>0)
 check('reuse not pretended installed',load('reuse-lock.json')['status']=='planned_not_installed' and all(i['resolved_version'] is None for i in load('reuse-lock.json')['items']))
-conn=sqlite3.connect(':memory:');conn.executescript((R/'contracts/database.sql').read_text(encoding='utf8'))
-check('SQLite specification syntax +16 tables',conn.execute("SELECT COUNT(*) FROM sqlite_master WHERE type='table'").fetchone()[0]==16)
-conn.execute("INSERT INTO owners VALUES('o','h','2099',0)")
-conn.execute("INSERT INTO sessions VALUES('s','o',1,'study','{}','{}',NULL,'2099')")
-conn.execute("INSERT INTO probe_counters VALUES('s','t','g',2)")
-try:
- conn.execute("UPDATE probe_counters SET shown_count=3");check('SQL probe cap rejects third',False)
-except sqlite3.IntegrityError:check('SQL probe cap rejects third',True)
-try:
- conn.execute("INSERT INTO sessions VALUES('s2','missing',1,'study','{}','{}',NULL,'2099')");check('SQL FK rejects foreign owner',False)
-except sqlite3.IntegrityError:check('SQL FK rejects foreign owner',True)
-conn.execute("DELETE FROM owners WHERE id='o'")
-check('SQL owner cascade',conn.execute('SELECT COUNT(*) FROM sessions').fetchone()[0]==0 and conn.execute('SELECT COUNT(*) FROM probe_counters').fetchone()[0]==0)
-conn.close()
+# MySQL DDL is NOT run by this static validator. Never substitute SQLite semantics.
+from validate_stack import inspect as inspect_stack
+for result in inspect_stack():check(result['check'],result['passed'])
+st=load('acceptance/stack-cases.json');sm={c['id']:c for c in st}
+for task in tasks:
+ check(task['id']+':stack references',all(k in sm and task['id'] in sm[k]['tasks'] for k in task.get('stack_acceptance',[])))
+for case in st:
+ check(case['id']+':reverse tasks',all(t in tm and case['id'] in tm[t].get('stack_acceptance',[]) for t in case['tasks']))
+ check(case['id']+':behavior complete',all(case.get(k) for k in ['given','when','then','negative','evidence_required']))
 prd=(R/'prd.md').read_text(encoding='utf8');plan=(R/'plan.md').read_text(encoding='utf8')
 for i in list(rm)+list(tm)+list(cm):check('PRD contains '+i,i in prd)
 for i in tm:check('plan contains '+i,i in plan)
@@ -121,7 +116,7 @@ for item in load('evidence/manifest.json')['files']:
  check('evidence hash:'+item['path'],source.is_file() and source.stat().st_size==item['bytes'] and hashlib.sha256(source.read_bytes()).hexdigest()==item['sha256'])
 
 failed=[r for r in results if not r['passed']]
-report=dict(baseline='qisi-3.0',generated_at=datetime.datetime.now(datetime.timezone.utc).isoformat(),scope='specification_only',passed=len(results)-len(failed),failed=len(failed),application_tests='not_run',real_model_tests='not_run',student_learning_evaluation='not_evaluated',limitations=['Semantic oracles cover the supplied cases, not all production behavior.','SQLite checks run in memory for schema constraints, not persistence/app acceptance.','No official question bank, provider calls, deployment or learning experiment was executed.'],checks=results)
+report=dict(baseline='qisi-3.1',generated_at=datetime.datetime.now(datetime.timezone.utc).isoformat(),scope='specification_only',passed=len(results)-len(failed),failed=len(failed),application_tests='not_run',mysql_ddl_tests='not_run',langgraph_runtime_tests='not_run',real_model_tests='not_run',student_learning_evaluation='not_evaluated',limitations=['Semantic oracles cover the supplied cases, not all production behavior.','MySQL DDL is not executed by this validator; validate_mysql.py and application integration tests must run against real MySQL 8.4.','No official question bank, provider calls, deployment or learning experiment was executed.'],checks=results)
 (R/'spec-validation.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
 print(json.dumps({k:v for k,v in report.items() if k!='checks'},ensure_ascii=False,indent=2))
 for r in failed:print('FAIL',r['check'],r['detail'])

@@ -1,0 +1,275 @@
+[
+  {
+    "id": "ST01",
+    "tasks": [
+      "A01",
+      "A10"
+    ],
+    "title": "版本与干净构建",
+    "given": "安装并锁定目标依赖及镜像",
+    "when": "从干净checkout执行npm ci、typecheck、build",
+    "then": "Node24/Next16/React19/MySQL8.4符合stack.json；精确lock/镜像摘要存在；旧frontend/backend不是启动前置",
+    "negative": "Node/库/镜像版本不符必须失败，不可用latest或伪造resolved_version",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_required": [
+      "actual_commands",
+      "versions",
+      "database_engine",
+      "provider_mode",
+      "assertions",
+      "failure_cases"
+    ],
+    "scope": "runtime_acceptance_not_static_spec"
+  },
+  {
+    "id": "ST02",
+    "tasks": [
+      "A01"
+    ],
+    "title": "真实数据库迁移与认证",
+    "given": "已有隔离MySQL8.4测试库，默认认证开启",
+    "when": "运行迁移、重复迁移、UTC/JSON/中文公式往返",
+    "then": "19表及迁移记录、mysql2连接成功、checksum一致；重复迁移不重复改表",
+    "negative": "错误版本、坏checksum、半途失败停止；不禁用认证或降级内存",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_required": [
+      "actual_commands",
+      "versions",
+      "database_engine",
+      "provider_mode",
+      "assertions",
+      "failure_cases"
+    ],
+    "scope": "runtime_acceptance_not_static_spec"
+  },
+  {
+    "id": "ST03",
+    "tasks": [
+      "A01"
+    ],
+    "title": "数据库约束",
+    "given": "存在owner/session与两次已显示探针",
+    "when": "插入第三探针、重复请求键、非法JSON、无父owner",
+    "then": "CHECK/UNIQUE/JSON/FK都真实拒绝；级联仅删除所属数据",
+    "negative": "不允许SQLite/H2通过冒充MySQL",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_required": [
+      "actual_commands",
+      "versions",
+      "database_engine",
+      "provider_mode",
+      "assertions",
+      "failure_cases"
+    ],
+    "scope": "runtime_acceptance_not_static_spec"
+  },
+  {
+    "id": "ST04",
+    "tasks": [
+      "A01"
+    ],
+    "title": "页面到MySQL纵向链路",
+    "given": "单Next.js进程+MySQL，明确fixture模式",
+    "when": "学生提交经图节点、schema、Guard和事务后刷新",
+    "then": "安全响应来自MySQL且完整；MathMarkdown显示正常；源码/页面无私有状态",
+    "negative": "数据库不可用不得返回假成功；未来答案不入RSC/网络",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_required": [
+      "actual_commands",
+      "versions",
+      "database_engine",
+      "provider_mode",
+      "assertions",
+      "failure_cases"
+    ],
+    "scope": "runtime_acceptance_not_static_spec"
+  },
+  {
+    "id": "ST05",
+    "tasks": [
+      "B01",
+      "B10"
+    ],
+    "title": "模型I/O单层与真实能力",
+    "given": "锁定AI SDK adapter，若无key保留blocked_external",
+    "when": "按实际provider测试文本/结构化/图片/取消/usage",
+    "then": "所有Agent经ModelPort；AI SDK重试0；真实与fixture记录分开",
+    "negative": "不启用第二套自动Agent循环；不支持的图片/usage明确拒绝或按契约估算",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_required": [
+      "actual_commands",
+      "versions",
+      "database_engine",
+      "provider_mode",
+      "assertions",
+      "failure_cases"
+    ],
+    "scope": "runtime_acceptance_not_static_spec"
+  },
+  {
+    "id": "ST06",
+    "tasks": [
+      "B01",
+      "B07"
+    ],
+    "title": "MySQL saver协议往返",
+    "given": "真实MySQL+所锁BaseCheckpointSaver类型",
+    "when": "put/getTuple/list/filter/before/parent/putWrites及重启读取",
+    "then": "typed serde保留完整channel值、pendingWrites、task_path与特殊索引；结果稳定",
+    "negative": "同键内容冲突/损坏序列化/不支持过滤不得静默成功",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_required": [
+      "actual_commands",
+      "versions",
+      "database_engine",
+      "provider_mode",
+      "assertions",
+      "failure_cases"
+    ],
+    "scope": "runtime_acceptance_not_static_spec"
+  },
+  {
+    "id": "ST07",
+    "tasks": [
+      "B01",
+      "B07"
+    ],
+    "title": "有界四Agent图",
+    "given": "有可控fixture及每角色schema",
+    "when": "正常turn/prepare/grade/transcribe及route_review/Guard失败分支",
+    "then": "角色独立输入输出；图分支和调用日志真实；总预算不超runtime",
+    "negative": "图自动重试、schema修复或route_review不得绕过统一预算",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_required": [
+      "actual_commands",
+      "versions",
+      "database_engine",
+      "provider_mode",
+      "assertions",
+      "failure_cases"
+    ],
+    "scope": "runtime_acceptance_not_static_spec"
+  },
+  {
+    "id": "ST08",
+    "tasks": [
+      "A07",
+      "B07"
+    ],
+    "title": "checkpoint与业务提交故障窗",
+    "given": "运行中的run及可恢复输入",
+    "when": "在节点结果/checkpoint/commit前后杀进程、断数据库再恢复",
+    "then": "未完成节点按有效哈希恢复；commit成功用原request返回；只一次公开消息与曝光",
+    "negative": "checkpoint不能当commit成功；未知远端调用重试可能计费必须报告",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_required": [
+      "actual_commands",
+      "versions",
+      "database_engine",
+      "provider_mode",
+      "assertions",
+      "failure_cases"
+    ],
+    "scope": "runtime_acceptance_not_static_spec"
+  },
+  {
+    "id": "ST09",
+    "tasks": [
+      "A07",
+      "B07"
+    ],
+    "title": "撤销与晚到写入",
+    "given": "执行中run、有效lease及旧checkpoint",
+    "when": "取消/删除/过期后让模型和saver晚到，或旧executor继续写",
+    "then": "旧lease拒绝写入；会话/快照不复活；新executor使用新fencing token",
+    "negative": "只检查checkpoint.thread_id不够；跨owner输入不可恢复",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_required": [
+      "actual_commands",
+      "versions",
+      "database_engine",
+      "provider_mode",
+      "assertions",
+      "failure_cases"
+    ],
+    "scope": "runtime_acceptance_not_static_spec"
+  },
+  {
+    "id": "ST10",
+    "tasks": [
+      "A07",
+      "A10"
+    ],
+    "title": "备份恢复与TTL",
+    "given": "MySQL+私有媒体/会话/checkpoint数据",
+    "when": "从备份恢复到隔离环境并执行TTL与删除清单",
+    "then": "历史安全响应/图片映射正确；过期私有checkpoint/pending writes一并清理",
+    "negative": "恢复备份不能洗掉帮助或复活已删除个人数据",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_required": [
+      "actual_commands",
+      "versions",
+      "database_engine",
+      "provider_mode",
+      "assertions",
+      "failure_cases"
+    ],
+    "scope": "runtime_acceptance_not_static_spec"
+  },
+  {
+    "id": "ST11",
+    "tasks": [
+      "A07",
+      "A10"
+    ],
+    "title": "配置/权限与部署",
+    "given": "生产配置及运行账号、迁移账号分离",
+    "when": "数据库故障、错误TLS证书、无迁移权限账号",
+    "then": "错误连接失败；私网数据库；健康检查不泄密；就绪状态明确",
+    "negative": "不得公网开放数据库、跳过证书校验、将密钥打入NEXT_PUBLIC或日志",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_required": [
+      "actual_commands",
+      "versions",
+      "database_engine",
+      "provider_mode",
+      "assertions",
+      "failure_cases"
+    ],
+    "scope": "runtime_acceptance_not_static_spec"
+  },
+  {
+    "id": "ST12",
+    "tasks": [
+      "B07",
+      "B10"
+    ],
+    "title": "学习独立性不被恢复洗白",
+    "given": "已帮助原题/冻结首次检验计划及答案的会话",
+    "when": "重启、重复请求、图恢复后继续新任务检验",
+    "then": "原AT独立资格/曝光/首次作答不变量仍成立；模型任务完成不等于学会",
+    "negative": "图成功或checkpoint存在不能直接设置mastered/independent",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_required": [
+      "actual_commands",
+      "versions",
+      "database_engine",
+      "provider_mode",
+      "assertions",
+      "failure_cases"
+    ],
+    "scope": "runtime_acceptance_not_static_spec"
+  }
+]

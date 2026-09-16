@@ -1,13 +1,16 @@
 {
   "file": "qisi-sdd-v3.zip",
-  "bytes": 227571,
-  "sha256": "d4f62ea542b0c969e3ea6afade3377a9d20b2e41e7e5a32bbb98d71c75aca23b",
-  "files": 83,
+  "bytes": 262221,
+  "sha256": "d7d6b39af6caf94421e72cba1a3c1d71bae1e846b7c9ae8d07495641cfaf5e81",
+  "files": 93,
   "archive_verified": true,
-  "spec_checks_passed": 647,
+  "spec_checks_passed": 830,
   "spec_checks_failed": 0,
+  "baseline": "qisi-3.1",
+  "mysql_ddl_tests": "not_run",
+  "langgraph_runtime_tests": "not_run",
   "application_tests": "not_run",
   "real_model_tests": "not_run",
   "student_learning_evaluation": "not_evaluated",
-  "online_publication_status": "publication_tracked_externally"
+  "online_publication_status": "not_published"
 }

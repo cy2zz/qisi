@@ -1,15 +1,17 @@
 {
-  "baseline": "qisi-3.0",
-  "generated_at": "2026-09-16T02:32:38.651615+00:00",
+  "baseline": "qisi-3.1",
+  "generated_at": "2026-09-16T09:46:34.804485+00:00",
   "scope": "specification_only",
-  "passed": 647,
+  "passed": 830,
   "failed": 0,
   "application_tests": "not_run",
+  "mysql_ddl_tests": "not_run",
+  "langgraph_runtime_tests": "not_run",
   "real_model_tests": "not_run",
   "student_learning_evaluation": "not_evaluated",
   "limitations": [
     "Semantic oracles cover the supplied cases, not all production behavior.",
-    "SQLite checks run in memory for schema constraints, not persistence/app acceptance.",
+    "MySQL DDL is not executed by this validator; validate_mysql.py and application integration tests must run against real MySQL 8.4.",
     "No official question bank, provider calls, deployment or learning experiment was executed."
   ],
   "checks": [
@@ -189,6 +191,46 @@
       "detail": ""
     },
     {
+      "check": "file:stack.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:adr/ADR-001-stack.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:contracts/mysql.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:contracts/workflow-persistence.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:acceptance/stack-cases.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:scripts/validate_stack.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:scripts/validate_mysql.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:publication/local-revision-status.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
       "check": "utf8:AGENTS.md",
       "passed": true,
       "detail": ""
@@ -239,6 +281,11 @@
       "detail": ""
     },
     {
+      "check": "utf8:stack.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
       "check": "utf8:tasks.json",
       "passed": true,
       "detail": ""
@@ -269,6 +316,21 @@
       "detail": ""
     },
     {
+      "check": "utf8:acceptance\\stack-cases.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:adr\\ADR-001-stack.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:changes\\CR-001-stack-freeze.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
       "check": "utf8:changes\\template.md",
       "passed": true,
       "detail": ""
@@ -285,6 +347,11 @@
     },
     {
       "check": "utf8:contracts\\domain.schema.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:contracts\\mysql.md",
       "passed": true,
       "detail": ""
     },
@@ -310,6 +377,11 @@
     },
     {
       "check": "utf8:contracts\\vision-output.schema.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:contracts\\workflow-persistence.md",
       "passed": true,
       "detail": ""
     },
@@ -464,6 +536,11 @@
       "detail": ""
     },
     {
+      "check": "utf8:publication\\local-revision-status.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
       "check": "utf8:publication\\publication-status.json",
       "passed": true,
       "detail": ""
@@ -484,7 +561,17 @@
       "detail": ""
     },
     {
+      "check": "utf8:scripts\\validate_mysql.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
       "check": "utf8:scripts\\validate_spec.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:scripts\\validate_stack.py",
       "passed": true,
       "detail": ""
     },
@@ -2419,22 +2506,852 @@
       "detail": ""
     },
     {
-      "check": "SQLite specification syntax +16 tables",
+      "check": "stack:baseline",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "SQL probe cap rejects third",
+      "check": "stack:node",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "SQL FK rejects foreign owner",
+      "check": "stack:next",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "SQL owner cascade",
+      "check": "stack:react",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "stack:language",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "stack:database",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "stack:database_driver",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "stack:orchestration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "stack:model_sdk",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "stack:orm",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "patch versions honestly pending",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "runtime graph runner",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "runtime mysql only",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "domain owns final transaction",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no model sdk automatic retries",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "single recovery worker",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "dependency:mysql2",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "dependency:@langchain/langgraph",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "dependency:@langchain/langgraph-checkpoint",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "dependency:ai",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "dependency:tailwindcss",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "dependency:zod",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "dependency:@playwright/test",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no sqlite runtime dependency",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "mysql 19 unique tables",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "all tables InnoDB",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "native JSON columns",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "mysql explicit foreign keys",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "probe cap enforced contract",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no sqlite SQL",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "table:workflow_checkpoints",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "table:workflow_writes",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "table:schema_migrations",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:adr/ADR-001-stack.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:contracts/workflow-persistence.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:contracts/mysql.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:acceptance/stack-cases.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:scripts/validate_mysql.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:publication/local-revision-status.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "stack cases unique",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "stack runtime acceptance not fabricated",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "baseline:README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no active old app directory:README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "stack reference:README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "baseline:AGENTS.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no active old app directory:AGENTS.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "stack reference:AGENTS.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "baseline:prd.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no active old app directory:prd.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "stack reference:prd.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "baseline:plan.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no active old app directory:plan.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "stack reference:plan.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "baseline:design-v6.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no active old app directory:design-v6.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "stack reference:design-v6.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "baseline:contracts/README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no active old app directory:contracts/README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "stack reference:contracts/README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "baseline:prompts/developer-a.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no active old app directory:prompts/developer-a.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "stack reference:prompts/developer-a.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "baseline:prompts/developer-b.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no active old app directory:prompts/developer-b.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "stack reference:prompts/developer-b.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "baseline:prompts/developer-single.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no active old app directory:prompts/developer-single.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "stack reference:prompts/developer-single.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "unique task cards:plan.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:plan.md:A01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:plan.md:B01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:plan.md:A02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:plan.md:B02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:plan.md:A03",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:plan.md:B03",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:plan.md:A04",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:plan.md:B04",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:plan.md:A05",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:plan.md:B05",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:plan.md:A06",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:plan.md:B06",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:plan.md:A07",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:plan.md:B07",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:plan.md:A08",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:plan.md:B08",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:plan.md:A09",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:plan.md:B09",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:plan.md:A10",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:plan.md:B10",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "unique task cards:prd.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:prd.md:A01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:prd.md:B01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:prd.md:A02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:prd.md:B02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:prd.md:A03",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:prd.md:B03",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:prd.md:A04",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:prd.md:B04",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:prd.md:A05",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:prd.md:B05",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:prd.md:A06",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:prd.md:B06",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:prd.md:A07",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:prd.md:B07",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:prd.md:A08",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:prd.md:B08",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:prd.md:A09",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:prd.md:B09",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:prd.md:A10",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "task steps synchronized:prd.md:B10",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no stale directive:plan.md:SQLite迁移",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no stale directive:plan.md:默认原生TS编排ADR",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no stale directive:plan.md:LangGraph.js为候选非必装",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no stale directive:plan.md:候选暂不作为基线依赖",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no stale directive:prd.md:SQLite迁移",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no stale directive:prd.md:默认原生TS编排ADR",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no stale directive:prd.md:LangGraph.js为候选非必装",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no stale directive:prd.md:候选暂不作为基线依赖",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no stale directive:reuse.md:SQLite迁移",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no stale directive:reuse.md:默认原生TS编排ADR",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no stale directive:reuse.md:LangGraph.js为候选非必装",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no stale directive:reuse.md:候选暂不作为基线依赖",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no stale directive:prompts/developer-b.md:SQLite迁移",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no stale directive:prompts/developer-b.md:默认原生TS编排ADR",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no stale directive:prompts/developer-b.md:LangGraph.js为候选非必装",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no stale directive:prompts/developer-b.md:候选暂不作为基线依赖",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A01:stack references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B01:stack references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A02:stack references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B02:stack references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A03:stack references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B03:stack references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A04:stack references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B04:stack references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A05:stack references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B05:stack references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A06:stack references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B06:stack references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A07:stack references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B07:stack references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A08:stack references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B08:stack references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A09:stack references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B09:stack references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A10:stack references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B10:stack references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ST01:reverse tasks",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ST01:behavior complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ST02:reverse tasks",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ST02:behavior complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ST03:reverse tasks",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ST03:behavior complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ST04:reverse tasks",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ST04:behavior complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ST05:reverse tasks",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ST05:behavior complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ST06:reverse tasks",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ST06:behavior complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ST07:reverse tasks",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ST07:behavior complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ST08:reverse tasks",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ST08:behavior complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ST09:reverse tasks",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ST09:behavior complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ST10:reverse tasks",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ST10:behavior complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ST11:reverse tasks",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ST11:behavior complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ST12:reverse tasks",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ST12:behavior complete",
       "passed": true,
       "detail": ""
     },
