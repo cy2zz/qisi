@@ -1,0 +1,19 @@
+{
+  "name": "qisi-ai",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "engines": {
+    "node": ">=24.0.0 <25"
+  },
+  "scripts": {
+    "start": "concurrently --kill-others --names server,web \"npm --prefix server run dev\" \"npm --prefix web run dev\"",
+    "start:prod": "docker compose --env-file .env -f compose.production.yaml up -d --build"
+  },
+  "devDependencies": {
+    "concurrently": "10.0.5"
+  }
+}

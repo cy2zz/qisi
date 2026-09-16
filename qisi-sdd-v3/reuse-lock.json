@@ -3,7 +3,63 @@
   "verified_online_this_revision": false,
   "items": [
     {
-      "package": "next",
+      "package": "@nestjs/core",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "@nestjs/common",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "@nestjs/platform-express",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "@nestjs/testing",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "reflect-metadata",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "rxjs",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "vite",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "@vitejs/plugin-react",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "react-router-dom",
       "resolved_version": null,
       "status": "planned",
       "license_evidence": null,
@@ -162,11 +218,26 @@
       "status": "planned",
       "license_evidence": null,
       "test_evidence": null
+    },
+    {
+      "package": "kysely",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "supertest",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
     }
   ],
   "baseline": "qisi-3.1",
   "constraints": {
-    "next": "16.x",
+    "nestjs": "12.x",
+    "vite": "8.x",
     "react": "19.x",
     "react-dom": "19.x",
     "node": "24.x LTS",

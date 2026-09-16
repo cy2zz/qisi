@@ -713,7 +713,7 @@
     ],
     "layer": "e2e",
     "given": "答案/密钥/未来rubric埋在服务端",
-    "when": "扫描学生HTML/RSC/props/API与跨源mutation",
+    "when": "扫描学生HTML/React bundle/props/API与跨源mutation",
     "then": "私有值不出现；Origin/归属检查；日志无明文凭据",
     "status": "specified",
     "result": "not_run",

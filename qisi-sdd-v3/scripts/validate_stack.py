@@ -9,16 +9,18 @@ def inspect():
   p=R/name
   return json.loads(p.read_text(encoding="utf8")) if p.exists() else {}
  s=load("stack.json");r=load("runtime.json")
- for name,value in {"baseline":"qisi-3.1","node":"24 LTS","next":"16","react":"19","language":"TypeScript","database":"MySQL 8.4 LTS","database_driver":"mysql2","orchestration":"LangGraph.js Graph API","model_sdk":"AI SDK Core","orm":"none"}.items():
+ for name,value in {"baseline":"qisi-3.1","node":"24 LTS","react":"19","frontend_framework":"React","frontend_build_tool":"Vite 8","backend_framework":"NestJS 12","language":"TypeScript","database":"MySQL 8.4 LTS","database_driver":"mysql2","data_access":"Kysely + explicit SQL migrations","orchestration":"NestJS bounded workflows; LangGraph.js StateGraph when needed","model_sdk":"AI SDK Core"}.items():
   check("stack:"+name,s.get(name)==value)
  check("patch versions honestly pending",s.get("dependency_status")=="selected_not_installed")
- check("runtime graph runner",r.get("runner")=="langgraphjs_graph_api")
+ check("runtime NestJS worker",r.get("runner")=="nestjs_worker_with_optional_langgraphjs")
  check("runtime mysql only",r.get("database",{}).get("engine")=="mysql" and r.get("database",{}).get("version_line")=="8.4")
  check("domain owns final transaction",r.get("business_commit_owner")=="StorePort.commitChecked")
  check("no model sdk automatic retries",r.get("model_sdk_max_retries")==0)
- check("single recovery worker",r.get("single_instance") is True)
+ check("API and worker separated",r.get("api_worker_separation") is True)
+ check("single recovery worker",r.get("single_recovery_worker") is True)
  deps={x["package"] for x in load("reuse-lock.json").get("items",[])}
- for p in ["mysql2","@langchain/langgraph","@langchain/langgraph-checkpoint","ai","tailwindcss","zod","@playwright/test"]:check("dependency:"+p,p in deps)
+ for p in ["@nestjs/core","@nestjs/common","vite","@vitejs/plugin-react","react","mysql2","kysely","@langchain/langgraph","ai","tailwindcss","zod","@playwright/test"]:check("dependency:"+p,p in deps)
+ check("removed full-stack framework absent","next" not in deps)
  check("no sqlite runtime dependency",not any("sqlite" in p.lower() for p in deps))
  sql=(R/"contracts/database.sql").read_text(encoding="utf8")
  tables=re.findall(r"CREATE TABLE ([a-z_]+)",sql)

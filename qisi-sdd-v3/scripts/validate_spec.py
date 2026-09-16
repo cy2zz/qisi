@@ -41,7 +41,7 @@ for t in tasks:
  check(t['id']+':dependencies',set(t['depends_on'])<=tm.keys() and all(tm[d]['day']<=t['day'] for d in t['depends_on']))
  check(t['id']+':coverage',set(t['requirements'])<=rm.keys() and bool(t['acceptance']) and set(t['acceptance'])<=cm.keys())
  check(t['id']+':input files',all((R/p).is_file() for p in t['input']))
- if 'src/agents/**' in t['write_scope'] and t['owner']=='B':check(t['id']+':assessment ownership','src/agents/assessment/**' in t['excluded_write_scope'])
+ if 'server/src/agents/**' in t['write_scope'] and t['owner']=='B':check(t['id']+':assessment ownership','server/src/agents/assessment/**' in t['excluded_write_scope'])
 for owner in ('A','B'):
  rows=[t for t in tasks if t['owner']==owner];check(owner+':ten person-days',sum(t['person_days'] for t in rows)==10 and sorted(t['day'] for t in rows)==list(range(1,11)))
 check('dependency DAG',acyclic({t['id']:t['depends_on'] for t in tasks}))

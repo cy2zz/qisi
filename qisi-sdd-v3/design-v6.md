@@ -2,24 +2,24 @@
 
 > 交付基线：qisi-3.1；规格核验日期：2026-09-16。设计V6.1、开发规划V3.1与PRD V3.1配套使用，完整机器契约、测试夹具、A/B启动提示和校验脚本见仓库当前qisi-sdd-v3.zip；POPO仍是历史qisi-3.0附件，本次未同步。本交付是开发规格，不是已实现的应用或学习效果证明。
 
-版本：qisi-3.1；更新：2026-09-15。两人、约10个开发日（20人日基准），全栈Web单体。本文替代V5五日裁剪版；本次交付是设计与开发规格，不是已经实现的应用。
+版本：qisi-3.1；更新：2026-09-15。两人、约10个开发日（20人日基准）；`web/` React前端与`server/` NestJS后端同仓交付。本文替代V5五日裁剪版；本次交付是设计与开发规格，不是已经实现的应用。
 
 ## 已确认技术栈（ADR-001，qisi-3.1）
 
 | 层 | 唯一实施选择 |
 | --- | --- |
-| Web / 语言 | Next.js 16 App Router + React 19 + TypeScript + Node.js 24 LTS |
+| Web / 语言 | `web/` React 19 + Vite 8；`server/` NestJS 12；TypeScript + Node.js 24 LTS |
 | UI | Tailwind CSS + shadcn/ui |
-| 多Agent编排 | LangGraph.js Graph API（正式基线，不再是候选） |
+| 多Agent编排 | NestJS 领域服务承载有界工作流；复杂分支按需使用 LangGraph.js StateGraph |
 | 模型接入 | AI SDK Core，经项目ModelPort；provider按比赛资源与实际能力测试选择 |
-| 数据库 | MySQL Community Server 8.4 LTS + mysql2；InnoDB/utf8mb4，无ORM |
+| 数据库 | MySQL Community Server 8.4 LTS + mysql2 + Kysely；InnoDB/utf8mb4，显式 SQL 迁移 |
 | 验证/渲染 | Zod；react-markdown + remark-math + rehype-katex/KaTeX |
 | 手写 | sharp校验解码 + 多模态转写 + 学生确认，不新增Python服务 |
-| 测试/部署 | Vitest + Playwright + 真实MySQL集成；单Node应用 + MySQL + 私有媒体卷 |
+| 测试/部署 | Vitest + NestJS/Supertest + Playwright + 真实MySQL集成；React静态站点 + NestJS API/worker + MySQL + 私有媒体存储 |
 
-决定与现状必须区分：以上选型已获确认；精确patch和镜像digest待A01真实安装后锁定；仓库现有Java/Vite骨架尚未迁移。实施位置是qisi-dashboard仓库根src/，不另建应用仓库。
+决定与现状必须区分：以上选型已获确认；精确patch和镜像digest待A01真实安装后锁定。当前`web/`、`server/`属于未提交迁移，尚未证明目标栈初始化和验收完成。
 
-核心调整：LangGraph复用节点/分支/恢复能力；AI SDK只做模型I/O；MySQL保存业务与checkpoint。最终状态/帮助曝光/幂等/取消仍由代码PolicyGate和StorePort事务控制，不由checkpoint替代。MySQL saver的薄适配由B01负责、全部迁移由A01负责；先通过ST01–ST07，D7补完整故障门禁ST08–ST12。A/B任务、迁移/图协议见stack.json、adr/ADR-001-stack.md、contracts/mysql.md、contracts/workflow-persistence.md、acceptance/stack-cases.json。
+核心调整：React/Vite负责移动端前端，NestJS承载API、worker和领域服务；MySQL保存业务、run/step/jobs与审计事实，LangGraph.js仅在复杂有界分支需要时使用。最终状态、帮助曝光、幂等和取消由PolicyGate与StorePort事务控制，不由checkpoint替代。A01/B01先通过ST01–ST07，D7补完整故障门禁ST08–ST12。
 
 这是规格更新，不是依赖集成或应用验收。原18条P0、20张任务、60项AT全部保留；新增12项ST不替代教学质量与独立学习证据。
 
@@ -37,7 +37,7 @@
 
 | 能力 | V6.1决定 | 边界 |
 | --- | --- | --- |
-| Web全栈单体 | 保留 | 同一个Next.js仓库、服务端运行时、域名和部署，不新增Python服务或客户端 |
+| 同仓Web系统 | 保留 | `web/` React与`server/` NestJS同仓、同域部署，不新增Python服务或微服务群 |
 | 任意/随机选题 | 保留并强化 | 全题库清单、异常清单、准备覆盖率；失败不自动换简单题 |
 | 多Agent | 恢复且具名实现 | 四个有独立契约/提示/回归的专职Agent，不是一个大提示词换名字 |
 | 台阶与异解 | 恢复完整 | AND依赖、OR路线、学生/教师/共同路线来源、动态补偿台阶 |
@@ -116,7 +116,7 @@
 
 ### 5.1 默认编排方式
 
-明确调整：默认采用 LangGraph.js Graph API 组织四Agent及Renderer/Guard，AI SDK Core仅作ModelPort的模型I/O适配；不再自研通用工作流引擎。MySQL 8.4 LTS保存业务状态、节点审计和checkpoint。教学契约、预算、PolicyGate与最终业务事务由应用代码掌管；checkpoint不代表学生学会，也不能授权迟到提交。选型已确定，但依赖安装及MySQL saver恢复验证仍待A01/B01完成。详见 adr/ADR-001-stack.md 和 contracts/workflow-persistence.md。
+明确调整：NestJS领域服务组织四Agent及Renderer/Guard，复杂分支可使用LangGraph.js Graph API，AI SDK Core仅作ModelPort的模型I/O适配。MySQL 8.4 LTS保存业务状态、任务租约、节点审计与可选checkpoint。教学契约、预算、PolicyGate与最终事务由应用代码掌管；checkpoint不代表学生学会，也不能授权迟到提交。依赖安装和MySQL恢复验证仍待A01/B01完成。
 
 ```text
 选题 -> PreparationAgent -> Guard核对 -> 缓存教学包
@@ -174,7 +174,7 @@ PolicyGate由代码执行：身份、版本、有效证据、两探针上限、�
 
 具体仓库、已有证据、待实测项和A/B落地点见本包reuse.md。当前可依据已有本地源码/许可快照评估react-markdown、KaTeX、诊断提示素材等；新一轮在线核验失败，不声称当前最新版本或安全审计已经完成。
 
-优先复用：Next.js/React页面与服务端能力；react-markdown+remark-math+rehype-katex公式渲染；Zod结构约束；mysql2驱动（MySQL 8.4 LTS）；Vitest与Playwright测试。每个依赖在D1/D2完成安装、锁版本、许可证及传递依赖检查和目标环境烟测，形成reuse-lock.json。失败不能用“GitHub star高”覆盖。
+优先复用：React/Vite页面能力与NestJS API/worker边界；react-markdown+remark-math+rehype-katex公式渲染；Zod结构约束；mysql2/Kysely（MySQL 8.4 LTS）；Vitest、Supertest与Playwright。每个依赖在D1/D2完成安装、锁版本、许可证及传递依赖检查和目标环境烟测，形成reuse-lock.json。失败不能用“GitHub star高”覆盖。
 
 不直接fork完整教学Demo：界面类似不代表具备诊断、撤架、曝光追踪、完整题库和恢复机制。SocraticAI/Mr.Ranedeer/诊断Skill只作设计材料；Pix2Text是手写备选不是默认额外Python服务；Texo/texify等需要额外适配与许可检查，不纳入默认依赖。SymPy不直接处理学生字符串，也不新增独立服务；数值代入不是任意数学证明验证。
 

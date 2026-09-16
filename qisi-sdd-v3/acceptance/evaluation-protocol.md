@@ -7,7 +7,7 @@
 | 层 | 证明范围 | 不能证明 | 执行方式 |
 |---|---|---|---|
 | 规格静态校验 | 引用、Schema、夹具、部分业务不变量、SQL语法一致 | 应用能运行、模型有效、学生学会 | 本包python scripts/validate_spec.py |
-| 应用确定性验收 | 真UI/DB/Server Action/故障恢复按契约工作 | 真实模型教学能力 | 应用内unit/integration/Playwright；FixtureProvider明确标识 |
+| 应用确定性验收 | 真React UI/NestJS API/worker/MySQL/故障恢复按契约工作 | 真实模型教学能力 | web/server unit/integration/Playwright；FixtureProvider明确标识 |
 | 真实模型教学评审 | 固定版本模型对所测样本满足标准 | 真实学生学习收益与因果效应 | REAL_MODEL=1；角色与会话回归；人工按盲化量表复核 |
 | 真实学习观察 | 受试者在所测任务的独立产物表现 | 普遍提分、长期掌握、无对照的因果结论 | 知情同意、匿名数据、帮助记录、未曝光检验；未开展记not_evaluated |
 

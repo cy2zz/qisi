@@ -1,7 +1,8 @@
 {
   "version": "qisi-3.1",
-  "runner": "langgraphjs_graph_api",
-  "single_instance": true,
+  "runner": "nestjs_worker_with_optional_langgraphjs",
+  "api_worker_separation": true,
+  "single_recovery_worker": true,
   "workflows": {
     "turn": {
       "normal_calls": 4,
@@ -62,7 +63,8 @@
     "transaction_isolation": "READ COMMITTED",
     "time_zone": "+00:00",
     "pool_max": 10,
-    "checkpoint_store": "same_mysql_database",
+    "workflow_state_store": "same_mysql_database",
+    "checkpoint_store": "optional_same_mysql_database_after_conformance",
     "automatic_in_memory_fallback": false
   },
   "graph": {

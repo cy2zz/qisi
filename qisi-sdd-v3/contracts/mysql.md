@@ -1,6 +1,6 @@
 # MySQL 8.4运行与迁移契约｜qisi-3.1
 
-选型依据ADR-001、机器配置stack.json/runtime.json。A负责实现mysql2 promise连接池、迁移器、容器和所有DDL，B通过共享门面接入checkpoint。当前SQL是待执行规格，不是已验证迁移。
+选型依据ADR-001、机器配置stack.json/runtime.json。A负责在`server/`实现mysql2/Kysely连接池、迁移器、容器和所有DDL，B通过共享门面接入工作流run/step与可选checkpoint。当前SQL是待执行规格，不是已验证迁移。
 
 ## 连接与数据类型
 
@@ -16,7 +16,7 @@ ID、哈希采用ASCII二进制比较，区分大小写；正文/数学字符为
 2. npm run db:migrate：先检查SELECT VERSION()为8.4.x；读取migrations排序版本与校验和；单迁移进程/命名锁；应用显式DDL并登记schema_migrations。
 3. MySQL DDL不能按普通业务事务回滚理解。失败记录、停止启动，不自动继续；使用向前修复迁移，破坏性迁移前备份；禁止启动时自动清库/重建。
 4. npm run db:seed:fixture：只在显式fixture开发模式幂等导入自拟数据，不冒充官方题库；生产不自动seed。
-5. npm run dev或npm run build && npm start；应用只接收已迁移schema。健康检查区分进程存活与数据库就绪，不返回连接串。
+5. 启动NestJS API和worker；服务只接收已迁移schema。健康检查区分API进程、worker租约与数据库就绪，不返回连接串。
 
 数据库不可用时报告明确失败/恢复状态，不自动换内存库；已经成功commit的请求从requests恢复，未成功的不能假装已显示。
 
@@ -34,4 +34,4 @@ schema_migrations + 原16业务表 + workflow_checkpoints/workflow_writes，共1
 
 ## 部署与备份
 
-一个Next.js业务容器、一个MySQL服务、私有媒体卷。首版只一个Node恢复器；DB服务不能公网直接访问。不依赖容器可写层持久化MySQL或手写图片。D7测试数据库备份/恢复+媒体映射一致性；D10在干净环境重新部署并重跑。备份包含个人数据也必须私有、限期删除，不导出到Git；恢复后重新应用删除/TTL策略，不能借备份复活已删除数据。
+React静态站点、NestJS API/worker、一个MySQL服务和私有媒体存储。首版只运行一个恢复worker；DB服务不能公网直接访问。不依赖容器可写层持久化MySQL或手写图片。D7测试数据库备份/恢复+媒体映射一致性；D10在干净环境重新部署并重跑。备份包含个人数据也必须私有、限期删除，不导出到Git；恢复后重新应用删除/TTL策略，不能借备份复活已删除数据。

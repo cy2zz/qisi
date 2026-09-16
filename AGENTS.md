@@ -8,7 +8,7 @@
 
 1. 读取本文件，执行 `git rev-parse --show-toplevel`、`git status --short --branch`，确认真正的仓库根、分支、已暂存和未提交改动；不要依赖目录名、会话记忆或固定盘符。
 2. 修改文件前读取路径上适用的子目录 `AGENTS.md`。父级规则继承，子目录规则补充本地细节；规则、任务和契约冲突时明确报告并先解决，不自行择取较宽松的一版。
-3. 核对 `qisi-sdd-v3/stack.json` 的 `baseline`、`qisi-sdd-v3/runtime.json` 的 `version`、`qisi-sdd-v3/manifest.json` 的 `baseline` 及 PRD：本规则要求同为 qisi-3.1。缺文件、仍为 qisi-3.0、旧 Raven 配置或旧任务引用均须明确报告。**基线不匹配时阻塞受影响的产品实施，不阻塞独立的文档/工具维护；不得混用新规则和旧契约。**
+3. 核对 `qisi-sdd-v3/stack.json` 的 `baseline`、`qisi-sdd-v3/runtime.json` 的 `version`、`qisi-sdd-v3/manifest.json` 的 `baseline` 及 PRD：产品基线仍为 qisi-3.1，活动规格采用 React/Vite `web/` + NestJS `server/` + MySQL 8.4。`publication/`、manifest、历史 ZIP 和已被替代的变更记录可以保留旧发布内容，但只能作为历史凭证，不能覆盖活动规格。缺文件、仍为 qisi-3.0、旧 Raven 配置或旧任务引用均须报告。技术路径、命令和验收未实际验证时，不得声称相应任务完成；不阻塞独立的文档或迁移工具维护。
 4. 分支名不是角色或任务完成的证据。从用户授权、任务卡和交接记录确定当前 owner、Task ID、前置状态、允许写集与验收。用户未指定 A/B 但明确授权完整开发时，按单 AI 模式串行领取就绪任务，不默认同时开多个开发 Agent。
 5. 简述本轮目标、角色/任务、写集、检查命令和已知阻塞再执行。后续仍在同一授权范围、依赖已就绪时可连续推进；每张卡保留独立验证/交接检查点，不机械地每卡等用户说“继续”。
 
@@ -18,8 +18,8 @@
 
 路径均相对 Git 仓库根，除非明确说明“规格包内”。开始产品任务时依次读取：
 
-1. 根 `README.md`、本文件、`qisi-sdd-v3/AGENTS.md` 和 `qisi-sdd-v3/README.md`。
-2. `qisi-sdd-v3/adr/ADR-001-stack.md`、`qisi-sdd-v3/stack.json`、`qisi-sdd-v3/runtime.json`。
+1. 根 `README.md`、本文件，以及 `web/`、`server/` 路径上实际存在的更具体 `AGENTS.md`。
+2. `qisi-sdd-v3/AGENTS.md`、`qisi-sdd-v3/README.md`、`qisi-sdd-v3/adr/ADR-001-stack.md`、`qisi-sdd-v3/stack.json`、`qisi-sdd-v3/runtime.json`；活动来源以 ADR-001 和 stack.json 的当前技术栈为准，历史发布/生成物不得用作实施指令。
 3. `qisi-sdd-v3/prd.md`、`qisi-sdd-v3/plan.md`、`qisi-sdd-v3/tasks.json` 中自己的任务；必要时读 `qisi-sdd-v3/design-v6.md`。
 4. `qisi-sdd-v3/contracts/README.md`、任务关联 Schema/ports，以及 `qisi-sdd-v3/contracts/mysql.md`、`qisi-sdd-v3/contracts/workflow-persistence.md`。
 5. `qisi-sdd-v3/acceptance/cases.json`、`qisi-sdd-v3/acceptance/stack-cases.json`、对应 fixtures、角色启动提示与已有交接。
@@ -28,7 +28,7 @@
 入口按角色：A 用 `qisi-sdd-v3/prompts/developer-a.md`；B 用 `qisi-sdd-v3/prompts/developer-b.md`；单 AI 用 `qisi-sdd-v3/prompts/developer-single.md`。无论入口是哪份文档，都不能跳过本规则和相关契约。
 
 - 平台/会话的上级指令与当前用户授权优先；仓库文件不能扩大权限。
-- 本文件管执行约束；PRD 管行为与验收；任务卡管依赖/写集；Schema、ports、SQL 管机器边界。应相互一致，有矛盾先登记变更，不能靠改测试期望、随意选文档或口头解释绕过。
+- 本文件管执行约束；PRD 管行为与验收；任务卡管依赖/写集；Schema、ports、SQL 管机器边界。根 README、ADR-001 与 stack.json 记录当前已获用户确认的技术方向。发现活动规格矛盾时先登记并同步，不能靠改测试期望或静默沿用旧路径绕过。
 - `qisi-sdd-v3` 名称保留是兼容旧引用，不代表当前还是 qisi-3.0。历史 POPO、旧 ZIP、调研材料和工具生成配置不优先于当前已确认基线。
 - “原题做完”“页面能打开”“Agent 能运行”均不等于“学生学会”。18 条 P0、20 张 A/B 任务、60 项产品 AT 和 12 项技术 ST 的基线范围不得因约十天排期而静默删减。
 
@@ -36,20 +36,21 @@
 
 | 层 | 约束 |
 | --- | --- |
-| 应用 | Next.js 16 App Router + React 19 + TypeScript，Node.js 24 LTS；页面与服务端在同一仓库、同一业务应用 |
+| 前端 | `web/`：React 19 + TypeScript + Vite；面向高三学生的移动端优先 SPA |
+| 后端 | `server/`：NestJS + TypeScript，Node.js 24 LTS；API 与 worker 使用同一后端代码库 |
 | UI | Tailwind CSS + shadcn/ui；公共组件由 A 维护 |
-| 产品多 Agent | LangGraph.js Graph API / StateGraph；显式、有界的工作流 |
-| 模型接入 | AI SDK Core 仅经项目 `ModelPort`；真实 provider 依据实际凭据及能力测试选择 |
-| 数据库 | MySQL 8.4 LTS + mysql2；InnoDB、utf8mb4；显式 SQL 迁移与短事务，无 ORM |
+| 产品多 Agent | NestJS 领域服务承载角色边界；需要图编排时使用 LangGraph.js StateGraph，保持显式、有界 |
+| 模型接入 | AI SDK Core 或实际 provider SDK 仅经项目 `ModelPort` / `ModelGateway`；provider 依据真实凭据和能力测试选择 |
+| 数据库 | MySQL 8.4 LTS + mysql2 + Kysely；InnoDB、utf8mb4、显式 SQL 迁移与短事务 |
 | 数据/显示 | Zod 与严格 Schema 对齐；react-markdown + remark-math + rehype-katex / KaTeX |
-| 图片 | sharp 校验、解码 + 多模态转写 + 学生确认 |
-| 验证 | Vitest + Playwright + 真实 MySQL 8.4 集成测试；区分 fixture、真实模型、人工教学评估 |
-| 部署 | Docker：单 Node 业务应用 + MySQL + 私有媒体卷；不新增客户端或独立 Python/Java 业务服务 |
+| 图片 | server 侧 sharp 校验、解码 + 多模态转写 + 学生确认 |
+| 验证 | Vitest + NestJS/Supertest + Playwright + 真实 MySQL 8.4 集成测试；区分 fixture、真实模型、人工教学评估 |
+| 部署 | Docker：React 静态站点 + NestJS API/worker + MySQL + 私有媒体存储；同域反向代理 `/api` |
 
-- 目标应用位于本仓库根 `src/`。`frontend/`、`backend/` 是历史 React/Vite 和 Java/Spring/MyBatis/H2 骨架，不是改回旧技术栈的理由；A01 先盘点再迁移必要行为，保留旧代码/数据，未经授权不清空或删除，不另建同级或嵌套应用。
-- 使用 mysql2/sharp 的服务端代码须在 Node runtime；密钥、私有题解、数据库连接不得进入客户端 bundle、RSC 可见载荷或浏览器响应。
-- 精确依赖版本、Node patch、镜像 digest 和 provider adapter 要实际安装/验证后锁定，不编造锁文件，不把 `reuse-lock.json` 当 npm 安装锁。共享 `package.json` / `package-lock.json` 由 A 统一维护。
-- 禁止自动降级 SQLite、H2 或内存数据库冒充目标持久化；禁止另写通用图引擎、自由群聊 Agent 平台，或叠加 AI SDK 自动 Agent 循环。更换基线必须先提出 ADR，说明功能等价性、风险、迁移和验收影响并获确认。
+- 前端只写入 `web/`，后端、worker、迁移和服务端测试只写入 `server/`。旧 `frontend/`、`backend/` 的删除以及 `web/`、`server/` 的现有内容属于当前未提交迁移，未经授权不得回退、覆盖或据此宣称初始化完成。
+- 使用 mysql2/sharp 的代码只能位于 `server/` 并运行在 Node runtime；密钥、私有题解、数据库连接和教师私有依据不得进入 `web/` bundle、静态文件或浏览器响应。
+- 精确依赖版本、Node patch、镜像 digest 和 provider adapter 要实际安装、兼容性验证后锁定，不使用 `latest`、不编造锁文件、不把 `reuse-lock.json` 当 npm 安装锁。`web/` 与 `server/` 各自的 package/lock 由 A 统一维护；引入根 workspace 需有明确变更记录。
+- 禁止自动降级 SQLite、H2 或内存数据库冒充目标持久化；禁止另写通用图引擎、自由群聊 Agent 平台，或叠加第二套自动 Agent 循环。工作流恢复优先依赖 MySQL 领域状态、幂等步骤、任务租约和审计事件；不得因为缺少官方 LangGraph.js MySQL saver 就静默采用未经验证的社区实现。
 
 ## 4. A/B 责任边界：按功能纵向交付
 
@@ -57,13 +58,13 @@
 
 | 责任方 | 主责与独占边界 |
 | --- | --- |
-| A | 根配置/依赖锁/容器/CI 与公共 UI；`src/shared/**`、公共数据库门面、全部 `migrations/**`；题库、媒体、输入、独立检验、报告、历史/删除；`AssessmentAgent` |
-| B | `src/contracts/**`、`src/model/**`、`src/workflows/**`、`src/prompts/**`；Preparation/Diagnosis/Strategy Agent、Renderer/Guard；教学页、教师依据；`MySqlCheckpointSaver` |
+| A | 根配置/容器/CI，`web/` 公共 UI 与依赖，`server/` 数据库门面和全部迁移；题库、媒体、输入、独立检验、报告、历史/删除；AssessmentAgent |
+| B | `server/` 中 contracts/model/workflows/prompts、Preparation/Diagnosis/Strategy Agent、Renderer/Guard；`web/` 中教学页和教师依据；工作流步骤与恢复接线 |
 
-具体路径必须核对 `qisi-sdd-v3/tasks.json` 的 `write_scope` 和 `excluded_write_scope`，表中模块不是新增写权限。跨 owner 的共享接口先在交接/变更中提出，由对应 owner 合入；不能以“顺手修一下”改对方文件。
+`qisi-sdd-v3/tasks.json` 的活动写集使用 `web/` 和 `server/`；执行前仍须核对具体任务的允许/排除范围及现有工作区。跨 owner 的共享接口先在交接/变更中提出，由对应 owner 合入；不能以“顺手修一下”改对方文件。
 
-- B 的 `src/agents/**` **排除 `src/agents/assessment/**` 的业务实现**；D1 必需的空接口壳须与 A 确认。Assessment 归 A，不因 B 编排图而转移归属。
-- B 定义 saver 实现需求，A 负责所有 MySQL 表迁移与数据库事务门面；B 不维护第二套迁移/连接池，A 不另写一套 ModelPort。
+- B 的 `server/src/agents/**` **排除 `server/src/agents/assessment/**` 的业务实现**；D1 必需的空接口壳须与 A 确认。Assessment 归 A，不因 B 编排图而转移归属。
+- B 定义工作流恢复需求，A 负责所有 MySQL 表迁移与数据库事务门面；B 不维护第二套迁移/连接池，A 不另写一套 ModelPort。
 - A01/B01 先对齐 `StorePort`、`ModelPort`、安全 `StudentView` 和数据库接口。共同基础门禁允许协调联调，但不得把任一方尚未完成的接口写成“已实现”。
 - 单 AI 串行仍保留 A/B 归属、前置与交接，不能因此删四个产品 Agent。独立子 Agent 只在用户明确授权并行/委派时启用；产品“多 Agent”不是开发子 Agent 的授权。
 - 经授权并行时使用独立 worktree 或严格不重叠写集，明确任务/路径/交接；告知每个开发 Agent 有其他协作者，禁止回退他人改动。
@@ -95,23 +96,25 @@
 7. **以独立学习证据验收**：撤去帮助后用新任务检验，区分独立/带帮助、迁移/原题重做；原题完成率、作业得分、模型自评不替代学生真正学会的证据。
 8. **可解释但不泄露**：教师页呈现学生证据、诊断假设、置信/不确定性、干预选择与效果摘要；不展示模型隐藏思维链（CoT）、私有系统提示或未检查的输出。
 9. **功能不静默缩水**：多 Agent、手写、动态路线、撤架检验、历史/删除、故障恢复均须按 PRD 保留。时间不够如实调整排期，不通过删除 P0 伪称完成。
+10. **高三场景优先**：移动端单栏、拍照与公式快捷输入、短时高价值反馈、高考评分点和未成年人数据最小化优先。学生可选择最小提示或直接讲解，不以强制多轮反问增加备考负担。
 
 ## 7. 多 Agent、状态与故障恢复边界
 
 - 产品保持 Preparation / Diagnosis / Strategy / Assessment 四个独立角色的上下文、Schema、提示版本和回归；Renderer/Guard 依职责工作。不能只在同一自由聊天提示里写四个名字冒充独立 Agent。
-- LangGraph 负责显式编排；AI SDK 只做模型 I/O。模型输出只是候选数据，不得执行任意 SQL、直接改学生状态或绕过 PolicyGate。
+- NestJS 领域服务负责用例和最终状态转换；若使用 LangGraph，只负责显式、有界的流程编排。AI SDK 或 provider SDK 只做模型 I/O。模型输出只是候选数据，不得执行任意 SQL、直接改学生状态或绕过 PolicyGate。
 - 所有模型尝试（含修复/重写/失败）计入统一 call/token/time 预算；按 `qisi-sdd-v3/runtime.json` 禁用 SDK 隐式重试和图隐式节点重试。不借无限循环或“自动修复”绕过预算。
-- 最终业务提交只经 `StorePort.commitChecked` 的事务检查。checkpoint 是执行快照，不等于业务提交、已展示帮助或学生学会；`node_runs` 审计也不能替代领域状态。
-- MySQL saver 按锁定的 `BaseCheckpointSaver` 协议实现；`run_id` 作 `thread_id`。恢复时重新获得有效 lease/fencing，预算从持久审计恢复；不能信任旧快照中的身份/权限，也不能回滚已经消耗的预算。
+- 最终业务提交只经 `StorePort.commitChecked` 或等价 NestJS 领域服务的事务检查。任何 checkpoint 都只是执行快照，不等于业务提交、已展示帮助或学生学会；节点审计也不能替代领域状态。
+- 恢复的第一事实来源是 MySQL 中的 workflow run/step、任务租约、模型调用和领域事件。worker 领取任务时重新获得有效 lease/fencing，预算从持久审计恢复；不能信任旧快照中的身份/权限，也不能回滚已经消耗的预算。
+- 没有经过许可、维护状态、目标版本、pending writes、取消、删除和崩溃窗口测试，不采用社区 MySQL checkpoint saver。若实现 `BaseCheckpointSaver` 薄适配，也不得形成第二套业务真相。
 - 身份/owner、Origin、版本/CAS、幂等、期限和取消/删除必须在最终提交前复查。过期、取消、删除后的迟到响应/checkpoint 不得复活会话或覆盖新状态。
-- A01/B01 做真实 MySQL checkpoint 最小往返和恢复；A07/B07 做完整竞态/故障矩阵。不得只跑 MemorySaver、SQLite 或 mock 就声称通过 ST。
+- A01/B01 做真实 MySQL 任务领取、节点落盘、重启续跑和只一次有效提交；A07/B07 做完整竞态/故障矩阵。不得只跑 MemorySaver、SQLite 或 mock 就声称通过 ST。
 - 默认不向客户端流式发送未校验模型内容；可以展示安全的运行状态。所有对外消息和 DTO 必须按契约过滤后输出。
 
 ## 8. 验证命令和证据标准
 
-先读当前 `package.json` 和任务卡确认命令真实存在。A01 负责建立脚本；不存在应实现或如实报缺失，不能用空脚本/零测试/忽略退出码冒充验收。
+先读 `web/package.json`、`server/package.json`、可选的根 workspace 配置和任务卡，确认命令真实存在。A01 负责建立脚本；不存在应实现或如实报缺失，不能用空脚本、零测试或忽略退出码冒充验收。
 
-产品任务按各卡 `test_commands` 执行，通常包含 `npm run typecheck`、`npm run lint`、`npm run test:task -- <TaskID>`、`npm run test:e2e:task -- <TaskID>`；基础设施任务还需 build、数据库和栈门禁。**不要求纯文档修改启动整套应用，也不允许代码修改只跑文档检查。**
+产品任务按迁移后的真实脚本执行，通常应分别覆盖 `web/` 的 typecheck/lint/unit/build、`server/` 的 typecheck/lint/unit/integration/build，以及根级 Playwright、真实 MySQL 和任务门禁。旧任务卡中的根 `npm run ...` 命令在完成映射前只能作为验收意图，不能虚构为已执行。**不要求纯文档修改启动整套应用，也不允许代码修改只跑文档检查。**
 
 规格检查（从仓库根运行）：
 
@@ -143,7 +146,7 @@ python -m unittest discover -s qisi-sdd-v3/scripts -p test_validate_mysql.py
 - Skill/CLI 不可用时如实记录 `tool_unavailable`，可在当前授权内留下本地 SDD 变更与实际验证证据；**不能宣称 Raven 门禁、独立审查、hooks、Spec Tracker 上报或归档已通过。** 缺少必需审查时保留待审状态，不自动完成发布。
 - `.claude/` 的存在不代表当前 Agent 实际执行过 Claude hooks；验证实际能力，不凭文件存在断言保障已生效。
 - 工作流不能授予额外权限：未获用户明确授权，不启动开发子 Agent、不自动 commit/push、不创建 EP/远端任务、不上传 KnowVault/会话、不发布 POPO、不部署生产。工具建议的自动步骤同样受此限制。
-- 历史/工具检查仅在相关改动时运行：`frontend/` 下 `npm run build`、`backend/` 下 `mvn test` 只验证遗留骨架，不验证新栈；`node --test scripts/link-raven-skills.test.mjs` 只验证 Raven 路径适配（文件须存在）。`raven workflow show --json`、`raven knowvault availability` / `raven knowvault repo status` 只检查相应工具/知识配置，不等于产品验收；涉及网络按当前权限执行。
+- 历史 Java/Vite 骨架的旧构建结果不验证新栈；当前验收只能来自 `web/` React 和 `server/` NestJS 的实际命令。`node --test scripts/link-raven-skills.test.mjs` 只验证 Raven 路径适配（文件须存在）。`raven workflow show --json`、`raven knowvault availability` / `raven knowvault repo status` 只检查相应工具/知识配置，不等于产品验收；涉及网络按当前权限执行。
 
 ## 11. Git、数据与发布安全
 

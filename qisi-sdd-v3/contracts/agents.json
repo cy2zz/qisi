@@ -5,8 +5,8 @@
     "input_schema": "PreparationInput",
     "output_schema": "Packet or RoutePatch",
     "owner": "B",
-    "file": "src/agents/preparation/index.ts",
-    "prompt": "src/prompts/preparation.md",
+    "file": "server/src/agents/preparation/index.ts",
+    "prompt": "server/src/prompts/preparation.md",
     "allowed_context_tools": [
       "bank_read",
       "reference_read"
@@ -25,8 +25,8 @@
     "input_schema": "DiagnosisInput",
     "output_schema": "Diagnosis",
     "owner": "B",
-    "file": "src/agents/diagnosis/index.ts",
-    "prompt": "src/prompts/diagnosis.md",
+    "file": "server/src/agents/diagnosis/index.ts",
+    "prompt": "server/src/prompts/diagnosis.md",
     "allowed_context_tools": [
       "confirmed_evidence_read"
     ],
@@ -44,8 +44,8 @@
     "input_schema": "StrategyInput",
     "output_schema": "Strategy",
     "owner": "B",
-    "file": "src/agents/strategy/index.ts",
-    "prompt": "src/prompts/strategy.md",
+    "file": "server/src/agents/strategy/index.ts",
+    "prompt": "server/src/prompts/strategy.md",
     "allowed_context_tools": [],
     "forbidden": [
       "write_session",
@@ -61,8 +61,8 @@
     "input_schema": "AssessmentInput",
     "output_schema": "AssessmentOutput",
     "owner": "A",
-    "file": "src/agents/assessment/index.ts",
-    "prompt": "src/prompts/assessment.md",
+    "file": "server/src/agents/assessment/index.ts",
+    "prompt": "server/src/prompts/assessment.md",
     "allowed_context_tools": [],
     "forbidden": [
       "student_diagnosis_history",
@@ -78,8 +78,8 @@
     "input_schema": "RendererInput",
     "output_schema": "RenderedMessage",
     "owner": "B",
-    "file": "src/agents/renderer/index.ts",
-    "prompt": "src/prompts/renderer.md",
+    "file": "server/src/agents/renderer/index.ts",
+    "prompt": "server/src/prompts/renderer.md",
     "allowed_context_tools": [],
     "forbidden": [
       "full_reference",
@@ -96,8 +96,8 @@
     "input_schema": "GuardInput",
     "output_schema": "GuardResult",
     "owner": "B",
-    "file": "src/agents/guard/index.ts",
-    "prompt": "src/prompts/guard.md",
+    "file": "server/src/agents/guard/index.ts",
+    "prompt": "server/src/prompts/guard.md",
     "allowed_context_tools": [],
     "forbidden": [
       "write_session",

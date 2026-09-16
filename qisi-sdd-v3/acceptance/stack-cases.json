@@ -8,7 +8,7 @@
     "title": "版本与干净构建",
     "given": "安装并锁定目标依赖及镜像",
     "when": "从干净checkout执行npm ci、typecheck、build",
-    "then": "Node24/Next16/React19/MySQL8.4符合stack.json；精确lock/镜像摘要存在；旧frontend/backend不是启动前置",
+    "then": "Node24/NestJS12/Vite8/React19/MySQL8.4符合stack.json；web/server精确lock与镜像摘要存在；旧Java/Vite骨架不是启动前置",
     "negative": "Node/库/镜像版本不符必须失败，不可用latest或伪造resolved_version",
     "status": "specified",
     "result": "not_run",
@@ -72,10 +72,10 @@
       "A01"
     ],
     "title": "页面到MySQL纵向链路",
-    "given": "单Next.js进程+MySQL，明确fixture模式",
-    "when": "学生提交经图节点、schema、Guard和事务后刷新",
+    "given": "React前端+NestJS API/单恢复worker+MySQL，明确fixture模式",
+    "when": "学生提交经API、工作流节点、schema、Guard和事务后刷新",
     "then": "安全响应来自MySQL且完整；MathMarkdown显示正常；源码/页面无私有状态",
-    "negative": "数据库不可用不得返回假成功；未来答案不入RSC/网络",
+    "negative": "数据库不可用不得返回假成功；未来答案不入React bundle/props/网络",
     "status": "specified",
     "result": "not_run",
     "evidence_required": [
@@ -117,11 +117,11 @@
       "B01",
       "B07"
     ],
-    "title": "MySQL saver协议往返",
-    "given": "真实MySQL+所锁BaseCheckpointSaver类型",
-    "when": "put/getTuple/list/filter/before/parent/putWrites及重启读取",
-    "then": "typed serde保留完整channel值、pendingWrites、task_path与特殊索引；结果稳定",
-    "negative": "同键内容冲突/损坏序列化/不支持过滤不得静默成功",
+    "title": "MySQL工作流恢复协议往返",
+    "given": "真实MySQL+锁定的run/step/jobs/lease/fencing契约",
+    "when": "API创建任务、worker领取、节点结果落盘、最终提交及重启读取",
+    "then": "input hash、模型/提示版本、尝试、预算、lease/fencing和安全响应完整稳定；同请求只一次有效提交",
+    "negative": "同键内容冲突、旧fencing、损坏结果或不支持状态不得静默成功；若采用checkpoint adapter须另跑完整conformance",
     "status": "specified",
     "result": "not_run",
     "evidence_required": [
@@ -163,11 +163,11 @@
       "A07",
       "B07"
     ],
-    "title": "checkpoint与业务提交故障窗",
+    "title": "工作流状态与业务提交故障窗",
     "given": "运行中的run及可恢复输入",
-    "when": "在节点结果/checkpoint/commit前后杀进程、断数据库再恢复",
+    "when": "在任务领取、节点结果、可选checkpoint、commit前后杀进程或断数据库再恢复",
     "then": "未完成节点按有效哈希恢复；commit成功用原request返回；只一次公开消息与曝光",
-    "negative": "checkpoint不能当commit成功；未知远端调用重试可能计费必须报告",
+    "negative": "节点或checkpoint落盘不能当commit成功；未知远端调用重试可能计费必须报告",
     "status": "specified",
     "result": "not_run",
     "evidence_required": [
@@ -187,10 +187,10 @@
       "B07"
     ],
     "title": "撤销与晚到写入",
-    "given": "执行中run、有效lease及旧checkpoint",
-    "when": "取消/删除/过期后让模型和saver晚到，或旧executor继续写",
+    "given": "执行中run、有效lease/fencing及持久任务输入",
+    "when": "取消/删除/过期后让模型、worker或可选checkpoint adapter晚到，或旧executor继续写",
     "then": "旧lease拒绝写入；会话/快照不复活；新executor使用新fencing token",
-    "negative": "只检查checkpoint.thread_id不够；跨owner输入不可恢复",
+    "negative": "只检查run_id或checkpoint thread不够；跨owner输入不可恢复",
     "status": "specified",
     "result": "not_run",
     "evidence_required": [
@@ -210,7 +210,7 @@
       "A10"
     ],
     "title": "备份恢复与TTL",
-    "given": "MySQL+私有媒体/会话/checkpoint数据",
+    "given": "MySQL+私有媒体/会话/工作流步骤和可选checkpoint数据",
     "when": "从备份恢复到隔离环境并执行TTL与删除清单",
     "then": "历史安全响应/图片映射正确；过期私有checkpoint/pending writes一并清理",
     "negative": "恢复备份不能洗掉帮助或复活已删除个人数据",
@@ -236,7 +236,7 @@
     "given": "生产配置及运行账号、迁移账号分离",
     "when": "数据库故障、错误TLS证书、无迁移权限账号",
     "then": "错误连接失败；私网数据库；健康检查不泄密；就绪状态明确",
-    "negative": "不得公网开放数据库、跳过证书校验、将密钥打入NEXT_PUBLIC或日志",
+    "negative": "不得公网开放数据库、跳过证书校验、将密钥打入Vite客户端环境变量、静态bundle或日志",
     "status": "specified",
     "result": "not_run",
     "evidence_required": [
@@ -259,7 +259,7 @@
     "given": "已帮助原题/冻结首次检验计划及答案的会话",
     "when": "重启、重复请求、图恢复后继续新任务检验",
     "then": "原AT独立资格/曝光/首次作答不变量仍成立；模型任务完成不等于学会",
-    "negative": "图成功或checkpoint存在不能直接设置mastered/independent",
+    "negative": "工作流成功或checkpoint存在不能直接设置mastered/independent",
     "status": "specified",
     "result": "not_run",
     "evidence_required": [

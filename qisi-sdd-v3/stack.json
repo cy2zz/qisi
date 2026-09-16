@@ -2,10 +2,15 @@
   "baseline": "qisi-3.1",
   "decision_date": "2026-09-16",
   "repository": "qisi-dashboard",
-  "application_root": "repository_root",
+  "application_layout": {
+    "frontend": "web",
+    "backend": "server"
+  },
   "node": "24 LTS",
-  "next": "16",
   "react": "19",
+  "frontend_framework": "React",
+  "frontend_build_tool": "Vite 8",
+  "backend_framework": "NestJS 12",
   "language": "TypeScript",
   "ui": [
     "Tailwind CSS",
@@ -13,8 +18,8 @@
   ],
   "database": "MySQL 8.4 LTS",
   "database_driver": "mysql2",
-  "orm": "none",
-  "orchestration": "LangGraph.js Graph API",
+  "data_access": "Kysely + explicit SQL migrations",
+  "orchestration": "NestJS bounded workflows; LangGraph.js StateGraph when needed",
   "model_sdk": "AI SDK Core",
   "validation": "Zod",
   "math": [
@@ -29,13 +34,13 @@
     "Playwright",
     "real MySQL 8.4 integration"
   ],
-  "deployment": "Docker: one Node application + MySQL + private media volume",
+  "deployment": "Docker: React static web + NestJS API/worker + MySQL + private media storage",
   "dependency_status": "selected_not_installed",
   "exact_versions": null,
   "database_image_digest": null,
-  "existing_scaffold": "frontend React/Vite; backend Java17/SpringBoot/MyBatis/H2; not migrated",
-  "database_checkpoint": "project-owned minimal MySqlCheckpointSaver over BaseCheckpointSaver",
-  "checkpoint_owner": "B",
+  "existing_scaffold": "uncommitted migration has web and server directories; target initialization not yet verified",
+  "workflow_persistence": "MySQL domain runs/steps/jobs/model_calls/events are authoritative; checkpoint adapter optional after conformance",
+  "workflow_persistence_owner": "B",
   "database_migration_owner": "A",
   "first_gate": [
     "A01",

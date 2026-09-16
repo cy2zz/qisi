@@ -2,7 +2,7 @@
 
 > 交付基线：qisi-3.1；规格核验日期：2026-09-16。设计V6.1、开发规划V3.1与PRD V3.1配套使用，完整机器契约、测试夹具、A/B启动提示和校验脚本见仓库当前qisi-sdd-v3.zip；POPO仍是历史qisi-3.0附件，本次未同步。本交付是开发规格，不是已实现的应用或学习效果证明。
 
-唯一实施基线qisi-3.1；2026-09-16。两位开发者A/B，约10开发日，全栈Web单体，不是前后端分开开发。设计V6.1、规划V3.1和本PRD同版本使用，替代qisi-3.0的技术栈决定，并保留其全部产品范围。
+唯一实施基线qisi-3.1；2026-09-16。两位开发者A/B，约10开发日；`web/` React前端与`server/` NestJS后端同仓交付，A/B仍按功能纵向负责，不按前后端拆分。设计V6.1、规划V3.1和本PRD同版本使用，替代qisi-3.0的技术栈决定，并保留其全部产品范围。
 
 **交付状态：规格设计。未实现应用，未运行真实模型/学生实验。** 本PRD正文包含产品行为、实现步骤、A/B任务、接口与验收；随附qisi-sdd-v3.zip提供严格Schema、用例、提示约束、SQL与校验脚本。开发AI应先读取正文，再读取附件，不能在附件缺失时自行猜测关键契约。
 
@@ -10,18 +10,18 @@
 
 | 层 | 唯一实施选择 |
 | --- | --- |
-| Web / 语言 | Next.js 16 App Router + React 19 + TypeScript + Node.js 24 LTS |
+| Web / 语言 | `web/` React 19 + Vite 8；`server/` NestJS 12；TypeScript + Node.js 24 LTS |
 | UI | Tailwind CSS + shadcn/ui |
-| 多Agent编排 | LangGraph.js Graph API（正式基线，不再是候选） |
+| 多Agent编排 | NestJS 领域服务承载有界工作流；复杂分支按需使用 LangGraph.js StateGraph |
 | 模型接入 | AI SDK Core，经项目ModelPort；provider按比赛资源与实际能力测试选择 |
-| 数据库 | MySQL Community Server 8.4 LTS + mysql2；InnoDB/utf8mb4，无ORM |
+| 数据库 | MySQL Community Server 8.4 LTS + mysql2 + Kysely；InnoDB/utf8mb4，显式 SQL 迁移 |
 | 验证/渲染 | Zod；react-markdown + remark-math + rehype-katex/KaTeX |
 | 手写 | sharp校验解码 + 多模态转写 + 学生确认，不新增Python服务 |
-| 测试/部署 | Vitest + Playwright + 真实MySQL集成；单Node应用 + MySQL + 私有媒体卷 |
+| 测试/部署 | Vitest + NestJS/Supertest + Playwright + 真实MySQL集成；React静态站点 + NestJS API/worker + MySQL + 私有媒体存储 |
 
-决定与现状必须区分：以上选型已获确认；精确patch和镜像digest待A01真实安装后锁定；仓库现有Java/Vite骨架尚未迁移。实施位置是qisi-dashboard仓库根src/，不另建应用仓库。
+决定与现状必须区分：以上选型已获确认；精确patch和镜像digest待A01真实安装后锁定。当前`web/`、`server/`属于未提交迁移，尚未证明React/NestJS初始化和验收完成，不得覆盖或回退。
 
-核心调整：LangGraph复用节点/分支/恢复能力；AI SDK只做模型I/O；MySQL保存业务与checkpoint。最终状态/帮助曝光/幂等/取消仍由代码PolicyGate和StorePort事务控制，不由checkpoint替代。MySQL saver的薄适配由B01负责、全部迁移由A01负责；先通过ST01–ST07，D7补完整故障门禁ST08–ST12。A/B任务、迁移/图协议见stack.json、adr/ADR-001-stack.md、contracts/mysql.md、contracts/workflow-persistence.md、acceptance/stack-cases.json。
+核心调整：React/Vite负责移动端前端，NestJS承载API、worker和领域服务；MySQL保存业务、run/step/jobs与审计事实，LangGraph.js仅在复杂有界分支需要时使用。最终状态、帮助曝光、幂等和取消由PolicyGate与StorePort事务控制，不由checkpoint替代。A01/B01先通过ST01–ST07，D7补完整故障门禁ST08–ST12。
 
 这是规格更新，不是依赖集成或应用验收。原18条P0、20张任务、60项AT全部保留；新增12项ST不替代教学质量与独立学习证据。
 
@@ -126,7 +126,7 @@ P0目标：任意题库题目可选；识别学生当前思维卡点；有证据
 
 主链路：确认输入→Diagnosis→必要时route_review→Strategy→代码PolicyGate→Renderer→Guard→短事务提交。Guard拒绝最多一次重写+再Guard，仍失败中性提示。Assessment链路隔离旧诊断画像，结果由代码再算独立资格。
 
-默认 LangGraph.js Graph API（不是候选）+ MySQL 8.4 LTS checkpoint/节点日志。AI SDK Core封装在ModelPort，只处理模型I/O，不启用第二套自动Agent循环。业务状态提交由StorePort.commitChecked和PolicyGate负责，不由图checkpoint代替。四角色仍独立契约/上下文/提示与回归。MySQL saver为项目自有薄适配器，A01/B01必须通过恢复门禁后才能称已集成，见contracts/workflow-persistence.md。
+默认由NestJS领域服务组织有界工作流，复杂分支可用LangGraph.js；MySQL 8.4保存run/step/jobs、节点日志和可选checkpoint。AI SDK Core封装在ModelPort，只处理模型I/O，不启用第二套自动Agent循环。业务状态提交由StorePort.commitChecked和PolicyGate负责，不由图checkpoint代替。四角色保持独立契约、上下文、提示与回归；A01/B01必须通过真实MySQL恢复门禁后才能称已集成。
 
 ## 6. 台阶、诊断和干预规则
 
@@ -170,9 +170,9 @@ D1真实模型准入：配置MODEL_BASE_URL、MODEL_API_STYLE、MODEL_API_KEY、
 
 ## 9. 可复用组件与准入
 
-通用组件优先复用，教学状态/判断自研。确定选Next.js 16/React 19/TypeScript/Node 24 LTS、Tailwind CSS/shadcn/ui、LangGraph.js Graph API、AI SDK Core、MySQL 8.4 LTS/mysql2、react-markdown+remark-math+rehype-katex/KaTeX、Zod、sharp、Vitest、Playwright。具体仓库和证据等级见reuse.md；react-markdown/KaTeX已有本地README与许可核验材料，其余新选型尚需安装/兼容/许可/安全检查，不声称本轮联网核验成功。
+通用组件优先复用，教学状态/判断自研。确定选`web/` React 19/Vite 8、`server/` NestJS 12/TypeScript/Node 24 LTS、Tailwind CSS/shadcn/ui、按需LangGraph.js、AI SDK Core、MySQL 8.4 LTS/mysql2/Kysely、react-markdown+remark-math+rehype-katex/KaTeX、Zod、sharp、Vitest、Supertest、Playwright。具体仓库和证据等级见reuse.md；所有新选型仍需安装/兼容/许可/安全检查，不声称仅凭规格已通过。
 
-A01/D2锁实际兼容版本和package-lock、Node版本，生成reuse-lock.json和artifacts/reuse证据。未锁版本、未运行烟测不标accepted。禁止为了用上开源而fork不匹配的完整教学Demo；SocraticAI/诊断Skill只借鉴，LangGraph.js为基线编排库，OCR/Python/CAS额外服务不默认引入。
+A01/D2分别锁定web/server实际兼容版本和lock、Node版本，生成reuse-lock.json和artifacts/reuse证据。未锁版本、未运行烟测不标accepted。禁止为了用上开源而fork不匹配的完整教学Demo；SocraticAI/诊断Skill只借鉴，LangGraph.js仅在有界图需要时使用，OCR/Python/CAS额外服务不默认引入。
 
 ## 10. 验收与发布策略
 
@@ -228,14 +228,14 @@ A01/D2锁实际兼容版本和package-lock、Node版本，生成reuse-lock.json�
 
 输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md, acceptance/stack-cases.json。
 
-独占写集：`package.json`, `package-lock.json`, `src/app/layout.tsx`, `src/shared/**`, `tests/shared/**`, `tests/e2e/smoke.spec.ts`, `next.config.*`, `tsconfig.json`, `vitest.config.*`, `playwright.config.*`, `.nvmrc`, `.node-version`, `.env.example`, `.gitignore`, `.dockerignore`, `Dockerfile`, `compose.yaml`, `eslint.config.*`, `postcss.config.*`, `components.json`, `src/app/page.tsx`, `src/app/globals.css`, `src/components/ui/**`, `src/lib/utils.ts`, `src/lib/db/**`, `migrations/**`, `scripts/db/**`, `scripts/tests/**`, `scripts/seed/**`, `tests/integration/db/**`, `artifacts/reuse/**`。
+独占写集：根`package.json`/lock（如采用workspace）、`web/package.json`/lock、`web/src/App.tsx`、`web/src/shared/**`、`web/src/components/ui/**`、`web/src/styles/**`、`web/tests/**`、`web/vite.config.*`、`web/tsconfig*.json`、`server/package.json`/lock、`server/src/shared/**`、`server/src/database/**`、`server/migrations/**`、`server/scripts/**`、`server/test/integration/db/**`、`server/tsconfig*.json`、`playwright.config.*`、Node版本文件、环境示例、Docker/Compose/ESLint配置及`artifacts/reuse/**`。
 
 实施顺序：
-1. 读取ADR-001，在qisi-dashboard仓库根建立Next.js 16/React 19/TypeScript/Node 24 LTS应用；保留frontend/backend，不删除历史骨架。
-2. 安装并精确锁定全部选定依赖，初始化Tailwind CSS/shadcn/ui；提交package-lock、Node版本和依赖准入证据。
+1. 读取ADR-001，在web初始化React 19/TypeScript/Vite，在server初始化NestJS/TypeScript/Node 24 LTS；保留并核对现有未提交迁移，不覆盖重建。
+2. 分别安装并精确锁定web/server依赖，初始化Tailwind CSS/shadcn/ui；提交真实lock、Node版本和依赖准入证据。
 3. 建立MySQL 8.4 Compose、健康检查、独立持久卷及迁移脚本；mysql2连接池设置UTC/utf8mb4/READ COMMITTED，检查默认认证与生产TLS。
-4. 实现匿名owner、MySQL StorePort、请求幂等/版本/CAS与短事务；由A统一合入B提出的checkpoint表迁移。
-5. 实现MathMarkdown、安全DTO与Web骨架；用FixtureProvider跑页面→图→校验→MySQL→刷新链路，并协同B验证杀进程续跑。
+4. 在server实现匿名owner、MySQL StorePort、请求幂等/版本/CAS与短事务；由A统一合入B提出的工作流run/step/jobs迁移。
+5. 在web实现MathMarkdown与移动端骨架，在server实现REST/SSE安全DTO和worker接线；用FixtureProvider跑页面→API→工作流→校验→MySQL→刷新链路，并协同B验证杀进程续跑。
 
 先失败后通过的验收：
 - AT01: 页面/服务端同进程；已提交安全响应从磁盘恢复
@@ -267,16 +267,16 @@ npm run test:stack -- A01
 
 输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md, contracts/workflow-persistence.md, contracts/mysql.md, acceptance/stack-cases.json。
 
-独占写集：`src/contracts/**`, `src/agents/**`, `src/workflows/**`, `src/prompts/**`, `tests/agents/**`, `tests/workflows/**`, `docs/adr/001-orchestration.md`, `src/model/**`, `tests/model/**`。
-排除：src/agents/assessment/**；跨公共文件由owner合入。
+独占写集：`server/src/contracts/**`, `server/src/agents/**`, `server/src/workflows/**`, `server/src/prompts/**`, `tests/agents/**`, `tests/workflows/**`, `docs/adr/001-orchestration.md`, `server/src/model/**`, `tests/model/**`。
+排除：server/src/agents/assessment/**；跨公共文件由owner合入。
 
 实施顺序：
-1. 与A先冻结共享契约及MySQL迁移接口；业务Schema映射严格Zod，跨字段PolicyGate由代码执行。
+1. 与A先冻结REST/SSE共享契约及MySQL迁移接口；NestJS DTO映射严格Zod，跨字段PolicyGate由代码执行。
 2. 实现Preparation/Diagnosis/Strategy/Assessment四Agent独立入口及Renderer/Guard；Assessment业务实现仍归A。
-3. 用LangGraph.js StateGraph定义有界节点/分支，应用统一预算器；关闭SDK隐式重试和图自动节点重试，不启用第二套Agent循环。
+3. 在NestJS领域服务中定义有界节点/分支，复杂分支需要时使用LangGraph.js StateGraph；应用统一预算器，关闭SDK隐式重试和图自动节点重试。
 4. ModelPort封装AI SDK Core与具体provider adapter，实现FixtureProvider及真实文本/结构化/图片/取消/usage能力探测；依赖由A锁定。
-5. 按workflow-persistence.md实现MySqlCheckpointSaver薄适配；run_id作thread_id，checkpoint不替代node_runs审计或最终业务事务。
-6. 与A联测MySQL checkpoint读写、pending writes、刷新/杀进程恢复；独立commit前再次校验lease/版本/期限，不能只用MemorySaver验收。
+5. 按workflow-persistence.md实现MySQL run/step/jobs、lease与fencing恢复；仅在实际采用LangGraph checkpoint时实现并验证薄适配。
+6. 与A联测API创建任务、worker领取、节点落盘、刷新/杀进程恢复；独立commit前再次校验owner/lease/fencing/版本/期限，不能只用内存状态验收。
 
 先失败后通过的验收：
 - AT13: 真实经过对应独立契约与提示节点，不是一调用伪造四阶段
@@ -302,7 +302,7 @@ npm run test:stack -- B01
 
 输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
-独占写集：`src/features/bank/**`, `src/app/bank/**`, `src/app/api/bank/**`, `tests/bank/**`, `tests/e2e/bank.spec.ts`。
+独占写集：`server/src/features/bank/**`, `web/src/pages/bank/**`, `server/src/features/bank/controllers/**`, `tests/bank/**`, `web/tests/e2e/bank.spec.ts`。
 
 实施顺序：
 1. 读取主办方实际样本，建立JSONL+私有题图导入适配器和异常清单。
@@ -332,8 +332,8 @@ npm run test:e2e:task -- A02
 
 输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
-独占写集：`src/agents/preparation/**`, `src/workflows/prepare.ts`, `src/features/preparation/**`, `src/prompts/preparation.md`, `tests/preparation/**`。
-排除：src/agents/assessment/**；跨公共文件由owner合入。
+独占写集：`server/src/agents/preparation/**`, `server/src/workflows/prepare.ts`, `server/src/features/preparation/**`, `server/src/prompts/preparation.md`, `tests/preparation/**`。
+排除：server/src/agents/assessment/**；跨公共文件由owner合入。
 
 实施顺序：
 1. 实现prepare和route_review双模式；主路线与可选异解的AND/OR图。
@@ -363,7 +363,7 @@ npm run test:e2e:task -- B02
 
 输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
-独占写集：`src/features/media/**`, `src/app/api/media/**`, `src/features/input/**`, `tests/media/**`, `tests/e2e/media.spec.ts`。
+独占写集：`server/src/features/media/**`, `server/src/features/media/media.controller.ts`, `web/src/features/input/**`, `tests/media/**`, `web/tests/e2e/media.spec.ts`。
 
 实施顺序：
 1. 校验文件大小类型真实解码并存私有映射。
@@ -393,8 +393,8 @@ npm run test:e2e:task -- A03
 
 输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
-独占写集：`src/features/tutor/**`, `src/app/learn/[sessionId]/page.tsx`, `src/workflows/turn.ts`, `src/agents/renderer/**`, `src/agents/guard/**`, `src/prompts/renderer.md`, `src/prompts/guard.md`, `tests/tutor/**`, `tests/e2e/tutor.spec.ts`。
-排除：src/agents/assessment/**；跨公共文件由owner合入。
+独占写集：`server/src/features/tutor/**`, `web/src/pages/learn/SessionPage.tsx`, `server/src/workflows/turn.ts`, `server/src/agents/renderer/**`, `server/src/agents/guard/**`, `server/src/prompts/renderer.md`, `server/src/prompts/guard.md`, `tests/tutor/**`, `web/tests/e2e/tutor.spec.ts`。
+排除：server/src/agents/assessment/**；跨公共文件由owner合入。
 
 实施顺序：
 1. 实现attempt/hint/explain/worked_solution/finish_problem动作。
@@ -424,7 +424,7 @@ npm run test:e2e:task -- B03
 
 输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
-独占写集：`src/features/assessment/**`, `src/app/learn/[sessionId]/check/**`, `tests/assessment/**`, `tests/e2e/assessment.spec.ts`。
+独占写集：`server/src/features/assessment/**`, `web/src/pages/learn/check/**`, `tests/assessment/**`, `web/tests/e2e/assessment.spec.ts`。
 
 实施顺序：
 1. 构建owner级已见/等价登记与首次attempt表。
@@ -454,8 +454,8 @@ npm run test:e2e:task -- A04
 
 输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
-独占写集：`src/agents/diagnosis/**`, `src/prompts/diagnosis.md`, `src/features/tutor/evidence.ts`, `tests/diagnosis/**`。
-排除：src/agents/assessment/**；跨公共文件由owner合入。
+独占写集：`server/src/agents/diagnosis/**`, `server/src/prompts/diagnosis.md`, `server/src/features/tutor/evidence.ts`, `tests/diagnosis/**`。
+排除：server/src/agents/assessment/**；跨公共文件由owner合入。
 
 实施顺序：
 1. 实现valid/invalid/unknown与原因独立判定。
@@ -487,7 +487,7 @@ npm run test:e2e:task -- B04
 
 输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
-独占写集：`src/agents/assessment/**`, `src/prompts/assessment.md`, `src/features/assessment/grade.ts`, `src/features/report/**`, `src/app/learn/[sessionId]/report/**`, `tests/report/**`。
+独占写集：`server/src/agents/assessment/**`, `server/src/prompts/assessment.md`, `server/src/features/assessment/grade.ts`, `server/src/features/report/**`, `web/src/pages/learn/report/**`, `tests/report/**`。
 
 实施顺序：
 1. 实现独立AssessmentAgent上下文，只拿锁定计划/最终产物与rubric。
@@ -518,8 +518,8 @@ npm run test:e2e:task -- A05
 
 输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
-独占写集：`src/agents/strategy/**`, `src/prompts/strategy.md`, `src/features/tutor/route.ts`, `src/features/tutor/ladder.ts`, `src/workflows/policy.ts`, `tests/strategy/**`。
-排除：src/agents/assessment/**；跨公共文件由owner合入。
+独占写集：`server/src/agents/strategy/**`, `server/src/prompts/strategy.md`, `server/src/features/tutor/tutor.controller.ts`, `server/src/features/tutor/ladder.ts`, `server/src/workflows/policy.ts`, `tests/strategy/**`。
+排除：server/src/agents/assessment/**；跨公共文件由owner合入。
 
 实施顺序：
 1. 实现七类intervention和L0-L4，显式详解优先。
@@ -553,7 +553,7 @@ npm run test:e2e:task -- B05
 
 输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
-独占写集：`src/features/assessment/reassess.ts`, `src/features/history/**`, `src/app/history/**`, `src/shared/retention.ts`, `src/shared/delete.ts`, `tests/history/**`, `tests/e2e/privacy.spec.ts`。
+独占写集：`server/src/features/assessment/reassess.ts`, `server/src/features/history/**`, `web/src/pages/history/**`, `server/src/shared/retention.ts`, `server/src/shared/delete.ts`, `tests/history/**`, `web/tests/e2e/privacy.spec.ts`。
 
 实施顺序：
 1. 重测选择经过核对且owner未见的新任务，等价/近重复单列。
@@ -584,8 +584,8 @@ npm run test:e2e:task -- A06
 
 输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
-独占写集：`src/features/tutor/corrections.ts`, `src/features/teacher/**`, `src/app/teacher/**`, `tests/teacher/**`, `tests/corrections/**`, `tests/e2e/teacher.spec.ts`。
-排除：src/agents/assessment/**；跨公共文件由owner合入。
+独占写集：`server/src/features/tutor/corrections.ts`, `server/src/features/teacher/**`, `web/src/pages/teacher/**`, `tests/teacher/**`, `tests/corrections/**`, `web/tests/e2e/teacher.spec.ts`。
+排除：server/src/agents/assessment/**；跨公共文件由owner合入。
 
 实施顺序：
 1. 修订保留旧/新输入与依赖失效，不抹实际帮助。
@@ -617,13 +617,13 @@ npm run test:e2e:task -- B06
 
 输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md, acceptance/stack-cases.json。
 
-独占写集：`src/shared/**`, `tests/shared/**`, `tests/security/**`, `tests/e2e/recovery.spec.ts`, `Dockerfile`, `.dockerignore`, `scripts/start-production.*`, `docs/deploy.md`。
+独占写集：`server/src/shared/**`, `server/test/shared/**`, `server/test/security/**`, `web/tests/e2e/recovery.spec.ts`, `web/Dockerfile`, `server/Dockerfile`, `.dockerignore`, `server/scripts/start-production.*`, `docs/deploy.md`。
 
 实施顺序：
 1. 并发、相同request不同payload、旧版本和跨owner测试。
 2. 提交后断网复用结果，删除中回调不可复活。
-3. MySQL 8.4与私有媒体卷备份/恢复；单Node实例+数据库服务部署，故障期间拒绝成功响应，不自动降级内存数据库。
-4. 安全扫描RSC/HTML/网络、私有图访问与Origin。
+3. MySQL 8.4与私有媒体卷备份/恢复；React静态站点+NestJS API/worker+数据库服务部署，故障期间拒绝成功响应，不自动降级内存数据库。
+4. 安全扫描React bundle/HTML/网络、私有图访问与Origin。
 
 先失败后通过的验收：
 - AT42: REQUEST_CONFLICT/VERSION_CONFLICT/BUSY；只一次有效提交
@@ -654,8 +654,8 @@ npm run test:stack -- A07
 
 输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md, acceptance/stack-cases.json。
 
-独占写集：`src/workflows/**`, `src/agents/guard/**`, `tests/workflows/**`, `tests/guard/**`, `tests/agents/security.test.ts`。
-排除：src/agents/assessment/**；跨公共文件由owner合入。
+独占写集：`server/src/workflows/**`, `server/src/agents/guard/**`, `tests/workflows/**`, `tests/guard/**`, `tests/agents/security.test.ts`。
+排除：server/src/agents/assessment/**；跨公共文件由owner合入。
 
 实施顺序：
 1. LangGraph/MySQL checkpoint结合node_runs/input/model/prompt哈希恢复；覆盖checkpoint写前后、领域commit前后杀进程，验证只一次有效提交。
@@ -692,7 +692,7 @@ npm run test:stack -- B07
 
 输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
-独占写集：`scripts/bank-audit.*`, `scripts/evaluate-app.*`, `tests/e2e/**`, `artifacts/eval/bank/**`, `artifacts/eval/e2e/**`。
+独占写集：`scripts/bank-audit.*`, `scripts/evaluate-app.*`, `web/tests/e2e/**`, `artifacts/eval/bank/**`, `artifacts/eval/e2e/**`。
 
 实施顺序：
 1. 全量统计题目/缺图/准备/核对状态分母，确认抽题范围。
@@ -724,7 +724,7 @@ npm run test:e2e:task -- A08
 输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
 独占写集：`scripts/evaluate-teaching.*`, `tests/eval/**`, `artifacts/eval/roles/**`, `artifacts/eval/baseline/**`。
-排除：src/agents/assessment/**；跨公共文件由owner合入。
+排除：server/src/agents/assessment/**；跨公共文件由owner合入。
 
 实施顺序：
 1. 冻结同错不同因等行为脚本、角色输出oracle与提示版本。
@@ -756,7 +756,7 @@ npm run test:e2e:task -- B08
 
 输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
-独占写集：`src/features/bank/**`, `src/features/media/**`, `src/features/assessment/**`, `src/features/report/**`, `src/features/history/**`, `tests/e2e/**`, `docs/demo.md`。
+独占写集：`server/src/features/bank/**`, `server/src/features/media/**`, `server/src/features/assessment/**`, `server/src/features/report/**`, `server/src/features/history/**`, `web/tests/e2e/**`, `docs/demo.md`。
 
 实施顺序：
 1. 修复A范围P0缺陷，覆盖窄屏/键盘/空态/超时/错误恢复。
@@ -787,8 +787,8 @@ npm run test:e2e:task -- A09
 
 输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md。
 
-独占写集：`src/agents/**`, `src/prompts/**`, `src/features/tutor/**`, `src/features/teacher/**`, `tests/agents/**`, `tests/tutor/**`, `artifacts/eval/final/**`。
-排除：src/agents/assessment/**；跨公共文件由owner合入。
+独占写集：`server/src/agents/**`, `server/src/prompts/**`, `server/src/features/tutor/**`, `server/src/features/teacher/**`, `tests/agents/**`, `tests/tutor/**`, `artifacts/eval/final/**`。
+排除：server/src/agents/assessment/**；跨公共文件由owner合入。
 
 实施顺序：
 1. 按失败类别修复提示/图/策略，禁止针对演示题硬编码答案。
@@ -858,7 +858,7 @@ npm run test:stack -- A10
 输入：README.md, AGENTS.md, prd.md, contracts/README.md, contracts/domain.schema.json, stack.json, adr/ADR-001-stack.md, acceptance/stack-cases.json。
 
 独占写集：`docs/teaching-demo.md`, `docs/model-card.md`, `artifacts/release/teaching/**`。
-排除：src/agents/assessment/**；跨公共文件由owner合入。
+排除：server/src/agents/assessment/**；跨公共文件由owner合入。
 
 实施顺序：
 1. 冻结model/prompt/packet版本和预算配置，提供复现命令。
@@ -1223,7 +1223,7 @@ npm run test:stack -- B10
 ### AT48｜A07｜e2e｜FR16
 
 - Given：答案/密钥/未来rubric埋在服务端
-- When：扫描学生HTML/RSC/props/API与跨源mutation
+- When：扫描学生HTML/React bundle/props/API与跨源mutation
 - Then：私有值不出现；Origin/归属检查；日志无明文凭据
 - 证据：artifacts/acceptance/AT48.json；初始not_run。
 
@@ -1311,28 +1311,28 @@ npm run test:stack -- B10
 - Then：数学依赖无环，source及canonical目标保留；教学重试另存
 - 证据：artifacts/acceptance/AT60.json；初始not_run。
 
-## 附录D｜应用内函数与角色契约
+## 附录D｜NestJS 应用操作与角色契约
 
-这些是一个Next.js应用内部调用边界，不需要再建OpenAPI服务/SDK。
+这些是React前端调用NestJS API/worker的应用边界；通过共享Zod/OpenAPI契约生成或校验客户端类型，不复制第二套DTO。
 
 | 函数 | 归属/文件 | 输入→输出 | 约束 |
 | --- | --- | --- | --- |
-| importBank | A / `src/features/bank/actions.ts` | teacher + staged JSONL and local upload assets → import audit + bank_version | teacher mutation; no silent drops |
-| selectAndStart | A / `src/features/bank/actions.ts` | SelectInput → StudentView | owner mutation; records selected ID and preparation session before models |
-| retryPreparation | A / `src/features/bank/actions.ts` | MutationInput → StudentView | same selected ID; CAS then preparation workflow |
-| submitTurn | B / `src/features/tutor/actions.ts` | TurnInput → StudentView | owner mutation; confirmed evidence; runner + atomic checked commit |
-| handleCheck | A / `src/features/assessment/actions.ts` | CheckInput → StudentView | owner mutation; state-specific start/plan/final/help/reassess |
-| correctSubmission | B / `src/features/tutor/corrections.ts` | CorrectionInput → StudentView | revision + dependency invalidation; never retract exposure |
-| confirmTranscript | A / `src/features/media/actions.ts` | ConfirmTranscriptInput → TranscriptDraft | owner mutation; all uncertain lines explicitly confirmed |
-| transcribeMedia | A / `src/app/api/media/route.ts` | owner + multipart file/request_id → TranscriptDraft | validated private upload and vision only, no diagnosis |
-| readOwnedMedia | A / `src/app/api/media/[id]/route.ts` | owner + media_id → binary image | GET ownership, DB mapping only, no URL/path input |
-| loadSession | A / `src/shared/queries.ts` | owner + session_id → StudentView | GET safe allowlist, no mutation |
-| loadReport | A / `src/features/report/queries.ts` | owner + session_id → Report | GET computed independence; no model call |
-| listHistory | A / `src/features/history/queries.ts` | owner + opaque cursor → safe session summaries | GET own sessions only |
-| openTeacherTrace | B / `src/features/teacher/actions.ts` | teacher authorization + TeacherInput → TraceStep[] + safe RunRecord projection | POST explicit exposure committed first; no future rubric |
-| deleteSession | A / `src/shared/delete.ts` | MutationInput → void | owner mutation revoke runs then cascade; must not resurrect |
-| getRunStatus | A / `src/shared/queries.ts` | owner + session_id → StudentView.run_status + version | GET no unguarded token streaming |
-| saveAssessmentDraft | A / `src/features/assessment/actions.ts` | CheckInput action=save_draft → StudentView | no model/no feedback; plan editing forbidden after lock |
+| importBank | A / `server/src/features/bank/bank.service.ts` | teacher + staged JSONL and local upload assets → import audit + bank_version | teacher mutation; no silent drops |
+| selectAndStart | A / `server/src/features/bank/bank.service.ts` | SelectInput → StudentView | owner mutation; records selected ID and preparation session before models |
+| retryPreparation | A / `server/src/features/bank/bank.service.ts` | MutationInput → StudentView | same selected ID; CAS then preparation workflow |
+| submitTurn | B / `server/src/features/tutor/tutor.service.ts` | TurnInput → StudentView | owner mutation; confirmed evidence; runner + atomic checked commit |
+| handleCheck | A / `server/src/features/assessment/assessment.service.ts` | CheckInput → StudentView | owner mutation; state-specific start/plan/final/help/reassess |
+| correctSubmission | B / `server/src/features/tutor/tutor.service.ts` | CorrectionInput → StudentView | revision + dependency invalidation; never retract exposure |
+| confirmTranscript | A / `server/src/features/media/media.service.ts` | ConfirmTranscriptInput → TranscriptDraft | owner mutation; all uncertain lines explicitly confirmed |
+| transcribeMedia | A / `server/src/features/media/media.controller.ts` | owner + multipart file/request_id → TranscriptDraft | validated private upload and vision only, no diagnosis |
+| readOwnedMedia | A / `server/src/features/media/media.controller.ts` | owner + media_id → binary image | GET ownership, DB mapping only, no URL/path input |
+| loadSession | A / `server/src/features/session/session-query.service.ts` | owner + session_id → StudentView | GET safe allowlist, no mutation |
+| loadReport | A / `server/src/features/report/report-query.service.ts` | owner + session_id → Report | GET computed independence; no model call |
+| listHistory | A / `server/src/features/history/history-query.service.ts` | owner + opaque cursor → safe session summaries | GET own sessions only |
+| openTeacherTrace | B / `server/src/features/teacher/teacher.service.ts` | teacher authorization + TeacherInput → TraceStep[] + safe RunRecord projection | POST explicit exposure committed first; no future rubric |
+| deleteSession | A / `server/src/features/session/session-command.service.ts` | MutationInput → void | owner mutation revoke runs then cascade; must not resurrect |
+| getRunStatus | A / `server/src/features/session/session-query.service.ts` | owner + session_id → StudentView.run_status + version | GET no unguarded token streaming |
+| saveAssessmentDraft | A / `server/src/features/assessment/assessment.service.ts` | CheckInput action=save_draft → StudentView | no model/no feedback; plan editing forbidden after lock |
 
 ## 附录E｜交付物和配套文件
 

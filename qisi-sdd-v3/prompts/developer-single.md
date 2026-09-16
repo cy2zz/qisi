@@ -8,4 +8,4 @@
 
 每张卡是一次检查点：写完交接后，授权范围内下一卡依赖就绪可自动继续，不必反复询问。另一人未复核时标implemented_waiting_review；单AI复核明确标self_review。不得以自动继续为由越过未完成依赖。
 
-技术栈必须遵循stack.json及adr/ADR-001-stack.md；数据库MySQL 8.4 LTS、编排LangGraph.js Graph API；在仓库根src/实施。不得依据遗留Java/Vite骨架反向改变选型。先完成A01/B01的栈准入与真实MySQL恢复测试，按acceptance/stack-cases.json记录结果；未跑不得标通过。
+技术栈必须遵循stack.json及adr/ADR-001-stack.md；前端在`web/`使用React/Vite，后端在`server/`使用NestJS，数据库MySQL 8.4 LTS。复杂分支可用LangGraph.js，但恢复以MySQL领域状态为准。先完成A01/B01的栈准入与真实MySQL恢复测试，按acceptance/stack-cases.json记录结果；未跑不得标通过。

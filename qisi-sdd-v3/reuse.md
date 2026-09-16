@@ -12,18 +12,18 @@
 
 | 组件/仓库 | 决定与等级 | 复用什么/不复用什么 | 负责人、落点与准入测试 |
 | --- | --- | --- | --- |
-| vercel/next.js + facebook/react | 基线框架；E0，实际依赖需准入 | 同仓页面、Server Actions/Route Handlers；不用独立后端服务 | A01；src/app；build、SSR/客户端边界、真实持久化刷新 |
-| remarkjs/react-markdown | 选用；E1，本地license为MIT | 安全Markdown AST渲染；不开rehype-raw | A01；src/shared/ui/MathMarkdown.tsx；XSS、链接、中文公式、异常输入 |
+| nestjs/nest + vitejs/vite + facebook/react | 基线框架；E0，实际依赖需准入 | `web/` React SPA、`server/` NestJS API/worker；不拆独立微服务群 | A01；web/server；双端 build、DTO/浏览器边界、真实持久化刷新 |
+| remarkjs/react-markdown | 选用；E1，本地license为MIT | 安全Markdown AST渲染；不开rehype-raw | A01；web/src/shared/ui/MathMarkdown.tsx；XSS、链接、中文公式、异常输入 |
 | remarkjs/remark-math + remarkjs/remark-rehype相关生态 | 选用插件候选；E0 | 数学语法识别，锁与react-markdown兼容版本 | A01；同上；行内、多行、转义符和超长公式 |
 | KaTeX/KaTeX + rehype-katex | KaTeX E1，本地许可MIT；插件E0 | LaTeX渲染，不是数学判题器；trust=false，throwOnError=false | A01；字体随构建打包，不依赖现场CDN；危险命令与渲染失败保留原文 |
-| colinhacks/zod | 选用；E0 | 运行时结构校验；不能替代跨字段数学/授权校验 | B01；src/contracts；额外字段拒绝、union分支、JSON修复失败 |
-| sidorares/node-mysql2 + MySQL 8.4 LTS | 已选基线；E0 | promise连接池、参数化查询、短事务、原生JSON；无ORM | A01；src/shared/db + migrations；8.4默认认证、UTC/JSON、约束/CAS/回滚/备份恢复实测 |
-| lovell/sharp | 图片解码候选；E0 | MIME/尺寸/真实解码与私有安全副本 | A03；src/features/media；伪后缀、压缩炸弹、EXIF、20MP/8MB边界 |
+| colinhacks/zod | 选用；E0 | 运行时结构校验；不能替代跨字段数学/授权校验 | B01；server/src/contracts；额外字段拒绝、union分支、JSON修复失败 |
+| sidorares/node-mysql2 + kysely-org/kysely + MySQL 8.4 LTS | 已选基线；E0 | 类型化查询、参数化短事务、原生JSON；复杂锁和迁移保留显式SQL | A01；server/src/shared/db + server/migrations；8.4认证、UTC/JSON、约束/CAS/回滚/备份恢复实测 |
+| lovell/sharp | 图片解码候选；E0 | MIME/尺寸/真实解码与私有安全副本 | A03；server/src/features/media；伪后缀、压缩炸弹、EXIF、20MP/8MB边界 |
 | vitest-dev/vitest | 选用；E0 | 单元/契约/故障测试 | A01基础配置，A/B各自测试；fixture deterministic provider |
-| microsoft/playwright | 选用；E0 | 单体Web E2E、浏览器负载审查、无障碍与刷新 | A01配置；tests/e2e；真实持久化非只测组件截图 |
-| langchain-ai/langgraphjs + checkpoint接口/serializer | 已选基线；E0 | Graph API编排/条件边/持久恢复协议；不启用托管平台 | B01/B07；src/workflows；自有MySqlCheckpointSaver薄适配，真实MySQL conformance/重启/取消/幂等/预算门禁 |
-| vercel/ai | 已选AI SDK Core；E0 | ModelPort中的provider调用与结构化结果；不用Agent自动循环 | B01；src/model；结构化/图片/取消/usage/重试0，实际provider证据 |
-| tailwindlabs/tailwindcss + shadcn-ui/ui | 已选UI；E0 | Tailwind样式与项目内组件源码；不套整站聊天Demo | A01；src/components/ui及全局样式；锁生成器/生成组件依赖、键盘操作与公式可读性 |
+| microsoft/playwright | 选用；E0 | React/NestJS E2E、浏览器负载审查、无障碍与刷新 | A01配置；web/tests/e2e；真实持久化非只测组件截图 |
+| langchain-ai/langgraphjs | 条件选用；E0 | 仅在复杂分支需要时使用Graph API；不启用托管平台 | B01/B07；server/src/workflows；MySQL领域run/step优先，checkpoint adapter另做conformance |
+| vercel/ai | 已选AI SDK Core；E0 | ModelPort中的provider调用与结构化结果；不用Agent自动循环 | B01；server/src/model；结构化/图片/取消/usage/重试0，实际provider证据 |
+| tailwindlabs/tailwindcss + shadcn-ui/ui | 已选UI；E0 | Tailwind样式与项目内组件源码；不套整站聊天Demo | A01；web/src/components/ui及全局样式；锁生成器/生成组件依赖、键盘操作与公式可读性 |
 | SenmuuuuW/universal-diagnostic-tutor-skill | E1，MIT；设计参考 | 借鉴竞争假设/诊断流程，重写高中数学专用提示和测试；不是可直接部署的教学系统 | B04；prompts/diagnosis.md；同错不同因、反证修订、虚构证据ID负例 |
 | RunzheYang/SocraticAI | E1，提示/分角色思想参考 | 不直接fork其Web/运行栈；不能继承不存在的曝光和独立检验能力 | B01 ADR记录，不引入生产依赖 |
 | breezedeus/Pix2Text | E1；备用而非默认服务 | 全中文手写需专项数据实测，代码与所有模型权重分别检查 | A03；默认复用已选多模态模型做忠实转写；需要离线OCR再提变更，不暗加Python服务 |
@@ -34,10 +34,10 @@
 
 ## 3. D1/D2准入步骤（给开发AI执行）
 
-1. A01读取已有package文件；若应用目录非空，先报告现有结构，不覆盖重建。按ADR-001已定Node24/Next16/React19选择相互兼容且安全的patch版本，查官方文档，不运行盲目的latest升级。
-2. npm安装只在qisi-dashboard内执行；生成并提交package-lock.json、Node版本文件。安装超时/无法联网记录blocked_external，保持功能规格，不伪造package-lock。
+1. A01读取 `web/package.json`、`server/package.json` 和可选根workspace；目录非空先报告结构，不覆盖重建。按ADR-001已定Node24/NestJS12/Vite8/React19选择相互兼容且安全的patch版本，不运行盲目的latest升级。
+2. npm安装只在 `web/`、`server/` 或明确的根workspace执行；生成各自真实lock和Node版本文件。安装超时/无法联网记录blocked_external，不伪造lock。
 3. 记录每个直接依赖精确版本、解析地址、仓库、许可文件、传递依赖审查结果；保存npm ls、npm audit输出。发现漏洞需判断可达性并处置，不将没有audit输出记为零漏洞。
-4. 运行最小烟测：npm run build；真实MySQL 8.4写后重启读取及LangGraph checkpoint恢复；公式安全渲染；Playwright启动目标浏览器；sharp解码。结果放artifacts/reuse/，哈希引用到reuse-lock.json。
+4. 运行最小烟测：React与NestJS分别typecheck/build；真实MySQL 8.4写后经API/worker重启读取；公式安全渲染；Playwright启动目标浏览器；sharp解码。结果放artifacts/reuse/，哈希引用到reuse-lock.json。
 5. E1素材若复制代码/文本，保留版权和许可声明。只借鉴思路也标注来源，不抄整套未经核验的提示词声称自主研发。
 6. 复用失败的替换：先写changes记录，说明能力等价测试和依赖影响，由A/B确认写集；允许替换基础库，不允许以此删手写、守卫、持久化或评估。
 
@@ -47,7 +47,9 @@
 
 官方入口（开发时再核验）：
 
-- https://github.com/vercel/next.js
+- https://github.com/nestjs/nest
+- https://github.com/vitejs/vite
+- https://github.com/facebook/react
 - https://github.com/remarkjs/react-markdown
 - https://github.com/remarkjs/remark-math
 - https://github.com/KaTeX/KaTeX
@@ -63,11 +65,14 @@
 初始文件只记录planned，resolved_version=null；这不是可供npm ci使用的锁文件。A01/D2完成后每项必须有实际版本和证据，才允许转accepted；deferred组件不影响Web基线。开源许可/软件更新状态需要到实施环境重新确认，不由本文给出法律保证。
 ## qisi-3.1新增准入要求
 
-MySQL版本线已定8.4 LTS；LangGraph从候选升级为正式选型，AI SDK Core仅模型I/O。许可、传递依赖、安全公告、包来源、目标Node安装、bundle边界、连接认证与恢复测试均由A01/B01取证后才能accepted。高star不等于合格；不因为社区包名字含mysql/langgraph就默认采用。本版选择自有薄saver而非未经核验的社区包；可替换实现须提交ADR并保留ST/AT。
+MySQL版本线已定8.4 LTS；React/Vite与NestJS是应用基线；LangGraph仅在有界图确有价值时使用，AI SDK Core仅模型I/O。许可、传递依赖、安全公告、包来源、目标Node安装、bundle边界、连接认证与恢复测试均由A01/B01取证后才能accepted。高star不等于合格；不因为社区包名字含mysql/langgraph就默认采用。MySQL领域状态优先，任何checkpoint adapter都须另做conformance；可替换实现须提交ADR并保留ST/AT。
 
 新增官方入口（用于开发时核验，不代表本轮已获取正文/已安装）：
 - https://dev.mysql.com/doc/refman/8.4/en/
 - https://sidorares.github.io/node-mysql2/docs
+- https://docs.nestjs.com/
+- https://vite.dev/guide/
+- https://kysely.dev/
 - https://docs.langchain.com/oss/javascript/langgraph/graph-api
 - https://docs.langchain.com/oss/javascript/langgraph/persistence
 - https://github.com/langchain-ai/langgraphjs/tree/main/libs/checkpoint

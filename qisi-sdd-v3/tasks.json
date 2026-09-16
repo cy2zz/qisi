@@ -15,42 +15,41 @@
     "write_scope": [
       "package.json",
       "package-lock.json",
-      "src/app/layout.tsx",
-      "src/shared/**",
-      "tests/shared/**",
-      "tests/e2e/smoke.spec.ts",
-      "next.config.*",
-      "tsconfig.json",
-      "vitest.config.*",
+      "web/package.json",
+      "web/package-lock.json",
+      "web/src/App.tsx",
+      "web/src/shared/**",
+      "web/src/components/ui/**",
+      "web/src/styles/**",
+      "web/tests/**",
+      "web/vite.config.*",
+      "web/tsconfig*.json",
+      "server/package.json",
+      "server/package-lock.json",
+      "server/src/shared/**",
+      "server/src/database/**",
+      "server/migrations/**",
+      "server/scripts/**",
+      "server/test/integration/db/**",
+      "server/tsconfig*.json",
       "playwright.config.*",
       ".nvmrc",
       ".node-version",
       ".env.example",
       ".gitignore",
       ".dockerignore",
-      "Dockerfile",
+      "web/Dockerfile",
+      "server/Dockerfile",
       "compose.yaml",
       "eslint.config.*",
-      "postcss.config.*",
-      "components.json",
-      "src/app/page.tsx",
-      "src/app/globals.css",
-      "src/components/ui/**",
-      "src/lib/utils.ts",
-      "src/lib/db/**",
-      "migrations/**",
-      "scripts/db/**",
-      "scripts/tests/**",
-      "scripts/seed/**",
-      "tests/integration/db/**",
       "artifacts/reuse/**"
     ],
     "steps": [
-      "读取ADR-001，在qisi-dashboard仓库根建立Next.js 16/React 19/TypeScript/Node 24 LTS应用；保留frontend/backend，不删除历史骨架",
-      "安装并精确锁定全部选定依赖，初始化Tailwind CSS/shadcn/ui；提交package-lock、Node版本和依赖准入证据",
+      "读取ADR-001，在web初始化React 19/TypeScript/Vite，在server初始化NestJS/TypeScript/Node 24 LTS；保留并核对现有未提交迁移，不覆盖重建",
+      "分别安装并精确锁定web/server依赖，初始化Tailwind CSS/shadcn/ui；提交真实lock、Node版本和依赖准入证据",
       "建立MySQL 8.4 Compose、健康检查、独立持久卷及迁移脚本；mysql2连接池设置UTC/utf8mb4/READ COMMITTED，检查默认认证与生产TLS",
-      "实现匿名owner、MySQL StorePort、请求幂等/版本/CAS与短事务；由A统一合入B提出的checkpoint表迁移",
-      "实现MathMarkdown、安全DTO与Web骨架；用FixtureProvider跑页面→图→校验→MySQL→刷新链路，并协同B验证杀进程续跑"
+      "在server实现匿名owner、MySQL StorePort、请求幂等/版本/CAS与短事务；由A统一合入B提出的工作流run/step/jobs迁移",
+      "在web实现MathMarkdown与移动端骨架，在server实现REST/SSE安全DTO和worker接线；用FixtureProvider跑页面→API→工作流→校验→MySQL→刷新链路，并协同B验证杀进程续跑"
     ],
     "input": [
       "README.md",
@@ -115,23 +114,23 @@
       "FR15"
     ],
     "write_scope": [
-      "src/contracts/**",
-      "src/agents/**",
-      "src/workflows/**",
-      "src/prompts/**",
-      "tests/agents/**",
-      "tests/workflows/**",
+      "server/src/contracts/**",
+      "server/src/agents/**",
+      "server/src/workflows/**",
+      "server/src/prompts/**",
+      "server/test/agents/**",
+      "server/test/workflows/**",
       "docs/adr/001-orchestration.md",
-      "src/model/**",
-      "tests/model/**"
+      "server/src/model/**",
+      "server/test/model/**"
     ],
     "steps": [
-      "与A先冻结共享契约及MySQL迁移接口；业务Schema映射严格Zod，跨字段PolicyGate由代码执行",
+      "与A先冻结REST/SSE共享契约及MySQL迁移接口；NestJS DTO映射严格Zod，跨字段PolicyGate由代码执行",
       "实现Preparation/Diagnosis/Strategy/Assessment四Agent独立入口及Renderer/Guard；Assessment业务实现仍归A",
-      "用LangGraph.js StateGraph定义有界节点/分支，应用统一预算器；关闭SDK隐式重试和图自动节点重试，不启用第二套Agent循环",
+      "在NestJS领域服务中定义有界节点/分支，复杂分支需要时使用LangGraph.js StateGraph；应用统一预算器，关闭SDK隐式重试和图自动节点重试",
       "ModelPort封装AI SDK Core与具体provider adapter，实现FixtureProvider及真实文本/结构化/图片/取消/usage能力探测；依赖由A锁定",
-      "按workflow-persistence.md实现MySqlCheckpointSaver薄适配；run_id作thread_id，checkpoint不替代node_runs审计或最终业务事务",
-      "与A联测MySQL checkpoint读写、pending writes、刷新/杀进程恢复；独立commit前再次校验lease/版本/期限，不能只用MemorySaver验收"
+      "按workflow-persistence.md实现MySQL run/step/jobs、lease与fencing恢复；仅在实际采用LangGraph checkpoint时实现并验证薄适配",
+      "与A联测API创建任务、worker领取、节点落盘、刷新/杀进程恢复；独立commit前再次校验owner/lease/fencing/版本/期限，不能只用内存状态验收"
     ],
     "input": [
       "README.md",
@@ -170,7 +169,7 @@
       "ST07: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run"
     ],
     "excluded_write_scope": [
-      "src/agents/assessment/**"
+      "server/src/agents/assessment/**"
     ],
     "stack_acceptance": [
       "ST05",
@@ -193,11 +192,11 @@
       "FR03"
     ],
     "write_scope": [
-      "src/features/bank/**",
-      "src/app/bank/**",
-      "src/app/api/bank/**",
+      "server/src/features/bank/**",
+      "web/src/pages/bank/**",
+      "server/src/features/bank/controllers/**",
       "tests/bank/**",
-      "tests/e2e/bank.spec.ts"
+      "web/tests/e2e/bank.spec.ts"
     ],
     "steps": [
       "读取主办方实际样本，建立JSONL+私有题图导入适配器和异常清单",
@@ -256,10 +255,10 @@
       "FR06"
     ],
     "write_scope": [
-      "src/agents/preparation/**",
-      "src/workflows/prepare.ts",
-      "src/features/preparation/**",
-      "src/prompts/preparation.md",
+      "server/src/agents/preparation/**",
+      "server/src/workflows/prepare.ts",
+      "server/src/features/preparation/**",
+      "server/src/prompts/preparation.md",
       "tests/preparation/**"
     ],
     "steps": [
@@ -302,7 +301,7 @@
       "AT07: 不自动认证；出现冲突needs_review及问题记录"
     ],
     "excluded_write_scope": [
-      "src/agents/assessment/**"
+      "server/src/agents/assessment/**"
     ],
     "stack_acceptance": []
   },
@@ -322,11 +321,11 @@
       "FR16"
     ],
     "write_scope": [
-      "src/features/media/**",
-      "src/app/api/media/**",
-      "src/features/input/**",
+      "server/src/features/media/**",
+      "server/src/features/media/media.controller.ts",
+      "web/src/features/input/**",
       "tests/media/**",
-      "tests/e2e/media.spec.ts"
+      "web/tests/e2e/media.spec.ts"
     ],
     "steps": [
       "校验文件大小类型真实解码并存私有映射",
@@ -387,15 +386,15 @@
       "FR10"
     ],
     "write_scope": [
-      "src/features/tutor/**",
-      "src/app/learn/[sessionId]/page.tsx",
-      "src/workflows/turn.ts",
-      "src/agents/renderer/**",
-      "src/agents/guard/**",
-      "src/prompts/renderer.md",
-      "src/prompts/guard.md",
+      "server/src/features/tutor/**",
+      "web/src/pages/learn/SessionPage.tsx",
+      "server/src/workflows/turn.ts",
+      "server/src/agents/renderer/**",
+      "server/src/agents/guard/**",
+      "server/src/prompts/renderer.md",
+      "server/src/prompts/guard.md",
       "tests/tutor/**",
-      "tests/e2e/tutor.spec.ts"
+      "web/tests/e2e/tutor.spec.ts"
     ],
     "steps": [
       "实现attempt/hint/explain/worked_solution/finish_problem动作",
@@ -437,7 +436,7 @@
       "AT27: 不含完整解法、未来rubric和私有诊断原文"
     ],
     "excluded_write_scope": [
-      "src/agents/assessment/**"
+      "server/src/agents/assessment/**"
     ],
     "stack_acceptance": []
   },
@@ -457,10 +456,10 @@
       "FR12"
     ],
     "write_scope": [
-      "src/features/assessment/**",
-      "src/app/learn/[sessionId]/check/**",
+      "server/src/features/assessment/**",
+      "web/src/pages/learn/check/**",
       "tests/assessment/**",
-      "tests/e2e/assessment.spec.ts"
+      "web/tests/e2e/assessment.spec.ts"
     ],
     "steps": [
       "构建owner级已见/等价登记与首次attempt表",
@@ -519,9 +518,9 @@
       "FR08"
     ],
     "write_scope": [
-      "src/agents/diagnosis/**",
-      "src/prompts/diagnosis.md",
-      "src/features/tutor/evidence.ts",
+      "server/src/agents/diagnosis/**",
+      "server/src/prompts/diagnosis.md",
+      "server/src/features/tutor/evidence.ts",
       "tests/diagnosis/**"
     ],
     "steps": [
@@ -568,7 +567,7 @@
       "AT23: 显示前已保存expected/counterevidence/next_action；不事后改预期"
     ],
     "excluded_write_scope": [
-      "src/agents/assessment/**"
+      "server/src/agents/assessment/**"
     ],
     "stack_acceptance": []
   },
@@ -587,11 +586,11 @@
       "FR13"
     ],
     "write_scope": [
-      "src/agents/assessment/**",
-      "src/prompts/assessment.md",
-      "src/features/assessment/grade.ts",
-      "src/features/report/**",
-      "src/app/learn/[sessionId]/report/**",
+      "server/src/agents/assessment/**",
+      "server/src/prompts/assessment.md",
+      "server/src/features/assessment/grade.ts",
+      "server/src/features/report/**",
+      "web/src/pages/learn/report/**",
       "tests/report/**"
     ],
     "steps": [
@@ -655,11 +654,11 @@
       "FR10"
     ],
     "write_scope": [
-      "src/agents/strategy/**",
-      "src/prompts/strategy.md",
-      "src/features/tutor/route.ts",
-      "src/features/tutor/ladder.ts",
-      "src/workflows/policy.ts",
+      "server/src/agents/strategy/**",
+      "server/src/prompts/strategy.md",
+      "server/src/features/tutor/tutor.controller.ts",
+      "server/src/features/tutor/ladder.ts",
+      "server/src/workflows/policy.ts",
       "tests/strategy/**"
     ],
     "steps": [
@@ -710,7 +709,7 @@
       "AT60: 数学依赖无环，source及canonical目标保留；教学重试另存"
     ],
     "excluded_write_scope": [
-      "src/agents/assessment/**"
+      "server/src/agents/assessment/**"
     ],
     "stack_acceptance": []
   },
@@ -730,13 +729,13 @@
       "FR16"
     ],
     "write_scope": [
-      "src/features/assessment/reassess.ts",
-      "src/features/history/**",
-      "src/app/history/**",
-      "src/shared/retention.ts",
-      "src/shared/delete.ts",
+      "server/src/features/assessment/reassess.ts",
+      "server/src/features/history/**",
+      "web/src/pages/history/**",
+      "server/src/shared/retention.ts",
+      "server/src/shared/delete.ts",
       "tests/history/**",
-      "tests/e2e/privacy.spec.ts"
+      "web/tests/e2e/privacy.spec.ts"
     ],
     "steps": [
       "重测选择经过核对且owner未见的新任务，等价/近重复单列",
@@ -799,12 +798,12 @@
       "FR14"
     ],
     "write_scope": [
-      "src/features/tutor/corrections.ts",
-      "src/features/teacher/**",
-      "src/app/teacher/**",
+      "server/src/features/tutor/corrections.ts",
+      "server/src/features/teacher/**",
+      "web/src/pages/teacher/**",
       "tests/teacher/**",
       "tests/corrections/**",
-      "tests/e2e/teacher.spec.ts"
+      "web/tests/e2e/teacher.spec.ts"
     ],
     "steps": [
       "修订保留旧/新输入与依赖失效，不抹实际帮助",
@@ -850,7 +849,7 @@
       "AT41: 包含证据、竞争假设、已预存探针、动作理由和后续更新；不含隐藏CoT"
     ],
     "excluded_write_scope": [
-      "src/agents/assessment/**"
+      "server/src/agents/assessment/**"
     ],
     "stack_acceptance": []
   },
@@ -870,20 +869,21 @@
       "FR18"
     ],
     "write_scope": [
-      "src/shared/**",
-      "tests/shared/**",
-      "tests/security/**",
-      "tests/e2e/recovery.spec.ts",
-      "Dockerfile",
+      "server/src/shared/**",
+      "server/test/shared/**",
+      "server/test/security/**",
+      "web/tests/e2e/recovery.spec.ts",
+      "web/Dockerfile",
+      "server/Dockerfile",
       ".dockerignore",
-      "scripts/start-production.*",
+      "server/scripts/start-production.*",
       "docs/deploy.md"
     ],
     "steps": [
       "并发、相同request不同payload、旧版本和跨owner测试",
       "提交后断网复用结果，删除中回调不可复活",
-      "MySQL 8.4与私有媒体卷备份/恢复；单Node实例+数据库服务部署，故障期间拒绝成功响应，不自动降级内存数据库",
-      "安全扫描RSC/HTML/网络、私有图访问与Origin"
+      "MySQL 8.4与私有媒体卷备份/恢复；React静态站点+NestJS API/worker+数据库服务部署，故障期间拒绝成功响应，不自动降级内存数据库",
+      "安全扫描React bundle/HTML/网络、私有图访问与Origin"
     ],
     "input": [
       "README.md",
@@ -952,8 +952,8 @@
       "FR16"
     ],
     "write_scope": [
-      "src/workflows/**",
-      "src/agents/guard/**",
+      "server/src/workflows/**",
+      "server/src/agents/guard/**",
       "tests/workflows/**",
       "tests/guard/**",
       "tests/agents/security.test.ts"
@@ -1007,7 +1007,7 @@
       "ST12: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run"
     ],
     "excluded_write_scope": [
-      "src/agents/assessment/**"
+      "server/src/agents/assessment/**"
     ],
     "stack_acceptance": [
       "ST06",
@@ -1036,7 +1036,7 @@
     "write_scope": [
       "scripts/bank-audit.*",
       "scripts/evaluate-app.*",
-      "tests/e2e/**",
+      "web/tests/e2e/**",
       "artifacts/eval/bank/**",
       "artifacts/eval/e2e/**"
     ],
@@ -1149,7 +1149,7 @@
       "AT52: 各角色有正反用例、独立结果；模拟与真实模型标签分开"
     ],
     "excluded_write_scope": [
-      "src/agents/assessment/**"
+      "server/src/agents/assessment/**"
     ],
     "stack_acceptance": []
   },
@@ -1169,12 +1169,12 @@
       "FR18"
     ],
     "write_scope": [
-      "src/features/bank/**",
-      "src/features/media/**",
-      "src/features/assessment/**",
-      "src/features/report/**",
-      "src/features/history/**",
-      "tests/e2e/**",
+      "server/src/features/bank/**",
+      "server/src/features/media/**",
+      "server/src/features/assessment/**",
+      "server/src/features/report/**",
+      "server/src/features/history/**",
+      "web/tests/e2e/**",
       "docs/demo.md"
     ],
     "steps": [
@@ -1240,10 +1240,10 @@
       "FR17"
     ],
     "write_scope": [
-      "src/agents/**",
-      "src/prompts/**",
-      "src/features/tutor/**",
-      "src/features/teacher/**",
+      "server/src/agents/**",
+      "server/src/prompts/**",
+      "server/src/features/tutor/**",
+      "server/src/features/teacher/**",
       "tests/agents/**",
       "tests/tutor/**",
       "artifacts/eval/final/**"
@@ -1294,7 +1294,7 @@
       "AT57: 无针对demo硬编码；保留失败记录并重跑关键P0"
     ],
     "excluded_write_scope": [
-      "src/agents/assessment/**"
+      "server/src/agents/assessment/**"
     ],
     "stack_acceptance": []
   },
@@ -1441,7 +1441,7 @@
       "ST12: 按stack-cases.json执行，真实MySQL/图/模型未跑明确not_run"
     ],
     "excluded_write_scope": [
-      "src/agents/assessment/**"
+      "server/src/agents/assessment/**"
     ],
     "stack_acceptance": [
       "ST05",

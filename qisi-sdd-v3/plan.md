@@ -2,30 +2,30 @@
 
 > 交付基线：qisi-3.1；规格核验日期：2026-09-16。设计V6.1、开发规划V3.1与PRD V3.1配套使用，完整机器契约、测试夹具、A/B启动提示和校验脚本见仓库当前qisi-sdd-v3.zip；POPO仍是历史qisi-3.0附件，本次未同步。本交付是开发规格，不是已实现的应用或学习效果证明。
 
-版本qisi-3.1，2026-09-15。20人日基准，约10开发日；两位开发者A/B，单个全栈Web，不做前后端分离。不是固定十天强行砍功能的承诺；按P0验收调日历。D9/D10安排质量修复与发布缓冲，不另计双倍人日。
+版本qisi-3.1，2026-09-15。20人日基准，约10开发日；两位开发者A/B，同一仓库内维护`web/` React前端和`server/` NestJS后端/worker。不是固定十天强行砍功能的承诺；按P0验收调日历。D9/D10安排质量修复与发布缓冲，不另计双倍人日。
 
 ## 已确认技术栈（ADR-001，qisi-3.1）
 
 | 层 | 唯一实施选择 |
 | --- | --- |
-| Web / 语言 | Next.js 16 App Router + React 19 + TypeScript + Node.js 24 LTS |
+| Web / 语言 | `web/` React 19 + Vite 8；`server/` NestJS 12；TypeScript + Node.js 24 LTS |
 | UI | Tailwind CSS + shadcn/ui |
-| 多Agent编排 | LangGraph.js Graph API（正式基线，不再是候选） |
+| 多Agent编排 | NestJS 领域服务承载有界工作流；复杂分支按需使用 LangGraph.js StateGraph |
 | 模型接入 | AI SDK Core，经项目ModelPort；provider按比赛资源与实际能力测试选择 |
-| 数据库 | MySQL Community Server 8.4 LTS + mysql2；InnoDB/utf8mb4，无ORM |
+| 数据库 | MySQL Community Server 8.4 LTS + mysql2 + Kysely；InnoDB/utf8mb4，显式 SQL 迁移 |
 | 验证/渲染 | Zod；react-markdown + remark-math + rehype-katex/KaTeX |
 | 手写 | sharp校验解码 + 多模态转写 + 学生确认，不新增Python服务 |
-| 测试/部署 | Vitest + Playwright + 真实MySQL集成；单Node应用 + MySQL + 私有媒体卷 |
+| 测试/部署 | Vitest + NestJS/Supertest + Playwright + 真实MySQL集成；React静态站点 + NestJS API/worker + MySQL + 私有媒体存储 |
 
-决定与现状必须区分：以上选型已获确认；精确patch和镜像digest待A01真实安装后锁定；仓库现有Java/Vite骨架尚未迁移。实施位置是qisi-dashboard仓库根src/，不另建应用仓库。
+决定与现状必须区分：以上选型已获确认；精确patch和镜像digest待A01真实安装后锁定。当前未提交工作区已有`web/`、`server/`迁移内容，但尚未证明React/NestJS初始化完成；不得覆盖或回退。
 
-核心调整：LangGraph复用节点/分支/恢复能力；AI SDK只做模型I/O；MySQL保存业务与checkpoint。最终状态/帮助曝光/幂等/取消仍由代码PolicyGate和StorePort事务控制，不由checkpoint替代。MySQL saver的薄适配由B01负责、全部迁移由A01负责；先通过ST01–ST07，D7补完整故障门禁ST08–ST12。A/B任务、迁移/图协议见stack.json、adr/ADR-001-stack.md、contracts/mysql.md、contracts/workflow-persistence.md、acceptance/stack-cases.json。
+核心调整：React/Vite负责前端，NestJS承载API、worker和领域服务；MySQL保存业务、run/step/jobs与审计事实，LangGraph.js仅在复杂有界分支需要时使用。最终状态、帮助曝光、幂等和取消由PolicyGate与StorePort事务控制，不由checkpoint替代。A01/B01先通过ST01–ST07，D7补完整故障门禁ST08–ST12。
 
 这是规格更新，不是依赖集成或应用验收。原18条P0、20张任务、60项AT全部保留；新增12项ST不替代教学质量与独立学习证据。
 
 ## 1. 分工和关键路径
 
-A交付平台基础、题库、手写、独立检验/AssessmentAgent、报告/历史、部署；B交付多Agent编排、备课/诊断/策略、教学页、输出守卫、教师依据和教学质量。组件、Server Action、DB、测试属于同一张纵向任务卡。
+A交付平台基础、题库、手写、独立检验/AssessmentAgent、报告/历史、部署；B交付多Agent编排、备课/诊断/策略、教学页、输出守卫、教师依据和教学质量。React组件、NestJS API/worker、DB和测试属于同一张纵向任务卡。
 
 关键路径：D1契约/持久层→D2题库+备课→D3真实教学+手写→D4诊断/独立检验→D5动态干预/评分→D6修订/教师依据/重测→D7恢复安全→D8实测→D9修复→D10发布。
 
@@ -34,7 +34,7 @@ D1首两小时A/B冻结StorePort、ModelPort、StudentView、错误结构和目�
 ### D1–D2技术栈落地次序（不是额外增加两天）
 
 - D1首2小时：A/B按ADR-001冻结根目录、StorePort/ActiveRunContext、ModelPort、checkpoint数据表与锁顺序；A保持唯一依赖和迁移owner。
-- D1剩余：A完成Next/MySQL基础及迁移；B完成StateGraph、AI SDK适配口与MySQL saver最小协议。可以先用FixtureProvider联调，但MySQL必须真实。
+- D1剩余：A完成React/NestJS/MySQL基础及迁移；B完成有界工作流、AI SDK适配口与MySQL run/step/jobs恢复。可以先用FixtureProvider联调，但MySQL必须真实。
 - D2开始前优先完成ST01–ST07可执行部分和一次Node重启续跑；缺真实模型key时ST05明确blocked_external，不影响数据库/图测试继续。
 - saver真实验证若超出D1预计，D2先解该阻塞，题库/备课可做不依赖部分。不得为按十天结束而把saver临时换内存或削掉教学功能。
 - D7做故障窗口、删除竞态、TTL/备份/ST08–ST12，不是D7才第一次接MySQL。
@@ -43,7 +43,7 @@ D1首两小时A/B冻结StorePort、ModelPort、StudentView、错误结构和目�
 
 | 日 | A的纵向交付 | B的纵向交付 | 当晚共同验收 |
 | --- | --- | --- | --- |
-| D1 | Next.js骨架、MySQL 8.4、归属、公式渲染 | 契约、LangGraph四Agent壳、AI SDK ModelPort、MySQL saver | 自拟输入经图节点写MySQL→刷新/重启恢复；真实provider能力探测或明确外部阻塞 |
+| D1 | React前端、NestJS基础、MySQL 8.4、归属、公式渲染 | REST/SSE契约、四Agent壳、ModelPort、MySQL工作流恢复 | 自拟输入经API/worker写MySQL→刷新/重启恢复；真实provider能力探测或明确外部阻塞 |
 | D2 | 全量题库导入/异常与指定随机 | 备课+核对+AND/OR图与任务池 | 随机到待核对题不换题；冷准备保持题号；包版本可追 |
 | D3 | 手写识别/确认/输入 | 真模型教学轮、Guard、学习页 | 文本真实链路可跑；手写确认后同页教学，不提前显示未核对输出 |
 | D4 | 独立检验计划锁定/求助状态 | 竞争假设、探针、反证 | 同错不同因有证据；独立检验中途不反馈 |
@@ -64,7 +64,7 @@ D1尽早取得题库样本、模型凭据和部署环境。缺一项不把工程
 
 ## 4. 双人并行不冲突规则
 
-A管理package/config/src/shared/db/公共渲染，B管理contracts/workflows/ModelPort；AssessmentAgent子目录始终A。任务write_scope是最大范围，遇别人已拥有子目录必须排除。公共改动写handoffs先告知负责人，由负责人合入。不要建立两个独立前后端项目“各自开发”。
+A管理根配置、web公共UI、server数据库门面和迁移，B管理server contracts/workflows/ModelPort及web教学页；AssessmentAgent子目录始终A。任务write_scope是最大范围，遇别人已拥有子目录必须排除。公共改动写handoffs先告知负责人，由负责人合入。web/server必须通过共享契约每日纵向联调，不能各自只写Mock直到最后一天。
 
 D8后交叉复验可读对方代码并提交缺陷，但不能未经交接跨写集大改。公共类型变更必须同步schema、fixture、测试和PRD变更记录。
 
@@ -86,22 +86,22 @@ D8后交叉复验可读对方代码并提交缺陷，但不能未经交接跨写
 ### A01｜D1｜全栈脚手架、持久层和公共渲染
 
 前置：无，D1契约先约定。
-- 读取ADR-001，在qisi-dashboard仓库根建立Next.js 16/React 19/TypeScript/Node 24 LTS应用；保留frontend/backend，不删除历史骨架
-- 安装并精确锁定全部选定依赖，初始化Tailwind CSS/shadcn/ui；提交package-lock、Node版本和依赖准入证据
+- 读取ADR-001，在web初始化React 19/TypeScript/Vite，在server初始化NestJS/TypeScript/Node 24 LTS；保留并核对现有未提交迁移，不覆盖重建
+- 分别安装并精确锁定web/server依赖，初始化Tailwind CSS/shadcn/ui；提交真实lock、Node版本和依赖准入证据
 - 建立MySQL 8.4 Compose、健康检查、独立持久卷及迁移脚本；mysql2连接池设置UTC/utf8mb4/READ COMMITTED，检查默认认证与生产TLS
-- 实现匿名owner、MySQL StorePort、请求幂等/版本/CAS与短事务；由A统一合入B提出的checkpoint表迁移
-- 实现MathMarkdown、安全DTO与Web骨架；用FixtureProvider跑页面→图→校验→MySQL→刷新链路，并协同B验证杀进程续跑
+- 在server实现匿名owner、MySQL StorePort、请求幂等/版本/CAS与短事务；由A统一合入B提出的工作流run/step/jobs迁移
+- 在web实现MathMarkdown与移动端骨架，在server实现REST/SSE安全DTO和worker接线；用FixtureProvider跑页面→API→工作流→校验→MySQL→刷新链路，并协同B验证杀进程续跑
 验收：AT01, AT08, AT58, ST01, ST02, ST03, ST04；交接handoffs/A01.md。完整写集和命令见PRD同名卡。
 
 ### B01｜D1｜领域契约、四Agent壳和工作流内核
 
 前置：无，D1契约先约定。
-- 与A先冻结共享契约及MySQL迁移接口；业务Schema映射严格Zod，跨字段PolicyGate由代码执行
+- 与A先冻结REST/SSE共享契约及MySQL迁移接口；NestJS DTO映射严格Zod，跨字段PolicyGate由代码执行
 - 实现Preparation/Diagnosis/Strategy/Assessment四Agent独立入口及Renderer/Guard；Assessment业务实现仍归A
-- 用LangGraph.js StateGraph定义有界节点/分支，应用统一预算器；关闭SDK隐式重试和图自动节点重试，不启用第二套Agent循环
+- 在NestJS领域服务中定义有界节点/分支，复杂分支需要时使用LangGraph.js StateGraph；应用统一预算器，关闭SDK隐式重试和图自动节点重试
 - ModelPort封装AI SDK Core与具体provider adapter，实现FixtureProvider及真实文本/结构化/图片/取消/usage能力探测；依赖由A锁定
-- 按workflow-persistence.md实现MySqlCheckpointSaver薄适配；run_id作thread_id，checkpoint不替代node_runs审计或最终业务事务
-- 与A联测MySQL checkpoint读写、pending writes、刷新/杀进程恢复；独立commit前再次校验lease/版本/期限，不能只用MemorySaver验收
+- 按workflow-persistence.md实现MySQL run/step/jobs、lease与fencing恢复；仅在实际采用LangGraph checkpoint时实现并验证薄适配
+- 与A联测API创建任务、worker领取、节点落盘、刷新/杀进程恢复；独立commit前再次校验owner/lease/fencing/版本/期限，不能只用内存状态验收
 验收：AT13, ST05, ST06, ST07；交接handoffs/B01.md。完整写集和命令见PRD同名卡。
 
 ### A02｜D2｜全量导入、选题和准备状态Web
@@ -199,8 +199,8 @@ D8后交叉复验可读对方代码并提交缺陷，但不能未经交接跨写
 前置：A06, B06。
 - 并发、相同request不同payload、旧版本和跨owner测试
 - 提交后断网复用结果，删除中回调不可复活
-- MySQL 8.4与私有媒体卷备份/恢复；单Node实例+数据库服务部署，故障期间拒绝成功响应，不自动降级内存数据库
-- 安全扫描RSC/HTML/网络、私有图访问与Origin
+- MySQL 8.4与私有媒体卷备份/恢复；React静态站点+NestJS API/worker+数据库服务部署，故障期间拒绝成功响应，不自动降级内存数据库
+- 安全扫描React bundle/HTML/网络、私有图访问与Origin
 验收：AT42, AT44, AT46, AT48, ST08, ST09, ST10, ST11；交接handoffs/A07.md。完整写集和命令见PRD同名卡。
 
 ### B07｜D7｜工作流恢复、预算和守卫攻击回归

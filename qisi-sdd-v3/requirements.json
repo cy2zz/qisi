@@ -1,8 +1,8 @@
 [
   {
     "id": "FR01",
-    "title": "全栈Web和可重现启动",
-    "must": "同仓单体、A/B按垂直功能交付；非独立前后端服务。",
+    "title": "React/NestJS Web和可重现启动",
+    "must": "同仓web/server、A/B按垂直功能交付；React前端与NestJS API/worker通过受控契约集成。",
     "priority": "P0",
     "tasks": [
       "A01",

@@ -1,10 +1,15 @@
 # Node
 node_modules/
 frontend/dist/
+web/dist/
+web/coverage/
+server/dist/
+server/coverage/
 npm-debug.log*
 
 # Java / Maven
 backend/target/
+server/target/
 *.class
 
 # IDE

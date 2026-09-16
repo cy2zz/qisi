@@ -33,5 +33,5 @@ export interface StorePort {
 }
 // All unknown values MUST pass strict schemas and semantic policy before persistence/projection.
 // The infrastructure derives owner from authenticated server context, never ModelRequest or client input.
-// MySqlCheckpointSaver uses withActiveRun for writes; only StorePort.commitChecked commits public teaching state.
-// Exact driver/graph adapters are A01/B01 work; this file is not an installed implementation.
+// Workflow steps and any optional checkpoint adapter use withActiveRun; only StorePort.commitChecked commits public teaching state.
+// Exact NestJS/database/graph adapters are A01/B01 work; this file is not an installed implementation.

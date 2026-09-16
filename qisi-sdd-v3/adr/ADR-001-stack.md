@@ -1,62 +1,74 @@
-# ADR-001｜确定技术栈与受控多Agent
+# ADR-001｜确定 React、NestJS、MySQL 8.4 与受控多 Agent
 
-状态：用户已确认；依赖未安装，运行兼容性待A01/B01实测。日期：2026-09-16。实施基线：qisi-3.1。
-替代qisi-3.0中“原生TS编排+SQLite，LangGraph仅候选”的决定；不删任何P0功能。
+状态：用户已确认；依赖尚未完成安装和运行兼容性验证。原始日期：2026-09-16；技术栈修订：2026-09-16。实施基线：qisi-3.1。
+
+本修订替代此前的根目录全栈框架方案，保留 qisi-3.1 全部产品 P0、MySQL 8.4 和有界多 Agent 要求。
 
 ## 1. 唯一选型
 
 | 层 | 决定 | 边界 |
 | --- | --- | --- |
-| 运行时/语言 | Node.js 24 LTS、TypeScript | 全部服务端采用Node runtime，不用Edge runtime访问mysql2/sharp |
-| Web | Next.js 16 App Router、React 19 | 同仓页面、Route Handlers/Server Actions；一个业务服务 |
-| UI | Tailwind CSS、shadcn/ui | 组件源码归项目，生成依赖同样做许可/安全检查；A拥有公共UI |
-| 多Agent | LangGraph.js Graph API / StateGraph | 显式有界图；非自由群聊，不需要LangGraph托管平台 |
-| 模型I/O | AI SDK Core经ModelPort | 不用AI SDK Agent自动循环；provider由实际比赛凭据与能力探测决定 |
-| 数据 | MySQL Community Server 8.4 LTS、mysql2 promise API | InnoDB/utf8mb4；显式SQL迁移和事务，不引入ORM |
-| 数据验证 | Zod + 已有JSON Schema | 两者生成/验证保持一致；严格字段和跨字段PolicyGate |
-| 数学渲染 | react-markdown、remark-math、rehype-katex、KaTeX | 不启用不受信任raw HTML；公式失败保留原文 |
-| 图片 | sharp + 多模态模型转写 | 真实解码、逐行不确定性、学生确认；不加Python OCR服务 |
-| 测试 | Vitest、Playwright、真实MySQL 8.4集成测试 | 内存fixture可测逻辑，不能替代数据库和真实模型验收 |
-| 部署 | Docker：单Node应用 + MySQL + 私有媒体卷 | 数据库容器不是独立业务后端；数据库端口不公网暴露 |
+| 运行时/语言 | Node.js 24 LTS、TypeScript | 浏览器与服务端同语言；mysql2/sharp 只在 server 运行 |
+| 前端 | `web/`：React 19 + Vite + React Router | 移动端优先 SPA；不含模型密钥、数据库或私有题解 |
+| 后端 | `server/`：NestJS | REST 提交命令，SSE 发送状态和校验后内容；API 与 worker 使用同一代码库 |
+| UI | Tailwind CSS、shadcn/ui | 组件源码归项目，依赖同样做许可与安全检查 |
+| 多 Agent | NestJS 领域服务 + 可选 LangGraph.js StateGraph | 显式有界图；不做自由群聊；MySQL 领域状态是事实来源 |
+| 模型 I/O | AI SDK Core 或 provider SDK，经 ModelPort/ModelGateway | 不启用第二套自动 Agent 循环；provider 由真实能力探测选择 |
+| 数据 | MySQL Community Server 8.4 LTS、mysql2、Kysely | InnoDB/utf8mb4；显式 SQL 迁移和短事务，不让 query builder 隐藏锁语义 |
+| 数据验证 | Zod + 已有 JSON Schema | 严格字段和跨字段 PolicyGate；前后端共享契约或生成客户端类型 |
+| 数学渲染 | react-markdown、remark-math、rehype-katex、KaTeX | 不启用不受信任 raw HTML；公式失败保留原文 |
+| 图片 | sharp + 多模态模型转写 | 真实解码、逐行不确定性、学生确认；不新增 Python OCR 服务 |
+| 测试 | Vitest、Supertest、Playwright、真实 MySQL 8.4 集成测试 | fixture 不替代数据库、真实模型和人工教学评估 |
+| 部署 | React 静态站点 + NestJS API/worker + MySQL + 私有媒体存储 | 同域反向代理 `/api`；数据库不公网暴露 |
 
-版本策略：以上主版本/分支已确定；精确patch、镜像digest、peer依赖兼容由A01实际安装后锁定。不要使用latest、编造package-lock或把reuse-lock.json当安装锁。保留mysql2驱动与LangGraph/checkpoint版本的升级回归。若发现目标分支不安全或不兼容，提交ADR修订，不擅自换栈。
+版本策略：主版本已选定，精确 patch、镜像 digest 和 peer 兼容由 A01 实际安装后锁定。禁止使用 `latest` 或编造 lock。若发现目标主版本不兼容，提交 ADR 修订，不擅自降级或更换数据库。
 
 ## 2. 为什么这样选
 
-两人约十天按纵向切片开发，减少两套业务语言与接口同步；框架复用不取代教学判断。MySQL为用户明确指定，服务业务数据与checkpoint；不做“开发SQLite/上线MySQL”。LangGraph复用图执行/分支/持久恢复接口，避免造通用编排器；模型接入与编排只保留各一层。
+产品是面向高三学生的状态型 AI 教学应用，核心复杂度在长任务、权限、工作流恢复和教学证据，不需要 SSR、SEO 或服务端组件。React/Vite 保持前端轻量；NestJS 提供明确的 Controller、Guard、领域服务、worker 和依赖注入边界；TypeScript 单语言避免十天开发期引入 Python API 契约和双套部署。
 
-保持：Preparation、Diagnosis、Strategy、Assessment四专职Agent，另有Renderer/Guard；独立上下文/Schema/提示/回归。教师页展示可审计教学依据而不是隐藏CoT。模型不能执行SQL或直接写学生状态。不得把Agent数、图运行成功或原题完成当学习效果。
+MySQL 8.4 是明确选择。由于 JavaScript 生态不能假定存在已经通过本项目要求的官方 MySQL checkpoint saver，业务恢复首先由领域表承担，不把自研完整 saver 设为 D1 前置。
 
-## 3. 仓库现实与迁移顺序（A01主责）
+## 3. 目录与迁移顺序
 
-当前frontend/是React/Vite骨架，backend/是Java17/Spring Boot/MyBatis/H2骨架；本次只改规格，没有迁移应用。唯一目标仍为qisi-dashboard仓库根，源码src/、规格qisi-sdd-v3/，不另建同级或嵌套应用。
+目标目录固定为：
 
-1. 先盘点现有页面、题库样本与服务行为，记录可复用数据/测试；不清空目录。
-2. 在仓库根建立目标Next.js配置、src/和测试工具，移植必要页面行为与题库数据，不把旧Java业务依赖当成目标运行条件。
-3. A统一安装依赖、迁移与容器配置；B只在自己的src/model、src/workflows、Agent和契约写集实现。
-4. 根应用跑通题目读取、一次受控图调用、安全输出、MySQL写入与刷新/重启恢复。旧frontend/backend可保留但不进入新应用启动/build。
-5. 本轮不删除旧骨架；后续清理需单独记录变更，保留Git回滚路径，不假设H2里没有用户数据。
+- `web/`：React 页面、组件、前端状态、浏览器测试。
+- `server/`：NestJS API、worker、领域逻辑、模型、工作流、数据库、迁移和后端测试。
+- `qisi-sdd-v3/`：规格。
 
-## 4. MySQL/LangGraph适配决定
+当前未提交工作区已经出现旧 `frontend/`、`backend/` 删除和 `web/`、`server/` 新目录；它们属于迁移中的用户改动，不得回退或覆盖，也不能仅因目录存在而标记完成。
 
-采用项目自有MySqlCheckpointSaver薄适配器，实现所锁LangGraph BaseCheckpointSaver协议；B写src/workflows/persistence/**，A写migrations/**及src/shared/db/**。理由：不能把未经测试的社区MySQL saver假定为已可用。可以复用官方checkpoint接口与序列化器，不自行设计第二个图执行框架。
+1. 盘点 `web/`、`server/` 当前文件、旧页面行为和题库样本，保存可复用数据与测试。
+2. 将 `web/` 初始化为 React 19 + TypeScript + Vite；将 `server/` 初始化为 NestJS + TypeScript。
+3. A 统一管理依赖、容器、Kysely/mysql2 门面和全部迁移；B 在自己的 model/workflows/agents/contracts 写集实现。
+4. 打通页面 → NestJS API → worker/受控工作流 → PolicyGate → MySQL → 刷新和进程重启恢复。
+5. 旧骨架删除属于单独迁移事实；提交前检查 Git diff，不把 build 产物、node_modules 或 target 带入版本库。
 
-A01/B01的准入门禁是前置，不拖到D7才首次验证。B在D1先完成最小saver conformance，D2前覆盖真实MySQL恢复；D7进行完整故障加固。适配超出预计一天时，明确延期和风险，不能偷偷使用MemorySaver/SQLite上线。若发现高质量社区适配器，先做许可证、维护、目标版本、取消/删除/恢复测试，提交ADR变更再替换。
+## 4. MySQL 与工作流恢复决定
 
-LangGraph checkpoint是私有执行快照；node_runs是节点调用/成本审计；events/requests/sessions是业务事实。三者职责不可混淆。详细一致性协议见contracts/workflow-persistence.md。
+MySQL 中的 requests、workflow_runs、workflow_steps、model_calls、jobs、events 与领域表是恢复和审计事实。worker 通过 lease、fencing token、版本/CAS 和幂等键领取及提交工作：
 
-## 5. 双人职责与阶段门禁
+1. 短事务领取任务并持久化节点开始状态。
+2. 事务外调用模型；每次尝试计入预算。
+3. 严格校验候选输出。
+4. 重新检查 owner、lease、fencing、版本、期限和取消状态。
+5. 短事务提交节点结果、领域状态和对外事件。
 
-- A：根package/lock/config、shadcn公共UI、mysql2连接池、全部SQL迁移（含checkpoint表）、StorePort、匿名归属、部署与备份。不得独立写第二套ModelPort。
-- B：ModelPort接口与AI SDK适配、LangGraph图、MySQL saver、预算器、Preparation/Diagnosis/Strategy、Renderer/Guard和教学/教师页面。不得直接修改A的package和迁移；给A交接补丁。
-- AssessmentAgent归A，B的agents全局写集排除该子目录；D1仅协商空接口。
-- A01/B01先协商类型与数据库连接门面，可并行搭骨架；两张卡的共同集成门禁通过前不得标done。不是彼此依赖整张卡形成死锁。
-- ST01–ST12见acceptance/stack-cases.json；原AT01–AT60及所有教学质量门禁保留。
+进程崩溃后从持久阶段重新进入有界图。若后续实现 LangGraph `BaseCheckpointSaver` 薄适配，它只能保存执行快照，必须经过 put/get/list/pending writes、取消、删除、重启和故障窗口 conformance；不能形成第二套业务真相，也不能替代最终领域事务。
+
+## 5. 职责与门禁
+
+- A：根配置/容器/CI、`web/` 公共 UI、`server/` 数据库门面和迁移、题库、媒体、输入、Assessment、报告、历史和部署。
+- B：`server/` contracts/model/workflows/Preparation/Diagnosis/Strategy/Renderer/Guard，`web/` 教学和教师页面。
+- AssessmentAgent 业务实现归 A。
+- A01/B01 先冻结 REST DTO、错误结构、StorePort、ModelPort、StudentView、任务租约和目录归属。
+- 首个共同门禁是 React 页面经 NestJS/worker 写入真实 MySQL 并在刷新与 Node 进程重启后恢复；不是只跑内存图。
 
 ## 6. 不引入
 
-不加Redis、消息队列、向量库、通用RAG平台、Python/FastAPI OCR或解题服务；不做自由Agent群聊、双重Agent自动循环、未经校验的token直流。首版仅一个应用恢复进程，不宣称已有分布式执行能力。
+首版不加 Redis、消息队列、向量库、通用 RAG 平台、GraphQL、CQRS、微服务拆分、Python/FastAPI OCR 或解题服务。API 与 worker 可以是两个进程，但使用同一个 NestJS 后端代码库和同一个 MySQL 事实来源。
 
 ## 7. 参考与证据边界
 
-官方参考入口：Next.js文档、Node发行计划、LangGraph.js Graph API/Persistence与checkpoint源码、AI SDK Core、mysql2官方文档、MySQL 8.4手册。URL在reuse.md。参考入口不是兼容性证明；本轮未成功取得可归档的在线正文，不宣称完成依赖安全核验。所有运行/许可/漏洞证据由A01/B01实际产生。
+候选参考入口：React、Vite、NestJS、Node.js、LangGraph.js、AI SDK Core、Kysely、mysql2 与 MySQL 8.4 官方资料，URL 见 reuse.md。参考入口不是兼容性证明；所有运行、许可、漏洞和恢复证据由 A01/B01 实际产生。

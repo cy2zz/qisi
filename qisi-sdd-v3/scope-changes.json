@@ -12,14 +12,14 @@
     "role_regression"
   ],
   "retained": [
-    "single_full_stack_web",
+    "single_repository_react_nest_web",
     "full_bank_random",
     "handwriting_confirmation",
     "independence_invariants"
   ],
   "not_in_scope": [
     "native_client",
-    "separate_api_service",
+    "independent_microservice_fleet",
     "model_training",
     "payments",
     "school_admin"
@@ -29,6 +29,7 @@
   "technology_change": {
     "database": "SQLite -> MySQL 8.4 LTS",
     "runner": "native TS orchestration -> LangGraph.js Graph API",
+    "application": "root full-stack framework -> web React/Vite + server NestJS API/worker",
     "model_io": "AI SDK Core behind ModelPort",
     "product_scope_removed": []
   }
