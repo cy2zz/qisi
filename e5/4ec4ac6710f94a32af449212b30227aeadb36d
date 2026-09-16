@@ -1,0 +1,417 @@
+.gitattributes
+  s_d24d8e1725abbe::t_5440aaec4aea84 1-4
+README.md
+  s_d24d8e1725abbe::t_5abdfd422218ed 1,3-4,6-27,30-51,54,56,58-65,67,69,71,73-77,79,81-85,87,89,91,93,95-103,106-112,114-119,121,123
+cleanup-report.json
+  s_d24d8e1725abbe::t_101f21e6923d84 1-2542
+qisi-sdd-v3/AGENTS.md
+  s_d24d8e1725abbe::t_ecdc1f1dddf9b7 1-43
+qisi-sdd-v3/README.md
+  s_d24d8e1725abbe::t_b9bb3c7286bf17 1-54
+qisi-sdd-v3/acceptance/cases.json
+  s_d24d8e1725abbe::t_662afad27747be 1-902
+qisi-sdd-v3/acceptance/evaluation-protocol.md
+  s_d24d8e1725abbe::t_c2967404044336 1-62
+qisi-sdd-v3/acceptance/result-template.json
+  s_d24d8e1725abbe::t_f33ae0392d380b 1-20
+qisi-sdd-v3/acceptance/role-cases.json
+  s_d24d8e1725abbe::t_67ced6dae88dbb 1-44
+qisi-sdd-v3/changes/template.md
+  s_d24d8e1725abbe::t_ac708404452e40 1-14
+qisi-sdd-v3/contracts/README.md
+  s_d24d8e1725abbe::t_8303ed6b64664e 1-115
+qisi-sdd-v3/contracts/agents.json
+  s_d24d8e1725abbe::t_c0758c39607ac0 1-108
+qisi-sdd-v3/contracts/database.sql
+  s_d24d8e1725abbe::t_de9340892dbc8c 1-22
+qisi-sdd-v3/contracts/domain.schema.json
+  s_d24d8e1725abbe::t_d0b5c0a28cd550 1-2918
+qisi-sdd-v3/contracts/ports.ts
+  s_d24d8e1725abbe::t_2d9a2532402c31 1-22
+qisi-sdd-v3/contracts/server-functions.json
+  s_d24d8e1725abbe::t_a84fca174f7c37 1-130
+qisi-sdd-v3/contracts/state-transitions.json
+  s_d24d8e1725abbe::t_9a042663555c3d 1-86
+qisi-sdd-v3/contracts/vision-output.schema.json
+  s_d24d8e1725abbe::t_9e58cd32f06a1b 1-38
+qisi-sdd-v3/design-v6.md
+  s_d24d8e1725abbe::t_e7a9d2279485b5 1-185
+qisi-sdd-v3/env.example
+  s_d24d8e1725abbe::t_4c87a6d33d7f91 1-16
+qisi-sdd-v3/evidence/KaTeX__KaTeX.LICENSE
+  s_d24d8e1725abbe::t_0d9661a83b19b6 1-21
+qisi-sdd-v3/evidence/KaTeX__KaTeX.README.md
+  s_d24d8e1725abbe::t_9b6af7c884b6aa 1-120
+qisi-sdd-v3/evidence/RunzheYang__SocraticAI.LICENSE
+  s_d24d8e1725abbe::t_4738d6864bceee 1-21
+qisi-sdd-v3/evidence/RunzheYang__SocraticAI.README.md
+  s_d24d8e1725abbe::t_14dac4f66c6a69 1-48
+qisi-sdd-v3/evidence/SenmuuuuW__universal-diagnostic-tutor-skill.LICENSE
+  s_d24d8e1725abbe::t_9550e09bf7bf76 1-21
+qisi-sdd-v3/evidence/SenmuuuuW__universal-diagnostic-tutor-skill.README.md
+  s_d24d8e1725abbe::t_191ffbdd65b4f9 1-158
+qisi-sdd-v3/evidence/VikParuchuri__texify.LICENSE
+  s_d24d8e1725abbe::t_c3da3fca427d3c 1-674
+qisi-sdd-v3/evidence/alephpi__Texo-web.LICENSE
+  s_d24d8e1725abbe::t_7020afbcd08fbb 1-661
+qisi-sdd-v3/evidence/alephpi__Texo.LICENSE
+  s_d24d8e1725abbe::t_1329bf9b299539 1-661
+qisi-sdd-v3/evidence/breezedeus__Pix2Text.LICENSE
+  s_d24d8e1725abbe::t_dcd354f58552b2 1-21
+qisi-sdd-v3/evidence/breezedeus__Pix2Text.README.md
+  s_d24d8e1725abbe::t_fa26a07009c3ba 1-284
+qisi-sdd-v3/evidence/manifest.json
+  s_d24d8e1725abbe::t_66ccff9bc80c46 1-103
+qisi-sdd-v3/evidence/pix2text-model-card.txt
+  s_d24d8e1725abbe::t_5f7949cc9c5b6c 1-152
+qisi-sdd-v3/evidence/react-markdown-license.txt
+  s_d24d8e1725abbe::t_b6722fdadfb474 1-21
+qisi-sdd-v3/evidence/react-markdown-readme.txt
+  s_d24d8e1725abbe::t_a9c0a9298d1d44 1-944
+qisi-sdd-v3/evidence/repo-snapshots.json
+  s_d24d8e1725abbe::t_03e1b3371acc93 1-363
+qisi-sdd-v3/evidence/source-audit-previous.md
+  s_d24d8e1725abbe::t_18372ef84caa99 1-277
+qisi-sdd-v3/evidence/sympy-parse-doc.clean.txt
+  s_d24d8e1725abbe::t_3a8e1471f80226 1-2587
+qisi-sdd-v3/evidence/sympy__sympy.LICENSE
+  s_d24d8e1725abbe::t_457722729a7d99 1-153
+qisi-sdd-v3/fixtures/assessment-input.json
+  s_d24d8e1725abbe::t_cddb22a12db0a2 1-80
+qisi-sdd-v3/fixtures/assessment-output.json
+  s_d24d8e1725abbe::t_6b5bdb13d49ab7 1-10
+qisi-sdd-v3/fixtures/branch-cases.json
+  s_d24d8e1725abbe::t_f0387d934e5985 1-238
+qisi-sdd-v3/fixtures/check-attempt.json
+  s_d24d8e1725abbe::t_7c8182756ac6a9 1-26
+qisi-sdd-v3/fixtures/diagnosis-input.json
+  s_d24d8e1725abbe::t_20c350c15089fa 1-127
+qisi-sdd-v3/fixtures/diagnosis.json
+  s_d24d8e1725abbe::t_897ccaeb20dadb 1-64
+qisi-sdd-v3/fixtures/guard.json
+  s_d24d8e1725abbe::t_bed693669c8b71 1-8
+qisi-sdd-v3/fixtures/index.json
+  s_d24d8e1725abbe::t_8a1431f0de8df9 1-66
+qisi-sdd-v3/fixtures/negative-cases.json
+  s_d24d8e1725abbe::t_8c76711b1c279e 1-229
+qisi-sdd-v3/fixtures/packet.json
+  s_d24d8e1725abbe::t_c3a792c5bc5e06 1-280
+qisi-sdd-v3/fixtures/problem.json
+  s_d24d8e1725abbe::t_6d72075e65b0c6 1-15
+qisi-sdd-v3/fixtures/renderer-input.json
+  s_d24d8e1725abbe::t_c873e6594167aa 1-13
+qisi-sdd-v3/fixtures/report.json
+  s_d24d8e1725abbe::t_a4c6cf7d88247d 1-29
+qisi-sdd-v3/fixtures/select.json
+  s_d24d8e1725abbe::t_630a130830779c 1-6
+qisi-sdd-v3/fixtures/session.json
+  s_d24d8e1725abbe::t_a6c38554eae0fc 1-149
+qisi-sdd-v3/fixtures/strategy-input.json
+  s_d24d8e1725abbe::t_4c5e3f82c56fbb 1-146
+qisi-sdd-v3/fixtures/strategy.json
+  s_d24d8e1725abbe::t_75dfd46d8e30ba 1-37
+qisi-sdd-v3/fixtures/student-view.json
+  s_d24d8e1725abbe::t_df06dd21ac872e 1-34
+qisi-sdd-v3/fixtures/transcript.json
+  s_d24d8e1725abbe::t_3291f3a9266c28 1-14
+qisi-sdd-v3/handoffs/template.md
+  s_d24d8e1725abbe::t_d9aba3128830f0 1-11
+qisi-sdd-v3/manifest.json
+  s_d24d8e1725abbe::t_1f7162263d8f1e 1-417
+qisi-sdd-v3/plan.md
+  s_d24d8e1725abbe::t_54642f5e474473 1-238
+qisi-sdd-v3/prd.md
+  s_d24d8e1725abbe::t_915298c559ea87 1-1271
+qisi-sdd-v3/prompts/assessment.md
+  s_d24d8e1725abbe::t_96799dd19fada4 1-9
+qisi-sdd-v3/prompts/developer-a.md
+  s_d24d8e1725abbe::t_aa95476cb90985 1-11
+qisi-sdd-v3/prompts/developer-b.md
+  s_d24d8e1725abbe::t_ce961fca9aba7d 1-11
+qisi-sdd-v3/prompts/developer-single.md
+  s_d24d8e1725abbe::t_2cfd5f3cfbe81b 1-9
+qisi-sdd-v3/prompts/diagnosis.md
+  s_d24d8e1725abbe::t_d9e997c03713e6 1-10
+qisi-sdd-v3/prompts/guard.md
+  s_d24d8e1725abbe::t_ced2759bb611cf 1-9
+qisi-sdd-v3/prompts/preparation.md
+  s_d24d8e1725abbe::t_af2a02b391f5dc 1-9
+qisi-sdd-v3/prompts/renderer.md
+  s_d24d8e1725abbe::t_cdadac4400409a 1-8
+qisi-sdd-v3/prompts/strategy.md
+  s_d24d8e1725abbe::t_49ccb3313a6367 1-10
+qisi-sdd-v3/prompts/vision.md
+  s_d24d8e1725abbe::t_b45b782491119f 1-8
+qisi-sdd-v3/publication/README.md
+  s_d24d8e1725abbe::t_f5f51750df8219 1-12
+qisi-sdd-v3/publication/attachment-upload.json
+  s_d24d8e1725abbe::t_ec0d97b2b9185a 1
+qisi-sdd-v3/publication/attachment.json
+  s_d24d8e1725abbe::t_32fb9d6f9d5901 1-6
+qisi-sdd-v3/publication/build-document.cjs
+  s_d24d8e1725abbe::t_6b3a86989b4ff9 1-79
+qisi-sdd-v3/publication/design-prepublish.json
+  s_d24d8e1725abbe::t_52db9013670af1 1
+qisi-sdd-v3/publication/design-readback.html
+  s_d24d8e1725abbe::t_8c99d3b908a5ed 1-6
+qisi-sdd-v3/publication/design-readback.json
+  s_d24d8e1725abbe::t_89bea3923a8772 1
+qisi-sdd-v3/publication/design.build-check.json
+  s_d24d8e1725abbe::t_5cab98fcdb5c82 1-13
+qisi-sdd-v3/publication/design.popo-command.json
+  s_d24d8e1725abbe::t_538bbd155bd807 1
+qisi-sdd-v3/publication/design.popo.html
+  s_d24d8e1725abbe::t_08e15c232ef33f 1-89
+qisi-sdd-v3/publication/documents.json
+  s_d24d8e1725abbe::t_fc823e636b7399 1-26
+qisi-sdd-v3/publication/extracted-package-check.json
+  s_d24d8e1725abbe::t_2870129982ed66 1-9
+qisi-sdd-v3/publication/live-publication-status.json
+  s_d24d8e1725abbe::t_5a05a46d38eb8d 1-55
+qisi-sdd-v3/publication/package-verification.json
+  s_d24d8e1725abbe::t_f61b81ea753cf9 1-13
+qisi-sdd-v3/publication/plan-prepublish.json
+  s_d24d8e1725abbe::t_e413c8766cda67 1
+qisi-sdd-v3/publication/plan-readback.html
+  s_d24d8e1725abbe::t_2cfb1e3322ef40 1
+qisi-sdd-v3/publication/plan-readback.json
+  s_d24d8e1725abbe::t_7a3feb254f7f8d 1
+qisi-sdd-v3/publication/plan-update.json
+  s_d24d8e1725abbe::t_402f02099d532c 1
+qisi-sdd-v3/publication/plan.build-check.json
+  s_d24d8e1725abbe::t_db41f174058e2b 1-13
+qisi-sdd-v3/publication/plan.popo-command.json
+  s_d24d8e1725abbe::t_dedb12050ba254 1
+qisi-sdd-v3/publication/plan.popo.html
+  s_d24d8e1725abbe::t_6ba8a909225058 1-165
+qisi-sdd-v3/publication/prd-prepublish.json
+  s_d24d8e1725abbe::t_f771098e775297 1
+qisi-sdd-v3/publication/prd-readback.html
+  s_d24d8e1725abbe::t_d5dc4ea4f86bd8 1-49
+qisi-sdd-v3/publication/prd-readback.json
+  s_d24d8e1725abbe::t_7c7e07875e59a4 1
+qisi-sdd-v3/publication/prd-update.json
+  s_d24d8e1725abbe::t_4cd62f0c668f60 1
+qisi-sdd-v3/publication/prd.build-check.json
+  s_d24d8e1725abbe::t_aba054327bbf9d 1-13
+qisi-sdd-v3/publication/prd.popo-command.json
+  s_d24d8e1725abbe::t_1fbf21cee7f310 1
+qisi-sdd-v3/publication/prd.popo.html
+  s_d24d8e1725abbe::t_c945c0cdf7ee9b 1-792
+qisi-sdd-v3/publication/prepublish-verification.json
+  s_d24d8e1725abbe::t_862b00a3c17fca 1-30
+qisi-sdd-v3/publication/publication-status.json
+  s_d24d8e1725abbe::t_86e6f1d0578bd4 1-28
+qisi-sdd-v3/publication/publication-verification.json
+  s_d24d8e1725abbe::t_c7cc28f8e276e8 1-65
+qisi-sdd-v3/publication/run-popo.mjs
+  s_d24d8e1725abbe::t_f7d189b60b8ad8 1-15
+qisi-sdd-v3/publication/sync-publish.cjs
+  s_d24d8e1725abbe::t_af970f5a597975 1-35
+qisi-sdd-v3/publication/verify-publication.cjs
+  s_d24d8e1725abbe::t_8ac1144b667573 1-27
+qisi-sdd-v3/requirements-dev.txt
+  s_d24d8e1725abbe::t_d3a91a153cea8d 1
+qisi-sdd-v3/requirements.json
+  s_d24d8e1725abbe::t_0314f1577c6e1b 1-304
+qisi-sdd-v3/reuse-lock.json
+  s_d24d8e1725abbe::t_da201b81dfbc38 1-90
+qisi-sdd-v3/reuse.md
+  s_d24d8e1725abbe::t_37e8a97207517d 1-61
+qisi-sdd-v3/runtime.json
+  s_d24d8e1725abbe::t_65db7ec679f379 1-53
+qisi-sdd-v3/scope-changes.json
+  s_d24d8e1725abbe::t_55432d53151a51 1-29
+qisi-sdd-v3/scripts/package.py
+  s_d24d8e1725abbe::t_6a78e173dccd6a 1-27
+qisi-sdd-v3/scripts/semantic_rules.py
+  s_d24d8e1725abbe::t_24d1000d6af233 1-95
+qisi-sdd-v3/scripts/validate_spec.py
+  s_d24d8e1725abbe::t_a6cc24299bc1fe 1-128
+qisi-sdd-v3/spec-validation.json
+  s_d24d8e1725abbe::t_ccd971f058ec26 1-3252
+qisi-sdd-v3/tasks.json
+  s_d24d8e1725abbe::t_d54c0cf8a3bc27 1-1299
+qisi-sdd-v3/traceability.csv
+  s_d24d8e1725abbe::t_e9634998bf62ca 1-19
+research-evidence/JudgePeach__math-question-bank.LICENSE
+  s_d24d8e1725abbe::t_f286d3fc90cc3b 1-661
+research-evidence/JudgePeach__math-question-bank.README.md
+  s_d24d8e1725abbe::t_5ad3f603ae4f00 1-291
+research-evidence/JudgePeach__math-question-bank.page.html
+  s_d24d8e1725abbe::t_c8215e45183e9e 1-1316
+research-evidence/JushBJJ__Mr.-Ranedeer-AI-Tutor.README.md
+  s_d24d8e1725abbe::t_8fdbeff5f8790c 1-167
+research-evidence/JushBJJ__Mr.-Ranedeer-AI-Tutor.page.html
+  s_d24d8e1725abbe::t_3bed3236ee39d8 1-1151
+research-evidence/KaTeX__KaTeX.LICENSE
+  s_d24d8e1725abbe::t_6df507bb06287d 1-21
+research-evidence/KaTeX__KaTeX.README.md
+  s_d24d8e1725abbe::t_ee6c187050ccea 1-120
+research-evidence/KaTeX__KaTeX.page.html
+  s_d24d8e1725abbe::t_a780b39d2929d2 1-1123
+research-evidence/LinXueyuanStdio__LaTeX_OCR_PRO.LICENSE
+  s_d24d8e1725abbe::t_c4030968f6b004 1-674
+research-evidence/LinXueyuanStdio__LaTeX_OCR_PRO.README.md
+  s_d24d8e1725abbe::t_70cb203271553c 1-335
+research-evidence/LinXueyuanStdio__LaTeX_OCR_PRO.page.html
+  s_d24d8e1725abbe::t_79af5f57d10ff8 1-1270
+research-evidence/Ljyustc__SocraticLM.README.md
+  s_d24d8e1725abbe::t_bd2cf1b8064fd9 1-98
+research-evidence/Ljyustc__SocraticLM.page.html
+  s_d24d8e1725abbe::t_60a197b36ebe87 1-1028
+research-evidence/README.md
+  s_d24d8e1725abbe::t_ec5bdf6f60dd8e 1-30
+research-evidence/RunzheYang__SocraticAI.LICENSE
+  s_d24d8e1725abbe::t_e451ec9b37d41c 1-21
+research-evidence/RunzheYang__SocraticAI.README.md
+  s_d24d8e1725abbe::t_0b654bcb3ae9e4 1-48
+research-evidence/RunzheYang__SocraticAI.page.html
+  s_d24d8e1725abbe::t_ac5f452ee7a210 1-960
+research-evidence/SenmuuuuW__universal-diagnostic-tutor-skill.LICENSE
+  s_d24d8e1725abbe::t_47c6dc352435fd 1-21
+research-evidence/SenmuuuuW__universal-diagnostic-tutor-skill.README.md
+  s_d24d8e1725abbe::t_6e4e0ffa592b24 1-158
+research-evidence/SenmuuuuW__universal-diagnostic-tutor-skill.page.html
+  s_d24d8e1725abbe::t_b51273cffdf971 1-1137
+research-evidence/VikParuchuri__texify.LICENSE
+  s_d24d8e1725abbe::t_8cff9fb357c5f8 1-674
+research-evidence/VikParuchuri__texify.README.md
+  s_d24d8e1725abbe::t_416397c89b2f8f 1-182
+research-evidence/VikParuchuri__texify.page.html
+  s_d24d8e1725abbe::t_72d050bf47e92e 1-1129
+research-evidence/ai-math-tutor-review-v2.md
+  s_d24d8e1725abbe::t_58b8f66bba2522 1-511
+research-evidence/alephpi__Texo-web.LICENSE
+  s_d24d8e1725abbe::t_d741dc40441dd3 1-661
+research-evidence/alephpi__Texo-web.README.md
+  s_d24d8e1725abbe::t_412967df174bfa 1-81
+research-evidence/alephpi__Texo-web.page.html
+  s_d24d8e1725abbe::t_6b2352015349a6 1-1006
+research-evidence/alephpi__Texo.LICENSE
+  s_d24d8e1725abbe::t_cd2944f6d96b5c 1-661
+research-evidence/alephpi__Texo.README.md
+  s_d24d8e1725abbe::t_95ebda60ca272d 1-182
+research-evidence/alephpi__Texo.page.html
+  s_d24d8e1725abbe::t_b8c30810917e15 1-1155
+research-evidence/arxiv-2504.08649.html
+  s_d24d8e1725abbe::t_2ff38968ab1fdd 1-633
+research-evidence/arxiv-2602.17189.html
+  s_d24d8e1725abbe::t_595c6df4aee4a7 1-622
+research-evidence/breezedeus__Pix2Text.LICENSE
+  s_d24d8e1725abbe::t_26fe75ea9546b1 1-21
+research-evidence/breezedeus__Pix2Text.README.md
+  s_d24d8e1725abbe::t_bed897ece76507 1-284
+research-evidence/breezedeus__Pix2Text.page.html
+  s_d24d8e1725abbe::t_704651fb0add3e 1-1393
+research-evidence/diagnostic-evals.txt
+  s_d24d8e1725abbe::t_7cf60b7b1452b8 1-435
+research-evidence/fetch-log.txt
+  s_d24d8e1725abbe::t_3d9a44fd799e3d 1-44
+research-evidence/khanmigo-competition.html
+  s_d24d8e1725abbe::t_d8fa9464552654 1-90
+research-evidence/khanmigo-competition.txt
+  s_d24d8e1725abbe::t_9718a345675019 1
+research-evidence/legacy-web-references/katex.txt
+  s_d24d8e1725abbe::t_1b452d1c02ab49 1-120
+research-evidence/legacy-web-references/next-self-hosting.txt
+  s_d24d8e1725abbe::t_8a5deeaffd87a0 1-175
+research-evidence/legacy-web-references/react-markdown.txt
+  s_d24d8e1725abbe::t_6e8fd770216b28 1-944
+research-evidence/mathtutor-abstract.txt
+  s_d24d8e1725abbe::t_378ca97c902ab6 1-632
+research-evidence/mathtutor-paper.clean.txt
+  s_d24d8e1725abbe::t_7a32698d682564 1-2345
+research-evidence/mathtutor-paper.txt
+  s_d24d8e1725abbe::t_59fcbb71feb81f 1-2026
+research-evidence/mathtutor-readme.txt
+  s_d24d8e1725abbe::t_155156570c538d 1-203
+research-evidence/mathtutor-search.txt
+  s_d24d8e1725abbe::t_2d78fce311d12c 1-503
+research-evidence/mathtutor-tree.txt
+  s_d24d8e1725abbe::t_2621a28c05d288 1-1419
+research-evidence/numina-model.txt
+  s_d24d8e1725abbe::t_efa554748c1951 1-215
+research-evidence/numina-repo.txt
+  s_d24d8e1725abbe::t_56519df65b2977 1-180
+research-evidence/pix2text-formula-test.txt
+  s_d24d8e1725abbe::t_0ab0bd4f7bd574 1-59
+research-evidence/pix2text-model-card.txt
+  s_d24d8e1725abbe::t_ef9bf93b4bc4d2 1-152
+research-evidence/pix2text-requirements.txt
+  s_d24d8e1725abbe::t_f951b5e384d54e 1-452
+research-evidence/pnas-fulltext.txt
+  s_d24d8e1725abbe::t_640dd79e2764e5 1-37
+research-evidence/pnas-pmc-search.txt
+  s_d24d8e1725abbe::t_78a0efb75c3905 1
+research-evidence/qisi-prd-source.json
+  s_d24d8e1725abbe::t_bf02f2cb4f985a 1
+research-evidence/qisi-prd-source.md
+  s_d24d8e1725abbe::t_ff66c8c2e5a142 1-199
+research-evidence/qisi-research-source.json
+  s_d24d8e1725abbe::t_88da10e41edf3e 1
+research-evidence/qisi-research-source.md
+  s_d24d8e1725abbe::t_2714f0d8b41a54 1-81
+research-evidence/react-markdown-license.txt
+  s_d24d8e1725abbe::t_dcb81afee6bb75 1-21
+research-evidence/react-markdown-readme.txt
+  s_d24d8e1725abbe::t_8157609ad505d6 1-944
+research-evidence/remarkjs__react-markdown.page.html
+  s_d24d8e1725abbe::t_04a4db97654e14 1-1784
+research-evidence/repo-snapshots.json
+  s_d24d8e1725abbe::t_a43aa087378909 1-363
+research-evidence/scripts/fetch-research-extra.ps1
+  s_d24d8e1725abbe::t_4a6327330df099 1-13
+research-evidence/scripts/fetch-research.ps1
+  s_d24d8e1725abbe::t_6075878b84a979 1-21
+research-evidence/socratic-app.txt
+  s_d24d8e1725abbe::t_a7260b282f4adb 1-305
+research-evidence/socratic-requirements.txt
+  s_d24d8e1725abbe::t_8d0e0e8f4ecc38 1-4
+research-evidence/socraticlm-code-license.txt
+  s_d24d8e1725abbe::t_efa80e3bc6b0c1 1-201
+research-evidence/socraticlm-data-license.txt
+  s_d24d8e1725abbe::t_34321c48f341df 1-407
+research-evidence/socraticlm-weight-license.txt
+  s_d24d8e1725abbe::t_f388b604b6f580 1-407
+research-evidence/sympy-gotchas-doc.clean.txt
+  s_d24d8e1725abbe::t_89de27caa90cc0 1-1507
+research-evidence/sympy-gotchas-doc.txt
+  s_d24d8e1725abbe::t_58769f18d2d444 1-1165
+research-evidence/sympy-parse-doc.clean.txt
+  s_d24d8e1725abbe::t_3399f37740f7e6 1-2587
+research-evidence/sympy-parse-doc.txt
+  s_d24d8e1725abbe::t_465bdd0e1f22f2 1-1950
+research-evidence/sympy__sympy.LICENSE
+  s_d24d8e1725abbe::t_954261a8399659 1-153
+research-evidence/sympy__sympy.README.md
+  s_d24d8e1725abbe::t_9317bb76ae33c4 1-268
+research-evidence/sympy__sympy.page.html
+  s_d24d8e1725abbe::t_cab8f1898d5ea2 1-1239
+research-evidence/texify-pyproject.txt
+  s_d24d8e1725abbe::t_4fa898dfac3d91 1-44
+research-evidence/texo-paper.clean.txt
+  s_d24d8e1725abbe::t_ef3748b67a25a6 1-1318
+research-evidence/texo-paper.txt
+  s_d24d8e1725abbe::t_5db05f95d19c74 1-1194
+research-evidence/wharton-search.clean.txt
+  s_d24d8e1725abbe::t_ea653a544a979e 1-1848
+research-evidence/wharton-search.txt
+  s_d24d8e1725abbe::t_0f02278dab0f43 1-4764
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "e54ec4ac6710f94a32af449212b30227aeadb36d",
+  "prompts": {},
+  "sessions": {
+    "s_d24d8e1725abbe": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0a2ef-5273-7d62-a5f9-a7e885d9041c",
+        "model": "gpt-6-astra-ga"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    }
+  }
+}
