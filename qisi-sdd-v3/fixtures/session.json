@@ -1,0 +1,149 @@
+{
+  "id": "session1",
+  "version": 3,
+  "problem_id": "self-001",
+  "packet_version": "self-packet-v3",
+  "phase": "study",
+  "active_task_id": "self-001",
+  "active_attempt_id": null,
+  "submissions": [
+    {
+      "id": "s1",
+      "task_id": "self-001",
+      "revision": 1,
+      "text_md": "f′(x)=1+1/x²",
+      "source": "typed",
+      "media_id": null,
+      "transcript_id": null,
+      "confirmed": true,
+      "invalidated": false,
+      "created_at": "2026-09-15T00:00:00Z"
+    }
+  ],
+  "traces": [
+    {
+      "turn_id": "turn1",
+      "task_id": "self-001",
+      "submission_id": "s1",
+      "diagnosis": {
+        "task_id": "self-001",
+        "judgment": "invalid",
+        "evidence_refs": [
+          {
+            "submission_id": "s1",
+            "revision": 1,
+            "quote": "f′(x)=1+1/x²"
+          }
+        ],
+        "summary": "当前行符号不正确，原因尚未确定。",
+        "focus_goal_key": "self-001:d1",
+        "hypotheses": [
+          {
+            "id": "h1",
+            "kind": "concept",
+            "status": "candidate",
+            "evidence_refs": [
+              {
+                "submission_id": "s1",
+                "revision": 1,
+                "quote": "f′(x)=1+1/x²"
+              }
+            ],
+            "explanation": "可能把倒数求导规则记反",
+            "missing_evidence": "需要学生说明求导依据"
+          },
+          {
+            "id": "h2",
+            "kind": "execution",
+            "status": "candidate",
+            "evidence_refs": [
+              {
+                "submission_id": "s1",
+                "revision": 1,
+                "quote": "f′(x)=1+1/x²"
+              }
+            ],
+            "explanation": "可能只是抄写失误",
+            "missing_evidence": "需要学生自己解释或修正"
+          }
+        ],
+        "probe": {
+          "goal_key": "self-001:d1",
+          "question_md": "先只看倒数项，你怎样说明它的求导依据？",
+          "branches": [
+            {
+              "hypothesis_id": "h1",
+              "expected": "坚持正号并说明错误规则",
+              "counter_evidence": "解释幂函数规则并主动修正",
+              "next_action": "表示转换桥梁"
+            },
+            {
+              "hypothesis_id": "h2",
+              "expected": "正确解释负号并自查",
+              "counter_evidence": "坚持错误规则",
+              "next_action": "局部自查后继续"
+            }
+          ]
+        },
+        "satisfied_decision_ids": [],
+        "route_review_needed": false,
+        "route_review_reason": ""
+      },
+      "strategy": {
+        "task_id": "self-001",
+        "action": "ask",
+        "intervention": "error_localization",
+        "scaffold_level": 0,
+        "focus_goal_key": "self-001:d1",
+        "probe": {
+          "goal_key": "self-001:d1",
+          "question_md": "先只看倒数项，你怎样说明它的求导依据？",
+          "branches": [
+            {
+              "hypothesis_id": "h1",
+              "expected": "坚持正号并说明错误规则",
+              "counter_evidence": "解释幂函数规则并主动修正",
+              "next_action": "表示转换桥梁"
+            },
+            {
+              "hypothesis_id": "h2",
+              "expected": "正确解释负号并自查",
+              "counter_evidence": "坚持错误规则",
+              "next_action": "局部自查后继续"
+            }
+          ]
+        },
+        "allowed_facts": [],
+        "allowed_disclosures": [],
+        "reserved_decisions": [
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ],
+        "expected_student_artifact": "倒数项求导依据",
+        "decision_reason": "先区分概念误解与一次抄写错误，再决定是否补教。",
+        "fading_reason": "尚无足够证据",
+        "route_patch": null
+      },
+      "guard": {
+        "verdict": "accept",
+        "math_note": "问句不引入错误结论",
+        "disclosure_note": "尚未告知导数符号",
+        "actual_disclosed_ids": [],
+        "whole_task_disclosed": false,
+        "issues": []
+      },
+      "shown_text_md": "先只看倒数项，你怎样说明它的求导依据？",
+      "probe_ordinal": 1,
+      "created_at": "2026-09-15T00:00:00Z",
+      "invalidated": false,
+      "run_id": "run1"
+    }
+  ],
+  "exposures": [],
+  "decision_evidence": [],
+  "attempts": [],
+  "original_result": "in_progress",
+  "current_route_id": "derivative"
+}

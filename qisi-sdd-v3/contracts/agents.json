@@ -1,0 +1,108 @@
+[
+  {
+    "name": "PreparationAgent",
+    "role": "preparation",
+    "input_schema": "PreparationInput",
+    "output_schema": "Packet or RoutePatch",
+    "owner": "B",
+    "file": "src/agents/preparation/index.ts",
+    "prompt": "src/prompts/preparation.md",
+    "allowed_context_tools": [
+      "bank_read",
+      "reference_read"
+    ],
+    "forbidden": [
+      "owner_identity",
+      "write_session",
+      "display",
+      "arbitrary_network"
+    ],
+    "max_schema_repair_shared": 1
+  },
+  {
+    "name": "DiagnosisAgent",
+    "role": "diagnosis",
+    "input_schema": "DiagnosisInput",
+    "output_schema": "Diagnosis",
+    "owner": "B",
+    "file": "src/agents/diagnosis/index.ts",
+    "prompt": "src/prompts/diagnosis.md",
+    "allowed_context_tools": [
+      "confirmed_evidence_read"
+    ],
+    "forbidden": [
+      "unconfirmed_evidence",
+      "write_session",
+      "display",
+      "future_assessment"
+    ],
+    "max_schema_repair_shared": 1
+  },
+  {
+    "name": "StrategyAgent",
+    "role": "strategy",
+    "input_schema": "StrategyInput",
+    "output_schema": "Strategy",
+    "owner": "B",
+    "file": "src/agents/strategy/index.ts",
+    "prompt": "src/prompts/strategy.md",
+    "allowed_context_tools": [],
+    "forbidden": [
+      "write_session",
+      "change_budget",
+      "grant_independence",
+      "display"
+    ],
+    "max_schema_repair_shared": 1
+  },
+  {
+    "name": "AssessmentAgent",
+    "role": "assessment",
+    "input_schema": "AssessmentInput",
+    "output_schema": "AssessmentOutput",
+    "owner": "A",
+    "file": "src/agents/assessment/index.ts",
+    "prompt": "src/prompts/assessment.md",
+    "allowed_context_tools": [],
+    "forbidden": [
+      "student_diagnosis_history",
+      "write_session",
+      "grant_independence",
+      "display"
+    ],
+    "max_schema_repair_shared": 1
+  },
+  {
+    "name": "Renderer",
+    "role": "renderer",
+    "input_schema": "RendererInput",
+    "output_schema": "RenderedMessage",
+    "owner": "B",
+    "file": "src/agents/renderer/index.ts",
+    "prompt": "src/prompts/renderer.md",
+    "allowed_context_tools": [],
+    "forbidden": [
+      "full_reference",
+      "future_rubric",
+      "raw_diagnosis",
+      "write_session",
+      "display"
+    ],
+    "max_schema_repair_shared": 1
+  },
+  {
+    "name": "Guard",
+    "role": "guard",
+    "input_schema": "GuardInput",
+    "output_schema": "GuardResult",
+    "owner": "B",
+    "file": "src/agents/guard/index.ts",
+    "prompt": "src/prompts/guard.md",
+    "allowed_context_tools": [],
+    "forbidden": [
+      "write_session",
+      "display"
+    ],
+    "max_schema_repair_shared": 1
+  }
+]

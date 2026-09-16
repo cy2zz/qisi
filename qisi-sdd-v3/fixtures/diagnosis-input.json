@@ -1,0 +1,127 @@
+{
+  "task_id": "self-001",
+  "prompt_md": "f(x)=x+1/x，x>0。讨论单调性并求最小值。",
+  "decisions": [
+    {
+      "id": "d1",
+      "goal_key": "self-001:d1",
+      "goal": "正确求导",
+      "part_id": "part1",
+      "parent_goal_key": null,
+      "source": "teacher",
+      "prerequisite_ids": [],
+      "entry_condition": "题干与输入已确认",
+      "expected_artifact": "正确求导",
+      "acceptance_rule": "说明依据与成立条件；允许有效异解",
+      "common_gaps": [
+        "concept",
+        "execution",
+        "strategy"
+      ]
+    },
+    {
+      "id": "d2",
+      "goal_key": "self-001:d2",
+      "goal": "导数符号与单调性连接",
+      "part_id": "part1",
+      "parent_goal_key": null,
+      "source": "teacher",
+      "prerequisite_ids": [
+        "d1"
+      ],
+      "entry_condition": "题干与输入已确认",
+      "expected_artifact": "导数符号与单调性连接",
+      "acceptance_rule": "说明依据与成立条件；允许有效异解",
+      "common_gaps": [
+        "concept",
+        "execution",
+        "strategy"
+      ]
+    },
+    {
+      "id": "d3",
+      "goal_key": "self-001:d3",
+      "goal": "从单调性得最小值并检查取等",
+      "part_id": "part1",
+      "parent_goal_key": null,
+      "source": "teacher",
+      "prerequisite_ids": [
+        "d2"
+      ],
+      "entry_condition": "题干与输入已确认",
+      "expected_artifact": "从单调性得最小值并检查取等",
+      "acceptance_rule": "说明依据与成立条件；允许有效异解",
+      "common_gaps": [
+        "concept",
+        "execution",
+        "strategy"
+      ]
+    },
+    {
+      "id": "d4",
+      "goal_key": "self-001:d4",
+      "goal": "用AM–GM求最小值并检查条件",
+      "part_id": "part1",
+      "parent_goal_key": null,
+      "source": "teacher",
+      "prerequisite_ids": [],
+      "entry_condition": "题干与输入已确认",
+      "expected_artifact": "用AM–GM求最小值并检查条件",
+      "acceptance_rule": "说明依据与成立条件；允许有效异解",
+      "common_gaps": [
+        "concept",
+        "execution",
+        "strategy"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "derivative",
+      "source": "teacher",
+      "decision_ids": [
+        "d1",
+        "d2",
+        "d3"
+      ],
+      "terminal_ids": [
+        "d3"
+      ],
+      "math_status": "valid",
+      "evidence_refs": [],
+      "note": "已列路线不排斥其他有效方法"
+    },
+    {
+      "id": "alternative",
+      "source": "teacher",
+      "decision_ids": [
+        "d1",
+        "d2",
+        "d4"
+      ],
+      "terminal_ids": [
+        "d4"
+      ],
+      "math_status": "valid",
+      "evidence_refs": [],
+      "note": "已列路线不排斥其他有效方法"
+    }
+  ],
+  "confirmed_evidence": [
+    {
+      "id": "s1",
+      "task_id": "self-001",
+      "revision": 1,
+      "text_md": "f′(x)=1+1/x²",
+      "source": "typed",
+      "media_id": null,
+      "transcript_id": null,
+      "confirmed": true,
+      "invalidated": false,
+      "created_at": "2026-09-15T00:00:00Z"
+    }
+  ],
+  "previous_hypotheses": [],
+  "previous_probes": [],
+  "private_reference_md": "f′(x)=1-1/x²；(0,1)递减，(1,+∞)递增；x=1最小2。均值不等式可求最值，但仍需单独证明单调性。"
+}

@@ -1,0 +1,29 @@
+{
+  "version": "qisi-3.0",
+  "supersedes": "week1-2.0",
+  "restored": [
+    "four_agents",
+    "seven_interventions",
+    "dynamic_routes",
+    "provenance",
+    "unseen_reassessment",
+    "history",
+    "persistent_workflow",
+    "role_regression"
+  ],
+  "retained": [
+    "single_full_stack_web",
+    "full_bank_random",
+    "handwriting_confirmation",
+    "independence_invariants"
+  ],
+  "not_in_scope": [
+    "native_client",
+    "separate_api_service",
+    "model_training",
+    "payments",
+    "school_admin"
+  ],
+  "work_days": 10,
+  "person_days": 20
+}

@@ -1,0 +1,4 @@
+# Preserve archived specification/evidence bytes for SHA256 verification.
+/qisi-sdd-v3/** -text
+/research-evidence/** -text
+/qisi-sdd-v3.zip binary

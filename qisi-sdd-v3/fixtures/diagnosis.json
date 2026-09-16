@@ -1,0 +1,64 @@
+{
+  "task_id": "self-001",
+  "judgment": "invalid",
+  "evidence_refs": [
+    {
+      "submission_id": "s1",
+      "revision": 1,
+      "quote": "f′(x)=1+1/x²"
+    }
+  ],
+  "summary": "当前行符号不正确，原因尚未确定。",
+  "focus_goal_key": "self-001:d1",
+  "hypotheses": [
+    {
+      "id": "h1",
+      "kind": "concept",
+      "status": "candidate",
+      "evidence_refs": [
+        {
+          "submission_id": "s1",
+          "revision": 1,
+          "quote": "f′(x)=1+1/x²"
+        }
+      ],
+      "explanation": "可能把倒数求导规则记反",
+      "missing_evidence": "需要学生说明求导依据"
+    },
+    {
+      "id": "h2",
+      "kind": "execution",
+      "status": "candidate",
+      "evidence_refs": [
+        {
+          "submission_id": "s1",
+          "revision": 1,
+          "quote": "f′(x)=1+1/x²"
+        }
+      ],
+      "explanation": "可能只是抄写失误",
+      "missing_evidence": "需要学生自己解释或修正"
+    }
+  ],
+  "probe": {
+    "goal_key": "self-001:d1",
+    "question_md": "先只看倒数项，你怎样说明它的求导依据？",
+    "branches": [
+      {
+        "hypothesis_id": "h1",
+        "expected": "坚持正号并说明错误规则",
+        "counter_evidence": "解释幂函数规则并主动修正",
+        "next_action": "表示转换桥梁"
+      },
+      {
+        "hypothesis_id": "h2",
+        "expected": "正确解释负号并自查",
+        "counter_evidence": "坚持错误规则",
+        "next_action": "局部自查后继续"
+      }
+    ]
+  },
+  "satisfied_decision_ids": [],
+  "route_review_needed": false,
+  "route_review_reason": ""
+}

@@ -1,0 +1,37 @@
+{
+  "task_id": "self-001",
+  "action": "ask",
+  "intervention": "error_localization",
+  "scaffold_level": 0,
+  "focus_goal_key": "self-001:d1",
+  "probe": {
+    "goal_key": "self-001:d1",
+    "question_md": "先只看倒数项，你怎样说明它的求导依据？",
+    "branches": [
+      {
+        "hypothesis_id": "h1",
+        "expected": "坚持正号并说明错误规则",
+        "counter_evidence": "解释幂函数规则并主动修正",
+        "next_action": "表示转换桥梁"
+      },
+      {
+        "hypothesis_id": "h2",
+        "expected": "正确解释负号并自查",
+        "counter_evidence": "坚持错误规则",
+        "next_action": "局部自查后继续"
+      }
+    ]
+  },
+  "allowed_facts": [],
+  "allowed_disclosures": [],
+  "reserved_decisions": [
+    "d1",
+    "d2",
+    "d3",
+    "d4"
+  ],
+  "expected_student_artifact": "倒数项求导依据",
+  "decision_reason": "先区分概念误解与一次抄写错误，再决定是否补教。",
+  "fading_reason": "尚无足够证据",
+  "route_patch": null
+}

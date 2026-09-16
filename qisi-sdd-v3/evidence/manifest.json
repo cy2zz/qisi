@@ -1,0 +1,103 @@
+{
+  "baseline": "qisi-3.0",
+  "status": "local_archived_source_material_not_fresh_online_verification",
+  "collected_previous_date": "2026-09-15",
+  "indexed_date": "2026-09-16",
+  "limitations": [
+    "Some previous audit references point to files outside this trimmed evidence bundle.",
+    "repo-snapshots metadata is historical; README/license files are not claimed cryptographically bound to its commit unless recorded.",
+    "No dependency installation, vulnerability check or application smoke test performed."
+  ],
+  "files": [
+    {
+      "path": "evidence/alephpi__Texo-web.LICENSE",
+      "bytes": 34523,
+      "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
+    },
+    {
+      "path": "evidence/alephpi__Texo.LICENSE",
+      "bytes": 34522,
+      "sha256": "d93c43da4bf2cf05e758c63966c45345a791da9daeb2f475d0d80a48e67b311b"
+    },
+    {
+      "path": "evidence/breezedeus__Pix2Text.LICENSE",
+      "bytes": 1067,
+      "sha256": "416a9f7130fa7f1800ab3d766e3e9535a8e8951eee7abbffd2974b8e9947e47b"
+    },
+    {
+      "path": "evidence/breezedeus__Pix2Text.README.md",
+      "bytes": 14601,
+      "sha256": "54874132c39e7bf06ffa5876b1c5b7a3aada19ec60db42e592551bee65df57e1"
+    },
+    {
+      "path": "evidence/KaTeX__KaTeX.LICENSE",
+      "bytes": 1107,
+      "sha256": "766ccc1f306c885aa45542a9846bbd0a505b27a0374f146778171c2254ce18e3"
+    },
+    {
+      "path": "evidence/KaTeX__KaTeX.README.md",
+      "bytes": 6503,
+      "sha256": "af0825b95cb4c43317bc3864f0a5d183c247fa7d40b7e1142ad26cf7a18b83a8"
+    },
+    {
+      "path": "evidence/pix2text-model-card.txt",
+      "bytes": 9258,
+      "sha256": "f9e8f66ad98e223df8e333d27b8430e20064ea427cc94feee495329906ee21e3"
+    },
+    {
+      "path": "evidence/react-markdown-license.txt",
+      "bytes": 1079,
+      "sha256": "f6196c64e144f9a6fa9154c3a80bc8b89615a9567934b83a8951879f06ba2aef"
+    },
+    {
+      "path": "evidence/react-markdown-readme.txt",
+      "bytes": 26506,
+      "sha256": "e2f4fcd57c9ac4cd26d1a0706ae98cf8233b7e323ddc79bce662ff4d3b7e1d9c"
+    },
+    {
+      "path": "evidence/repo-snapshots.json",
+      "bytes": 14183,
+      "sha256": "88eca57de6de9f0c8e514a67cec4448d4c53150b735a21b4aa23dac846707c74"
+    },
+    {
+      "path": "evidence/RunzheYang__SocraticAI.LICENSE",
+      "bytes": 1068,
+      "sha256": "dba4fda92640a52745224f64f8473c18188c8080f48ec3aef0bcf575dbd69cc3"
+    },
+    {
+      "path": "evidence/RunzheYang__SocraticAI.README.md",
+      "bytes": 2781,
+      "sha256": "571f761fe63b88fd72b747d946149c3f3590257c36b3f185e39184f3ed526a0b"
+    },
+    {
+      "path": "evidence/SenmuuuuW__universal-diagnostic-tutor-skill.LICENSE",
+      "bytes": 1102,
+      "sha256": "a9ca00bcc7a56530a43eeedae4769303f70aef1b9f408594572c39aeb5c3bf84"
+    },
+    {
+      "path": "evidence/SenmuuuuW__universal-diagnostic-tutor-skill.README.md",
+      "bytes": 9029,
+      "sha256": "138a6a0a9952d8b5e127bb484f0b921c1d4fef3c19f29fe03baec7c372453e90"
+    },
+    {
+      "path": "evidence/source-audit-previous.md",
+      "bytes": 14919,
+      "sha256": "22e3614a24494dd3bb305830c7602fbe941c1ddb390988a94508a7c4194a93b2"
+    },
+    {
+      "path": "evidence/sympy-parse-doc.clean.txt",
+      "bytes": 43419,
+      "sha256": "9909a6d77c6ad1ff54fc756d4b7dba0aa27f738ab93931f743d450f15e989853"
+    },
+    {
+      "path": "evidence/sympy__sympy.LICENSE",
+      "bytes": 7885,
+      "sha256": "07a5e9819f727b4986ad2829c7a29a6320d42575f720eb24d71b7fef573a0286"
+    },
+    {
+      "path": "evidence/VikParuchuri__texify.LICENSE",
+      "bytes": 35091,
+      "sha256": "4b4402403c3f80cd96adda842556965595b94ecc0590caa72fdafce194d7a3e2"
+    }
+  ]
+}

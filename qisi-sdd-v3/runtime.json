@@ -1,0 +1,53 @@
+{
+  "version": "qisi-3.0",
+  "runner": "typed_typescript_sqlite_journal",
+  "single_instance": true,
+  "workflows": {
+    "turn": {
+      "normal_calls": 4,
+      "max_calls": 7,
+      "deadline_ms": 90000,
+      "input_tokens_cap": 24000,
+      "output_tokens_cap": 8000
+    },
+    "prepare": {
+      "normal_calls": 2,
+      "max_calls": 4,
+      "deadline_ms": 180000,
+      "input_tokens_cap": 32000,
+      "output_tokens_cap": 16000
+    },
+    "transcribe": {
+      "normal_calls": 1,
+      "max_calls": 2,
+      "deadline_ms": 45000,
+      "input_tokens_cap": 12000,
+      "output_tokens_cap": 6000
+    },
+    "grade": {
+      "normal_calls": 2,
+      "max_calls": 3,
+      "deadline_ms": 60000,
+      "input_tokens_cap": 20000,
+      "output_tokens_cap": 6000
+    }
+  },
+  "schema_repairs_per_run": 1,
+  "text_rewrites_per_run": 1,
+  "probe_limit_per_canonical_goal": 2,
+  "route_reviews_per_turn": 1,
+  "max_concurrent_model_calls": 4,
+  "media_max_bytes": 8388608,
+  "media_max_pixels": 20000000,
+  "media_ttl_hours": 24,
+  "session_ttl_days": 7,
+  "text_max_chars": 12000,
+  "node_timeout_ms": 25000,
+  "prepare_node_timeout_ms": 60000,
+  "public_output_streaming": false,
+  "latency_targets": {
+    "warm_turn_p50_ms": 15000,
+    "warm_turn_p95_ms": 35000,
+    "status": "not_measured"
+  }
+}

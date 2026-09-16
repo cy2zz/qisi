@@ -1,0 +1,90 @@
+{
+  "status": "planned_not_installed",
+  "verified_online_this_revision": false,
+  "items": [
+    {
+      "package": "next",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "react",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "react-dom",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "react-markdown",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "remark-math",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "rehype-katex",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "katex",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "zod",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "better-sqlite3",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "sharp",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "vitest",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    },
+    {
+      "package": "@playwright/test",
+      "resolved_version": null,
+      "status": "planned",
+      "license_evidence": null,
+      "test_evidence": null
+    }
+  ]
+}

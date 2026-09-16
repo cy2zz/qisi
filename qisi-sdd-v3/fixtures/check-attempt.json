@@ -1,0 +1,26 @@
+{
+  "id": "attempt1",
+  "task_id": "self-check-001",
+  "content_hash": "a8791310f8cf83fc9b7ab7f7478b985950b4b2317372346f02e7da69deabcf10",
+  "equivalence_group": "area-rectangle-perimeter",
+  "relation": "near_transfer",
+  "started_at": "2026-09-15T00:00:00Z",
+  "plan_md": "设边长x，另一边9/x，最小化2(x+9/x)。",
+  "plan_locked_at": "2026-09-15T00:00:00Z",
+  "answer_md": "x=3，周长6。",
+  "finished_at": "2026-09-15T00:00:00Z",
+  "assistance_requested": false,
+  "help_exposed": false,
+  "invalidated": false,
+  "first_seen_eligible": true,
+  "assessment": {
+    "task_id": "self-check-001",
+    "planning": "correct",
+    "execution": "incorrect",
+    "planning_reason": "正确建立面积与周长关系",
+    "execution_reason": "最后数值计算错误",
+    "planning_evidence": "P=2(x+9/x)",
+    "execution_evidence": "把最小值写为6",
+    "unresolved_issues": []
+  }
+}

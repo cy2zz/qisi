@@ -1,0 +1,30 @@
+{
+  "checked_at": "2026-09-16T02:30:37.987Z",
+  "compared_with": "last_successful_week1_readback",
+  "documents": [
+    {
+      "key": "design",
+      "title": "启思｜一周Web单体设计方案 V5",
+      "type": 1,
+      "owner": "王超亚",
+      "bodyUnchanged": true,
+      "titleUnchanged": true
+    },
+    {
+      "key": "plan",
+      "title": "启思｜双人一周开发规划 V2",
+      "type": 1,
+      "owner": "王超亚",
+      "bodyUnchanged": true,
+      "titleUnchanged": true
+    },
+    {
+      "key": "prd",
+      "title": "启思｜Web单体SDD PRD V2",
+      "type": 1,
+      "owner": "王超亚",
+      "bodyUnchanged": true,
+      "titleUnchanged": true
+    }
+  ]
+}

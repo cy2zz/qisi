@@ -1,0 +1,44 @@
+﻿https://raw.githubusercontent.com/alephpi/Texo/HEAD/README.md OK
+https://raw.githubusercontent.com/alephpi/Texo/HEAD/LICENSE OK
+https://github.com/alephpi/Texo OK
+https://raw.githubusercontent.com/alephpi/Texo-web/HEAD/README.md OK
+https://raw.githubusercontent.com/alephpi/Texo-web/HEAD/LICENSE OK
+https://github.com/alephpi/Texo-web OK
+https://raw.githubusercontent.com/breezedeus/Pix2Text/HEAD/README.md OK
+https://raw.githubusercontent.com/breezedeus/Pix2Text/HEAD/LICENSE OK
+https://github.com/breezedeus/Pix2Text OK
+https://raw.githubusercontent.com/LinXueyuanStdio/LaTeX_OCR_PRO/HEAD/README.md OK
+https://raw.githubusercontent.com/LinXueyuanStdio/LaTeX_OCR_PRO/HEAD/LICENSE OK
+https://github.com/LinXueyuanStdio/LaTeX_OCR_PRO OK
+https://raw.githubusercontent.com/VikParuchuri/texify/HEAD/README.md OK
+https://raw.githubusercontent.com/VikParuchuri/texify/HEAD/LICENSE OK
+https://github.com/VikParuchuri/texify OK
+https://raw.githubusercontent.com/JushBJJ/Mr.-Ranedeer-AI-Tutor/HEAD/README.md OK
+https://raw.githubusercontent.com/JushBJJ/Mr.-Ranedeer-AI-Tutor/HEAD/LICENSE ERROR 远程服务器返回错误: (404) 未找到。
+https://github.com/JushBJJ/Mr.-Ranedeer-AI-Tutor OK
+https://raw.githubusercontent.com/RunzheYang/SocraticAI/HEAD/README.md OK
+https://raw.githubusercontent.com/RunzheYang/SocraticAI/HEAD/LICENSE OK
+https://github.com/RunzheYang/SocraticAI OK
+https://raw.githubusercontent.com/Ljyustc/SocraticLM/HEAD/README.md OK
+https://raw.githubusercontent.com/Ljyustc/SocraticLM/HEAD/LICENSE ERROR 远程服务器返回错误: (404) 未找到。
+https://github.com/Ljyustc/SocraticLM OK
+https://raw.githubusercontent.com/SenmuuuuW/universal-diagnostic-tutor-skill/HEAD/README.md OK
+https://raw.githubusercontent.com/SenmuuuuW/universal-diagnostic-tutor-skill/HEAD/LICENSE OK
+https://github.com/SenmuuuuW/universal-diagnostic-tutor-skill OK
+https://raw.githubusercontent.com/JudgePeach/math-question-bank/HEAD/README.md OK
+https://raw.githubusercontent.com/JudgePeach/math-question-bank/HEAD/LICENSE OK
+https://github.com/JudgePeach/math-question-bank OK
+https://raw.githubusercontent.com/AI-MO/NuminaMath/HEAD/README.md ERROR 远程服务器返回错误: (404) 未找到。
+https://raw.githubusercontent.com/AI-MO/NuminaMath/HEAD/LICENSE ERROR 远程服务器返回错误: (404) 未找到。
+https://github.com/AI-MO/NuminaMath ERROR 请求被中止: 连接被意外关闭。
+https://raw.githubusercontent.com/KaTeX/KaTeX/HEAD/README.md OK
+https://raw.githubusercontent.com/KaTeX/KaTeX/HEAD/LICENSE OK
+https://github.com/KaTeX/KaTeX OK
+https://raw.githubusercontent.com/sympy/sympy/HEAD/README.md OK
+https://raw.githubusercontent.com/sympy/sympy/HEAD/LICENSE OK
+https://github.com/sympy/sympy OK
+https://raw.githubusercontent.com/remarkjs/react-markdown/HEAD/README.md ERROR 远程服务器返回错误: (404) 未找到。
+https://raw.githubusercontent.com/remarkjs/react-markdown/HEAD/LICENSE ERROR 远程服务器返回错误: (404) 未找到。
+https://github.com/remarkjs/react-markdown OK
+https://arxiv.org/abs/2504.08649 OK
+https://arxiv.org/abs/2602.17189 OK

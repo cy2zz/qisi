@@ -1,0 +1,29 @@
+{
+  "session_id": "session1",
+  "original_status": "in_progress",
+  "attempts": [
+    {
+      "attempt_id": "attempt1",
+      "task_id": "self-check-001",
+      "relation": "near_transfer",
+      "planning": "correct",
+      "execution": "incorrect",
+      "independent_planning": true,
+      "independent_execution": false,
+      "independent_task_pass": false,
+      "assistance_requested": false,
+      "help_exposed": false,
+      "invalidated": false,
+      "limitations": [
+        "仅为该次近任务表现。"
+      ]
+    }
+  ],
+  "observations": [
+    "本次计划正确，执行需继续练习。"
+  ],
+  "limitations": [
+    "自拟规格例子，不是真人学习结果。"
+  ],
+  "delayed_evidence": "not_evaluated"
+}

@@ -1,0 +1,1299 @@
+[
+  {
+    "id": "A01",
+    "owner": "A",
+    "day": 1,
+    "person_days": 1,
+    "title": "全栈脚手架、持久层和公共渲染",
+    "depends_on": [],
+    "requirements": [
+      "FR01",
+      "FR04",
+      "FR15",
+      "FR16"
+    ],
+    "write_scope": [
+      "package.json",
+      "package-lock.json",
+      "src/app/layout.tsx",
+      "src/shared/**",
+      "tests/shared/**",
+      "tests/e2e/smoke.spec.ts",
+      "next.config.*",
+      "tsconfig.json",
+      "vitest.config.*",
+      "playwright.config.*"
+    ],
+    "steps": [
+      "检查应用目录与依赖准入并锁版本",
+      "建立匿名owner、SQLite迁移、请求幂等/版本/CAS接口",
+      "实现MathMarkdown和空Web页面、加载安全DTO",
+      "用本地fixture走一次写库刷新链路，预留ModelPort而非假装真模型"
+    ],
+    "input": [
+      "README.md",
+      "AGENTS.md",
+      "prd.md",
+      "contracts/README.md",
+      "contracts/domain.schema.json"
+    ],
+    "output": "可运行的纵向功能 + 对应测试 + handoffs/A01.md",
+    "acceptance": [
+      "AT01",
+      "AT08",
+      "AT58"
+    ],
+    "status": "planned",
+    "test_commands": [
+      "npm run typecheck",
+      "npm run test:task -- A01",
+      "npm run test:e2e:task -- A01"
+    ],
+    "handoff_required": [
+      "changed_files",
+      "commands_and_actual_results",
+      "acceptance_status",
+      "known_failures",
+      "next_dependency"
+    ],
+    "failure_first": [
+      "AT01: 页面/服务端同进程；已提交安全响应从磁盘恢复",
+      "AT08: 安全显示正常公式；坏公式保留原文不白屏",
+      "AT58: reuse-lock有精确版本和证据；没跑不标accepted"
+    ],
+    "excluded_write_scope": []
+  },
+  {
+    "id": "B01",
+    "owner": "B",
+    "day": 1,
+    "person_days": 1,
+    "title": "领域契约、四Agent壳和工作流内核",
+    "depends_on": [],
+    "requirements": [
+      "FR01",
+      "FR06",
+      "FR15"
+    ],
+    "write_scope": [
+      "src/contracts/**",
+      "src/agents/**",
+      "src/workflows/**",
+      "src/prompts/**",
+      "tests/agents/**",
+      "tests/workflows/**",
+      "docs/adr/001-orchestration.md"
+    ],
+    "steps": [
+      "将contracts映射为严格Zod类型并实现跨字段校验",
+      "实现四Agent独立入口与Renderer/Guard接口",
+      "建立ModelPort、FixtureProvider和一次真实provider能力探测入口",
+      "实现确定性工作流节点、预算器和StorePort，记录默认原生TS编排ADR"
+    ],
+    "input": [
+      "README.md",
+      "AGENTS.md",
+      "prd.md",
+      "contracts/README.md",
+      "contracts/domain.schema.json"
+    ],
+    "output": "可运行的纵向功能 + 对应测试 + handoffs/B01.md",
+    "acceptance": [
+      "AT13"
+    ],
+    "status": "planned",
+    "test_commands": [
+      "npm run typecheck",
+      "npm run test:task -- B01",
+      "npm run test:e2e:task -- B01"
+    ],
+    "handoff_required": [
+      "changed_files",
+      "commands_and_actual_results",
+      "acceptance_status",
+      "known_failures",
+      "next_dependency"
+    ],
+    "failure_first": [
+      "AT13: 真实经过对应独立契约与提示节点，不是一调用伪造四阶段"
+    ],
+    "excluded_write_scope": [
+      "src/agents/assessment/**"
+    ]
+  },
+  {
+    "id": "A02",
+    "owner": "A",
+    "day": 2,
+    "person_days": 1,
+    "title": "全量导入、选题和准备状态Web",
+    "depends_on": [
+      "A01",
+      "B01"
+    ],
+    "requirements": [
+      "FR02",
+      "FR03"
+    ],
+    "write_scope": [
+      "src/features/bank/**",
+      "src/app/bank/**",
+      "src/app/api/bank/**",
+      "tests/bank/**",
+      "tests/e2e/bank.spec.ts"
+    ],
+    "steps": [
+      "读取主办方实际样本，建立JSONL+私有题图导入适配器和异常清单",
+      "实现题库页指定/随机选择，持久化全范围哈希及抽中ID",
+      "接入prepare工作流，冷启动显示原题准备与可重试状态",
+      "证明needs_review/invalid不被静默剔除，刷新不重抽"
+    ],
+    "input": [
+      "README.md",
+      "AGENTS.md",
+      "prd.md",
+      "contracts/README.md",
+      "contracts/domain.schema.json"
+    ],
+    "output": "可运行的纵向功能 + 对应测试 + handoffs/A02.md",
+    "acceptance": [
+      "AT02",
+      "AT03",
+      "AT04"
+    ],
+    "status": "planned",
+    "test_commands": [
+      "npm run typecheck",
+      "npm run test:task -- A02",
+      "npm run test:e2e:task -- A02"
+    ],
+    "handoff_required": [
+      "changed_files",
+      "commands_and_actual_results",
+      "acceptance_status",
+      "known_failures",
+      "next_dependency"
+    ],
+    "failure_first": [
+      "AT02: 候选ID集合含全部题；异常保留选中ID，不隐式重抽",
+      "AT03: 命中同一次选题记录；池哈希及题库版本相同",
+      "AT04: 逐项异常计数可追原始记录；不伪称全部就绪"
+    ],
+    "excluded_write_scope": []
+  },
+  {
+    "id": "B02",
+    "owner": "B",
+    "day": 2,
+    "person_days": 1,
+    "title": "备课Agent、核对、图与检验任务池",
+    "depends_on": [
+      "B01",
+      "A01"
+    ],
+    "requirements": [
+      "FR03",
+      "FR06"
+    ],
+    "write_scope": [
+      "src/agents/preparation/**",
+      "src/workflows/prepare.ts",
+      "src/features/preparation/**",
+      "src/prompts/preparation.md",
+      "tests/preparation/**"
+    ],
+    "steps": [
+      "实现prepare和route_review双模式；主路线与可选异解的AND/OR图",
+      "按problem_hash+prompt/model/config版本缓存并记录数学核对来源",
+      "生成至少两项检验候选，未核对项不得启动检验",
+      "实现包核对Guard、循环/引用/条件/缺图负例，不以双模型一致当证明"
+    ],
+    "input": [
+      "README.md",
+      "AGENTS.md",
+      "prd.md",
+      "contracts/README.md",
+      "contracts/domain.schema.json"
+    ],
+    "output": "可运行的纵向功能 + 对应测试 + handoffs/B02.md",
+    "acceptance": [
+      "AT05",
+      "AT06",
+      "AT07"
+    ],
+    "status": "planned",
+    "test_commands": [
+      "npm run typecheck",
+      "npm run test:task -- B02",
+      "npm run test:e2e:task -- B02"
+    ],
+    "handoff_required": [
+      "changed_files",
+      "commands_and_actual_results",
+      "acceptance_status",
+      "known_failures",
+      "next_dependency"
+    ],
+    "failure_first": [
+      "AT05: 拒绝并保留needs_review；结构不充当数学认证",
+      "AT06: 旧hash包失效；prepare结果绑定新hash/版本",
+      "AT07: 不自动认证；出现冲突needs_review及问题记录"
+    ],
+    "excluded_write_scope": [
+      "src/agents/assessment/**"
+    ]
+  },
+  {
+    "id": "A03",
+    "owner": "A",
+    "day": 3,
+    "person_days": 1,
+    "title": "手写上传、确认和输入组件",
+    "depends_on": [
+      "A01",
+      "B01"
+    ],
+    "requirements": [
+      "FR04",
+      "FR05",
+      "FR16"
+    ],
+    "write_scope": [
+      "src/features/media/**",
+      "src/app/api/media/**",
+      "src/features/input/**",
+      "tests/media/**",
+      "tests/e2e/media.spec.ts"
+    ],
+    "steps": [
+      "校验文件大小类型真实解码并存私有映射",
+      "实现VisionPort忠实逐行转写与不确定标记",
+      "建立草稿编辑、确认、重新上传和Markdown预览组件",
+      "提交confirmed revision给教学，不把OCR纠错当学生数学能力"
+    ],
+    "input": [
+      "README.md",
+      "AGENTS.md",
+      "prd.md",
+      "contracts/README.md",
+      "contracts/domain.schema.json"
+    ],
+    "output": "可运行的纵向功能 + 对应测试 + handoffs/A03.md",
+    "acceptance": [
+      "AT09",
+      "AT10",
+      "AT11"
+    ],
+    "status": "planned",
+    "test_commands": [
+      "npm run typecheck",
+      "npm run test:task -- A03",
+      "npm run test:e2e:task -- A03"
+    ],
+    "handoff_required": [
+      "changed_files",
+      "commands_and_actual_results",
+      "acceptance_status",
+      "known_failures",
+      "next_dependency"
+    ],
+    "failure_first": [
+      "AT09: 忠实转写不改答案；未确认不可教学或评分",
+      "AT10: 拒绝危险文件或NOT_FOUND；私有文件无公开URL",
+      "AT11: 记录确认revision后才生成Submission；重复确认幂等"
+    ],
+    "excluded_write_scope": []
+  },
+  {
+    "id": "B03",
+    "owner": "B",
+    "day": 3,
+    "person_days": 1,
+    "title": "真实教学轮与可见页面",
+    "depends_on": [
+      "B01",
+      "B02",
+      "A02"
+    ],
+    "requirements": [
+      "FR06",
+      "FR07",
+      "FR10"
+    ],
+    "write_scope": [
+      "src/features/tutor/**",
+      "src/app/learn/[sessionId]/page.tsx",
+      "src/workflows/turn.ts",
+      "src/agents/renderer/**",
+      "src/agents/guard/**",
+      "src/prompts/renderer.md",
+      "src/prompts/guard.md",
+      "tests/tutor/**",
+      "tests/e2e/tutor.spec.ts"
+    ],
+    "steps": [
+      "实现attempt/hint/explain/worked_solution/finish_problem动作",
+      "诊断策略表达守卫按独立入口串接，Guard通过才事务提交显示",
+      "学习页先自主输入，只显示当前必要目标，接A输入组件",
+      "完成一条真模型文本链路与失败中性回退，明确记录真实provider版本"
+    ],
+    "input": [
+      "README.md",
+      "AGENTS.md",
+      "prd.md",
+      "contracts/README.md",
+      "contracts/domain.schema.json"
+    ],
+    "output": "可运行的纵向功能 + 对应测试 + handoffs/B03.md",
+    "acceptance": [
+      "AT14",
+      "AT15",
+      "AT27"
+    ],
+    "status": "planned",
+    "test_commands": [
+      "npm run typecheck",
+      "npm run test:task -- B03",
+      "npm run test:e2e:task -- B03"
+    ],
+    "handoff_required": [
+      "changed_files",
+      "commands_and_actual_results",
+      "acceptance_status",
+      "known_failures",
+      "next_dependency"
+    ],
+    "failure_first": [
+      "AT14: 记录实际诊断/策略/表达/检查调用、版本/费用；非Mock",
+      "AT15: 只展示题干与自主输入，不预先泄露完整步骤",
+      "AT27: 不含完整解法、未来rubric和私有诊断原文"
+    ],
+    "excluded_write_scope": [
+      "src/agents/assessment/**"
+    ]
+  },
+  {
+    "id": "A04",
+    "owner": "A",
+    "day": 4,
+    "person_days": 1,
+    "title": "独立检验状态与计划锁定页面",
+    "depends_on": [
+      "A02",
+      "B02",
+      "A03"
+    ],
+    "requirements": [
+      "FR11",
+      "FR12"
+    ],
+    "write_scope": [
+      "src/features/assessment/**",
+      "src/app/learn/[sessionId]/check/**",
+      "tests/assessment/**",
+      "tests/e2e/assessment.spec.ts"
+    ],
+    "steps": [
+      "构建owner级已见/等价登记与首次attempt表",
+      "start锁定任务，submit_plan锁计划并开放答案区，finish后评分",
+      "实现不提示的草稿保存和help先持久assistance_requested",
+      "新任务与求助学习保留任务ID，刷新不能重置首次资格"
+    ],
+    "input": [
+      "README.md",
+      "AGENTS.md",
+      "prd.md",
+      "contracts/README.md",
+      "contracts/domain.schema.json"
+    ],
+    "output": "可运行的纵向功能 + 对应测试 + handoffs/A04.md",
+    "acceptance": [
+      "AT30",
+      "AT31",
+      "AT32"
+    ],
+    "status": "planned",
+    "test_commands": [
+      "npm run typecheck",
+      "npm run test:task -- A04",
+      "npm run test:e2e:task -- A04"
+    ],
+    "handoff_required": [
+      "changed_files",
+      "commands_and_actual_results",
+      "acceptance_status",
+      "known_failures",
+      "next_dependency"
+    ],
+    "failure_first": [
+      "AT30: 先锁计划，无中间对错反馈，最终才独立分判",
+      "AT31: owner级首次/已见记录继续存在，不能洗白",
+      "AT32: assistance_requested=true，help_exposed=false；不能独立通过"
+    ],
+    "excluded_write_scope": []
+  },
+  {
+    "id": "B04",
+    "owner": "B",
+    "day": 4,
+    "person_days": 1,
+    "title": "证据诊断和有区分力的探针",
+    "depends_on": [
+      "B03",
+      "A03"
+    ],
+    "requirements": [
+      "FR05",
+      "FR08"
+    ],
+    "write_scope": [
+      "src/agents/diagnosis/**",
+      "src/prompts/diagnosis.md",
+      "src/features/tutor/evidence.ts",
+      "tests/diagnosis/**"
+    ],
+    "steps": [
+      "实现valid/invalid/unknown与原因独立判定",
+      "引用当前有效confirmed evidence，预先持久分支与反证",
+      "按规范goal_key限制两探针，禁止换节点名重置",
+      "实现同错不同因、已会不教、反证修订与输入歧义回归"
+    ],
+    "input": [
+      "README.md",
+      "AGENTS.md",
+      "prd.md",
+      "contracts/README.md",
+      "contracts/domain.schema.json"
+    ],
+    "output": "可运行的纵向功能 + 对应测试 + handoffs/B04.md",
+    "acceptance": [
+      "AT19",
+      "AT20",
+      "AT21",
+      "AT22",
+      "AT23"
+    ],
+    "status": "planned",
+    "test_commands": [
+      "npm run typecheck",
+      "npm run test:task -- B04",
+      "npm run test:e2e:task -- B04"
+    ],
+    "handoff_required": [
+      "changed_files",
+      "commands_and_actual_results",
+      "acceptance_status",
+      "known_failures",
+      "next_dependency"
+    ],
+    "failure_first": [
+      "AT19: 分别支持concept与execution并改变后续教学",
+      "AT20: 定位strategy连接，不重复教授导数",
+      "AT21: 服务端拒绝；不把虚构引用写入trace",
+      "AT22: 按canonical goal计数拦截；选择解释/低风险帮助/待定",
+      "AT23: 显示前已保存expected/counterevidence/next_action；不事后改预期"
+    ],
+    "excluded_write_scope": [
+      "src/agents/assessment/**"
+    ]
+  },
+  {
+    "id": "A05",
+    "owner": "A",
+    "day": 5,
+    "person_days": 1,
+    "title": "独立评分接线与证据报告",
+    "depends_on": [
+      "A04",
+      "B03"
+    ],
+    "requirements": [
+      "FR11",
+      "FR13"
+    ],
+    "write_scope": [
+      "src/agents/assessment/**",
+      "src/prompts/assessment.md",
+      "src/features/assessment/grade.ts",
+      "src/features/report/**",
+      "src/app/learn/[sessionId]/report/**",
+      "tests/report/**"
+    ],
+    "steps": [
+      "实现独立AssessmentAgent上下文，只拿锁定计划/最终产物与rubric",
+      "评分加Guard复核，冲突/失败unknown，规划执行分判",
+      "代码推导独立性与原题完成，不让模型自设passed",
+      "报告显示帮助请求但未发出、未测、已作废等边界"
+    ],
+    "input": [
+      "README.md",
+      "AGENTS.md",
+      "prd.md",
+      "contracts/README.md",
+      "contracts/domain.schema.json"
+    ],
+    "output": "可运行的纵向功能 + 对应测试 + handoffs/A05.md",
+    "acceptance": [
+      "AT33",
+      "AT36",
+      "AT37",
+      "AT59"
+    ],
+    "status": "planned",
+    "test_commands": [
+      "npm run typecheck",
+      "npm run test:task -- A05",
+      "npm run test:e2e:task -- A05"
+    ],
+    "handoff_required": [
+      "changed_files",
+      "commands_and_actual_results",
+      "acceptance_status",
+      "known_failures",
+      "next_dependency"
+    ],
+    "failure_first": [
+      "AT33: 规划执行分别报告，整题不算独立通过",
+      "AT36: 原题incomplete/unknown，不把点击当数学正确",
+      "AT37: 独立通过为false并保留真实原因；无掌握百分比",
+      "AT59: 禁止额外字段和旧画像；独立性只由代码计算"
+    ],
+    "excluded_write_scope": []
+  },
+  {
+    "id": "B05",
+    "owner": "B",
+    "day": 5,
+    "person_days": 1,
+    "title": "七类策略、动态台阶与路线归属",
+    "depends_on": [
+      "B04",
+      "B02",
+      "A04"
+    ],
+    "requirements": [
+      "FR07",
+      "FR09",
+      "FR10"
+    ],
+    "write_scope": [
+      "src/agents/strategy/**",
+      "src/prompts/strategy.md",
+      "src/features/tutor/route.ts",
+      "src/features/tutor/ladder.ts",
+      "src/workflows/policy.ts",
+      "tests/strategy/**"
+    ],
+    "steps": [
+      "实现七类intervention和L0-L4，显式详解优先",
+      "实现student/teacher/coauthored路线与route_review核对后补丁",
+      "自主有效产物可跳阶，连续两次有效尝试降低支架候选",
+      "PolicyGate校验披露/保留、预算、引用，拒绝被提示伪装独立"
+    ],
+    "input": [
+      "README.md",
+      "AGENTS.md",
+      "prd.md",
+      "contracts/README.md",
+      "contracts/domain.schema.json"
+    ],
+    "output": "可运行的纵向功能 + 对应测试 + handoffs/B05.md",
+    "acceptance": [
+      "AT16",
+      "AT17",
+      "AT18",
+      "AT24",
+      "AT25",
+      "AT26",
+      "AT60"
+    ],
+    "status": "planned",
+    "test_commands": [
+      "npm run typecheck",
+      "npm run test:task -- B05",
+      "npm run test:e2e:task -- B05"
+    ],
+    "handoff_required": [
+      "changed_files",
+      "commands_and_actual_results",
+      "acceptance_status",
+      "known_failures",
+      "next_dependency"
+    ],
+    "failure_first": [
+      "AT16: 接受合法异解并保留student来源；单调性缺口另行指出",
+      "AT17: 不因不匹配判错，也不盲目接受；unknown/局部核对",
+      "AT18: 有证据跳过已会节点，不强迫逐阶问答",
+      "AT24: 每种至少一正例一误用负例；动作与证据匹配",
+      "AT25: 不强制答错；获准且核对后解释并按实际披露记账",
+      "AT26: 尝试降支架但保留关键条件；遇失败可恢复不羞辱学生",
+      "AT60: 数学依赖无环，source及canonical目标保留；教学重试另存"
+    ],
+    "excluded_write_scope": [
+      "src/agents/assessment/**"
+    ]
+  },
+  {
+    "id": "A06",
+    "owner": "A",
+    "day": 6,
+    "person_days": 1,
+    "title": "真正新任务重测、历史与隐私删除",
+    "depends_on": [
+      "A05",
+      "B05"
+    ],
+    "requirements": [
+      "FR12",
+      "FR13",
+      "FR16"
+    ],
+    "write_scope": [
+      "src/features/assessment/reassess.ts",
+      "src/features/history/**",
+      "src/app/history/**",
+      "src/shared/retention.ts",
+      "src/shared/delete.ts",
+      "tests/history/**",
+      "tests/e2e/privacy.spec.ts"
+    ],
+    "steps": [
+      "重测选择经过核对且owner未见的新任务，等价/近重复单列",
+      "实现历史会话、报告链接和实际曝光归属",
+      "实现24h图片/7d文本清理与主动删除级联撤销run",
+      "记录未做延迟测验而非补一个虚假长期掌握值"
+    ],
+    "input": [
+      "README.md",
+      "AGENTS.md",
+      "prd.md",
+      "contracts/README.md",
+      "contracts/domain.schema.json"
+    ],
+    "output": "可运行的纵向功能 + 对应测试 + handoffs/A06.md",
+    "acceptance": [
+      "AT34",
+      "AT35",
+      "AT38",
+      "AT47"
+    ],
+    "status": "planned",
+    "test_commands": [
+      "npm run typecheck",
+      "npm run test:task -- A06",
+      "npm run test:e2e:task -- A06"
+    ],
+    "handoff_required": [
+      "changed_files",
+      "commands_and_actual_results",
+      "acceptance_status",
+      "known_failures",
+      "next_dependency"
+    ],
+    "failure_first": [
+      "AT34: 不重命名复用；另选未见核对非等价任务或NOT_READY",
+      "AT35: 标near_duplicate，不能冒称迁移证明",
+      "AT38: 只见自己会话，已记录帮助仍在；跨owner返回NOT_FOUND",
+      "AT47: 先仅删图片/临时稿，再按会话级联删文本/事件；题库不受影响"
+    ],
+    "excluded_write_scope": []
+  },
+  {
+    "id": "B06",
+    "owner": "B",
+    "day": 6,
+    "person_days": 1,
+    "title": "输入修订与教师决策依据",
+    "depends_on": [
+      "B04",
+      "B05",
+      "A05"
+    ],
+    "requirements": [
+      "FR05",
+      "FR10",
+      "FR14"
+    ],
+    "write_scope": [
+      "src/features/tutor/corrections.ts",
+      "src/features/teacher/**",
+      "src/app/teacher/**",
+      "tests/teacher/**",
+      "tests/corrections/**",
+      "tests/e2e/teacher.spec.ts"
+    ],
+    "steps": [
+      "修订保留旧/新输入与依赖失效，不抹实际帮助",
+      "教师独立cookie/限流/授权，打开当前trace先计whole_task曝光",
+      "展示证据/候选/探针/动作/后续观察与真实节点记录，不展示隐藏CoT",
+      "学生历史只读安全摘要，教师页不预取未来解法"
+    ],
+    "input": [
+      "README.md",
+      "AGENTS.md",
+      "prd.md",
+      "contracts/README.md",
+      "contracts/domain.schema.json"
+    ],
+    "output": "可运行的纵向功能 + 对应测试 + handoffs/B06.md",
+    "acceptance": [
+      "AT12",
+      "AT29",
+      "AT39",
+      "AT40",
+      "AT41"
+    ],
+    "status": "planned",
+    "test_commands": [
+      "npm run typecheck",
+      "npm run test:task -- B06",
+      "npm run test:e2e:task -- B06"
+    ],
+    "handoff_required": [
+      "changed_files",
+      "commands_and_actual_results",
+      "acceptance_status",
+      "known_failures",
+      "next_dependency"
+    ],
+    "failure_first": [
+      "AT12: 旧结论及依赖标invalidated，曝光不减少，首次记录不重置",
+      "AT29: 以actual_disclosed_ids/whole_task记账，不按按钮级别豁免",
+      "AT39: 服务端拒绝，不仅隐藏按钮",
+      "AT40: 先计当前task whole_task曝光再返回；未来rubric无泄露，无预取",
+      "AT41: 包含证据、竞争假设、已预存探针、动作理由和后续更新；不含隐藏CoT"
+    ],
+    "excluded_write_scope": [
+      "src/agents/assessment/**"
+    ]
+  },
+  {
+    "id": "A07",
+    "owner": "A",
+    "day": 7,
+    "person_days": 1,
+    "title": "存储故障、归属和部署纵向加固",
+    "depends_on": [
+      "A06",
+      "B06"
+    ],
+    "requirements": [
+      "FR15",
+      "FR16",
+      "FR18"
+    ],
+    "write_scope": [
+      "src/shared/**",
+      "tests/shared/**",
+      "tests/security/**",
+      "tests/e2e/recovery.spec.ts",
+      "Dockerfile",
+      ".dockerignore",
+      "scripts/start-production.*",
+      "docs/deploy.md"
+    ],
+    "steps": [
+      "并发、相同request不同payload、旧版本和跨owner测试",
+      "提交后断网复用结果，删除中回调不可复活",
+      "持久卷/备份/恢复和单实例Node部署，不能误部署成无盘serverless",
+      "安全扫描RSC/HTML/网络、私有图访问与Origin"
+    ],
+    "input": [
+      "README.md",
+      "AGENTS.md",
+      "prd.md",
+      "contracts/README.md",
+      "contracts/domain.schema.json"
+    ],
+    "output": "可运行的纵向功能 + 对应测试 + handoffs/A07.md",
+    "acceptance": [
+      "AT42",
+      "AT44",
+      "AT46",
+      "AT48"
+    ],
+    "status": "planned",
+    "test_commands": [
+      "npm run typecheck",
+      "npm run test:task -- A07",
+      "npm run test:e2e:task -- A07"
+    ],
+    "handoff_required": [
+      "changed_files",
+      "commands_and_actual_results",
+      "acceptance_status",
+      "known_failures",
+      "next_dependency"
+    ],
+    "failure_first": [
+      "AT42: REQUEST_CONFLICT/VERSION_CONFLICT/BUSY；只一次有效提交",
+      "AT44: 返回原安全响应；曝光保持，不重复增加turn",
+      "AT46: lease失效不可提交，不重建已删除会话",
+      "AT48: 私有值不出现；Origin/归属检查；日志无明文凭据"
+    ],
+    "excluded_write_scope": []
+  },
+  {
+    "id": "B07",
+    "owner": "B",
+    "day": 7,
+    "person_days": 1,
+    "title": "工作流恢复、预算和守卫攻击回归",
+    "depends_on": [
+      "B06",
+      "A06"
+    ],
+    "requirements": [
+      "FR06",
+      "FR10",
+      "FR15",
+      "FR16"
+    ],
+    "write_scope": [
+      "src/workflows/**",
+      "src/agents/guard/**",
+      "tests/workflows/**",
+      "tests/guard/**",
+      "tests/agents/security.test.ts"
+    ],
+    "steps": [
+      "节点日志按input/model/prompt哈希重用，重启续跑只恢复未完成节点",
+      "所有模型尝试计全局call/token/time预算，最多一次schema修复和文本重写",
+      "执行提示注入、私有答案泄露、假证据与越权角色负例",
+      "确认中性fallback不生成虚构曝光，正常消息也先检查后显示"
+    ],
+    "input": [
+      "README.md",
+      "AGENTS.md",
+      "prd.md",
+      "contracts/README.md",
+      "contracts/domain.schema.json"
+    ],
+    "output": "可运行的纵向功能 + 对应测试 + handoffs/B07.md",
+    "acceptance": [
+      "AT28",
+      "AT43",
+      "AT45",
+      "AT49"
+    ],
+    "status": "planned",
+    "test_commands": [
+      "npm run typecheck",
+      "npm run test:task -- B07",
+      "npm run test:e2e:task -- B07"
+    ],
+    "handoff_required": [
+      "changed_files",
+      "commands_and_actual_results",
+      "acceptance_status",
+      "known_failures",
+      "next_dependency"
+    ],
+    "failure_first": [
+      "AT28: 最多一次重写；中性fallback；未经检查内容不进入HTTP流",
+      "AT43: 已完成同hash节点复用；活动lease检查；可能重计费如实记录",
+      "AT45: 硬截止中止；所有尝试共享预算；不绕开守卫",
+      "AT49: 内容不能改系统指令/调用工具/执行脚本；危险链接禁用"
+    ],
+    "excluded_write_scope": [
+      "src/agents/assessment/**"
+    ]
+  },
+  {
+    "id": "A08",
+    "owner": "A",
+    "day": 8,
+    "person_days": 1,
+    "title": "全题库审计与端到端验证",
+    "depends_on": [
+      "A07",
+      "B07"
+    ],
+    "requirements": [
+      "FR02",
+      "FR03",
+      "FR11",
+      "FR17"
+    ],
+    "write_scope": [
+      "scripts/bank-audit.*",
+      "scripts/evaluate-app.*",
+      "tests/e2e/**",
+      "artifacts/eval/bank/**",
+      "artifacts/eval/e2e/**"
+    ],
+    "steps": [
+      "全量统计题目/缺图/准备/核对状态分母，确认抽题范围",
+      "按主题分层随机抽取不少于12题或小题库全量，保留失败样本",
+      "对每题执行真实会话与独立检验或记录未就绪原因",
+      "输出UI/延迟/成本/输入故障报告，不用只跑自拟题代替题库验收"
+    ],
+    "input": [
+      "README.md",
+      "AGENTS.md",
+      "prd.md",
+      "contracts/README.md",
+      "contracts/domain.schema.json"
+    ],
+    "output": "可运行的纵向功能 + 对应测试 + handoffs/A08.md",
+    "acceptance": [
+      "AT02",
+      "AT04",
+      "AT30",
+      "AT50"
+    ],
+    "status": "planned",
+    "test_commands": [
+      "npm run typecheck",
+      "npm run test:task -- A08",
+      "npm run test:e2e:task -- A08"
+    ],
+    "handoff_required": [
+      "changed_files",
+      "commands_and_actual_results",
+      "acceptance_status",
+      "known_failures",
+      "next_dependency"
+    ],
+    "failure_first": [
+      "AT02: 候选ID集合含全部题；异常保留选中ID，不隐式重抽",
+      "AT04: 逐项异常计数可追原始记录；不伪称全部就绪",
+      "AT30: 先锁计划，无中间对错反馈，最终才独立分判",
+      "AT50: 公开完整分母/失败/未就绪/未覆盖，不能只挑成功题"
+    ],
+    "excluded_write_scope": []
+  },
+  {
+    "id": "B08",
+    "owner": "B",
+    "day": 8,
+    "person_days": 1,
+    "title": "角色回归与强基线教学比较",
+    "depends_on": [
+      "B07",
+      "A07"
+    ],
+    "requirements": [
+      "FR08",
+      "FR09",
+      "FR17"
+    ],
+    "write_scope": [
+      "scripts/evaluate-teaching.*",
+      "tests/eval/**",
+      "artifacts/eval/roles/**",
+      "artifacts/eval/baseline/**"
+    ],
+    "steps": [
+      "冻结同错不同因等行为脚本、角色输出oracle与提示版本",
+      "同模型同题同预算比较强苏格拉底基线和完整系统，可追加合并角色消融",
+      "盲化人工核对数学/诊断/过提示/unknown，报告分母与不可比轨迹",
+      "真实模型输出与FixtureProvider报告分开，不把模拟学生当真人学习证据"
+    ],
+    "input": [
+      "README.md",
+      "AGENTS.md",
+      "prd.md",
+      "contracts/README.md",
+      "contracts/domain.schema.json"
+    ],
+    "output": "可运行的纵向功能 + 对应测试 + handoffs/B08.md",
+    "acceptance": [
+      "AT19",
+      "AT20",
+      "AT24",
+      "AT51",
+      "AT52"
+    ],
+    "status": "planned",
+    "test_commands": [
+      "npm run typecheck",
+      "npm run test:task -- B08",
+      "npm run test:e2e:task -- B08"
+    ],
+    "handoff_required": [
+      "changed_files",
+      "commands_and_actual_results",
+      "acceptance_status",
+      "known_failures",
+      "next_dependency"
+    ],
+    "failure_first": [
+      "AT19: 分别支持concept与execution并改变后续教学",
+      "AT20: 定位strategy连接，不重复教授导数",
+      "AT24: 每种至少一正例一误用负例；动作与证据匹配",
+      "AT51: 报告诊断/过提示/unknown/成本，不能声称统计因果或只比答案准确率",
+      "AT52: 各角色有正反用例、独立结果；模拟与真实模型标签分开"
+    ],
+    "excluded_write_scope": [
+      "src/agents/assessment/**"
+    ]
+  },
+  {
+    "id": "A09",
+    "owner": "A",
+    "day": 9,
+    "person_days": 1,
+    "title": "体验修复、验收人复查与演示路径",
+    "depends_on": [
+      "A08",
+      "B08"
+    ],
+    "requirements": [
+      "FR13",
+      "FR17",
+      "FR18"
+    ],
+    "write_scope": [
+      "src/features/bank/**",
+      "src/features/media/**",
+      "src/features/assessment/**",
+      "src/features/report/**",
+      "src/features/history/**",
+      "tests/e2e/**",
+      "docs/demo.md"
+    ],
+    "steps": [
+      "修复A范围P0缺陷，覆盖窄屏/键盘/空态/超时/错误恢复",
+      "交叉复验B的教师与教学输出，不跨写集直接改B代码",
+      "有授权时做2-4位学生/老师观察并单列样本限制，无授权not_run",
+      "准备随机选题、手写修订、同错不同教、撤架重测现场演示"
+    ],
+    "input": [
+      "README.md",
+      "AGENTS.md",
+      "prd.md",
+      "contracts/README.md",
+      "contracts/domain.schema.json"
+    ],
+    "output": "可运行的纵向功能 + 对应测试 + handoffs/A09.md",
+    "acceptance": [
+      "AT36",
+      "AT38",
+      "AT53",
+      "AT56"
+    ],
+    "status": "planned",
+    "test_commands": [
+      "npm run typecheck",
+      "npm run test:task -- A09",
+      "npm run test:e2e:task -- A09"
+    ],
+    "handoff_required": [
+      "changed_files",
+      "commands_and_actual_results",
+      "acceptance_status",
+      "known_failures",
+      "next_dependency"
+    ],
+    "failure_first": [
+      "AT36: 原题incomplete/unknown，不把点击当数学正确",
+      "AT38: 只见自己会话，已记录帮助仍在；跨owner返回NOT_FOUND",
+      "AT53: 记录是否真人/授权与样本边界；未做为not_run，不伪造学会",
+      "AT56: 所有核心功能可达；错误态不丢输入，加载状态真实"
+    ],
+    "excluded_write_scope": []
+  },
+  {
+    "id": "B09",
+    "owner": "B",
+    "day": 9,
+    "person_days": 1,
+    "title": "教学质量修复和全场景回归",
+    "depends_on": [
+      "B08",
+      "A08"
+    ],
+    "requirements": [
+      "FR03",
+      "FR07",
+      "FR08",
+      "FR09",
+      "FR10",
+      "FR17"
+    ],
+    "write_scope": [
+      "src/agents/**",
+      "src/prompts/**",
+      "src/features/tutor/**",
+      "src/features/teacher/**",
+      "tests/agents/**",
+      "tests/tutor/**",
+      "artifacts/eval/final/**"
+    ],
+    "steps": [
+      "按失败类别修复提示/图/策略，禁止针对演示题硬编码答案",
+      "用未参与调参的保留题/脚本复验，保留旧失败证据",
+      "交叉复核A独立性和报告逻辑，有误交A修复",
+      "所有角色与全链路测试重跑，确认新增提示未退化保留决策"
+    ],
+    "input": [
+      "README.md",
+      "AGENTS.md",
+      "prd.md",
+      "contracts/README.md",
+      "contracts/domain.schema.json"
+    ],
+    "output": "可运行的纵向功能 + 对应测试 + handoffs/B09.md",
+    "acceptance": [
+      "AT05",
+      "AT16",
+      "AT19",
+      "AT24",
+      "AT28",
+      "AT57"
+    ],
+    "status": "planned",
+    "test_commands": [
+      "npm run typecheck",
+      "npm run test:task -- B09",
+      "npm run test:e2e:task -- B09"
+    ],
+    "handoff_required": [
+      "changed_files",
+      "commands_and_actual_results",
+      "acceptance_status",
+      "known_failures",
+      "next_dependency"
+    ],
+    "failure_first": [
+      "AT05: 拒绝并保留needs_review；结构不充当数学认证",
+      "AT16: 接受合法异解并保留student来源；单调性缺口另行指出",
+      "AT19: 分别支持concept与execution并改变后续教学",
+      "AT24: 每种至少一正例一误用负例；动作与证据匹配",
+      "AT28: 最多一次重写；中性fallback；未经检查内容不进入HTTP流",
+      "AT57: 无针对demo硬编码；保留失败记录并重跑关键P0"
+    ],
+    "excluded_write_scope": [
+      "src/agents/assessment/**"
+    ]
+  },
+  {
+    "id": "A10",
+    "owner": "A",
+    "day": 10,
+    "person_days": 1,
+    "title": "发布冻结、部署验收和交付缓冲",
+    "depends_on": [
+      "A09",
+      "B09"
+    ],
+    "requirements": [
+      "FR01",
+      "FR16",
+      "FR18"
+    ],
+    "write_scope": [
+      "docs/release.md",
+      "docs/deploy.md",
+      "artifacts/release/**",
+      "scripts/release-check.*"
+    ],
+    "steps": [
+      "从干净环境npm ci/build/启动，恢复磁盘状态与删除操作",
+      "逐项汇总P0测试、题库覆盖和依赖准入证据",
+      "检查密钥/手写数据不入仓库与录像，整理运行和回滚说明",
+      "仅全部发布闸门通过才标可演示，否则列明未完成和追加日程"
+    ],
+    "input": [
+      "README.md",
+      "AGENTS.md",
+      "prd.md",
+      "contracts/README.md",
+      "contracts/domain.schema.json"
+    ],
+    "output": "可运行的纵向功能 + 对应测试 + handoffs/A10.md",
+    "acceptance": [
+      "AT01",
+      "AT46",
+      "AT48",
+      "AT54",
+      "AT58"
+    ],
+    "status": "planned",
+    "test_commands": [
+      "npm run typecheck",
+      "npm run test:task -- A10",
+      "npm run test:e2e:task -- A10"
+    ],
+    "handoff_required": [
+      "changed_files",
+      "commands_and_actual_results",
+      "acceptance_status",
+      "known_failures",
+      "next_dependency"
+    ],
+    "failure_first": [
+      "AT01: 页面/服务端同进程；已提交安全响应从磁盘恢复",
+      "AT46: lease失效不可提交，不重建已删除会话",
+      "AT48: 私有值不出现；Origin/归属检查；日志无明文凭据",
+      "AT54: 完整Web可演示、磁盘可恢复、密钥不入客户端；缺外部条件不宣布全验收",
+      "AT58: reuse-lock有精确版本和证据；没跑不标accepted"
+    ],
+    "excluded_write_scope": []
+  },
+  {
+    "id": "B10",
+    "owner": "B",
+    "day": 10,
+    "person_days": 1,
+    "title": "提示冻结、现场联测与答辩材料",
+    "depends_on": [
+      "B09",
+      "A09"
+    ],
+    "requirements": [
+      "FR06",
+      "FR14",
+      "FR17",
+      "FR18"
+    ],
+    "write_scope": [
+      "docs/teaching-demo.md",
+      "docs/model-card.md",
+      "artifacts/release/teaching/**"
+    ],
+    "steps": [
+      "冻结model/prompt/packet版本和预算配置，提供复现命令",
+      "交叉现场抽题演示依据、故障恢复与学习证据",
+      "整理已证明/未证明能力与开源来源，不用Agent数量替代证据",
+      "与A共同签署验收清单，保留未来优化而不隐瞒核心未完成"
+    ],
+    "input": [
+      "README.md",
+      "AGENTS.md",
+      "prd.md",
+      "contracts/README.md",
+      "contracts/domain.schema.json"
+    ],
+    "output": "可运行的纵向功能 + 对应测试 + handoffs/B10.md",
+    "acceptance": [
+      "AT13",
+      "AT40",
+      "AT41",
+      "AT55"
+    ],
+    "status": "planned",
+    "test_commands": [
+      "npm run typecheck",
+      "npm run test:task -- B10",
+      "npm run test:e2e:task -- B10"
+    ],
+    "handoff_required": [
+      "changed_files",
+      "commands_and_actual_results",
+      "acceptance_status",
+      "known_failures",
+      "next_dependency"
+    ],
+    "failure_first": [
+      "AT13: 真实经过对应独立契约与提示节点，不是一调用伪造四阶段",
+      "AT40: 先计当前task whole_task曝光再返回；未来rubric无泄露，无预取",
+      "AT41: 包含证据、竞争假设、已预存探针、动作理由和后续更新；不含隐藏CoT",
+      "AT55: 使用实时服务或明确标注回放；答辩展示真实依据和边界"
+    ],
+    "excluded_write_scope": [
+      "src/agents/assessment/**"
+    ]
+  }
+]

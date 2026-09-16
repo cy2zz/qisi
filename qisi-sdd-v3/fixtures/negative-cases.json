@@ -1,0 +1,229 @@
+[
+  {
+    "id": "private_field_in_public_dto",
+    "base": "student-view.json",
+    "type": "StudentView",
+    "path": [
+      "reference_md"
+    ],
+    "value": "answer",
+    "layer": "schema"
+  },
+  {
+    "id": "agent_grants_independence",
+    "base": "assessment-output.json",
+    "type": "AssessmentOutput",
+    "path": [
+      "independent_pass"
+    ],
+    "value": true,
+    "layer": "schema"
+  },
+  {
+    "id": "too_high_scaffold",
+    "base": "strategy.json",
+    "type": "Strategy",
+    "path": [
+      "scaffold_level"
+    ],
+    "value": 5,
+    "layer": "schema"
+  },
+  {
+    "id": "fake_model_human_verification",
+    "base": "packet.json",
+    "type": "Packet",
+    "path": [
+      "verification",
+      0,
+      "kind"
+    ],
+    "value": "human_certified_by_ai",
+    "layer": "schema"
+  },
+  {
+    "id": "out_of_range_branch_count",
+    "base": "diagnosis.json",
+    "type": "Diagnosis",
+    "path": [
+      "probe",
+      "branches"
+    ],
+    "value": [],
+    "layer": "schema"
+  },
+  {
+    "id": "unknown_decision",
+    "base": "strategy.json",
+    "type": "Strategy",
+    "path": [
+      "allowed_disclosures"
+    ],
+    "value": [
+      "ghost"
+    ],
+    "layer": "semantic"
+  },
+  {
+    "id": "allowed_reserved_overlap",
+    "base": "strategy.json",
+    "type": "Strategy",
+    "path": [
+      "allowed_disclosures"
+    ],
+    "value": [
+      "d1"
+    ],
+    "layer": "semantic"
+  },
+  {
+    "id": "wrong_problem_hash",
+    "base": "packet.json",
+    "type": "Packet",
+    "path": [
+      "problem_hash"
+    ],
+    "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "layer": "semantic"
+  },
+  {
+    "id": "ready_blocked",
+    "base": "packet.json",
+    "type": "Packet",
+    "path": [
+      "blocking_issues"
+    ],
+    "value": [
+      "数学矛盾"
+    ],
+    "layer": "semantic"
+  },
+  {
+    "id": "cyclic_prerequisite",
+    "base": "packet.json",
+    "type": "Packet",
+    "path": [
+      "decisions",
+      0,
+      "prerequisite_ids"
+    ],
+    "value": [
+      "d3"
+    ],
+    "layer": "semantic"
+  },
+  {
+    "id": "fictional_evidence",
+    "base": "diagnosis.json",
+    "type": "Diagnosis",
+    "path": [
+      "evidence_refs",
+      0,
+      "submission_id"
+    ],
+    "value": "ghost",
+    "layer": "semantic"
+  },
+  {
+    "id": "old_evidence_revision",
+    "base": "diagnosis.json",
+    "type": "Diagnosis",
+    "path": [
+      "evidence_refs",
+      0,
+      "revision"
+    ],
+    "value": 99,
+    "layer": "semantic"
+  },
+  {
+    "id": "fictional_quote",
+    "base": "diagnosis.json",
+    "type": "Diagnosis",
+    "path": [
+      "evidence_refs",
+      0,
+      "quote"
+    ],
+    "value": "学生从来没有说的话",
+    "layer": "semantic"
+  },
+  {
+    "id": "assisted_independent_pass",
+    "base": "report.json",
+    "type": "Report",
+    "path": [
+      "attempts",
+      0,
+      "help_exposed"
+    ],
+    "value": true,
+    "layer": "semantic"
+  },
+  {
+    "id": "requested_help_independent_pass",
+    "base": "report.json",
+    "type": "Report",
+    "path": [
+      "attempts",
+      0,
+      "assistance_requested"
+    ],
+    "value": true,
+    "layer": "semantic"
+  },
+  {
+    "id": "invalidated_independent_pass",
+    "base": "report.json",
+    "type": "Report",
+    "path": [
+      "attempts",
+      0,
+      "invalidated"
+    ],
+    "value": true,
+    "layer": "semantic"
+  },
+  {
+    "id": "duplicate_claim_transfer",
+    "base": "report.json",
+    "type": "Report",
+    "path": [
+      "attempts",
+      0,
+      "relation"
+    ],
+    "value": "near_duplicate",
+    "layer": "semantic"
+  },
+  {
+    "id": "unconfirmed_transcription",
+    "base": "transcript.json",
+    "type": "TranscriptDraft",
+    "path": [
+      "confirmed"
+    ],
+    "value": true,
+    "layer": "semantic"
+  },
+  {
+    "id": "random_with_chosen_id",
+    "base": "select.json",
+    "type": "SelectInput",
+    "path": [
+      "problem_id"
+    ],
+    "value": "self-001",
+    "layer": "semantic"
+  },
+  {
+    "id": "renderer_hidden_reference",
+    "base": "renderer-input.json",
+    "type": "RendererInput",
+    "path": [
+      "reference_md"
+    ],
+    "value": "secret",
+    "layer": "schema"
+  }
+]

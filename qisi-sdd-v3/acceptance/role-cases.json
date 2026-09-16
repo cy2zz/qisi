@@ -1,0 +1,44 @@
+[
+  {
+    "role": "preparation",
+    "positive": "missing diagram prevents ready",
+    "negative": "valid alternative route retained",
+    "status": "specified",
+    "result": "not_run"
+  },
+  {
+    "role": "diagnosis",
+    "positive": "same wrong line different causes",
+    "negative": "invalid evidence ref refused",
+    "status": "specified",
+    "result": "not_run"
+  },
+  {
+    "role": "strategy",
+    "positive": "seven intervention positive and misuse cases",
+    "negative": "third canonical probe blocked",
+    "status": "specified",
+    "result": "not_run"
+  },
+  {
+    "role": "assessment",
+    "positive": "plan correct execution incorrect",
+    "negative": "unknown and no independent flag",
+    "status": "specified",
+    "result": "not_run"
+  },
+  {
+    "role": "renderer",
+    "positive": "only approved facts used",
+    "negative": "hidden reference absent",
+    "status": "specified",
+    "result": "not_run"
+  },
+  {
+    "role": "guard",
+    "positive": "embedded answer disclosure caught",
+    "negative": "unknown math not accepted",
+    "status": "specified",
+    "result": "not_run"
+  }
+]

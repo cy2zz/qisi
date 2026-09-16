@@ -1,0 +1,14 @@
+{
+  "id": "tr1",
+  "media_id": "img1",
+  "revision": 1,
+  "lines": [
+    {
+      "index": 1,
+      "text": "f′(x)=1+1/x²",
+      "uncertain": true,
+      "explicitly_confirmed": false
+    }
+  ],
+  "confirmed": false
+}

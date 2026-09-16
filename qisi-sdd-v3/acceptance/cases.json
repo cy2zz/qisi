@@ -1,0 +1,902 @@
+[
+  {
+    "id": "AT01",
+    "task": "A01",
+    "owner": "A",
+    "requirements": [
+      "FR01"
+    ],
+    "layer": "e2e",
+    "given": "空数据库与FixtureProvider",
+    "when": "启动Web提交一轮并刷新",
+    "then": "页面/服务端同进程；已提交安全响应从磁盘恢复",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT01.json"
+  },
+  {
+    "id": "AT02",
+    "task": "A02",
+    "owner": "A",
+    "requirements": [
+      "FR02"
+    ],
+    "layer": "integration",
+    "given": "题库有ready/needs_review/invalid",
+    "when": "依次指定各题并多次随机选",
+    "then": "候选ID集合含全部题；异常保留选中ID，不隐式重抽",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT02.json"
+  },
+  {
+    "id": "AT03",
+    "task": "A02",
+    "owner": "A",
+    "requirements": [
+      "FR02"
+    ],
+    "layer": "integration",
+    "given": "相同随机request_id和payload",
+    "when": "重复点击或网络重试",
+    "then": "命中同一次选题记录；池哈希及题库版本相同",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT03.json"
+  },
+  {
+    "id": "AT04",
+    "task": "A02",
+    "owner": "A",
+    "requirements": [
+      "FR02"
+    ],
+    "layer": "integration",
+    "given": "实际题库含重复ID、缺题图、未知格式",
+    "when": "导入并查看报告",
+    "then": "逐项异常计数可追原始记录；不伪称全部就绪",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT04.json"
+  },
+  {
+    "id": "AT05",
+    "task": "B02",
+    "owner": "B",
+    "requirements": [
+      "FR03"
+    ],
+    "layer": "unit",
+    "given": "包含循环依赖/越界引用/ready且blocking问题",
+    "when": "验证包",
+    "then": "拒绝并保留needs_review；结构不充当数学认证",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT05.json"
+  },
+  {
+    "id": "AT06",
+    "task": "B02",
+    "owner": "B",
+    "requirements": [
+      "FR03"
+    ],
+    "layer": "integration",
+    "given": "题干或图发生变更",
+    "when": "再次加载教学包",
+    "then": "旧hash包失效；prepare结果绑定新hash/版本",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT06.json"
+  },
+  {
+    "id": "AT07",
+    "task": "B02",
+    "owner": "B",
+    "requirements": [
+      "FR03"
+    ],
+    "layer": "model_review",
+    "given": "参考有明显数学错误或无依据",
+    "when": "备课并复核",
+    "then": "不自动认证；出现冲突needs_review及问题记录",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT07.json"
+  },
+  {
+    "id": "AT08",
+    "task": "A01",
+    "owner": "A",
+    "requirements": [
+      "FR04"
+    ],
+    "layer": "e2e",
+    "given": "中文Markdown、行内与块LaTeX、坏公式",
+    "when": "编辑预览和显示老师消息",
+    "then": "安全显示正常公式；坏公式保留原文不白屏",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT08.json"
+  },
+  {
+    "id": "AT09",
+    "task": "A03",
+    "owner": "A",
+    "requirements": [
+      "FR05"
+    ],
+    "layer": "e2e",
+    "given": "手写1+1/x²并含模糊负号",
+    "when": "上传未确认草稿",
+    "then": "忠实转写不改答案；未确认不可教学或评分",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT09.json"
+  },
+  {
+    "id": "AT10",
+    "task": "A03",
+    "owner": "A",
+    "requirements": [
+      "FR16"
+    ],
+    "layer": "integration",
+    "given": "伪图片/超8MB/超20MP/SVG",
+    "when": "上传或访问别人的图片ID",
+    "then": "拒绝危险文件或NOT_FOUND；私有文件无公开URL",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT10.json"
+  },
+  {
+    "id": "AT11",
+    "task": "A03",
+    "owner": "A",
+    "requirements": [
+      "FR05"
+    ],
+    "layer": "e2e",
+    "given": "含uncertain行的草稿",
+    "when": "逐行更正或明确确认",
+    "then": "记录确认revision后才生成Submission；重复确认幂等",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT11.json"
+  },
+  {
+    "id": "AT12",
+    "task": "B06",
+    "owner": "B",
+    "requirements": [
+      "FR05"
+    ],
+    "layer": "integration",
+    "given": "旧输入已引发提示和检验",
+    "when": "修订旧输入",
+    "then": "旧结论及依赖标invalidated，曝光不减少，首次记录不重置",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT12.json"
+  },
+  {
+    "id": "AT13",
+    "task": "B01",
+    "owner": "B",
+    "requirements": [
+      "FR06"
+    ],
+    "layer": "unit",
+    "given": "四角色入口和FixtureProvider",
+    "when": "运行prepare/turn/grade",
+    "then": "真实经过对应独立契约与提示节点，不是一调用伪造四阶段",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT13.json"
+  },
+  {
+    "id": "AT14",
+    "task": "B03",
+    "owner": "B",
+    "requirements": [
+      "FR06"
+    ],
+    "layer": "model_review",
+    "given": "真实模型配置与核对开发题",
+    "when": "学生提交一轮",
+    "then": "记录实际诊断/策略/表达/检查调用、版本/费用；非Mock",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT14.json"
+  },
+  {
+    "id": "AT15",
+    "task": "B03",
+    "owner": "B",
+    "requirements": [
+      "FR07"
+    ],
+    "layer": "e2e",
+    "given": "新会话",
+    "when": "未请求帮助前打开学习页",
+    "then": "只展示题干与自主输入，不预先泄露完整步骤",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT15.json"
+  },
+  {
+    "id": "AT16",
+    "task": "B05",
+    "owner": "B",
+    "requirements": [
+      "FR07"
+    ],
+    "layer": "model_review",
+    "given": "学生提供有效AM–GM最值路线",
+    "when": "提交计划和推导",
+    "then": "接受合法异解并保留student来源；单调性缺口另行指出",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT16.json"
+  },
+  {
+    "id": "AT17",
+    "task": "B05",
+    "owner": "B",
+    "requirements": [
+      "FR07"
+    ],
+    "layer": "integration",
+    "given": "学生路线含错误条件或未核对",
+    "when": "请求后续推进",
+    "then": "不因不匹配判错，也不盲目接受；unknown/局部核对",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT17.json"
+  },
+  {
+    "id": "AT18",
+    "task": "B05",
+    "owner": "B",
+    "requirements": [
+      "FR07"
+    ],
+    "layer": "model_review",
+    "given": "学生一次给出多个有效决策",
+    "when": "请求继续",
+    "then": "有证据跳过已会节点，不强迫逐阶问答",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT18.json"
+  },
+  {
+    "id": "AT19",
+    "task": "B04",
+    "owner": "B",
+    "requirements": [
+      "FR08"
+    ],
+    "layer": "model_review",
+    "given": "相同导数正号错误",
+    "when": "甲坚持错误规则、乙自证为抄错",
+    "then": "分别支持concept与execution并改变后续教学",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT19.json"
+  },
+  {
+    "id": "AT20",
+    "task": "B04",
+    "owner": "B",
+    "requirements": [
+      "FR08"
+    ],
+    "layer": "model_review",
+    "given": "正确求导但不会连接符号与单调性",
+    "when": "请老师帮助",
+    "then": "定位strategy连接，不重复教授导数",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT20.json"
+  },
+  {
+    "id": "AT21",
+    "task": "B04",
+    "owner": "B",
+    "requirements": [
+      "FR08"
+    ],
+    "layer": "unit",
+    "given": "存在未confirmed/voided/不存在的evidence_id",
+    "when": "诊断输出引用它",
+    "then": "服务端拒绝；不把虚构引用写入trace",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT21.json"
+  },
+  {
+    "id": "AT22",
+    "task": "B04",
+    "owner": "B",
+    "requirements": [
+      "FR08"
+    ],
+    "layer": "integration",
+    "given": "未解决目标已经两次探针",
+    "when": "模型改node_id再次提问",
+    "then": "按canonical goal计数拦截；选择解释/低风险帮助/待定",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT22.json"
+  },
+  {
+    "id": "AT23",
+    "task": "B04",
+    "owner": "B",
+    "requirements": [
+      "FR08"
+    ],
+    "layer": "integration",
+    "given": "将要显示探针",
+    "when": "学生回答前后读取事件",
+    "then": "显示前已保存expected/counterevidence/next_action；不事后改预期",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT23.json"
+  },
+  {
+    "id": "AT24",
+    "task": "B05",
+    "owner": "B",
+    "requirements": [
+      "FR09"
+    ],
+    "layer": "model_review",
+    "given": "七种已标注卡点样例",
+    "when": "策略选择教学方式",
+    "then": "每种至少一正例一误用负例；动作与证据匹配",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT24.json"
+  },
+  {
+    "id": "AT25",
+    "task": "B05",
+    "owner": "B",
+    "requirements": [
+      "FR09"
+    ],
+    "layer": "e2e",
+    "given": "用户未尝试或不愿继续探针",
+    "when": "点击解释/完整解法",
+    "then": "不强制答错；获准且核对后解释并按实际披露记账",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT25.json"
+  },
+  {
+    "id": "AT26",
+    "task": "B05",
+    "owner": "B",
+    "requirements": [
+      "FR09"
+    ],
+    "layer": "model_review",
+    "given": "连续两次自主有效产物",
+    "when": "进入下一目标",
+    "then": "尝试降支架但保留关键条件；遇失败可恢复不羞辱学生",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT26.json"
+  },
+  {
+    "id": "AT27",
+    "task": "B03",
+    "owner": "B",
+    "requirements": [
+      "FR10"
+    ],
+    "layer": "unit",
+    "given": "Renderer输入构造",
+    "when": "查看最终模型请求",
+    "then": "不含完整解法、未来rubric和私有诊断原文",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT27.json"
+  },
+  {
+    "id": "AT28",
+    "task": "B07",
+    "owner": "B",
+    "requirements": [
+      "FR10"
+    ],
+    "layer": "integration",
+    "given": "输出暗含保留关键答案",
+    "when": "Guard判revise后重写仍失败",
+    "then": "最多一次重写；中性fallback；未经检查内容不进入HTTP流",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT28.json"
+  },
+  {
+    "id": "AT29",
+    "task": "B06",
+    "owner": "B",
+    "requirements": [
+      "FR10"
+    ],
+    "layer": "integration",
+    "given": "L0文本实际暴露策略",
+    "when": "提交显示并回读报告",
+    "then": "以actual_disclosed_ids/whole_task记账，不按按钮级别豁免",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT29.json"
+  },
+  {
+    "id": "AT30",
+    "task": "A04",
+    "owner": "A",
+    "requirements": [
+      "FR11"
+    ],
+    "layer": "e2e",
+    "given": "有未见且核对的新任务",
+    "when": "start -> submit_plan -> answer -> finish",
+    "then": "先锁计划，无中间对错反馈，最终才独立分判",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT30.json"
+  },
+  {
+    "id": "AT31",
+    "task": "A04",
+    "owner": "A",
+    "requirements": [
+      "FR11"
+    ],
+    "layer": "integration",
+    "given": "独立检验途中",
+    "when": "刷新、重开原题、换会话重选同题",
+    "then": "owner级首次/已见记录继续存在，不能洗白",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT31.json"
+  },
+  {
+    "id": "AT32",
+    "task": "A04",
+    "owner": "A",
+    "requirements": [
+      "FR11"
+    ],
+    "layer": "integration",
+    "given": "独立检验未完成",
+    "when": "help后provider失败",
+    "then": "assistance_requested=true，help_exposed=false；不能独立通过",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT32.json"
+  },
+  {
+    "id": "AT33",
+    "task": "A05",
+    "owner": "A",
+    "requirements": [
+      "FR11"
+    ],
+    "layer": "integration",
+    "given": "独立规划正确但执行错/空白/未知",
+    "when": "评分并生成报告",
+    "then": "规划执行分别报告，整题不算独立通过",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT33.json"
+  },
+  {
+    "id": "AT34",
+    "task": "A06",
+    "owner": "A",
+    "requirements": [
+      "FR12"
+    ],
+    "layer": "integration",
+    "given": "旧任务求助或完成，候选内容近重复",
+    "when": "点击重新检验",
+    "then": "不重命名复用；另选未见核对非等价任务或NOT_READY",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT34.json"
+  },
+  {
+    "id": "AT35",
+    "task": "A06",
+    "owner": "A",
+    "requirements": [
+      "FR12"
+    ],
+    "layer": "model_review",
+    "given": "候选题只换数字或来自同一等价组",
+    "when": "核对新任务关系",
+    "then": "标near_duplicate，不能冒称迁移证明",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT35.json"
+  },
+  {
+    "id": "AT36",
+    "task": "A05",
+    "owner": "A",
+    "requirements": [
+      "FR13"
+    ],
+    "layer": "integration",
+    "given": "原题只点击完成，缺关键证明",
+    "when": "生成总结",
+    "then": "原题incomplete/unknown，不把点击当数学正确",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT36.json"
+  },
+  {
+    "id": "AT37",
+    "task": "A05",
+    "owner": "A",
+    "requirements": [
+      "FR13"
+    ],
+    "layer": "unit",
+    "given": "任务未知/已帮助/已作废/未答/未测",
+    "when": "计算独立性",
+    "then": "独立通过为false并保留真实原因；无掌握百分比",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT37.json"
+  },
+  {
+    "id": "AT38",
+    "task": "A06",
+    "owner": "A",
+    "requirements": [
+      "FR13"
+    ],
+    "layer": "e2e",
+    "given": "同owner有多个历史会话",
+    "when": "访问历史/报告",
+    "then": "只见自己会话，已记录帮助仍在；跨owner返回NOT_FOUND",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT38.json"
+  },
+  {
+    "id": "AT39",
+    "task": "B06",
+    "owner": "B",
+    "requirements": [
+      "FR14"
+    ],
+    "layer": "e2e",
+    "given": "学生或未授权请求teacher",
+    "when": "直接访问页及action",
+    "then": "服务端拒绝，不仅隐藏按钮",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT39.json"
+  },
+  {
+    "id": "AT40",
+    "task": "B06",
+    "owner": "B",
+    "requirements": [
+      "FR14"
+    ],
+    "layer": "integration",
+    "given": "教师打开当前任务依据",
+    "when": "确认openTrace并刷新",
+    "then": "先计当前task whole_task曝光再返回；未来rubric无泄露，无预取",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT40.json"
+  },
+  {
+    "id": "AT41",
+    "task": "B06",
+    "owner": "B",
+    "requirements": [
+      "FR14"
+    ],
+    "layer": "model_review",
+    "given": "有效教学轮trace",
+    "when": "查看教学依据",
+    "then": "包含证据、竞争假设、已预存探针、动作理由和后续更新；不含隐藏CoT",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT41.json"
+  },
+  {
+    "id": "AT42",
+    "task": "A07",
+    "owner": "A",
+    "requirements": [
+      "FR15"
+    ],
+    "layer": "integration",
+    "given": "相同request异payload/旧expected_version/同时提交",
+    "when": "调用mutation",
+    "then": "REQUEST_CONFLICT/VERSION_CONFLICT/BUSY；只一次有效提交",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT42.json"
+  },
+  {
+    "id": "AT43",
+    "task": "B07",
+    "owner": "B",
+    "requirements": [
+      "FR15"
+    ],
+    "layer": "integration",
+    "given": "模型节点完成后进程崩溃",
+    "when": "重启恢复相同run",
+    "then": "已完成同hash节点复用；活动lease检查；可能重计费如实记录",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT43.json"
+  },
+  {
+    "id": "AT44",
+    "task": "A07",
+    "owner": "A",
+    "requirements": [
+      "FR15"
+    ],
+    "layer": "integration",
+    "given": "响应提交后网络中断",
+    "when": "相同request重试",
+    "then": "返回原安全响应；曝光保持，不重复增加turn",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT44.json"
+  },
+  {
+    "id": "AT45",
+    "task": "B07",
+    "owner": "B",
+    "requirements": [
+      "FR15"
+    ],
+    "layer": "integration",
+    "given": "模型超时或call/token预算耗尽",
+    "when": "继续分支/改写/路线审查",
+    "then": "硬截止中止；所有尝试共享预算；不绕开守卫",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT45.json"
+  },
+  {
+    "id": "AT46",
+    "task": "A07",
+    "owner": "A",
+    "requirements": [
+      "FR16"
+    ],
+    "layer": "integration",
+    "given": "session删除/到期但provider仍在途",
+    "when": "返回模型结果",
+    "then": "lease失效不可提交，不重建已删除会话",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT46.json"
+  },
+  {
+    "id": "AT47",
+    "task": "A06",
+    "owner": "A",
+    "requirements": [
+      "FR16"
+    ],
+    "layer": "integration",
+    "given": "图片超过24h且文本未满7d",
+    "when": "运行清理；随后会话过期",
+    "then": "先仅删图片/临时稿，再按会话级联删文本/事件；题库不受影响",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT47.json"
+  },
+  {
+    "id": "AT48",
+    "task": "A07",
+    "owner": "A",
+    "requirements": [
+      "FR16"
+    ],
+    "layer": "e2e",
+    "given": "答案/密钥/未来rubric埋在服务端",
+    "when": "扫描学生HTML/RSC/props/API与跨源mutation",
+    "then": "私有值不出现；Origin/归属检查；日志无明文凭据",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT48.json"
+  },
+  {
+    "id": "AT49",
+    "task": "B07",
+    "owner": "B",
+    "requirements": [
+      "FR16"
+    ],
+    "layer": "integration",
+    "given": "输入含注入、HTML脚本、恶意链接/LaTeX",
+    "when": "正常教学并展示",
+    "then": "内容不能改系统指令/调用工具/执行脚本；危险链接禁用",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT49.json"
+  },
+  {
+    "id": "AT50",
+    "task": "A08",
+    "owner": "A",
+    "requirements": [
+      "FR17"
+    ],
+    "layer": "model_review",
+    "given": "正式题库和固定抽样种子",
+    "when": "执行全量清单+分层不少于12题抽查",
+    "then": "公开完整分母/失败/未就绪/未覆盖，不能只挑成功题",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT50.json"
+  },
+  {
+    "id": "AT51",
+    "task": "B08",
+    "owner": "B",
+    "requirements": [
+      "FR17"
+    ],
+    "layer": "model_review",
+    "given": "同模型同题同总预算的强基线",
+    "when": "运行盲化人工教学比较",
+    "then": "报告诊断/过提示/unknown/成本，不能声称统计因果或只比答案准确率",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT51.json"
+  },
+  {
+    "id": "AT52",
+    "task": "B08",
+    "owner": "B",
+    "requirements": [
+      "FR17"
+    ],
+    "layer": "model_review",
+    "given": "角色固定输入集与行为脚本",
+    "when": "逐角色和全链路回归",
+    "then": "各角色有正反用例、独立结果；模拟与真实模型标签分开",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT52.json"
+  },
+  {
+    "id": "AT53",
+    "task": "A09",
+    "owner": "A",
+    "requirements": [
+      "FR17"
+    ],
+    "layer": "manual",
+    "given": "有授权受试者或没有受试者",
+    "when": "做2-4人观察或不做",
+    "then": "记录是否真人/授权与样本边界；未做为not_run，不伪造学会",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT53.json"
+  },
+  {
+    "id": "AT54",
+    "task": "A10",
+    "owner": "A",
+    "requirements": [
+      "FR18"
+    ],
+    "layer": "manual",
+    "given": "干净部署环境和真实题库/模型",
+    "when": "npm ci/build/start并重启",
+    "then": "完整Web可演示、磁盘可恢复、密钥不入客户端；缺外部条件不宣布全验收",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT54.json"
+  },
+  {
+    "id": "AT55",
+    "task": "B10",
+    "owner": "B",
+    "requirements": [
+      "FR18"
+    ],
+    "layer": "manual",
+    "given": "现场随机题和四条分支",
+    "when": "演示手写修订、同错异教、撤架、故障",
+    "then": "使用实时服务或明确标注回放；答辩展示真实依据和边界",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT55.json"
+  },
+  {
+    "id": "AT56",
+    "task": "A09",
+    "owner": "A",
+    "requirements": [
+      "FR18"
+    ],
+    "layer": "e2e",
+    "given": "窄屏与键盘用户",
+    "when": "完成选题到独立检验报告",
+    "then": "所有核心功能可达；错误态不丢输入，加载状态真实",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT56.json"
+  },
+  {
+    "id": "AT57",
+    "task": "B09",
+    "owner": "B",
+    "requirements": [
+      "FR17"
+    ],
+    "layer": "model_review",
+    "given": "未参加调参的保留题/脚本",
+    "when": "应用最后提示版本",
+    "then": "无针对demo硬编码；保留失败记录并重跑关键P0",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT57.json"
+  },
+  {
+    "id": "AT58",
+    "task": "A01",
+    "owner": "A",
+    "requirements": [
+      "FR01"
+    ],
+    "layer": "manual",
+    "given": "复用候选列表",
+    "when": "依赖安装与许可/安全/烟测准入",
+    "then": "reuse-lock有精确版本和证据；没跑不标accepted",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT58.json"
+  },
+  {
+    "id": "AT59",
+    "task": "A05",
+    "owner": "A",
+    "requirements": [
+      "FR11"
+    ],
+    "layer": "unit",
+    "given": "AssessmentAgent生成passed=true或使用旧画像",
+    "when": "校验评分请求/结果",
+    "then": "禁止额外字段和旧画像；独立性只由代码计算",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT59.json"
+  },
+  {
+    "id": "AT60",
+    "task": "B05",
+    "owner": "B",
+    "requirements": [
+      "FR07"
+    ],
+    "layer": "integration",
+    "given": "新增补偿节点与撤架完成",
+    "when": "导出当前route图",
+    "then": "数学依赖无环，source及canonical目标保留；教学重试另存",
+    "status": "specified",
+    "result": "not_run",
+    "evidence_path": "artifacts/acceptance/AT60.json"
+  }
+]

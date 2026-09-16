@@ -1,0 +1,2918 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:qisi:3.0",
+  "title": "Qisi multi-agent Web contracts; strict structure plus README semantic validators",
+  "$defs": {
+    "EvidenceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "submission_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "quote": {
+          "type": "string",
+          "maxLength": 12000
+        }
+      },
+      "required": [
+        "submission_id",
+        "revision",
+        "quote"
+      ]
+    },
+    "Verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "model_checked",
+            "human_reviewed",
+            "source_reference",
+            "deterministic_check"
+          ]
+        },
+        "reviewer_or_model": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "reference": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "summary": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "pass",
+            "fail",
+            "unknown"
+          ]
+        },
+        "checked_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "kind",
+        "reviewer_or_model",
+        "reference",
+        "summary",
+        "status",
+        "checked_at"
+      ]
+    },
+    "Problem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "bank_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "source": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "is_official": {
+          "type": "boolean"
+        },
+        "statement_md": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "asset_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "content_hash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "ready",
+            "needs_review",
+            "invalid"
+          ]
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "minItems": 0,
+          "maxItems": 30
+        },
+        "topic_tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "minItems": 0,
+          "maxItems": 30
+        }
+      },
+      "required": [
+        "id",
+        "bank_version",
+        "source",
+        "is_official",
+        "statement_md",
+        "asset_ids",
+        "content_hash",
+        "status",
+        "issues",
+        "topic_tags"
+      ]
+    },
+    "Decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "goal_key": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "goal": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "part_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "parent_goal_key": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source": {
+          "type": "string",
+          "enum": [
+            "student",
+            "teacher",
+            "coauthored"
+          ]
+        },
+        "prerequisite_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "entry_condition": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "expected_artifact": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "acceptance_rule": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "common_gaps": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "minItems": 0,
+          "maxItems": 30
+        }
+      },
+      "required": [
+        "id",
+        "goal_key",
+        "goal",
+        "part_id",
+        "parent_goal_key",
+        "source",
+        "prerequisite_ids",
+        "entry_condition",
+        "expected_artifact",
+        "acceptance_rule",
+        "common_gaps"
+      ]
+    },
+    "Route": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "source": {
+          "type": "string",
+          "enum": [
+            "student",
+            "teacher",
+            "coauthored"
+          ]
+        },
+        "decision_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "terminal_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "math_status": {
+          "type": "string",
+          "enum": [
+            "valid",
+            "invalid",
+            "unknown"
+          ]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EvidenceRef"
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 12000
+        }
+      },
+      "required": [
+        "id",
+        "source",
+        "decision_ids",
+        "terminal_ids",
+        "math_status",
+        "evidence_refs",
+        "note"
+      ]
+    },
+    "CheckTask": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "source_problem_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "content_hash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "equivalence_group": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "relation": {
+          "type": "string",
+          "enum": [
+            "near_transfer",
+            "near_duplicate"
+          ]
+        },
+        "prompt_md": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "reference_md": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "planning_rubric": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "execution_rubric": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "decisions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Decision"
+          },
+          "minItems": 1,
+          "maxItems": 24
+        },
+        "routes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Route"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "verification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Verification"
+          },
+          "minItems": 1,
+          "maxItems": 20
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "source_problem_id",
+        "content_hash",
+        "equivalence_group",
+        "relation",
+        "prompt_md",
+        "reference_md",
+        "planning_rubric",
+        "execution_rubric",
+        "decisions",
+        "routes",
+        "verification",
+        "verified"
+      ]
+    },
+    "Packet": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "problem_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "problem_hash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "reference_md": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "reference_source": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "decisions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Decision"
+          },
+          "minItems": 1,
+          "maxItems": 24
+        },
+        "routes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Route"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "verification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Verification"
+          },
+          "minItems": 1,
+          "maxItems": 20
+        },
+        "blocking_issues": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "minItems": 0,
+          "maxItems": 30
+        },
+        "ready": {
+          "type": "boolean"
+        },
+        "check_tasks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/CheckTask"
+          },
+          "minItems": 0,
+          "maxItems": 12
+        },
+        "coverage_note": {
+          "type": "string",
+          "maxLength": 12000
+        }
+      },
+      "required": [
+        "problem_id",
+        "problem_hash",
+        "version",
+        "reference_md",
+        "reference_source",
+        "decisions",
+        "routes",
+        "verification",
+        "blocking_issues",
+        "ready",
+        "check_tasks",
+        "coverage_note"
+      ]
+    },
+    "RoutePatch": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "new_decisions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Decision"
+          },
+          "minItems": 0,
+          "maxItems": 6
+        },
+        "new_routes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Route"
+          },
+          "minItems": 0,
+          "maxItems": 2
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EvidenceRef"
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "math_status": {
+          "type": "string",
+          "enum": [
+            "valid",
+            "invalid",
+            "unknown"
+          ]
+        },
+        "verification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Verification"
+          },
+          "minItems": 1,
+          "maxItems": 10
+        },
+        "blocking_issues": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "minItems": 0,
+          "maxItems": 30
+        }
+      },
+      "required": [
+        "task_id",
+        "new_decisions",
+        "new_routes",
+        "evidence_refs",
+        "math_status",
+        "verification",
+        "blocking_issues"
+      ]
+    },
+    "TranscriptLine": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "index": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "text": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "uncertain": {
+          "type": "boolean"
+        },
+        "explicitly_confirmed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "index",
+        "text",
+        "uncertain",
+        "explicitly_confirmed"
+      ]
+    },
+    "TranscriptDraft": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "media_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "lines": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TranscriptLine"
+          },
+          "minItems": 1,
+          "maxItems": 200
+        },
+        "confirmed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "media_id",
+        "revision",
+        "lines",
+        "confirmed"
+      ]
+    },
+    "Submission": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "task_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "text_md": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "source": {
+          "type": "string",
+          "enum": [
+            "typed",
+            "handwriting"
+          ]
+        },
+        "media_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "transcript_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "confirmed": {
+          "type": "boolean"
+        },
+        "invalidated": {
+          "type": "boolean"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "task_id",
+        "revision",
+        "text_md",
+        "source",
+        "media_id",
+        "transcript_id",
+        "confirmed",
+        "invalidated",
+        "created_at"
+      ]
+    },
+    "Hypothesis": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "concept",
+            "execution",
+            "strategy",
+            "comprehension",
+            "condition",
+            "representation",
+            "undetermined"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "candidate",
+            "supported",
+            "refuted",
+            "undetermined"
+          ]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EvidenceRef"
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "explanation": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "missing_evidence": {
+          "type": "string",
+          "maxLength": 12000
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "status",
+        "evidence_refs",
+        "explanation",
+        "missing_evidence"
+      ]
+    },
+    "ProbeBranch": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "hypothesis_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "expected": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "counter_evidence": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "next_action": {
+          "type": "string",
+          "maxLength": 12000
+        }
+      },
+      "required": [
+        "hypothesis_id",
+        "expected",
+        "counter_evidence",
+        "next_action"
+      ]
+    },
+    "ProbeProposal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "goal_key": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "question_md": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "branches": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ProbeBranch"
+          },
+          "minItems": 2,
+          "maxItems": 3
+        }
+      },
+      "required": [
+        "goal_key",
+        "question_md",
+        "branches"
+      ]
+    },
+    "Diagnosis": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "judgment": {
+          "type": "string",
+          "enum": [
+            "valid",
+            "invalid",
+            "unknown"
+          ]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EvidenceRef"
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "summary": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "focus_goal_key": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "hypotheses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Hypothesis"
+          },
+          "minItems": 1,
+          "maxItems": 3
+        },
+        "probe": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ProbeProposal"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "satisfied_decision_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "route_review_needed": {
+          "type": "boolean"
+        },
+        "route_review_reason": {
+          "type": "string",
+          "maxLength": 12000
+        }
+      },
+      "required": [
+        "task_id",
+        "judgment",
+        "evidence_refs",
+        "summary",
+        "focus_goal_key",
+        "hypotheses",
+        "probe",
+        "satisfied_decision_ids",
+        "route_review_needed",
+        "route_review_reason"
+      ]
+    },
+    "ApprovedFact": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "text_md": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "decision_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "source_ref": {
+          "type": "string",
+          "maxLength": 12000
+        }
+      },
+      "required": [
+        "text_md",
+        "decision_ids",
+        "source_ref"
+      ]
+    },
+    "Strategy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "ask",
+            "hint",
+            "explain",
+            "worked_solution",
+            "advance",
+            "complete",
+            "uncertain"
+          ]
+        },
+        "intervention": {
+          "type": "string",
+          "enum": [
+            "condition_check",
+            "goal_backchain",
+            "representation_bridge",
+            "prior_result_bridge",
+            "counterexample",
+            "error_localization",
+            "worked_fade",
+            "observe"
+          ]
+        },
+        "scaffold_level": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "focus_goal_key": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "probe": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ProbeProposal"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "allowed_facts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ApprovedFact"
+          },
+          "minItems": 0,
+          "maxItems": 20
+        },
+        "allowed_disclosures": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "reserved_decisions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "expected_student_artifact": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "decision_reason": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "fading_reason": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "route_patch": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RoutePatch"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "task_id",
+        "action",
+        "intervention",
+        "scaffold_level",
+        "focus_goal_key",
+        "probe",
+        "allowed_facts",
+        "allowed_disclosures",
+        "reserved_decisions",
+        "expected_student_artifact",
+        "decision_reason",
+        "fading_reason",
+        "route_patch"
+      ]
+    },
+    "RendererInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "public_prompt_md": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "public_history_md": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "minItems": 0,
+          "maxItems": 30
+        },
+        "action": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "intervention": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "scaffold_level": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "approved_facts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ApprovedFact"
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "question_md": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "expected_student_artifact": {
+          "type": "string",
+          "maxLength": 12000
+        }
+      },
+      "required": [
+        "task_id",
+        "public_prompt_md",
+        "public_history_md",
+        "action",
+        "intervention",
+        "scaffold_level",
+        "approved_facts",
+        "question_md",
+        "expected_student_artifact"
+      ]
+    },
+    "RenderedMessage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "text_md": {
+          "type": "string",
+          "maxLength": 12000
+        }
+      },
+      "required": [
+        "text_md"
+      ]
+    },
+    "GuardResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "verdict": {
+          "type": "string",
+          "enum": [
+            "accept",
+            "revise",
+            "unknown"
+          ]
+        },
+        "math_note": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "disclosure_note": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "actual_disclosed_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "whole_task_disclosed": {
+          "type": "boolean"
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "minItems": 0,
+          "maxItems": 30
+        }
+      },
+      "required": [
+        "verdict",
+        "math_note",
+        "disclosure_note",
+        "actual_disclosed_ids",
+        "whole_task_disclosed",
+        "issues"
+      ]
+    },
+    "AssessmentOutput": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "planning": {
+          "type": "string",
+          "enum": [
+            "correct",
+            "incorrect",
+            "unknown",
+            "unanswered"
+          ]
+        },
+        "execution": {
+          "type": "string",
+          "enum": [
+            "correct",
+            "incorrect",
+            "unknown",
+            "unanswered"
+          ]
+        },
+        "planning_reason": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "execution_reason": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "planning_evidence": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "execution_evidence": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "unresolved_issues": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "minItems": 0,
+          "maxItems": 30
+        }
+      },
+      "required": [
+        "task_id",
+        "planning",
+        "execution",
+        "planning_reason",
+        "execution_reason",
+        "planning_evidence",
+        "execution_evidence",
+        "unresolved_issues"
+      ]
+    },
+    "Exposure": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "task_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "content_hash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "turn_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "decision_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "scope": {
+          "type": "string",
+          "enum": [
+            "listed_decisions",
+            "whole_task"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "enum": [
+            "teacher_hint",
+            "teacher_trace",
+            "route_reveal",
+            "worked_solution",
+            "assessment_feedback"
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "task_id",
+        "content_hash",
+        "turn_id",
+        "decision_ids",
+        "scope",
+        "reason",
+        "created_at"
+      ]
+    },
+    "DecisionEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "decision_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "goal_key": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "unobserved",
+            "valid",
+            "invalid",
+            "unknown",
+            "invalidated"
+          ]
+        },
+        "origin": {
+          "type": "string",
+          "enum": [
+            "student",
+            "teacher",
+            "coauthored"
+          ]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EvidenceRef"
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "help_exposed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "decision_id",
+        "goal_key",
+        "status",
+        "origin",
+        "evidence_refs",
+        "help_exposed"
+      ]
+    },
+    "CheckAttempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "task_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "content_hash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "equivalence_group": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "relation": {
+          "type": "string",
+          "enum": [
+            "near_transfer",
+            "near_duplicate"
+          ]
+        },
+        "started_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "plan_md": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "plan_locked_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "answer_md": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "finished_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "assistance_requested": {
+          "type": "boolean"
+        },
+        "help_exposed": {
+          "type": "boolean"
+        },
+        "invalidated": {
+          "type": "boolean"
+        },
+        "first_seen_eligible": {
+          "type": "boolean"
+        },
+        "assessment": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AssessmentOutput"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "task_id",
+        "content_hash",
+        "equivalence_group",
+        "relation",
+        "started_at",
+        "plan_md",
+        "plan_locked_at",
+        "answer_md",
+        "finished_at",
+        "assistance_requested",
+        "help_exposed",
+        "invalidated",
+        "first_seen_eligible",
+        "assessment"
+      ]
+    },
+    "TraceStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "turn_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "task_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "submission_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "diagnosis": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Diagnosis"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "strategy": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Strategy"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "guard": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/GuardResult"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "shown_text_md": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "probe_ordinal": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "invalidated": {
+          "type": "boolean"
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        }
+      },
+      "required": [
+        "turn_id",
+        "task_id",
+        "submission_id",
+        "diagnosis",
+        "strategy",
+        "guard",
+        "shown_text_md",
+        "probe_ordinal",
+        "created_at",
+        "invalidated",
+        "run_id"
+      ]
+    },
+    "SessionState": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "problem_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "packet_version": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "phase": {
+          "type": "string",
+          "enum": [
+            "preparing",
+            "study",
+            "check_plan",
+            "check_answer",
+            "summary"
+          ]
+        },
+        "active_task_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "active_attempt_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "submissions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Submission"
+          },
+          "minItems": 0,
+          "maxItems": 500
+        },
+        "traces": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TraceStep"
+          },
+          "minItems": 0,
+          "maxItems": 500
+        },
+        "exposures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Exposure"
+          },
+          "minItems": 0,
+          "maxItems": 500
+        },
+        "decision_evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DecisionEvidence"
+          },
+          "minItems": 0,
+          "maxItems": 200
+        },
+        "attempts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/CheckAttempt"
+          },
+          "minItems": 0,
+          "maxItems": 30
+        },
+        "original_result": {
+          "type": "string",
+          "enum": [
+            "in_progress",
+            "correct",
+            "incomplete",
+            "unknown"
+          ]
+        },
+        "current_route_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "problem_id",
+        "packet_version",
+        "phase",
+        "active_task_id",
+        "active_attempt_id",
+        "submissions",
+        "traces",
+        "exposures",
+        "decision_evidence",
+        "attempts",
+        "original_result",
+        "current_route_id"
+      ]
+    },
+    "PublicProblem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "source": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "is_official": {
+          "type": "boolean"
+        },
+        "statement_md": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "asset_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "status": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "minItems": 0,
+          "maxItems": 30
+        }
+      },
+      "required": [
+        "id",
+        "source",
+        "is_official",
+        "statement_md",
+        "asset_ids",
+        "status",
+        "issues"
+      ]
+    },
+    "PublicMessage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "student",
+            "teacher",
+            "system"
+          ]
+        },
+        "text_md": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "role",
+        "text_md",
+        "created_at"
+      ]
+    },
+    "PublicGoal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "goal_key": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "label": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "origin": {
+          "type": "string",
+          "enum": [
+            "student",
+            "teacher",
+            "coauthored"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "maxLength": 12000
+        }
+      },
+      "required": [
+        "goal_key",
+        "label",
+        "origin",
+        "status"
+      ]
+    },
+    "PublicAttempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "task_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "plan_md": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "plan_locked": {
+          "type": "boolean"
+        },
+        "answer_md": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "assistance_requested": {
+          "type": "boolean"
+        },
+        "help_exposed": {
+          "type": "boolean"
+        },
+        "finished": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "task_id",
+        "plan_md",
+        "plan_locked",
+        "answer_md",
+        "assistance_requested",
+        "help_exposed",
+        "finished"
+      ]
+    },
+    "StudentView": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "session_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "phase": {
+          "type": "string",
+          "enum": [
+            "preparing",
+            "study",
+            "check_plan",
+            "check_answer",
+            "summary"
+          ]
+        },
+        "problem": {
+          "$ref": "#/$defs/PublicProblem"
+        },
+        "active_task_prompt_md": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "messages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PublicMessage"
+          },
+          "minItems": 0,
+          "maxItems": 500
+        },
+        "current_goal": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PublicGoal"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "attempt": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PublicAttempt"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "notice": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "allowed_actions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "run_status": {
+          "type": "string",
+          "enum": [
+            "idle",
+            "queued",
+            "preparing",
+            "diagnosing",
+            "planning",
+            "rendering",
+            "checking",
+            "grading",
+            "failed"
+          ]
+        },
+        "can_start_check": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "session_id",
+        "version",
+        "phase",
+        "problem",
+        "active_task_prompt_md",
+        "messages",
+        "current_goal",
+        "attempt",
+        "notice",
+        "allowed_actions",
+        "run_status",
+        "can_start_check"
+      ]
+    },
+    "AttemptReport": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "attempt_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "task_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "relation": {
+          "type": "string",
+          "enum": [
+            "near_transfer",
+            "near_duplicate"
+          ]
+        },
+        "planning": {
+          "type": "string",
+          "enum": [
+            "correct",
+            "incorrect",
+            "unknown",
+            "unanswered"
+          ]
+        },
+        "execution": {
+          "type": "string",
+          "enum": [
+            "correct",
+            "incorrect",
+            "unknown",
+            "unanswered"
+          ]
+        },
+        "independent_planning": {
+          "type": "boolean"
+        },
+        "independent_execution": {
+          "type": "boolean"
+        },
+        "independent_task_pass": {
+          "type": "boolean"
+        },
+        "assistance_requested": {
+          "type": "boolean"
+        },
+        "help_exposed": {
+          "type": "boolean"
+        },
+        "invalidated": {
+          "type": "boolean"
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "minItems": 0,
+          "maxItems": 30
+        }
+      },
+      "required": [
+        "attempt_id",
+        "task_id",
+        "relation",
+        "planning",
+        "execution",
+        "independent_planning",
+        "independent_execution",
+        "independent_task_pass",
+        "assistance_requested",
+        "help_exposed",
+        "invalidated",
+        "limitations"
+      ]
+    },
+    "Report": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "session_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "original_status": {
+          "type": "string",
+          "enum": [
+            "in_progress",
+            "incomplete",
+            "unknown",
+            "completed_with_help",
+            "completed_without_recorded_help"
+          ]
+        },
+        "attempts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/AttemptReport"
+          },
+          "minItems": 0,
+          "maxItems": 30
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "minItems": 0,
+          "maxItems": 30
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "minItems": 0,
+          "maxItems": 30
+        },
+        "delayed_evidence": {
+          "const": "not_evaluated"
+        }
+      },
+      "required": [
+        "session_id",
+        "original_status",
+        "attempts",
+        "observations",
+        "limitations",
+        "delayed_evidence"
+      ]
+    },
+    "ModelCallRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "role": {
+          "type": "string",
+          "enum": [
+            "preparation",
+            "diagnosis",
+            "strategy",
+            "assessment",
+            "renderer",
+            "guard",
+            "vision"
+          ]
+        },
+        "model": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "prompt_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "input_hash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "attempt": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "input_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "output_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "usage_kind": {
+          "type": "string",
+          "enum": [
+            "reported",
+            "estimated",
+            "unknown"
+          ]
+        },
+        "elapsed_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "result_status": {
+          "type": "string",
+          "enum": [
+            "succeeded",
+            "failed",
+            "unknown"
+          ]
+        }
+      },
+      "required": [
+        "role",
+        "model",
+        "prompt_version",
+        "input_hash",
+        "attempt",
+        "input_tokens",
+        "output_tokens",
+        "usage_kind",
+        "elapsed_ms",
+        "result_status"
+      ]
+    },
+    "RunRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "session_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "workflow": {
+          "type": "string",
+          "enum": [
+            "prepare",
+            "turn",
+            "transcribe",
+            "grade"
+          ]
+        },
+        "request_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "expected_version": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "lease_token": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "deadline_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "queued",
+            "running",
+            "succeeded",
+            "failed",
+            "expired",
+            "cancelled"
+          ]
+        },
+        "calls": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ModelCallRecord"
+          },
+          "minItems": 0,
+          "maxItems": 20
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "session_id",
+        "workflow",
+        "request_id",
+        "expected_version",
+        "lease_token",
+        "deadline_at",
+        "status",
+        "calls",
+        "created_at"
+      ]
+    },
+    "SelectInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": [
+            "random",
+            "specified"
+          ]
+        },
+        "problem_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "bank_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "request_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        }
+      },
+      "required": [
+        "mode",
+        "problem_id",
+        "bank_version",
+        "request_id"
+      ]
+    },
+    "TurnInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "session_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "expected_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "request_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "attempt",
+            "hint",
+            "explain",
+            "worked_solution",
+            "finish_problem",
+            "propose_route",
+            "skip_goal",
+            "reveal_route"
+          ]
+        },
+        "text_md": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "transcript_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "transcript_revision": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "session_id",
+        "expected_version",
+        "request_id",
+        "action",
+        "text_md",
+        "transcript_id",
+        "transcript_revision"
+      ]
+    },
+    "ConfirmTranscriptInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "transcript_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "expected_revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "request_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "lines": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TranscriptLine"
+          },
+          "minItems": 1,
+          "maxItems": 200
+        }
+      },
+      "required": [
+        "transcript_id",
+        "expected_revision",
+        "request_id",
+        "lines"
+      ]
+    },
+    "CheckInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "session_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "expected_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "request_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "start",
+            "save_draft",
+            "submit_plan",
+            "finish",
+            "help",
+            "reassess"
+          ]
+        },
+        "attempt_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "plan_md": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "answer_md": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "help_text": {
+          "type": "string",
+          "maxLength": 12000
+        }
+      },
+      "required": [
+        "session_id",
+        "expected_version",
+        "request_id",
+        "action",
+        "attempt_id",
+        "plan_md",
+        "answer_md",
+        "help_text"
+      ]
+    },
+    "CorrectionInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "session_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "expected_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "request_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "submission_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "expected_revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "corrected_text_md": {
+          "type": "string",
+          "maxLength": 12000
+        }
+      },
+      "required": [
+        "session_id",
+        "expected_version",
+        "request_id",
+        "submission_id",
+        "expected_revision",
+        "corrected_text_md"
+      ]
+    },
+    "TeacherInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "session_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "expected_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "request_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "confirm_exposure": {
+          "const": true
+        }
+      },
+      "required": [
+        "session_id",
+        "expected_version",
+        "request_id",
+        "confirm_exposure"
+      ]
+    },
+    "MutationInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "session_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "expected_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "request_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        }
+      },
+      "required": [
+        "session_id",
+        "expected_version",
+        "request_id"
+      ]
+    },
+    "Error": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "string",
+          "enum": [
+            "UNAUTHORIZED",
+            "NOT_FOUND",
+            "INVALID_INPUT",
+            "VERSION_CONFLICT",
+            "REQUEST_CONFLICT",
+            "BUSY",
+            "NOT_READY",
+            "TIMEOUT",
+            "MODEL_ERROR",
+            "RATE_LIMITED",
+            "BUDGET_EXCEEDED"
+          ]
+        },
+        "message": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "retryable": {
+          "type": "boolean"
+        },
+        "selected_problem_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "retryable",
+        "selected_problem_id"
+      ]
+    },
+    "DiagnosisInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "prompt_md": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "decisions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Decision"
+          },
+          "minItems": 1,
+          "maxItems": 24
+        },
+        "routes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Route"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "confirmed_evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Submission"
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "previous_hypotheses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Hypothesis"
+          },
+          "minItems": 0,
+          "maxItems": 30
+        },
+        "previous_probes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ProbeProposal"
+          },
+          "minItems": 0,
+          "maxItems": 20
+        },
+        "private_reference_md": {
+          "type": "string",
+          "maxLength": 12000
+        }
+      },
+      "required": [
+        "task_id",
+        "prompt_md",
+        "decisions",
+        "routes",
+        "confirmed_evidence",
+        "previous_hypotheses",
+        "previous_probes",
+        "private_reference_md"
+      ]
+    },
+    "StrategyInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "diagnosis": {
+          "$ref": "#/$defs/Diagnosis"
+        },
+        "user_action": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "exposures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Exposure"
+          },
+          "minItems": 0,
+          "maxItems": 500
+        },
+        "remaining_probes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "remaining_calls": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "route_patch": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RoutePatch"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "decisions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Decision"
+          },
+          "minItems": 1,
+          "maxItems": 24
+        },
+        "private_reference_md": {
+          "type": "string",
+          "maxLength": 12000
+        }
+      },
+      "required": [
+        "diagnosis",
+        "user_action",
+        "exposures",
+        "remaining_probes",
+        "remaining_calls",
+        "route_patch",
+        "decisions",
+        "private_reference_md"
+      ]
+    },
+    "PreparationInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": [
+            "prepare",
+            "route_review"
+          ]
+        },
+        "problem": {
+          "$ref": "#/$defs/Problem"
+        },
+        "reference_material_md": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "student_route_md": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EvidenceRef"
+          },
+          "minItems": 0,
+          "maxItems": 100
+        }
+      },
+      "required": [
+        "mode",
+        "problem",
+        "reference_material_md",
+        "student_route_md",
+        "evidence_refs"
+      ]
+    },
+    "AssessmentInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "task": {
+          "$ref": "#/$defs/CheckTask"
+        },
+        "locked_plan_md": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "final_answer_md": {
+          "type": "string",
+          "maxLength": 12000
+        }
+      },
+      "required": [
+        "task",
+        "locked_plan_md",
+        "final_answer_md"
+      ]
+    },
+    "GuardInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": [
+            "packet",
+            "route",
+            "message",
+            "assessment"
+          ]
+        },
+        "task_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "candidate_json": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "reference_md": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "allowed_disclosures": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "reserved_decisions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "minItems": 0,
+          "maxItems": 100
+        }
+      },
+      "required": [
+        "mode",
+        "task_id",
+        "candidate_json",
+        "reference_md",
+        "allowed_disclosures",
+        "reserved_decisions"
+      ]
+    }
+  }
+}

@@ -1,0 +1,86 @@
+[
+  {
+    "from": "none",
+    "action": "selectAndStart",
+    "to": "preparing",
+    "guard": "valid owner/request; record random outcome first"
+  },
+  {
+    "from": "preparing",
+    "action": "preparation_verified",
+    "to": "study",
+    "guard": "matching hash and no blocking issues"
+  },
+  {
+    "from": "preparing",
+    "action": "preparation_failed",
+    "to": "preparing",
+    "guard": "same problem ID; no silent redraw"
+  },
+  {
+    "from": "study",
+    "action": "attempt/help/propose_route/skip/reveal",
+    "to": "study",
+    "guard": "current task only, policy and guard then atomic commit"
+  },
+  {
+    "from": "study",
+    "action": "finish_problem",
+    "to": "summary",
+    "guard": "original only; correctness validated or incomplete/unknown"
+  },
+  {
+    "from": "study|summary",
+    "action": "start/reassess",
+    "to": "check_plan",
+    "guard": "verified unseen non-equivalent check; owner first exposure atomic"
+  },
+  {
+    "from": "check_plan",
+    "action": "submit_plan",
+    "to": "check_answer",
+    "guard": "freeze plan or explicit unanswered; no feedback"
+  },
+  {
+    "from": "check_plan|check_answer",
+    "action": "save_draft",
+    "to": "same",
+    "guard": "no model; locked plan immutable"
+  },
+  {
+    "from": "check_answer",
+    "action": "finish",
+    "to": "summary",
+    "guard": "first final submission; grade or unknown; freeze answer before calls"
+  },
+  {
+    "from": "check_plan|check_answer",
+    "action": "help",
+    "to": "study",
+    "guard": "assistance_requested committed before turn; same task/attempt"
+  },
+  {
+    "from": "study",
+    "action": "finish_check_after_help",
+    "to": "summary",
+    "guard": "same assisted attempt; never independent"
+  },
+  {
+    "from": "any live",
+    "action": "correctSubmission",
+    "to": "study",
+    "guard": "invalidate dependent evidence/results; never remove exposure/seen"
+  },
+  {
+    "from": "any live",
+    "action": "openTeacherTrace",
+    "to": "same",
+    "guard": "teacher auth+confirm; commit current task exposure before response"
+  },
+  {
+    "from": "any live",
+    "action": "delete/expire",
+    "to": "deleted",
+    "guard": "revoke leases + cascade; late callbacks discard"
+  }
+]

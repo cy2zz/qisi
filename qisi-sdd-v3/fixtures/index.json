@@ -1,0 +1,66 @@
+[
+  {
+    "file": "problem.json",
+    "type": "Problem"
+  },
+  {
+    "file": "packet.json",
+    "type": "Packet"
+  },
+  {
+    "file": "diagnosis.json",
+    "type": "Diagnosis"
+  },
+  {
+    "file": "strategy.json",
+    "type": "Strategy"
+  },
+  {
+    "file": "session.json",
+    "type": "SessionState"
+  },
+  {
+    "file": "student-view.json",
+    "type": "StudentView"
+  },
+  {
+    "file": "check-attempt.json",
+    "type": "CheckAttempt"
+  },
+  {
+    "file": "assessment-output.json",
+    "type": "AssessmentOutput"
+  },
+  {
+    "file": "report.json",
+    "type": "Report"
+  },
+  {
+    "file": "renderer-input.json",
+    "type": "RendererInput"
+  },
+  {
+    "file": "guard.json",
+    "type": "GuardResult"
+  },
+  {
+    "file": "transcript.json",
+    "type": "TranscriptDraft"
+  },
+  {
+    "file": "select.json",
+    "type": "SelectInput"
+  },
+  {
+    "file": "diagnosis-input.json",
+    "type": "DiagnosisInput"
+  },
+  {
+    "file": "strategy-input.json",
+    "type": "StrategyInput"
+  },
+  {
+    "file": "assessment-input.json",
+    "type": "AssessmentInput"
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "id": "self-001",
+  "bank_version": "self-v3",
+  "source": "自拟规格夹具，不是高考真题",
+  "is_official": false,
+  "statement_md": "f(x)=x+1/x，x>0。讨论单调性并求最小值。",
+  "asset_ids": [],
+  "content_hash": "cee947d7030457680c210cb0b667d568dca527bc97513ca2ea50f41cb6120702",
+  "status": "ready",
+  "issues": [],
+  "topic_tags": [
+    "导数",
+    "最值"
+  ]
+}

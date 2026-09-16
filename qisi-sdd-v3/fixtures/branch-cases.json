@@ -1,0 +1,238 @@
+[
+  {
+    "id": "BT01",
+    "name": "same_error_concept",
+    "problem": "self-001",
+    "steps": [
+      "f′(x)=1+1/x²",
+      "我认为倒数求导就是正号。"
+    ],
+    "assertions": [
+      "先待定并区分原因",
+      "概念桥梁而非只纠错"
+    ],
+    "status": "specified",
+    "source": "self_authored_not_student_data"
+  },
+  {
+    "id": "BT02",
+    "name": "same_error_execution",
+    "problem": "self-001",
+    "steps": [
+      "f′(x)=1+1/x²",
+      "应是负一次幂求导有负号，我抄错了。"
+    ],
+    "assertions": [
+      "自查执行",
+      "不重新教授已经会的规则"
+    ],
+    "status": "specified",
+    "source": "self_authored_not_student_data"
+  },
+  {
+    "id": "BT03",
+    "name": "strategy_bridge",
+    "problem": "self-001",
+    "steps": [
+      "导数是1-1/x²，但不知道怎么找增减区间。"
+    ],
+    "assertions": [
+      "导数符号→单调性桥梁",
+      "不重复求导"
+    ],
+    "status": "specified",
+    "source": "self_authored_not_student_data"
+  },
+  {
+    "id": "BT04",
+    "name": "valid_alternative",
+    "problem": "self-001",
+    "steps": [
+      "最小值可用均值不等式得2，x=1取等。"
+    ],
+    "assertions": [
+      "接受此最值路线",
+      "单调性仍单独核对"
+    ],
+    "status": "specified",
+    "source": "self_authored_not_student_data"
+  },
+  {
+    "id": "BT05",
+    "name": "ambiguous_input",
+    "problem": "self-001",
+    "steps": [
+      "手写负号模糊"
+    ],
+    "assertions": [
+      "只转写确认",
+      "没有数学诊断"
+    ],
+    "status": "specified",
+    "source": "self_authored_not_student_data"
+  },
+  {
+    "id": "BT06",
+    "name": "counterevidence",
+    "problem": "self-001",
+    "steps": [
+      "最初错误",
+      "后续给出完整正确依据"
+    ],
+    "assertions": [
+      "更新旧诊断",
+      "保留修订轨迹"
+    ],
+    "status": "specified",
+    "source": "self_authored_not_student_data"
+  },
+  {
+    "id": "BT07",
+    "name": "probe_limit",
+    "problem": "self-001",
+    "steps": [
+      "不知道",
+      "仍不知道",
+      "还是不知道"
+    ],
+    "assertions": [
+      "同目标最多两诊断探针",
+      "换节点不重置"
+    ],
+    "status": "specified",
+    "source": "self_authored_not_student_data"
+  },
+  {
+    "id": "BT08",
+    "name": "direct_explanation",
+    "problem": "self-001",
+    "steps": [
+      "直接讲完整解法"
+    ],
+    "assertions": [
+      "不强制答错",
+      "核对后whole_task帮助"
+    ],
+    "status": "specified",
+    "source": "self_authored_not_student_data"
+  },
+  {
+    "id": "BT09",
+    "name": "skip_known",
+    "problem": "self-001",
+    "steps": [
+      "完整正确说明导数与单调区间"
+    ],
+    "assertions": [
+      "跳过已会目标",
+      "不机械每阶追问"
+    ],
+    "status": "specified",
+    "source": "self_authored_not_student_data"
+  },
+  {
+    "id": "BT10",
+    "name": "leak_guard",
+    "problem": "self-001",
+    "steps": [
+      "模型把最终关键结论塞进问题"
+    ],
+    "assertions": [
+      "检查先于显示",
+      "最多一次重写失败则fallback"
+    ],
+    "status": "specified",
+    "source": "self_authored_not_student_data"
+  },
+  {
+    "id": "BT11",
+    "name": "independent_split",
+    "problem": "self-001",
+    "steps": [
+      "新题计划正确",
+      "最终答案数值错"
+    ],
+    "assertions": [
+      "规划执行分开",
+      "整题不算独立通过"
+    ],
+    "status": "specified",
+    "source": "self_authored_not_student_data"
+  },
+  {
+    "id": "BT12",
+    "name": "help_model_failure",
+    "problem": "self-001",
+    "steps": [
+      "独立阶段请求帮助",
+      "provider超时"
+    ],
+    "assertions": [
+      "assistance_requested真",
+      "help_exposed假",
+      "独立资格不恢复"
+    ],
+    "status": "specified",
+    "source": "self_authored_not_student_data"
+  },
+  {
+    "id": "BT13",
+    "name": "new_reassessment",
+    "problem": "self-001",
+    "steps": [
+      "旧任务已提示",
+      "要求重新检验"
+    ],
+    "assertions": [
+      "新hash新等价组已核对",
+      "不改ID洗白"
+    ],
+    "status": "specified",
+    "source": "self_authored_not_student_data"
+  },
+  {
+    "id": "BT14",
+    "name": "teacher_trace",
+    "problem": "self-001",
+    "steps": [
+      "教师确认打开依据"
+    ],
+    "assertions": [
+      "先记当前task曝光",
+      "不发送未来rubric"
+    ],
+    "status": "specified",
+    "source": "self_authored_not_student_data"
+  },
+  {
+    "id": "BT15",
+    "name": "correction_after_help",
+    "problem": "self-001",
+    "steps": [
+      "旧输入引发提示",
+      "更正旧输入"
+    ],
+    "assertions": [
+      "依赖作废",
+      "已发帮助保留"
+    ],
+    "status": "specified",
+    "source": "self_authored_not_student_data"
+  },
+  {
+    "id": "BT16",
+    "name": "delete_during_run",
+    "problem": "self-001",
+    "steps": [
+      "提交教学",
+      "删除会话",
+      "模型迟到"
+    ],
+    "assertions": [
+      "不提交",
+      "不重建会话"
+    ],
+    "status": "specified",
+    "source": "self_authored_not_student_data"
+  }
+]

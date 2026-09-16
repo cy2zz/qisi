@@ -1,0 +1,130 @@
+[
+  {
+    "name": "importBank",
+    "owner": "A",
+    "file": "src/features/bank/actions.ts",
+    "input": "teacher + staged JSONL and local upload assets",
+    "output": "import audit + bank_version",
+    "effect": "teacher mutation; no silent drops"
+  },
+  {
+    "name": "selectAndStart",
+    "owner": "A",
+    "file": "src/features/bank/actions.ts",
+    "input": "SelectInput",
+    "output": "StudentView",
+    "effect": "owner mutation; records selected ID and preparation session before models"
+  },
+  {
+    "name": "retryPreparation",
+    "owner": "A",
+    "file": "src/features/bank/actions.ts",
+    "input": "MutationInput",
+    "output": "StudentView",
+    "effect": "same selected ID; CAS then preparation workflow"
+  },
+  {
+    "name": "submitTurn",
+    "owner": "B",
+    "file": "src/features/tutor/actions.ts",
+    "input": "TurnInput",
+    "output": "StudentView",
+    "effect": "owner mutation; confirmed evidence; runner + atomic checked commit"
+  },
+  {
+    "name": "handleCheck",
+    "owner": "A",
+    "file": "src/features/assessment/actions.ts",
+    "input": "CheckInput",
+    "output": "StudentView",
+    "effect": "owner mutation; state-specific start/plan/final/help/reassess"
+  },
+  {
+    "name": "correctSubmission",
+    "owner": "B",
+    "file": "src/features/tutor/corrections.ts",
+    "input": "CorrectionInput",
+    "output": "StudentView",
+    "effect": "revision + dependency invalidation; never retract exposure"
+  },
+  {
+    "name": "confirmTranscript",
+    "owner": "A",
+    "file": "src/features/media/actions.ts",
+    "input": "ConfirmTranscriptInput",
+    "output": "TranscriptDraft",
+    "effect": "owner mutation; all uncertain lines explicitly confirmed"
+  },
+  {
+    "name": "transcribeMedia",
+    "owner": "A",
+    "file": "src/app/api/media/route.ts",
+    "input": "owner + multipart file/request_id",
+    "output": "TranscriptDraft",
+    "effect": "validated private upload and vision only, no diagnosis"
+  },
+  {
+    "name": "readOwnedMedia",
+    "owner": "A",
+    "file": "src/app/api/media/[id]/route.ts",
+    "input": "owner + media_id",
+    "output": "binary image",
+    "effect": "GET ownership, DB mapping only, no URL/path input"
+  },
+  {
+    "name": "loadSession",
+    "owner": "A",
+    "file": "src/shared/queries.ts",
+    "input": "owner + session_id",
+    "output": "StudentView",
+    "effect": "GET safe allowlist, no mutation"
+  },
+  {
+    "name": "loadReport",
+    "owner": "A",
+    "file": "src/features/report/queries.ts",
+    "input": "owner + session_id",
+    "output": "Report",
+    "effect": "GET computed independence; no model call"
+  },
+  {
+    "name": "listHistory",
+    "owner": "A",
+    "file": "src/features/history/queries.ts",
+    "input": "owner + opaque cursor",
+    "output": "safe session summaries",
+    "effect": "GET own sessions only"
+  },
+  {
+    "name": "openTeacherTrace",
+    "owner": "B",
+    "file": "src/features/teacher/actions.ts",
+    "input": "teacher authorization + TeacherInput",
+    "output": "TraceStep[] + safe RunRecord projection",
+    "effect": "POST explicit exposure committed first; no future rubric"
+  },
+  {
+    "name": "deleteSession",
+    "owner": "A",
+    "file": "src/shared/delete.ts",
+    "input": "MutationInput",
+    "output": "void",
+    "effect": "owner mutation revoke runs then cascade; must not resurrect"
+  },
+  {
+    "name": "getRunStatus",
+    "owner": "A",
+    "file": "src/shared/queries.ts",
+    "input": "owner + session_id",
+    "output": "StudentView.run_status + version",
+    "effect": "GET no unguarded token streaming"
+  },
+  {
+    "name": "saveAssessmentDraft",
+    "owner": "A",
+    "file": "src/features/assessment/actions.ts",
+    "input": "CheckInput action=save_draft",
+    "output": "StudentView",
+    "effect": "no model/no feedback; plan editing forbidden after lock"
+  }
+]

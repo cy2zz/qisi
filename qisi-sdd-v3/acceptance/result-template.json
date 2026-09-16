@@ -1,0 +1,20 @@
+{
+  "baseline": "qisi-3.0",
+  "acceptance_id": "ATxx",
+  "result": "not_run",
+  "executed_at": null,
+  "executed_by": null,
+  "application_commit": null,
+  "layer": null,
+  "environment": null,
+  "bank_version": null,
+  "scope_hash": null,
+  "model_version": null,
+  "prompt_version": null,
+  "provider_mode": null,
+  "commands": [],
+  "expected": null,
+  "actual": null,
+  "evidence_files": [],
+  "limitations": []
+}

@@ -1,0 +1,1 @@
+{"ok":true,"code":"FABRIC_OK","data":{"code":"FABRIC_OK","data":{"code":"FABRIC_OK","hint":"Forwarded. Downstream returned HTTP 200. Result is in 'data'.","action":"default","tool":null,"message":"操作成功","data":{"status":1,"message":"成功"},"trace_id":"26361f6dbccf63d076bcfc98d23c5913","downstream_http_status":200}},"request_id":"req-e8de7698-a471-4ab6-b021-5e0009683245"}

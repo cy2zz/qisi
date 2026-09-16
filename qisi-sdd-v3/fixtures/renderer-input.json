@@ -1,0 +1,13 @@
+{
+  "task_id": "self-001",
+  "public_prompt_md": "f(x)=x+1/x，x>0。讨论单调性并求最小值。",
+  "public_history_md": [
+    "f′(x)=1+1/x²"
+  ],
+  "action": "ask",
+  "intervention": "error_localization",
+  "scaffold_level": 0,
+  "approved_facts": [],
+  "question_md": "先只看倒数项，你怎样说明它的求导依据？",
+  "expected_student_artifact": "倒数求导依据"
+}

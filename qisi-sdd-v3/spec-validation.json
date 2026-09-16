@@ -1,0 +1,3252 @@
+{
+  "baseline": "qisi-3.0",
+  "generated_at": "2026-09-16T02:32:38.651615+00:00",
+  "scope": "specification_only",
+  "passed": 647,
+  "failed": 0,
+  "application_tests": "not_run",
+  "real_model_tests": "not_run",
+  "student_learning_evaluation": "not_evaluated",
+  "limitations": [
+    "Semantic oracles cover the supplied cases, not all production behavior.",
+    "SQLite checks run in memory for schema constraints, not persistence/app acceptance.",
+    "No official question bank, provider calls, deployment or learning experiment was executed."
+  ],
+  "checks": [
+    {
+      "check": "file:README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:AGENTS.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:design-v6.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:plan.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:prd.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:reuse.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:requirements.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:tasks.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:traceability.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:runtime.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:reuse-lock.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:scope-changes.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:env.example",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:contracts/domain.schema.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:contracts/README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:contracts/database.sql",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:contracts/ports.ts",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:contracts/agents.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:contracts/state-transitions.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:contracts/server-functions.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:acceptance/cases.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:acceptance/role-cases.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:acceptance/evaluation-protocol.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:acceptance/result-template.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:fixtures/index.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:fixtures/negative-cases.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:fixtures/branch-cases.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:prompts/developer-a.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:prompts/developer-b.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:prompts/developer-single.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:prompts/vision.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:changes/template.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:handoffs/template.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:requirements-dev.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "file:publication/publication-status.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:AGENTS.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:design-v6.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:plan.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:prd.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:requirements.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:reuse-lock.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:reuse.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:runtime.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:scope-changes.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:tasks.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:traceability.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:acceptance\\cases.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:acceptance\\evaluation-protocol.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:acceptance\\result-template.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:acceptance\\role-cases.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:changes\\template.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:contracts\\agents.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:contracts\\database.sql",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:contracts\\domain.schema.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:contracts\\ports.ts",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:contracts\\README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:contracts\\server-functions.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:contracts\\state-transitions.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:contracts\\vision-output.schema.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:fixtures\\assessment-input.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:fixtures\\assessment-output.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:fixtures\\branch-cases.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:fixtures\\check-attempt.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:fixtures\\diagnosis-input.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:fixtures\\diagnosis.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:fixtures\\guard.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:fixtures\\index.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:fixtures\\negative-cases.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:fixtures\\packet.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:fixtures\\problem.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:fixtures\\renderer-input.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:fixtures\\report.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:fixtures\\select.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:fixtures\\session.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:fixtures\\strategy-input.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:fixtures\\strategy.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:fixtures\\student-view.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:fixtures\\transcript.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:handoffs\\template.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:prompts\\assessment.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:prompts\\developer-a.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:prompts\\developer-b.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:prompts\\developer-single.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:prompts\\diagnosis.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:prompts\\guard.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:prompts\\preparation.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:prompts\\renderer.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:prompts\\strategy.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:prompts\\vision.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:publication\\publication-status.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:publication\\README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:scripts\\package.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:scripts\\semantic_rules.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "utf8:scripts\\validate_spec.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "requirements 18 unique P0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "tasks 20 unique",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT 60 unique specified",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR01:references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR01:reverse task coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR01:reverse AT coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR02:references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR02:reverse task coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR02:reverse AT coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR03:references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR03:reverse task coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR03:reverse AT coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR04:references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR04:reverse task coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR04:reverse AT coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR05:references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR05:reverse task coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR05:reverse AT coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR06:references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR06:reverse task coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR06:reverse AT coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR07:references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR07:reverse task coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR07:reverse AT coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR08:references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR08:reverse task coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR08:reverse AT coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR09:references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR09:reverse task coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR09:reverse AT coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR10:references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR10:reverse task coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR10:reverse AT coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR11:references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR11:reverse task coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR11:reverse AT coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR12:references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR12:reverse task coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR12:reverse AT coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR13:references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR13:reverse task coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR13:reverse AT coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR14:references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR14:reverse task coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR14:reverse AT coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR15:references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR15:reverse task coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR15:reverse AT coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR16:references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR16:reverse task coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR16:reverse AT coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR17:references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR17:reverse task coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR17:reverse AT coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR18:references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR18:reverse task coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "FR18:reverse AT coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A01:card complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A01:owner/day",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A01:dependencies",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A01:coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A01:input files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B01:card complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B01:owner/day",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B01:dependencies",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B01:coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B01:input files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B01:assessment ownership",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A02:card complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A02:owner/day",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A02:dependencies",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A02:coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A02:input files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B02:card complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B02:owner/day",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B02:dependencies",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B02:coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B02:input files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A03:card complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A03:owner/day",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A03:dependencies",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A03:coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A03:input files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B03:card complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B03:owner/day",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B03:dependencies",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B03:coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B03:input files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A04:card complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A04:owner/day",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A04:dependencies",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A04:coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A04:input files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B04:card complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B04:owner/day",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B04:dependencies",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B04:coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B04:input files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A05:card complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A05:owner/day",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A05:dependencies",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A05:coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A05:input files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B05:card complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B05:owner/day",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B05:dependencies",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B05:coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B05:input files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A06:card complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A06:owner/day",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A06:dependencies",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A06:coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A06:input files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B06:card complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B06:owner/day",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B06:dependencies",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B06:coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B06:input files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A07:card complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A07:owner/day",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A07:dependencies",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A07:coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A07:input files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B07:card complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B07:owner/day",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B07:dependencies",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B07:coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B07:input files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A08:card complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A08:owner/day",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A08:dependencies",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A08:coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A08:input files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B08:card complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B08:owner/day",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B08:dependencies",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B08:coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B08:input files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A09:card complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A09:owner/day",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A09:dependencies",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A09:coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A09:input files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B09:card complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B09:owner/day",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B09:dependencies",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B09:coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B09:input files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B09:assessment ownership",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A10:card complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A10:owner/day",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A10:dependencies",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A10:coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A10:input files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B10:card complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B10:owner/day",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B10:dependencies",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B10:coverage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B10:input files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "A:ten person-days",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "B:ten person-days",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "dependency DAG",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT01:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT02:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT03:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT04:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT05:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT06:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT07:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT08:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT09:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT10:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT11:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT12:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT13:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT14:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT15:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT16:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT17:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT18:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT19:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT20:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT21:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT22:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT23:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT24:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT25:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT26:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT27:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT28:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT29:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT30:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT31:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT32:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT33:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT34:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT35:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT36:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT37:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT38:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT39:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT40:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT41:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT42:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT43:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT44:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT45:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT46:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT47:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT48:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT49:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT50:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT51:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT52:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT53:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT54:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT55:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT56:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT57:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT58:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT59:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AT60:card and FR refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "traceability nonempty",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "48 schemas",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "EvidenceRef:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Verification:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Problem:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Decision:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Route:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "CheckTask:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packet:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "RoutePatch:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "TranscriptLine:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "TranscriptDraft:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Submission:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Hypothesis:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ProbeBranch:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ProbeProposal:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Diagnosis:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ApprovedFact:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Strategy:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "RendererInput:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "RenderedMessage:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "GuardResult:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AssessmentOutput:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Exposure:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "DecisionEvidence:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "CheckAttempt:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "TraceStep:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "SessionState:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PublicProblem:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PublicMessage:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PublicGoal:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PublicAttempt:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "StudentView:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AttemptReport:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Report:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ModelCallRecord:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "RunRecord:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "SelectInput:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "TurnInput:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ConfirmTranscriptInput:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "CheckInput:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "CorrectionInput:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "TeacherInput:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "MutationInput:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Error:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "DiagnosisInput:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "StrategyInput:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PreparationInput:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AssessmentInput:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "GuardInput:strict object",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "16 positive fixtures",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive schema:problem.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive semantics:problem.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive schema:packet.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive semantics:packet.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive schema:diagnosis.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive semantics:diagnosis.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive schema:strategy.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive semantics:strategy.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive schema:session.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive semantics:session.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive schema:student-view.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive semantics:student-view.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive schema:check-attempt.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive semantics:check-attempt.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive schema:assessment-output.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive semantics:assessment-output.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive schema:report.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive semantics:report.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive schema:renderer-input.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive semantics:renderer-input.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive schema:guard.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive semantics:guard.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive schema:transcript.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive semantics:transcript.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive schema:select.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive semantics:select.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive schema:diagnosis-input.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive semantics:diagnosis-input.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive schema:strategy-input.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive semantics:strategy-input.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive schema:assessment-input.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "positive semantics:assessment-input.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "20 negative fixtures",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative schema:private_field_in_public_dto",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative schema:agent_grants_independence",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative schema:too_high_scaffold",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative schema:fake_model_human_verification",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative schema:out_of_range_branch_count",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative remains schema-valid:unknown_decision",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative semantic:unknown_decision",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative remains schema-valid:allowed_reserved_overlap",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative semantic:allowed_reserved_overlap",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative remains schema-valid:wrong_problem_hash",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative semantic:wrong_problem_hash",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative remains schema-valid:ready_blocked",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative semantic:ready_blocked",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative remains schema-valid:cyclic_prerequisite",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative semantic:cyclic_prerequisite",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative remains schema-valid:fictional_evidence",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative semantic:fictional_evidence",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative remains schema-valid:old_evidence_revision",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative semantic:old_evidence_revision",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative remains schema-valid:fictional_quote",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative semantic:fictional_quote",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative remains schema-valid:assisted_independent_pass",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative semantic:assisted_independent_pass",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative remains schema-valid:requested_help_independent_pass",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative semantic:requested_help_independent_pass",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative remains schema-valid:invalidated_independent_pass",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative semantic:invalidated_independent_pass",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative remains schema-valid:duplicate_claim_transfer",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative semantic:duplicate_claim_transfer",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative remains schema-valid:unconfirmed_transcription",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative semantic:unconfirmed_transcription",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative remains schema-valid:random_with_chosen_id",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative semantic:random_with_chosen_id",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "negative schema:renderer_hidden_reference",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "four agents and two modules",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PreparationAgent:input schema",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PreparationAgent:output schema",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PreparationAgent:prompt exists",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "DiagnosisAgent:input schema",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "DiagnosisAgent:output schema",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "DiagnosisAgent:prompt exists",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "StrategyAgent:input schema",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "StrategyAgent:output schema",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "StrategyAgent:prompt exists",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AssessmentAgent:input schema",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AssessmentAgent:output schema",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "AssessmentAgent:prompt exists",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Renderer:input schema",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Renderer:output schema",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Renderer:prompt exists",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Guard:input schema",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Guard:output schema",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Guard:prompt exists",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "16 server boundaries",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "BT01:specified behavior",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "BT02:specified behavior",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "BT03:specified behavior",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "BT04:specified behavior",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "BT05:specified behavior",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "BT06:specified behavior",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "BT07:specified behavior",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "BT08:specified behavior",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "BT09:specified behavior",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "BT10:specified behavior",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "BT11:specified behavior",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "BT12:specified behavior",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "BT13:specified behavior",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "BT14:specified behavior",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "BT15:specified behavior",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "BT16:specified behavior",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "16 behavior cases",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "six role cases",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no unguarded streaming",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "probe global limit",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "role repair bounded",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "budget:turn",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "budget:prepare",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "budget:transcribe",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "budget:grade",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "reuse not pretended installed",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "SQLite specification syntax +16 tables",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "SQL probe cap rejects third",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "SQL FK rejects foreign owner",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "SQL owner cascade",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains FR01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains FR02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains FR03",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains FR04",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains FR05",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains FR06",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains FR07",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains FR08",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains FR09",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains FR10",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains FR11",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains FR12",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains FR13",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains FR14",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains FR15",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains FR16",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains FR17",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains FR18",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains A01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains B01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains A02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains B02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains A03",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains B03",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains A04",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains B04",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains A05",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains B05",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains A06",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains B06",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains A07",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains B07",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains A08",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains B08",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains A09",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains B09",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains A10",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains B10",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT03",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT04",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT05",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT06",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT07",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT08",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT09",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT10",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT11",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT12",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT13",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT14",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT15",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT16",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT17",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT18",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT19",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT20",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT21",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT22",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT23",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT24",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT25",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT26",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT27",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT28",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT29",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT30",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT31",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT32",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT33",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT34",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT35",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT36",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT37",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT38",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT39",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT40",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT41",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT42",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT43",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT44",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT45",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT46",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT47",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT48",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT49",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT50",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT51",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT52",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT53",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT54",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT55",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT56",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT57",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT58",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT59",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PRD contains AT60",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "plan contains A01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "plan contains B01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "plan contains A02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "plan contains B02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "plan contains A03",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "plan contains B03",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "plan contains A04",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "plan contains B04",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "plan contains A05",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "plan contains B05",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "plan contains A06",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "plan contains B06",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "plan contains A07",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "plan contains B07",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "plan contains A08",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "plan contains B08",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "plan contains A09",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "plan contains B09",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "plan contains A10",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "plan contains B10",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "vision prompt source control",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "traceability exact FR rows",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "traceability exact:FR01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "traceability exact:FR02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "traceability exact:FR03",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "traceability exact:FR04",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "traceability exact:FR05",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "traceability exact:FR06",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "traceability exact:FR07",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "traceability exact:FR08",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "traceability exact:FR09",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "traceability exact:FR10",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "traceability exact:FR11",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "traceability exact:FR12",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "traceability exact:FR13",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "traceability exact:FR14",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "traceability exact:FR15",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "traceability exact:FR16",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "traceability exact:FR17",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "traceability exact:FR18",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "vision minimal positive",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "vision forbids server field:confirmed",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "vision forbids server field:id",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "vision forbids server field:revision",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "vision forbids server field:media_id",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "vision forbids model confirmation",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "evidence hash:evidence/alephpi__Texo-web.LICENSE",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "evidence hash:evidence/alephpi__Texo.LICENSE",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "evidence hash:evidence/breezedeus__Pix2Text.LICENSE",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "evidence hash:evidence/breezedeus__Pix2Text.README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "evidence hash:evidence/KaTeX__KaTeX.LICENSE",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "evidence hash:evidence/KaTeX__KaTeX.README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "evidence hash:evidence/pix2text-model-card.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "evidence hash:evidence/react-markdown-license.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "evidence hash:evidence/react-markdown-readme.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "evidence hash:evidence/repo-snapshots.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "evidence hash:evidence/RunzheYang__SocraticAI.LICENSE",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "evidence hash:evidence/RunzheYang__SocraticAI.README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "evidence hash:evidence/SenmuuuuW__universal-diagnostic-tutor-skill.LICENSE",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "evidence hash:evidence/SenmuuuuW__universal-diagnostic-tutor-skill.README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "evidence hash:evidence/source-audit-previous.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "evidence hash:evidence/sympy-parse-doc.clean.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "evidence hash:evidence/sympy__sympy.LICENSE",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "evidence hash:evidence/VikParuchuri__texify.LICENSE",
+      "passed": true,
+      "detail": ""
+    }
+  ]
+}

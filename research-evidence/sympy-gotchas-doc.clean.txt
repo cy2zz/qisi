@@ -1,0 +1,1507 @@
+﻿ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ Gotchas - SymPy 1.14.0 documentation 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ Contents 
+ 
+ 
+ 
+ 
+ 
+ Menu 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Expand 
+ 
+ 
+ 
+ 
+ 
+ Light mode 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Dark mode 
+ 
+ 
+ 
+ 
+ 
+ 
+ Auto light/dark, in light mode 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Auto light/dark, in dark mode 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ Hide navigation sidebar
+
+ 
+ 
+ Hide table of contents sidebar
+
+ 
+
+ Skip to content 
+
+
+
+ 
+ 
+ 
+ 
+ Toggle site navigation sidebar
+
+ 
+ 
+ 
+
+ 
+ SymPy 1.14.0 documentation
+ 
+ 
+
+ 
+ 
+ 
+ Toggle Light / Dark / Auto color theme
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ Toggle table of contents sidebar
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ SymPy 1.14.0 documentation 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Installation 
+
+ Tutorials Toggle navigation of Tutorials
+ 
+ Introductory Tutorial Toggle navigation of Introductory Tutorial
+ 
+ Preliminaries 
+
+ Introduction 
+
+ Gotchas 
+
+ SymPy Features Toggle navigation of SymPy Features
+ 
+ Basic Operations 
+
+ Printing 
+
+ Simplification 
+
+ Calculus 
+
+ Solvers 
+
+ Matrices 
+
+ Advanced Expression Manipulation 
+
+ 
+
+
+ What’s Next 
+
+ 
+
+
+ Physics Tutorials Toggle navigation of Physics Tutorials
+ 
+ Biomechanics Tutorials Toggle navigation of Biomechanics Tutorials
+ 
+ Biomechanical Model Example 
+
+ 
+
+
+ Mechanics Tutorials Toggle navigation of Mechanics Tutorials
+ 
+ Duffing Oscillator with a Pendulum 
+
+ A rolling disc Toggle navigation of A rolling disc
+ 
+ A rolling disc, with Kane’s method 
+
+ A rolling disc, with Kane’s method and constraint forces 
+
+ A rolling disc using Lagrange’s Method 
+
+ 
+
+
+ Multi Degree of Freedom Holonomic System 
+
+ Nonminimal Coordinates Pendulum 
+
+ A four bar linkage 
+
+ Linearized Carvallo-Whipple Bicycle Model 
+
+ 
+
+
+ Continuum Mechanics Tutorials Toggle navigation of Continuum Mechanics Tutorials
+ 
+ Solving Beam Bending Problems using Singularity Functions 
+
+ 
+
+
+ Control Tutorials Toggle navigation of Control Tutorials
+ 
+ Control Package Examples 
+
+ Electrical Problems using StateSpace 
+
+ Mechanics Problems using StateSpace 
+
+ 
+
+
+ 
+
+
+ 
+
+
+ How-to Guides Toggle navigation of How-to Guides
+ 
+ Assumptions 
+
+ Symbolic and fuzzy booleans 
+
+ Writing Custom Functions 
+
+ Physics 
+
+ Solve Equations Toggle navigation of Solve Equations
+ 
+ Solving Guidance 
+
+ Solve an Equation Algebraically 
+
+ Solve a System of Equations Algebraically 
+
+ Solve One or a System of Equations Numerically 
+
+ Solve an Ordinary Differential Equation (ODE) Algebraically 
+
+ Find the Roots of a Polynomial Algebraically or Numerically 
+
+ Solve a Matrix Equation Algebraically 
+
+ Reduce One or a System of Inequalities for a Single Variable Algebraically 
+
+ Solve a Diophantine Equation Algebraically 
+
+ 
+
+
+ SymPy Logo 
+
+ Citing SymPy 
+
+ 
+
+
+ Explanations Toggle navigation of Explanations
+ 
+ Best Practices 
+
+ Gotchas and Pitfalls 
+
+ Solve Output by Type 
+
+ Physics Toggle navigation of Physics
+ 
+ Vector Toggle navigation of Vector
+ 
+ Vector & ReferenceFrame 
+
+ Vector: Kinematics 
+
+ Scalar and Vector Field Functionality 
+
+ Potential Issues/Advanced Topics/Future Features in Physics/Vector Module 
+
+ 
+
+
+ Classical Mechanics Toggle navigation of Classical Mechanics
+ 
+ Masses, Inertias, Particles and Rigid Bodies in Physics/Mechanics 
+
+ Kane’s Method in Physics/Mechanics 
+
+ Lagrange’s Method in Physics/Mechanics 
+
+ Joints Framework in Physics/Mechanics 
+
+ Symbolic Systems in Physics/Mechanics 
+
+ Linearization in Physics/Mechanics 
+
+ References for Physics/Mechanics 
+
+ Autolev Parser 
+
+ SymPy Mechanics for Autolev Users 
+
+ Potential Issues/Advanced Topics/Future Features in Physics/Mechanics 
+
+ 
+
+
+ Biomechanics Toggle navigation of Biomechanics
+ 
+ Introduction to Biomechanical Modeling 
+
+ 
+
+
+ 
+
+
+ SymPy Special Topics Toggle navigation of SymPy Special Topics
+ 
+ Finite Difference Approximations to Derivatives 
+
+ Classification of SymPy objects 
+
+ 
+
+
+ List of active deprecations 
+
+ Glossary 
+
+ 
+
+
+ API Reference Toggle navigation of API Reference
+ 
+ Basics Toggle navigation of Basics
+ 
+ Assumptions Toggle navigation of Assumptions
+ 
+ Ask 
+
+ Assume 
+
+ Refine 
+
+ Predicates 
+
+ 
+
+
+ Calculus 
+
+ Combinatorics Toggle navigation of Combinatorics
+ 
+ Partitions 
+
+ Permutations 
+
+ Permutation Groups 
+
+ Polyhedron 
+
+ Prufer Sequences 
+
+ Subsets 
+
+ Gray Code 
+
+ Named Groups 
+
+ Galois Groups 
+
+ Number of groups 
+
+ Utilities 
+
+ Group constructors 
+
+ Test Utilities 
+
+ Tensor Canonicalization 
+
+ Finitely Presented Groups 
+
+ Polycyclic Groups 
+
+ 
+
+
+ Functions Toggle navigation of Functions
+ 
+ Elementary 
+
+ Combinatorial 
+
+ Enumeration 
+
+ Special 
+
+ 
+
+
+ Integrals Toggle navigation of Integrals
+ 
+ Computing Integrals using Meijer G-Functions 
+
+ Integrals 
+
+ 
+
+
+ Series Toggle navigation of Series
+ 
+ Series Expansions 
+
+ Sequences 
+
+ Fourier Series 
+
+ Formal Power Series 
+
+ Limits of Sequences 
+
+ 
+
+
+ Simplify Toggle navigation of Simplify
+ 
+ Simplify 
+
+ Hypergeometric Expansion 
+
+ Hongguang Fu’s Trigonometric Simplification 
+
+ 
+
+
+ Solvers Toggle navigation of Solvers
+ 
+ Diophantine 
+
+ Inequality Solvers 
+
+ ODE 
+
+ PDE 
+
+ Solvers 
+
+ Solveset 
+
+ 
+
+
+ abc 
+
+ Algebras 
+
+ Concrete 
+
+ Core 
+
+ Discrete 
+
+ Numerical Evaluation 
+
+ Numeric Computation 
+
+ Term Rewriting 
+
+ 
+
+
+ Code Generation Toggle navigation of Code Generation
+ 
+ Code Generation 
+
+ 
+
+
+ Logic Toggle navigation of Logic
+ 
+ Logic 
+
+ Sets 
+
+ 
+
+
+ Matrices Toggle navigation of Matrices
+ 
+ Matrices Toggle navigation of Matrices
+ 
+ Matrices (linear algebra) 
+
+ Matrix Kind 
+
+ Dense Matrices 
+
+ Sparse Matrices 
+
+ Sparse Tools 
+
+ Immutable Matrices 
+
+ Matrix Expressions 
+
+ Matrix Normal Forms 
+
+ 
+
+
+ Tensor Toggle navigation of Tensor
+ 
+ N-dim array 
+
+ N-dim array expressions 
+
+ Indexed Objects 
+
+ Methods 
+
+ Tensor 
+
+ Tensor Operators 
+
+ 
+
+
+ Vector Toggle navigation of Vector
+ 
+ Introduction 
+
+ Basic Implementation details 
+
+ More about Coordinate Systems 
+
+ Scalar and Vector Field Functionality 
+
+ General examples of usage 
+
+ Applications of Vector Integrals 
+
+ Vector API Toggle navigation of Vector API
+ 
+ Essential Classes in sympy.vector (docstrings) 
+
+ Orienter classes (docstrings) 
+
+ Essential Functions in sympy.vector (docstrings) 
+
+ 
+
+
+ 
+
+
+ 
+
+
+ Number Theory Toggle navigation of Number Theory
+ 
+ Number Theory 
+
+ 
+
+
+ Physics Toggle navigation of Physics
+ 
+ Physics Vector API Toggle navigation of Physics Vector API
+ 
+ Essential Classes 
+
+ Kinematics (Docstrings) 
+
+ Printing (Docstrings) 
+
+ Essential Functions (Docstrings) 
+
+ Docstrings for basic field functions 
+
+ 
+
+
+ Mechanics API Reference Toggle navigation of Mechanics API Reference
+ 
+ Bodies, Inertias, Loads & Other Functions (Docstrings) 
+
+ Kane’s Method & Lagrange’s Method (Docstrings) 
+
+ Joints Framework (Docstrings) 
+
+ System (Docstrings) 
+
+ Linearization (Docstrings) 
+
+ Expression Manipulation (Docstrings) 
+
+ Printing (Docstrings) 
+
+ Pathway (Docstrings) 
+
+ Actuator (Docstrings) 
+
+ Wrapping Geometry (Docstrings) 
+
+ Deprecated Classes (Docstrings) 
+
+ 
+
+
+ Biomechanics API Reference Toggle navigation of Biomechanics API Reference
+ 
+ Musculotendon (Docstrings) 
+
+ Activation (Docstrings) 
+
+ Curve (Docstrings) 
+
+ 
+
+
+ Control Toggle navigation of Control
+ 
+ Control 
+
+ Control API 
+
+ Control System Plots 
+
+ 
+
+
+ Optics Toggle navigation of Optics
+ 
+ Gaussian Optics 
+
+ Medium 
+
+ Polarization 
+
+ Utilities 
+
+ Waves 
+
+ 
+
+
+ Unit Systems Toggle navigation of Unit Systems
+ 
+ Philosophy behind unit systems 
+
+ More examples 
+
+ Dimensions and dimension systems 
+
+ Unit prefixes 
+
+ Units and unit systems 
+
+ Physical quantities 
+
+ 
+
+
+ Continuum Mechanics Toggle navigation of Continuum Mechanics
+ 
+ Beam (Docstrings) 
+
+ Truss (Docstrings) 
+
+ Cable (Docstrings) 
+
+ Arch (Docstrings) 
+
+ 
+
+
+ High Energy Physics 
+
+ Quantum Mechanics Toggle navigation of Quantum Mechanics
+ 
+ Anticommutator 
+
+ Clebsch-Gordan Coefficients 
+
+ Commutator 
+
+ Constants 
+
+ Dagger 
+
+ Inner Product 
+
+ Tensor Product 
+
+ Cartesian Operators and States 
+
+ Hilbert Space 
+
+ Operator 
+
+ Operator/State Helper Functions 
+
+ Qapply 
+
+ Represent 
+
+ Spin 
+
+ State 
+
+ Circuit Plot 
+
+ Gates 
+
+ Grover’s Algorithm 
+
+ QFT 
+
+ Qubit 
+
+ Shor’s Algorithm 
+
+ Particle in a Box 
+
+ 
+
+
+ Hydrogen Wavefunctions 
+
+ Matrices 
+
+ Pauli Algebra 
+
+ Quantum Harmonic Oscillator in 1-D 
+
+ Second Quantization 
+
+ Quantum Harmonic Oscillator in 3-D 
+
+ Wigner Symbols 
+
+ 
+
+
+ Utilities Toggle navigation of Utilities
+ 
+ Testing Toggle navigation of Testing
+ 
+ pytest 
+
+ Randomised Testing 
+
+ Run Tests 
+
+ 
+
+
+ Utilities Toggle navigation of Utilities
+ 
+ Autowrap Module 
+
+ Codegen 
+
+ Decorator 
+
+ Enumerative 
+
+ Exceptions and Warnings 
+
+ Iterables 
+
+ Lambdify 
+
+ Memoization 
+
+ Miscellaneous 
+
+ Source Code Inspection 
+
+ Timing Utilities 
+
+ 
+
+
+ Interactive 
+
+ Parsing 
+
+ Printing 
+
+ 
+
+
+ Topics Toggle navigation of Topics
+ 
+ Geometry Toggle navigation of Geometry
+ 
+ Entities 
+
+ Utils 
+
+ Points 
+
+ Lines 
+
+ Curves 
+
+ Ellipses 
+
+ Polygons 
+
+ Plane 
+
+ 
+
+
+ Holonomic Toggle navigation of Holonomic
+ 
+ About Holonomic Functions 
+
+ Representation of holonomic functions in SymPy 
+
+ Operations on holonomic functions 
+
+ Converting other representations to holonomic 
+
+ Uses and Current limitations 
+
+ Internal API 
+
+ 
+
+
+ Lie Algebra 
+
+ Polynomial Manipulation Toggle navigation of Polynomial Manipulation
+ 
+ Basic functionality of the module 
+
+ Examples from Wester’s Article 
+
+ Polynomials Manipulation Module Reference 
+
+ AGCA - Algebraic Geometry and Commutative Algebra Module 
+
+ Introducing the Domains of the poly module 
+
+ Reference docs for the Poly Domains 
+
+ Internals of the Polynomial Manipulation Module 
+
+ Series Manipulation using Polynomials 
+
+ Literature 
+
+ Poly solvers 
+
+ Introducing the domainmatrix of the poly module 
+
+ Number Fields 
+
+ 
+
+
+ Category Theory 
+
+ Cryptography 
+
+ Differential Geometry 
+
+ Plotting 
+
+ Stats 
+
+ 
+
+
+ 
+
+
+ Contributing Toggle navigation of Contributing
+ 
+ Introduction to Contributing 
+
+ Guide for New Contributors Toggle navigation of Guide for New Contributors
+ 
+ Setup Development Environment 
+
+ Development Workflow Process 
+
+ Writing Tests 
+
+ Building the Documentation 
+
+ 
+
+
+ Dependencies 
+
+ Debugging 
+
+ Docstrings Style Guide 
+
+ Documentation Style Guide 
+
+ Deprecation Policy 
+
+ 
+
+
+ 
+
+
+ 
+ 
+ Documentation Version
+
+
+
+
+ 
+
+
+
+ 
+
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Back to top 
+ 
+ 
+ 
+ 
+ 
+ View this page 
+ 
+
+
+ 
+ 
+ Toggle Light / Dark / Auto color theme
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ Toggle table of contents sidebar
+
+ 
+ 
+ 
+
+ 
+ 
+ Gotchas ¶ 
+
+ To begin, we should make something about SymPy clear. SymPy is nothing more
+than a Python library, like NumPy , Django , or even modules in the
+Python standard library sys or re . What this means is that SymPy does
+not add anything to the Python language. Limitations that are inherent in the
+Python language are also inherent in SymPy. It also means that SymPy tries to
+use Python idioms whenever possible, making programming with SymPy easy for
+those already familiar with programming with Python. As a simple example,
+SymPy uses Python syntax to build expressions. Implicit multiplication (like
+ 3x or 3 x ) is not allowed in Python, and thus not allowed in SymPy.
+To multiply 3 and x , you must type 3*x with the * .
+
+ 
+ Symbols ¶ 
+
+ One consequence of this fact is that SymPy can be used in any environment
+where Python is available. We just import it, like we would any other
+library:
+
+ >>> from sympy import * 
+ 
+
+
+
+ This imports all the functions and classes from SymPy into our interactive
+Python session. Now, suppose we start to do a computation.
+
+ >>> x + 1 
+ Traceback (most recent call last): 
+ ... 
+ NameError : name 'x' is not defined 
+ 
+
+
+
+ Oops! What happened here? We tried to use the variable x , but it tells us
+that x is not defined. In Python, variables have no meaning until they
+are defined. SymPy is no different. Unlike many symbolic manipulation
+systems you may have used, in SymPy, variables are not defined automatically.
+To define variables, we must use symbols .
+
+ >>> x = symbols ( 'x' ) 
+ >>> x + 1 
+ x + 1 
+ 
+
+
+
+ symbols takes a string of variable names separated by spaces or commas,
+and creates Symbols out of them. We can then assign these to variable names.
+Later, we will investigate some convenient ways we can work around this issue.
+For now, let us just define the most common variable names, x , y , and
+ z , for use through the rest of this section
+
+ >>> x , y , z = symbols ( 'x y z' ) 
+ 
+
+
+
+ As a final note, we note that the name of a Symbol and the name of the
+variable it is assigned to need not have anything to do with one another.
+
+ >>> a , b = symbols ( 'b a' ) 
+ >>> a 
+ b 
+ >>> b 
+ a 
+ 
+
+
+
+ Here we have done the very confusing thing of assigning a Symbol with the name
+ a to the variable b , and a Symbol of the name b to the variable
+ a . Now the Python variable named a points to the SymPy Symbol named
+ b , and vice versa. How confusing. We could have also done something like
+
+ >>> crazy = symbols ( 'unrelated' ) 
+ >>> crazy + 1 
+ unrelated + 1 
+ 
+
+
+
+ This also shows that Symbols can have names longer than one character if we
+want.
+
+ Usually, the best practice is to assign Symbols to Python variables of the
+same name, although there are exceptions: Symbol names can contain characters
+that are not allowed in Python variable names, or may just want to avoid
+typing long names by assigning Symbols with long names to single letter Python
+variables.
+
+ To avoid confusion, throughout this tutorial, Symbol names and Python variable
+names will always coincide. Furthermore, the word “Symbol” will refer to a
+SymPy Symbol and the word “variable” will refer to a Python variable.
+
+ Finally, let us be sure we understand the difference between SymPy Symbols and
+Python variables. Consider the following:
+
+ x = symbols ( 'x' ) 
+ expr = x + 1 
+ x = 2 
+ print ( expr ) 
+ 
+
+
+
+ What do you think the output of this code will be? If you thought 3 ,
+you’re wrong. Let’s see what really happens
+
+ >>> x = symbols ( 'x' ) 
+ >>> expr = x + 1 
+ >>> x = 2 
+ >>> print ( expr ) 
+ x + 1 
+ 
+
+
+
+ Changing x to 2 had no effect on expr . This is because x = 2 
+changes the Python variable x to 2 , but has no effect on the SymPy
+Symbol x , which was what we used in creating expr . When we created
+ expr , the Python variable x was a Symbol. After we created, it, we
+changed the Python variable x to 2. But expr remains the same. This
+behavior is not unique to SymPy. All Python programs work this way: if a
+variable is changed, expressions that were already created with that variable
+do not change automatically. For example
+
+ >>> x = 'abc' 
+ >>> expr = x + 'def' 
+ >>> expr 
+ 'abcdef' 
+ >>> x = 'ABC' 
+ >>> expr 
+ 'abcdef' 
+ 
+
+
+
+ 
+ Quick Tip
+
+ To change the value of a Symbol in an expression, use subs 
+
+ >>> x = symbols ( 'x' ) 
+ >>> expr = x + 1 
+ >>> expr . subs ( x , 2 ) 
+ 3 
+ 
+
+
+
+ 
+ In this example, if we want to know what expr is with the new value of
+ x , we need to reevaluate the code that created expr , namely, expr = 
+ x + 1 . This can be complicated if several lines created expr . One
+advantage of using a symbolic computation system like SymPy is that we can
+build a symbolic representation for expr , and then substitute x with
+values. The correct way to do this in SymPy is to use subs , which will be
+discussed in more detail later.
+
+ >>> x = symbols ( 'x' ) 
+ >>> expr = x + 1 
+ >>> expr . subs ( x , 2 ) 
+ 3 
+ 
+
+
+
+
+
+ 
+ Equals signs ¶ 
+
+ Another very important consequence of the fact that SymPy does not extend
+Python syntax is that = does not represent equality in SymPy. Rather it
+is Python variable assignment. This is hard-coded into the Python language,
+and SymPy makes no attempts to change that.
+
+ You may think, however, that == , which is used for equality testing in
+Python, is used for SymPy as equality. This is not quite correct either. Let
+us see what happens when we use == .
+
+ >>> x + 1 == 4 
+ False 
+ 
+
+
+
+ Instead of treating x + 1 == 4 symbolically, we just got False . In
+SymPy, == represents exact structural equality testing. This means that
+ a == b means that we are asking if \(a = b\) . We always get a bool as
+the result of == . There is a separate object, called Eq , which can be
+used to create symbolic equalities
+
+ >>> Eq ( x + 1 , 4 ) 
+ Eq(x + 1, 4) 
+ 
+
+
+
+ There is one additional caveat about == as well. Suppose we want to know
+if \((x + 1)^2 = x^2 + 2x + 1\) . We might try something like this:
+
+ >>> ( x + 1 ) ** 2 == x ** 2 + 2 * x + 1 
+ False 
+ 
+
+
+
+ We got False again. However, \((x + 1)^2\) does equal \(x^2 + 2x + 1\) . What
+is going on here? Did we find a bug in SymPy, or is it just not powerful
+enough to recognize this basic algebraic fact?
+
+ Recall from above that == represents exact structural equality testing.
+“Exact” here means that two expressions will compare equal with == only if
+they are exactly equal structurally. Here, \((x + 1)^2\) and \(x^2 + 2x + 1\) are
+not the same structurally. One is the power of an addition of two terms, and
+the other is the addition of three terms.
+
+ It turns out that when using SymPy as a library, having == test for exact
+structural equality is far more useful than having it represent symbolic
+equality, or having it test for mathematical equality. However, as a new
+user, you will probably care more about the latter two. We have already seen
+an alternative to representing equalities symbolically, Eq . To test if
+two things are equal, it is best to recall the basic fact that if \(a = b\) ,
+then \(a - b = 0\) . Thus, the best way to check if \(a = b\) is to take \(a - b\) 
+and simplify it, and see if it goes to 0. We will learn later that the function to do this is called simplify . This
+method is not infallible—in fact, it can be theoretically proven that it is impossible
+to determine if two symbolic expressions are identically equal in
+general—but for most common expressions, it works quite well.
+
+ >>> a = ( x + 1 ) ** 2 
+ >>> b = x ** 2 + 2 * x + 1 
+ >>> simplify ( a - b ) 
+ 0 
+ >>> c = x ** 2 - 2 * x + 1 
+ >>> simplify ( a - c ) 
+ 4*x 
+ 
+
+
+
+ There is also a method called equals that tests if two expressions are
+equal by evaluating them numerically at random points.
+
+ >>> a = cos ( x ) ** 2 - sin ( x ) ** 2 
+ >>> b = cos ( 2 * x ) 
+ >>> a . equals ( b ) 
+ True 
+ 
+
+
+
+
+
+ 
+ Two Final Notes: ^ and / ¶ 
+
+ You may have noticed that we have been using ** for exponentiation instead
+of the standard ^ . That’s because SymPy follows Python’s conventions. In
+Python, ^ represents logical exclusive or. SymPy follows this convention:
+
+ >>> True ^ False 
+ True 
+ >>> True ^ True 
+ False 
+ >>> Xor ( x , y ) 
+ x ^ y 
+ 
+
+
+
+ Finally, a small technical discussion on how SymPy works is in order. When
+you type something like x + 1 , the SymPy Symbol x is added to the
+Python int 1 . Python’s operator rules then allow SymPy to tell Python
+that SymPy objects know how to be added to Python ints, and so 1 is
+automatically converted to the SymPy Integer object.
+
+ This sort of operator magic happens automatically behind the scenes, and you
+rarely need to even know that it is happening. However, there is one
+exception. Whenever you combine a SymPy object and a SymPy object, or a SymPy
+object and a Python object, you get a SymPy object, but whenever you combine
+two Python objects, SymPy never comes into play, and so you get a Python
+object.
+
+ >>> type ( Integer ( 1 ) + 1 ) 
+ <class 'sympy.core.numbers.Integer'> 
+ >>> type ( 1 + 1 ) 
+ <... 'int'> 
+ 
+
+
+
+ This is usually not a big deal. Python ints work much the same as SymPy
+Integers, but there is one important exception: division. In SymPy, the
+division of two Integers gives a Rational (which is similar to Python’s Fraction ):
+
+ >>> Integer ( 1 ) / Integer ( 3 ) 
+ 1/3 
+ >>> type ( Integer ( 1 ) / Integer ( 3 )) 
+ <class 'sympy.core.numbers.Rational'> 
+ 
+
+
+
+ But in Python 3 / represents floating point division:
+
+ >>> 1 / 2 
+ 0.5 
+ 
+
+
+
+ To avoid this, we can construct the rational object explicitly
+
+ >>> Rational ( 1 , 2 ) 
+ 1/2 
+ 
+
+
+
+ This problem also comes up whenever we have a larger symbolic expression with
+ int/int in it. For example:
+
+ >>> x + 1 / 2 
+ x + 0.5 
+ 
+
+
+
+ This happens because Python first evaluates 1/2 into 0.5 , and then
+that is cast into a SymPy type when it is added to x . Again, we can get
+around this by explicitly creating a Rational:
+
+ >>> x + Rational ( 1 , 2 ) 
+ x + 1/2 
+ 
+
+
+
+ There are several tips on avoiding this situation in the Gotchas and Pitfalls 
+document.
+
+
+
+ 
+ Further Reading ¶ 
+
+ For more discussion on the topics covered in this section, see Gotchas and Pitfalls .
+
+
+
+
+
+
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ Next 
+ 
+
+ SymPy Features
+
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ Previous 
+ 
+
+ 
+ Introduction
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+ 
+ Copyright © 2025 SymPy Development Team
+ 
+
+ Made with Sphinx and @pradyunsg 's
+ 
+ Furo 
+ 
+ Last updated on Apr 27, 2025
+
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ On this page
+ 
+ 
+
+ 
+ 
+ 
+ Gotchas 
+ Symbols 
+
+ Equals signs 
+
+ Two Final Notes: ^ and / 
+
+ Further Reading 
+
+ 
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

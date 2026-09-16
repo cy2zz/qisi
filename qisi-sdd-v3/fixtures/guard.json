@@ -1,0 +1,8 @@
+{
+  "verdict": "accept",
+  "math_note": "问句不引入错误结论",
+  "disclosure_note": "尚未告知导数符号",
+  "actual_disclosed_ids": [],
+  "whole_task_disclosed": false,
+  "issues": []
+}

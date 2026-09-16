@@ -1,0 +1,28 @@
+{
+  "baseline": "qisi-3.0",
+  "status": "publication_tracked_externally",
+  "status_scope": "immutable_package_publication_targets_not_live_status",
+  "documents": [
+    {
+      "key": "design",
+      "doc_id": "a3ceafa9c4ac4a1ebab7ebd04068a9c2",
+      "target_title": "启思｜多Agent数学思维老师设计方案 V6",
+      "url": "https://docs.popo.netease.com/lingxi/a3ceafa9c4ac4a1ebab7ebd04068a9c2"
+    },
+    {
+      "key": "plan",
+      "doc_id": "98264ae3b38941a5aaf1b62e59abc31c",
+      "target_title": "启思｜双人约十天开发规划 V3",
+      "url": "https://docs.popo.netease.com/lingxi/98264ae3b38941a5aaf1b62e59abc31c"
+    },
+    {
+      "key": "prd",
+      "doc_id": "0de4566fcbef4f9ebd7f9e474cf4b718",
+      "target_title": "启思｜多Agent Web SDD PRD V3",
+      "url": "https://docs.popo.netease.com/lingxi/0de4566fcbef4f9ebd7f9e474cf4b718"
+    }
+  ],
+  "live_status_record": "publication/live-publication-status.json (publisher workspace; not included in immutable ZIP)",
+  "verification_record": "publication/publication-verification.json (publisher workspace; not included in immutable ZIP)",
+  "note": "本文件定义发布目标，不宣称线上已更新。实际发布结果以发布工作区逐文档回读记录和最终交付说明为准；包内manifest只校验该次打包的固定内容。"
+}

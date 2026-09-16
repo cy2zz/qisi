@@ -1,0 +1,280 @@
+{
+  "problem_id": "self-001",
+  "problem_hash": "cee947d7030457680c210cb0b667d568dca527bc97513ca2ea50f41cb6120702",
+  "version": "self-packet-v3",
+  "reference_md": "f′(x)=1-1/x²；(0,1)递减，(1,+∞)递增；x=1最小2。均值不等式可求最值，但仍需单独证明单调性。",
+  "reference_source": "自拟代数推导",
+  "decisions": [
+    {
+      "id": "d1",
+      "goal_key": "self-001:d1",
+      "goal": "正确求导",
+      "part_id": "part1",
+      "parent_goal_key": null,
+      "source": "teacher",
+      "prerequisite_ids": [],
+      "entry_condition": "题干与输入已确认",
+      "expected_artifact": "正确求导",
+      "acceptance_rule": "说明依据与成立条件；允许有效异解",
+      "common_gaps": [
+        "concept",
+        "execution",
+        "strategy"
+      ]
+    },
+    {
+      "id": "d2",
+      "goal_key": "self-001:d2",
+      "goal": "导数符号与单调性连接",
+      "part_id": "part1",
+      "parent_goal_key": null,
+      "source": "teacher",
+      "prerequisite_ids": [
+        "d1"
+      ],
+      "entry_condition": "题干与输入已确认",
+      "expected_artifact": "导数符号与单调性连接",
+      "acceptance_rule": "说明依据与成立条件；允许有效异解",
+      "common_gaps": [
+        "concept",
+        "execution",
+        "strategy"
+      ]
+    },
+    {
+      "id": "d3",
+      "goal_key": "self-001:d3",
+      "goal": "从单调性得最小值并检查取等",
+      "part_id": "part1",
+      "parent_goal_key": null,
+      "source": "teacher",
+      "prerequisite_ids": [
+        "d2"
+      ],
+      "entry_condition": "题干与输入已确认",
+      "expected_artifact": "从单调性得最小值并检查取等",
+      "acceptance_rule": "说明依据与成立条件；允许有效异解",
+      "common_gaps": [
+        "concept",
+        "execution",
+        "strategy"
+      ]
+    },
+    {
+      "id": "d4",
+      "goal_key": "self-001:d4",
+      "goal": "用AM–GM求最小值并检查条件",
+      "part_id": "part1",
+      "parent_goal_key": null,
+      "source": "teacher",
+      "prerequisite_ids": [],
+      "entry_condition": "题干与输入已确认",
+      "expected_artifact": "用AM–GM求最小值并检查条件",
+      "acceptance_rule": "说明依据与成立条件；允许有效异解",
+      "common_gaps": [
+        "concept",
+        "execution",
+        "strategy"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "derivative",
+      "source": "teacher",
+      "decision_ids": [
+        "d1",
+        "d2",
+        "d3"
+      ],
+      "terminal_ids": [
+        "d3"
+      ],
+      "math_status": "valid",
+      "evidence_refs": [],
+      "note": "已列路线不排斥其他有效方法"
+    },
+    {
+      "id": "alternative",
+      "source": "teacher",
+      "decision_ids": [
+        "d1",
+        "d2",
+        "d4"
+      ],
+      "terminal_ids": [
+        "d4"
+      ],
+      "math_status": "valid",
+      "evidence_refs": [],
+      "note": "已列路线不排斥其他有效方法"
+    }
+  ],
+  "verification": [
+    {
+      "kind": "deterministic_check",
+      "reviewer_or_model": "规格作者代数核对，非应用测试/真人审题认证",
+      "reference": "自拟开发夹具",
+      "summary": "定义域x>0；最小值2，x=1取等",
+      "status": "pass",
+      "checked_at": "2026-09-15T00:00:00Z"
+    }
+  ],
+  "blocking_issues": [],
+  "ready": true,
+  "check_tasks": [
+    {
+      "id": "self-check-001",
+      "source_problem_id": "self-001",
+      "content_hash": "a8791310f8cf83fc9b7ab7f7478b985950b4b2317372346f02e7da69deabcf10",
+      "equivalence_group": "area-rectangle-perimeter",
+      "relation": "near_transfer",
+      "prompt_md": "面积为9的矩形，怎样使周长最小？先写计划。",
+      "reference_md": "P=2(x+9/x)>=12，x=3取等。",
+      "planning_rubric": "能自主建立问题表示并选择适用方法，不强制参考路线。",
+      "execution_rubric": "推理有依据、条件成立、结论及取等/边界正确。",
+      "decisions": [
+        {
+          "id": "c1",
+          "goal_key": "check1:c1",
+          "goal": "建立面积约束和周长表达式",
+          "part_id": "part1",
+          "parent_goal_key": null,
+          "source": "teacher",
+          "prerequisite_ids": [],
+          "entry_condition": "题干与输入已确认",
+          "expected_artifact": "建立面积约束和周长表达式",
+          "acceptance_rule": "说明依据与成立条件；允许有效异解",
+          "common_gaps": [
+            "concept",
+            "execution",
+            "strategy"
+          ]
+        },
+        {
+          "id": "c2",
+          "goal_key": "check1:c2",
+          "goal": "执行最优化并检查取等",
+          "part_id": "part1",
+          "parent_goal_key": null,
+          "source": "teacher",
+          "prerequisite_ids": [
+            "c1"
+          ],
+          "entry_condition": "题干与输入已确认",
+          "expected_artifact": "执行最优化并检查取等",
+          "acceptance_rule": "说明依据与成立条件；允许有效异解",
+          "common_gaps": [
+            "concept",
+            "execution",
+            "strategy"
+          ]
+        }
+      ],
+      "routes": [
+        {
+          "id": "self-check-001:r",
+          "source": "teacher",
+          "decision_ids": [
+            "c1",
+            "c2"
+          ],
+          "terminal_ids": [
+            "c2"
+          ],
+          "math_status": "valid",
+          "evidence_refs": [],
+          "note": "已列路线不排斥其他有效方法"
+        }
+      ],
+      "verification": [
+        {
+          "kind": "deterministic_check",
+          "reviewer_or_model": "规格作者代数核对，非应用测试/真人审题认证",
+          "reference": "自拟开发夹具",
+          "summary": "P=2(x+9/x)>=12，x=3取等。",
+          "status": "pass",
+          "checked_at": "2026-09-15T00:00:00Z"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "id": "self-check-002",
+      "source_problem_id": "self-001",
+      "content_hash": "702915899eda2b83bc2b8aa1456183b7610ece5647ce165ce12f438511031691",
+      "equivalence_group": "quadratic-bounded-height",
+      "relation": "near_transfer",
+      "prompt_md": "某物体高度h(t)=-t²+6t，0≤t≤6。何时最高，最高多少？先写计划。",
+      "reference_md": "h′(t)=6-2t，先增后减；t=3最高9，端点为0。",
+      "planning_rubric": "能自主建立问题表示并选择适用方法，不强制参考路线。",
+      "execution_rubric": "推理有依据、条件成立、结论及取等/边界正确。",
+      "decisions": [
+        {
+          "id": "e1",
+          "goal_key": "check2:e1",
+          "goal": "选择方法并检查时间区间",
+          "part_id": "part1",
+          "parent_goal_key": null,
+          "source": "teacher",
+          "prerequisite_ids": [],
+          "entry_condition": "题干与输入已确认",
+          "expected_artifact": "选择方法并检查时间区间",
+          "acceptance_rule": "说明依据与成立条件；允许有效异解",
+          "common_gaps": [
+            "concept",
+            "execution",
+            "strategy"
+          ]
+        },
+        {
+          "id": "e2",
+          "goal_key": "check2:e2",
+          "goal": "用符号或配方求最高点并检查端点",
+          "part_id": "part1",
+          "parent_goal_key": null,
+          "source": "teacher",
+          "prerequisite_ids": [
+            "e1"
+          ],
+          "entry_condition": "题干与输入已确认",
+          "expected_artifact": "用符号或配方求最高点并检查端点",
+          "acceptance_rule": "说明依据与成立条件；允许有效异解",
+          "common_gaps": [
+            "concept",
+            "execution",
+            "strategy"
+          ]
+        }
+      ],
+      "routes": [
+        {
+          "id": "self-check-002:r",
+          "source": "teacher",
+          "decision_ids": [
+            "e1",
+            "e2"
+          ],
+          "terminal_ids": [
+            "e2"
+          ],
+          "math_status": "valid",
+          "evidence_refs": [],
+          "note": "已列路线不排斥其他有效方法"
+        }
+      ],
+      "verification": [
+        {
+          "kind": "deterministic_check",
+          "reviewer_or_model": "规格作者代数核对，非应用测试/真人审题认证",
+          "reference": "自拟开发夹具",
+          "summary": "h′(t)=6-2t，先增后减；t=3最高9，端点为0。",
+          "status": "pass",
+          "checked_at": "2026-09-15T00:00:00Z"
+        }
+      ],
+      "verified": true
+    }
+  ],
+  "coverage_note": "两项自拟检验的难度不同，只用于契约流程；不可作为等难度研究工具。"
+}

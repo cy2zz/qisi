@@ -1,0 +1,80 @@
+{
+  "task": {
+    "id": "self-check-001",
+    "source_problem_id": "self-001",
+    "content_hash": "a8791310f8cf83fc9b7ab7f7478b985950b4b2317372346f02e7da69deabcf10",
+    "equivalence_group": "area-rectangle-perimeter",
+    "relation": "near_transfer",
+    "prompt_md": "面积为9的矩形，怎样使周长最小？先写计划。",
+    "reference_md": "P=2(x+9/x)>=12，x=3取等。",
+    "planning_rubric": "能自主建立问题表示并选择适用方法，不强制参考路线。",
+    "execution_rubric": "推理有依据、条件成立、结论及取等/边界正确。",
+    "decisions": [
+      {
+        "id": "c1",
+        "goal_key": "check1:c1",
+        "goal": "建立面积约束和周长表达式",
+        "part_id": "part1",
+        "parent_goal_key": null,
+        "source": "teacher",
+        "prerequisite_ids": [],
+        "entry_condition": "题干与输入已确认",
+        "expected_artifact": "建立面积约束和周长表达式",
+        "acceptance_rule": "说明依据与成立条件；允许有效异解",
+        "common_gaps": [
+          "concept",
+          "execution",
+          "strategy"
+        ]
+      },
+      {
+        "id": "c2",
+        "goal_key": "check1:c2",
+        "goal": "执行最优化并检查取等",
+        "part_id": "part1",
+        "parent_goal_key": null,
+        "source": "teacher",
+        "prerequisite_ids": [
+          "c1"
+        ],
+        "entry_condition": "题干与输入已确认",
+        "expected_artifact": "执行最优化并检查取等",
+        "acceptance_rule": "说明依据与成立条件；允许有效异解",
+        "common_gaps": [
+          "concept",
+          "execution",
+          "strategy"
+        ]
+      }
+    ],
+    "routes": [
+      {
+        "id": "self-check-001:r",
+        "source": "teacher",
+        "decision_ids": [
+          "c1",
+          "c2"
+        ],
+        "terminal_ids": [
+          "c2"
+        ],
+        "math_status": "valid",
+        "evidence_refs": [],
+        "note": "已列路线不排斥其他有效方法"
+      }
+    ],
+    "verification": [
+      {
+        "kind": "deterministic_check",
+        "reviewer_or_model": "规格作者代数核对，非应用测试/真人审题认证",
+        "reference": "自拟开发夹具",
+        "summary": "P=2(x+9/x)>=12，x=3取等。",
+        "status": "pass",
+        "checked_at": "2026-09-15T00:00:00Z"
+      }
+    ],
+    "verified": true
+  },
+  "locked_plan_md": "设边长x，另一边9/x，最小化2(x+9/x)。",
+  "final_answer_md": "x=3，周长6。"
+}

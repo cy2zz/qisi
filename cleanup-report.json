@@ -1,0 +1,2542 @@
+{
+  "date": "2026-09-16",
+  "workspace": "D:\\math",
+  "status": "completed",
+  "application_implemented": false,
+  "before": {
+    "files": 533,
+    "bytes": 13520633
+  },
+  "protected_files": [
+    {
+      "path": "qisi-sdd-v3/acceptance/cases.json",
+      "bytes": 25534,
+      "sha256": "c8052a06ae996c35fc2ae6df21da94aa96b9ac2c6bf668dcee36bb5aa3ce30b4"
+    },
+    {
+      "path": "qisi-sdd-v3/acceptance/evaluation-protocol.md",
+      "bytes": 6983,
+      "sha256": "f24408cac51937cdb7eb4675ae730d23c062cd1e990a96a58bb6f8e3c1b32b95"
+    },
+    {
+      "path": "qisi-sdd-v3/acceptance/result-template.json",
+      "bytes": 438,
+      "sha256": "52314a3a9b686f75d1f8631bf7e972d543ad2d49a8b1396341c7508baa94a40e"
+    },
+    {
+      "path": "qisi-sdd-v3/acceptance/role-cases.json",
+      "bytes": 1157,
+      "sha256": "14bc74e5203ce3a8e2fb07aaeea0e19b9c69a532ebd3da058b12aaf4a65a0b9e"
+    },
+    {
+      "path": "qisi-sdd-v3/AGENTS.md",
+      "bytes": 3821,
+      "sha256": "8be3fec81ae4882c32e33ed773faa5f4f025bf2c360e3be127946cadd227431b"
+    },
+    {
+      "path": "qisi-sdd-v3/changes/template.md",
+      "bytes": 274,
+      "sha256": "02e590c4168173731eabf18e34f98aeb061c44f13249887caf24031e2ff7e7b4"
+    },
+    {
+      "path": "qisi-sdd-v3/contracts/agents.json",
+      "bytes": 2725,
+      "sha256": "62ef93c210c58e091787eba2cab78f9aebfb3c7e93afecfec977ea2b1541df66"
+    },
+    {
+      "path": "qisi-sdd-v3/contracts/database.sql",
+      "bytes": 4823,
+      "sha256": "2275ae6b7f05ea1fe86d481c39563d1f4a208744491324cc6957fb74b7ace69f"
+    },
+    {
+      "path": "qisi-sdd-v3/contracts/domain.schema.json",
+      "bytes": 66854,
+      "sha256": "8956791c7a1b2e54a2a4941c86aa491a81bd77c455235e5c7cb01346dd13118a"
+    },
+    {
+      "path": "qisi-sdd-v3/contracts/ports.ts",
+      "bytes": 1544,
+      "sha256": "9e5cd58465bb5eeaeaeb63557886f59b94f05e74c4e962af0d5b363d591ac8b4"
+    },
+    {
+      "path": "qisi-sdd-v3/contracts/README.md",
+      "bytes": 16906,
+      "sha256": "e74377b0f7011f80a3bb892e6e558893c5f8683a96637f42ed42f2010d416153"
+    },
+    {
+      "path": "qisi-sdd-v3/contracts/server-functions.json",
+      "bytes": 3946,
+      "sha256": "cc74f371b11e4c430f55a8eada607735ccd05499b58fdabf25773371ba230ae6"
+    },
+    {
+      "path": "qisi-sdd-v3/contracts/state-transitions.json",
+      "bytes": 2286,
+      "sha256": "d6f3485be3a4a2de5d1d9218746ed725d417f9fa62bb7e2e512b28754f1d8d1c"
+    },
+    {
+      "path": "qisi-sdd-v3/contracts/vision-output.schema.json",
+      "bytes": 793,
+      "sha256": "f757fa01ac9ed43fa4044a22a021ece59d2e9e0db9df0f5f1baef25becb82687"
+    },
+    {
+      "path": "qisi-sdd-v3/design-v6.md",
+      "bytes": 17349,
+      "sha256": "2888e52b144c9d8d3cfaa508213981b1b3e123020e8c28b112a6bb6adaf94863"
+    },
+    {
+      "path": "qisi-sdd-v3/env.example",
+      "bytes": 621,
+      "sha256": "fa2a6a808e67ba42e9d683e502de11b50410ded289b896492bf946851f61cd2b"
+    },
+    {
+      "path": "qisi-sdd-v3/evidence/alephpi__Texo-web.LICENSE",
+      "bytes": 34523,
+      "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
+    },
+    {
+      "path": "qisi-sdd-v3/evidence/alephpi__Texo.LICENSE",
+      "bytes": 34522,
+      "sha256": "d93c43da4bf2cf05e758c63966c45345a791da9daeb2f475d0d80a48e67b311b"
+    },
+    {
+      "path": "qisi-sdd-v3/evidence/breezedeus__Pix2Text.LICENSE",
+      "bytes": 1067,
+      "sha256": "416a9f7130fa7f1800ab3d766e3e9535a8e8951eee7abbffd2974b8e9947e47b"
+    },
+    {
+      "path": "qisi-sdd-v3/evidence/breezedeus__Pix2Text.README.md",
+      "bytes": 14601,
+      "sha256": "54874132c39e7bf06ffa5876b1c5b7a3aada19ec60db42e592551bee65df57e1"
+    },
+    {
+      "path": "qisi-sdd-v3/evidence/KaTeX__KaTeX.LICENSE",
+      "bytes": 1107,
+      "sha256": "766ccc1f306c885aa45542a9846bbd0a505b27a0374f146778171c2254ce18e3"
+    },
+    {
+      "path": "qisi-sdd-v3/evidence/KaTeX__KaTeX.README.md",
+      "bytes": 6503,
+      "sha256": "af0825b95cb4c43317bc3864f0a5d183c247fa7d40b7e1142ad26cf7a18b83a8"
+    },
+    {
+      "path": "qisi-sdd-v3/evidence/manifest.json",
+      "bytes": 3746,
+      "sha256": "33ca64c86f949ac303928d3378da6b8e11e510088567db21294800a024ff85d8"
+    },
+    {
+      "path": "qisi-sdd-v3/evidence/pix2text-model-card.txt",
+      "bytes": 9258,
+      "sha256": "f9e8f66ad98e223df8e333d27b8430e20064ea427cc94feee495329906ee21e3"
+    },
+    {
+      "path": "qisi-sdd-v3/evidence/react-markdown-license.txt",
+      "bytes": 1079,
+      "sha256": "f6196c64e144f9a6fa9154c3a80bc8b89615a9567934b83a8951879f06ba2aef"
+    },
+    {
+      "path": "qisi-sdd-v3/evidence/react-markdown-readme.txt",
+      "bytes": 26506,
+      "sha256": "e2f4fcd57c9ac4cd26d1a0706ae98cf8233b7e323ddc79bce662ff4d3b7e1d9c"
+    },
+    {
+      "path": "qisi-sdd-v3/evidence/repo-snapshots.json",
+      "bytes": 14183,
+      "sha256": "88eca57de6de9f0c8e514a67cec4448d4c53150b735a21b4aa23dac846707c74"
+    },
+    {
+      "path": "qisi-sdd-v3/evidence/RunzheYang__SocraticAI.LICENSE",
+      "bytes": 1068,
+      "sha256": "dba4fda92640a52745224f64f8473c18188c8080f48ec3aef0bcf575dbd69cc3"
+    },
+    {
+      "path": "qisi-sdd-v3/evidence/RunzheYang__SocraticAI.README.md",
+      "bytes": 2781,
+      "sha256": "571f761fe63b88fd72b747d946149c3f3590257c36b3f185e39184f3ed526a0b"
+    },
+    {
+      "path": "qisi-sdd-v3/evidence/SenmuuuuW__universal-diagnostic-tutor-skill.LICENSE",
+      "bytes": 1102,
+      "sha256": "a9ca00bcc7a56530a43eeedae4769303f70aef1b9f408594572c39aeb5c3bf84"
+    },
+    {
+      "path": "qisi-sdd-v3/evidence/SenmuuuuW__universal-diagnostic-tutor-skill.README.md",
+      "bytes": 9029,
+      "sha256": "138a6a0a9952d8b5e127bb484f0b921c1d4fef3c19f29fe03baec7c372453e90"
+    },
+    {
+      "path": "qisi-sdd-v3/evidence/source-audit-previous.md",
+      "bytes": 14919,
+      "sha256": "22e3614a24494dd3bb305830c7602fbe941c1ddb390988a94508a7c4194a93b2"
+    },
+    {
+      "path": "qisi-sdd-v3/evidence/sympy-parse-doc.clean.txt",
+      "bytes": 43419,
+      "sha256": "9909a6d77c6ad1ff54fc756d4b7dba0aa27f738ab93931f743d450f15e989853"
+    },
+    {
+      "path": "qisi-sdd-v3/evidence/sympy__sympy.LICENSE",
+      "bytes": 7885,
+      "sha256": "07a5e9819f727b4986ad2829c7a29a6320d42575f720eb24d71b7fef573a0286"
+    },
+    {
+      "path": "qisi-sdd-v3/evidence/VikParuchuri__texify.LICENSE",
+      "bytes": 35091,
+      "sha256": "4b4402403c3f80cd96adda842556965595b94ecc0590caa72fdafce194d7a3e2"
+    },
+    {
+      "path": "qisi-sdd-v3/fixtures/assessment-input.json",
+      "bytes": 2626,
+      "sha256": "e48803cc1bd9c9ff1c6f66f76bf1840bc9b9bfb5b8e8477c71d71b60fd4e1ea8"
+    },
+    {
+      "path": "qisi-sdd-v3/fixtures/assessment-output.json",
+      "bytes": 316,
+      "sha256": "f7bb03b5941eeef57983805d1f31192b7f6b0c4559b7f1ac26824d66375758c3"
+    },
+    {
+      "path": "qisi-sdd-v3/fixtures/branch-cases.json",
+      "bytes": 5445,
+      "sha256": "8550270e046357c92bccfadca21866e92ebe1585c58154be9f979cf0e57c584a"
+    },
+    {
+      "path": "qisi-sdd-v3/fixtures/check-attempt.json",
+      "bytes": 927,
+      "sha256": "9202f848488abc9c3ffca0d7a4ab731b3fb9d0d4ec3a8da54f135bc00b02ed61"
+    },
+    {
+      "path": "qisi-sdd-v3/fixtures/diagnosis-input.json",
+      "bytes": 3458,
+      "sha256": "7f4fdccb6af26384761d63926a209115718003ccda413297ffdc71e03521e9b8"
+    },
+    {
+      "path": "qisi-sdd-v3/fixtures/diagnosis.json",
+      "bytes": 1716,
+      "sha256": "138657dca998c83a3e6ec2c3876f4e56f2699014ffa4a41ec78a5f30152d50a9"
+    },
+    {
+      "path": "qisi-sdd-v3/fixtures/guard.json",
+      "bytes": 208,
+      "sha256": "9564b5bc821f172202353b194f928c7358064c563f0bad038e07674d8506f775"
+    },
+    {
+      "path": "qisi-sdd-v3/fixtures/index.json",
+      "bytes": 1133,
+      "sha256": "9460429aa3417590776225d55461805bee484679532fd55ce46987f0aec0e533"
+    },
+    {
+      "path": "qisi-sdd-v3/fixtures/negative-cases.json",
+      "bytes": 4385,
+      "sha256": "46f86e368ea8234fa1bac3d8f652cad5d1f8b82fe26c4e9c46fce324faa07423"
+    },
+    {
+      "path": "qisi-sdd-v3/fixtures/packet.json",
+      "bytes": 9089,
+      "sha256": "2dd4d9b581a119aeacae5f895c949ab66ac8f1e40532f9fb6a18b5c5e3614578"
+    },
+    {
+      "path": "qisi-sdd-v3/fixtures/problem.json",
+      "bytes": 412,
+      "sha256": "a9151937665a20b18b82f53d08e06d0fc3937d1287310af196b2a859fb049616"
+    },
+    {
+      "path": "qisi-sdd-v3/fixtures/renderer-input.json",
+      "bytes": 408,
+      "sha256": "a0ad0e9a49d32d54a96a91c04c7c3e31e0f2c856cb285362f4f24b77ca700f33"
+    },
+    {
+      "path": "qisi-sdd-v3/fixtures/report.json",
+      "bytes": 765,
+      "sha256": "8e35723e4a0e6e7c3d1eec10678f68cf7365db8d82af3f45cec6b49a703ab677"
+    },
+    {
+      "path": "qisi-sdd-v3/fixtures/select.json",
+      "bytes": 104,
+      "sha256": "26cec3e2ee0e1f4566d3912a9b7c776147266162c53f9686f34696f26c594a94"
+    },
+    {
+      "path": "qisi-sdd-v3/fixtures/session.json",
+      "bytes": 4694,
+      "sha256": "35f7a95962981997b5c898263849e8adef94653700afff0ad037aa7025ef272a"
+    },
+    {
+      "path": "qisi-sdd-v3/fixtures/strategy-input.json",
+      "bytes": 4302,
+      "sha256": "e18b5b2322863111aed74bde40b11eaa887dcfa4d32e8d08129a4d22fdd6c01b"
+    },
+    {
+      "path": "qisi-sdd-v3/fixtures/strategy.json",
+      "bytes": 1083,
+      "sha256": "7e182c82050a0a3a697a92bc430bfbb3493435794ba74cbb72dc3311b76313a9"
+    },
+    {
+      "path": "qisi-sdd-v3/fixtures/student-view.json",
+      "bytes": 872,
+      "sha256": "33983a3775fdc684d907d9f6fbe305165fe9890a9e9491fb864a7cc5eb050952"
+    },
+    {
+      "path": "qisi-sdd-v3/fixtures/transcript.json",
+      "bytes": 235,
+      "sha256": "2c51edbec81938b29fe9386886f3a24fc2ea1a15f1e976e1e29ab5ae3af2b4df"
+    },
+    {
+      "path": "qisi-sdd-v3/handoffs/template.md",
+      "bytes": 295,
+      "sha256": "91dd370b67d2e46e88c28000630a2a5086602108f3b13cfc2d8b946d15d3c2e0"
+    },
+    {
+      "path": "qisi-sdd-v3/manifest.json",
+      "bytes": 13644,
+      "sha256": "621ec74a4a957c450d851ab90af5298e02cef8a92177d5b27cb496cc54278c3d"
+    },
+    {
+      "path": "qisi-sdd-v3/plan.md",
+      "bytes": 15147,
+      "sha256": "41e1a33d44a76a4fb346cb671242808f31163322cb407c5be8efb47b8c15768f"
+    },
+    {
+      "path": "qisi-sdd-v3/prd.md",
+      "bytes": 68312,
+      "sha256": "119530efac9953809d7271b4369537b24aef9189eb5962fd4e4388c62c15ed34"
+    },
+    {
+      "path": "qisi-sdd-v3/prompts/assessment.md",
+      "bytes": 785,
+      "sha256": "792c9be8531f4d62d6b493ec058a103a92d5d0330a7c91bf638707acc03da71b"
+    },
+    {
+      "path": "qisi-sdd-v3/prompts/developer-a.md",
+      "bytes": 1208,
+      "sha256": "9b07275b48f6b7a072ce60b934df6aa264976abc8f75366cbfe19a0c5e21d2c5"
+    },
+    {
+      "path": "qisi-sdd-v3/prompts/developer-b.md",
+      "bytes": 1253,
+      "sha256": "cc1c4557b7ba4788a1bf7c266ce2a49a30e21670737a59ea8d090df68529a09e"
+    },
+    {
+      "path": "qisi-sdd-v3/prompts/developer-single.md",
+      "bytes": 852,
+      "sha256": "21919a5c5d057a50aa3bd34f994507f8dcbe4c20a456bb8b2b018f490e574551"
+    },
+    {
+      "path": "qisi-sdd-v3/prompts/diagnosis.md",
+      "bytes": 922,
+      "sha256": "3cb4c4798b95e3a5b601d6e9d3382d581baae55c86f8955a6a9ac27b06b9015a"
+    },
+    {
+      "path": "qisi-sdd-v3/prompts/guard.md",
+      "bytes": 806,
+      "sha256": "dcc6e866a93dc1dae90cc4fbca37e4cfad8678cc4b3604250e4409418f31385a"
+    },
+    {
+      "path": "qisi-sdd-v3/prompts/preparation.md",
+      "bytes": 1021,
+      "sha256": "f8a6686ff0dbc871eed2f552bef97544ee64b04e80feaba4df30129ab3a12121"
+    },
+    {
+      "path": "qisi-sdd-v3/prompts/renderer.md",
+      "bytes": 734,
+      "sha256": "ae59cba740e4a6c7df432ce4153897fd8a2f1670cee304600a7601e97094d9f5"
+    },
+    {
+      "path": "qisi-sdd-v3/prompts/strategy.md",
+      "bytes": 964,
+      "sha256": "e13f47ce6ce85d0e332db17223d536ee194d17102e25039e013e1e6b741e4d39"
+    },
+    {
+      "path": "qisi-sdd-v3/prompts/vision.md",
+      "bytes": 762,
+      "sha256": "5011072c258ec438fdad6eabc6366792a55837157eeb1f7ec3b371f8bd54e90f"
+    },
+    {
+      "path": "qisi-sdd-v3/publication/publication-status.json",
+      "bytes": 1339,
+      "sha256": "f5d9f8e7e0d5bcadd8e48594687418c57fef30441562a4889b3404a42e2d07cf"
+    },
+    {
+      "path": "qisi-sdd-v3/publication/README.md",
+      "bytes": 1101,
+      "sha256": "fd76a480c3c96657b36ab3e336b054a9f05045f9114db40b38e11250c46f14ef"
+    },
+    {
+      "path": "qisi-sdd-v3/README.md",
+      "bytes": 3789,
+      "sha256": "334096a64b5951aeadbc1367c041c3dfe760b3274c3c2a1463a14cf9529c255c"
+    },
+    {
+      "path": "qisi-sdd-v3/requirements-dev.txt",
+      "bytes": 20,
+      "sha256": "48ee7d1db1cfddbb445bdff4adca44ee15724e2d52b531d9d5bb7c77e2f1455f"
+    },
+    {
+      "path": "qisi-sdd-v3/requirements.json",
+      "bytes": 6028,
+      "sha256": "80242d8c210896d55e1ca3837b88e339fea3b35f724593aaaec04be0d42e08f2"
+    },
+    {
+      "path": "qisi-sdd-v3/reuse-lock.json",
+      "bytes": 2129,
+      "sha256": "f80968763f5dc5e96ae8457b4d0f9e523a26371d3f5a5e1e261804ec7e48cb1c"
+    },
+    {
+      "path": "qisi-sdd-v3/reuse.md",
+      "bytes": 6751,
+      "sha256": "599f99c66626b4ef7e86b285dae022ef6f7081053b9e53a815401261b873811a"
+    },
+    {
+      "path": "qisi-sdd-v3/runtime.json",
+      "bytes": 1356,
+      "sha256": "56a7d174ae4d8ad7519ebf616690c016dd3b3d8bc6e10b2e15dd25aea5efc80b"
+    },
+    {
+      "path": "qisi-sdd-v3/scope-changes.json",
+      "bytes": 591,
+      "sha256": "27a756ae971f4057980cd077896ebca5d543baed7c4907e23b129ee70fe08d70"
+    },
+    {
+      "path": "qisi-sdd-v3/scripts/package.py",
+      "bytes": 2465,
+      "sha256": "d4c3cc0968b349f4b3b87b9620ed71da5cfd4d9faa154b8e0ba6b433e12f1dfe"
+    },
+    {
+      "path": "qisi-sdd-v3/scripts/semantic_rules.py",
+      "bytes": 6529,
+      "sha256": "5cfe2eda84ffd5602d97dceae1368e867de7c2fc533fed0ab90d77b704dc0a6d"
+    },
+    {
+      "path": "qisi-sdd-v3/scripts/validate_spec.py",
+      "bytes": 11170,
+      "sha256": "e65d736b3986e36b778483e902d9aab43d6b0ddaef5178b62f9762a6bbf5f747"
+    },
+    {
+      "path": "qisi-sdd-v3/spec-validation.json",
+      "bytes": 66177,
+      "sha256": "6cdecb3d8ec1656c1ec514dd8bf6d1ae1bfc1a11215b7d25a648a9c650d3f772"
+    },
+    {
+      "path": "qisi-sdd-v3/tasks.json",
+      "bytes": 37780,
+      "sha256": "4be8a4439f24040d37e5c52b672c9b76dc063ce6b492443ed95c41070046b9cc"
+    },
+    {
+      "path": "qisi-sdd-v3/traceability.csv",
+      "bytes": 681,
+      "sha256": "8fda63d0693b0b8940c7b5c817fde641b3ca5eb5c660558c77a81c65dc223d28"
+    },
+    {
+      "path": "qisi-sdd-v3.zip",
+      "bytes": 227571,
+      "sha256": "d4f62ea542b0c969e3ea6afade3377a9d20b2e41e7e5a32bbb98d71c75aca23b"
+    }
+  ],
+  "moves": [
+    {
+      "source": "ai-math-tutor-review-v2.md",
+      "destination": "research-evidence/ai-math-tutor-review-v2.md",
+      "reason": "原始用户资料或独有评审内容，集中保留",
+      "bytes": 31441,
+      "sha256": "0ab3678c19bae69d0f6baa224524e02a5fc6348b641c6523c7f7afdc558bb313"
+    },
+    {
+      "source": "qisi-prd-source.json",
+      "destination": "research-evidence/qisi-prd-source.json",
+      "reason": "原始用户资料或独有评审内容，集中保留",
+      "bytes": 16712,
+      "sha256": "c291afbeda8732e8de8c4c2ab4b66a9484436836f7ea68c7ea2aba28381fd446"
+    },
+    {
+      "source": "qisi-prd-source.md",
+      "destination": "research-evidence/qisi-prd-source.md",
+      "reason": "原始用户资料或独有评审内容，集中保留",
+      "bytes": 15775,
+      "sha256": "6bafb59ef42b7a77a4f5bf5ad400f34c0867a6df5010e4fc13a78064ab0b2f12"
+    },
+    {
+      "source": "qisi-research-source.json",
+      "destination": "research-evidence/qisi-research-source.json",
+      "reason": "原始用户资料或独有评审内容，集中保留",
+      "bytes": 9075,
+      "sha256": "b80c8aeac3a32ec58561465a752e7f5cf6d116c07a5bf797160fec8566d14011"
+    },
+    {
+      "source": "qisi-research-source.md",
+      "destination": "research-evidence/qisi-research-source.md",
+      "reason": "原始用户资料或独有评审内容，集中保留",
+      "bytes": 8339,
+      "sha256": "8495d5746162f71f19a57697fd92e350621c2b22b16aec2bec8b9eaaae2159d1"
+    },
+    {
+      "source": "fetch-research.ps1",
+      "destination": "research-evidence/scripts/fetch-research.ps1",
+      "reason": "保留历史采集脚本；本次不运行、不重新联网采集",
+      "bytes": 1565,
+      "sha256": "112c4bd0bc9b6f148cf1b3c28a4e0ed8d1a3062d4155890815ac61460a15baee"
+    },
+    {
+      "source": "fetch-research-extra.ps1",
+      "destination": "research-evidence/scripts/fetch-research-extra.ps1",
+      "reason": "保留历史采集脚本；本次不运行、不重新联网采集",
+      "bytes": 959,
+      "sha256": "5daee59d1cbc10f1bc9becbee814878909998c5df111fb944bc53ac740fd8a08"
+    },
+    {
+      "source": "qisi-sdd-week1/publication/katex.txt",
+      "destination": "research-evidence/legacy-web-references/katex.txt",
+      "reason": "从旧目录保留独有的技术文档采集快照",
+      "bytes": 6503,
+      "sha256": "af0825b95cb4c43317bc3864f0a5d183c247fa7d40b7e1142ad26cf7a18b83a8"
+    },
+    {
+      "source": "qisi-sdd-week1/publication/next-self-hosting.txt",
+      "destination": "research-evidence/legacy-web-references/next-self-hosting.txt",
+      "reason": "从旧目录保留独有的技术文档采集快照",
+      "bytes": 634304,
+      "sha256": "7c290dffb5a1121acf243531ad76e1684d385bcd98a55c048ac87c03b14220b2"
+    },
+    {
+      "source": "qisi-sdd-week1/publication/react-markdown.txt",
+      "destination": "research-evidence/legacy-web-references/react-markdown.txt",
+      "reason": "从旧目录保留独有的技术文档采集快照",
+      "bytes": 26506,
+      "sha256": "e2f4fcd57c9ac4cd26d1a0706ae98cf8233b7e323ddc79bce662ff4d3b7e1d9c"
+    }
+  ],
+  "deletions": [
+    {
+      "path": "qisi-sdd",
+      "type": "directory",
+      "reason": "已被 qisi-3.0 替代的早期规格及历史发布生成物",
+      "files": [
+        {
+          "path": "qisi-sdd/acceptance/cases.json",
+          "bytes": 20385,
+          "sha256": "b54559649ced092897c463959eb2ab373d72a6f8a7d8fc10ad3ffd5e873fefa9"
+        },
+        {
+          "path": "qisi-sdd/acceptance/evaluation-protocol.md",
+          "bytes": 5618,
+          "sha256": "cbae6eb18a324e927905cb4313fd38719410096750bdb04c6a2e177f177fc53f"
+        },
+        {
+          "path": "qisi-sdd/AGENTS.md",
+          "bytes": 1310,
+          "sha256": "e6f3976d20a49b8dcc01265c13613f2765feef57a814fcb3706da9d158ea78c8"
+        },
+        {
+          "path": "qisi-sdd/build-contracts.cjs",
+          "bytes": 24025,
+          "sha256": "fa0eb405edae2553bde553bfa00dff6a9a4e0ef16b0a03dec17149ca640a6699"
+        },
+        {
+          "path": "qisi-sdd/build-spec.cjs",
+          "bytes": 19576,
+          "sha256": "36e1eb8753707a59a54787853ef3529399071aefb9837e49f4c0ff45aef793b7"
+        },
+        {
+          "path": "qisi-sdd/change-request-template.md",
+          "bytes": 412,
+          "sha256": "6c2f5ea090e9ff1b9ce640e97c336f834612e92e5d47ff3cac8bd96969791c34"
+        },
+        {
+          "path": "qisi-sdd/contracts/api-index.json",
+          "bytes": 3334,
+          "sha256": "5c5a33136e75e0dc499006405ef92cd0605fc6ffd5db44d6b6a1a2673cc9ae07"
+        },
+        {
+          "path": "qisi-sdd/contracts/domain.schema.json",
+          "bytes": 66971,
+          "sha256": "cba3f14fb942da1c5b057386cd5eb7683d222b4b0abab7b637e2d3e8722a4ea2"
+        },
+        {
+          "path": "qisi-sdd/contracts/openapi.json",
+          "bytes": 25573,
+          "sha256": "99492e925f13467127f68f5fb6f8ae32d5770e55290f734ffdb3215e4cfa08d5"
+        },
+        {
+          "path": "qisi-sdd/contracts/README.md",
+          "bytes": 8162,
+          "sha256": "11833cab6d3c6662b28bf30d32de6a8e34e9d2c59bc62823afc4e687982cdd86"
+        },
+        {
+          "path": "qisi-sdd/design-v4.md",
+          "bytes": 24528,
+          "sha256": "75ecb132b68000ed073b955cce9c420fc732a2d48986d8492898d6b274ad133c"
+        },
+        {
+          "path": "qisi-sdd/fixtures/api-examples.json",
+          "bytes": 4231,
+          "sha256": "97bccff1fb61fbc966458d6aee344c51204aaec002e578de379da44c0a678255"
+        },
+        {
+          "path": "qisi-sdd/fixtures/assessment-tasks.json",
+          "bytes": 2524,
+          "sha256": "aeb8e086d6e48b88f5654df77821aec29cbd1331c28475c8634a3cb0efbb20f8"
+        },
+        {
+          "path": "qisi-sdd/fixtures/problems.json",
+          "bytes": 2186,
+          "sha256": "7b074fb9131d614328ee65fed802657fac244fc846b797e1143b310a8e6ae139"
+        },
+        {
+          "path": "qisi-sdd/fixtures/random-vectors.json",
+          "bytes": 1240,
+          "sha256": "17d819a1cf2424b11d4945f01931a7b0c01b6540de4be67a0ab7fe8da5d58ad2"
+        },
+        {
+          "path": "qisi-sdd/fixtures/task-templates.json",
+          "bytes": 3606,
+          "sha256": "133382291fd96aa2bb20d50f1fe8e76d5b0d06bd2d2a01b52dc7105fbab31b9a"
+        },
+        {
+          "path": "qisi-sdd/fixtures/teaching-packet.json",
+          "bytes": 4453,
+          "sha256": "4d7b657b1f2f2f95f83ba8b7396b763e7eaae17205d6cf8bd9bd19a5a4cb1ba7"
+        },
+        {
+          "path": "qisi-sdd/plan.md",
+          "bytes": 23441,
+          "sha256": "0a9c52065c4095d2bee79f7637023f67007a1ba484562b0ed568d6cc249f5556"
+        },
+        {
+          "path": "qisi-sdd/prd.md",
+          "bytes": 38588,
+          "sha256": "39698fea3a70b60779b88b0f47ea17d5d053c7aa663de29c4982675be18705d2"
+        },
+        {
+          "path": "qisi-sdd/publication/archive-check.json",
+          "bytes": 943,
+          "sha256": "d43b57c1a32323e6e04dcd8b485ccbb466ba8089812abe2cc9d2d23143139d7c"
+        },
+        {
+          "path": "qisi-sdd/publication/attachment-upload.json",
+          "bytes": 1956,
+          "sha256": "09b72485caa1d62061bc6d8b0c4431cd18c651e114d962d6ee8be71c6ac0e64c"
+        },
+        {
+          "path": "qisi-sdd/publication/attachment.json",
+          "bytes": 203,
+          "sha256": "b2428304bbb04555f6b42ee09d989ebebba16cd38fcdc026ffe6c17f398ca391"
+        },
+        {
+          "path": "qisi-sdd/publication/build-document.cjs",
+          "bytes": 4763,
+          "sha256": "5a429fb30fd5032bf1453b73c933d676cc2e31018d818d2505ee06eb487de09a"
+        },
+        {
+          "path": "qisi-sdd/publication/check-prepublish.cjs",
+          "bytes": 1285,
+          "sha256": "234f4c2b73c95f716159531b4943f32af38ec937fe15398ba7b791c36b4c44ba"
+        },
+        {
+          "path": "qisi-sdd/publication/design-prepublish.json",
+          "bytes": 84470,
+          "sha256": "c2e1b68d871d7a9b9bdef709cc86d249f644c3b0102c2851e20dedb6c663166d"
+        },
+        {
+          "path": "qisi-sdd/publication/design-readback.html",
+          "bytes": 36327,
+          "sha256": "97874df367e916381b0124e992168d2d1e1f192816be55c72677ac984c45eb25"
+        },
+        {
+          "path": "qisi-sdd/publication/design-readback.json",
+          "bytes": 37376,
+          "sha256": "13528e651169d750d56f6cceba02b7df3ea928b9727e5085e4157d7f31a5228c"
+        },
+        {
+          "path": "qisi-sdd/publication/design-update.json",
+          "bytes": 1702,
+          "sha256": "dbbd74969ac5bd7b2450ac2155342d3a200a8646a762b4e0a6e61d6a5b5884d5"
+        },
+        {
+          "path": "qisi-sdd/publication/design.build-check.json",
+          "bytes": 331,
+          "sha256": "d314a0220756a792b82a9dc6c91670a84c89e182a87f613df11d3d0cdda51c50"
+        },
+        {
+          "path": "qisi-sdd/publication/design.popo.html",
+          "bytes": 29033,
+          "sha256": "ff8aff6f82dfe9c8e4e81bfd74c1094a8d5f81e8a96e92f3d7ecbf2f79e9b5b9"
+        },
+        {
+          "path": "qisi-sdd/publication/documents.json",
+          "bytes": 808,
+          "sha256": "75252a482e3cf1d6c85d12a15527ca8816165115635ab92d0f2730eadf874048"
+        },
+        {
+          "path": "qisi-sdd/publication/finalize-spec.cjs",
+          "bytes": 4631,
+          "sha256": "b06ad8e6101599d9e1730d1ca87b9e3d7a7d91a31cfdc41dc57deef4dbabf98c"
+        },
+        {
+          "path": "qisi-sdd/publication/fix-response-reader.cjs",
+          "bytes": 366,
+          "sha256": "5f25bbc4994b4196cf4478460e9830566ae35edf68319df69842a7b1c68a8cb7"
+        },
+        {
+          "path": "qisi-sdd/publication/fix-verification.cjs",
+          "bytes": 414,
+          "sha256": "6a1a1f86966e91c0422f117db6e1437b9b5635ef9c7e3dc7a0aab29fdb7557aa"
+        },
+        {
+          "path": "qisi-sdd/publication/inspect-serialization.cjs",
+          "bytes": 262,
+          "sha256": "52fce324f286f293320ed802146ea9bb28e78aa708afab1016c3959a6d4484f3"
+        },
+        {
+          "path": "qisi-sdd/publication/package-spec.py",
+          "bytes": 1231,
+          "sha256": "a6f811a2668264a1932994d7b1e20de282f82d7eb3a42fb1fcdf3d93ce2704c7"
+        },
+        {
+          "path": "qisi-sdd/publication/plan-create.json",
+          "bytes": 1764,
+          "sha256": "817d57fede7493036a1e6481b577e9f774add159068e65e54f381164e0647757"
+        },
+        {
+          "path": "qisi-sdd/publication/plan-readback.html",
+          "bytes": 39592,
+          "sha256": "54650b8808abfc604cb54909288deb6c73f1e21875b1dd0b4bf9baf704761906"
+        },
+        {
+          "path": "qisi-sdd/publication/plan-readback.json",
+          "bytes": 40601,
+          "sha256": "066730c05a85a8311f0515ecaad0c3364ced6a8282a889e6ec24aff7674be4f0"
+        },
+        {
+          "path": "qisi-sdd/publication/plan-update.json",
+          "bytes": 1624,
+          "sha256": "38e2c9510a258352b55335f88975ddf96ea723572ec32159f975712eca82b558"
+        },
+        {
+          "path": "qisi-sdd/publication/plan.build-check.json",
+          "bytes": 299,
+          "sha256": "dfa8dab13f577b93d6b2325b068160aab834fd1cd92df5ee03c50919d24ed658"
+        },
+        {
+          "path": "qisi-sdd/publication/plan.popo.html",
+          "bytes": 29204,
+          "sha256": "50a629e40c01c15353d1b08d9adf0e0e5e1cf77a2f1456a40fe4d677ae0f4da7"
+        },
+        {
+          "path": "qisi-sdd/publication/prd-create.json",
+          "bytes": 1768,
+          "sha256": "562804d6f96b3ecf12da6dab1aab289dcc8827d8caf8461483c4d7b676944c69"
+        },
+        {
+          "path": "qisi-sdd/publication/prd-readback.html",
+          "bytes": 65233,
+          "sha256": "fd8651028d2d01ebb478ed9adb1c10f09b0d004e73bd33deeed9047e31259594"
+        },
+        {
+          "path": "qisi-sdd/publication/prd-readback.json",
+          "bytes": 66226,
+          "sha256": "aa603b29fbd9072018b4a103ad717c762bc72db2f8ddb57903870156408b6087"
+        },
+        {
+          "path": "qisi-sdd/publication/prd-update.json",
+          "bytes": 1622,
+          "sha256": "1d8b41892f7af041950918582be874d6d6bc960225b0e6b37aea81f561ebf635"
+        },
+        {
+          "path": "qisi-sdd/publication/prd.build-check.json",
+          "bytes": 288,
+          "sha256": "51a57466245af758980f5bc4f033b123dda27c1397c25e1373c9a29d83700927"
+        },
+        {
+          "path": "qisi-sdd/publication/prd.popo.html",
+          "bytes": 46650,
+          "sha256": "60f864b257a87d99fd09dad68b49ba92a07a0bd6fc9acb1adbff4cd1ab3e3e65"
+        },
+        {
+          "path": "qisi-sdd/publication/prepare-publication.cjs",
+          "bytes": 2362,
+          "sha256": "87242192dbc65f0a15ccadec7534152668dd39f28691fb9f54a19fe56c0ecc84"
+        },
+        {
+          "path": "qisi-sdd/publication/publication-verification.json",
+          "bytes": 1431,
+          "sha256": "32c4c22480077a3f75566a46ad288b080718e943e72dd9a712401ab8f0413210"
+        },
+        {
+          "path": "qisi-sdd/publication/verify-publication.cjs",
+          "bytes": 3160,
+          "sha256": "7535fc7c0e2ceba15b0705a5ff70eeaf04231e39870121b0dd2aeb4324425274"
+        },
+        {
+          "path": "qisi-sdd/README.md",
+          "bytes": 3414,
+          "sha256": "444ab265426a7a9c4dba7aa4ecdcac137bfb054229f1b5ac5db662641393a6be"
+        },
+        {
+          "path": "qisi-sdd/requirements.json",
+          "bytes": 6368,
+          "sha256": "830a486a39dcf293655878742bd500c395db9916d41e1eed8a0d01f3a8a8eb4e"
+        },
+        {
+          "path": "qisi-sdd/scripts/validate_spec.py",
+          "bytes": 7782,
+          "sha256": "ea3cdb5ca9b464f1da12169a29bd0dac989902942d58d19325842b91e4d4df53"
+        },
+        {
+          "path": "qisi-sdd/spec-validation.json",
+          "bytes": 376,
+          "sha256": "9fa439add06bf11bb43f756f6f2eec5467adac91fd866f62915a6e9eee1ccd91"
+        },
+        {
+          "path": "qisi-sdd/tasks.json",
+          "bytes": 12795,
+          "sha256": "f570288a8ebf83cff71ee76bdc38e8a7e84fb694b33daee60517fbd31ab365ee"
+        },
+        {
+          "path": "qisi-sdd/traceability.csv",
+          "bytes": 591,
+          "sha256": "bbea2401cbde01d946e8aeb65c92868bca16d7b7b1cc8a119ae0a05f0fd051a9"
+        }
+      ]
+    },
+    {
+      "path": "qisi-sdd-week1",
+      "type": "directory",
+      "reason": "已被约十天多Agent版本替代的一周规格及历史发布生成物",
+      "files": [
+        {
+          "path": "qisi-sdd-week1/acceptance/cases.json",
+          "bytes": 11318,
+          "sha256": "c9e33fb2981b6dbb14db1131ab75d8519de51e8fe745a0f0475923ae08333197"
+        },
+        {
+          "path": "qisi-sdd-week1/acceptance/evaluation-protocol.md",
+          "bytes": 5136,
+          "sha256": "4dc241696dcf78a64dad97584a57005a0213e84d517167c55cbb7f687db780f3"
+        },
+        {
+          "path": "qisi-sdd-week1/acceptance/result-template.json",
+          "bytes": 371,
+          "sha256": "b55fbd97f55fc975cc5aa9f4d533187f9f3484c1e9647102bcaeceb983f0669d"
+        },
+        {
+          "path": "qisi-sdd-week1/AGENTS.md",
+          "bytes": 3665,
+          "sha256": "430de42e25d83cdfa61c36029330a23874d6805f71881eacdb4639944b64a644"
+        },
+        {
+          "path": "qisi-sdd-week1/changes/template.md",
+          "bytes": 346,
+          "sha256": "69677bc7f7565e058d99bba62916de7214bb0b95593e14b3e981edbf29d803d1"
+        },
+        {
+          "path": "qisi-sdd-week1/contracts/domain.schema.json",
+          "bytes": 28095,
+          "sha256": "4747f6f767efc12134b20570eeaca33e881d6bc767e5a1f0a604f60e7118476c"
+        },
+        {
+          "path": "qisi-sdd-week1/contracts/README.md",
+          "bytes": 12348,
+          "sha256": "7807803c5d4290082c62ed1cbfa1312965996e0fac593bfb1a5f216393aba827"
+        },
+        {
+          "path": "qisi-sdd-week1/contracts/server-functions.json",
+          "bytes": 2908,
+          "sha256": "aad96937ec418f1d6ef611a5c9249c3d6fc0a5dda0e3f99b78374268dcef9832"
+        },
+        {
+          "path": "qisi-sdd-week1/design-v5.md",
+          "bytes": 10646,
+          "sha256": "f95b21b7034bd9c7897eb8e6d0b4cf7db7a3616da4f0b54923c9dd7f50eabaf4"
+        },
+        {
+          "path": "qisi-sdd-week1/fixtures/analysis.json",
+          "bytes": 1404,
+          "sha256": "f48a438b02113c4ad6e7c9ae3ba7151d1f2af970b0fecf014716b326d3019033"
+        },
+        {
+          "path": "qisi-sdd-week1/fixtures/branch-cases.json",
+          "bytes": 8487,
+          "sha256": "0c3cea8bc51d22cba0f177dda78d6a99d8c4174a948d84e802d0365695c3cfc7"
+        },
+        {
+          "path": "qisi-sdd-week1/fixtures/check-result.json",
+          "bytes": 291,
+          "sha256": "024c047588cc6252920fa066c83a1d49f3384e7af4c1d89a35cf3e832015411e"
+        },
+        {
+          "path": "qisi-sdd-week1/fixtures/negative-cases.json",
+          "bytes": 839,
+          "sha256": "686f9cfd7238dda7729f453412a77581037e5a3f2c9a2f5df0aca7f46c344486"
+        },
+        {
+          "path": "qisi-sdd-week1/fixtures/packet.json",
+          "bytes": 2653,
+          "sha256": "4ec6c61a06a9757771c6abaa64db2f05caedec180121a4c43b0e68bff325ac8c"
+        },
+        {
+          "path": "qisi-sdd-week1/fixtures/problem.json",
+          "bytes": 389,
+          "sha256": "6761daf0724989ca507208c4058a87be76207dfd52474b1cfe8a1fff6ad80e85"
+        },
+        {
+          "path": "qisi-sdd-week1/fixtures/report.json",
+          "bytes": 676,
+          "sha256": "e6d2005f425efd353cc5a5779d7cc47166823701e3470e0970385b35d5f7995e"
+        },
+        {
+          "path": "qisi-sdd-week1/fixtures/select.json",
+          "bytes": 119,
+          "sha256": "e2a93e2bc5b6d7c24aaf511d06894bd8e072f98802dab9cb3704f75cfc077abe"
+        },
+        {
+          "path": "qisi-sdd-week1/fixtures/session.json",
+          "bytes": 604,
+          "sha256": "85070d293a1cf1aee0d817b35a6c04dd9471a2e4dc04f05cc8fa98628c0524c9"
+        },
+        {
+          "path": "qisi-sdd-week1/fixtures/student-view.json",
+          "bytes": 836,
+          "sha256": "dcee8ee7614341eaca7d13b720661628892b98eb3ca0b9951364bd7ec5d48d37"
+        },
+        {
+          "path": "qisi-sdd-week1/manifest.json",
+          "bytes": 4569,
+          "sha256": "586aa4d3c2fd15ba02c51617cb5650c23eea59f6b3924286f29f33cefee42a3c"
+        },
+        {
+          "path": "qisi-sdd-week1/plan.md",
+          "bytes": 11860,
+          "sha256": "0b49c6cd59c72ac8f2ac7c6b2cc9cae8f9dd5bd3f870c2e43e4cf4e22fed0409"
+        },
+        {
+          "path": "qisi-sdd-week1/prd.md",
+          "bytes": 32130,
+          "sha256": "f0f1db6de0cf0f1acbb6107eecc9cf7159c611e53af969d30a20a0d0a74ac118"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/attachment-upload.json",
+          "bytes": 1980,
+          "sha256": "bee3bffc075f9d0a611ba52fa9fb501151c48ab1ff3bf869d855e404886e348b"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/attachment.json",
+          "bytes": 244,
+          "sha256": "94cb815fae53ca666133107722fee8184eac1629b0dee825bc8ef4044ef54649"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/build-contracts.cjs",
+          "bytes": 13130,
+          "sha256": "cb044e1c5cbb8c14e3eeb733d6cc2aeb27dfc6571d6d82a39f268f7a5aed99ce"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/build-document.cjs",
+          "bytes": 4769,
+          "sha256": "3a64336c5ca6d8f95b4916d0fadf8ea07b07e58b5932202c7f8b1104f4abb5c7"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/build-eval-template.cjs",
+          "bytes": 424,
+          "sha256": "b3a865ac7c84d577a8030bbc3e6f294adf948e5c8216ae00fa47c368ca1ed7d0"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/build-plan.cjs",
+          "bytes": 685,
+          "sha256": "4426183708357b4c50313a25e8caa6c8169d0929621ae83c07a9539262a05e4e"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/build-prd.cjs",
+          "bytes": 717,
+          "sha256": "dc16879031ed87cb802a4d7591b6b847443238002beed574d78fd7f35011dbcd"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/build-session.cjs",
+          "bytes": 727,
+          "sha256": "97f9e855c01ff00558e502ee285249ab11154f8f64a22317aabe6126b4775d03"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/build-spec.cjs",
+          "bytes": 15131,
+          "sha256": "0738aa3869c50b92c9e023cf1b9711776efe5766a1bef5d2dee833f4329f53d2"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/design-before.json",
+          "bytes": 37376,
+          "sha256": "afef48f0991f084addf1c6463a5a32d52ac378981b90d97cbead367f20bf8ffd"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/design-prepublish.json",
+          "bytes": 37376,
+          "sha256": "057f6d3988857bf9aaab0621e882879204d42bd1e2a7bbcac76703002aab14e1"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/design-readback.html",
+          "bytes": 14609,
+          "sha256": "2b5c55a38dba1910cc529aeb32dbe10e76ebed620047ec728ac621b5a71cb7f8"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/design-readback.json",
+          "bytes": 15603,
+          "sha256": "ea99739e03bd3d794547fdba04872342ea69764766270cd5eeb2926ad85cf854"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/design-update.json",
+          "bytes": 1688,
+          "sha256": "cdcd2ee20c4493664a1b86172a820a40f91082aa1bd4e9bb0bcf129010c957f2"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/design.build-check.json",
+          "bytes": 295,
+          "sha256": "710100ec91eaaa788c21f6328c39bb4ceb8cd58db45d0ada24f6fb9ce9ee95b8"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/design.popo.html",
+          "bytes": 12283,
+          "sha256": "279d1498f8472feb6118c367502dc3f81d313325e5adb0cec5ebc3a5dff4094e"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/diff-source.cjs",
+          "bytes": 692,
+          "sha256": "a6042b7ad7a2d8c06f8567d722a7e0132e3ba262b02d0eb26a88be827ebb263f"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/documents.json",
+          "bytes": 755,
+          "sha256": "c1b0f7b294857e356ba9a7675dc0b800aa347db0221e0ad159539023c2ddbca2"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/finalize-fixtures.cjs",
+          "bytes": 4587,
+          "sha256": "9e2bd46e2379b8881c342afc4b261cc7a44f330fb676721b2a4015461da2f8c7"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/inspect-sources.cjs",
+          "bytes": 1216,
+          "sha256": "fd2b32d0ade1b6efd1e99fc24f4c3325a680fa3b9b01a863979c68b34a9dae62"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/package-verification.json",
+          "bytes": 184,
+          "sha256": "6ac4f1bdcd0c999a85c2ff55c7f3a7c5d80192b30514000f80d95b573d7892f5"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/package.py",
+          "bytes": 1523,
+          "sha256": "8e5d92421fbff57b997f0b447dcaae5e4719889a360d6790b7e869933e0109c4"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/plan-before.json",
+          "bytes": 40643,
+          "sha256": "97be7bfd89504a218e70f82e01f67179fd1a366f977b3332479d8438696d8dd9"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/plan-new.text",
+          "bytes": 22290,
+          "sha256": "9115a4cd65e03f46692bd7cb806553491989a3b89278c2623be2318adaa14196"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/plan-old.text",
+          "bytes": 22290,
+          "sha256": "9115a4cd65e03f46692bd7cb806553491989a3b89278c2623be2318adaa14196"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/plan-prepublish.json",
+          "bytes": 40643,
+          "sha256": "b3d0cdd831475c36b06b65bc9207ee2b40180c55e7f7ba1b93d003cf6e8418ff"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/plan-readback.html",
+          "bytes": 16259,
+          "sha256": "68d0ff6c97440ffc41cbed24838334283c6c8b0726643feda62c11e8bca95354"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/plan-readback.json",
+          "bytes": 17250,
+          "sha256": "d322632aafc5c59b878048cb5afae809f0528edf94abffdcceba10715bef7cc9"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/plan-update.json",
+          "bytes": 1678,
+          "sha256": "c79d0c59a1851ccd48c14d42e993a9055393cdc2687bdb1890841c50b2779971"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/plan-user-changes.html",
+          "bytes": 39634,
+          "sha256": "2e6bf1af094b0d6c0351c2854f5d525946473b7f1c1490343d59078bb15c615b"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/plan.build-check.json",
+          "bytes": 293,
+          "sha256": "2e549418c1a1f2b03b5cbb6e7b883f5ff2e50750da6cc48b8b6b2f6dae602ff4"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/plan.popo.html",
+          "bytes": 13771,
+          "sha256": "bdda44dae52c8f8409bff3d9fb253868a7a4cd9fd3622d33898980ca89052493"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/prd-before.json",
+          "bytes": 66226,
+          "sha256": "ca37d25f0214a362e8c6ff7d9048c45dc4cc140ebf926eabdd2b594e54b4e988"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/prd-prepublish.json",
+          "bytes": 66268,
+          "sha256": "8733d30a9798dd73ca7fca2048122f016f0bf8fa3d09de4bb042c6d55a0dd197"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/prd-readback.html",
+          "bytes": 41487,
+          "sha256": "493c3f38059b0795f45d08268d229e05d2f710bf7bbc75df11b49fd18a9a3b16"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/prd-readback.json",
+          "bytes": 42482,
+          "sha256": "1d6b21d289246468f2c7af85bedc25d3fb8ee06a5098b9c08e76df7d9bd80dc2"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/prd-update.json",
+          "bytes": 1684,
+          "sha256": "e79f867764fe19c1986a897ae09963d8fc5a70515fef7af210b0c5ee70d3dad9"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/prd.build-check.json",
+          "bytes": 287,
+          "sha256": "061bbd00ad0cb1bedf042e0d175d78e46960ee0f9f3f6d213c40979815e29136"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/prd.popo.html",
+          "bytes": 35546,
+          "sha256": "f80d355c0061ef7031a9fae03b708bfa601e4eabcd0b580ccaecea66f5993065"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/prepare-attachment.cjs",
+          "bytes": 1671,
+          "sha256": "1391ff2fcc91292c9191a9364585997f6fe1b20f3e0977da33770b76cb8870bb"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/prepare-publish.cjs",
+          "bytes": 1011,
+          "sha256": "9d6a95e51a7934cb485fb7f3c17f43aed7f9e48e44ce80a5c21bbb262d028508"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/prepublish-verification.json",
+          "bytes": 378,
+          "sha256": "057fa3178e54e2f3fe1c9cc327e84de0fbbcb81c0abf279ccb91f2b50d5a0204"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/publication-verification.json",
+          "bytes": 1377,
+          "sha256": "b2c8d93a251fa2c51f8127f2c508aebc29e376fcd12b1307f8df81d6ff12def1"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/refine-assistance.cjs",
+          "bytes": 2325,
+          "sha256": "191a8bd65fd1f94f0232fa5aff2026a009085a92120a2a96fec06675191fefe9"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/refine-boundaries.cjs",
+          "bytes": 494,
+          "sha256": "e53c1f2b89e4852d184a68618e0f8306d16876d4dff186a75bf3cd5ef6ff142a"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/refine-contracts.cjs",
+          "bytes": 5253,
+          "sha256": "0e690d3cea6a98ce43b86afa0a24880c64c7a445d25a15ffc5ea7647717c62c8"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/refine-dependencies.cjs",
+          "bytes": 302,
+          "sha256": "ba12c02fc3687eb7411eb5b158175580c03b64d4f779bb3f786602968e3f7a6b"
+        },
+        {
+          "path": "qisi-sdd-week1/publication/verify-publication.cjs",
+          "bytes": 3166,
+          "sha256": "8f84bd0d31d32b7cfcf9aea92d570728e630cc0c49c6c6c366a1e25be8be0363"
+        },
+        {
+          "path": "qisi-sdd-week1/README.md",
+          "bytes": 3078,
+          "sha256": "b88ffbd0b2240668c1d8ab4fdf4ddd6bb57bd6d565eea63e05875135b346bb78"
+        },
+        {
+          "path": "qisi-sdd-week1/requirements.json",
+          "bytes": 4570,
+          "sha256": "8ef309b19f7c4a44a3bea6be954c1e9f7037c297cc3a0a3a4d16c21ca7495333"
+        },
+        {
+          "path": "qisi-sdd-week1/scope-changes.json",
+          "bytes": 937,
+          "sha256": "fbfe5682ca20f2a85e3a868a7756b353449fc0663d2e34b182c149a5e9aa7978"
+        },
+        {
+          "path": "qisi-sdd-week1/scripts/validate_spec.py",
+          "bytes": 7701,
+          "sha256": "1e0f63f7f288bca6a312927370177a353a19195b0db4752413a50241f00266c9"
+        },
+        {
+          "path": "qisi-sdd-week1/spec-validation.json",
+          "bytes": 12890,
+          "sha256": "db0176aff9aadf5d451e4160db9e466a6372b43ddba891a78083135a47e7d5aa"
+        },
+        {
+          "path": "qisi-sdd-week1/tasks.json",
+          "bytes": 7512,
+          "sha256": "cd95dc5fcdcd1f74f126cb1d0c583243b9c7871cb9384543b8bba05348ab4dd8"
+        },
+        {
+          "path": "qisi-sdd-week1/traceability.csv",
+          "bytes": 379,
+          "sha256": "701a5daa38be413bc01cf28d352a5184213eba2f2aa14a8ce97273909adaaf60"
+        }
+      ]
+    },
+    {
+      "path": "qisi-package-check-xyy2jjqe",
+      "type": "directory",
+      "reason": "ZIP 独立解压校验副本",
+      "files": [
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/acceptance/cases.json",
+          "bytes": 25534,
+          "sha256": "c8052a06ae996c35fc2ae6df21da94aa96b9ac2c6bf668dcee36bb5aa3ce30b4"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/acceptance/evaluation-protocol.md",
+          "bytes": 6983,
+          "sha256": "f24408cac51937cdb7eb4675ae730d23c062cd1e990a96a58bb6f8e3c1b32b95"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/acceptance/result-template.json",
+          "bytes": 438,
+          "sha256": "52314a3a9b686f75d1f8631bf7e972d543ad2d49a8b1396341c7508baa94a40e"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/acceptance/role-cases.json",
+          "bytes": 1157,
+          "sha256": "14bc74e5203ce3a8e2fb07aaeea0e19b9c69a532ebd3da058b12aaf4a65a0b9e"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/AGENTS.md",
+          "bytes": 3821,
+          "sha256": "8be3fec81ae4882c32e33ed773faa5f4f025bf2c360e3be127946cadd227431b"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/changes/template.md",
+          "bytes": 274,
+          "sha256": "02e590c4168173731eabf18e34f98aeb061c44f13249887caf24031e2ff7e7b4"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/contracts/agents.json",
+          "bytes": 2725,
+          "sha256": "62ef93c210c58e091787eba2cab78f9aebfb3c7e93afecfec977ea2b1541df66"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/contracts/database.sql",
+          "bytes": 4823,
+          "sha256": "2275ae6b7f05ea1fe86d481c39563d1f4a208744491324cc6957fb74b7ace69f"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/contracts/domain.schema.json",
+          "bytes": 66854,
+          "sha256": "8956791c7a1b2e54a2a4941c86aa491a81bd77c455235e5c7cb01346dd13118a"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/contracts/ports.ts",
+          "bytes": 1544,
+          "sha256": "9e5cd58465bb5eeaeaeb63557886f59b94f05e74c4e962af0d5b363d591ac8b4"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/contracts/README.md",
+          "bytes": 16906,
+          "sha256": "e74377b0f7011f80a3bb892e6e558893c5f8683a96637f42ed42f2010d416153"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/contracts/server-functions.json",
+          "bytes": 3946,
+          "sha256": "cc74f371b11e4c430f55a8eada607735ccd05499b58fdabf25773371ba230ae6"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/contracts/state-transitions.json",
+          "bytes": 2286,
+          "sha256": "d6f3485be3a4a2de5d1d9218746ed725d417f9fa62bb7e2e512b28754f1d8d1c"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/contracts/vision-output.schema.json",
+          "bytes": 793,
+          "sha256": "f757fa01ac9ed43fa4044a22a021ece59d2e9e0db9df0f5f1baef25becb82687"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/design-v6.md",
+          "bytes": 17253,
+          "sha256": "9c38055f704ef4a0347a6ef9978ef0d1327eb3ca755ab0d3de6404b03b515110"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/env.example",
+          "bytes": 621,
+          "sha256": "fa2a6a808e67ba42e9d683e502de11b50410ded289b896492bf946851f61cd2b"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/evidence/alephpi__Texo-web.LICENSE",
+          "bytes": 34523,
+          "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/evidence/alephpi__Texo.LICENSE",
+          "bytes": 34522,
+          "sha256": "d93c43da4bf2cf05e758c63966c45345a791da9daeb2f475d0d80a48e67b311b"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/evidence/breezedeus__Pix2Text.LICENSE",
+          "bytes": 1067,
+          "sha256": "416a9f7130fa7f1800ab3d766e3e9535a8e8951eee7abbffd2974b8e9947e47b"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/evidence/breezedeus__Pix2Text.README.md",
+          "bytes": 14601,
+          "sha256": "54874132c39e7bf06ffa5876b1c5b7a3aada19ec60db42e592551bee65df57e1"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/evidence/KaTeX__KaTeX.LICENSE",
+          "bytes": 1107,
+          "sha256": "766ccc1f306c885aa45542a9846bbd0a505b27a0374f146778171c2254ce18e3"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/evidence/KaTeX__KaTeX.README.md",
+          "bytes": 6503,
+          "sha256": "af0825b95cb4c43317bc3864f0a5d183c247fa7d40b7e1142ad26cf7a18b83a8"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/evidence/manifest.json",
+          "bytes": 3746,
+          "sha256": "33ca64c86f949ac303928d3378da6b8e11e510088567db21294800a024ff85d8"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/evidence/pix2text-model-card.txt",
+          "bytes": 9258,
+          "sha256": "f9e8f66ad98e223df8e333d27b8430e20064ea427cc94feee495329906ee21e3"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/evidence/react-markdown-license.txt",
+          "bytes": 1079,
+          "sha256": "f6196c64e144f9a6fa9154c3a80bc8b89615a9567934b83a8951879f06ba2aef"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/evidence/react-markdown-readme.txt",
+          "bytes": 26506,
+          "sha256": "e2f4fcd57c9ac4cd26d1a0706ae98cf8233b7e323ddc79bce662ff4d3b7e1d9c"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/evidence/repo-snapshots.json",
+          "bytes": 14183,
+          "sha256": "88eca57de6de9f0c8e514a67cec4448d4c53150b735a21b4aa23dac846707c74"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/evidence/RunzheYang__SocraticAI.LICENSE",
+          "bytes": 1068,
+          "sha256": "dba4fda92640a52745224f64f8473c18188c8080f48ec3aef0bcf575dbd69cc3"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/evidence/RunzheYang__SocraticAI.README.md",
+          "bytes": 2781,
+          "sha256": "571f761fe63b88fd72b747d946149c3f3590257c36b3f185e39184f3ed526a0b"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/evidence/SenmuuuuW__universal-diagnostic-tutor-skill.LICENSE",
+          "bytes": 1102,
+          "sha256": "a9ca00bcc7a56530a43eeedae4769303f70aef1b9f408594572c39aeb5c3bf84"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/evidence/SenmuuuuW__universal-diagnostic-tutor-skill.README.md",
+          "bytes": 9029,
+          "sha256": "138a6a0a9952d8b5e127bb484f0b921c1d4fef3c19f29fe03baec7c372453e90"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/evidence/source-audit-previous.md",
+          "bytes": 14919,
+          "sha256": "22e3614a24494dd3bb305830c7602fbe941c1ddb390988a94508a7c4194a93b2"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/evidence/sympy-parse-doc.clean.txt",
+          "bytes": 43419,
+          "sha256": "9909a6d77c6ad1ff54fc756d4b7dba0aa27f738ab93931f743d450f15e989853"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/evidence/sympy__sympy.LICENSE",
+          "bytes": 7885,
+          "sha256": "07a5e9819f727b4986ad2829c7a29a6320d42575f720eb24d71b7fef573a0286"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/evidence/VikParuchuri__texify.LICENSE",
+          "bytes": 35091,
+          "sha256": "4b4402403c3f80cd96adda842556965595b94ecc0590caa72fdafce194d7a3e2"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/fixtures/assessment-input.json",
+          "bytes": 2626,
+          "sha256": "e48803cc1bd9c9ff1c6f66f76bf1840bc9b9bfb5b8e8477c71d71b60fd4e1ea8"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/fixtures/assessment-output.json",
+          "bytes": 316,
+          "sha256": "f7bb03b5941eeef57983805d1f31192b7f6b0c4559b7f1ac26824d66375758c3"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/fixtures/branch-cases.json",
+          "bytes": 5445,
+          "sha256": "8550270e046357c92bccfadca21866e92ebe1585c58154be9f979cf0e57c584a"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/fixtures/check-attempt.json",
+          "bytes": 927,
+          "sha256": "9202f848488abc9c3ffca0d7a4ab731b3fb9d0d4ec3a8da54f135bc00b02ed61"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/fixtures/diagnosis-input.json",
+          "bytes": 3458,
+          "sha256": "7f4fdccb6af26384761d63926a209115718003ccda413297ffdc71e03521e9b8"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/fixtures/diagnosis.json",
+          "bytes": 1716,
+          "sha256": "138657dca998c83a3e6ec2c3876f4e56f2699014ffa4a41ec78a5f30152d50a9"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/fixtures/guard.json",
+          "bytes": 208,
+          "sha256": "9564b5bc821f172202353b194f928c7358064c563f0bad038e07674d8506f775"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/fixtures/index.json",
+          "bytes": 1133,
+          "sha256": "9460429aa3417590776225d55461805bee484679532fd55ce46987f0aec0e533"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/fixtures/negative-cases.json",
+          "bytes": 4385,
+          "sha256": "46f86e368ea8234fa1bac3d8f652cad5d1f8b82fe26c4e9c46fce324faa07423"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/fixtures/packet.json",
+          "bytes": 9089,
+          "sha256": "2dd4d9b581a119aeacae5f895c949ab66ac8f1e40532f9fb6a18b5c5e3614578"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/fixtures/problem.json",
+          "bytes": 412,
+          "sha256": "a9151937665a20b18b82f53d08e06d0fc3937d1287310af196b2a859fb049616"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/fixtures/renderer-input.json",
+          "bytes": 408,
+          "sha256": "a0ad0e9a49d32d54a96a91c04c7c3e31e0f2c856cb285362f4f24b77ca700f33"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/fixtures/report.json",
+          "bytes": 765,
+          "sha256": "8e35723e4a0e6e7c3d1eec10678f68cf7365db8d82af3f45cec6b49a703ab677"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/fixtures/select.json",
+          "bytes": 104,
+          "sha256": "26cec3e2ee0e1f4566d3912a9b7c776147266162c53f9686f34696f26c594a94"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/fixtures/session.json",
+          "bytes": 4694,
+          "sha256": "35f7a95962981997b5c898263849e8adef94653700afff0ad037aa7025ef272a"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/fixtures/strategy-input.json",
+          "bytes": 4302,
+          "sha256": "e18b5b2322863111aed74bde40b11eaa887dcfa4d32e8d08129a4d22fdd6c01b"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/fixtures/strategy.json",
+          "bytes": 1083,
+          "sha256": "7e182c82050a0a3a697a92bc430bfbb3493435794ba74cbb72dc3311b76313a9"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/fixtures/student-view.json",
+          "bytes": 872,
+          "sha256": "33983a3775fdc684d907d9f6fbe305165fe9890a9e9491fb864a7cc5eb050952"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/fixtures/transcript.json",
+          "bytes": 235,
+          "sha256": "2c51edbec81938b29fe9386886f3a24fc2ea1a15f1e976e1e29ab5ae3af2b4df"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/handoffs/template.md",
+          "bytes": 295,
+          "sha256": "91dd370b67d2e46e88c28000630a2a5086602108f3b13cfc2d8b946d15d3c2e0"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/manifest.json",
+          "bytes": 13644,
+          "sha256": "1582c3b262d4680eb4d9f67348ef8bbd7fd63a408b051e5c508bc471171450bb"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/plan.md",
+          "bytes": 15051,
+          "sha256": "8c44c86a4c1e1681081b45f2737f34bbbc1aaee3808b14163f78b45c759af3dc"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/prd.md",
+          "bytes": 68216,
+          "sha256": "c8b3a6c6c4a33d292f6098e3f9f74120f7f2c03ba7e5d6adc9eb75932bbbe99d"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/prompts/assessment.md",
+          "bytes": 785,
+          "sha256": "792c9be8531f4d62d6b493ec058a103a92d5d0330a7c91bf638707acc03da71b"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/prompts/developer-a.md",
+          "bytes": 1208,
+          "sha256": "9b07275b48f6b7a072ce60b934df6aa264976abc8f75366cbfe19a0c5e21d2c5"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/prompts/developer-b.md",
+          "bytes": 1253,
+          "sha256": "cc1c4557b7ba4788a1bf7c266ce2a49a30e21670737a59ea8d090df68529a09e"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/prompts/developer-single.md",
+          "bytes": 852,
+          "sha256": "21919a5c5d057a50aa3bd34f994507f8dcbe4c20a456bb8b2b018f490e574551"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/prompts/diagnosis.md",
+          "bytes": 922,
+          "sha256": "3cb4c4798b95e3a5b601d6e9d3382d581baae55c86f8955a6a9ac27b06b9015a"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/prompts/guard.md",
+          "bytes": 806,
+          "sha256": "dcc6e866a93dc1dae90cc4fbca37e4cfad8678cc4b3604250e4409418f31385a"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/prompts/preparation.md",
+          "bytes": 1021,
+          "sha256": "f8a6686ff0dbc871eed2f552bef97544ee64b04e80feaba4df30129ab3a12121"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/prompts/renderer.md",
+          "bytes": 734,
+          "sha256": "ae59cba740e4a6c7df432ce4153897fd8a2f1670cee304600a7601e97094d9f5"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/prompts/strategy.md",
+          "bytes": 964,
+          "sha256": "e13f47ce6ce85d0e332db17223d536ee194d17102e25039e013e1e6b741e4d39"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/prompts/vision.md",
+          "bytes": 762,
+          "sha256": "5011072c258ec438fdad6eabc6366792a55837157eeb1f7ec3b371f8bd54e90f"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/publication/publication-status.json",
+          "bytes": 1058,
+          "sha256": "252d25cc4e457c988a8918959518b5e559763ee0e38c91f0930ce0612283c441"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/publication/README.md",
+          "bytes": 1056,
+          "sha256": "0f8e1ac5530f39c1dd41f93e3998c8854cffcaeaa5b4536bad4cc24f86ec7213"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/README.md",
+          "bytes": 3680,
+          "sha256": "a2c1822dea14d0ef9eca2cdd80c88d763b2f4d50a516f393e3dc466fc0e5e0dc"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/requirements-dev.txt",
+          "bytes": 20,
+          "sha256": "48ee7d1db1cfddbb445bdff4adca44ee15724e2d52b531d9d5bb7c77e2f1455f"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/requirements.json",
+          "bytes": 6028,
+          "sha256": "80242d8c210896d55e1ca3837b88e339fea3b35f724593aaaec04be0d42e08f2"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/reuse-lock.json",
+          "bytes": 2129,
+          "sha256": "f80968763f5dc5e96ae8457b4d0f9e523a26371d3f5a5e1e261804ec7e48cb1c"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/reuse.md",
+          "bytes": 6751,
+          "sha256": "599f99c66626b4ef7e86b285dae022ef6f7081053b9e53a815401261b873811a"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/runtime.json",
+          "bytes": 1356,
+          "sha256": "56a7d174ae4d8ad7519ebf616690c016dd3b3d8bc6e10b2e15dd25aea5efc80b"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/scope-changes.json",
+          "bytes": 591,
+          "sha256": "27a756ae971f4057980cd077896ebca5d543baed7c4907e23b129ee70fe08d70"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/scripts/__pycache__/semantic_rules.cpython-312.pyc",
+          "bytes": 11853,
+          "sha256": "eaa21e05e0a5ebeccd190da9c09801e3ffeefdf914262f80b7f27150f32a9f52"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/scripts/package.py",
+          "bytes": 2465,
+          "sha256": "d4c3cc0968b349f4b3b87b9620ed71da5cfd4d9faa154b8e0ba6b433e12f1dfe"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/scripts/semantic_rules.py",
+          "bytes": 6529,
+          "sha256": "5cfe2eda84ffd5602d97dceae1368e867de7c2fc533fed0ab90d77b704dc0a6d"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/scripts/validate_spec.py",
+          "bytes": 11170,
+          "sha256": "e65d736b3986e36b778483e902d9aab43d6b0ddaef5178b62f9762a6bbf5f747"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/spec-validation.json",
+          "bytes": 66177,
+          "sha256": "4522dd4cab2ec1a6bbbbf17acdd13d43f47d03232fdb370dc3b8105344644a53"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/tasks.json",
+          "bytes": 37780,
+          "sha256": "4be8a4439f24040d37e5c52b672c9b76dc063ce6b492443ed95c41070046b9cc"
+        },
+        {
+          "path": "qisi-package-check-xyy2jjqe/qisi-sdd-v3/traceability.csv",
+          "bytes": 681,
+          "sha256": "8fda63d0693b0b8940c7b5c817fde641b3ca5eb5c660558c77a81c65dc223d28"
+        }
+      ]
+    },
+    {
+      "path": "qisi-publish-check-yrh8jzkh",
+      "type": "directory",
+      "reason": "ZIP 发布后解压校验副本",
+      "files": [
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/acceptance/cases.json",
+          "bytes": 25534,
+          "sha256": "c8052a06ae996c35fc2ae6df21da94aa96b9ac2c6bf668dcee36bb5aa3ce30b4"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/acceptance/evaluation-protocol.md",
+          "bytes": 6983,
+          "sha256": "f24408cac51937cdb7eb4675ae730d23c062cd1e990a96a58bb6f8e3c1b32b95"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/acceptance/result-template.json",
+          "bytes": 438,
+          "sha256": "52314a3a9b686f75d1f8631bf7e972d543ad2d49a8b1396341c7508baa94a40e"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/acceptance/role-cases.json",
+          "bytes": 1157,
+          "sha256": "14bc74e5203ce3a8e2fb07aaeea0e19b9c69a532ebd3da058b12aaf4a65a0b9e"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/AGENTS.md",
+          "bytes": 3821,
+          "sha256": "8be3fec81ae4882c32e33ed773faa5f4f025bf2c360e3be127946cadd227431b"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/changes/template.md",
+          "bytes": 274,
+          "sha256": "02e590c4168173731eabf18e34f98aeb061c44f13249887caf24031e2ff7e7b4"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/contracts/agents.json",
+          "bytes": 2725,
+          "sha256": "62ef93c210c58e091787eba2cab78f9aebfb3c7e93afecfec977ea2b1541df66"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/contracts/database.sql",
+          "bytes": 4823,
+          "sha256": "2275ae6b7f05ea1fe86d481c39563d1f4a208744491324cc6957fb74b7ace69f"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/contracts/domain.schema.json",
+          "bytes": 66854,
+          "sha256": "8956791c7a1b2e54a2a4941c86aa491a81bd77c455235e5c7cb01346dd13118a"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/contracts/ports.ts",
+          "bytes": 1544,
+          "sha256": "9e5cd58465bb5eeaeaeb63557886f59b94f05e74c4e962af0d5b363d591ac8b4"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/contracts/README.md",
+          "bytes": 16906,
+          "sha256": "e74377b0f7011f80a3bb892e6e558893c5f8683a96637f42ed42f2010d416153"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/contracts/server-functions.json",
+          "bytes": 3946,
+          "sha256": "cc74f371b11e4c430f55a8eada607735ccd05499b58fdabf25773371ba230ae6"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/contracts/state-transitions.json",
+          "bytes": 2286,
+          "sha256": "d6f3485be3a4a2de5d1d9218746ed725d417f9fa62bb7e2e512b28754f1d8d1c"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/contracts/vision-output.schema.json",
+          "bytes": 793,
+          "sha256": "f757fa01ac9ed43fa4044a22a021ece59d2e9e0db9df0f5f1baef25becb82687"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/design-v6.md",
+          "bytes": 17349,
+          "sha256": "2888e52b144c9d8d3cfaa508213981b1b3e123020e8c28b112a6bb6adaf94863"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/env.example",
+          "bytes": 621,
+          "sha256": "fa2a6a808e67ba42e9d683e502de11b50410ded289b896492bf946851f61cd2b"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/evidence/alephpi__Texo-web.LICENSE",
+          "bytes": 34523,
+          "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/evidence/alephpi__Texo.LICENSE",
+          "bytes": 34522,
+          "sha256": "d93c43da4bf2cf05e758c63966c45345a791da9daeb2f475d0d80a48e67b311b"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/evidence/breezedeus__Pix2Text.LICENSE",
+          "bytes": 1067,
+          "sha256": "416a9f7130fa7f1800ab3d766e3e9535a8e8951eee7abbffd2974b8e9947e47b"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/evidence/breezedeus__Pix2Text.README.md",
+          "bytes": 14601,
+          "sha256": "54874132c39e7bf06ffa5876b1c5b7a3aada19ec60db42e592551bee65df57e1"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/evidence/KaTeX__KaTeX.LICENSE",
+          "bytes": 1107,
+          "sha256": "766ccc1f306c885aa45542a9846bbd0a505b27a0374f146778171c2254ce18e3"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/evidence/KaTeX__KaTeX.README.md",
+          "bytes": 6503,
+          "sha256": "af0825b95cb4c43317bc3864f0a5d183c247fa7d40b7e1142ad26cf7a18b83a8"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/evidence/manifest.json",
+          "bytes": 3746,
+          "sha256": "33ca64c86f949ac303928d3378da6b8e11e510088567db21294800a024ff85d8"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/evidence/pix2text-model-card.txt",
+          "bytes": 9258,
+          "sha256": "f9e8f66ad98e223df8e333d27b8430e20064ea427cc94feee495329906ee21e3"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/evidence/react-markdown-license.txt",
+          "bytes": 1079,
+          "sha256": "f6196c64e144f9a6fa9154c3a80bc8b89615a9567934b83a8951879f06ba2aef"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/evidence/react-markdown-readme.txt",
+          "bytes": 26506,
+          "sha256": "e2f4fcd57c9ac4cd26d1a0706ae98cf8233b7e323ddc79bce662ff4d3b7e1d9c"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/evidence/repo-snapshots.json",
+          "bytes": 14183,
+          "sha256": "88eca57de6de9f0c8e514a67cec4448d4c53150b735a21b4aa23dac846707c74"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/evidence/RunzheYang__SocraticAI.LICENSE",
+          "bytes": 1068,
+          "sha256": "dba4fda92640a52745224f64f8473c18188c8080f48ec3aef0bcf575dbd69cc3"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/evidence/RunzheYang__SocraticAI.README.md",
+          "bytes": 2781,
+          "sha256": "571f761fe63b88fd72b747d946149c3f3590257c36b3f185e39184f3ed526a0b"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/evidence/SenmuuuuW__universal-diagnostic-tutor-skill.LICENSE",
+          "bytes": 1102,
+          "sha256": "a9ca00bcc7a56530a43eeedae4769303f70aef1b9f408594572c39aeb5c3bf84"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/evidence/SenmuuuuW__universal-diagnostic-tutor-skill.README.md",
+          "bytes": 9029,
+          "sha256": "138a6a0a9952d8b5e127bb484f0b921c1d4fef3c19f29fe03baec7c372453e90"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/evidence/source-audit-previous.md",
+          "bytes": 14919,
+          "sha256": "22e3614a24494dd3bb305830c7602fbe941c1ddb390988a94508a7c4194a93b2"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/evidence/sympy-parse-doc.clean.txt",
+          "bytes": 43419,
+          "sha256": "9909a6d77c6ad1ff54fc756d4b7dba0aa27f738ab93931f743d450f15e989853"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/evidence/sympy__sympy.LICENSE",
+          "bytes": 7885,
+          "sha256": "07a5e9819f727b4986ad2829c7a29a6320d42575f720eb24d71b7fef573a0286"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/evidence/VikParuchuri__texify.LICENSE",
+          "bytes": 35091,
+          "sha256": "4b4402403c3f80cd96adda842556965595b94ecc0590caa72fdafce194d7a3e2"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/fixtures/assessment-input.json",
+          "bytes": 2626,
+          "sha256": "e48803cc1bd9c9ff1c6f66f76bf1840bc9b9bfb5b8e8477c71d71b60fd4e1ea8"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/fixtures/assessment-output.json",
+          "bytes": 316,
+          "sha256": "f7bb03b5941eeef57983805d1f31192b7f6b0c4559b7f1ac26824d66375758c3"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/fixtures/branch-cases.json",
+          "bytes": 5445,
+          "sha256": "8550270e046357c92bccfadca21866e92ebe1585c58154be9f979cf0e57c584a"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/fixtures/check-attempt.json",
+          "bytes": 927,
+          "sha256": "9202f848488abc9c3ffca0d7a4ab731b3fb9d0d4ec3a8da54f135bc00b02ed61"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/fixtures/diagnosis-input.json",
+          "bytes": 3458,
+          "sha256": "7f4fdccb6af26384761d63926a209115718003ccda413297ffdc71e03521e9b8"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/fixtures/diagnosis.json",
+          "bytes": 1716,
+          "sha256": "138657dca998c83a3e6ec2c3876f4e56f2699014ffa4a41ec78a5f30152d50a9"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/fixtures/guard.json",
+          "bytes": 208,
+          "sha256": "9564b5bc821f172202353b194f928c7358064c563f0bad038e07674d8506f775"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/fixtures/index.json",
+          "bytes": 1133,
+          "sha256": "9460429aa3417590776225d55461805bee484679532fd55ce46987f0aec0e533"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/fixtures/negative-cases.json",
+          "bytes": 4385,
+          "sha256": "46f86e368ea8234fa1bac3d8f652cad5d1f8b82fe26c4e9c46fce324faa07423"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/fixtures/packet.json",
+          "bytes": 9089,
+          "sha256": "2dd4d9b581a119aeacae5f895c949ab66ac8f1e40532f9fb6a18b5c5e3614578"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/fixtures/problem.json",
+          "bytes": 412,
+          "sha256": "a9151937665a20b18b82f53d08e06d0fc3937d1287310af196b2a859fb049616"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/fixtures/renderer-input.json",
+          "bytes": 408,
+          "sha256": "a0ad0e9a49d32d54a96a91c04c7c3e31e0f2c856cb285362f4f24b77ca700f33"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/fixtures/report.json",
+          "bytes": 765,
+          "sha256": "8e35723e4a0e6e7c3d1eec10678f68cf7365db8d82af3f45cec6b49a703ab677"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/fixtures/select.json",
+          "bytes": 104,
+          "sha256": "26cec3e2ee0e1f4566d3912a9b7c776147266162c53f9686f34696f26c594a94"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/fixtures/session.json",
+          "bytes": 4694,
+          "sha256": "35f7a95962981997b5c898263849e8adef94653700afff0ad037aa7025ef272a"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/fixtures/strategy-input.json",
+          "bytes": 4302,
+          "sha256": "e18b5b2322863111aed74bde40b11eaa887dcfa4d32e8d08129a4d22fdd6c01b"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/fixtures/strategy.json",
+          "bytes": 1083,
+          "sha256": "7e182c82050a0a3a697a92bc430bfbb3493435794ba74cbb72dc3311b76313a9"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/fixtures/student-view.json",
+          "bytes": 872,
+          "sha256": "33983a3775fdc684d907d9f6fbe305165fe9890a9e9491fb864a7cc5eb050952"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/fixtures/transcript.json",
+          "bytes": 235,
+          "sha256": "2c51edbec81938b29fe9386886f3a24fc2ea1a15f1e976e1e29ab5ae3af2b4df"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/handoffs/template.md",
+          "bytes": 295,
+          "sha256": "91dd370b67d2e46e88c28000630a2a5086602108f3b13cfc2d8b946d15d3c2e0"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/manifest.json",
+          "bytes": 13644,
+          "sha256": "621ec74a4a957c450d851ab90af5298e02cef8a92177d5b27cb496cc54278c3d"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/plan.md",
+          "bytes": 15147,
+          "sha256": "41e1a33d44a76a4fb346cb671242808f31163322cb407c5be8efb47b8c15768f"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/prd.md",
+          "bytes": 68312,
+          "sha256": "119530efac9953809d7271b4369537b24aef9189eb5962fd4e4388c62c15ed34"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/prompts/assessment.md",
+          "bytes": 785,
+          "sha256": "792c9be8531f4d62d6b493ec058a103a92d5d0330a7c91bf638707acc03da71b"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/prompts/developer-a.md",
+          "bytes": 1208,
+          "sha256": "9b07275b48f6b7a072ce60b934df6aa264976abc8f75366cbfe19a0c5e21d2c5"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/prompts/developer-b.md",
+          "bytes": 1253,
+          "sha256": "cc1c4557b7ba4788a1bf7c266ce2a49a30e21670737a59ea8d090df68529a09e"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/prompts/developer-single.md",
+          "bytes": 852,
+          "sha256": "21919a5c5d057a50aa3bd34f994507f8dcbe4c20a456bb8b2b018f490e574551"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/prompts/diagnosis.md",
+          "bytes": 922,
+          "sha256": "3cb4c4798b95e3a5b601d6e9d3382d581baae55c86f8955a6a9ac27b06b9015a"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/prompts/guard.md",
+          "bytes": 806,
+          "sha256": "dcc6e866a93dc1dae90cc4fbca37e4cfad8678cc4b3604250e4409418f31385a"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/prompts/preparation.md",
+          "bytes": 1021,
+          "sha256": "f8a6686ff0dbc871eed2f552bef97544ee64b04e80feaba4df30129ab3a12121"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/prompts/renderer.md",
+          "bytes": 734,
+          "sha256": "ae59cba740e4a6c7df432ce4153897fd8a2f1670cee304600a7601e97094d9f5"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/prompts/strategy.md",
+          "bytes": 964,
+          "sha256": "e13f47ce6ce85d0e332db17223d536ee194d17102e25039e013e1e6b741e4d39"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/prompts/vision.md",
+          "bytes": 762,
+          "sha256": "5011072c258ec438fdad6eabc6366792a55837157eeb1f7ec3b371f8bd54e90f"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/publication/publication-status.json",
+          "bytes": 1339,
+          "sha256": "f5d9f8e7e0d5bcadd8e48594687418c57fef30441562a4889b3404a42e2d07cf"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/publication/README.md",
+          "bytes": 1101,
+          "sha256": "fd76a480c3c96657b36ab3e336b054a9f05045f9114db40b38e11250c46f14ef"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/README.md",
+          "bytes": 3789,
+          "sha256": "334096a64b5951aeadbc1367c041c3dfe760b3274c3c2a1463a14cf9529c255c"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/requirements-dev.txt",
+          "bytes": 20,
+          "sha256": "48ee7d1db1cfddbb445bdff4adca44ee15724e2d52b531d9d5bb7c77e2f1455f"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/requirements.json",
+          "bytes": 6028,
+          "sha256": "80242d8c210896d55e1ca3837b88e339fea3b35f724593aaaec04be0d42e08f2"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/reuse-lock.json",
+          "bytes": 2129,
+          "sha256": "f80968763f5dc5e96ae8457b4d0f9e523a26371d3f5a5e1e261804ec7e48cb1c"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/reuse.md",
+          "bytes": 6751,
+          "sha256": "599f99c66626b4ef7e86b285dae022ef6f7081053b9e53a815401261b873811a"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/runtime.json",
+          "bytes": 1356,
+          "sha256": "56a7d174ae4d8ad7519ebf616690c016dd3b3d8bc6e10b2e15dd25aea5efc80b"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/scope-changes.json",
+          "bytes": 591,
+          "sha256": "27a756ae971f4057980cd077896ebca5d543baed7c4907e23b129ee70fe08d70"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/scripts/__pycache__/semantic_rules.cpython-312.pyc",
+          "bytes": 11853,
+          "sha256": "d2566286a76c19248608d71981172dd14ed3b7ea1c2fca5519c2961ac6b44fb1"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/scripts/package.py",
+          "bytes": 2465,
+          "sha256": "d4c3cc0968b349f4b3b87b9620ed71da5cfd4d9faa154b8e0ba6b433e12f1dfe"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/scripts/semantic_rules.py",
+          "bytes": 6529,
+          "sha256": "5cfe2eda84ffd5602d97dceae1368e867de7c2fc533fed0ab90d77b704dc0a6d"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/scripts/validate_spec.py",
+          "bytes": 11170,
+          "sha256": "e65d736b3986e36b778483e902d9aab43d6b0ddaef5178b62f9762a6bbf5f747"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/spec-validation.json",
+          "bytes": 66177,
+          "sha256": "04a130596e7e0df8921fbabb3d1104342f792c379f4380f898bdf54584b99063"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/tasks.json",
+          "bytes": 37780,
+          "sha256": "4be8a4439f24040d37e5c52b672c9b76dc063ce6b492443ed95c41070046b9cc"
+        },
+        {
+          "path": "qisi-publish-check-yrh8jzkh/qisi-sdd-v3/traceability.csv",
+          "bytes": 681,
+          "sha256": "8fda63d0693b0b8940c7b5c817fde641b3ca5eb5c660558c77a81c65dc223d28"
+        }
+      ]
+    },
+    {
+      "path": "qisi-sdd-v3/scripts/__pycache__",
+      "type": "directory",
+      "reason": "可再生 Python 字节码缓存",
+      "files": [
+        {
+          "path": "qisi-sdd-v3/scripts/__pycache__/semantic_rules.cpython-312.pyc",
+          "bytes": 11825,
+          "sha256": "027e10418586191dc33f79152ccd889be191ea140e76fa5494d57b8b99fa7457"
+        }
+      ]
+    },
+    {
+      "path": "build-qisi-v3.cjs",
+      "type": "file",
+      "reason": "历史设计/旧压缩包/旧发布产物；现行版本已独立保留",
+      "files": [
+        {
+          "path": "build-qisi-v3.cjs",
+          "bytes": 4400,
+          "sha256": "85fcaeb5595cd310e32b6ae6098406a276e7cc0583876ff2664febb4f8a58b55"
+        }
+      ]
+    },
+    {
+      "path": "verify-qisi-v3.cjs",
+      "type": "file",
+      "reason": "历史设计/旧压缩包/旧发布产物；现行版本已独立保留",
+      "files": [
+        {
+          "path": "verify-qisi-v3.cjs",
+          "bytes": 2291,
+          "sha256": "299ed97db4eb04b09e276299e4c16c77e17f4b9e78ef4cb1b6b103685caf5876"
+        }
+      ]
+    },
+    {
+      "path": "qisi-design-v3-create-response.json",
+      "type": "file",
+      "reason": "历史设计/旧压缩包/旧发布产物；现行版本已独立保留",
+      "files": [
+        {
+          "path": "qisi-design-v3-create-response.json",
+          "bytes": 1788,
+          "sha256": "9a601b005ec6047ffbc763f94308d6fa6297f506e05acc60ba3c9581e437652a"
+        }
+      ]
+    },
+    {
+      "path": "qisi-design-v3-readback.html",
+      "type": "file",
+      "reason": "历史设计/旧压缩包/旧发布产物；现行版本已独立保留",
+      "files": [
+        {
+          "path": "qisi-design-v3-readback.html",
+          "bytes": 83213,
+          "sha256": "bd30e0af4b97eededb9d3f7494ec26a6e442cc466690138e943b36f00a32e537"
+        }
+      ]
+    },
+    {
+      "path": "qisi-design-v3-readback.json",
+      "type": "file",
+      "reason": "历史设计/旧压缩包/旧发布产物；现行版本已独立保留",
+      "files": [
+        {
+          "path": "qisi-design-v3-readback.json",
+          "bytes": 84469,
+          "sha256": "d6d18ca705f7ce7557258fe5bc225e2df2d48144430d67a3c80688d43a7d4f2d"
+        }
+      ]
+    },
+    {
+      "path": "qisi-design-v3-update-response.json",
+      "type": "file",
+      "reason": "历史设计/旧压缩包/旧发布产物；现行版本已独立保留",
+      "files": [
+        {
+          "path": "qisi-design-v3-update-response.json",
+          "bytes": 1602,
+          "sha256": "b6109d454ffc5d6a81c459314f4d601625f3dab762ea25c11a68bd8e1e88fa17"
+        }
+      ]
+    },
+    {
+      "path": "qisi-design-v3-verification.json",
+      "type": "file",
+      "reason": "历史设计/旧压缩包/旧发布产物；现行版本已独立保留",
+      "files": [
+        {
+          "path": "qisi-design-v3-verification.json",
+          "bytes": 434,
+          "sha256": "1b319126d7e31340dc75aeab74c4f67047cf314bad075cc6a71b21922c063918"
+        }
+      ]
+    },
+    {
+      "path": "qisi-design-v3.build-check.json",
+      "type": "file",
+      "reason": "历史设计/旧压缩包/旧发布产物；现行版本已独立保留",
+      "files": [
+        {
+          "path": "qisi-design-v3.build-check.json",
+          "bytes": 436,
+          "sha256": "a1ee03c07178b063f9dbfa07f332bcc34d094cfdff941a3c551340aee1c31616"
+        }
+      ]
+    },
+    {
+      "path": "qisi-design-v3.md",
+      "type": "file",
+      "reason": "历史设计/旧压缩包/旧发布产物；现行版本已独立保留",
+      "files": [
+        {
+          "path": "qisi-design-v3.md",
+          "bytes": 50768,
+          "sha256": "a916ebb49e455be8eef743de7e862ccb90f272c6d19c074365d994d90fbd7780"
+        }
+      ]
+    },
+    {
+      "path": "qisi-design-v3.popo.html",
+      "type": "file",
+      "reason": "历史设计/旧压缩包/旧发布产物；现行版本已独立保留",
+      "files": [
+        {
+          "path": "qisi-design-v3.popo.html",
+          "bytes": 63075,
+          "sha256": "cc2892b059683b8a0e7dfe06191906bf3946fcac0daec200472207541e5d30d5"
+        }
+      ]
+    },
+    {
+      "path": "qisi-design-v4-before.json",
+      "type": "file",
+      "reason": "历史设计/旧压缩包/旧发布产物；现行版本已独立保留",
+      "files": [
+        {
+          "path": "qisi-design-v4-before.json",
+          "bytes": 84469,
+          "sha256": "4ba285c9d72bab226c8bcd583ba88bf576f3779f247b3fe798852fce4fb001a1"
+        }
+      ]
+    },
+    {
+      "path": "qisi-sdd-v1.zip",
+      "type": "file",
+      "reason": "历史设计/旧压缩包/旧发布产物；现行版本已独立保留",
+      "files": [
+        {
+          "path": "qisi-sdd-v1.zip",
+          "bytes": 82248,
+          "sha256": "d45009e7c751b4bfd8a707138e963f014308f7ce8aaff37d3bc97f3727a675de"
+        }
+      ]
+    },
+    {
+      "path": "qisi-sdd-week1-v2.zip",
+      "type": "file",
+      "reason": "历史设计/旧压缩包/旧发布产物；现行版本已独立保留",
+      "files": [
+        {
+          "path": "qisi-sdd-week1-v2.zip",
+          "bytes": 69357,
+          "sha256": "45be54dcbad65d20233bd84000185b89935858726eefdb05bae521e3e5886e33"
+        }
+      ]
+    },
+    {
+      "path": "ai-math-tutor-source-audit.md",
+      "type": "file",
+      "reason": "与现行 evidence/source-audit-previous.md 字节一致，删除根目录重复副本",
+      "files": [
+        {
+          "path": "ai-math-tutor-source-audit.md",
+          "bytes": 14919,
+          "sha256": "22e3614a24494dd3bb305830c7602fbe941c1ddb390988a94508a7c4194a93b2"
+        }
+      ]
+    },
+    {
+      "path": "qisi-sdd-v3/scripts/build_contracts.py",
+      "type": "file",
+      "reason": "生成早期规格的一次性脚本，不属于交付包且现行工具不依赖",
+      "files": [
+        {
+          "path": "qisi-sdd-v3/scripts/build_contracts.py",
+          "bytes": 17165,
+          "sha256": "b9f401103e718ffcc7d4745faf88dc35c65b8bf3525aded18b7adf4d9d48c5ec"
+        }
+      ]
+    },
+    {
+      "path": "qisi-sdd-v3/scripts/build_fixtures.py",
+      "type": "file",
+      "reason": "生成早期规格的一次性脚本，不属于交付包且现行工具不依赖",
+      "files": [
+        {
+          "path": "qisi-sdd-v3/scripts/build_fixtures.py",
+          "bytes": 14261,
+          "sha256": "05d47b44fc7ab3a3667da4535c0148d13bea058edc47d37671ea88ad85e2777b"
+        }
+      ]
+    },
+    {
+      "path": "qisi-sdd-v3/scripts/build_spec.py",
+      "type": "file",
+      "reason": "生成早期规格的一次性脚本，不属于交付包且现行工具不依赖",
+      "files": [
+        {
+          "path": "qisi-sdd-v3/scripts/build_spec.py",
+          "bytes": 26962,
+          "sha256": "eca9951001e580a8e12174efeda0258720f4b6c7c48ab9187b9f44bc0b64d777"
+        }
+      ]
+    },
+    {
+      "path": "qisi-sdd-v3/scripts/extend_validation.py",
+      "type": "file",
+      "reason": "生成早期规格的一次性脚本，不属于交付包且现行工具不依赖",
+      "files": [
+        {
+          "path": "qisi-sdd-v3/scripts/extend_validation.py",
+          "bytes": 2092,
+          "sha256": "c624b83b65123ccf993a89621911da3e162383d81f496564901c0aeb56ec7756"
+        }
+      ]
+    },
+    {
+      "path": "qisi-sdd-v3/scripts/final_patch.py",
+      "type": "file",
+      "reason": "生成早期规格的一次性脚本，不属于交付包且现行工具不依赖",
+      "files": [
+        {
+          "path": "qisi-sdd-v3/scripts/final_patch.py",
+          "bytes": 6060,
+          "sha256": "2f789dc4737894b54f4450e9627e5bfebe5cf1c8db01dbf8681e0865300077f6"
+        }
+      ]
+    },
+    {
+      "path": "qisi-sdd-v3/scripts/finalize_docs.py",
+      "type": "file",
+      "reason": "生成早期规格的一次性脚本，不属于交付包且现行工具不依赖",
+      "files": [
+        {
+          "path": "qisi-sdd-v3/scripts/finalize_docs.py",
+          "bytes": 10024,
+          "sha256": "20b94b0fc392add7d722f89dc8884ea15687f2ef782ad181cf01a8b5bf42f45a"
+        }
+      ]
+    },
+    {
+      "path": "qisi-sdd-v3/scripts/finish_support.py",
+      "type": "file",
+      "reason": "生成早期规格的一次性脚本，不属于交付包且现行工具不依赖",
+      "files": [
+        {
+          "path": "qisi-sdd-v3/scripts/finish_support.py",
+          "bytes": 8603,
+          "sha256": "c0dd1a42c930c1fe406f2b33c41d807ba493110b9da6c21b5e7c5c780f1c1ea0"
+        }
+      ]
+    },
+    {
+      "path": "qisi-sdd-v3/publication/design-before.json",
+      "type": "file",
+      "reason": "空文件/失败记录/重复发布快照；成功发布凭证及原始备份 JSON 已保留",
+      "files": [
+        {
+          "path": "qisi-sdd-v3/publication/design-before.json",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "path": "qisi-sdd-v3/publication/design-sync-before.json",
+      "type": "file",
+      "reason": "空文件/失败记录/重复发布快照；成功发布凭证及原始备份 JSON 已保留",
+      "files": [
+        {
+          "path": "qisi-sdd-v3/publication/design-sync-before.json",
+          "bytes": 1952,
+          "sha256": "742fea37df443412a9c9d1c4c1bb31fd3097e9bd1308d2049ef706efe24ffa86"
+        }
+      ]
+    },
+    {
+      "path": "qisi-sdd-v3/publication/record-sync-attempt.cjs",
+      "type": "file",
+      "reason": "空文件/失败记录/重复发布快照；成功发布凭证及原始备份 JSON 已保留",
+      "files": [
+        {
+          "path": "qisi-sdd-v3/publication/record-sync-attempt.cjs",
+          "bytes": 956,
+          "sha256": "37f20319a15864c01f2300f6aebd1f85801c71d6fc9d9d08f4670059360a84a1"
+        }
+      ]
+    },
+    {
+      "path": "qisi-sdd-v3/publication/sync-attempt-2026-09-16.json",
+      "type": "file",
+      "reason": "空文件/失败记录/重复发布快照；成功发布凭证及原始备份 JSON 已保留",
+      "files": [
+        {
+          "path": "qisi-sdd-v3/publication/sync-attempt-2026-09-16.json",
+          "bytes": 813,
+          "sha256": "a3341ab0892180ad0af794d0b17186946e5d0b4fe917bba28815d499b8afc8f3"
+        }
+      ]
+    },
+    {
+      "path": "qisi-sdd-v3/publication/design-just-before.json",
+      "type": "file",
+      "reason": "空文件/失败记录/重复发布快照；成功发布凭证及原始备份 JSON 已保留",
+      "files": [
+        {
+          "path": "qisi-sdd-v3/publication/design-just-before.json",
+          "bytes": 27740,
+          "sha256": "94b742d8db8e2f7eb02ddba1a2db7f95369dcd49560145303a909913ff2f2f9d"
+        }
+      ]
+    },
+    {
+      "path": "qisi-sdd-v3/publication/design-prepublish.html",
+      "type": "file",
+      "reason": "空文件/失败记录/重复发布快照；成功发布凭证及原始备份 JSON 已保留",
+      "files": [
+        {
+          "path": "qisi-sdd-v3/publication/design-prepublish.html",
+          "bytes": 14651,
+          "sha256": "94ee4ca785d9fb3757f239e6b4919a375e2fcd259cccabcedf340e8f991a607b"
+        }
+      ]
+    },
+    {
+      "path": "qisi-sdd-v3/publication/plan-just-before.json",
+      "type": "file",
+      "reason": "空文件/失败记录/重复发布快照；成功发布凭证及原始备份 JSON 已保留",
+      "files": [
+        {
+          "path": "qisi-sdd-v3/publication/plan-just-before.json",
+          "bytes": 16909,
+          "sha256": "19beeabef1a8f320674beb72357eb41598ba49c211708633a970cf6168934a46"
+        }
+      ]
+    },
+    {
+      "path": "qisi-sdd-v3/publication/plan-prepublish.html",
+      "type": "file",
+      "reason": "空文件/失败记录/重复发布快照；成功发布凭证及原始备份 JSON 已保留",
+      "files": [
+        {
+          "path": "qisi-sdd-v3/publication/plan-prepublish.html",
+          "bytes": 16301,
+          "sha256": "83bc05cdb0ef0f6628e9c36ef42e1604395ed7a0bd50c00e9bf749a5abb4cf7f"
+        }
+      ]
+    },
+    {
+      "path": "qisi-sdd-v3/publication/prd-just-before.json",
+      "type": "file",
+      "reason": "空文件/失败记录/重复发布快照；成功发布凭证及原始备份 JSON 已保留",
+      "files": [
+        {
+          "path": "qisi-sdd-v3/publication/prd-just-before.json",
+          "bytes": 42140,
+          "sha256": "cb29fc31827d1acd728607caf0c1227bf6453dc0f2f74518997b31a600207399"
+        }
+      ]
+    },
+    {
+      "path": "qisi-sdd-v3/publication/prd-prepublish.html",
+      "type": "file",
+      "reason": "空文件/失败记录/重复发布快照；成功发布凭证及原始备份 JSON 已保留",
+      "files": [
+        {
+          "path": "qisi-sdd-v3/publication/prd-prepublish.html",
+          "bytes": 41529,
+          "sha256": "f1bad4b449b0c9b07de40d6aef0ccc4c074c03d18e4ac5ae7527bdabde194024"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "deleted_files": 334,
+    "deleted_bytes": 3903772,
+    "moved_files": 10,
+    "remaining_original_files": 199,
+    "files_after_cleanup": 202
+  },
+  "cleaned_at": "2026-09-16T11:22:59.3906262+08:00",
+  "verification": {
+    "verified_at": "2026-09-16T03:55:16.469512+00:00",
+    "protected_files_unchanged": 84,
+    "moved_files_hashes_match": 10,
+    "archive_members_match_current_delivery": 83,
+    "zip_sha256": "d4f62ea542b0c969e3ea6afade3377a9d20b2e41e7e5a32bbb98d71c75aca23b",
+    "specification_checks": {
+      "passed": 647,
+      "failed": 0,
+      "scope": "specification_only"
+    },
+    "publication_offline_rebuild_and_readback_comparison": {
+      "documents_passed": 3,
+      "network_used": false,
+      "remote_updated": false
+    },
+    "readme_local_links": [
+      {
+        "from": "README.md",
+        "link": "qisi-sdd-v3/design-v6.md",
+        "exists": true
+      },
+      {
+        "from": "README.md",
+        "link": "qisi-sdd-v3/plan.md",
+        "exists": true
+      },
+      {
+        "from": "README.md",
+        "link": "qisi-sdd-v3/prd.md",
+        "exists": true
+      },
+      {
+        "from": "README.md",
+        "link": "qisi-sdd-v3/AGENTS.md",
+        "exists": true
+      },
+      {
+        "from": "README.md",
+        "link": "research-evidence/README.md",
+        "exists": true
+      }
+    ],
+    "commands": [
+      {
+        "command": [
+          "D:\\Python312\\python.exe",
+          "-B",
+          "D:\\math\\.qisi-cleanup-verify-hiw98chg\\qisi-sdd-v3\\scripts\\validate_spec.py"
+        ],
+        "exit_code": 0,
+        "stdout": "{\n  \"baseline\": \"qisi-3.0\",\n  \"generated_at\": \"2026-09-16T03:55:15.084954+00:00\",\n  \"scope\": \"specification_only\",\n  \"passed\": 647,\n  \"failed\": 0,\n  \"application_tests\": \"not_run\",\n  \"real_model_tests\": \"not_run\",\n  \"student_learning_evaluation\": \"not_evaluated\",\n  \"limitations\": [\n    \"Semantic oracles cover the supplied cases, not all production behavior.\",\n    \"SQLite checks run in memory for schema constraints, not persistence/app acceptance.\",\n    \"No official question bank, provider calls, deployment or learning experiment was executed.\"\n  ]\n}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "node",
+          "D:\\math\\.qisi-cleanup-verify-hiw98chg\\qisi-sdd-v3\\publication\\build-document.cjs",
+          "design"
+        ],
+        "exit_code": 0,
+        "stdout": "{\n  \"markdownChars\": 7389,\n  \"htmlChars\": 11207,\n  \"bytes\": 20982,\n  \"topLevelBlocks\": 82,\n  \"headings\": 23,\n  \"tables\": 4,\n  \"diagrams\": 0,\n  \"jsonExamples\": 0,\n  \"references\": [],\n  \"firstHeading\": \"启思｜多 Agent 数学思维老师设计方案 V6\",\n  \"lastHeading\": \"11. 配套文档\"\n}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "node",
+          "D:\\math\\.qisi-cleanup-verify-hiw98chg\\qisi-sdd-v3\\publication\\build-document.cjs",
+          "plan"
+        ],
+        "exit_code": 0,
+        "stdout": "{\n  \"markdownChars\": 7219,\n  \"htmlChars\": 13108,\n  \"bytes\": 20798,\n  \"topLevelBlocks\": 163,\n  \"headings\": 28,\n  \"tables\": 1,\n  \"diagrams\": 0,\n  \"jsonExamples\": 0,\n  \"references\": [],\n  \"firstHeading\": \"启思｜双人约十天开发规划 V3\",\n  \"lastHeading\": \"B10｜D10｜提示冻结、现场联测与答辩材料\"\n}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "node",
+          "D:\\math\\.qisi-cleanup-verify-hiw98chg\\qisi-sdd-v3\\publication\\build-document.cjs",
+          "prd"
+        ],
+        "exit_code": 0,
+        "stdout": "{\n  \"markdownChars\": 39858,\n  \"htmlChars\": 71007,\n  \"bytes\": 98190,\n  \"topLevelBlocks\": 741,\n  \"headings\": 103,\n  \"tables\": 3,\n  \"diagrams\": 0,\n  \"jsonExamples\": 0,\n  \"references\": [],\n  \"firstHeading\": \"启思｜多Agent Web SDD PRD V3\",\n  \"lastHeading\": \"附录E｜交付物和配套文件\"\n}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "node",
+          "D:\\math\\.qisi-cleanup-verify-hiw98chg\\qisi-sdd-v3\\publication\\verify-publication.cjs"
+        ],
+        "exit_code": 0,
+        "stdout": "[\n  {\n    \"key\": \"design\",\n    \"title\": \"启思｜多Agent数学思维老师设计方案 V6\",\n    \"owner\": \"王超亚\",\n    \"type\": 1,\n    \"normalizedTextMatch\": true,\n    \"headingsMatch\": true,\n    \"tables\": 4,\n    \"diagrams\": 0,\n    \"codeBlocks\": 1,\n    \"links\": 2,\n    \"missingLinks\": [],\n    \"attachments\": 0,\n    \"containsTemporaryFileMarker\": false,\n    \"containsGeneratedMarker\": false,\n    \"codeBlocksMatch\": true,\n    \"tableCellsMatch\": true,\n    \"passed\": true\n  },\n  {\n    \"key\": \"plan\",\n    \"title\": \"启思｜双人约十天开发规划 V3\",\n    \"owner\": \"王超亚\",\n    \"type\": 1,\n    \"normalizedTextMatch\": true,\n    \"headingsMatch\": true,\n    \"tables\": 1,\n    \"diagrams\": 0,\n    \"codeBlocks\": 0,\n    \"links\": 0,\n    \"missingLinks\": [],\n    \"attachments\": 0,\n    \"containsTemporaryFileMarker\": false,\n    \"containsGeneratedMarker\": false,\n    \"codeBlocksMatch\": true,\n    \"tableCellsMatch\": true,\n    \"passed\": true\n  },\n  {\n    \"key\": \"prd\",\n    \"title\": \"启思｜多Agent Web SDD PRD V3\",\n    \"owner\": \"王超亚\",\n    \"type\": 1,\n    \"normalizedTextMatch\": true,\n    \"headingsMatch\": true,\n    \"tables\": 3,\n    \"diagrams\": 0,\n    \"codeBlocks\": 21,\n    \"links\": 2,\n    \"missingLinks\": [],\n    \"attachments\": 1,\n    \"containsTemporaryFileMarker\": false,\n    \"containsGeneratedMarker\": false,\n    \"codeBlocksMatch\": true,\n    \"tableCellsMatch\": true,\n    \"attachmentUrlPreserved\": true,\n    \"attachmentSizePreserved\": true,\n    \"passed\": true\n  }\n]\n",
+        "stderr": ""
+      }
+    ],
+    "temporary_directory": "D:\\math\\.qisi-cleanup-verify-hiw98chg",
+    "application_tests": "not_run",
+    "real_model_tests": "not_run",
+    "student_learning_evaluation": "not_evaluated",
+    "temporary_directory_removed": true
+  },
+  "completed_at": "2026-09-16T04:17:26.466364+00:00",
+  "new_files": [
+    "README.md",
+    "research-evidence/README.md",
+    "cleanup-report.json"
+  ]
+}

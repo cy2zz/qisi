@@ -1,0 +1,55 @@
+{
+  "baseline": "qisi-3.0",
+  "status": "published_and_verified",
+  "started_at": "2026-09-16T03:07:57.925Z",
+  "zip_uploaded": true,
+  "attachment": {
+    "file": "qisi-sdd-v3.zip",
+    "bytes": 227571,
+    "sha256": "d4f62ea542b0c969e3ea6afade3377a9d20b2e41e7e5a32bbb98d71c75aca23b",
+    "uploaded": true,
+    "prd_readback_url_verified": true,
+    "prd_readback_size_verified": true
+  },
+  "documents": [
+    {
+      "key": "design",
+      "doc_id": "a3ceafa9c4ac4a1ebab7ebd04068a9c2",
+      "title": "启思｜多Agent数学思维老师设计方案 V6",
+      "url": "https://docs.popo.netease.com/lingxi/a3ceafa9c4ac4a1ebab7ebd04068a9c2",
+      "status": "published",
+      "readback_received": true,
+      "readback_verified": true
+    },
+    {
+      "key": "plan",
+      "doc_id": "98264ae3b38941a5aaf1b62e59abc31c",
+      "title": "启思｜双人约十天开发规划 V3",
+      "url": "https://docs.popo.netease.com/lingxi/98264ae3b38941a5aaf1b62e59abc31c",
+      "status": "published",
+      "readback_received": true,
+      "readback_verified": true
+    },
+    {
+      "key": "prd",
+      "doc_id": "0de4566fcbef4f9ebd7f9e474cf4b718",
+      "title": "启思｜多Agent Web SDD PRD V3",
+      "url": "https://docs.popo.netease.com/lingxi/0de4566fcbef4f9ebd7f9e474cf4b718",
+      "status": "published",
+      "readback_received": true,
+      "readback_verified": true
+    }
+  ],
+  "updated_at": "2026-09-16T03:09:45.694Z",
+  "verified_at": "2026-09-16T03:10:16.052Z",
+  "verification_method": "API_readback_content_not_visual_review",
+  "specification_checks": {
+    "passed": 647,
+    "failed": 0,
+    "scope": "specification_only"
+  },
+  "application_tests": "not_run",
+  "real_model_tests": "not_run",
+  "student_learning_evaluation": "not_evaluated",
+  "note": "Three existing document IDs updated in place. No duplicates created. ZIP publication metadata intentionally references this external live record."
+}
