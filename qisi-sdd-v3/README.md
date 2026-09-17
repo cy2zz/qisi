@@ -2,7 +2,7 @@
 
 当前基线 **qisi-3.1（2026-09-16）**：设计 V6.1、规划 V3.1、PRD V3.1。产品面向高三学生，技术栈已按用户最新决定修订为 React/Vite 前端、NestJS 后端和 MySQL 8.4。
 
-React 19 / TypeScript / Vite / NestJS / Node.js 24 LTS / Tailwind CSS / shadcn/ui / LangGraph.js（按需用于有界编排）/ AI SDK Core / MySQL 8.4 + mysql2 + Kysely / Zod / Markdown + KaTeX / sharp / Vitest / Supertest / Playwright。
+React 19 / TypeScript / Vite / NestJS / Node.js 24.21.0（24 LTS）/ Tailwind CSS / shadcn/ui / LangGraph.js（按需用于有界编排）/ AI SDK Core / MySQL 8.4 + mysql2 + Kysely / Zod / Markdown + KaTeX / sharp / Vitest / Supertest / Playwright。
 
 ## 状态与范围
 

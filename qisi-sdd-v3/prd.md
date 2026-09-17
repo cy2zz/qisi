@@ -10,7 +10,7 @@
 
 | 层 | 唯一实施选择 |
 | --- | --- |
-| Web / 语言 | `web/` React 19 + Vite 8；`server/` NestJS 12；TypeScript + Node.js 24 LTS |
+| Web / 语言 | `web/` React 19 + Vite 8；`server/` NestJS 12；TypeScript + Node.js 24.21.0（24 LTS） |
 | UI | Tailwind CSS + shadcn/ui |
 | 多Agent编排 | NestJS 领域服务承载有界工作流；复杂分支按需使用 LangGraph.js StateGraph |
 | 模型接入 | AI SDK Core，经项目ModelPort；provider按比赛资源与实际能力测试选择 |

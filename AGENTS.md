@@ -37,7 +37,7 @@
 | 层 | 约束 |
 | --- | --- |
 | 前端 | `web/`：React 19 + TypeScript + Vite；面向高三学生的 PC 优先、完整适配 H5 的响应式 SPA |
-| 后端 | `server/`：NestJS + TypeScript，Node.js 24 LTS；API 与 worker 使用同一后端代码库 |
+| 后端 | `server/`：NestJS + TypeScript，Node.js 24.21.0（24 LTS）；API 与 worker 使用同一后端代码库 |
 | UI | Tailwind CSS + shadcn/ui；公共组件由 A 维护 |
 | 产品多 Agent | NestJS 领域服务承载角色边界；需要图编排时使用 LangGraph.js StateGraph，保持显式、有界 |
 | 模型接入 | AI SDK Core 或实际 provider SDK 仅经项目 `ModelPort` / `ModelGateway`；provider 依据真实凭据和能力测试选择 |

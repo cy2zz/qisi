@@ -7,7 +7,7 @@
 当前用户确认的目标技术栈为：
 
 - 前端：`web/`，React 19 + TypeScript + Vite，Tailwind CSS + shadcn/ui。
-- 后端：`server/`，NestJS + TypeScript，Node.js 24 LTS。
+- 后端：`server/`，NestJS + TypeScript，Node.js 24.21.0（24 LTS）。
 - 数据库：MySQL 8.4 LTS + mysql2，InnoDB、utf8mb4、显式 SQL 迁移。
 - 数据访问：优先采用 Kysely 保留类型安全；复杂事务、锁和迁移允许显式 SQL。
 - AI 工作流：NestJS 内的有界工作流；需要图编排时使用 LangGraph.js，MySQL 领域状态始终是业务事实来源。
@@ -54,7 +54,7 @@
 
 ### 本地环境
 
-本地应用使用 Node.js 24.14.0，MySQL 使用根 `compose.yaml` 中的 8.4 版本线。`.env`、`web/.env.development.local` 和 `server/.env.development.local` 只保存在本机且被 Git 忽略。
+本地应用使用 Node.js 24.21.0，`.nvmrc` 与 nvm 默认版本保持一致；MySQL 使用根 `compose.yaml` 中的 8.4 版本线。`.env`、`web/.env.development.local` 和 `server/.env.development.local` 只保存在本机且被 Git 忽略。
 
 ```text
 npm install

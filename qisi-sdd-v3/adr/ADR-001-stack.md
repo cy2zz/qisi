@@ -8,7 +8,7 @@
 
 | 层 | 决定 | 边界 |
 | --- | --- | --- |
-| 运行时/语言 | Node.js 24 LTS、TypeScript | 浏览器与服务端同语言；mysql2/sharp 只在 server 运行 |
+| 运行时/语言 | Node.js 24.21.0（24 LTS）、TypeScript | 浏览器与服务端同语言；mysql2/sharp 只在 server 运行 |
 | 前端 | `web/`：React 19 + Vite + React Router | PC 优先、完整适配 H5 的响应式 SPA；不含模型密钥、数据库或私有题解 |
 | 后端 | `server/`：NestJS | REST 提交命令，SSE 发送状态和校验后内容；API 与 worker 使用同一代码库 |
 | UI | Tailwind CSS、shadcn/ui | 组件源码归项目，依赖同样做许可与安全检查 |
@@ -21,7 +21,7 @@
 | 测试 | Vitest、Supertest、Playwright、真实 MySQL 8.4 集成测试 | fixture 不替代数据库、真实模型和人工教学评估 |
 | 部署 | React 静态站点 + NestJS API/worker + MySQL + 私有媒体存储 | 同域反向代理 `/api`；数据库不公网暴露 |
 
-版本策略：主版本已选定，精确 patch、镜像 digest 和 peer 兼容由 A01 实际安装后锁定。禁止使用 `latest` 或编造 lock。若发现目标主版本不兼容，提交 ADR 修订，不擅自降级或更换数据库。
+版本策略：Node patch 已锁定为 24.21.0；其余依赖 patch、MySQL 镜像 digest 和 peer 兼容由 A01 实际安装后锁定。禁止使用 `latest` 或编造 lock。若发现目标版本不兼容，提交 ADR 修订，不擅自降级或更换数据库。
 
 ## 2. 为什么这样选
 

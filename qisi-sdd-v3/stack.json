@@ -7,6 +7,7 @@
     "backend": "server"
   },
   "node": "24 LTS",
+  "node_patch": "24.21.0",
   "react": "19",
   "frontend_framework": "React",
   "frontend_build_tool": "Vite 8",

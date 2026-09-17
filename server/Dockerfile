@@ -1,4 +1,4 @@
-FROM node:24.14.0-bookworm-slim AS dependencies
+FROM node:24.21.0-bookworm-slim AS dependencies
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
@@ -7,7 +7,7 @@ FROM dependencies AS build
 COPY . .
 RUN npm run build
 
-FROM node:24.14.0-bookworm-slim AS runtime
+FROM node:24.21.0-bookworm-slim AS runtime
 WORKDIR /app
 ENV NODE_ENV=production
 COPY package.json package-lock.json ./
