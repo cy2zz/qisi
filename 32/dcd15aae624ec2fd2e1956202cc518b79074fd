@@ -1,0 +1,49 @@
+package.json
+  ai_agent 10
+qisi-sdd-v3/plan.md
+  ai_agent 11
+web/Dockerfile
+  ai_agent 1
+qisi-sdd-v3/handoffs/A01.md
+  ai_agent 21
+package-lock.json
+  ai_agent 18,8109,8145
+qisi-sdd-v3/prd.md
+  ai_agent 13
+server/Dockerfile
+  ai_agent 1,10
+qisi-sdd-v3/stack.json
+  ai_agent 10
+qisi-sdd-v3/README.md
+  ai_agent 5
+qisi-sdd-v3/design-v6.md
+  ai_agent 11
+README.md
+  ai_agent 10,57
+qisi-sdd-v3/changes/A01.md
+  ai_agent 21-22
+qisi-sdd-v3/scripts/validate_stack.py
+  ai_agent 12
+.nvmrc
+  ai_agent 1
+qisi-sdd-v3/adr/ADR-001-stack.md
+  ai_agent 11,24
+web/package.json
+  ai_agent 7
+server/package.json
+  ai_agent 7
+.node-version
+  ai_agent 1
+AGENTS.md
+  ai_agent 40
+server/package-lock.json
+  ai_agent 37
+web/package-lock.json
+  ai_agent 40
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.12",
+  "base_commit_sha": "32dcd15aae624ec2fd2e1956202cc518b79074fd",
+  "prompts": {}
+}
