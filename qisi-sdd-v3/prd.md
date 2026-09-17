@@ -21,7 +21,7 @@
 
 决定与现状必须区分：以上选型已获确认；精确patch和镜像digest待A01真实安装后锁定。当前`web/`、`server/`属于未提交迁移，尚未证明React/NestJS初始化和验收完成，不得覆盖或回退。
 
-核心调整：React/Vite负责移动端前端，NestJS承载API、worker和领域服务；MySQL保存业务、run/step/jobs与审计事实，LangGraph.js仅在复杂有界分支需要时使用。最终状态、帮助曝光、幂等和取消由PolicyGate与StorePort事务控制，不由checkpoint替代。A01/B01先通过ST01–ST07，D7补完整故障门禁ST08–ST12。
+核心调整：React/Vite负责PC优先、完整适配H5的响应式前端，NestJS承载API、worker和领域服务；MySQL保存业务、run/step/jobs与审计事实，LangGraph.js仅在复杂有界分支需要时使用。最终状态、帮助曝光、幂等和取消由PolicyGate与StorePort事务控制，不由checkpoint替代。A01/B01先通过ST01–ST07，D7补完整故障门禁ST08–ST12。
 
 这是规格更新，不是依赖集成或应用验收。原18条P0、20张任务、60项AT全部保留；新增12项ST不替代教学质量与独立学习证据。
 
@@ -235,7 +235,7 @@ A01/D2分别锁定web/server实际兼容版本和lock、Node版本，生成reuse
 2. 分别安装并精确锁定web/server依赖，初始化Tailwind CSS/shadcn/ui；提交真实lock、Node版本和依赖准入证据。
 3. 建立MySQL 8.4 Compose、健康检查、独立持久卷及迁移脚本；mysql2连接池设置UTC/utf8mb4/READ COMMITTED，检查默认认证与生产TLS。
 4. 在server实现匿名owner、MySQL StorePort、请求幂等/版本/CAS与短事务；由A统一合入B提出的工作流run/step/jobs迁移。
-5. 在web实现MathMarkdown与移动端骨架，在server实现REST/SSE安全DTO和worker接线；用FixtureProvider跑页面→API→工作流→校验→MySQL→刷新链路，并协同B验证杀进程续跑。
+5. 在web实现MathMarkdown、PC主骨架和H5完整响应式重排，在server实现REST/SSE安全DTO和worker接线；用FixtureProvider跑页面→API→工作流→校验→MySQL→刷新链路，并协同B验证杀进程续跑。
 
 先失败后通过的验收：
 - AT01: 页面/服务端同进程；已提交安全响应从磁盘恢复

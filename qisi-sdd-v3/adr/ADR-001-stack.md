@@ -9,7 +9,7 @@
 | 层 | 决定 | 边界 |
 | --- | --- | --- |
 | 运行时/语言 | Node.js 24 LTS、TypeScript | 浏览器与服务端同语言；mysql2/sharp 只在 server 运行 |
-| 前端 | `web/`：React 19 + Vite + React Router | 移动端优先 SPA；不含模型密钥、数据库或私有题解 |
+| 前端 | `web/`：React 19 + Vite + React Router | PC 优先、完整适配 H5 的响应式 SPA；不含模型密钥、数据库或私有题解 |
 | 后端 | `server/`：NestJS | REST 提交命令，SSE 发送状态和校验后内容；API 与 worker 使用同一代码库 |
 | UI | Tailwind CSS、shadcn/ui | 组件源码归项目，依赖同样做许可与安全检查 |
 | 多 Agent | NestJS 领域服务 + 可选 LangGraph.js StateGraph | 显式有界图；不做自由群聊；MySQL 领域状态是事实来源 |

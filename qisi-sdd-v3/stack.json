@@ -10,6 +10,7 @@
   "react": "19",
   "frontend_framework": "React",
   "frontend_build_tool": "Vite 8",
+  "responsive_strategy": "PC-first responsive SPA with complete H5 support",
   "backend_framework": "NestJS 12",
   "language": "TypeScript",
   "ui": [

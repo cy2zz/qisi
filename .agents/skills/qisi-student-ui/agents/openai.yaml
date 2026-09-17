@@ -1,0 +1,4 @@
+interface:
+  display_name: "启思学生 UI"
+  short_description: "为中国高三学生设计 PC 优先、完整适配 H5 的数学训练界面"
+  default_prompt: "使用 $qisi-student-ui 设计或审查启思 AI 的学生端界面。"

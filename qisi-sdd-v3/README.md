@@ -10,7 +10,7 @@ React 19 / TypeScript / Vite / NestJS / Node.js 24 LTS / Tailwind CSS / shadcn/u
 
 此前以根目录全栈框架为目标的路径、命令和服务端接口假设已废止。现行目录是：
 
-- `web/`：React 19 + TypeScript + Vite 前端，移动端优先。
+- `web/`：React 19 + TypeScript + Vite 前端，PC 优先并完整适配 H5。
 - `server/`：NestJS API、worker、模型与工作流、数据库和迁移。
 - `qisi-sdd-v3/`：规格、契约与验收。
 

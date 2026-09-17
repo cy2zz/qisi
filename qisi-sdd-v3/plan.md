@@ -90,7 +90,7 @@ D8后交叉复验可读对方代码并提交缺陷，但不能未经交接跨写
 - 分别安装并精确锁定web/server依赖，初始化Tailwind CSS/shadcn/ui；提交真实lock、Node版本和依赖准入证据
 - 建立MySQL 8.4 Compose、健康检查、独立持久卷及迁移脚本；mysql2连接池设置UTC/utf8mb4/READ COMMITTED，检查默认认证与生产TLS
 - 在server实现匿名owner、MySQL StorePort、请求幂等/版本/CAS与短事务；由A统一合入B提出的工作流run/step/jobs迁移
-- 在web实现MathMarkdown与移动端骨架，在server实现REST/SSE安全DTO和worker接线；用FixtureProvider跑页面→API→工作流→校验→MySQL→刷新链路，并协同B验证杀进程续跑
+- 在web实现MathMarkdown、PC主骨架和H5完整响应式重排，在server实现REST/SSE安全DTO和worker接线；用FixtureProvider跑页面→API→工作流→校验→MySQL→刷新链路，并协同B验证杀进程续跑
 验收：AT01, AT08, AT58, ST01, ST02, ST03, ST04；交接handoffs/A01.md。完整写集和命令见PRD同名卡。
 
 ### B01｜D1｜领域契约、四Agent壳和工作流内核
