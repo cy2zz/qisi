@@ -1,9 +1,18 @@
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { Kysely, MysqlDialect } from 'kysely';
 import { createPool } from 'mysql2';
 import type { AppEnvironment } from '../config/env.js';
 import type { Database } from './database.types.js';
 
 export function createDatabase(environment: AppEnvironment) {
+  const ssl = environment.DB_SSL
+    ? {
+        ca: readFileSync(resolve(process.cwd(), environment.DB_SSL_CA_PATH), 'utf8'),
+        rejectUnauthorized: true,
+      }
+    : undefined;
+
   const pool = createPool({
     host: environment.DB_HOST,
     port: environment.DB_PORT,
@@ -16,7 +25,7 @@ export function createDatabase(environment: AppEnvironment) {
     connectTimeout: 10_000,
     enableKeepAlive: true,
     multipleStatements: false,
-    ssl: environment.DB_SSL ? { rejectUnauthorized: true } : undefined,
+    ssl,
   });
 
   pool.on('connection', (connection) => {

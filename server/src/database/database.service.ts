@@ -19,6 +19,7 @@ export class DatabaseService implements OnModuleDestroy {
       DB_USER: config.get('DB_USER', { infer: true }),
       DB_PASSWORD: config.get('DB_PASSWORD', { infer: true }),
       DB_SSL: config.get('DB_SSL', { infer: true }),
+      DB_SSL_CA_PATH: config.get('DB_SSL_CA_PATH', { infer: true }),
       DB_CONNECTION_LIMIT: config.get('DB_CONNECTION_LIMIT', { infer: true }),
     });
   }
