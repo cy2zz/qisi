@@ -1,0 +1,121 @@
+server/src/workflows/runtime.ts
+  s_2bda1447c404e4::t_bd29dca7bef1dc 1-82
+server/src/model/budgeted.provider.spec.ts
+  s_2bda1447c404e4::t_e75e9c0c0b4f39 11
+  s_2bda1447c404e4::t_81c2abe7e0050c 1-10,12-241
+server/src/prompts/assessment.md
+  s_2bda1447c404e4::t_5c580d3cb5cc37 1-9
+server/src/model/budgeted.provider.ts
+  s_2bda1447c404e4::t_ac27189159f37e 1-121,124-129,131-134,136-169
+  s_2bda1447c404e4::t_1fe62de5846ff3 122-123,130,135
+server/src/agents/preparation/index.ts
+  s_2bda1447c404e4::t_32d26f67727fb2 1-47
+server/src/agents/renderer/index.ts
+  s_2bda1447c404e4::t_fd07d5981a1a01 1-30
+server/src/agents/diagnosis/index.ts
+  s_2bda1447c404e4::t_31777332e23802 1-30
+server/src/contracts/semantic.spec.ts
+  s_2bda1447c404e4::t_33d36e517aba0e 111-123,133
+  s_2bda1447c404e4::t_ac56142199639a 1-110,124-132,134-201
+server/src/prompts/guard.md
+  s_2bda1447c404e4::t_5c580d3cb5cc37 1-9
+server/src/prompts/preparation.md
+  s_2bda1447c404e4::t_5c580d3cb5cc37 1-9
+server/src/prompts/index.ts
+  s_2bda1447c404e4::t_4f977d0ded2980 1-47
+server/src/model/ports.ts
+  s_2bda1447c404e4::t_d63a10c7fe51d3 1-55
+docs/adr/001-orchestration.md
+  s_2bda1447c404e4::t_4a38ceda456096 1-119
+server/src/model/token-estimate.ts
+  s_2bda1447c404e4::t_25809372cd9f83 1-5,8,13,16-17,20,24,26-40
+  s_2bda1447c404e4::t_8ee1d040a57362 6-7,9-12,14-15,18-19,21-23,25
+server/src/prompts/strategy.md
+  s_2bda1447c404e4::t_5c580d3cb5cc37 1-10
+server/src/agents/agent-runtime.ts
+  s_2bda1447c404e4::t_ba5137530f8a4d 1-61
+server/src/prompts/diagnosis.md
+  s_2bda1447c404e4::t_5c580d3cb5cc37 1-10
+server/src/workflows/policy-gate.ts
+  s_2bda1447c404e4::t_135429006da367 1-137
+server/src/workflows/orchestrator.ts
+  s_2bda1447c404e4::t_6035c5409734a7 114-133
+  s_2bda1447c404e4::t_cab486cd23fbe3 199
+  s_2bda1447c404e4::t_96620e9c163f2d 11,14
+  s_2bda1447c404e4::t_b2cc06c6c458c4 148,157
+  s_2bda1447c404e4::t_49176e0c82e521 1-10,12-13,15-113,134-147,149-156,158-198,200-385
+server/src/agents/guard/index.ts
+  s_2bda1447c404e4::t_afd0bed40b12f0 1-30
+server/test/agents/at13-role-isolation.spec.ts
+  s_2bda1447c404e4::t_8b16fd5d2042a4 281
+  s_2bda1447c404e4::t_1ad15f13b24162 1-132,134-280,282-351
+  s_2bda1447c404e4::t_251afc61082fe8 133
+server/src/prompts/renderer.md
+  s_2bda1447c404e4::t_5c580d3cb5cc37 1-8
+server/src/prompts/prompts.spec.ts
+  s_2bda1447c404e4::t_0298bddb815926 1-54
+server/src/model/fixture.provider.ts
+  s_2bda1447c404e4::t_fb2f5e9858b9d6 1-171
+server/src/contracts/generate-zod.mjs
+  s_2bda1447c404e4::t_3dbf4abc70bbd2 72-74,78,80,87
+  s_2bda1447c404e4::t_34f48f61fe8378 14-19
+  s_2bda1447c404e4::t_7f9e3dca0edd24 140
+  s_2bda1447c404e4::t_3ea6eab2756733 1-13,20-71,75-77,79,81-86,88-139,141-249
+server/src/prompts/generate-prompts.mjs
+  s_2bda1447c404e4::t_3c9af99d4e8fdb 13-16,18-19
+  s_2bda1447c404e4::t_aa62a51a1acddd 1-12,17,20-86
+server/src/agents/strategy/index.ts
+  s_2bda1447c404e4::t_c571eb47fd819b 1-30
+server/src/workflows/store.port.ts
+  s_2bda1447c404e4::t_8eb40e860195eb 1-104
+qisi-sdd-v3/handoffs/B01.md
+  s_2bda1447c404e4::t_5bbc39a8cbd6c5 1-49
+server/src/model/budget.spec.ts
+  s_2bda1447c404e4::t_9230df4e55b36e 2,28,30-35,37,40-46,54,56,59,62-63,66-81,113,118,130-132,134-141,170,173-178
+  s_2bda1447c404e4::t_7a222a6ea40f26 1,3-27,29,36,38-39,47-53,55,57-58,60-61,64-65,82-112,114-117,119-129,133,142-169,171-172,179-189
+server/src/agents/context.ts
+  s_2bda1447c404e4::t_93c6eba3b981ac 1-187
+server/src/model/budget.ts
+  s_2bda1447c404e4::t_c1695ef95b14e4 102
+  s_2bda1447c404e4::t_356cc4071918cd 120
+  s_2bda1447c404e4::t_8ba70a1efeb4af 1-29,36-92,94,100-101,103-118,132-160
+  s_2bda1447c404e4::t_58b39dd40c95a0 34
+  s_2bda1447c404e4::t_a1d1dfa6c26afd 30-33,35
+  s_2bda1447c404e4::t_ea489e15f75bf8 93,95-99,119,121-131
+server/src/agents/assessment-port.ts
+  s_2bda1447c404e4::t_36af147722b808 1-48
+server/src/contracts/domain.schema.spec.ts
+  s_2bda1447c404e4::t_af8d3dad0c0b10 1-146
+server/src/contracts/semantic.ts
+  s_2bda1447c404e4::t_6072528c03fa37 1-315
+server/test/workflows/policy-gate.spec.ts
+  s_2bda1447c404e4::t_d3d8a9e61d56ef 1-6,8-168
+  s_2bda1447c404e4::t_0e226b05f4025b 7
+server/src/model/fixture.provider.spec.ts
+  s_2bda1447c404e4::t_865c74bc9f2bb4 1-175
+server/test/workflows/store-and-recovery.spec.ts
+  s_2bda1447c404e4::t_cacc497fea50df 223
+  s_2bda1447c404e4::t_63536741efb0d5 1-175,179,181-222,224-226
+  s_2bda1447c404e4::t_164c5d079d94b5 176-178,180
+server/src/contracts/domain.schema.ts
+  s_2bda1447c404e4::t_41e699d18bfd54 1-12,17-20,28-31,43-46,59-62,71-74,89-92,106-109,118-121,127-130,137-140,152-155,163-166,172-175,180-183,195-198,203-206,221-224,235-238,241-244,252-255,265-268,278-281,289-292,309-312,325-328,344-347,356-359,365-368,374-377,387-390,404-407,421-424,432-435,447-450,462-465,471-474,483-486,492-495,505-508,516-519,525-528,533-536,542-545,555-558,568-571,578-581,586-589,597-805
+  s_2bda1447c404e4::t_16244e7de755a6 13-16,21-27,32-42,47-58,63-70,75-88,93-105,110-117,122-126,131-136,141-151,156-162,167-171,176-179,184-194,199-202,207-220,225-234,239-240,245-251,256-264,269-277,282-288,293-308,313-324,329-343,348-355,360-364,369-373,378-386,391-403,408-420,425-431,436-446,451-461,466-470,475-482,487-491,496-504,509-515,520-524,529-532,537-541,546-554,559-567,572-577,582-585,590-596
+server/src/workflows/runtime.spec.ts
+  s_2bda1447c404e4::t_9a5a07a411abf2 1-45
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "e4b9054a24c7abe6ab76d104f2f27ae668e5f8a6",
+  "prompts": {},
+  "sessions": {
+    "s_2bda1447c404e4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7cd1e4f4-057e-45f3-bb37-6489bbffbcc7",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    }
+  }
+}
