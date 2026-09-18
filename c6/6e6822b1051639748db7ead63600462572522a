@@ -1,0 +1,49 @@
+web/src/pages/bank/BankFlow.tsx
+  s_2bda1447c404e4::t_5f71e5c76314e9 6,127-128,224,257,370,375,617-618,621-622
+web/src/App.test.tsx
+  s_2bda1447c404e4::t_5f71e5c76314e9 14-20,140,192
+qisi-sdd-v3/handoffs/A02.md
+  s_2bda1447c404e4::t_5f71e5c76314e9 5,24
+.gitignore
+  s_2bda1447c404e4::t_5f71e5c76314e9 30-32
+  s_2bda1447c404e4::t_ca99bb02f529ff 27-29
+web/src/pages/bank/RichComposer.tsx
+  s_2bda1447c404e4::t_5f71e5c76314e9 1-173
+web/src/styles.css
+  s_2bda1447c404e4::t_5f71e5c76314e9 913-955,960,968-974,976-980,1598-1600
+web/tests/e2e/a02-fixture-flow.spec.ts
+  s_2bda1447c404e4::t_5f71e5c76314e9 73-79,82,84,88
+web/tsconfig.app.tsbuildinfo
+  s_2bda1447c404e4::t_5f71e5c76314e9 1
+server/.env.development.local
+  s_2bda1447c404e4::t_416eb0359686f6 1-10
+  s_2bda1447c404e4::t_298309709779c2 11-13
+qisi-sdd-v3/changes/A02.md
+  s_2bda1447c404e4::t_5f71e5c76314e9 19,21
+.env
+  s_2bda1447c404e4::t_469c8b833c68d6 1-6
+.env.oss.local
+  s_2bda1447c404e4::t_1b48ad8812fdd7 1-4
+server/.env.production.local
+  s_2bda1447c404e4::t_a77f7808936590 1-14
+web/.env.development.local
+  s_2bda1447c404e4::t_0d59c642c8e870 1
+web/.env.production.local
+  s_2bda1447c404e4::t_52d2ce380995d3 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "c66e6822b1051639748db7ead63600462572522a",
+  "prompts": {},
+  "sessions": {
+    "s_2bda1447c404e4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7cd1e4f4-057e-45f3-bb37-6489bbffbcc7",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    }
+  }
+}
