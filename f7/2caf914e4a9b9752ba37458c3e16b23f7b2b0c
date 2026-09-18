@@ -1,0 +1,25 @@
+scripts/run-task-gate.mjs
+  s_2bda1447c404e4::t_0b8648e4f6ecdb 5-12
+web/src/pages/learn/SessionPage.tsx
+  s_2bda1447c404e4::t_4d521e0217112f 10-14,20,79-91,99,152,169-170,201-204,216-218,250-254,256,261-271,284-293
+web/tests/e2e/tutor.spec.ts
+  s_2bda1447c404e4::t_805f039a2a2028 1-144
+qisi-sdd-v3/handoffs/B03.md
+  s_2bda1447c404e4::t_17325d5dfd1dd5 96-137
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "f72caf914e4a9b9752ba37458c3e16b23f7b2b0c",
+  "prompts": {},
+  "sessions": {
+    "s_2bda1447c404e4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7cd1e4f4-057e-45f3-bb37-6489bbffbcc7",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    }
+  }
+}
