@@ -12,6 +12,8 @@ import type { AssessmentOutput, Diagnosis, GuardResult, Packet, RenderedMessage,
 import { DiagnosisAgent } from '../agents/diagnosis/index.js';
 import { Guard } from '../agents/guard/index.js';
 import { PreparationAgent, type PreparationResult } from '../agents/preparation/index.js';
+import type { RouteGraph } from '../agents/preparation/route-graph.js';
+import type { PrepareWorkflow } from './prepare.js';
 import { Renderer } from '../agents/renderer/index.js';
 import { StrategyAgent } from '../agents/strategy/index.js';
 import type { AgentCallOptions } from '../agents/agent-runtime.js';
@@ -38,6 +40,11 @@ export interface OrchestratorConfig {
   readonly models: OrchestratorModels;
   /** 影响节点复用的配置哈希。配置变化必须使旧节点失效（contracts/README.md §5 第 3 条）。 */
   readonly configHash: string;
+  /**
+   * prepare 的后处理管线（缓存、检验候选池、包核对、补丁合并）。
+   * 可选：B01 的 AT13 用例不需要它；B02 的 prepare 场景装配后即生效。
+   */
+  readonly prepareWorkflow?: PrepareWorkflow;
 }
 
 export interface TurnCommand {
@@ -64,6 +71,7 @@ export class WorkflowOrchestrator {
   readonly #store: StorePort;
   readonly #provider: ModelPort;
   readonly #config: OrchestratorConfig;
+  readonly #prepareWorkflow: PrepareWorkflow | null;
 
   readonly preparation = new PreparationAgent();
   readonly diagnosis = new DiagnosisAgent();
@@ -75,6 +83,7 @@ export class WorkflowOrchestrator {
     this.#store = store;
     this.#provider = provider;
     this.#config = config;
+    this.#prepareWorkflow = config.prepareWorkflow ?? null;
   }
 
   // ---- 节点执行与复用 ----
@@ -139,6 +148,10 @@ export class WorkflowOrchestrator {
     readonly payloadHash: string;
     readonly expectedVersion: number;
     readonly preparationInput: unknown;
+    /** route_review 模式下的当前路线图；prepare 模式忽略。 */
+    readonly currentGraph?: RouteGraph;
+    /** prepare 模式的预期题目内容哈希，用于包绑定与核对。 */
+    readonly expectedProblemHash?: string;
   }): Promise<WorkflowOutcome<Packet | RoutePatch>> {
     const run = await this.#reserve('prepare', command);
     const budget = new BudgetLedger({ workflow: 'prepare', deadlineAt: new Date(run.deadlineAt) });
@@ -153,26 +166,65 @@ export class WorkflowOrchestrator {
     });
 
     if (prepared.value.mode === 'route_review') {
-      // route_review 的补丁是候选数据，需经 Guard 才可成为新版本。
+      // 补丁是候选数据：未核对或结构有问题时只记录待定，不可据此推进结论。
+      if (this.#prepareWorkflow !== null && command.currentGraph !== undefined) {
+        const patchOutcome = this.#prepareWorkflow.acceptRoutePatch(command.currentGraph, prepared.value.patch);
+        if (patchOutcome.status === 'route_patch_pending') {
+          // 仍提交该 run（记录已发生的备课尝试），但不标记补丁可用。
+          await this.#commitPrepare(run, command, { route_patch: 'pending' }, prepared.value.patch);
+          return { status: 'committed', value: prepared.value.patch };
+        }
+      }
+      await this.#commitPrepare(run, command, { route_patch: 'applied' }, prepared.value.patch);
       return { status: 'committed', value: prepared.value.patch };
     }
 
     const packet = prepared.value.packet;
+    // 代码 PolicyGate 判定；PrepareWorkflow 提供更细的问题清单（供问题记录与报告）。
     const decision = gatePreparation(packet);
+    const review =
+      this.#prepareWorkflow !== null && command.expectedProblemHash !== undefined
+        ? this.#prepareWorkflow.acceptPacket({
+            packet,
+            expectedProblemHash: command.expectedProblemHash,
+            guard: null,
+          })
+        : null;
+
+    // 无论就绪与否都提交——规格要求「拒绝并保留needs_review」，即保留该题与问题记录，
+    // 不得静默换题或丢弃。状态由上层读取 nextState 决定如何呈现。
+    await this.#commitPrepare(
+      run,
+      command,
+      {
+        problem_hash: packet.problem_hash,
+        packet_version: packet.version,
+        preparation_status: decision.approved ? 'ready' : 'needs_review',
+        ...(review === null ? {} : { review_issues: review.review.issues.map((item) => item.message) }),
+      },
+      packet,
+    );
+
     if (!decision.approved) {
       return { status: 'rejected', value: null, decision };
     }
+    return { status: 'committed', value: packet };
+  }
 
+  async #commitPrepare(
+    run: { runId: string; leaseToken: string; reservedVersion: number },
+    command: { readonly sessionId: string },
+    nextState: Record<string, unknown>,
+    safeResponse: unknown,
+  ): Promise<void> {
     await this.#store.commitChecked(run.runId, run.leaseToken, run.reservedVersion, {
       sessionId: command.sessionId,
       safeMessageMd: '',
       exposure: null,
-      events: [{ type: 'preparation_verified', problem_id: packet.problem_id }],
-      nextState: { packet_version: packet.version },
-      safeResponse: { problem_id: packet.problem_id, version: packet.version },
+      events: [{ type: 'preparation_committed', ...nextState }],
+      nextState,
+      safeResponse,
     } satisfies CheckedMutation);
-
-    return { status: 'committed', value: packet };
   }
 
   // ---- turn ----
