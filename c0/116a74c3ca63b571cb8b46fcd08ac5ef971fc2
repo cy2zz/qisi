@@ -1,0 +1,44 @@
+qisi-sdd-v3/handoffs/B01.md
+  s_2bda1447c404e4::t_481bb044e64854 11-13
+server/src/features/tutor/tutor.module.ts
+  s_2bda1447c404e4::t_b2dfb2838d80da 1-34
+server/test/tutor/probe-and-projection.spec.ts
+  s_2bda1447c404e4::t_3b6b750dac2e16 1-13,15-398
+  s_2bda1447c404e4::t_369a8b08f81153 14
+qisi-sdd-v3/handoffs/B03.md
+  s_2bda1447c404e4::t_69f7f8377de731 1-61
+server/test/tutor/submit-turn.spec.ts
+  s_2bda1447c404e4::t_a00af3dcc528e5 1-11,13-135,140-224
+  s_2bda1447c404e4::t_e2850acf96ea51 12
+  s_2bda1447c404e4::t_5f76a44ab7d20a 136-139
+web/src/pages/learn/SessionPage.tsx
+  s_2bda1447c404e4::t_e9e622b4306a1b 1-271
+server/src/features/tutor/tutor.controller.ts
+  s_2bda1447c404e4::t_c4ae70bf035540 1-73
+server/src/features/tutor/student-view.ts
+  s_2bda1447c404e4::t_020ac64a899fb3 153
+  s_2bda1447c404e4::t_e5ee07dd46a413 1-152,154-178
+server/src/workflows/turn.ts
+  s_2bda1447c404e4::t_4938a10cf5386e 1-16,18-27,30-83,87-88,91-92,94-107,111-117,121-161,163-167
+  s_2bda1447c404e4::t_f4e5dbf0f9cd81 162
+  s_2bda1447c404e4::t_0a550f47f4f5b5 84-86,89-90,93
+  s_2bda1447c404e4::t_67a9bb021b68e5 28-29
+  s_2bda1447c404e4::t_af6bc5144360bb 108-110,118-120
+  s_2bda1447c404e4::t_21f836c144ccbd 17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "c0116a74c3ca63b571cb8b46fcd08ac5ef971fc2",
+  "prompts": {},
+  "sessions": {
+    "s_2bda1447c404e4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7cd1e4f4-057e-45f3-bb37-6489bbffbcc7",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    }
+  }
+}
