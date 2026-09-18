@@ -3,6 +3,7 @@ import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import { apiFetch, apiStream } from '../../lib/api';
 import { MathMarkdown } from '../../shared/MathMarkdown';
+import { RichComposer, type RichComposerHandle } from './RichComposer';
 import {
   FIXTURE_BANK_VERSION,
   fixtureProblems,
@@ -123,7 +124,8 @@ export function BankPage({ username }: StudentPageProps) {
   const chatAbortRef = useRef<AbortController | null>(null);
   const chatRequestRef = useRef(0);
   const chatScrollRef = useRef<HTMLDivElement>(null);
-  const composerRef = useRef<HTMLTextAreaElement>(null);
+  const composerFormRef = useRef<HTMLFormElement>(null);
+  const composerRef = useRef<RichComposerHandle>(null);
   const [activeRecord, setActiveRecord] = useState<SessionRecord | null>(null);
   const [bankOpen, setBankOpen] = useState(false);
   const [formulaOpen, setFormulaOpen] = useState(false);
@@ -219,7 +221,7 @@ export function BankPage({ username }: StudentPageProps) {
     setActiveRecord(record);
     rememberRecord(record);
     setHasProblem(true);
-    setDraft('');
+    composerRef.current?.clear();
     setBankOpen(false);
     setFormulaOpen(false);
     setSidebarOpen(false);
@@ -252,7 +254,7 @@ export function BankPage({ username }: StudentPageProps) {
     setActiveRecord(null);
     setMessages([]);
     setHasProblem(false);
-    setDraft('');
+    composerRef.current?.clear();
     setBankOpen(false);
     setFormulaOpen(false);
     setSidebarOpen(false);
@@ -365,22 +367,12 @@ export function BankPage({ username }: StudentPageProps) {
         state: 'reply-loading',
       },
     ]);
-    setDraft('');
+    composerRef.current?.clear();
     void requestReply(guideMessageId, content, history);
   }
 
   function insertFormula(syntax: string) {
-    const textarea = composerRef.current;
-    const selectionStart = textarea?.selectionStart ?? draft.length;
-    const selectionEnd = textarea?.selectionEnd ?? draft.length;
-    const nextDraft = `${draft.slice(0, selectionStart)}${syntax}${draft.slice(selectionEnd)}`;
-    setDraft(nextDraft);
-
-    requestAnimationFrame(() => {
-      const cursorPosition = selectionStart + syntax.length - 1;
-      textarea?.focus();
-      textarea?.setSelectionRange(cursorPosition, cursorPosition);
-    });
+    composerRef.current?.insertText(syntax);
   }
 
   return (
@@ -622,19 +614,12 @@ export function BankPage({ username }: StudentPageProps) {
               </div>
             )}
 
-            <form className="chat-composer" onSubmit={handleSubmit}>
-              <textarea
+            <form ref={composerFormRef} className="chat-composer" onSubmit={handleSubmit}>
+              <RichComposer
                 ref={composerRef}
-                aria-label="输入题目或想法"
                 placeholder={hasProblem ? '写下你的想法、步骤或公式…' : '输入一道数学题…'}
-                value={draft}
-                onChange={(event) => setDraft(event.target.value)}
-                onKeyDown={(event) => {
-                  if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing) {
-                    event.preventDefault();
-                    event.currentTarget.form?.requestSubmit();
-                  }
-                }}
+                onChange={setDraft}
+                onSubmit={() => composerFormRef.current?.requestSubmit()}
               />
               <div className="composer-actions">
                 <div>

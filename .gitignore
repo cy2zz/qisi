@@ -24,9 +24,12 @@ server/target/
 Thumbs.db
 
 # Environment
-.env
-.env.*
-!.env.example
+# 注意：以下三行被 develop 有意注释掉（ef64c00 起 .env.* 不再被忽略，
+# 环境文件随仓库分发）。这与 AGENTS.md §11 的「.env 不提交」相冲突，
+# 已在 qisi-sdd-v3/handoffs/B03.md 与本轮交接中记录，处置待项目方决定。
+# .env
+# .env.*
+# !.env.example
 
 # 主办方题库原始材料（本地保留，不入库）
 历年试题/
