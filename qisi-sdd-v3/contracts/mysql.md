@@ -4,7 +4,7 @@
 
 ## 连接与数据类型
 
-MySQL Community 8.4 LTS，InnoDB，utf8mb4。数据库/账号名配置由服务端环境读取，不是用户输入。开发与生产用同版本线；不用H2/SQLite替代集成测试。连接池上限10，有限等待及连接超时；每连接初始化time_zone='+00:00'及READ COMMITTED。mysql2 UTC转换显式配置，DATETIME(3)读写在边界转ISO8601 UTC，不能依赖机器本地时区。
+正式环境目标为 MySQL Community 8.4 LTS，InnoDB，utf8mb4；本地开发与接口联调允许 MySQL 8.0.x 或 8.4.x，当前 DDL 保持两者兼容。数据库/账号名配置由服务端环境读取，不是用户输入；不用H2/SQLite替代集成测试。连接池上限10，有限等待及连接超时；每连接初始化time_zone='+00:00'及READ COMMITTED。mysql2 UTC转换显式配置，时间字段读写在边界转ISO8601 UTC，不能依赖机器本地时区。
 
 ID、哈希采用ASCII二进制比较，区分大小写；正文/数学字符为utf8mb4。JSON字段使用原生JSON，不能先转SQL字符串拼接；参数化execute/query。数据库约束不能替代严格Zod/语义验证。MySQL数字/布尔/JSON/date解码必须有往返测试。禁止SQL拼接学生输入及开启multipleStatements处理外来数据。
 
@@ -13,7 +13,7 @@ ID、哈希采用ASCII二进制比较，区分大小写；正文/数学字符为
 ## 迁移和启动（A01实现脚本）
 
 1. docker compose up -d mysql，健康检查通过；或连接指定MySQL8.4测试/部署实例。镜像锁具体8.4.x和digest，不用latest。
-2. npm run db:migrate：先检查SELECT VERSION()为8.4.x；读取migrations排序版本与校验和；单迁移进程/命名锁；应用显式DDL并登记schema_migrations。
+2. npm run db:migrate：先检查SELECT VERSION()为8.0.x或8.4.x；读取 `server/db/*.sql` 并由迁移器登记执行状态；应用显式DDL，当前业务DDL不得依赖8.4专属语法。
 3. MySQL DDL不能按普通业务事务回滚理解。失败记录、停止启动，不自动继续；使用向前修复迁移，破坏性迁移前备份；禁止启动时自动清库/重建。
 4. npm run db:seed:fixture：只在显式fixture开发模式幂等导入自拟数据，不冒充官方题库；生产不自动seed。
 5. 启动NestJS API和worker；服务只接收已迁移schema。健康检查区分API进程、worker租约与数据库就绪，不返回连接串。

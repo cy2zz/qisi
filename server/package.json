@@ -14,6 +14,7 @@
     "typecheck": "tsc --noEmit --pretty false",
     "lint": "eslint src test --max-warnings=0",
     "test": "vitest run",
+    "test:db": "tsx scripts/test-database.ts",
     "test:watch": "vitest",
     "db:migrate:dev": "tsx src/database/migrate.ts",
     "db:migrate": "node dist/database/migrate.js"

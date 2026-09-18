@@ -10,15 +10,13 @@ export class DatabaseService implements OnModuleDestroy {
 
   constructor(@Inject(ConfigService) config: ConfigService<AppEnvironment, true>) {
     this.client = createDatabase({
-      NODE_ENV: config.get('NODE_ENV', { infer: true }),
-      PORT: config.get('PORT', { infer: true }),
-      WEB_ORIGIN: config.get('WEB_ORIGIN', { infer: true }),
       DB_HOST: config.get('DB_HOST', { infer: true }),
       DB_PORT: config.get('DB_PORT', { infer: true }),
       DB_NAME: config.get('DB_NAME', { infer: true }),
       DB_USER: config.get('DB_USER', { infer: true }),
       DB_PASSWORD: config.get('DB_PASSWORD', { infer: true }),
       DB_SSL: config.get('DB_SSL', { infer: true }),
+      DB_SSL_CA_PATH: config.get('DB_SSL_CA_PATH', { infer: true }),
       DB_CONNECTION_LIMIT: config.get('DB_CONNECTION_LIMIT', { infer: true }),
     });
   }

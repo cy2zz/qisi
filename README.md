@@ -77,7 +77,7 @@ docker compose --env-file .env -f compose.production.yaml run --rm api node dist
 npm run start:prod
 ```
 
-生产迁移会先拒绝非 MySQL 8.4.x 实例。未经数据库所有者确认，不应在正式 RDS 上运行迁移、fixture 或清理命令。
+迁移执行器兼容 MySQL 8.0.x 与 8.4.x，正式环境目标仍为 MySQL 8.4 LTS。未经数据库所有者确认，不应在正式 RDS 上运行迁移、fixture 或清理命令。
 
 ## 规格验证与发布状态
 

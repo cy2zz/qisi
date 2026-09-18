@@ -12,11 +12,16 @@ const environmentSchema = z
     WEB_ORIGIN: z.url().default('http://localhost:5173'),
     DB_HOST: z.string().min(1).default('127.0.0.1'),
     DB_PORT: z.coerce.number().int().positive().max(65535).default(3306),
-    DB_NAME: z.string().regex(/^[a-zA-Z0-9_]+$/).default('qisi_ai'),
+    DB_NAME: z.string().regex(/^[a-zA-Z0-9_-]+$/).default('qisi_ai'),
     DB_USER: z.string().min(1).default('qisi_ai'),
     DB_PASSWORD: z.string().default(''),
     DB_SSL: booleanValue.default(false),
+    DB_SSL_CA_PATH: z.string().min(1).default('certs/ApsaraDB-CA-Chain.pem'),
     DB_CONNECTION_LIMIT: z.coerce.number().int().min(1).max(20).default(10),
+    AI_BASE_URL: z.url().default('https://newapi.inner.youdao.com/v1'),
+    AI_API_KEY: z.string().min(1).optional(),
+    AI_MODEL: z.string().min(1).default('gpt-5.5'),
+    AI_TIMEOUT_MS: z.coerce.number().int().min(1000).max(60_000).default(60_000),
   })
   .superRefine((environment, context) => {
     if (environment.NODE_ENV === 'production' && environment.DB_PASSWORD.length === 0) {

@@ -1,11 +1,14 @@
-import type { ColumnType } from 'kysely';
+import type { ColumnType, Generated } from 'kysely';
 
-export interface AppMetadataTable {
-  key: string;
-  value: string;
-  updated_at: ColumnType<Date, Date | string, Date | string>;
+export interface UsersTable {
+  id: Generated<string>;
+  username: string;
+  username_normalized: string;
+  cookie_token_hash: Buffer;
+  db_update_time: ColumnType<Date, Date | string | undefined, Date | string | undefined>;
+  db_create_time: ColumnType<Date, Date | string | undefined, never>;
 }
 
 export interface Database {
-  app_metadata: AppMetadataTable;
+  users: UsersTable;
 }
