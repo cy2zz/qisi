@@ -70,17 +70,22 @@ test('@A02 fixture-only chat workspace accepts local problems and formula input'
   await expect(page.getByRole('heading', { name: '题目分析' })).toBeVisible();
   await expect(page.getByText('确定单调区间与极值。')).toBeVisible();
 
+  const editor = page.getByRole('textbox', { name: '输入题目或想法' });
+  await editor.fill('先求导');
+  await editor.selectText();
+  await page.getByRole('button', { name: '加粗' }).click();
+  await expect(editor.locator('strong, b')).toHaveText('先求导');
+  await editor.fill('');
+
   await page.getByRole('button', { name: '公式' }).click();
   await page.getByRole('button', { name: '插入分式' }).click();
-  await expect(page.getByRole('textbox', { name: '输入题目或想法' })).toHaveValue(
-    '$\\frac{}{}$',
-  );
+  await expect(editor).toHaveText('$\\frac{}{}$');
 
-  await page.getByRole('textbox', { name: '输入题目或想法' }).fill('我准备先求导。');
+  await editor.fill('我准备先求导。');
   await page.getByRole('button', { name: '发送' }).click();
   await expect(page.getByText('先求出导函数，再判断它的正负区间。')).toBeVisible();
   await expect(page.getByRole('button', { name: '发送' })).toBeDisabled();
-  await page.getByRole('textbox', { name: '输入题目或想法' }).fill('临界点怎么找？');
+  await editor.fill('临界点怎么找？');
   await expect(page.getByRole('button', { name: '发送' })).toBeEnabled();
 
   const hasHorizontalOverflow = await page.evaluate(

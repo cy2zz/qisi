@@ -11,6 +11,13 @@ function renderApp(initialEntry = '/') {
   );
 }
 
+function enterRichText(text: string) {
+  const editor = screen.getByRole('textbox', { name: '输入题目或想法' });
+  editor.textContent = text;
+  fireEvent.input(editor);
+  return editor;
+}
+
 describe('App', () => {
   afterEach(() => {
     cleanup();
@@ -130,7 +137,7 @@ describe('App', () => {
 
     fireEvent.click(screen.getByRole('button', { name: '公式' }));
     fireEvent.click(screen.getByRole('button', { name: '插入分式' }));
-    expect(screen.getByRole('textbox', { name: '输入题目或想法' })).toHaveValue('$\\frac{}{}$');
+    expect(screen.getByRole('textbox', { name: '输入题目或想法' })).toHaveTextContent('$\\frac{}{}$');
   });
 
   it('streams a checked reply for each student turn', async () => {
@@ -182,8 +189,7 @@ describe('App', () => {
     fireEvent.click(screen.getByRole('button', { name: '选择 F-01 导数与函数' }));
     await screen.findByRole('heading', { name: '题目分析' });
 
-    const composer = screen.getByRole('textbox', { name: '输入题目或想法' });
-    fireEvent.change(composer, { target: { value: '我先求导，得到 $f\'(x)=3x^2-3$。' } });
+    enterRichText('我先求导，得到 $f\'(x)=3x^2-3$。');
     fireEvent.click(screen.getByRole('button', { name: '发送' }));
 
     expect(await screen.findByText('正在核对你的这一步')).toBeInTheDocument();
