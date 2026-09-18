@@ -1,0 +1,45 @@
+server/src/workflows/prepare.ts
+  s_2bda1447c404e4::t_18b6afb3b4504f 23-24
+  s_2bda1447c404e4::t_0396fe5b767d3a 87-90,96
+  s_2bda1447c404e4::t_b309d8a9d8ce7d 1-22,25-86,91-95,97-163
+server/src/workflows/orchestrator.ts
+  s_2bda1447c404e4::t_60b757c7123e43 43-47
+  s_2bda1447c404e4::t_f969faf72111bb 15-16
+  s_2bda1447c404e4::t_c2c0e79282431d 74
+  s_2bda1447c404e4::t_2bc8af5ebd804d 86
+  s_2bda1447c404e4::t_d53b1769ddae5e 151-154,169-178,183,185-207,211-212,214-219,224-226
+docs/verification-b01-b02.md
+  s_2bda1447c404e4::t_464123ede404f8 1-185
+server/src/features/preparation/packet-verification.ts
+  s_2bda1447c404e4::t_3a2490b4e48b4c 1-84,86,94,99
+  s_2bda1447c404e4::t_c16d5f678274bf 85,87-93,95-98
+server/test/preparation/packet-lifecycle.spec.ts
+  s_2bda1447c404e4::t_5114bbb585b300 1-386
+server/src/features/preparation/check-task-pool.ts
+  s_2bda1447c404e4::t_fdef7719ce2585 1-108
+server/src/agents/preparation/route-graph.ts
+  s_2bda1447c404e4::t_eb38e7a91de6d2 12
+  s_2bda1447c404e4::t_57e7b088b0c425 1-11,13-175,178-179,181-198
+  s_2bda1447c404e4::t_47f40c9c8d2425 176-177,180
+server/test/preparation/route-graph.spec.ts
+  s_2bda1447c404e4::t_6b29f047a96123 1-152,156-157,160,162,168-170,182-205
+  s_2bda1447c404e4::t_cd44ba46701b1f 153-155,158-159,161,163-167,171-181
+qisi-sdd-v3/handoffs/B02.md
+  s_2bda1447c404e4::t_4a2593f4fb7305 1-43
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "2c734ee42fbbb3e6dff887782d76c48bda87f654",
+  "prompts": {},
+  "sessions": {
+    "s_2bda1447c404e4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7cd1e4f4-057e-45f3-bb37-6489bbffbcc7",
+        "model": "unknown"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    }
+  }
+}
