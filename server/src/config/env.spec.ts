@@ -32,4 +32,17 @@ describe('parseEnvironment', () => {
 
     expect(env.DB_SSL_CA_PATH).toBe('certs/ApsaraDB-CA-Chain.pem');
   });
+
+  it('accepts an OpenAI-compatible model endpoint without exposing the key to defaults', () => {
+    const env = parseEnvironment({
+      AI_API_KEY: 'test-only-key',
+      AI_BASE_URL: 'https://provider.example/v1',
+      AI_MODEL: 'test-model',
+    });
+
+    expect(env.AI_BASE_URL).toBe('https://provider.example/v1');
+    expect(env.AI_MODEL).toBe('test-model');
+    expect(env.AI_API_KEY).toBe('test-only-key');
+    expect(parseEnvironment({}).AI_API_KEY).toBeUndefined();
+  });
 });

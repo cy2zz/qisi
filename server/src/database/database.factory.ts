@@ -5,7 +5,19 @@ import { createPool } from 'mysql2';
 import type { AppEnvironment } from '../config/env.js';
 import type { Database } from './database.types.js';
 
-export function createDatabase(environment: AppEnvironment) {
+export type DatabaseEnvironment = Pick<
+  AppEnvironment,
+  | 'DB_HOST'
+  | 'DB_PORT'
+  | 'DB_NAME'
+  | 'DB_USER'
+  | 'DB_PASSWORD'
+  | 'DB_SSL'
+  | 'DB_SSL_CA_PATH'
+  | 'DB_CONNECTION_LIMIT'
+>;
+
+export function createDatabase(environment: DatabaseEnvironment) {
   const ssl = environment.DB_SSL
     ? {
         ca: readFileSync(resolve(process.cwd(), environment.DB_SSL_CA_PATH), 'utf8'),

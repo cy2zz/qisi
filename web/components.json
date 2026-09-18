@@ -5,7 +5,7 @@
   "tsx": true,
   "tailwind": {
     "css": "src/styles.css",
-    "baseColor": "stone",
+    "baseColor": "neutral",
     "cssVariables": true
   },
   "aliases": {
@@ -14,5 +14,6 @@
     "ui": "@/components/ui",
     "lib": "@/lib",
     "hooks": "@/hooks"
-  }
+  },
+  "iconLibrary": "lucide"
 }

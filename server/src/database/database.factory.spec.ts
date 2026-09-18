@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import type { AppEnvironment } from '../config/env.js';
+import type { DatabaseEnvironment } from './database.factory.js';
 
 const mocks = vi.hoisted(() => ({
   createPool: vi.fn(),
@@ -20,10 +20,7 @@ describe('createDatabase', () => {
   });
 
   it('loads the configured CA certificate for TLS connections', async () => {
-    const environment: AppEnvironment = {
-      NODE_ENV: 'production',
-      PORT: 3000,
-      WEB_ORIGIN: 'https://example.com',
+    const environment: DatabaseEnvironment = {
       DB_HOST: 'example.mysql.rds.aliyuncs.com',
       DB_PORT: 3306,
       DB_NAME: 'qisi-easy',

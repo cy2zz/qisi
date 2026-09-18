@@ -10,10 +10,22 @@
     "node": "24.21.0"
   },
   "scripts": {
+    "build": "npm --prefix server run build && npm --prefix web run build",
+    "lint": "npm --prefix server run lint && npm --prefix web run lint",
+    "oss:upload-exams": "node scripts/upload-exam-images-to-oss.mjs",
     "start": "concurrently --kill-others --names server,web \"npm --prefix server run dev\" \"npm --prefix web run dev\"",
-    "start:prod": "docker compose --env-file .env -f compose.production.yaml up -d --build"
+    "start:prod": "docker compose --env-file .env -f compose.production.yaml up -d --build",
+    "test": "npm --prefix server test && npm --prefix web test",
+    "test:db": "npm --prefix server run test:db",
+    "test:e2e": "playwright test",
+    "test:e2e:task": "node scripts/run-task-gate.mjs e2e",
+    "test:stack": "node scripts/run-task-gate.mjs stack",
+    "test:task": "node scripts/run-task-gate.mjs unit",
+    "typecheck": "npm --prefix server run typecheck && npm --prefix web run typecheck"
   },
   "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "ali-oss": "6.23.0",
     "concurrently": "10.0.5"
   }
 }

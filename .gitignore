@@ -6,6 +6,8 @@ web/coverage/
 server/dist/
 server/coverage/
 npm-debug.log*
+playwright-report/
+test-results/
 
 # Java / Maven
 backend/target/
@@ -25,3 +27,4 @@ Thumbs.db
 .env
 .env.*
 !.env.example
+历年试题/
