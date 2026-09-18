@@ -1,0 +1,30 @@
+server/db/runs.sql
+  s_2bda1447c404e4::t_d8bedb7aafca09 1-33
+qisi-sdd-v3/handoffs/B03.md
+  s_2bda1447c404e4::t_979e125c674ce4 48,52-57,59,61,63-78,80-82
+  s_2bda1447c404e4::t_4a0b21bc88fa11 79
+server/db/probe_counters.sql
+  s_2bda1447c404e4::t_f13ed2c59e41ea 1-12
+server/db/node_runs.sql
+  s_2bda1447c404e4::t_7730b416811a80 1-25
+server/db/events.sql
+  s_2bda1447c404e4::t_618f0572311510 1-10
+server/db/requests.sql
+  s_2bda1447c404e4::t_a7fec4200a266f 2-14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "4b129c72474b04b5a85c422a239976fb7bd7cecf",
+  "prompts": {},
+  "sessions": {
+    "s_2bda1447c404e4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7cd1e4f4-057e-45f3-bb37-6489bbffbcc7",
+        "model": "unknown"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    }
+  }
+}
