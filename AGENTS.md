@@ -49,6 +49,10 @@
 
 - 前端只写入 `web/`，后端、worker、迁移和服务端测试只写入 `server/`。旧 `frontend/`、`backend/` 的删除以及 `web/`、`server/` 的现有内容属于当前未提交迁移，未经授权不得回退、覆盖或据此宣称初始化完成。
 - 使用 mysql2/sharp 的代码只能位于 `server/` 并运行在 Node runtime；密钥、私有题解、数据库连接和教师私有依据不得进入 `web/` bundle、静态文件或浏览器响应。
+- 正式环境目标仍为 MySQL 8.4 LTS；本地开发和接口联调同时兼容 MySQL 8.0.x、8.4.x，DDL 和迁移执行器不得无理由拒绝这两个版本线。涉及 8.4 专属能力时必须显式标注并提供兼容判断，不能把 8.0 测试结果冒充 8.4 正式验收。
+- 所有数据库 DDL 统一放在 `server/db/`，一张表对应一个 `<表名>.sql` 文件（例如 `server/db/users.sql`）；文件只保存该表的建表及后续更新语句，不使用 `.up.sql` / `.down.sql` 配对，也不放入 `migrations/` 子目录。`server/src/**` 只保留数据库运行时代码和 SQL 执行器，不得内嵌 DDL；调整表结构时更新对应表文件，不能复制两套 DDL。
+- 建表 SQL 统一使用项目格式：表名、字段名、索引名和约束名均加反引号；一个字段或索引占一行，字段名、类型和约束用空格纵向对齐；SQL 关键字和数据类型大写；业务字段必须写清晰的中文 `COMMENT`，表必须写中文 `COMMENT`；主键、唯一键、普通索引和约束统一放在字段定义之后，最后一项末尾不得保留逗号；表选项统一写成 `ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = '...'`，不在表级显式指定 `COLLATE`，使用 MySQL 8.4 中 `utf8mb4` 的默认排序规则。类型和默认值必须符合 MySQL 8.4 的实际语义，不为排版照搬无效的整数显示宽度，也不添加虚假默认值。
+- 所有业务表统一使用 `` `db_update_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP `` 和 `` `db_create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间' `` 两个时间字段，不再使用 `created_at`、`updated_at` 等其他命名；字段顺序为 `db_update_time` 在前、`db_create_time` 在后，并放在业务字段之后、索引定义之前。
 - 精确依赖版本、Node patch、镜像 digest 和 provider adapter 要实际安装、兼容性验证后锁定，不使用 `latest`、不编造锁文件、不把 `reuse-lock.json` 当 npm 安装锁。`web/` 与 `server/` 各自的 package/lock 由 A 统一维护；引入根 workspace 需有明确变更记录。
 - 禁止自动降级 SQLite、H2 或内存数据库冒充目标持久化；禁止另写通用图引擎、自由群聊 Agent 平台，或叠加第二套自动 Agent 循环。工作流恢复优先依赖 MySQL 领域状态、幂等步骤、任务租约和审计事件；不得因为缺少官方 LangGraph.js MySQL saver 就静默采用未经验证的社区实现。
 

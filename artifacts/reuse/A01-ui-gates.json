@@ -1,0 +1,150 @@
+{
+  "task_id": "A01",
+  "baseline": "qisi-3.1",
+  "recorded_at": "2026-09-17",
+  "scope": "根级工程门禁、公共 shadcn/ui 基础组件和 MathMarkdown",
+  "result": "passed_with_limits",
+  "commands": [
+    {
+      "command": "npm install && npm ci && npm run test:stack -- A01",
+      "cwd": ".",
+      "exit_code": 0,
+      "assertions": [
+        "server Vitest: 6 files / 15 tests passed",
+        "web Vitest: 2 files / 7 tests passed",
+        "server/web typecheck passed",
+        "server/web lint passed",
+        "local MySQL smoke passed",
+        "Playwright: 4/4 projects passed",
+        "server/web build passed"
+      ]
+    },
+    {
+      "command": "npm audit --workspaces --include-workspace-root",
+      "cwd": ".",
+      "exit_code": 0,
+      "assertions": [
+        "0 vulnerabilities"
+      ]
+    },
+    {
+      "command": "npm ls --all --json",
+      "cwd": ".",
+      "exit_code": 0,
+      "assertions": [
+        "0 dependency problems"
+      ]
+    }
+  ],
+  "failure_first": [
+    "根 typecheck 和 A01 task gate 最初因脚本不存在而失败",
+    "MathMarkdown 单测最初因组件不存在而失败",
+    "App 单测最初因登录控件没有 shadcn data-slot 而失败",
+    "首次组合门禁发现 Vitest 错误收集 Playwright 文件",
+    "首次 Playwright 运行发现浏览器未安装",
+    "首次 H5 运行发现旧响应式规则隐藏公式",
+    "首次 npm ci 发现根 lock 未包含 Radix Slot 与 CVA"
+  ],
+  "dependencies": [
+    {
+      "package": "@playwright/test",
+      "version": "1.63.0",
+      "license": "Apache-2.0",
+      "evidence": "node_modules/@playwright/test/package.json"
+    },
+    {
+      "package": "@radix-ui/react-slot",
+      "version": "1.3.3",
+      "license": "MIT",
+      "evidence": "node_modules/@radix-ui/react-slot/package.json"
+    },
+    {
+      "package": "class-variance-authority",
+      "version": "0.7.1",
+      "license": "Apache-2.0",
+      "evidence": "node_modules/class-variance-authority/package.json"
+    },
+    {
+      "package": "katex",
+      "version": "0.18.7",
+      "license": "MIT",
+      "evidence": "node_modules/katex/package.json"
+    },
+    {
+      "package": "react-markdown",
+      "version": "10.1.0",
+      "license": "MIT",
+      "evidence": "node_modules/react-markdown/package.json"
+    },
+    {
+      "package": "rehype-katex",
+      "version": "7.0.1",
+      "license": "MIT",
+      "evidence": "node_modules/rehype-katex/package.json"
+    },
+    {
+      "package": "remark-math",
+      "version": "6.0.0",
+      "license": "MIT",
+      "evidence": "node_modules/remark-math/package.json"
+    },
+    {
+      "package": "tailwindcss",
+      "version": "4.3.3",
+      "license": "MIT",
+      "evidence": "node_modules/tailwindcss/package.json"
+    },
+    {
+      "package": "@tailwindcss/vite",
+      "version": "4.3.3",
+      "license": "MIT",
+      "evidence": "node_modules/@tailwindcss/vite/package.json"
+    },
+    {
+      "package": "shadcn/ui",
+      "version": null,
+      "license": "project-owned source integration",
+      "evidence": "web/components.json and web/src/components/ui"
+    }
+  ],
+  "ui_checks": {
+    "projects": [
+      "pc-1440: 1440x900",
+      "pc-1280: 1280x800",
+      "h5-390: 390x844",
+      "h5-360: 360x800"
+    ],
+    "assertions": [
+      "用户名输入框和主按钮使用公共 shadcn/ui 组件",
+      "登录页公式产生可见 KaTeX 输出",
+      "四个视口均无页面级横向溢出",
+      "坏公式保留可见原文",
+      "不可信 raw HTML 不进入 DOM"
+    ],
+    "screenshots": [
+      "artifacts/acceptance/A01-ui-pc.png",
+      "artifacts/acceptance/A01-ui-h5.png"
+    ],
+    "real_student_observation": "not_run"
+  },
+  "acceptance": {
+    "AT08": {
+      "result": "partial",
+      "reason": "公共渲染组件、坏公式回退、安全过滤和登录页真实显示已验证；编辑预览及老师消息完整业务尚未实现"
+    },
+    "AT58": {
+      "result": "partial",
+      "reason": "本切片新增依赖已有精确版本、许可、lock、audit 和运行证据；A01 其余 planned 依赖尚未全部准入"
+    },
+    "ST01": "partial",
+    "ST02": "not_run",
+    "ST03": "not_run",
+    "ST04": "not_run"
+  },
+  "limits": [
+    "数据库烟测使用本地 MySQL 8.0.45，不是正式目标 MySQL 8.4 验收",
+    "A01 的 19 表、完整 StorePort、worker、工作流恢复和只一次提交尚未实现",
+    "Vite 报告约 697 kB 主 JavaScript chunk，当前为非阻断警告",
+    "Raven workflow skill/CLI 不可用，本证据不代表 Raven 门禁或独立复核通过"
+  ]
+}

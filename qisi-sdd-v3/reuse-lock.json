@@ -1,6 +1,6 @@
 {
-  "status": "planned_not_installed",
-  "verified_online_this_revision": false,
+  "status": "partially_verified",
+  "verified_online_this_revision": true,
   "items": [
     {
       "package": "@nestjs/core",
@@ -81,31 +81,31 @@
     },
     {
       "package": "react-markdown",
-      "resolved_version": null,
-      "status": "planned",
-      "license_evidence": null,
-      "test_evidence": null
+      "resolved_version": "10.1.0",
+      "status": "accepted",
+      "license_evidence": "node_modules/react-markdown/license (MIT)",
+      "test_evidence": "artifacts/reuse/A01-ui-gates.json"
     },
     {
       "package": "remark-math",
-      "resolved_version": null,
-      "status": "planned",
-      "license_evidence": null,
-      "test_evidence": null
+      "resolved_version": "6.0.0",
+      "status": "accepted",
+      "license_evidence": "installed package metadata (MIT)",
+      "test_evidence": "artifacts/reuse/A01-ui-gates.json"
     },
     {
       "package": "rehype-katex",
-      "resolved_version": null,
-      "status": "planned",
-      "license_evidence": null,
-      "test_evidence": null
+      "resolved_version": "7.0.1",
+      "status": "accepted",
+      "license_evidence": "installed package metadata (MIT)",
+      "test_evidence": "artifacts/reuse/A01-ui-gates.json"
     },
     {
       "package": "katex",
-      "resolved_version": null,
-      "status": "planned",
-      "license_evidence": null,
-      "test_evidence": null
+      "resolved_version": "0.18.7",
+      "status": "accepted",
+      "license_evidence": "node_modules/katex/LICENSE (MIT)",
+      "test_evidence": "artifacts/reuse/A01-ui-gates.json"
     },
     {
       "package": "zod",
@@ -130,10 +130,10 @@
     },
     {
       "package": "@playwright/test",
-      "resolved_version": null,
-      "status": "planned",
-      "license_evidence": null,
-      "test_evidence": null
+      "resolved_version": "1.63.0",
+      "status": "accepted",
+      "license_evidence": "node_modules/@playwright/test/LICENSE (Apache-2.0)",
+      "test_evidence": "artifacts/reuse/A01-ui-gates.json"
     },
     {
       "package": "typescript",
@@ -165,10 +165,10 @@
     },
     {
       "package": "tailwindcss",
-      "resolved_version": null,
-      "status": "planned",
-      "license_evidence": null,
-      "test_evidence": null
+      "resolved_version": "4.3.3",
+      "status": "accepted",
+      "license_evidence": "node_modules/tailwindcss/LICENSE (MIT)",
+      "test_evidence": "artifacts/reuse/A01-ui-gates.json"
     },
     {
       "package": "@tailwindcss/postcss",
@@ -180,9 +180,30 @@
     {
       "package": "shadcn",
       "resolved_version": null,
-      "status": "planned",
-      "license_evidence": null,
-      "test_evidence": null
+      "status": "source_integrated",
+      "license_evidence": "components.json plus project-owned component source",
+      "test_evidence": "artifacts/reuse/A01-ui-gates.json"
+    },
+    {
+      "package": "@tailwindcss/vite",
+      "resolved_version": "4.3.3",
+      "status": "accepted",
+      "license_evidence": "installed package metadata (MIT)",
+      "test_evidence": "artifacts/reuse/A01-ui-gates.json"
+    },
+    {
+      "package": "class-variance-authority",
+      "resolved_version": "0.7.1",
+      "status": "accepted",
+      "license_evidence": "node_modules/class-variance-authority/LICENSE (Apache-2.0)",
+      "test_evidence": "artifacts/reuse/A01-ui-gates.json"
+    },
+    {
+      "package": "@radix-ui/react-slot",
+      "resolved_version": "1.3.3",
+      "status": "accepted",
+      "license_evidence": "node_modules/@radix-ui/react-slot/LICENSE (MIT)",
+      "test_evidence": "artifacts/reuse/A01-ui-gates.json"
     },
     {
       "package": "@langchain/langgraph",
