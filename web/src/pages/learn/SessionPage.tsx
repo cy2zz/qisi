@@ -7,14 +7,17 @@
 // 因为这些对象不会出现在响应里（contracts/README.md §2 的信任边界）。
 // 这一条是结构性的——即便本页面代码写错，也拿不到私有数据可显示。
 //
-// 依赖（交接项）：初始视图需要 A 的 loadSession（features/session/session-query.service.ts）
-// 暴露 `GET /api/session/:id`。该端点尚未交付，因此当前打开页面会显示明确的缺依赖提示，
-// 而不是白屏或假装成功。
+// 输入区复用 A 的 RichComposer（web/src/pages/bank/RichComposer.tsx），
+// 使公式输入、富文本与 /bank 页保持一致，不另起一套编辑器。
+//
+// 依赖（交接项）：初始视图需要 A 的 loadSession 暴露 `GET /api/session/:id`，
+// 且 App.tsx 的 /learn/:sessionId 需指向本组件（当前指向 A 的占位页 FixtureLearningPage）。
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ApiError, apiFetch } from '@/lib/api';
 import { MathMarkdown } from '@/shared/MathMarkdown';
+import { RichComposer, type RichComposerHandle } from '@/pages/bank/RichComposer';
 
 // 与 server/src/contracts/domain.schema.ts 的 StudentView 对齐。前端只读契约，
 // 不从这里反推服务端实现。
@@ -73,6 +76,19 @@ const PHASE_LABEL: Record<Phase, string> = {
   summary: '本轮小结',
 };
 
+/**
+ * 由服务端给出的 allowed_actions 选出输入区的主动作。
+ *
+ * 主动作由 RichComposer 的提交触发（回车或按钮），其余动作走普通按钮。
+ * 选择完全依据服务端返回，前端不自行推断阶段权限。
+ */
+function primaryActionOf(actions: readonly string[]): string | null {
+  if (actions.includes('attempt')) return 'attempt';
+  if (actions.includes('save_draft')) return 'save_draft';
+  if (actions.includes('finish')) return 'finish';
+  return null;
+}
+
 export function SessionPage() {
   const { sessionId } = useParams<{ sessionId: string }>();
   const [view, setView] = useState<StudentView | null>(null);
@@ -80,6 +96,7 @@ export function SessionPage() {
   const [error, setError] = useState('');
   const [draft, setDraft] = useState('');
   const [pending, setPending] = useState(false);
+  const composer = useRef<RichComposerHandle>(null);
   const requestSequence = useRef(0);
 
   const loadView = useCallback(
@@ -132,6 +149,7 @@ export function SessionPage() {
         });
         setView(next);
         setDraft('');
+        composer.current?.clear();
       } catch (caught) {
         if (caught instanceof ApiError && caught.status === 409) {
           // 版本冲突：服务端已推进，重新读取而不是盲目重试。
@@ -148,7 +166,8 @@ export function SessionPage() {
   );
 
   const actions = useMemo(() => view?.allowed_actions ?? [], [view]);
-  const canType = actions.includes('attempt') || actions.includes('save_draft');
+  const primaryAction = useMemo(() => primaryActionOf(actions), [actions]);
+  const secondaryActions = useMemo(() => actions.filter((action) => action !== primaryAction), [actions, primaryAction]);
 
   if (status === 'loading') {
     return (
@@ -179,7 +198,10 @@ export function SessionPage() {
           )}
         </header>
 
-        <article className="rounded border border-slate-200 p-4">
+        <article className="rounded border border-slate-200 p-4" aria-labelledby="problem-title">
+          <h2 className="sr-only" id="problem-title">
+            题目
+          </h2>
           <MathMarkdown content={view.active_task_prompt_md} />
           {view.problem.issues.length > 0 ? (
             <ul className="mt-3 list-disc pl-5 text-sm text-amber-700">
@@ -191,7 +213,9 @@ export function SessionPage() {
         </article>
 
         {view.notice ? (
-          <p className="rounded bg-slate-50 p-3 text-sm text-slate-600">{view.notice}</p>
+          <p className="rounded bg-slate-50 p-3 text-sm text-slate-600" role="status">
+            {view.notice}
+          </p>
         ) : null}
 
         <ol className="space-y-3">
@@ -223,17 +247,28 @@ export function SessionPage() {
           </div>
         ) : null}
 
-        {canType ? (
-          <textarea
-            className="h-32 w-full rounded border border-slate-300 p-3 text-sm"
-            onChange={(event) => setDraft(event.target.value)}
+        {primaryAction ? (
+          <RichComposer
+            disabled={pending}
+            onChange={setDraft}
+            onSubmit={() => void submit(primaryAction)}
             placeholder="写下你这一步的思路或计划。可以留空，直接选择下面的动作。"
-            value={draft}
+            ref={composer}
           />
         ) : null}
 
         <div className="flex flex-wrap gap-2">
-          {actions.map((action) => (
+          {primaryAction ? (
+            <button
+              className="rounded border border-slate-300 px-3 py-2 text-sm hover:bg-slate-50 disabled:opacity-50"
+              disabled={pending}
+              onClick={() => void submit(primaryAction)}
+              type="button"
+            >
+              {ACTION_LABEL[primaryAction] ?? primaryAction}
+            </button>
+          ) : null}
+          {secondaryActions.map((action) => (
             <button
               className="rounded border border-slate-300 px-3 py-2 text-sm hover:bg-slate-50 disabled:opacity-50"
               disabled={pending}
@@ -246,8 +281,16 @@ export function SessionPage() {
           ))}
         </div>
 
-        {pending ? <p className="text-sm text-slate-500">老师正在看你的这一步…</p> : null}
-        {error ? <p className="text-sm text-rose-600">{error}</p> : null}
+        {pending ? (
+          <p className="text-sm text-slate-500" role="status">
+            老师正在看你的这一步…
+          </p>
+        ) : null}
+        {error ? (
+          <p className="text-sm text-rose-600" role="alert">
+            {error}
+          </p>
+        ) : null}
       </aside>
     </main>
   );
