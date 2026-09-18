@@ -1,0 +1,31 @@
+server/db/10_requests.sql
+  s_2bda1447c404e4::t_a1b28e15929c91 1-18
+server/db/20_runs.sql
+  s_2bda1447c404e4::t_a1b28e15929c91 1-20
+server/db/60_probe_counters.sql
+  s_2bda1447c404e4::t_a1b28e15929c91 1-13
+server/db/40_events.sql
+  s_2bda1447c404e4::t_a1b28e15929c91 1-16
+server/db/50_packets.sql
+  s_2bda1447c404e4::t_a1b28e15929c91 1-12
+qisi-sdd-v3/handoffs/B03.md
+  s_2bda1447c404e4::t_6404c4d595e173 46-65
+server/db/30_node_runs.sql
+  s_2bda1447c404e4::t_a1b28e15929c91 1-19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "31cf91b5cbec9d868132bce572749d2ed9fa6ab1",
+  "prompts": {},
+  "sessions": {
+    "s_2bda1447c404e4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7cd1e4f4-057e-45f3-bb37-6489bbffbcc7",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    }
+  }
+}
