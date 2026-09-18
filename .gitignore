@@ -25,3 +25,10 @@ Thumbs.db
 .env
 .env.*
 !.env.example
+
+# Raven generated machine-local skills/hooks (recreate via docs/raven-setup.md)
+/.codex/skills/
+/.agents/skills/
+/.claude/
+/.raven/logs/
+/.raven/cache/

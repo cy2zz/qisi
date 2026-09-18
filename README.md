@@ -1,3 +1,5 @@
+> Raven SDD（2026-09-16 接入）：本仓库已接入 Codex + bigdata-sdd-workflow，安装与工具验证见 [docs/raven-setup.md](docs/raven-setup.md)。该文档及既有 B01 PRD 中的旧技术栈说明待同步；当前应用以本 README 的 web/、server/ 为准。
+
 # qisi-dashboard｜启思 AI 高三数学思维老师
 
 ## 当前决定与实现状态
