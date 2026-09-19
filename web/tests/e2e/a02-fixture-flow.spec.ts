@@ -23,6 +23,49 @@ test.beforeEach(async ({ page }) => {
       status: 200,
     });
   });
+  await page.route('**/api/bank/**', async (route) => {
+    const pathname = new URL(route.request().url()).pathname;
+    const paper = {
+      examType: '高考',
+      examYear: 2024,
+      id: '41',
+      introImageUrl: null,
+      isOfficial: true,
+      questionCount: 1,
+      region: '北京',
+      session: null,
+      status: 'ready',
+      subject: '数学',
+      title: '2024年高考数学试卷（北京）',
+      track: '综合',
+      variant: '题目与解析',
+    };
+    const body = pathname.endsWith('/filters')
+      ? { regions: ['北京'], tracks: ['综合'], years: [2024] }
+      : pathname.endsWith('/papers/41')
+        ? {
+            ...paper,
+            questions: [
+              {
+                id: '801',
+                imageHeight: 425,
+                imageWidth: 1600,
+                number: 1,
+                questionCode: '2024北京#01',
+                questionImageUrl: 'https://example.test/question.png',
+                statementMarkdown: null,
+                status: 'ready',
+              },
+            ],
+          }
+        : { papers: [paper], total: 1 };
+
+    await route.fulfill({
+      body: JSON.stringify(body),
+      contentType: 'application/json',
+      status: 200,
+    });
+  });
   await page.route('**/api/problems/chat', async (route) => {
     await route.fulfill({
       body: [
@@ -38,10 +81,10 @@ test.beforeEach(async ({ page }) => {
   });
 });
 
-test('@A02 fixture-only chat workspace accepts local problems and formula input', async ({
+test('@A02 chat workspace opens the real paper picker and accepts formula input', async ({
   page,
 }) => {
-  await page.goto('/bank');
+  await page.goto('/study');
 
   await expect(page.getByRole('heading', { name: '今天想解决哪道题？' })).toBeVisible();
   await expect(page.locator('#history-title')).toHaveText('做题记录');
@@ -51,22 +94,59 @@ test('@A02 fixture-only chat workspace accepts local problems and formula input'
   );
   expect(bodyFontFamily).toMatch(/^"?Microsoft YaHei"?/);
 
-  if ((page.viewportSize()?.width ?? 0) > 720) {
+  const isDesktop = (page.viewportSize()?.width ?? 0) > 720;
+  if (isDesktop) {
     const desktopColumns = await page.locator('.study-chat-page').evaluate(
       (element) => window.getComputedStyle(element).gridTemplateColumns,
     );
     expect(desktopColumns.split(' ')).toHaveLength(2);
     await expect(page.getByRole('navigation', { name: '学习导航' })).toBeVisible();
+    await expect(page.getByRole('link', { name: '题库' })).toHaveAttribute('href', '/bank');
   } else {
     await expect(page.getByRole('navigation', { name: '学习导航' })).toBeHidden();
     await page.getByRole('button', { name: '打开导航' }).click();
     await expect(page.getByRole('navigation', { name: '学习导航' })).toBeVisible();
+    await expect(page.getByRole('link', { name: '题库' })).toHaveAttribute('href', '/bank');
     await page.getByRole('button', { name: '关闭导航', exact: true }).click();
   }
 
-  await page.getByRole('button', { name: '从本地题库选择' }).click();
-  await expect(page.getByRole('dialog', { name: '本地题库' })).toBeVisible();
-  await page.getByRole('button', { name: '选择 F-01 导数与函数' }).click();
+  if (!isDesktop) await page.getByRole('button', { name: '打开导航' }).click();
+  await page.getByRole('link', { name: '题库' }).click();
+  await expect(page.getByRole('heading', { name: '从题库选择' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '历年真题，按卷选题' })).toHaveCount(0);
+  await expect(page.getByRole('region', { name: '题库选择工作区' })).toBeVisible();
+  await expect(page.getByLabel('筛选试卷')).toHaveClass(/paper-picker-filters/);
+  await expect(page.getByRole('complementary', { name: '试卷列表' })).toHaveClass(
+    /paper-picker-papers/,
+  );
+  const standalonePaper = page.getByRole('region', { name: '试卷内容' });
+  await expect(standalonePaper).toBeVisible();
+  await expect(standalonePaper.getByRole('article', { name: '第 1 题' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '选择题号' })).toHaveCount(0);
+  await expect(standalonePaper.getByRole('button', { name: '选择第 1 题' })).toBeVisible();
+  const standaloneQuestionListDisplay = await standalonePaper.locator('ol').evaluate(
+    (element) => window.getComputedStyle(element).display,
+  );
+  expect(standaloneQuestionListDisplay).toBe('block');
+  const bankHasHorizontalOverflow = await page.evaluate(
+    () => document.documentElement.scrollWidth > document.documentElement.clientWidth,
+  );
+  expect(bankHasHorizontalOverflow).toBe(false);
+  if (!isDesktop) await page.getByRole('button', { name: '打开导航' }).click();
+  await expect(page.getByRole('navigation', { name: '学习导航' })).toBeVisible();
+  await expect(page.getByRole('link', { name: '题库' })).toHaveAttribute('aria-current', 'page');
+  await page.getByRole('link', { name: '当前对话' }).click();
+  await expect(page.getByRole('heading', { name: '今天想解决哪道题？' })).toBeVisible();
+
+  await page.getByRole('button', { name: '去题库选择' }).click();
+  await expect(page.getByRole('dialog', { name: '从题库选择' })).toBeVisible();
+  await expect(page.getByRole('region', { name: '试卷内容' })).toBeVisible();
+  await expect(page.getByRole('article', { name: '第 1 题' })).toBeVisible();
+  const questionListDisplay = await page.locator('.paper-picker-questions ol').evaluate(
+    (element) => window.getComputedStyle(element).display,
+  );
+  expect(questionListDisplay).toBe('block');
+  await page.getByRole('button', { name: '选择第 1 题' }).click();
   await expect(page.getByRole('heading', { name: '题目分析' })).toBeVisible();
   await expect(page.getByText('确定单调区间与极值。')).toBeVisible();
 

@@ -3,10 +3,13 @@ import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import { apiFetch, apiStream } from '../../lib/api';
 import { MathMarkdown } from '../../shared/MathMarkdown';
-import { RichComposer, type RichComposerHandle } from './RichComposer';
 import {
-  FIXTURE_BANK_VERSION,
-  fixtureProblems,
+  PaperPickerDialog,
+  type PaperSelection,
+} from './PaperPickerDialog';
+import { RichComposer, type RichComposerHandle } from './RichComposer';
+import { StudySidebar, type StudyRecord } from './StudySidebar';
+import {
   fixtureSessionId,
   getFixtureProblem,
   problemIdFromFixtureSession,
@@ -39,12 +42,7 @@ interface ProblemAnalysis {
   target: string;
 }
 
-interface SessionRecord {
-  content: string;
-  id: string;
-  title: string;
-  topic: string;
-}
+type SessionRecord = StudyRecord;
 
 const formulaShortcuts = [
   { label: '分式', name: '插入分式', syntax: '$\\frac{}{}$' },
@@ -229,15 +227,17 @@ export function BankPage({ username }: StudentPageProps) {
     requestAnimationFrame(() => composerRef.current?.focus());
   }
 
-  function chooseProblem(problemId: string) {
-    const problem = getFixtureProblem(problemId);
-    if (!problem) return;
-
+  function chooseBankQuestion({ paper, question }: PaperSelection) {
+    const label = question.number === null ? '未编号题目' : `第 ${question.number} 题`;
+    const content = question.statementMarkdown
+      ?? (question.questionImageUrl
+        ? `![${paper.title}${label}](${question.questionImageUrl})`
+        : `${paper.title}${label}`);
     beginConversation({
-      content: problem.statementMd,
-      id: problem.id,
-      title: `${problem.number} · ${problem.topic}`,
-      topic: '本地演示题',
+      content,
+      id: `paper-${paper.id}-question-${question.id}`,
+      title: `${paper.title} · ${label}`,
+      topic: [paper.examYear, paper.region, paper.track].filter(Boolean).join(' · '),
     });
   }
 
@@ -377,77 +377,21 @@ export function BankPage({ username }: StudentPageProps) {
 
   return (
     <main className="study-chat-page">
-      <button
-        className="chat-sidebar-backdrop"
-        type="button"
-        aria-label="关闭导航遮罩"
-        data-open={sidebarOpen}
-        onClick={() => setSidebarOpen(false)}
+      <PaperPickerDialog
+        open={bankOpen}
+        onClose={() => setBankOpen(false)}
+        onSelect={chooseBankQuestion}
       />
 
-      <aside className="chat-sidebar" data-open={sidebarOpen}>
-        <div className="chat-sidebar-top">
-          <div className="chat-brand-row">
-            <Link className="chat-brand" to="/bank" aria-label="启思 AI 学习空间">
-              <span aria-hidden="true">Q</span>
-              <strong>启思 AI</strong>
-            </Link>
-            <button
-              className="chat-sidebar-close"
-              type="button"
-              aria-label="关闭导航"
-              onClick={() => setSidebarOpen(false)}
-            >
-              ×
-            </button>
-          </div>
-
-          <button className="new-problem-button" type="button" onClick={startNewProblem}>
-            <span aria-hidden="true">＋</span>
-            开始新题
-          </button>
-
-          <nav className="chat-nav" aria-label="学习导航">
-            <button className="chat-nav-item is-active" type="button" onClick={() => setSidebarOpen(false)}>
-              <span aria-hidden="true">◫</span>
-              当前对话
-            </button>
-            <button className="chat-nav-item" type="button" onClick={openLocalBank}>
-              <span aria-hidden="true">▤</span>
-              本地题库
-            </button>
-          </nav>
-        </div>
-
-        <section className="chat-history" aria-labelledby="history-title">
-          <div className="chat-history-heading">
-            <h2 id="history-title">做题记录</h2>
-            <span>当前页面</span>
-          </div>
-          {records.length === 0 ? (
-            <p className="chat-history-empty">还没有记录。输入或选择一道题后会显示在这里。</p>
-          ) : (
-            <ul>
-              {records.map((record) => (
-                <li key={record.id}>
-                  <button type="button" onClick={() => beginConversation(record)}>
-                    <span>{record.title}</span>
-                    <small>{record.topic} · 刚刚</small>
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
-        </section>
-
-        <div className="chat-profile" aria-label={`当前用户：${username}`}>
-          <span aria-hidden="true">{username.slice(0, 1).toUpperCase()}</span>
-          <div>
-            <strong>{username}</strong>
-            <small>高三数学</small>
-          </div>
-        </div>
-      </aside>
+      <StudySidebar
+        active="chat"
+        open={sidebarOpen}
+        records={records}
+        username={username}
+        onClose={() => setSidebarOpen(false)}
+        onSelectRecord={beginConversation}
+        onStartNew={startNewProblem}
+      />
 
       <section className="chat-main" aria-label="数学答题区">
         <header className="chat-topbar">
@@ -461,9 +405,9 @@ export function BankPage({ username }: StudentPageProps) {
           </button>
           <div>
             <strong>{hasProblem ? '当前题目' : '数学学习'}</strong>
-            <span>{hasProblem ? '本次记录仅保存在当前页面' : '输入题目，或从本地题库选择'}</span>
+            <span>{hasProblem ? '本次记录仅保存在当前页面' : '输入题目，或去题库选择'}</span>
           </div>
-          <span className="fixture-chip">开发夹具</span>
+          <span className="fixture-chip">历年真题</span>
         </header>
 
         <div className="chat-scroll" ref={chatScrollRef}>
@@ -472,9 +416,9 @@ export function BankPage({ username }: StudentPageProps) {
               <section className="chat-empty" aria-labelledby="chat-empty-title">
                 <span className="chat-empty-mark" aria-hidden="true">∑</span>
                 <h1 id="chat-empty-title">今天想解决哪道题？</h1>
-                <p>直接输入题目，支持 Markdown 和 LaTeX；也可以从本地演示题库里选择。</p>
+                <p>直接输入题目，支持 Markdown 和 LaTeX；也可以从历年真题题库里选择。</p>
                 <button type="button" onClick={openLocalBank}>
-                  从本地题库选择
+                  去题库选择
                   <span aria-hidden="true">→</span>
                 </button>
               </section>
@@ -560,38 +504,6 @@ export function BankPage({ username }: StudentPageProps) {
 
         <div className="composer-dock">
           <div className="composer-wrap">
-            {bankOpen && (
-              <section className="local-bank-panel" role="dialog" aria-label="本地题库">
-                <header>
-                  <div>
-                    <strong>选择一道题</strong>
-                    <span>{FIXTURE_BANK_VERSION} · 自拟演示夹具</span>
-                  </div>
-                  <button type="button" aria-label="关闭本地题库" onClick={() => setBankOpen(false)}>
-                    ×
-                  </button>
-                </header>
-                <div className="local-bank-list">
-                  {fixtureProblems.map((problem) => (
-                    <button
-                      type="button"
-                      key={problem.id}
-                      aria-label={`选择 ${problem.number} ${problem.topic}`}
-                      onClick={() => chooseProblem(problem.id)}
-                    >
-                      <span>{problem.number}</span>
-                      <div>
-                        <strong>{problem.topic}</strong>
-                        <MathMarkdown content={problem.statementMd} />
-                      </div>
-                      <span aria-hidden="true">→</span>
-                    </button>
-                  ))}
-                </div>
-                <p>当前仅有三道自拟夹具，不代表正式题库，也不会在浏览器内随机冒充服务端选题。</p>
-              </section>
-            )}
-
             {formulaOpen && (
               <div className="formula-toolbar" aria-label="公式快捷输入">
                 {formulaShortcuts.map((shortcut) => (

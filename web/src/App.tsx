@@ -4,6 +4,7 @@ import { Button } from './components/ui/button';
 import { Input } from './components/ui/input';
 import { ApiError, apiFetch } from './lib/api';
 import { BankPage, FixtureLearningPage, PreparePage } from './pages/bank/BankFlow';
+import { PaperBankPage } from './pages/bank/PaperBankPage';
 import { MathMarkdown } from './shared/MathMarkdown';
 
 interface User {
@@ -52,7 +53,7 @@ export function App() {
         method: 'POST',
       });
       setAuth({ status: 'authenticated', user: result.user });
-      navigate('/bank', { replace: true });
+      navigate('/study', { replace: true });
     } catch (requestError) {
       setError(
         requestError instanceof ApiError && requestError.status === 400
@@ -91,8 +92,13 @@ export function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/bank" replace />} />
-      <Route path="/bank" element={<BankPage username={auth.user.username} />} />
+      <Route path="/" element={<Navigate to="/study" replace />} />
+      <Route path="/bank" element={<PaperBankPage username={auth.user.username} />} />
+      <Route
+        path="/bank/papers/:paperId/questions/:questionId"
+        element={<PaperBankPage username={auth.user.username} />}
+      />
+      <Route path="/study" element={<BankPage username={auth.user.username} />} />
       <Route
         path="/bank/prepare/:problemId"
         element={<PreparePage username={auth.user.username} />}
@@ -101,7 +107,7 @@ export function App() {
         path="/learn/:sessionId"
         element={<FixtureLearningPage username={auth.user.username} />}
       />
-      <Route path="*" element={<Navigate to="/bank" replace />} />
+      <Route path="*" element={<Navigate to="/study" replace />} />
     </Routes>
   );
 }

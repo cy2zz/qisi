@@ -1,0 +1,2299 @@
+{
+  "title": "2020年高考数学试卷（理）（新课标Ⅱ）",
+  "variant": "题目与解析",
+  "prefix": "2020年高考数学试卷（理）（新课标Ⅱ）",
+  "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+  "sourcePages": 25,
+  "questionCount": 23,
+  "notes": [],
+  "resources": [
+    {
+      "label": "卷首说明",
+      "number": null,
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E5%85%B6%E4%BB%96%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%8D%B7%E9%A6%96%E8%AF%B4%E6%98%8E.png",
+      "width": 1600,
+      "height": 631,
+      "safeBreaks": [
+        96,
+        208,
+        297,
+        383,
+        469,
+        555
+      ],
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            78.197,
+            78.64,
+            513.572,
+            247.075
+          ]
+        }
+      ],
+      "kind": "intro"
+    },
+    {
+      "label": "第01题题目",
+      "number": 1,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 450,
+      "safeBreaks": [
+        75,
+        169,
+        274,
+        366
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            78.197,
+            256.055,
+            513.572,
+            542.314
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          450
+        ]
+      ]
+    },
+    {
+      "label": "第01题解析",
+      "number": 1,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 614,
+      "safeBreaks": [
+        84,
+        170,
+        256,
+        344,
+        454,
+        542
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            78.197,
+            256.055,
+            513.572,
+            542.314
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          450,
+          1064
+        ]
+      ]
+    },
+    {
+      "label": "第02题题目",
+      "number": 2,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 156,
+      "safeBreaks": [
+        74
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            78.197,
+            553.198,
+            513.572,
+            727.892
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            78.197,
+            78.912,
+            513.572,
+            238.096
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          156
+        ]
+      ]
+    },
+    {
+      "label": "第02题解析",
+      "number": 2,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1107,
+      "safeBreaks": [
+        88,
+        174,
+        260,
+        349,
+        504,
+        666,
+        770,
+        863,
+        949,
+        1035
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            78.197,
+            553.198,
+            513.572,
+            727.892
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            78.197,
+            78.912,
+            513.572,
+            238.096
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          156,
+          1263
+        ]
+      ]
+    },
+    {
+      "label": "第03题题目",
+      "number": 3,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 501,
+      "safeBreaks": [
+        72,
+        158,
+        244,
+        330,
+        416
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            78.197,
+            248.98,
+            513.572,
+            573.606
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          501
+        ]
+      ]
+    },
+    {
+      "label": "第03题解析",
+      "number": 3,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 704,
+      "safeBreaks": [
+        87,
+        173,
+        259,
+        345,
+        425,
+        554,
+        632
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            78.197,
+            248.98,
+            513.572,
+            573.606
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          501,
+          1205
+        ]
+      ]
+    },
+    {
+      "label": "第04题题目",
+      "number": 4,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 1003,
+      "safeBreaks": [
+        74,
+        160,
+        244,
+        326,
+        929
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            78.197,
+            584.491,
+            513.572,
+            668.3
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            78.197,
+            70.476,
+            513.572,
+            729.525
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          1003
+        ]
+      ]
+    },
+    {
+      "label": "第04题解析",
+      "number": 4,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1763,
+      "safeBreaks": [
+        86,
+        172,
+        264,
+        374,
+        489,
+        604,
+        718,
+        833,
+        947,
+        1063,
+        1164,
+        1303,
+        1392,
+        1526,
+        1605,
+        1691
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            78.197,
+            584.491,
+            513.572,
+            668.3
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            78.197,
+            70.476,
+            513.572,
+            729.525
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          1003,
+          2766
+        ]
+      ]
+    },
+    {
+      "label": "第05题题目",
+      "number": 5,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 220,
+      "safeBreaks": [
+        68,
+        154
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            78.197,
+            743.947,
+            513.572,
+            757.552
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            78.197,
+            79.728,
+            513.572,
+            635.919
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          220
+        ]
+      ]
+    },
+    {
+      "label": "第05题解析",
+      "number": 5,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1910,
+      "safeBreaks": [
+        90,
+        176,
+        265,
+        376,
+        495,
+        602,
+        717,
+        808,
+        921,
+        1036,
+        1156,
+        1261,
+        1379,
+        1542,
+        1673,
+        1752,
+        1838
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            78.197,
+            743.947,
+            513.572,
+            757.552
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            78.197,
+            79.728,
+            513.572,
+            635.919
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          220,
+          2130
+        ]
+      ]
+    },
+    {
+      "label": "第06题题目",
+      "number": 6,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 176,
+      "safeBreaks": [
+        91
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            78.197,
+            649.253,
+            513.572,
+            760.818
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            78.197,
+            78.912,
+            513.572,
+            347.484
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          176
+        ]
+      ]
+    },
+    {
+      "label": "第06题解析",
+      "number": 6,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1257,
+      "safeBreaks": [
+        88,
+        174,
+        252,
+        358,
+        471,
+        639,
+        753,
+        925,
+        1014,
+        1099,
+        1185
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            78.197,
+            649.253,
+            513.572,
+            760.818
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            78.197,
+            78.912,
+            513.572,
+            347.484
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          176,
+          1433
+        ]
+      ]
+    },
+    {
+      "label": "第07题题目",
+      "number": 7,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 816,
+      "safeBreaks": [
+        72,
+        149,
+        508,
+        741
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            78.197,
+            358.368,
+            513.572,
+            690.613
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            78.197,
+            75.374,
+            513.572,
+            355.103
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          816
+        ]
+      ]
+    },
+    {
+      "label": "第07题解析",
+      "number": 7,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1469,
+      "safeBreaks": [
+        87,
+        173,
+        259,
+        345,
+        423,
+        546,
+        1057,
+        1139,
+        1225,
+        1311,
+        1397
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            78.197,
+            358.368,
+            513.572,
+            690.613
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            78.197,
+            75.374,
+            513.572,
+            355.103
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          816,
+          2285
+        ]
+      ]
+    },
+    {
+      "label": "第08题题目",
+      "number": 8,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 312,
+      "safeBreaks": [
+        125,
+        223
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            78.197,
+            362.722,
+            513.572,
+            721.906
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            78.197,
+            78.64,
+            513.572,
+            542.314
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          312
+        ]
+      ]
+    },
+    {
+      "label": "第08题解析",
+      "number": 8,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2748,
+      "safeBreaks": [
+        88,
+        174,
+        253,
+        388,
+        487,
+        593,
+        717,
+        800,
+        834,
+        954,
+        1026,
+        1247,
+        1353,
+        1591,
+        1701,
+        1818,
+        1975,
+        2111,
+        2219,
+        2328,
+        2418,
+        2504,
+        2590,
+        2676
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            78.197,
+            362.722,
+            513.572,
+            721.906
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            78.197,
+            78.64,
+            513.572,
+            542.314
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          312,
+          3060
+        ]
+      ]
+    },
+    {
+      "label": "第09题题目",
+      "number": 9,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 306,
+      "safeBreaks": [
+        68,
+        190
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            78.197,
+            553.198,
+            513.572,
+            743.403
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            78.197,
+            79.184,
+            513.572,
+            659.321
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          306
+        ]
+      ]
+    },
+    {
+      "label": "第09题解析",
+      "number": 9,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2561,
+      "safeBreaks": [
+        82,
+        168,
+        257,
+        411,
+        568,
+        684,
+        863,
+        942,
+        1057,
+        1171,
+        1342,
+        1514,
+        1686,
+        1858,
+        2030,
+        2200,
+        2289,
+        2377,
+        2486
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            78.197,
+            553.198,
+            513.572,
+            743.403
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            78.197,
+            79.184,
+            513.572,
+            659.321
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          306,
+          2867
+        ]
+      ]
+    },
+    {
+      "label": "第10题题目",
+      "number": 10,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 353,
+      "safeBreaks": [
+        118,
+        202
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            78.197,
+            667.212,
+            513.572,
+            758.369
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            78.197,
+            77.551,
+            513.572,
+            425.307
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          353
+        ]
+      ]
+    },
+    {
+      "label": "第10题解析",
+      "number": 10,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1296,
+      "safeBreaks": [
+        78,
+        164,
+        250,
+        339,
+        455,
+        558,
+        645,
+        773,
+        938,
+        1050,
+        1138,
+        1224
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            78.197,
+            667.212,
+            513.572,
+            758.369
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            78.197,
+            77.551,
+            513.572,
+            425.307
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          353,
+          1649
+        ]
+      ]
+    },
+    {
+      "label": "第11题题目",
+      "number": 11,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 309,
+      "safeBreaks": [
+        84,
+        200
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            78.197,
+            440.273,
+            513.572,
+            760.273
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            78.197,
+            79.184,
+            513.572,
+            199.184
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          309
+        ]
+      ]
+    },
+    {
+      "label": "第11题解析",
+      "number": 11,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1344,
+      "safeBreaks": [
+        92,
+        178,
+        267,
+        376,
+        472,
+        575,
+        694,
+        806,
+        885,
+        985,
+        1098,
+        1186,
+        1272
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            78.197,
+            440.273,
+            513.572,
+            760.273
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            78.197,
+            79.184,
+            513.572,
+            199.184
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          309,
+          1653
+        ]
+      ]
+    },
+    {
+      "label": "第12题题目",
+      "number": 12,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 723,
+      "safeBreaks": [
+        64,
+        153,
+        239,
+        328,
+        404,
+        528,
+        646
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            78.197,
+            211.701,
+            513.572,
+            760.818
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            78.197,
+            80,
+            513.572,
+            207.075
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          723
+        ]
+      ]
+    },
+    {
+      "label": "第12题解析",
+      "number": 12,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1798,
+      "safeBreaks": [
+        88,
+        181,
+        289,
+        458,
+        551,
+        720,
+        897,
+        977,
+        1067,
+        1232,
+        1313,
+        1474,
+        1554,
+        1640,
+        1726
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            78.197,
+            211.701,
+            513.572,
+            760.818
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            78.197,
+            80,
+            513.572,
+            207.075
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          723,
+          2521
+        ]
+      ]
+    },
+    {
+      "label": "第13题题目",
+      "number": 13,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 166,
+      "safeBreaks": [
+        77
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 11,
+          "bbox": [
+            78.197,
+            217.143,
+            513.572,
+            604.899
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          166
+        ]
+      ]
+    },
+    {
+      "label": "第13题解析",
+      "number": 13,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1271,
+      "safeBreaks": [
+        101,
+        162,
+        253,
+        339,
+        428,
+        596,
+        768,
+        940,
+        1047,
+        1108,
+        1199
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 11,
+          "bbox": [
+            78.197,
+            217.143,
+            513.572,
+            604.899
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          166,
+          1437
+        ]
+      ]
+    },
+    {
+      "label": "第14题题目",
+      "number": 14,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 160,
+      "safeBreaks": [
+        72
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 11,
+          "bbox": [
+            78.197,
+            615.783,
+            513.572,
+            768.709
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            78.197,
+            77.551,
+            513.572,
+            269.388
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          160
+        ]
+      ]
+    },
+    {
+      "label": "第14题解析",
+      "number": 14,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1143,
+      "safeBreaks": [
+        84,
+        170,
+        256,
+        342,
+        420,
+        498,
+        589,
+        698,
+        809,
+        899,
+        985,
+        1071
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 11,
+          "bbox": [
+            78.197,
+            615.783,
+            513.572,
+            768.709
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            78.197,
+            77.551,
+            513.572,
+            269.388
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          160,
+          1303
+        ]
+      ]
+    },
+    {
+      "label": "第15题题目",
+      "number": 15,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 91,
+      "safeBreaks": [],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 12,
+          "bbox": [
+            78.197,
+            282.722,
+            513.572,
+            760.818
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            78.197,
+            77.551,
+            513.572,
+            90.068
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          91
+        ]
+      ]
+    },
+    {
+      "label": "第15题解析",
+      "number": 15,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1748,
+      "safeBreaks": [
+        110,
+        201,
+        293,
+        404,
+        570,
+        687,
+        798,
+        986,
+        1141,
+        1258,
+        1382,
+        1490,
+        1601,
+        1684
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 12,
+          "bbox": [
+            78.197,
+            282.722,
+            513.572,
+            760.818
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            78.197,
+            77.551,
+            513.572,
+            90.068
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          91,
+          1839
+        ]
+      ]
+    },
+    {
+      "label": "第16题题目",
+      "number": 16,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 611,
+      "safeBreaks": [
+        72,
+        160,
+        246,
+        332,
+        418,
+        511
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 13,
+          "bbox": [
+            78.197,
+            100.953,
+            513.572,
+            758.369
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            78.197,
+            81.361,
+            513.572,
+            308.3
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          611
+        ]
+      ]
+    },
+    {
+      "label": "第16题解析",
+      "number": 16,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2675,
+      "safeBreaks": [
+        91,
+        177,
+        270,
+        380,
+        488,
+        585,
+        695,
+        809,
+        923,
+        1263,
+        1384,
+        1498,
+        1613,
+        1728,
+        1823,
+        1910,
+        2001,
+        2094,
+        2204,
+        2319,
+        2426,
+        2517,
+        2603
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 13,
+          "bbox": [
+            78.197,
+            100.953,
+            513.572,
+            758.369
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            78.197,
+            81.361,
+            513.572,
+            308.3
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          611,
+          3286
+        ]
+      ]
+    },
+    {
+      "label": "第17题题目",
+      "number": 17,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 501,
+      "safeBreaks": [
+        75,
+        161,
+        248,
+        333,
+        419
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 14,
+          "bbox": [
+            78.197,
+            318.368,
+            513.572,
+            741.498
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            78.197,
+            78.095,
+            513.572,
+            324.082
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          501
+        ]
+      ]
+    },
+    {
+      "label": "第17题解析",
+      "number": 17,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1994,
+      "safeBreaks": [
+        124,
+        205,
+        291,
+        378,
+        490,
+        584,
+        691,
+        853,
+        994,
+        1072,
+        1178,
+        1350,
+        1523,
+        1634,
+        1745,
+        1836,
+        1922
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 14,
+          "bbox": [
+            78.197,
+            318.368,
+            513.572,
+            741.498
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            78.197,
+            78.095,
+            513.572,
+            324.082
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          501,
+          2495
+        ]
+      ]
+    },
+    {
+      "label": "第18题题目",
+      "number": 18,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 1305,
+      "safeBreaks": [
+        72,
+        158,
+        251,
+        299,
+        361,
+        417,
+        471,
+        533,
+        584,
+        674,
+        760,
+        848,
+        932,
+        1022,
+        1066,
+        1128
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 15,
+          "bbox": [
+            78.197,
+            334.967,
+            513.572,
+            752.926
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            78.197,
+            77.551,
+            513.572,
+            534.695
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          1305
+        ]
+      ]
+    },
+    {
+      "label": "第18题解析",
+      "number": 18,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1947,
+      "safeBreaks": [
+        85,
+        171,
+        249,
+        328,
+        438,
+        614,
+        703,
+        868,
+        963,
+        1067,
+        1118,
+        1363,
+        1443,
+        1531,
+        1617,
+        1703,
+        1789,
+        1875
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 15,
+          "bbox": [
+            78.197,
+            334.967,
+            513.572,
+            752.926
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            78.197,
+            77.551,
+            513.572,
+            534.695
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          1305,
+          3252
+        ]
+      ]
+    },
+    {
+      "label": "第19题题目",
+      "number": 19,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 441,
+      "safeBreaks": [
+        135,
+        269,
+        348
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 16,
+          "bbox": [
+            78.197,
+            548.572,
+            513.572,
+            752.926
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            78.197,
+            81.905,
+            513.572,
+            750.477
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            78.197,
+            75.646,
+            513.572,
+            347.484
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          441
+        ]
+      ]
+    },
+    {
+      "label": "第19题解析",
+      "number": 19,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3826,
+      "safeBreaks": [
+        159,
+        250,
+        328,
+        469,
+        567,
+        731,
+        849,
+        960,
+        1045,
+        1331,
+        1918,
+        2081,
+        2258,
+        2427,
+        2527,
+        2667,
+        2809,
+        3048,
+        3211,
+        3381,
+        3555,
+        3663,
+        3754
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 16,
+          "bbox": [
+            78.197,
+            548.572,
+            513.572,
+            752.926
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            78.197,
+            81.905,
+            513.572,
+            750.477
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            78.197,
+            75.646,
+            513.572,
+            347.484
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          441,
+          4267
+        ]
+      ]
+    },
+    {
+      "label": "第20题题目",
+      "number": 20,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 1194,
+      "safeBreaks": [
+        72,
+        158,
+        237,
+        940,
+        1018,
+        1104
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 18,
+          "bbox": [
+            78.197,
+            358.368,
+            513.572,
+            768.709
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            78.197,
+            80.816,
+            513.572,
+            750.205
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            78.197,
+            81.089,
+            513.572,
+            725.988
+          ]
+        },
+        {
+          "page": 21,
+          "bbox": [
+            78.197,
+            78.367,
+            513.572,
+            495.511
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          1194
+        ]
+      ]
+    },
+    {
+      "label": "第20题解析",
+      "number": 20,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 6761,
+      "safeBreaks": [
+        102,
+        164,
+        254,
+        332,
+        428,
+        542,
+        657,
+        765,
+        863,
+        972,
+        1089,
+        1201,
+        1310,
+        1407,
+        1517,
+        1632,
+        1741,
+        1836,
+        1947,
+        2061,
+        2176,
+        2290,
+        2406,
+        2516,
+        2609,
+        2721,
+        2816,
+        2911,
+        3019,
+        3105,
+        3812,
+        3867,
+        3966,
+        4054,
+        4148,
+        4253,
+        4341,
+        4429,
+        4516,
+        4601,
+        4695,
+        4855,
+        4970,
+        5065,
+        5132,
+        5159,
+        5210,
+        5369,
+        5463,
+        5572,
+        5687,
+        5802,
+        5915,
+        6032,
+        6137,
+        6264,
+        6434,
+        6599,
+        6689
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 18,
+          "bbox": [
+            78.197,
+            358.368,
+            513.572,
+            768.709
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            78.197,
+            80.816,
+            513.572,
+            750.205
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            78.197,
+            81.089,
+            513.572,
+            725.988
+          ]
+        },
+        {
+          "page": 21,
+          "bbox": [
+            78.197,
+            78.367,
+            513.572,
+            495.511
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          1194,
+          7955
+        ]
+      ]
+    },
+    {
+      "label": "第21题题目",
+      "number": 21,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC21%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 443,
+      "safeBreaks": [
+        74,
+        152,
+        289
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 21,
+          "bbox": [
+            78.197,
+            506.395,
+            513.572,
+            760.818
+          ]
+        },
+        {
+          "page": 22,
+          "bbox": [
+            78.197,
+            77.551,
+            513.572,
+            758.913
+          ]
+        },
+        {
+          "page": 23,
+          "bbox": [
+            78.197,
+            77.551,
+            513.572,
+            481.633
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第21题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          443
+        ]
+      ]
+    },
+    {
+      "label": "第21题解析",
+      "number": 21,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC21%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 4541,
+      "safeBreaks": [
+        174,
+        343,
+        432,
+        510,
+        588,
+        675,
+        760,
+        847,
+        932,
+        1013,
+        1050,
+        1140,
+        1223,
+        1331,
+        1447,
+        1555,
+        1687,
+        1849,
+        2020,
+        2191,
+        2309,
+        2423,
+        2531,
+        2716,
+        2881,
+        3038,
+        3124,
+        3220,
+        3266,
+        3345,
+        3377,
+        3460,
+        3490,
+        3640,
+        3680,
+        3861,
+        3949,
+        4033,
+        4121,
+        4207,
+        4291,
+        4377,
+        4463
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 21,
+          "bbox": [
+            78.197,
+            506.395,
+            513.572,
+            760.818
+          ]
+        },
+        {
+          "page": 22,
+          "bbox": [
+            78.197,
+            77.551,
+            513.572,
+            758.913
+          ]
+        },
+        {
+          "page": 23,
+          "bbox": [
+            78.197,
+            77.551,
+            513.572,
+            481.633
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第21题.png",
+      "originalImageIntervals": [
+        [
+          443,
+          4984
+        ]
+      ]
+    },
+    {
+      "label": "第22题题目",
+      "number": 22,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC22%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 618,
+      "safeBreaks": [
+        263,
+        353,
+        439,
+        525
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 23,
+          "bbox": [
+            78.197,
+            492.518,
+            513.572,
+            768.709
+          ]
+        },
+        {
+          "page": 24,
+          "bbox": [
+            78.197,
+            77.551,
+            513.572,
+            543.946
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第22题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          618
+        ]
+      ]
+    },
+    {
+      "label": "第22题解析",
+      "number": 22,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC22%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2147,
+      "safeBreaks": [
+        158,
+        251,
+        337,
+        415,
+        493,
+        585,
+        691,
+        980,
+        1266,
+        1381,
+        1555,
+        1732,
+        1891,
+        1983,
+        2067
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 23,
+          "bbox": [
+            78.197,
+            492.518,
+            513.572,
+            768.709
+          ]
+        },
+        {
+          "page": 24,
+          "bbox": [
+            78.197,
+            77.551,
+            513.572,
+            543.946
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第22题.png",
+      "originalImageIntervals": [
+        [
+          618,
+          2765
+        ]
+      ]
+    },
+    {
+      "label": "第23题题目",
+      "number": 23,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC23%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 328,
+      "safeBreaks": [
+        107,
+        216
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 24,
+          "bbox": [
+            78.197,
+            553.198,
+            513.572,
+            752.926
+          ]
+        },
+        {
+          "page": 25,
+          "bbox": [
+            78.197,
+            78.095,
+            513.572,
+            441.089
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第23题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          328
+        ]
+      ]
+    },
+    {
+      "label": "第23题解析",
+      "number": 23,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%EF%BC%89_%E7%AC%AC23%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1776,
+      "safeBreaks": [
+        171,
+        260,
+        346,
+        424,
+        529,
+        634,
+        768,
+        864,
+        997,
+        1153,
+        1283,
+        1383,
+        1504,
+        1615,
+        1704
+      ],
+      "sourcePDF": "2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 24,
+          "bbox": [
+            78.197,
+            553.198,
+            513.572,
+            752.926
+          ]
+        },
+        {
+          "page": 25,
+          "bbox": [
+            78.197,
+            78.095,
+            513.572,
+            441.089
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（理）（新课标Ⅱ）（解析卷）_第23题.png",
+      "originalImageIntervals": [
+        [
+          328,
+          2104
+        ]
+      ]
+    }
+  ],
+  "layout": "question-analysis-pairs"
+}

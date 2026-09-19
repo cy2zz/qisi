@@ -1,0 +1,2212 @@
+{
+  "title": "2020年高考数学试卷（新高考Ⅱ卷）（海南）",
+  "variant": "题目与解析",
+  "prefix": "2020年高考数学试卷（新高考Ⅱ卷）（海南）",
+  "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+  "sourcePages": 25,
+  "questionCount": 22,
+  "notes": [],
+  "resources": [
+    {
+      "label": "卷首说明",
+      "number": null,
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E5%85%B6%E4%BB%96%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%8D%B7%E9%A6%96%E8%AF%B4%E6%98%8E.png",
+      "width": 1600,
+      "height": 631,
+      "safeBreaks": [
+        87,
+        184,
+        262,
+        337,
+        413,
+        488,
+        563
+      ],
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            47.147,
+            51.617,
+            544.658,
+            244.091
+          ]
+        }
+      ],
+      "kind": "intro"
+    },
+    {
+      "label": "第01题题目",
+      "number": 1,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 446,
+      "safeBreaks": [
+        68,
+        151,
+        247,
+        348
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            47.147,
+            252.487,
+            544.658,
+            563.12
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          446
+        ]
+      ]
+    },
+    {
+      "label": "第01题解析",
+      "number": 1,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 565,
+      "safeBreaks": [
+        92,
+        173,
+        249,
+        330,
+        419,
+        500
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            47.147,
+            252.487,
+            544.658,
+            563.12
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          446,
+          1011
+        ]
+      ]
+    },
+    {
+      "label": "第02题题目",
+      "number": 2,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 250,
+      "safeBreaks": [
+        101,
+        171
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            47.147,
+            571.516,
+            544.658,
+            742.535
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            53.793,
+            544.658,
+            134.017
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          250
+        ]
+      ]
+    },
+    {
+      "label": "第02题解析",
+      "number": 2,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 594,
+      "safeBreaks": [
+        89,
+        171,
+        246,
+        318,
+        450,
+        529
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            47.147,
+            571.516,
+            544.658,
+            742.535
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            53.793,
+            544.658,
+            134.017
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          250,
+          844
+        ]
+      ]
+    },
+    {
+      "label": "第03题题目",
+      "number": 3,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 308,
+      "safeBreaks": [
+        71,
+        152,
+        227
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            148.32,
+            544.658,
+            500.62
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          308
+        ]
+      ]
+    },
+    {
+      "label": "第03题解析",
+      "number": 3,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 837,
+      "safeBreaks": [
+        88,
+        170,
+        245,
+        324,
+        421,
+        518,
+        600,
+        694,
+        772
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            148.32,
+            544.658,
+            500.62
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          308,
+          1145
+        ]
+      ]
+    },
+    {
+      "label": "第04题题目",
+      "number": 4,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 848,
+      "safeBreaks": [
+        71,
+        153,
+        227,
+        301,
+        703,
+        769
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            514.924,
+            544.658,
+            727.921
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            52.239,
+            544.658,
+            625.309
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          848
+        ]
+      ]
+    },
+    {
+      "label": "第04题解析",
+      "number": 4,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1716,
+      "safeBreaks": [
+        89,
+        171,
+        246,
+        322,
+        397,
+        472,
+        549,
+        622,
+        704,
+        793,
+        874,
+        949,
+        1046,
+        1561,
+        1651
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            514.924,
+            544.658,
+            727.921
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            52.239,
+            544.658,
+            625.309
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          848,
+          2564
+        ]
+      ]
+    },
+    {
+      "label": "第05题题目",
+      "number": 5,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 307,
+      "safeBreaks": [
+        71,
+        155,
+        228
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            639.612,
+            544.658,
+            754.04
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            47.147,
+            50.684,
+            544.658,
+            344.526
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          307
+        ]
+      ]
+    },
+    {
+      "label": "第05题解析",
+      "number": 5,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1042,
+      "safeBreaks": [
+        79,
+        149,
+        225,
+        300,
+        381,
+        470,
+        551,
+        629,
+        730,
+        821,
+        902,
+        977
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            639.612,
+            544.658,
+            754.04
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            47.147,
+            50.684,
+            544.658,
+            344.526
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          307,
+          1349
+        ]
+      ]
+    },
+    {
+      "label": "第06题题目",
+      "number": 6,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 559,
+      "safeBreaks": [
+        77,
+        173,
+        254,
+        329,
+        405,
+        478
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            47.147,
+            358.83,
+            544.658,
+            755.284
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            47.147,
+            47.264,
+            544.658,
+            118.47
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          559
+        ]
+      ]
+    },
+    {
+      "label": "第06题解析",
+      "number": 6,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 981,
+      "safeBreaks": [
+        88,
+        170,
+        247,
+        349,
+        436,
+        559,
+        648,
+        734,
+        848,
+        916
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            47.147,
+            358.83,
+            544.658,
+            755.284
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            47.147,
+            47.264,
+            544.658,
+            118.47
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          559,
+          1540
+        ]
+      ]
+    },
+    {
+      "label": "第07题题目",
+      "number": 7,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 278,
+      "safeBreaks": [
+        77,
+        177
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            47.147,
+            132.773,
+            544.658,
+            695.582
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          278
+        ]
+      ]
+    },
+    {
+      "label": "第07题解析",
+      "number": 7,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1544,
+      "safeBreaks": [
+        93,
+        175,
+        255,
+        346,
+        443,
+        876,
+        957,
+        1048,
+        1133,
+        1229,
+        1324,
+        1404,
+        1479
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            47.147,
+            132.773,
+            544.658,
+            695.582
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          278,
+          1822
+        ]
+      ]
+    },
+    {
+      "label": "第08题题目",
+      "number": 8,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 248,
+      "safeBreaks": [
+        79,
+        163
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            47.147,
+            709.264,
+            544.658,
+            754.351
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            47.147,
+            54.104,
+            544.658,
+            473.257
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          248
+        ]
+      ]
+    },
+    {
+      "label": "第08题解析",
+      "number": 8,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1281,
+      "safeBreaks": [
+        93,
+        175,
+        250,
+        326,
+        407,
+        502,
+        601,
+        703,
+        798,
+        951,
+        1034,
+        1124,
+        1210
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            47.147,
+            709.264,
+            544.658,
+            754.351
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            47.147,
+            54.104,
+            544.658,
+            473.257
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          248,
+          1529
+        ]
+      ]
+    },
+    {
+      "label": "第09题题目",
+      "number": 9,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 695,
+      "safeBreaks": [
+        67,
+        148,
+        246,
+        344,
+        441,
+        598
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            47.147,
+            486.628,
+            544.658,
+            749.998
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            47.147,
+            50.684,
+            544.658,
+            633.393
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          695
+        ]
+      ]
+    },
+    {
+      "label": "第09题解析",
+      "number": 9,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2062,
+      "safeBreaks": [
+        93,
+        170,
+        240,
+        322,
+        416,
+        541,
+        557,
+        607,
+        686,
+        730,
+        818,
+        966,
+        1065,
+        1122,
+        1243,
+        1259,
+        1314,
+        1397,
+        1549,
+        1693,
+        1798,
+        1843,
+        1921,
+        1997
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            47.147,
+            486.628,
+            544.658,
+            749.998
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            47.147,
+            50.684,
+            544.658,
+            633.393
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          695,
+          2757
+        ]
+      ]
+    },
+    {
+      "label": "第10题题目",
+      "number": 10,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 717,
+      "safeBreaks": [
+        64,
+        543
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            47.147,
+            647.386,
+            544.658,
+            661.689
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            47.147,
+            52.55,
+            544.658,
+            751.552
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            47.147,
+            50.684,
+            544.658,
+            64.987
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          717
+        ]
+      ]
+    },
+    {
+      "label": "第10题解析",
+      "number": 10,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1683,
+      "safeBreaks": [
+        82,
+        164,
+        239,
+        321,
+        456,
+        615,
+        723,
+        794,
+        941,
+        1089,
+        1167,
+        1245,
+        1327,
+        1463,
+        1546,
+        1619
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            47.147,
+            647.386,
+            544.658,
+            661.689
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            47.147,
+            52.55,
+            544.658,
+            751.552
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            47.147,
+            50.684,
+            544.658,
+            64.987
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          717,
+          2400
+        ]
+      ]
+    },
+    {
+      "label": "第11题题目",
+      "number": 11,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 330,
+      "safeBreaks": [
+        77,
+        224
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            47.147,
+            78.047,
+            544.658,
+            594.215
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          330
+        ]
+      ]
+    },
+    {
+      "label": "第11题解析",
+      "number": 11,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1342,
+      "safeBreaks": [
+        91,
+        173,
+        248,
+        327,
+        468,
+        575,
+        683,
+        819,
+        930,
+        1025,
+        1133,
+        1202,
+        1277
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            47.147,
+            78.047,
+            544.658,
+            594.215
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          330,
+          1672
+        ]
+      ]
+    },
+    {
+      "label": "第12题题目",
+      "number": 12,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 569,
+      "safeBreaks": [
+        68,
+        104,
+        152,
+        184,
+        240,
+        282,
+        371,
+        482
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            47.147,
+            608.207,
+            544.658,
+            752.796
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            47.147,
+            54.415,
+            544.658,
+            755.595
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            47.147,
+            53.793,
+            544.658,
+            282.337
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          569
+        ]
+      ]
+    },
+    {
+      "label": "第12题解析",
+      "number": 12,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2946,
+      "safeBreaks": [
+        92,
+        173,
+        250,
+        349,
+        447,
+        527,
+        628,
+        722,
+        827,
+        976,
+        1123,
+        1197,
+        1312,
+        1451,
+        1553,
+        1657,
+        1751,
+        1906,
+        2056,
+        2193,
+        2330,
+        2481,
+        2629,
+        2728,
+        2805,
+        2881
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            47.147,
+            608.207,
+            544.658,
+            752.796
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            47.147,
+            54.415,
+            544.658,
+            755.595
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            47.147,
+            53.793,
+            544.658,
+            282.337
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          569,
+          3515
+        ]
+      ]
+    },
+    {
+      "label": "第13题题目",
+      "number": 13,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 160,
+      "safeBreaks": [
+        71
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 11,
+          "bbox": [
+            47.147,
+            291.666,
+            544.658,
+            738.804
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            47.147,
+            50.684,
+            544.658,
+            313.432
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          160
+        ]
+      ]
+    },
+    {
+      "label": "第13题解析",
+      "number": 13,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2159,
+      "safeBreaks": [
+        115,
+        183,
+        258,
+        336,
+        413,
+        508,
+        613,
+        700,
+        811,
+        918,
+        980,
+        1099,
+        1175,
+        1296,
+        1988,
+        2101
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 11,
+          "bbox": [
+            47.147,
+            291.666,
+            544.658,
+            738.804
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            47.147,
+            50.684,
+            544.658,
+            313.432
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          160,
+          2319
+        ]
+      ]
+    },
+    {
+      "label": "第14题题目",
+      "number": 14,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 73,
+      "safeBreaks": [],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 12,
+          "bbox": [
+            47.147,
+            327.735,
+            544.658,
+            684.077
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          73
+        ]
+      ]
+    },
+    {
+      "label": "第14题解析",
+      "number": 14,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1085,
+      "safeBreaks": [
+        79,
+        154,
+        231,
+        333,
+        426,
+        531,
+        630,
+        722,
+        844,
+        925,
+        1014
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 12,
+          "bbox": [
+            47.147,
+            327.735,
+            544.658,
+            684.077
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          73,
+          1158
+        ]
+      ]
+    },
+    {
+      "label": "第15题题目",
+      "number": 15,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 784,
+      "safeBreaks": [
+        71,
+        147,
+        266,
+        321,
+        356
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 12,
+          "bbox": [
+            47.147,
+            702.112,
+            544.658,
+            742.224
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            47.147,
+            47.574,
+            544.658,
+            738.804
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            47.147,
+            54.726,
+            544.658,
+            352.3
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          784
+        ]
+      ]
+    },
+    {
+      "label": "第15题解析",
+      "number": 15,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2585,
+      "safeBreaks": [
+        127,
+        196,
+        277,
+        416,
+        497,
+        577,
+        673,
+        767,
+        847,
+        927,
+        1074,
+        1225,
+        1328,
+        1476,
+        1610,
+        1744,
+        1890,
+        2444,
+        2520
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 12,
+          "bbox": [
+            47.147,
+            702.112,
+            544.658,
+            742.224
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            47.147,
+            47.574,
+            544.658,
+            738.804
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            47.147,
+            54.726,
+            544.658,
+            352.3
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          784,
+          3369
+        ]
+      ]
+    },
+    {
+      "label": "第16题题目",
+      "number": 16,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 254,
+      "safeBreaks": [
+        74,
+        185
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 14,
+          "bbox": [
+            47.147,
+            366.603,
+            544.658,
+            617.224
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            47.147,
+            56.592,
+            544.658,
+            664.488
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          254
+        ]
+      ]
+    },
+    {
+      "label": "第16题解析",
+      "number": 16,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2543,
+      "safeBreaks": [
+        145,
+        224,
+        302,
+        399,
+        496,
+        570,
+        1032,
+        1099,
+        1199,
+        1297,
+        1401,
+        1500,
+        1601,
+        1696,
+        1805,
+        1899,
+        1998,
+        2111,
+        2252,
+        2399,
+        2478
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 14,
+          "bbox": [
+            47.147,
+            366.603,
+            544.658,
+            617.224
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            47.147,
+            56.592,
+            544.658,
+            664.488
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          254,
+          2797
+        ]
+      ]
+    },
+    {
+      "label": "第17题题目",
+      "number": 17,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 487,
+      "safeBreaks": [
+        72,
+        164,
+        239,
+        346,
+        389,
+        414
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 15,
+          "bbox": [
+            47.147,
+            673.816,
+            544.658,
+            742.535
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            47.147,
+            50.062,
+            544.658,
+            755.906
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            47.147,
+            52.861,
+            544.658,
+            297.885
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          487
+        ]
+      ]
+    },
+    {
+      "label": "第17题解析",
+      "number": 17,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2852,
+      "safeBreaks": [
+        75,
+        150,
+        226,
+        302,
+        382,
+        471,
+        552,
+        627,
+        735,
+        829,
+        975,
+        1057,
+        1149,
+        1235,
+        1374,
+        1532,
+        1605,
+        1716,
+        1801,
+        1916,
+        2046,
+        2175,
+        2295,
+        2385,
+        2535,
+        2632,
+        2712,
+        2787
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 15,
+          "bbox": [
+            47.147,
+            673.816,
+            544.658,
+            742.535
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            47.147,
+            50.062,
+            544.658,
+            755.906
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            47.147,
+            52.861,
+            544.658,
+            297.885
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          487,
+          3339
+        ]
+      ]
+    },
+    {
+      "label": "第18题题目",
+      "number": 18,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 281,
+      "safeBreaks": [
+        80,
+        178
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 17,
+          "bbox": [
+            47.147,
+            311.566,
+            544.658,
+            740.358
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            47.147,
+            53.171,
+            544.658,
+            180.97
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          281
+        ]
+      ]
+    },
+    {
+      "label": "第18题解析",
+      "number": 18,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1545,
+      "safeBreaks": [
+        145,
+        224,
+        299,
+        373,
+        476,
+        630,
+        728,
+        825,
+        924,
+        1029,
+        1116,
+        1202,
+        1400,
+        1480
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 17,
+          "bbox": [
+            47.147,
+            311.566,
+            544.658,
+            740.358
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            47.147,
+            53.171,
+            544.658,
+            180.97
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          281,
+          1826
+        ]
+      ]
+    },
+    {
+      "label": "第19题题目",
+      "number": 19,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 2191,
+      "safeBreaks": [
+        76,
+        162,
+        818,
+        933,
+        1002,
+        1527,
+        1644,
+        1794
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 18,
+          "bbox": [
+            47.147,
+            194.962,
+            544.658,
+            747.199
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            47.147,
+            43.843,
+            544.658,
+            754.351
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            47.147,
+            52.861,
+            544.658,
+            141.791
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          2191
+        ]
+      ]
+    },
+    {
+      "label": "第19题解析",
+      "number": 19,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2216,
+      "safeBreaks": [
+        203,
+        278,
+        353,
+        428,
+        509,
+        605,
+        700,
+        774,
+        887,
+        944,
+        1702,
+        1912,
+        2056,
+        2147
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 18,
+          "bbox": [
+            47.147,
+            194.962,
+            544.658,
+            747.199
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            47.147,
+            43.843,
+            544.658,
+            754.351
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            47.147,
+            52.861,
+            544.658,
+            141.791
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          2191,
+          4407
+        ]
+      ]
+    },
+    {
+      "label": "第20题题目",
+      "number": 20,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 533,
+      "safeBreaks": [
+        70,
+        379,
+        453
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 20,
+          "bbox": [
+            47.147,
+            156.094,
+            544.658,
+            765.545
+          ]
+        },
+        {
+          "page": 21,
+          "bbox": [
+            47.147,
+            50.995,
+            544.658,
+            695.582
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          533
+        ]
+      ]
+    },
+    {
+      "label": "第20题解析",
+      "number": 20,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3536,
+      "safeBreaks": [
+        142,
+        221,
+        296,
+        372,
+        453,
+        544,
+        644,
+        723,
+        798,
+        873,
+        949,
+        1023,
+        1099,
+        1180,
+        1274,
+        1367,
+        1445,
+        1520,
+        1615,
+        2055,
+        2136,
+        2264,
+        2367,
+        2464,
+        2622,
+        2713,
+        2744,
+        2873,
+        2945,
+        3096,
+        3246,
+        3393,
+        3471
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 20,
+          "bbox": [
+            47.147,
+            156.094,
+            544.658,
+            765.545
+          ]
+        },
+        {
+          "page": 21,
+          "bbox": [
+            47.147,
+            50.995,
+            544.658,
+            695.582
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          533,
+          4069
+        ]
+      ]
+    },
+    {
+      "label": "第21题题目",
+      "number": 21,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC21%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 274,
+      "safeBreaks": [
+        124,
+        198
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 21,
+          "bbox": [
+            47.147,
+            709.575,
+            544.658,
+            765.545
+          ]
+        },
+        {
+          "page": 22,
+          "bbox": [
+            47.147,
+            50.684,
+            544.658,
+            757.46
+          ]
+        },
+        {
+          "page": 23,
+          "bbox": [
+            47.147,
+            53.171,
+            544.658,
+            407.026
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第21题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          274
+        ]
+      ]
+    },
+    {
+      "label": "第21题解析",
+      "number": 21,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC21%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3377,
+      "safeBreaks": [
+        141,
+        220,
+        295,
+        372,
+        448,
+        516,
+        628,
+        704,
+        843,
+        928,
+        1015,
+        1075,
+        1169,
+        1249,
+        1331,
+        1979,
+        2124,
+        2221,
+        2305,
+        2414,
+        2510,
+        2604,
+        2686,
+        2835,
+        2939,
+        3083,
+        3162,
+        3238,
+        3314
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 21,
+          "bbox": [
+            47.147,
+            709.575,
+            544.658,
+            765.545
+          ]
+        },
+        {
+          "page": 22,
+          "bbox": [
+            47.147,
+            50.684,
+            544.658,
+            757.46
+          ]
+        },
+        {
+          "page": 23,
+          "bbox": [
+            47.147,
+            53.171,
+            544.658,
+            407.026
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第21题.png",
+      "originalImageIntervals": [
+        [
+          274,
+          3651
+        ]
+      ]
+    },
+    {
+      "label": "第22题题目",
+      "number": 22,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC22%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 228,
+      "safeBreaks": [
+        77,
+        158
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 23,
+          "bbox": [
+            47.147,
+            420.086,
+            544.658,
+            756.527
+          ]
+        },
+        {
+          "page": 24,
+          "bbox": [
+            47.147,
+            52.239,
+            544.658,
+            746.577
+          ]
+        },
+        {
+          "page": 25,
+          "bbox": [
+            47.147,
+            50.684,
+            544.658,
+            360.384
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第22题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          228
+        ]
+      ]
+    },
+    {
+      "label": "第22题解析",
+      "number": 22,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89%EF%BC%88%E6%B5%B7%E5%8D%97%EF%BC%89_%E7%AC%AC22%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 4143,
+      "safeBreaks": [
+        110,
+        179,
+        254,
+        332,
+        422,
+        541,
+        679,
+        780,
+        872,
+        962,
+        1062,
+        1133,
+        1250,
+        1337,
+        1444,
+        1591,
+        1739,
+        1832,
+        1913,
+        1942,
+        2054,
+        2138,
+        2245,
+        2393,
+        2544,
+        2693,
+        2791,
+        2947,
+        3047,
+        3129,
+        3203,
+        3303,
+        3397,
+        3500,
+        3593,
+        3710,
+        3801,
+        3906,
+        3996,
+        4078
+      ],
+      "sourcePDF": "2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 23,
+          "bbox": [
+            47.147,
+            420.086,
+            544.658,
+            756.527
+          ]
+        },
+        {
+          "page": 24,
+          "bbox": [
+            47.147,
+            52.239,
+            544.658,
+            746.577
+          ]
+        },
+        {
+          "page": 25,
+          "bbox": [
+            47.147,
+            50.684,
+            544.658,
+            360.384
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（新高考Ⅱ卷）（海南）（解析卷）_第22题.png",
+      "originalImageIntervals": [
+        [
+          228,
+          4371
+        ]
+      ]
+    }
+  ],
+  "layout": "question-analysis-pairs"
+}

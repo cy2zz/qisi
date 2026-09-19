@@ -1,0 +1,1980 @@
+{
+  "title": "2021年高考数学试卷（新高考Ⅱ卷）",
+  "variant": "题目与解析",
+  "prefix": "2021年高考数学试卷（新高考Ⅱ卷）",
+  "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+  "sourcePages": 20,
+  "questionCount": 22,
+  "notes": [],
+  "resources": [
+    {
+      "label": "卷首说明",
+      "number": null,
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E5%85%B6%E4%BB%96%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%8D%B7%E9%A6%96%E8%AF%B4%E6%98%8E.png",
+      "width": 1600,
+      "height": 152,
+      "safeBreaks": [
+        82
+      ],
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.428,
+            52.14,
+            549.972,
+            95.85
+          ]
+        }
+      ],
+      "kind": "intro"
+    },
+    {
+      "label": "第01题题目",
+      "number": 1,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 343,
+      "safeBreaks": [
+        68,
+        138,
+        255
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.428,
+            104.28,
+            549.972,
+            389.956
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          343
+        ]
+      ]
+    },
+    {
+      "label": "第01题解析",
+      "number": 1,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 584,
+      "safeBreaks": [
+        93,
+        168,
+        284,
+        421,
+        500,
+        559
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.428,
+            104.28,
+            549.972,
+            389.956
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          343,
+          927
+        ]
+      ]
+    },
+    {
+      "label": "第02题题目",
+      "number": 2,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 187,
+      "safeBreaks": [
+        90
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.428,
+            402.757,
+            549.972,
+            593.832
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          187
+        ]
+      ]
+    },
+    {
+      "label": "第02题解析",
+      "number": 2,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 437,
+      "safeBreaks": [
+        92,
+        175,
+        274,
+        373
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.428,
+            402.757,
+            549.972,
+            593.832
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          187,
+          624
+        ]
+      ]
+    },
+    {
+      "label": "第03题题目",
+      "number": 3,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 184,
+      "safeBreaks": [
+        82
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.428,
+            606.946,
+            549.972,
+            734.641
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            50.428,
+            52.764,
+            549.972,
+            203.876
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          184
+        ]
+      ]
+    },
+    {
+      "label": "第03题解析",
+      "number": 3,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 745,
+      "safeBreaks": [
+        91,
+        172,
+        242,
+        381,
+        584,
+        677
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.428,
+            606.946,
+            549.972,
+            734.641
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            50.428,
+            52.764,
+            549.972,
+            203.876
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          184,
+          929
+        ]
+      ]
+    },
+    {
+      "label": "第04题题目",
+      "number": 4,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 552,
+      "safeBreaks": [
+        66,
+        147,
+        222,
+        297,
+        376,
+        471
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            50.428,
+            219.799,
+            549.972,
+            554.806
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          552
+        ]
+      ]
+    },
+    {
+      "label": "第04题解析",
+      "number": 4,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 533,
+      "safeBreaks": [
+        89,
+        170,
+        245,
+        316,
+        475
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            50.428,
+            219.799,
+            549.972,
+            554.806
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          552,
+          1085
+        ]
+      ]
+    },
+    {
+      "label": "第05题题目",
+      "number": 5,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 229,
+      "safeBreaks": [
+        74
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            50.428,
+            569.48,
+            549.972,
+            734.329
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            50.428,
+            53.077,
+            549.972,
+            320.957
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          229
+        ]
+      ]
+    },
+    {
+      "label": "第05题解析",
+      "number": 5,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1193,
+      "safeBreaks": [
+        91,
+        172,
+        247,
+        317,
+        750,
+        823,
+        942,
+        1019,
+        1137
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            50.428,
+            569.48,
+            549.972,
+            734.329
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            50.428,
+            53.077,
+            549.972,
+            320.957
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          229,
+          1422
+        ]
+      ]
+    },
+    {
+      "label": "第06题题目",
+      "number": 6,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 439,
+      "safeBreaks": [
+        94,
+        183,
+        264,
+        345
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            50.428,
+            331.572,
+            549.972,
+            757.745
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          439
+        ]
+      ]
+    },
+    {
+      "label": "第06题解析",
+      "number": 6,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 938,
+      "safeBreaks": [
+        93,
+        175,
+        256,
+        348,
+        447,
+        524,
+        599,
+        677,
+        775,
+        872
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            50.428,
+            331.572,
+            549.972,
+            757.745
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          439,
+          1377
+        ]
+      ]
+    },
+    {
+      "label": "第07题题目",
+      "number": 7,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 180,
+      "safeBreaks": [
+        106
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            50.428,
+            47.457,
+            549.972,
+            227.292
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          180
+        ]
+      ]
+    },
+    {
+      "label": "第07题解析",
+      "number": 7,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 408,
+      "safeBreaks": [
+        88,
+        169,
+        239,
+        351
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            50.428,
+            47.457,
+            549.972,
+            227.292
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          180,
+          588
+        ]
+      ]
+    },
+    {
+      "label": "第08题题目",
+      "number": 8,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 236,
+      "safeBreaks": [
+        84
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            50.428,
+            239.781,
+            549.972,
+            625.054
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          236
+        ]
+      ]
+    },
+    {
+      "label": "第08题解析",
+      "number": 8,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1010,
+      "safeBreaks": [
+        90,
+        174,
+        270,
+        348,
+        448,
+        547,
+        647,
+        747,
+        847,
+        944
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            50.428,
+            239.781,
+            549.972,
+            625.054
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          236,
+          1246
+        ]
+      ]
+    },
+    {
+      "label": "第09题题目",
+      "number": 9,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 427,
+      "safeBreaks": [
+        75,
+        162,
+        256,
+        342
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            50.428,
+            638.791,
+            549.972,
+            739.949
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            50.428,
+            54.638,
+            549.972,
+            266.319
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          427
+        ]
+      ]
+    },
+    {
+      "label": "第09题解析",
+      "number": 9,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 611,
+      "safeBreaks": [
+        91,
+        172,
+        247,
+        322,
+        397,
+        472,
+        548
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            50.428,
+            638.791,
+            549.972,
+            739.949
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            50.428,
+            54.638,
+            549.972,
+            266.319
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          427,
+          1038
+        ]
+      ]
+    },
+    {
+      "label": "第10题题目",
+      "number": 10,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 877,
+      "safeBreaks": [
+        66,
+        148,
+        225,
+        569
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            50.428,
+            282.242,
+            549.972,
+            749.003
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            50.428,
+            50.891,
+            549.972,
+            664.081
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            50.428,
+            52.452,
+            549.972,
+            679.692
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          877
+        ]
+      ]
+    },
+    {
+      "label": "第10题解析",
+      "number": 10,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 4651,
+      "safeBreaks": [
+        88,
+        169,
+        244,
+        319,
+        400,
+        490,
+        636,
+        714,
+        781,
+        1266,
+        1357,
+        1456,
+        1555,
+        1654,
+        1749,
+        1836,
+        1901,
+        2382,
+        2471,
+        2554,
+        2624,
+        2679,
+        3160,
+        3259,
+        3358,
+        3443,
+        3539,
+        3637,
+        3706,
+        4187,
+        4234,
+        4290,
+        4395,
+        4491,
+        4581
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            50.428,
+            282.242,
+            549.972,
+            749.003
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            50.428,
+            50.891,
+            549.972,
+            664.081
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            50.428,
+            52.452,
+            549.972,
+            679.692
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          877,
+          5528
+        ]
+      ]
+    },
+    {
+      "label": "第11题题目",
+      "number": 11,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 226,
+      "safeBreaks": [
+        78,
+        156
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            50.428,
+            692.805,
+            549.972,
+            757.745
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            50.428,
+            54.638,
+            549.972,
+            508.286
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          226
+        ]
+      ]
+    },
+    {
+      "label": "第11题解析",
+      "number": 11,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1471,
+      "safeBreaks": [
+        76,
+        161,
+        252,
+        335,
+        485,
+        631,
+        710,
+        856,
+        935,
+        1081,
+        1160,
+        1257,
+        1407
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            50.428,
+            692.805,
+            549.972,
+            757.745
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            50.428,
+            54.638,
+            549.972,
+            508.286
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          226,
+          1697
+        ]
+      ]
+    },
+    {
+      "label": "第12题题目",
+      "number": 12,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 453,
+      "safeBreaks": [
+        69,
+        171,
+        249,
+        345
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            50.428,
+            523.896,
+            549.972,
+            740.886
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            50.428,
+            52.452,
+            549.972,
+            344.373
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          453
+        ]
+      ]
+    },
+    {
+      "label": "第12题解析",
+      "number": 12,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1213,
+      "safeBreaks": [
+        88,
+        172,
+        260,
+        350,
+        450,
+        550,
+        650,
+        749,
+        850,
+        949,
+        1047,
+        1149
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            50.428,
+            523.896,
+            549.972,
+            740.886
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            50.428,
+            52.452,
+            549.972,
+            344.373
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          453,
+          1666
+        ]
+      ]
+    },
+    {
+      "label": "第13题题目",
+      "number": 13,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 227,
+      "safeBreaks": [
+        81
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            50.428,
+            358.11,
+            549.972,
+            691.868
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          227
+        ]
+      ]
+    },
+    {
+      "label": "第13题解析",
+      "number": 13,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 854,
+      "safeBreaks": [
+        99,
+        172,
+        287,
+        423,
+        569,
+        648,
+        685,
+        780
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            50.428,
+            358.11,
+            549.972,
+            691.868
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          227,
+          1081
+        ]
+      ]
+    },
+    {
+      "label": "第14题题目",
+      "number": 14,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 175,
+      "safeBreaks": [
+        85
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            50.428,
+            707.479,
+            549.972,
+            756.496
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            50.428,
+            50.891,
+            549.972,
+            281.618
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          175
+        ]
+      ]
+    },
+    {
+      "label": "第14题解析",
+      "number": 14,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 757,
+      "safeBreaks": [
+        94,
+        172,
+        268,
+        371,
+        470,
+        569,
+        667
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            50.428,
+            707.479,
+            549.972,
+            756.496
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            50.428,
+            50.891,
+            549.972,
+            281.618
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          175,
+          932
+        ]
+      ]
+    },
+    {
+      "label": "第15题题目",
+      "number": 15,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 91,
+      "safeBreaks": [],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            50.428,
+            291.296,
+            549.972,
+            494.86
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          91
+        ]
+      ]
+    },
+    {
+      "label": "第15题解析",
+      "number": 15,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 573,
+      "safeBreaks": [
+        106,
+        174,
+        278,
+        374,
+        480
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            50.428,
+            291.296,
+            549.972,
+            494.86
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          91,
+          664
+        ]
+      ]
+    },
+    {
+      "label": "第16题题目",
+      "number": 16,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 321,
+      "safeBreaks": [
+        65,
+        178
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            50.428,
+            508.286,
+            549.972,
+            766.175
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            50.428,
+            50.891,
+            549.972,
+            326.264
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          321
+        ]
+      ]
+    },
+    {
+      "label": "第16题解析",
+      "number": 16,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1423,
+      "safeBreaks": [
+        103,
+        176,
+        276,
+        375,
+        523,
+        623,
+        714,
+        812,
+        921,
+        1014,
+        1174,
+        1268,
+        1348
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            50.428,
+            508.286,
+            549.972,
+            766.175
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            50.428,
+            50.891,
+            549.972,
+            326.264
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          321,
+          1744
+        ]
+      ]
+    },
+    {
+      "label": "第17题题目",
+      "number": 17,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 381,
+      "safeBreaks": [
+        79,
+        179,
+        283
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 11,
+          "bbox": [
+            50.428,
+            342.187,
+            549.972,
+            763.053
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            50.428,
+            52.764,
+            549.972,
+            141.746
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          381
+        ]
+      ]
+    },
+    {
+      "label": "第17题解析",
+      "number": 17,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1288,
+      "safeBreaks": [
+        94,
+        180,
+        270,
+        356,
+        447,
+        549,
+        651,
+        745,
+        849,
+        985,
+        1071,
+        1148,
+        1223
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 11,
+          "bbox": [
+            50.428,
+            342.187,
+            549.972,
+            763.053
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            50.428,
+            52.764,
+            549.972,
+            141.746
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          381,
+          1669
+        ]
+      ]
+    },
+    {
+      "label": "第18题题目",
+      "number": 18,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 230,
+      "safeBreaks": [
+        70,
+        151
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 12,
+          "bbox": [
+            50.428,
+            156.107,
+            549.972,
+            586.339
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          230
+        ]
+      ]
+    },
+    {
+      "label": "第18题解析",
+      "number": 18,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1160,
+      "safeBreaks": [
+        89,
+        142,
+        221,
+        296,
+        371,
+        449,
+        547,
+        685,
+        803,
+        871,
+        1022,
+        1095
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 12,
+          "bbox": [
+            50.428,
+            156.107,
+            549.972,
+            586.339
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          230,
+          1390
+        ]
+      ]
+    },
+    {
+      "label": "第19题题目",
+      "number": 19,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 580,
+      "safeBreaks": [
+        79,
+        438,
+        507
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 12,
+          "bbox": [
+            50.428,
+            597.891,
+            549.972,
+            750.564
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            50.428,
+            54.325,
+            549.972,
+            707.791
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            50.428,
+            58.384,
+            549.972,
+            512.657
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          580
+        ]
+      ]
+    },
+    {
+      "label": "第19题解析",
+      "number": 19,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3517,
+      "safeBreaks": [
+        117,
+        191,
+        281,
+        359,
+        441,
+        527,
+        592,
+        1189,
+        1285,
+        1381,
+        1485,
+        1585,
+        1686,
+        1785,
+        1879,
+        1965,
+        2044,
+        2754,
+        2863,
+        2963,
+        3117,
+        3256,
+        3414
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 12,
+          "bbox": [
+            50.428,
+            597.891,
+            549.972,
+            750.564
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            50.428,
+            54.325,
+            549.972,
+            707.791
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            50.428,
+            58.384,
+            549.972,
+            512.657
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          580,
+          4097
+        ]
+      ]
+    },
+    {
+      "label": "第20题题目",
+      "number": 20,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 409,
+      "safeBreaks": [
+        128,
+        210,
+        306
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 14,
+          "bbox": [
+            50.428,
+            521.086,
+            549.972,
+            739.637
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            50.428,
+            51.203,
+            549.972,
+            731.831
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            50.428,
+            49.642,
+            549.972,
+            321.269
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          409
+        ]
+      ]
+    },
+    {
+      "label": "第20题解析",
+      "number": 20,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3401,
+      "safeBreaks": [
+        143,
+        225,
+        309,
+        404,
+        502,
+        653,
+        804,
+        953,
+        1049,
+        1130,
+        1225,
+        1300,
+        1399,
+        1550,
+        1754,
+        1854,
+        1929,
+        2025,
+        2176,
+        2380,
+        2513,
+        2665,
+        2808,
+        2912,
+        3065,
+        3160,
+        3258,
+        3336
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 14,
+          "bbox": [
+            50.428,
+            521.086,
+            549.972,
+            739.637
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            50.428,
+            51.203,
+            549.972,
+            731.831
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            50.428,
+            49.642,
+            549.972,
+            321.269
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          409,
+          3810
+        ]
+      ]
+    },
+    {
+      "label": "第21题题目",
+      "number": 21,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC21%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 696,
+      "safeBreaks": [
+        66,
+        147,
+        227,
+        323,
+        421,
+        524,
+        616
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 16,
+          "bbox": [
+            50.428,
+            336.88,
+            549.972,
+            740.886
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            50.428,
+            52.452,
+            549.972,
+            742.447
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第21题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          696
+        ]
+      ]
+    },
+    {
+      "label": "第21题解析",
+      "number": 21,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC21%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2844,
+      "safeBreaks": [
+        75,
+        156,
+        248,
+        348,
+        431,
+        522,
+        615,
+        706,
+        805,
+        906,
+        1006,
+        1105,
+        1207,
+        1306,
+        1405,
+        1506,
+        1605,
+        1706,
+        1806,
+        1905,
+        2005,
+        2105,
+        2205,
+        2304,
+        2405,
+        2505,
+        2604,
+        2701,
+        2779
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 16,
+          "bbox": [
+            50.428,
+            336.88,
+            549.972,
+            740.886
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            50.428,
+            52.452,
+            549.972,
+            742.447
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第21题.png",
+      "originalImageIntervals": [
+        [
+          696,
+          3540
+        ]
+      ]
+    },
+    {
+      "label": "第22题题目",
+      "number": 22,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC22%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 525,
+      "safeBreaks": [
+        78,
+        156,
+        237,
+        383
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 18,
+          "bbox": [
+            50.428,
+            53.077,
+            549.972,
+            748.691
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            50.428,
+            50.891,
+            549.972,
+            742.447
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            50.428,
+            50.891,
+            549.972,
+            314.4
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第22题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          525
+        ]
+      ]
+    },
+    {
+      "label": "第22题解析",
+      "number": 22,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E9%AB%98%E8%80%83%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC22%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 4822,
+      "safeBreaks": [
+        83,
+        156,
+        233,
+        308,
+        408,
+        506,
+        600,
+        711,
+        807,
+        898,
+        1007,
+        1113,
+        1205,
+        1304,
+        1385,
+        1529,
+        1632,
+        1721,
+        1816,
+        1915,
+        2016,
+        2117,
+        2265,
+        2363,
+        2440,
+        2512,
+        2620,
+        2716,
+        2816,
+        2914,
+        3015,
+        3115,
+        3213,
+        3315,
+        3465,
+        3609,
+        3770,
+        3862,
+        3960,
+        4055,
+        4155,
+        4250,
+        4361,
+        4452,
+        4529,
+        4606,
+        4681,
+        4756
+      ],
+      "sourcePDF": "2021年高考数学试卷（新高考Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 18,
+          "bbox": [
+            50.428,
+            53.077,
+            549.972,
+            748.691
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            50.428,
+            50.891,
+            549.972,
+            742.447
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            50.428,
+            50.891,
+            549.972,
+            314.4
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（新高考Ⅱ卷）（解析卷）_第22题.png",
+      "originalImageIntervals": [
+        [
+          525,
+          5347
+        ]
+      ]
+    }
+  ],
+  "layout": "question-analysis-pairs"
+}

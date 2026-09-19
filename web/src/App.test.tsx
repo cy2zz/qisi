@@ -3,6 +3,56 @@ import { MemoryRouter } from 'react-router-dom';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { App } from './App';
 
+const paperSummary = {
+  examType: '高考',
+  examYear: 2024,
+  id: '41',
+  introImageUrl: null,
+  isOfficial: true,
+  questionCount: 1,
+  region: '北京',
+  session: null,
+  status: 'ready',
+  subject: '数学',
+  title: '2024年高考数学试卷（北京）',
+  track: '综合',
+  variant: '题目与解析',
+};
+
+const paperDetail = {
+  ...paperSummary,
+  questions: [
+    {
+      id: '801',
+      imageHeight: 425,
+      imageWidth: 1600,
+      number: 1,
+      questionCode: '2024北京#01',
+      questionImageUrl: 'https://example.test/question.png',
+      statementMarkdown: null,
+      status: 'ready',
+    },
+  ],
+};
+
+function jsonResponse(body: unknown) {
+  return Promise.resolve(
+    new Response(JSON.stringify(body), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    }),
+  );
+}
+
+function bankResponse(url: string) {
+  if (url === '/api/bank/filters') {
+    return jsonResponse({ regions: ['北京'], tracks: ['综合'], years: [2024] });
+  }
+  if (url === '/api/bank/papers/41') return jsonResponse(paperDetail);
+  if (url.startsWith('/api/bank/papers')) return jsonResponse({ papers: [paperSummary], total: 1 });
+  return null;
+}
+
 function renderApp(initialEntry = '/') {
   return render(
     <MemoryRouter initialEntries={[initialEntry]}>
@@ -25,11 +75,8 @@ describe('App', () => {
   });
 
   it('restores an existing student from the cookie', async () => {
-    vi.spyOn(globalThis, 'fetch').mockResolvedValue(
-      new Response(JSON.stringify({ user: { id: '7', username: '小林' } }), {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' },
-      }),
+    vi.spyOn(globalThis, 'fetch').mockImplementation(() =>
+      jsonResponse({ user: { id: '7', username: '小林' } }),
     );
 
     renderApp();
@@ -38,6 +85,7 @@ describe('App', () => {
       expect(screen.getByRole('heading', { name: '今天想解决哪道题？' })).toBeInTheDocument();
     });
     expect(screen.getByText('小林')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: '题库' })).toHaveAttribute('href', '/bank');
     expect(globalThis.fetch).toHaveBeenCalledWith(
       '/api/auth/me',
       expect.objectContaining({ credentials: 'include' }),
@@ -45,15 +93,15 @@ describe('App', () => {
   });
 
   it('logs in with only a username', async () => {
-    const fetchMock = vi
-      .spyOn(globalThis, 'fetch')
-      .mockResolvedValueOnce(new Response(null, { status: 401 }))
-      .mockResolvedValueOnce(
-        new Response(JSON.stringify({ user: { id: '8', username: '高三A班-01' } }), {
-          status: 200,
-          headers: { 'Content-Type': 'application/json' },
-        }),
-      );
+    let authChecked = false;
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation((input) => {
+      const url = String(input);
+      if (url === '/api/auth/me' && !authChecked) {
+        authChecked = true;
+        return Promise.resolve(new Response(null, { status: 401 }));
+      }
+      return jsonResponse({ user: { id: '8', username: '高三A班-01' } });
+    });
 
     renderApp();
 
@@ -70,7 +118,7 @@ describe('App', () => {
       expect(screen.getByRole('heading', { name: '今天想解决哪道题？' })).toBeInTheDocument();
     });
     expect(screen.getByText('高三A班-01')).toBeInTheDocument();
-    expect(fetchMock).toHaveBeenLastCalledWith(
+    expect(fetchMock).toHaveBeenCalledWith(
       '/api/auth/login',
       expect.objectContaining({
         body: JSON.stringify({ username: '高三A班-01' }),
@@ -90,9 +138,12 @@ describe('App', () => {
     expect(view.getByText('先观察，再推导')).toBeInTheDocument();
   });
 
-  it('starts a mathematics conversation from the local fixture bank and inserts formula syntax', async () => {
+  it('starts a mathematics conversation from the paper picker and inserts formula syntax', async () => {
     const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation((input) => {
-      if (String(input) === '/api/problems/analyze') {
+      const url = String(input);
+      const bankResult = bankResponse(url);
+      if (bankResult) return bankResult;
+      if (url === '/api/problems/analyze') {
         return Promise.resolve(
           new Response(
             JSON.stringify({
@@ -109,26 +160,23 @@ describe('App', () => {
         );
       }
 
-      return Promise.resolve(
-        new Response(JSON.stringify({ user: { id: '7', username: '小林' } }), {
-          status: 200,
-          headers: { 'Content-Type': 'application/json' },
-        }),
-      );
+      return jsonResponse({ user: { id: '7', username: '小林' } });
     });
 
-    renderApp('/bank');
+    renderApp('/study');
 
-    fireEvent.click(await screen.findByRole('button', { name: '从本地题库选择' }));
-    expect(screen.getByRole('dialog', { name: '本地题库' })).toBeInTheDocument();
+    fireEvent.click(await screen.findByRole('button', { name: '去题库选择' }));
+    expect(screen.getByRole('dialog', { name: '从题库选择' })).toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole('button', { name: '选择 F-01 导数与函数' }));
+    fireEvent.click(await screen.findByRole('button', { name: '选择第 1 题' }));
     expect(await screen.findByRole('heading', { name: '题目分析' })).toBeInTheDocument();
     expect(screen.getByText('确定单调区间与极值。')).toBeInTheDocument();
     expect(fetchMock).toHaveBeenCalledWith(
       '/api/problems/analyze',
       expect.objectContaining({
-        body: JSON.stringify({ problemMd: '已知函数 $f(x)=x^3-3x$，求 $f(x)$ 的单调区间与极值。' }),
+        body: JSON.stringify({
+          problemMd: '![2024年高考数学试卷（北京）第 1 题](https://example.test/question.png)',
+        }),
         credentials: 'include',
         method: 'POST',
       }),
@@ -145,6 +193,8 @@ describe('App', () => {
     let streamController: ReadableStreamDefaultController<Uint8Array> | undefined;
     const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation((input) => {
       const url = String(input);
+      const bankResult = bankResponse(url);
+      if (bankResult) return bankResult;
       if (url === '/api/problems/analyze') {
         return Promise.resolve(
           new Response(
@@ -176,17 +226,12 @@ describe('App', () => {
           ),
         );
       }
-      return Promise.resolve(
-        new Response(JSON.stringify({ user: { id: '7', username: '小林' } }), {
-          status: 200,
-          headers: { 'Content-Type': 'application/json' },
-        }),
-      );
+      return jsonResponse({ user: { id: '7', username: '小林' } });
     });
 
-    renderApp('/bank');
-    fireEvent.click(await screen.findByRole('button', { name: '从本地题库选择' }));
-    fireEvent.click(screen.getByRole('button', { name: '选择 F-01 导数与函数' }));
+    renderApp('/study');
+    fireEvent.click(await screen.findByRole('button', { name: '去题库选择' }));
+    fireEvent.click(await screen.findByRole('button', { name: '选择第 1 题' }));
     await screen.findByRole('heading', { name: '题目分析' });
 
     enterRichText('我先求导，得到 $f\'(x)=3x^2-3$。');

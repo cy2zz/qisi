@@ -5,6 +5,7 @@ import { environmentFilePaths, parseEnvironment } from './config/env.js';
 import { DatabaseModule } from './database/database.module.js';
 import { AuthModule } from './features/auth/auth.module.js';
 import { ProblemAnalysisModule } from './features/analysis/problem-analysis.module.js';
+import { BankModule } from './features/bank/bank.module.js';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { ProblemAnalysisModule } from './features/analysis/problem-analysis.modu
     }),
     DatabaseModule,
     AuthModule,
+    BankModule,
     ProblemAnalysisModule,
   ],
   controllers: [AppController],

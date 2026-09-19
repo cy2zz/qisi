@@ -1,0 +1,1839 @@
+{
+  "title": "2021年高考数学试卷（天津）",
+  "variant": "题目与解析",
+  "prefix": "2021年高考数学试卷（天津）",
+  "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+  "sourcePages": 19,
+  "questionCount": 20,
+  "notes": [],
+  "resources": [
+    {
+      "label": "卷首说明",
+      "number": null,
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E5%85%B6%E4%BB%96%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%8D%B7%E9%A6%96%E8%AF%B4%E6%98%8E.png",
+      "width": 1600,
+      "height": 1263,
+      "safeBreaks": [
+        101,
+        248,
+        346,
+        434,
+        523,
+        612,
+        701,
+        797,
+        908,
+        1013,
+        1145
+      ],
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            86.173,
+            80.029,
+            508.769,
+            410.447
+          ]
+        }
+      ],
+      "kind": "intro"
+    },
+    {
+      "label": "第01题题目",
+      "number": 1,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 435,
+      "safeBreaks": [
+        83,
+        194,
+        319
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            86.173,
+            416.257,
+            508.769,
+            686.983
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          435
+        ]
+      ]
+    },
+    {
+      "label": "第01题解析",
+      "number": 1,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 602,
+      "safeBreaks": [
+        107,
+        203,
+        296,
+        408,
+        525
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            86.173,
+            416.257,
+            508.769,
+            686.983
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          435,
+          1037
+        ]
+      ]
+    },
+    {
+      "label": "第02题题目",
+      "number": 2,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 256,
+      "safeBreaks": [
+        80,
+        176
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            86.173,
+            702.038,
+            508.769,
+            764.899
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            86.173,
+            81.35,
+            508.769,
+            238.239
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          256
+        ]
+      ]
+    },
+    {
+      "label": "第02题解析",
+      "number": 2,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 612,
+      "safeBreaks": [
+        87,
+        183,
+        272,
+        360,
+        449,
+        538
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            86.173,
+            702.038,
+            508.769,
+            764.899
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            86.173,
+            81.35,
+            508.769,
+            238.239
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          256,
+          868
+        ]
+      ]
+    },
+    {
+      "label": "第03题题目",
+      "number": 3,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 1722,
+      "safeBreaks": [
+        114,
+        654,
+        1179
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            86.173,
+            246.955,
+            508.769,
+            745.09
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            86.173,
+            79.237,
+            508.769,
+            230.315
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          1722
+        ]
+      ]
+    },
+    {
+      "label": "第03题解析",
+      "number": 3,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 772,
+      "safeBreaks": [
+        95,
+        182,
+        278,
+        414,
+        578,
+        696
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            86.173,
+            246.955,
+            508.769,
+            745.09
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            86.173,
+            79.237,
+            508.769,
+            230.315
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          1722,
+          2494
+        ]
+      ]
+    },
+    {
+      "label": "第04题题目",
+      "number": 4,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 1211,
+      "safeBreaks": [
+        75,
+        174,
+        290,
+        399,
+        1121
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            86.173,
+            246.691,
+            508.769,
+            721.847
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          1211
+        ]
+      ]
+    },
+    {
+      "label": "第04题解析",
+      "number": 4,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 600,
+      "safeBreaks": [
+        105,
+        204,
+        319,
+        436,
+        525
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            86.173,
+            246.691,
+            508.769,
+            721.847
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          1211,
+          1811
+        ]
+      ]
+    },
+    {
+      "label": "第05题题目",
+      "number": 5,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 305,
+      "safeBreaks": [
+        70,
+        106,
+        198
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            86.173,
+            731.356,
+            508.769,
+            754.598
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            86.173,
+            77.916,
+            508.769,
+            362.905
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          305
+        ]
+      ]
+    },
+    {
+      "label": "第05题解析",
+      "number": 5,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 898,
+      "safeBreaks": [
+        108,
+        210,
+        321,
+        441,
+        621,
+        730,
+        823
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            86.173,
+            731.356,
+            508.769,
+            754.598
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            86.173,
+            77.916,
+            508.769,
+            362.905
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          305,
+          1203
+        ]
+      ]
+    },
+    {
+      "label": "第06题题目",
+      "number": 6,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 385,
+      "safeBreaks": [
+        70,
+        210,
+        292
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            86.173,
+            379.016,
+            508.769,
+            620.424
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            86.173,
+            75.275,
+            508.769,
+            448.744
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          385
+        ]
+      ]
+    },
+    {
+      "label": "第06题解析",
+      "number": 6,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1979,
+      "safeBreaks": [
+        105,
+        201,
+        289,
+        378,
+        467,
+        547,
+        1207,
+        1369,
+        1470,
+        1573,
+        1662,
+        1788,
+        1914
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            86.173,
+            379.016,
+            508.769,
+            620.424
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            86.173,
+            75.275,
+            508.769,
+            448.744
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          385,
+          2364
+        ]
+      ]
+    },
+    {
+      "label": "第07题题目",
+      "number": 7,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 237,
+      "safeBreaks": [
+        132
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            86.173,
+            456.14,
+            508.769,
+            698.34
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          237
+        ]
+      ]
+    },
+    {
+      "label": "第07题解析",
+      "number": 7,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 692,
+      "safeBreaks": [
+        109,
+        211,
+        322,
+        442,
+        615
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            86.173,
+            456.14,
+            508.769,
+            698.34
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          237,
+          929
+        ]
+      ]
+    },
+    {
+      "label": "第08题题目",
+      "number": 8,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 526,
+      "safeBreaks": [
+        70,
+        206,
+        290,
+        405
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            86.173,
+            714.452,
+            508.769,
+            764.107
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            86.173,
+            77.388,
+            508.769,
+            495.494
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          526
+        ]
+      ]
+    },
+    {
+      "label": "第08题解析",
+      "number": 8,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1281,
+      "safeBreaks": [
+        107,
+        206,
+        314,
+        437,
+        568,
+        678,
+        841,
+        971,
+        1095,
+        1172,
+        1216
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            86.173,
+            714.452,
+            508.769,
+            764.107
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            86.173,
+            77.388,
+            508.769,
+            495.494
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          526,
+          1807
+        ]
+      ]
+    },
+    {
+      "label": "第09题题目",
+      "number": 9,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 601,
+      "safeBreaks": [
+        77,
+        260,
+        341,
+        467
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            86.173,
+            511.606,
+            508.769,
+            768.597
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            86.173,
+            79.237,
+            508.769,
+            746.147
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            86.173,
+            76.86,
+            508.769,
+            91.122
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          601
+        ]
+      ]
+    },
+    {
+      "label": "第09题解析",
+      "number": 9,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3011,
+      "safeBreaks": [
+        96,
+        195,
+        306,
+        390,
+        490,
+        574,
+        700,
+        818,
+        936,
+        1055,
+        1184,
+        1286,
+        1411,
+        1526,
+        1635,
+        1770,
+        1845,
+        1983,
+        2085,
+        2371,
+        2508,
+        2589,
+        2676,
+        2767,
+        2855,
+        2939
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            86.173,
+            511.606,
+            508.769,
+            768.597
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            86.173,
+            79.237,
+            508.769,
+            746.147
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            86.173,
+            76.86,
+            508.769,
+            91.122
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          601,
+          3612
+        ]
+      ]
+    },
+    {
+      "label": "第10题题目",
+      "number": 10,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 291,
+      "safeBreaks": [
+        77,
+        160
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            86.173,
+            100.102,
+            508.769,
+            308.231
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          291
+        ]
+      ]
+    },
+    {
+      "label": "第10题解析",
+      "number": 10,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 509,
+      "safeBreaks": [
+        81,
+        170,
+        259,
+        434
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            86.173,
+            100.102,
+            508.769,
+            308.231
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          291,
+          800
+        ]
+      ]
+    },
+    {
+      "label": "第11题题目",
+      "number": 11,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 146,
+      "safeBreaks": [],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            86.173,
+            322.23,
+            508.769,
+            550.168
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          146
+        ]
+      ]
+    },
+    {
+      "label": "第11题解析",
+      "number": 11,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 729,
+      "safeBreaks": [
+        94,
+        182,
+        276,
+        447,
+        541,
+        651
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            86.173,
+            322.23,
+            508.769,
+            550.168
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          146,
+          875
+        ]
+      ]
+    },
+    {
+      "label": "第12题题目",
+      "number": 12,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 296,
+      "safeBreaks": [
+        78,
+        213,
+        264
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            86.173,
+            566.279,
+            508.769,
+            751.693
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            86.173,
+            78.973,
+            508.769,
+            235.597
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          296
+        ]
+      ]
+    },
+    {
+      "label": "第12题解析",
+      "number": 12,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1035,
+      "safeBreaks": [
+        108,
+        203,
+        319,
+        424,
+        528,
+        647,
+        815,
+        947
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            86.173,
+            566.279,
+            508.769,
+            751.693
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            86.173,
+            78.973,
+            508.769,
+            235.597
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          296,
+          1331
+        ]
+      ]
+    },
+    {
+      "label": "第13题题目",
+      "number": 13,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 120,
+      "safeBreaks": [],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            86.173,
+            247.219,
+            508.769,
+            493.381
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          120
+        ]
+      ]
+    },
+    {
+      "label": "第13题解析",
+      "number": 13,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 824,
+      "safeBreaks": [
+        104,
+        197,
+        286,
+        365,
+        493,
+        615,
+        738
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            86.173,
+            247.219,
+            508.769,
+            493.381
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          120,
+          944
+        ]
+      ]
+    },
+    {
+      "label": "第14题题目",
+      "number": 14,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 462,
+      "safeBreaks": [
+        76,
+        166,
+        299,
+        379
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            86.173,
+            511.606,
+            508.769,
+            764.899
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            86.173,
+            78.973,
+            508.769,
+            148.701
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          462
+        ]
+      ]
+    },
+    {
+      "label": "第14题解析",
+      "number": 14,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 797,
+      "safeBreaks": [
+        132,
+        213,
+        301,
+        383,
+        515,
+        671
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            86.173,
+            511.606,
+            508.769,
+            764.899
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            86.173,
+            78.973,
+            508.769,
+            148.701
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          462,
+          1259
+        ]
+      ]
+    },
+    {
+      "label": "第15题题目",
+      "number": 15,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 291,
+      "safeBreaks": [
+        86,
+        201
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            86.173,
+            159.53,
+            508.769,
+            655.817
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            86.173,
+            78.973,
+            508.769,
+            204.959
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          291
+        ]
+      ]
+    },
+    {
+      "label": "第15题解析",
+      "number": 15,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2101,
+      "safeBreaks": [
+        130,
+        212,
+        332,
+        446,
+        623,
+        738,
+        832,
+        951,
+        990,
+        1065,
+        1187,
+        1355,
+        1482,
+        1606,
+        1660
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            86.173,
+            159.53,
+            508.769,
+            655.817
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            86.173,
+            78.973,
+            508.769,
+            204.959
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          291,
+          2392
+        ]
+      ]
+    },
+    {
+      "label": "第16题题目",
+      "number": 16,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 756,
+      "safeBreaks": [
+        77,
+        174,
+        281,
+        398,
+        490,
+        582
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 11,
+          "bbox": [
+            86.173,
+            217.109,
+            508.769,
+            758.824
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            86.173,
+            79.501,
+            508.769,
+            111.46
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          756
+        ]
+      ]
+    },
+    {
+      "label": "第16题解析",
+      "number": 16,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1452,
+      "safeBreaks": [
+        173,
+        270,
+        380,
+        472,
+        565,
+        678,
+        797,
+        976,
+        1151,
+        1313
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 11,
+          "bbox": [
+            86.173,
+            217.109,
+            508.769,
+            758.824
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            86.173,
+            79.501,
+            508.769,
+            111.46
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          756,
+          2208
+        ]
+      ]
+    },
+    {
+      "label": "第17题题目",
+      "number": 17,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 1352,
+      "safeBreaks": [
+        83,
+        210,
+        302,
+        991,
+        1119,
+        1238
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 12,
+          "bbox": [
+            86.173,
+            129.42,
+            508.769,
+            742.185
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            86.173,
+            79.237,
+            508.769,
+            728.714
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          1352
+        ]
+      ]
+    },
+    {
+      "label": "第17题解析",
+      "number": 17,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3463,
+      "safeBreaks": [
+        175,
+        270,
+        385,
+        496,
+        623,
+        652,
+        804,
+        895,
+        985,
+        1089,
+        1206,
+        1324,
+        1437,
+        1627,
+        1659,
+        1741,
+        1853,
+        1979,
+        2092,
+        2326,
+        2441,
+        2622,
+        2771
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 12,
+          "bbox": [
+            86.173,
+            129.42,
+            508.769,
+            742.185
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            86.173,
+            79.237,
+            508.769,
+            728.714
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          1352,
+          4815
+        ]
+      ]
+    },
+    {
+      "label": "第18题题目",
+      "number": 18,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 606,
+      "safeBreaks": [
+        60,
+        212,
+        332,
+        422,
+        511
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 13,
+          "bbox": [
+            86.173,
+            753.542,
+            508.769,
+            764.635
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            86.173,
+            80.822,
+            508.769,
+            695.963
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            86.173,
+            71.841,
+            508.769,
+            664.533
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          606
+        ]
+      ]
+    },
+    {
+      "label": "第18题解析",
+      "number": 18,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 4069,
+      "safeBreaks": [
+        166,
+        259,
+        348,
+        477,
+        579,
+        706,
+        882,
+        1059,
+        1229,
+        1358,
+        1652,
+        1807,
+        2362,
+        2534,
+        2701,
+        2886,
+        3128,
+        3211,
+        3385,
+        3558,
+        3650,
+        3745,
+        3918
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 13,
+          "bbox": [
+            86.173,
+            753.542,
+            508.769,
+            764.635
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            86.173,
+            80.822,
+            508.769,
+            695.963
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            86.173,
+            71.841,
+            508.769,
+            664.533
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          606,
+          4675
+        ]
+      ]
+    },
+    {
+      "label": "第19题题目",
+      "number": 19,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 819,
+      "safeBreaks": [
+        79,
+        208,
+        300,
+        393,
+        530,
+        642
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 15,
+          "bbox": [
+            86.173,
+            683.285,
+            508.769,
+            757.768
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            86.173,
+            79.237,
+            508.769,
+            757.504
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            86.173,
+            78.709,
+            508.769,
+            534.584
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          819
+        ]
+      ]
+    },
+    {
+      "label": "第19题解析",
+      "number": 19,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3817,
+      "safeBreaks": [
+        111,
+        204,
+        296,
+        411,
+        532,
+        646,
+        822,
+        915,
+        1021,
+        1159,
+        1267,
+        1385,
+        1507,
+        1610,
+        1752,
+        1917,
+        2073,
+        2181,
+        2353,
+        2534,
+        2701,
+        2831,
+        2948,
+        3131,
+        3177,
+        3311,
+        3474,
+        3570,
+        3740
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 15,
+          "bbox": [
+            86.173,
+            683.285,
+            508.769,
+            757.768
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            86.173,
+            79.237,
+            508.769,
+            757.504
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            86.173,
+            78.709,
+            508.769,
+            534.584
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          819,
+          4636
+        ]
+      ]
+    },
+    {
+      "label": "第20题题目",
+      "number": 20,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 387,
+      "safeBreaks": [
+        89,
+        201,
+        295
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 17,
+          "bbox": [
+            86.173,
+            549.375,
+            508.769,
+            753.014
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            86.173,
+            79.237,
+            508.769,
+            751.429
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            86.173,
+            78.973,
+            508.769,
+            461.686
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          387
+        ]
+      ]
+    },
+    {
+      "label": "第20题解析",
+      "number": 20,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 4438,
+      "safeBreaks": [
+        112,
+        206,
+        328,
+        402,
+        504,
+        620,
+        744,
+        862,
+        979,
+        1097,
+        1217,
+        1330,
+        1447,
+        1541,
+        1654,
+        1754,
+        2517,
+        2634,
+        2746,
+        2867,
+        2971,
+        3078,
+        3189,
+        3311,
+        3435,
+        3548,
+        3660,
+        3786,
+        3899,
+        3997,
+        4106,
+        4227,
+        4348
+      ],
+      "sourcePDF": "2021年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 17,
+          "bbox": [
+            86.173,
+            549.375,
+            508.769,
+            753.014
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            86.173,
+            79.237,
+            508.769,
+            751.429
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            86.173,
+            78.973,
+            508.769,
+            461.686
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（天津）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          387,
+          4825
+        ]
+      ]
+    }
+  ],
+  "layout": "question-analysis-pairs"
+}
