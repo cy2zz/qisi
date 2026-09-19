@@ -13,6 +13,7 @@
 import type { AssessmentOutput, GuardResult, Packet, Strategy } from '../contracts/domain.schema.js';
 
 export type PolicyDenialCode =
+  | 'DISCLOSURE_NOT_ALLOWED'
   | 'DISCLOSURE_RESERVED_OVERLAP'
   | 'DISCLOSURE_UNKNOWN_DECISION'
   | 'PROBE_LIMIT_REACHED'
@@ -67,6 +68,15 @@ export function gateTurn(input: TurnGateInput): PolicyDecision {
       approved: false,
       code: 'DISCLOSURE_UNKNOWN_DECISION',
       reason: `引用了不属于当前 task 的决策：${unknown.join(', ')}`,
+    };
+  }
+
+  const unapprovedActualDisclosures = guard.actual_disclosed_ids.filter((id) => !allowed.has(id));
+  if (unapprovedActualDisclosures.length > 0) {
+    return {
+      approved: false,
+      code: 'DISCLOSURE_NOT_ALLOWED',
+      reason: `实际披露超出 Strategy 批准范围：${unapprovedActualDisclosures.join(', ')}`,
     };
   }
 

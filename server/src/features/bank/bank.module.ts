@@ -8,5 +8,6 @@ import { BankService } from './bank.service.js';
   imports: [AuthModule],
   controllers: [BankController],
   providers: [BankRepository, BankService],
+  exports: [BankService],
 })
 export class BankModule {}

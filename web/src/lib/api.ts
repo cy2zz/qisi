@@ -28,7 +28,7 @@ export async function apiFetch<T>(path: string, init: RequestInit = {}): Promise
 export type ApiStreamEvent =
   | { message: string; type: 'status' }
   | { text: string; type: 'chunk' }
-  | { type: 'done' }
+  | { type: 'done'; version?: number }
   | { message: string; type: 'error' };
 
 function parseStreamEvent(block: string): ApiStreamEvent | null {
@@ -44,7 +44,12 @@ function parseStreamEvent(block: string): ApiStreamEvent | null {
   if ((event === 'status' || event === 'error') && typeof parsed.message === 'string') {
     return { message: parsed.message, type: event };
   }
-  if (event === 'done') return { type: 'done' };
+  if (event === 'done') {
+    return {
+      type: 'done',
+      ...(typeof parsed.version === 'number' ? { version: parsed.version } : {}),
+    };
+  }
   return null;
 }
 

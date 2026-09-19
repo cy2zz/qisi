@@ -6,6 +6,9 @@ import { ApiError, apiFetch } from './lib/api';
 import { BankPage, FixtureLearningPage, PreparePage } from './pages/bank/BankFlow';
 import { PaperBankPage } from './pages/bank/PaperBankPage';
 import { MathMarkdown } from './shared/MathMarkdown';
+import { AssessmentCheckPage } from './pages/learn/check/AssessmentCheckPage';
+import { ReportPage } from './pages/learn/report/ReportPage';
+import { HistoryPage } from './pages/history/HistoryPage';
 
 interface User {
   id: string;
@@ -99,6 +102,7 @@ export function App() {
         element={<PaperBankPage username={auth.user.username} />}
       />
       <Route path="/study" element={<BankPage username={auth.user.username} />} />
+      <Route path="/history" element={<HistoryPage username={auth.user.username} />} />
       <Route
         path="/bank/prepare/:problemId"
         element={<PreparePage username={auth.user.username} />}
@@ -106,6 +110,14 @@ export function App() {
       <Route
         path="/learn/:sessionId"
         element={<FixtureLearningPage username={auth.user.username} />}
+      />
+      <Route
+        path="/learn/:sessionId/check"
+        element={<AssessmentCheckPage username={auth.user.username} />}
+      />
+      <Route
+        path="/learn/:sessionId/report"
+        element={<ReportPage username={auth.user.username} />}
       />
       <Route path="*" element={<Navigate to="/study" replace />} />
     </Routes>

@@ -1,0 +1,31 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT33",
+  "result": "passed_self_review",
+  "executed_at": "2026-09-19T19:04:00+08:00",
+  "executed_by": "Codex self_review",
+  "application_commit": null,
+  "layer": "real_mysql_integration_and_mock_e2e",
+  "environment": "local MySQL 8.0.45; Playwright PC 1440/1280 and H5 390/360",
+  "provider_mode": "fixture grading plus persisted real MySQL evidence",
+  "commands": [
+    "npm run test:db",
+    "npx playwright test web/tests/e2e/assessment.spec.ts --grep AT33"
+  ],
+  "expected": "Report planning and execution separately; a correct plan with incorrect execution must not pass the whole task.",
+  "actual": {
+    "planning": "correct",
+    "execution": "incorrect",
+    "independent_planning": true,
+    "independent_execution": false,
+    "independent_task_pass": false,
+    "responsive_projects": ["pc-1440", "pc-1280", "h5-390", "h5-360"]
+  },
+  "evidence_files": [
+    "server/src/features/report/report.service.ts",
+    "server/scripts/verify-assessment-persistence.ts",
+    "web/src/pages/learn/report/ReportPage.tsx",
+    "web/tests/e2e/assessment.spec.ts"
+  ],
+  "limitations": ["No independent reviewer, human-reviewed task pool, or real student observation was performed."]
+}

@@ -68,6 +68,24 @@ describe('gateTurn：披露边界', () => {
     const decision = gateTurn(turnInput({ strategy: unknown }));
     expect(decision).toMatchObject({ approved: false, code: 'DISCLOSURE_UNKNOWN_DECISION' });
   });
+
+  it('Guard 识别出未获 Strategy 批准的实际披露时否决', () => {
+    const actuallyDisclosed: GuardResult = {
+      ...guardFixture,
+      actual_disclosed_ids: [packetFixture.decisions[1]!.id],
+      verdict: 'accept',
+    };
+    const strategy = StrategySchema.parse({
+      ...strategyFixture,
+      allowed_disclosures: [packetFixture.decisions[0]!.id],
+      reserved_decisions: packetFixture.decisions.slice(1).map((decision) => decision.id),
+    });
+
+    expect(gateTurn(turnInput({ guard: actuallyDisclosed, strategy }))).toMatchObject({
+      approved: false,
+      code: 'DISCLOSURE_NOT_ALLOWED',
+    });
+  });
 });
 
 describe('gateTurn：两探针上限', () => {

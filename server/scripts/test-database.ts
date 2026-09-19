@@ -44,8 +44,31 @@ async function main() {
       }
     }
 
+    const tables = await sql<{ tableName: string }>`
+      select table_name as tableName
+      from information_schema.tables
+      where table_schema = database()
+    `.execute(database);
+    const tableNames = new Set(tables.rows.map(({ tableName }) => tableName));
+    for (const requiredTable of [
+      'sessions',
+      'requests',
+      'runs',
+      'node_runs',
+      'learning_messages',
+      'events',
+      'assessment_tasks',
+      'seen_tasks',
+      'check_attempts',
+      'owner_privacy_state',
+    ]) {
+      if (!tableNames.has(requiredTable)) {
+        throw new Error(`${requiredTable} table is missing`);
+      }
+    }
+
     console.info(
-      `database smoke passed: MySQL ${current.version}, UTC, READ COMMITTED, users schema`,
+      `database smoke passed: MySQL ${current.version}, UTC, READ COMMITTED, users and learning persistence schema`,
     );
   } finally {
     await database.destroy();

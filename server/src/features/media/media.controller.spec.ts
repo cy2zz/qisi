@@ -1,0 +1,81 @@
+import { BadRequestException, ForbiddenException } from '@nestjs/common';
+import type { ConfigService } from '@nestjs/config';
+import sharp from 'sharp';
+import { describe, expect, it, vi } from 'vitest';
+import type { AppEnvironment } from '../../config/env.js';
+import { AUTH_COOKIE_NAME } from '../auth/auth.cookie.js';
+import type { AuthService } from '../auth/auth.service.js';
+import { MediaController } from './media.controller.js';
+import type { QuestionImageRecognitionService } from './question-image-recognition.service.js';
+
+function createController() {
+  const auth = { authenticate: vi.fn().mockResolvedValue({ id: '7', username: '小林' }) };
+  const config = {
+    get: vi.fn((key: keyof AppEnvironment) =>
+      key === 'WEB_ORIGIN' ? 'http://localhost:5173' : undefined,
+    ),
+  };
+  const recognition = {
+    recognize: vi.fn().mockResolvedValue({
+      answerMarkdown: null,
+      questionType: '函数题',
+      stemMarkdown: '已知 $f(x)=x^2$。',
+      uncertain: [],
+    }),
+  };
+
+  return {
+    auth,
+    controller: new MediaController(
+      auth as unknown as AuthService,
+      config as unknown as ConfigService<AppEnvironment, true>,
+      recognition as unknown as QuestionImageRecognitionService,
+    ),
+    recognition,
+  };
+}
+
+describe('MediaController', () => {
+  it('authenticates, decodes and recognizes a question image', async () => {
+    const { auth, controller, recognition } = createController();
+    const image = await sharp({
+      create: { background: '#ffffff', channels: 3, height: 8, width: 8 },
+    }).png().toBuffer();
+
+    await expect(
+      controller.recognizeQuestion(
+        image,
+        'image/png',
+        `${AUTH_COOKIE_NAME}=${'a'.repeat(43)}`,
+        'http://localhost:5173',
+      ),
+    ).resolves.toMatchObject({ recognition: { questionType: '函数题' } });
+
+    expect(auth.authenticate).toHaveBeenCalledWith('a'.repeat(43));
+    expect(recognition.recognize).toHaveBeenCalledWith(
+      expect.objectContaining({ mime: 'image/png' }),
+    );
+  });
+
+  it('rejects cross-origin and fake images before recognition', async () => {
+    const { controller, recognition } = createController();
+
+    await expect(
+      controller.recognizeQuestion(
+        Buffer.from('bad'),
+        'image/png',
+        undefined,
+        'https://attacker.example',
+      ),
+    ).rejects.toBeInstanceOf(ForbiddenException);
+    await expect(
+      controller.recognizeQuestion(
+        Buffer.from('bad'),
+        'image/png',
+        undefined,
+        'http://localhost:5173',
+      ),
+    ).rejects.toBeInstanceOf(BadRequestException);
+    expect(recognition.recognize).not.toHaveBeenCalled();
+  });
+});

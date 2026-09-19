@@ -16,4 +16,8 @@ export class BankService {
   getPaper(paperId: string) {
     return this.repository.getPaper(paperId);
   }
+
+  getQuestionForAnalysis(questionId: string) {
+    return this.repository.getQuestionForAnalysis(questionId);
+  }
 }

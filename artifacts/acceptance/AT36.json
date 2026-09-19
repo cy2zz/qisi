@@ -1,0 +1,26 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT36",
+  "result": "passed_self_review",
+  "executed_at": "2026-09-19T19:04:00+08:00",
+  "executed_by": "Codex self_review",
+  "application_commit": null,
+  "layer": "real_mysql_integration",
+  "environment": "local MySQL 8.0.45",
+  "provider_mode": "structured persisted verdict",
+  "commands": ["npm run test:db"],
+  "expected": "Finishing without sufficient mathematical evidence remains incomplete or unknown.",
+  "actual": {
+    "finish_action_recorded": true,
+    "current_verdict": "unknown",
+    "original_status": "unknown",
+    "completion_click_treated_as_correct": false
+  },
+  "evidence_files": [
+    "server/src/features/analysis/problem-chat.schema.ts",
+    "server/src/features/learning/learning-session.service.ts",
+    "server/src/features/report/report.service.ts",
+    "server/scripts/verify-assessment-persistence.ts"
+  ],
+  "limitations": ["No independent reviewer or real student observation was performed."]
+}

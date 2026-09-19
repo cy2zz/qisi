@@ -170,4 +170,19 @@ export class BankRepository {
       variant: paperMetadata.variant ?? null,
     };
   }
+
+  async getQuestionForAnalysis(questionId: string) {
+    const question = await this.database.client
+      .selectFrom('question')
+      .select(['question_image_url', 'statement_markdown'])
+      .where('id', '=', questionId)
+      .where('status', '!=', 'invalid')
+      .executeTakeFirst();
+    if (!question) return undefined;
+
+    return {
+      questionImageUrl: question.question_image_url,
+      statementMarkdown: question.statement_markdown,
+    };
+  }
 }

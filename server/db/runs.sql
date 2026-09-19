@@ -1,0 +1,22 @@
+CREATE TABLE `runs` (
+`id`               CHAR(36) CHARACTER SET ascii COLLATE ascii_bin NOT NULL COMMENT '工作流运行ID',
+`session_id`       BIGINT UNSIGNED NOT NULL COMMENT '所属学习会话ID',
+`user_id`          BIGINT UNSIGNED NOT NULL COMMENT '所属学生用户ID',
+`request_id`       CHAR(36) CHARACTER SET ascii COLLATE ascii_bin NOT NULL COMMENT '对应幂等请求ID',
+`workflow`         VARCHAR(32)     NOT NULL COMMENT '工作流类型',
+`lease_token`      CHAR(43) CHARACTER SET ascii COLLATE ascii_bin NOT NULL COMMENT '当前租约令牌',
+`fencing_token`    BIGINT UNSIGNED NOT NULL DEFAULT 1 COMMENT '租约围栏序号',
+`start_version`    INT UNSIGNED    NOT NULL COMMENT '运行开始时的会话版本',
+`reserved_version` INT UNSIGNED    NOT NULL COMMENT '提交时必须匹配的预留版本',
+`deadline_at`      TIMESTAMP       NOT NULL COMMENT '运行提交截止时间',
+`status`           VARCHAR(32)     NOT NULL COMMENT '运行状态',
+`run_json`         JSON            NOT NULL COMMENT '私有运行配置与预算快照',
+`db_update_time`   TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+`db_create_time`   TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+PRIMARY KEY (`id`),
+UNIQUE KEY `uq_runs_lease_token` (`lease_token`),
+KEY `idx_runs_session_status` (`session_id`, `status`),
+CONSTRAINT `fk_runs_session` FOREIGN KEY (`session_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE,
+CONSTRAINT `fk_runs_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+CONSTRAINT `fk_runs_request` FOREIGN KEY (`user_id`, `request_id`) REFERENCES `requests` (`user_id`, `request_id`) ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = '教学工作流运行表';

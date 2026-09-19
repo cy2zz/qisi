@@ -1,0 +1,52 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT08",
+  "result": "partial",
+  "executed_at": "2026-09-19T20:46:49+08:00",
+  "executed_by": "Codex self_review",
+  "application_commit": null,
+  "layer": "component_and_app_regression_plus_browser_smoke",
+  "environment": "local Vite dev server; authenticated in-app browser after reload",
+  "bank_version": null,
+  "scope_hash": null,
+  "model_version": null,
+  "prompt_version": null,
+  "provider_mode": "mocked_SSE_regression_from_real_provider_output",
+  "commands": [
+    "npm --prefix web test -- --run src/shared/MathMarkdown.test.tsx src/App.test.tsx",
+    "npm --prefix web test",
+    "npm --prefix web run typecheck",
+    "npm --prefix web run lint",
+    "npm --prefix web run build",
+    "reload authenticated in-app browser at http://localhost:5173/study"
+  ],
+  "expected": "Chinese Markdown and valid LaTeX render safely; common malformed model delimiters are repaired before KaTeX rendering; malformed formulas remain visible and raw HTML is not executed.",
+  "actual": {
+    "focused_tests": "2 files / 17 tests passed",
+    "full_web_tests": "16 files / 52 tests passed",
+    "typecheck": "passed",
+    "lint": "passed",
+    "build": "passed with existing greater-than-500-kB chunk warning",
+    "model_parenthesis_and_bracket_delimiters_repaired": true,
+    "dropped_delimiter_backslashes_repaired": true,
+    "double_escaped_latex_repaired": true,
+    "streaming_and_persisted_teacher_messages_use_math_renderer": true,
+    "ordinary_intervals_and_markdown_links_preserved": true,
+    "code_spans_preserved": true,
+    "untrusted_raw_html_disabled": true,
+    "malformed_formula_visible_instead_of_crashing": true,
+    "browser_reload_completed": true
+  },
+  "evidence_files": [
+    "web/src/shared/MathMarkdown.tsx",
+    "web/src/shared/MathMarkdown.test.tsx",
+    "web/src/App.test.tsx",
+    "qisi-sdd-v3/changes/A01.md",
+    "qisi-sdd-v3/handoffs/A01.md"
+  ],
+  "limitations": [
+    "The exact historical reply was reproduced by automated regression rather than by issuing another billable real-model request.",
+    "No independent reviewer or real student observation was performed.",
+    "real_student_observation: not_run"
+  ]
+}

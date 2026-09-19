@@ -45,4 +45,24 @@ describe('parseEnvironment', () => {
     expect(env.AI_API_KEY).toBe('test-only-key');
     expect(parseEnvironment({}).AI_API_KEY).toBeUndefined();
   });
+
+  it('requires the Youdao speech key and secret to be configured together', () => {
+    expect(() => parseEnvironment({ YOUDAO_SPEECH_APP_KEY: 'test-app-key' })).toThrow(
+      'YOUDAO_SPEECH_APP_KEY and YOUDAO_SPEECH_APP_SECRET must be configured together',
+    );
+    expect(() => parseEnvironment({ YOUDAO_SPEECH_APP_SECRET: 'test-app-secret' })).toThrow(
+      'YOUDAO_SPEECH_APP_KEY and YOUDAO_SPEECH_APP_SECRET must be configured together',
+    );
+  });
+
+  it('accepts a complete Youdao speech configuration', () => {
+    const env = parseEnvironment({
+      YOUDAO_SPEECH_APP_KEY: 'test-app-key',
+      YOUDAO_SPEECH_APP_SECRET: 'test-app-secret',
+    });
+
+    expect(env.YOUDAO_SPEECH_APP_KEY).toBe('test-app-key');
+    expect(env.YOUDAO_SPEECH_APP_SECRET).toBe('test-app-secret');
+    expect(env.YOUDAO_SPEECH_TIMEOUT_MS).toBe(25_000);
+  });
 });

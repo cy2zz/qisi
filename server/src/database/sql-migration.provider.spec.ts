@@ -15,11 +15,84 @@ describe('SqlMigrationProvider', () => {
       'v2_001_paper',
       'v2_002_question',
       'v2_003_paper_question',
+      'v3_001_sessions',
+      'v3_002_requests',
+      'v3_003_runs',
+      'v3_004_node_runs',
+      'v3_005_learning_messages',
+      'v3_006_events',
+      'v3_007_assessment_tasks',
+      'v3_008_seen_tasks',
+      'v3_009_check_attempts',
+      'v3_010_owner_privacy_state',
     ]);
     for (const migration of Object.values(migrations)) {
       expect(migration).toHaveProperty('up');
       expect(migration).not.toHaveProperty('down');
     }
+  });
+
+  it('persists an owner-level incomplete-history boundary after private data deletion', async () => {
+    const privacyState = await readFile(
+      resolve(process.cwd(), 'db/owner_privacy_state.sql'),
+      'utf8',
+    );
+
+    expect(privacyState).toContain('`history_incomplete`');
+    expect(privacyState).toContain('PRIMARY KEY (`user_id`)');
+    expect(privacyState).toContain('ON DELETE CASCADE');
+  });
+
+  it('persists independent-check eligibility and the first locked attempt', async () => {
+    const assessmentTasks = await readFile(
+      resolve(process.cwd(), 'db/assessment_tasks.sql'),
+      'utf8',
+    );
+    expect(assessmentTasks).toContain('`task_hash`');
+    expect(assessmentTasks).toContain('`equivalence_group`');
+    expect(assessmentTasks).toContain('`verification_json`');
+
+    const seenTasks = await readFile(resolve(process.cwd(), 'db/seen_tasks.sql'), 'utf8');
+    expect(seenTasks).toContain('UNIQUE KEY `uq_seen_tasks_user_task`');
+    expect(seenTasks).toContain('`first_seen_eligible`');
+
+    const attempts = await readFile(resolve(process.cwd(), 'db/check_attempts.sql'), 'utf8');
+    expect(attempts).toContain('`locked_plan_markdown`');
+    expect(attempts).toContain('`final_answer_markdown`');
+    expect(attempts).toContain('`assistance_requested`');
+    expect(attempts).toContain('`help_exposed`');
+    expect(attempts).toContain('UNIQUE KEY `uq_check_attempts_session`');
+  });
+
+  it('keeps persisted learning facts owner-scoped and recoverable', async () => {
+    const requiredTables = [
+      'sessions',
+      'requests',
+      'runs',
+      'node_runs',
+      'learning_messages',
+      'events',
+    ];
+
+    for (const tableName of requiredTables) {
+      const statement = await readFile(resolve(process.cwd(), `db/${tableName}.sql`), 'utf8');
+      expect(statement).toContain('`db_update_time`');
+      expect(statement).toContain('`db_create_time`');
+      expect(statement).not.toMatch(/,\s*\)\s*ENGINE/);
+    }
+
+    const sessions = await readFile(resolve(process.cwd(), 'db/sessions.sql'), 'utf8');
+    expect(sessions).toContain('`user_id`');
+    expect(sessions).toContain('`version`');
+    expect(sessions).toContain('`active_run_id`');
+
+    const requests = await readFile(resolve(process.cwd(), 'db/requests.sql'), 'utf8');
+    expect(requests).toContain('UNIQUE KEY `uq_requests_user_request`');
+    expect(requests).toContain('`safe_response_json`');
+
+    const messages = await readFile(resolve(process.cwd(), 'db/learning_messages.sql'), 'utf8');
+    expect(messages).toContain('`assistance_mode`');
+    expect(messages).toContain('`content_markdown`');
   });
 
   it('rejects an empty table SQL file', async () => {

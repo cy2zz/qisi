@@ -1,0 +1,34 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT30",
+  "result": "partial",
+  "executed_at": "2026-09-19T18:31:00+08:00",
+  "executed_by": "Codex self_review",
+  "application_commit": null,
+  "layer": "mock_e2e_plus_real_provider_smoke",
+  "environment": "local React/Vite + NestJS + MySQL 8.0.45",
+  "provider_mode": "fixture_playwright_and_real_configured_provider",
+  "commands": [
+    "npx playwright test web/tests/e2e/assessment.spec.ts",
+    "npm --prefix server run test:assessment-live"
+  ],
+  "expected": "Lock the first plan, withhold correctness until the final answer, and only then report planning and execution separately.",
+  "actual": {
+    "plan_locked_before_answer": true,
+    "intermediate_correctness_exposed": false,
+    "final_answer_frozen": true,
+    "planning_execution_separate": true,
+    "private_reference_leaked": false,
+    "responsive_projects": ["pc-1440", "pc-1280", "h5-390", "h5-360"]
+  },
+  "evidence_files": [
+    "web/tests/e2e/assessment.spec.ts",
+    "server/scripts/verify-assessment-live.ts",
+    "artifacts/acceptance/A04-check-pc-1440.png",
+    "artifacts/acceptance/A04-check-h5-390.png"
+  ],
+  "limitations": [
+    "The generated task was independently model-reviewed but not human-reviewed.",
+    "No real student observation was performed."
+  ]
+}

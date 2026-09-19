@@ -1,0 +1,49 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT27",
+  "result": "partial",
+  "executed_at": "2026-09-19T17:06:59+08:00",
+  "executed_by": "Codex self_review",
+  "application_commit": null,
+  "layer": "unit_and_real_model_browser_smoke",
+  "environment": "local NestJS dev; authenticated in-app browser; real configured model provider",
+  "bank_version": null,
+  "scope_hash": null,
+  "model_version": null,
+  "prompt_version": null,
+  "provider_mode": "real_guard_browser_smoke_plus_mock_unit",
+  "commands": [
+    "npm --prefix server test -- src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/problem-analysis.controller.spec.ts",
+    "npm run test:e2e -- --grep @B03",
+    "manual in-app browser smoke: guarded minimum hint for U=[2,5], A=[2,4)"
+  ],
+  "expected": "The final message request excludes complete private solutions, future rubrics and raw private diagnosis, and unchecked content is not displayed.",
+  "actual": {
+    "guard_is_separate_model_role": true,
+    "guard_input_fields": ["assistanceMode", "candidateReply", "currentStudentMessage", "problemMd"],
+    "future_rubric_in_guard_input": false,
+    "raw_private_diagnosis_in_guard_input": false,
+    "rejected_hint_uses_neutral_fallback": true,
+    "invalid_guard_shape_uses_neutral_fallback": true,
+    "unchecked_candidate_streamed_before_guard": false,
+    "failed_help_request_marked_unexposed": true,
+    "failed_help_request_shows_depth_label": false,
+    "finish_problem_guard_rejects_mastery_overclaim": true,
+    "visible_guard_phase_status": "正在检查回复是否符合帮助深度",
+    "real_minimum_hint_revealed_final_answer": false
+  },
+  "evidence_files": [
+    "server/src/features/analysis/problem-analysis.service.ts",
+    "server/src/features/analysis/problem-analysis.service.spec.ts",
+    "server/src/features/analysis/problem-chat.schema.ts",
+    "web/src/App.test.tsx",
+    "qisi-sdd-v3/handoffs/B03.md"
+  ],
+  "limitations": [
+    "The visible route still uses the compatibility analysis service instead of the formal RendererInput projection and StorePort workflow.",
+    "Guard calls and actual disclosures are not persisted for audit or recovery.",
+    "AT14 model/version/cost audit remains not_run.",
+    "No independent reviewer or real student observation was performed.",
+    "real_student_observation: not_run"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT32",
+  "result": "passed_self_review",
+  "executed_at": "2026-09-19T18:31:00+08:00",
+  "executed_by": "Codex self_review",
+  "application_commit": null,
+  "layer": "real_mysql_integration_and_mock_e2e",
+  "environment": "local MySQL 8.0.45; Playwright PC 1440/1280 and H5 390/360",
+  "provider_mode": "provider_failure_boundary_without_model_call; guarded reply fixture for exposure",
+  "commands": [
+    "npm run test:db",
+    "npx playwright test web/tests/e2e/assessment.spec.ts --grep AT32"
+  ],
+  "expected": "Persist assistance_requested before help; provider failure leaves help_exposed false and independent eligibility cannot recover.",
+  "actual": {
+    "draft_persisted_before_help": true,
+    "assistance_requested": true,
+    "help_exposed_before_reply": false,
+    "same_task_help_session_created": true,
+    "task_and_draft_restored": true,
+    "help_exposed_after_committed_reply": true,
+    "failed_or_uncommitted_reply_marks_exposure": false,
+    "independent_eligibility_recovers": false,
+    "responsive_projects": ["pc-1440", "pc-1280", "h5-390", "h5-360"]
+  },
+  "evidence_files": [
+    "server/scripts/verify-assessment-persistence.ts",
+    "server/src/features/assessment/assessment.repository.ts",
+    "server/src/features/learning/learning-session.service.ts",
+    "web/tests/e2e/assessment.spec.ts"
+  ],
+  "limitations": ["No independent reviewer or real student observation was performed."]
+}

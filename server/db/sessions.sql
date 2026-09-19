@@ -1,0 +1,22 @@
+CREATE TABLE `sessions` (
+`id`                         BIGINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '学习会话ID',
+`user_id`                    BIGINT UNSIGNED NOT NULL COMMENT '所属学生用户ID',
+`question_id`                BIGINT UNSIGNED NULL COMMENT '关联题库题目ID，手动输入时为空',
+`title`                      VARCHAR(255)    NOT NULL COMMENT '会话标题',
+`topic`                      VARCHAR(255)    NOT NULL DEFAULT '' COMMENT '试卷或知识主题说明',
+`problem_content_markdown`   MEDIUMTEXT      NOT NULL COMMENT '学生最初看到的题目内容',
+`problem_markdown`           MEDIUMTEXT      NOT NULL COMMENT '供教学工作流使用的已核对题干',
+`analysis_json`              JSON            NOT NULL COMMENT '题目分析的安全公开投影',
+`recognition_uncertain_json` JSON            NULL COMMENT '图片识别待核对项',
+`phase`                      VARCHAR(32)     NOT NULL DEFAULT 'learning' COMMENT '当前学习阶段',
+`version`                    INT UNSIGNED    NOT NULL DEFAULT 1 COMMENT '会话并发控制版本',
+`next_message_seq`           INT UNSIGNED    NOT NULL DEFAULT 2 COMMENT '下一条公开消息序号',
+`next_event_seq`             INT UNSIGNED    NOT NULL DEFAULT 1 COMMENT '下一条领域事件序号',
+`active_run_id`              CHAR(36) CHARACTER SET ascii COLLATE ascii_bin NULL COMMENT '当前活动工作流运行ID',
+`expires_at`                 TIMESTAMP       NOT NULL COMMENT '会话数据到期时间',
+`db_update_time`             TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+`db_create_time`             TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+PRIMARY KEY (`id`),
+KEY `idx_sessions_user_update` (`user_id`, `db_update_time`),
+CONSTRAINT `fk_sessions_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = '学生学习会话表';

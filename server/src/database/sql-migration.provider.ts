@@ -9,6 +9,16 @@ const MIGRATION_REGISTRY = [
   { fileName: 'paper', migrationName: 'v2_001_paper' },
   { fileName: 'question', migrationName: 'v2_002_question' },
   { fileName: 'paper_question', migrationName: 'v2_003_paper_question' },
+  { fileName: 'sessions', migrationName: 'v3_001_sessions' },
+  { fileName: 'requests', migrationName: 'v3_002_requests' },
+  { fileName: 'runs', migrationName: 'v3_003_runs' },
+  { fileName: 'node_runs', migrationName: 'v3_004_node_runs' },
+  { fileName: 'learning_messages', migrationName: 'v3_005_learning_messages' },
+  { fileName: 'events', migrationName: 'v3_006_events' },
+  { fileName: 'assessment_tasks', migrationName: 'v3_007_assessment_tasks' },
+  { fileName: 'seen_tasks', migrationName: 'v3_008_seen_tasks' },
+  { fileName: 'check_attempts', migrationName: 'v3_009_check_attempts' },
+  { fileName: 'owner_privacy_state', migrationName: 'v3_010_owner_privacy_state' },
 ] as const;
 
 export class SqlMigrationProvider implements MigrationProvider {

@@ -3,12 +3,17 @@ import { Link } from 'react-router-dom';
 export interface StudyRecord {
   content: string;
   id: string;
+  problemMd?: string;
+  questionId?: string;
+  recognitionUncertain?: string[];
   title: string;
   topic: string;
+  updatedAt?: string;
+  version?: number;
 }
 
 interface StudySidebarProps {
-  active: 'bank' | 'chat';
+  active: 'bank' | 'chat' | 'history';
   onClose: () => void;
   onSelectRecord?: (record: StudyRecord) => void;
   onStartNew: () => void;
@@ -77,15 +82,28 @@ export function StudySidebar({
               <span aria-hidden="true">▤</span>
               题库
             </Link>
+            <Link
+              className={`chat-nav-item${active === 'history' ? ' is-active' : ''}`}
+              to="/history"
+              aria-current={active === 'history' ? 'page' : undefined}
+              onClick={onClose}
+            >
+              <span aria-hidden="true">⌁</span>
+              学习历史
+            </Link>
           </nav>
         </div>
 
         <section className="chat-history" aria-labelledby="history-title">
           <div className="chat-history-heading">
             <h2 id="history-title">做题记录</h2>
-            <span>当前页面</span>
+            <span>{active === 'chat' ? '自动保存' : '学习历史'}</span>
           </div>
-          {records.length === 0 ? (
+          {active === 'history' ? (
+            <p className="chat-history-empty">
+              记录保留学生思路、实际帮助和后续检验，不换算掌握百分比。
+            </p>
+          ) : records.length === 0 ? (
             <p className="chat-history-empty">
               {active === 'bank'
                 ? '返回当前对话查看本页记录。'
@@ -97,7 +115,9 @@ export function StudySidebar({
                 <li key={record.id}>
                   <button type="button" onClick={() => onSelectRecord?.(record)}>
                     <span>{record.title}</span>
-                    <small>{record.topic} · 刚刚</small>
+                    <small>
+                      {record.topic || '手动输入'} · {record.updatedAt ? '已保存' : '刚刚'}
+                    </small>
                   </button>
                 </li>
               ))}

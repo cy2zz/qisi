@@ -24,7 +24,7 @@ server/target/
 Thumbs.db
 
 # Environment
-# .env
-# .env.*
-# !.env.example
+.env
+.env.*
+!.env.example
 历年试题/
