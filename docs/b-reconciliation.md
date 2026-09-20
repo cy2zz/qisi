@@ -90,7 +90,23 @@ B 已用真实 provider（`gpt-5.5`）实测，发现两处会让**按规格走�
 
 A 的链路能通过，是因为 A 用的是自写提示（`CHAT_SYSTEM_PROMPT` 里含「只返回严格 JSON」），**未使用规格包的角色提示**。规格要求四角色独立契约与提示，一旦接上真实提示词，每次调用都会 400。
 
-**② `outputSchema` 从未告知模型（B01 自身的设计缺口）**
+**已在 develop 的既有记录中找到印证（三处独立证据）**：
+
+| 链路 | 提示来源 | 含 "json" | 实际结果 |
+| --- | --- | --- | --- |
+| A 的 `features/analysis`（自述通过） | A 自写 `SYSTEM_PROMPT` | 是（「只返回一个 JSON 对象」） | 通过 |
+| 规格包角色提示 `preparation.md` 等 | `qisi-sdd-v3/prompts/` | **否（实测 4 份各 0 处）** | **400** |
+| develop 的 `prompts/preparation.md` | 同上 | **否（0 处）** | **400** |
+
+`handoffs/B02.md`（develop 版）记录：
+
+> 独立 3100 端口复跑确认 provider 返回 HTTP 502 `AI provider request failed`……剩余阻塞为 **provider 可用性**
+
+**这是误诊。** `AI provider request failed` 正是 `openai-compatible-model.port.ts` 在**非 2xx** 时抛的异常，而它**吞掉了 HTTP 状态码与响应体**，因此真实原因（400 + 具体错误消息）不可见，被归因为服务不可用。实际原因是 `response_format: json_object` 要求 messages 含 "json"，而规格包提示不含。
+
+**修这一处的收益**：可解除 develop 上「provider 可用性」这一阻塞项，使按规格走四角色链路的真实模型验证得以进行。
+
+第二个缺陷（`outputSchema` 未告知模型）**B01 自身的设计缺口**
 
 该字段只用于事后校验，从未下发；A 的适配器也不接收。规格包的提示是中文散文、不含任何字段名。实测中模型据此自造字段：
 
