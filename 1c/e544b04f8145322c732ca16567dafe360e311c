@@ -1,0 +1,512 @@
+artifacts/acceptance/B-20260920-a-integration/closing-workspace-check.json
+  s_142b4668ab2d27::t_29cf07ab3cafe9 1-105
+server/src/app.module.ts
+  s_eafa0141ee00fb::t_555b48689d26bb 35
+  s_eafa0141ee00fb::t_ad6949f4132424 15
+artifacts/acceptance/B-20260920-local/B06.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-30,36-38
+  s_142b4668ab2d27::t_92de9dbb64d170 31-35
+scripts/evaluate-teaching.mjs
+  s_142b4668ab2d27::t_43eeb643743cdf 1-59,64-65,67-89,92-98
+  s_142b4668ab2d27::t_f00be442a00a59 60-63,66
+  s_142b4668ab2d27::t_c759c656c12ca8 90-91
+artifacts/acceptance/B-20260920-local/AT40.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+artifacts/acceptance/B-20260920-local/AT55.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+server/test/eval/evaluate-teaching.node.mjs
+  s_142b4668ab2d27::t_827d506996969e 1-8,10-32
+  s_142b4668ab2d27::t_bd7b99a5244038 33-42,45
+  s_142b4668ab2d27::t_fc88c49b67544b 43-44
+  s_142b4668ab2d27::t_43eeb643743cdf 9
+server/test/workflows/probe-count-from-strategy.spec.ts
+  s_eafa0141ee00fb::t_cd89903d6d1d3d 1-109,111-149,155-162
+  s_eafa0141ee00fb::t_4023fc1c654f67 110
+  s_eafa0141ee00fb::t_75829dcd280178 150-154
+server/test/diagnosis/canonical-goal.spec.ts
+  s_142b4668ab2d27::t_037243f924e73e 1-33
+artifacts/acceptance/B-20260920-local/spec-static.log
+  s_142b4668ab2d27::t_34129d331569d8 1-30
+artifacts/acceptance/B-20260920-local/B02.json
+  s_142b4668ab2d27::t_92de9dbb64d170 17-21
+  s_142b4668ab2d27::t_57d969a0e13185 1-16,22-24
+qisi-sdd-v3/changes/B01.md
+  s_142b4668ab2d27::t_938dbda081f017 1-44
+artifacts/acceptance/B-20260920-local/AT43.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+artifacts/acceptance/B-20260920-a-integration/before-hashes.json
+  s_142b4668ab2d27::t_140b48fb3d959a 1-8
+server/src/features/tutor/evidence.ts
+  s_142b4668ab2d27::t_bd7b99a5244038 1
+  s_142b4668ab2d27::t_6a0c91b5e9363b 2-66
+artifacts/acceptance/B-20260920-local/AT49.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+qisi-sdd-v3/changes/B10.md
+  s_142b4668ab2d27::t_7a6847557db512 1-5
+  s_142b4668ab2d27::t_57d969a0e13185 6-8
+artifacts/acceptance/B-20260920-local/closing-red-green.json
+  s_142b4668ab2d27::t_1b1dcd7ada558f 1-54
+artifacts/acceptance/B-20260920-local/B01-task-gate.log
+  s_eafa0141ee00fb::t_9922fc173651fc 1-6
+artifacts/acceptance/B-20260920-local/B08.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-22,28-30
+  s_142b4668ab2d27::t_92de9dbb64d170 23-27
+artifacts/acceptance/B-20260920-local/mysql-preflight-unit.log
+  s_142b4668ab2d27::t_34129d331569d8 1-6
+artifacts/acceptance/B-20260920-local/AT52.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+qisi-sdd-v3/handoffs/B08.md
+  s_142b4668ab2d27::t_57d969a0e13185 1-22
+  s_142b4668ab2d27::t_ef06f491f2ec31 23-35
+server/test/tutor/learning-transaction.spec.ts
+  s_142b4668ab2d27::t_b763d201c3c154 7,13,24,26,38-42
+  s_142b4668ab2d27::t_51463c64d4a232 1-6,8-12,14-23,25,27-37,43-49
+artifacts/acceptance/B-20260920-local/closing-spec-commands.json
+  s_142b4668ab2d27::t_22a7e8bf40633f 11-29,40-44,55-56
+  s_142b4668ab2d27::t_d654fb5726fc95 1-10,30-39,45-54,57-58
+server/test/tutor/persistent-runner.spec.ts
+  s_142b4668ab2d27::t_3ae92ff8f08945 1-88
+server/test/diagnosis/evidence.spec.ts
+  s_142b4668ab2d27::t_037243f924e73e 21
+  s_142b4668ab2d27::t_dd0e29063a7ce2 1-20,22-76
+artifacts/acceptance/B-20260920-local/task-gate-diagnostic.log
+  s_142b4668ab2d27::t_1b1dcd7ada558f 1
+artifacts/acceptance/B-20260920-local/B04.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-9,12-24,30-32
+  s_142b4668ab2d27::t_92de9dbb64d170 10-11,25-29
+server/src/features/tutor/corrections.ts
+  s_142b4668ab2d27::t_c6571f6f0c7dec 16-17,32
+  s_142b4668ab2d27::t_b436ead5ac1e22 40
+  s_142b4668ab2d27::t_9e45a6f9219651 1-15,18-31,33-39
+qisi-sdd-v3/changes/B07.md
+  s_142b4668ab2d27::t_42dbd387cdb840 1-10
+  s_142b4668ab2d27::t_938dbda081f017 11-24
+server/src/agents/context.ts
+  s_eafa0141ee00fb::t_20c94b2bc49a85 89,93,164-171,178-179,181-182
+  s_eafa0141ee00fb::t_f547ef9e72c46b 74-79
+  s_eafa0141ee00fb::t_4023fc1c654f67 106
+  s_eafa0141ee00fb::t_fea4a92c8d788b 87-88,90-92,94-105,107-109,120,137,151,191,212
+artifacts/acceptance/B-20260920-local/run-summary.json
+  s_142b4668ab2d27::t_92de9dbb64d170 52-53,56,60-62,74-75,80,88-124,140-153
+  s_142b4668ab2d27::t_57d969a0e13185 1-51,54-55,57-59,63-73,76-79,81-87,156
+  s_142b4668ab2d27::t_22a7e8bf40633f 125-139,154-155
+artifacts/acceptance/B-20260920-local/AT12.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+qisi-sdd-v3/handoffs/B07.md
+  s_142b4668ab2d27::t_69bb0c3b28e53b 1-75
+server/src/model/budgeted.provider.ts
+  s_142b4668ab2d27::t_b5634abcb26229 40-41,50,52,55-65,68,70-71,76-85,122-126,128-130,134,149-151
+  s_142b4668ab2d27::t_950487948a8710 131-133
+server/src/database/database.types.ts
+  s_142b4668ab2d27::t_9adcbd6260f5ca 260-269,271
+artifacts/acceptance/B-20260920-local/B07.json
+  s_142b4668ab2d27::t_92de9dbb64d170 29-33
+  s_142b4668ab2d27::t_57d969a0e13185 1-28,34-36
+qisi-sdd-v3/changes/B05.md
+  s_142b4668ab2d27::t_a6abba3a75849f 13-16
+  s_142b4668ab2d27::t_a65bb1b4001e21 1-9
+  s_142b4668ab2d27::t_57d969a0e13185 10-12
+scripts/evaluate-teaching.md
+  s_142b4668ab2d27::t_f00be442a00a59 37-40
+  s_142b4668ab2d27::t_7a6847557db512 1-36
+server/test/teacher/teacher.spec.ts
+  s_142b4668ab2d27::t_c5cf03fd63fbd1 1-41
+  s_142b4668ab2d27::t_a2c95924037b5e 42-62
+server/test/tutor/submit-turn.spec.ts
+  s_213b8d48b95d6e::t_d872cfe5f59236 33-35
+artifacts/acceptance/B-20260920-local/task-gates.json
+  s_eafa0141ee00fb::t_9922fc173651fc 1-92
+artifacts/acceptance/B-20260920-local/AT14.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+artifacts/acceptance/B-20260920-local/AT17.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+artifacts/acceptance/B-20260920-local/ST06.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+artifacts/acceptance/B-20260920-local/AT41.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+server/test/agents/context.spec.ts
+  s_142b4668ab2d27::t_b5634abcb26229 1-61
+artifacts/acceptance/B-20260920-a-integration/result.json
+  s_142b4668ab2d27::t_29cf07ab3cafe9 1-114
+qisi-sdd-v3/changes/B09.md
+  s_142b4668ab2d27::t_57d969a0e13185 8-10
+  s_eafa0141ee00fb::t_49c055783c3e35 1-7
+server/test/workflows/budget-safety.spec.ts
+  s_142b4668ab2d27::t_2406733a4ae8eb 1-37
+artifacts/acceptance/B-20260920-local/spec-static-closing.log
+  s_142b4668ab2d27::t_d654fb5726fc95 1-29
+server/src/agents/strategy/route-admission.ts
+  s_142b4668ab2d27::t_da744b0fc42851 2,6,22
+  s_142b4668ab2d27::t_c6571f6f0c7dec 10
+  s_142b4668ab2d27::t_84638c70b7cc44 1,3-5,7-9,11-21
+artifacts/acceptance/B-20260920-local/AT06.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+qisi-sdd-v3/changes/B02.md
+  s_142b4668ab2d27::t_57d969a0e13185 26-31
+qisi-sdd-v3/handoffs/B05.md
+  s_142b4668ab2d27::t_57d969a0e13185 1-22
+  s_142b4668ab2d27::t_ef06f491f2ec31 23-35
+artifacts/acceptance/B-20260920-local/AT18.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+artifacts/acceptance/B-20260920-local/AT51.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+artifacts/acceptance/B-20260920-local/AT39.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+server/src/features/tutor/persisted-teaching.ts
+  s_142b4668ab2d27::t_2f7b02a14de677 4,29-31,59-62
+  s_142b4668ab2d27::t_d116cdf017865b 1-3,5-28,32-58,63-69
+artifacts/acceptance/B-20260920-local/AT05.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+artifacts/acceptance/B-20260920-local/AT24.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+server/test/workflows/actual-exposure.spec.ts
+  s_142b4668ab2d27::t_42dbd387cdb840 1-21
+server/src/workflows/store.port.ts
+  s_142b4668ab2d27::t_22933204c88111 12,75-83,95
+  s_142b4668ab2d27::t_191aae8ba342be 13,59-60
+docs/model-card.md
+  s_142b4668ab2d27::t_ef06f491f2ec31 21
+  s_142b4668ab2d27::t_7a6847557db512 1-20,22-41
+server/src/features/teacher/teacher.port.ts
+  s_142b4668ab2d27::t_c5cf03fd63fbd1 1-27
+server/src/features/tutor/database-session.port.ts
+  s_142b4668ab2d27::t_2f7b02a14de677 14-17,19,21-22,25,27-28,61-62,69,72,84-85,93-94,101-102,107,113-115,117,120-162,166,169-171,173,186-189,196-198
+web/src/pages/teacher/TeacherPage.test.tsx
+  s_142b4668ab2d27::t_42dbd387cdb840 3-5,7-26
+  s_142b4668ab2d27::t_d0cc813177e486 1-2,6
+server/test/strategy/route-admission.spec.ts
+  s_142b4668ab2d27::t_da744b0fc42851 1-8,10-25
+  s_142b4668ab2d27::t_333ce6db3b29c6 9
+web/src/pages/teacher/TeacherPage.tsx
+  s_142b4668ab2d27::t_d0cc813177e486 1-3,5-80
+  s_142b4668ab2d27::t_42dbd387cdb840 4
+artifacts/acceptance/B-20260920-local/B08-task-gate.log
+  s_142b4668ab2d27::t_8658acf7ff16c0 1-6
+qisi-sdd-v3/changes/B06.md
+  s_142b4668ab2d27::t_57d969a0e13185 12-14
+  s_142b4668ab2d27::t_b436ead5ac1e22 1-11
+artifacts/acceptance/B-20260920-local/B03.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-8,11-21,27,29
+  s_142b4668ab2d27::t_92de9dbb64d170 9-10,22-26,28
+artifacts/acceptance/B-20260920-local/AT19.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+server/src/features/tutor/submit-turn.deps.ts
+  s_eafa0141ee00fb::t_3a599520dcb1dc 69
+  s_142b4668ab2d27::t_8e36f41991e47e 1-7,24,28-29,45,96-97,102,126,140,217,283-341,370,372-376
+  s_142b4668ab2d27::t_3617722fe0bfa8 20,36,65-66
+  s_eafa0141ee00fb::t_44e95e75b36cec 8-19,21-23,25-27,30-35,37-44,46-64,67-68,70-95,98-101,103-124,127-129,131-139,142-151,153-159,161-216,218-282,342-369,371,377-378
+  s_142b4668ab2d27::t_485110f37004cf 125,130,141,152,160
+artifacts/acceptance/B-20260920-local/AT60.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+qisi-sdd-v3/tasks.json
+  s_142b4668ab2d27::t_12c5bb4e3210cb 151,285,420,549,689,831,984,1131,1275,1421
+artifacts/acceptance/B-20260920-local/spec-commands.json
+  s_142b4668ab2d27::t_34129d331569d8 1-58
+artifacts/acceptance/B-20260920-local/AT27.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+artifacts/acceptance/B-20260920-local/B01.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-21,27-29
+  s_142b4668ab2d27::t_92de9dbb64d170 22-26
+server/src/workflows/policy-gate.ts
+  s_142b4668ab2d27::t_9889518484e46c 23-24
+  s_142b4668ab2d27::t_85865ce5d2d87a 22,63-66,129
+artifacts/acceptance/B-20260920-local/ST12.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+server/src/features/tutor/tutor.controller.ts
+  s_142b4668ab2d27::t_191aae8ba342be 65
+server/src/features/teacher/teacher.controller.ts
+  s_142b4668ab2d27::t_d42d02ad74467c 1-24
+artifacts/acceptance/B-20260920-a-integration/self-review.json
+  s_142b4668ab2d27::t_35d98486168820 1-24
+artifacts/acceptance/B-20260920-local/AT57.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+artifacts/acceptance/B-20260920-local/task-gate-diagnostic.json
+  s_142b4668ab2d27::t_1b1dcd7ada558f 1-12
+server/test/agents/at13-role-isolation.spec.ts
+  s_eafa0141ee00fb::t_4023fc1c654f67 159,200,319,353
+  s_eafa0141ee00fb::t_fc228d75743222 162,203,322,356
+qisi-sdd-v3/handoffs/B03.md
+  s_142b4668ab2d27::t_69bb0c3b28e53b 1-279
+artifacts/acceptance/B-20260920-local/AT23.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+artifacts/acceptance/B-20260920-a-integration/a-workspace-audit.json
+  s_142b4668ab2d27::t_140b48fb3d959a 1-244
+artifacts/acceptance/B-20260920-a-integration/commands.json
+  s_142b4668ab2d27::t_29cf07ab3cafe9 1-423,433-434
+  s_142b4668ab2d27::t_35d98486168820 424-432
+artifacts/eval/final/B-20260920-local/README.md
+  s_eafa0141ee00fb::t_6d5b2771176add 1-6
+artifacts/acceptance/B-20260920-local/AT28.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+server/src/features/tutor/tutor.module.ts
+  s_142b4668ab2d27::t_8e36f41991e47e 7,21,29
+  s_eafa0141ee00fb::t_4b1ca94094c8de 3-4,6,8,10-17,20,23-24,26,32-33,39-42
+artifacts/acceptance/B-20260920-local/ST08.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+qisi-sdd-v3/handoffs/B01.md
+  s_142b4668ab2d27::t_69bb0c3b28e53b 1-125
+artifacts/acceptance/B-20260920-local/ST09.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+server/test/tutor/b09-adversarial.spec.ts
+  s_eafa0141ee00fb::t_49c055783c3e35 1-34
+artifacts/acceptance/B-20260920-local/B09.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-23,29-31
+  s_142b4668ab2d27::t_92de9dbb64d170 24-28
+docs/teaching-demo.md
+  s_142b4668ab2d27::t_7a6847557db512 1-36
+qisi-sdd-v3/handoffs/B04.md
+  s_142b4668ab2d27::t_57d969a0e13185 25-45
+  s_142b4668ab2d27::t_ef06f491f2ec31 46-58
+artifacts/acceptance/B-20260920-local/stack-static.log
+  s_142b4668ab2d27::t_34129d331569d8 1-552
+server/test/tutor/at27-renderer-input.spec.ts
+  s_eafa0141ee00fb::t_fc228d75743222 127
+  s_eafa0141ee00fb::t_4023fc1c654f67 124
+artifacts/acceptance/B-20260920-local/ST05.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+artifacts/acceptance/B-20260920-local/B07-task-gate.log
+  s_142b4668ab2d27::t_8658acf7ff16c0 1-6
+artifacts/acceptance/B-20260920-local/AT21.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+server/src/features/learning/learning-session.service.ts
+  s_142b4668ab2d27::t_2f7b02a14de677 9-11,59,69-70,83-93,134,145-163,540,551,561-565,651,680-681,741-743,760-779,857,866,891,897-901,952,965,1000-1006,1011-1012,1015-1016
+  s_142b4668ab2d27::t_dee77791d37364 754-759
+server/test/strategy/admission.spec.ts
+  s_142b4668ab2d27::t_a65bb1b4001e21 1-12,14-35
+  s_142b4668ab2d27::t_9015cffa2ac17b 13
+server/src/workflows/orchestrator.ts
+  s_142b4668ab2d27::t_22933204c88111 154-158
+  s_142b4668ab2d27::t_3617722fe0bfa8 101
+  s_142b4668ab2d27::t_191aae8ba342be 365
+  s_142b4668ab2d27::t_9889518484e46c 29-30,299-313
+  s_eafa0141ee00fb::t_1b1c48a913cd1a 92-100,325,349,387-389,424,444
+qisi-sdd-v3/changes/B04.md
+  s_142b4668ab2d27::t_57d969a0e13185 31-33
+  s_142b4668ab2d27::t_dd0e29063a7ce2 20-30
+artifacts/acceptance/B-20260920-local/AT22.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+artifacts/acceptance/B-20260920-local/ST07.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+qisi-sdd-v3/handoffs/B09.md
+  s_142b4668ab2d27::t_ef06f491f2ec31 23-35
+  s_142b4668ab2d27::t_57d969a0e13185 1-22
+server/test/tutor/app-wiring.spec.ts
+  s_142b4668ab2d27::t_5bc099f712a812 1-46
+server/test/strategy/ladder.spec.ts
+  s_142b4668ab2d27::t_472479b5fb7c19 1-37
+artifacts/acceptance/B-20260920-local/stack-static-closing.log
+  s_142b4668ab2d27::t_d654fb5726fc95 1-551
+qisi-sdd-v3/handoffs/B10.md
+  s_142b4668ab2d27::t_57d969a0e13185 1-22
+  s_142b4668ab2d27::t_ef06f491f2ec31 23-35
+server/test/tutor/persistence-boundary.spec.ts
+  s_142b4668ab2d27::t_956709966dbfd8 32
+  s_142b4668ab2d27::t_ab1a489c14b6c2 1-16,19-21,23-31,33-52
+  s_142b4668ab2d27::t_b763d201c3c154 17-18,22
+artifacts/acceptance/B-20260920-local/AT16.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+server/test/tutor/run-isolated-mysql.py
+  s_142b4668ab2d27::t_fbfb4a4b08adb6 1-52,54-69,74-90
+  s_142b4668ab2d27::t_2f7b02a14de677 53,70-73
+qisi-sdd-v3/handoffs/B06.md
+  s_142b4668ab2d27::t_57d969a0e13185 1-22
+  s_142b4668ab2d27::t_ef06f491f2ec31 23-35
+qisi-sdd-v3/changes/B03.md
+  s_142b4668ab2d27::t_938dbda081f017 1-170
+artifacts/release/teaching/B-20260920-local/snapshot.json
+  s_142b4668ab2d27::t_22a7e8bf40633f 3,22-51,53-54,83-84,98-99,113-114,118-119,123-124,128-129,133-134,138-139,143-144,148-149,153-154,158-159,183-184,188-189,248-249,308-309,313-314,343-344,385-389
+  s_eafa0141ee00fb::t_6d5b2771176add 1-2,4-21,52,55-82,85-97,100-112,115-117,120-122,125-127,130-132,135-137,140-142,145-147,150-152,155-157,160-182,185-187,190-247,250-307,310-312,315-342,345-384,390-423
+server/test/teacher/teacher-http.spec.ts
+  s_eafa0141ee00fb::t_bdf508d1513257 1-62
+server/src/agents/diagnosis/index.ts
+  s_142b4668ab2d27::t_037243f924e73e 21-22,35-38,40
+  s_142b4668ab2d27::t_6a0c91b5e9363b 9,11,23-25,29,33-34
+artifacts/acceptance/B-20260920-local/AT20.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+artifacts/acceptance/B-20260920-local/B05.json
+  s_142b4668ab2d27::t_92de9dbb64d170 13-14,30-34
+  s_142b4668ab2d27::t_57d969a0e13185 1-12,15-29,35-37
+server/src/features/tutor/learning-turn.store.ts
+  s_142b4668ab2d27::t_86d76fa69a77e6 93-94
+  s_142b4668ab2d27::t_22933204c88111 1-79,84-92,95-103
+  s_142b4668ab2d27::t_ba83b2eaa43297 80-83
+artifacts/acceptance/B-20260920-a-integration/files.json
+  s_142b4668ab2d27::t_69bb0c3b28e53b 1-198
+server/src/workflows/policy.ts
+  s_142b4668ab2d27::t_8037845470aac9 1-30
+server/src/features/tutor/ladder.ts
+  s_142b4668ab2d27::t_472479b5fb7c19 1,3-7,9,33
+  s_142b4668ab2d27::t_de102c318e7416 2,8,10-32
+server/test/tutor/submit-turn-deps.spec.ts
+  s_142b4668ab2d27::t_147b7370b24ceb 76-78
+  s_eafa0141ee00fb::t_f306254d551695 1-75,79-100,111-115,122-230,233-249,251-260
+  s_142b4668ab2d27::t_0574a8abc7b8db 101-110,116-121,231-232,250
+server/src/agents/strategy/index.ts
+  s_142b4668ab2d27::t_8037845470aac9 9,23,32
+  s_142b4668ab2d27::t_5ec1ef4ebc2435 11,21-22,27,31,33-36,38
+server/test/corrections/corrections.spec.ts
+  s_142b4668ab2d27::t_b436ead5ac1e22 1-7,9-16,18-20,22-25,27-29
+  s_142b4668ab2d27::t_9b348ac6c48fbc 8,17,21,26
+artifacts/acceptance/B-20260920-local/failure-first.json
+  s_142b4668ab2d27::t_1b1dcd7ada558f 3,84-101
+  s_142b4668ab2d27::t_57d969a0e13185 1-2,4-83,102-109
+artifacts/acceptance/B-20260920-local/AT15.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+artifacts/acceptance/B-20260920-local/AT29.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+artifacts/acceptance/B-20260920-local/AT45.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+qisi-sdd-v3/changes/B08.md
+  s_142b4668ab2d27::t_ef06f491f2ec31 11-13
+  s_142b4668ab2d27::t_827d506996969e 1-7
+  s_142b4668ab2d27::t_57d969a0e13185 8-10
+artifacts/acceptance/B-20260920-local/closing-consistency.json
+  s_142b4668ab2d27::t_22a7e8bf40633f 1-23
+artifacts/acceptance/B-20260920-local/mysql-preflight-closing.log
+  s_142b4668ab2d27::t_d654fb5726fc95 1-5
+artifacts/acceptance/B-20260920-local/B10-task-gate.log
+  s_eafa0141ee00fb::t_9922fc173651fc 1-6
+artifacts/acceptance/B-20260920-local/B09-task-gate.log
+  s_142b4668ab2d27::t_8658acf7ff16c0 1-6
+artifacts/acceptance/B-20260920-local/B10.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-23,29-31
+  s_142b4668ab2d27::t_92de9dbb64d170 24-28
+artifacts/acceptance/B-20260920-local/AT25.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+artifacts/eval/baseline/B-20260920-local/README.md
+  s_eafa0141ee00fb::t_6d5b2771176add 1-6
+server/test/workflows/admission-failure.spec.ts
+  s_142b4668ab2d27::t_a6abba3a75849f 1-57
+artifacts/eval/roles/B-20260920-local/README.md
+  s_eafa0141ee00fb::t_6d5b2771176add 1-6
+server/test/tutor/learning-persistence.mysql.spec.ts
+  s_142b4668ab2d27::t_3377314f421db0 1-106,109-126,128-213
+  s_142b4668ab2d27::t_6e89286c6d2ded 107-108,127
+server/src/features/teacher/teacher.service.ts
+  s_142b4668ab2d27::t_d42d02ad74467c 1-11,13-32,34-44
+  s_142b4668ab2d27::t_c5cf03fd63fbd1 12,33,45-46
+server/src/features/teacher/teacher.module.ts
+  s_142b4668ab2d27::t_d42d02ad74467c 1-11
+server/src/features/teacher/teacher.projection.ts
+  s_142b4668ab2d27::t_a2c95924037b5e 14
+  s_142b4668ab2d27::t_d42d02ad74467c 1-13,15-26
+artifacts/acceptance/B-20260920-local/AT13.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+artifacts/release/teaching/B-20260920-local/readiness.json
+  s_142b4668ab2d27::t_22a7e8bf40633f 66-80
+  s_142b4668ab2d27::t_92de9dbb64d170 24,32-65
+  s_eafa0141ee00fb::t_6d5b2771176add 1-23,25-31,81-82
+artifacts/acceptance/B-20260920-local/AT26.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+artifacts/acceptance/B-20260920-local/AT07.json
+  s_142b4668ab2d27::t_57d969a0e13185 1-31
+qisi-sdd-v3/handoffs/B02.md
+  s_142b4668ab2d27::t_57d969a0e13185 44-64
+  s_142b4668ab2d27::t_ef06f491f2ec31 65-77
+server/src/model/budget.ts
+  s_142b4668ab2d27::t_b5634abcb26229 50,61,90-91,107-108,126-128,138-140,143-150
+server/test/tutor/probe-and-projection.spec.ts
+  s_142b4668ab2d27::t_a65bb1b4001e21 200,208-209
+artifacts/acceptance/B-20260920-a-integration/task-gates.json
+  s_142b4668ab2d27::t_54ea479dbd8305 1-82
+artifacts/acceptance/B-20260920-local/B02-task-gate.log
+  s_eafa0141ee00fb::t_e419318d95c7fe 1-6
+artifacts/acceptance/B-20260920-local/B03-task-gate.log
+  s_eafa0141ee00fb::t_9c2f41b2f985f4 1-5
+artifacts/acceptance/B-20260920-local/B04-task-gate.log
+  s_eafa0141ee00fb::t_7e367f9f60eb27 1-6
+artifacts/acceptance/B-20260920-local/B05-task-gate.log
+  s_eafa0141ee00fb::t_920ed95db957e1 1-6
+artifacts/acceptance/B-20260920-local/B06-task-gate.log
+  s_eafa0141ee00fb::t_575b6ffa6a2841 1-6
+artifacts/acceptance/B-20260920-local/b-rules-closing.log
+  s_142b4668ab2d27::t_64392a27eb2370 1-17
+artifacts/acceptance/B-20260920-local/closing-commands.json
+  s_142b4668ab2d27::t_084b3bf53fb4cb 1-69
+artifacts/acceptance/B-20260920-local/commands.json
+  s_142b4668ab2d27::t_5a95dc4d94708c 1-104
+artifacts/acceptance/B-20260920-local/eval-final.log
+  s_142b4668ab2d27::t_2eb612c48e3fcd 1-14
+artifacts/acceptance/B-20260920-local/eval-unit.log
+  s_142b4668ab2d27::t_493c4699b40367 1-14
+artifacts/acceptance/B-20260920-local/final-commands.json
+  s_142b4668ab2d27::t_665c11e65f84ff 1-101
+artifacts/acceptance/B-20260920-local/recheck-commands.json
+  s_eafa0141ee00fb::t_6be3a84f89b006 1-41
+artifacts/acceptance/B-20260920-local/server-B-rules.log
+  s_eafa0141ee00fb::t_b100c085b705b9 1-20
+artifacts/acceptance/B-20260920-local/server-build-closing.log
+  s_142b4668ab2d27::t_598aeb6257059c 1-4
+artifacts/acceptance/B-20260920-local/server-build-final.log
+  s_142b4668ab2d27::t_fb87e4a3bb82f8 1-4
+artifacts/acceptance/B-20260920-local/server-build.log
+  s_142b4668ab2d27::t_faee6e82276f63 1-5
+artifacts/acceptance/B-20260920-local/server-lint-closing.log
+  s_142b4668ab2d27::t_3e19803fe0a5b9 1-4
+artifacts/acceptance/B-20260920-local/server-lint-final.log
+  s_142b4668ab2d27::t_ee5be6bed4da74 1-4
+artifacts/acceptance/B-20260920-local/server-lint-recheck.log
+  s_eafa0141ee00fb::t_695cda03371b82 1-11
+artifacts/acceptance/B-20260920-local/server-lint.log
+  s_142b4668ab2d27::t_ead63143f82de3 1-11
+artifacts/acceptance/B-20260920-local/server-typecheck-closing.log
+  s_142b4668ab2d27::t_81190b9d0b30b3 1-4
+artifacts/acceptance/B-20260920-local/server-typecheck-final.log
+  s_142b4668ab2d27::t_200f204f9bf303 1-4
+artifacts/acceptance/B-20260920-local/server-typecheck.log
+  s_142b4668ab2d27::t_5e091cce291b6b 1-5
+artifacts/acceptance/B-20260920-local/server-unit-closing.log
+  s_142b4668ab2d27::t_95c7d00f90d0b4 1-47
+artifacts/acceptance/B-20260920-local/server-unit-final.log
+  s_142b4668ab2d27::t_78cae2b3f41e30 1-66
+artifacts/acceptance/B-20260920-local/server-unit.log
+  s_142b4668ab2d27::t_030a5b0ad3db0d 1-67
+artifacts/acceptance/B-20260920-local/teacher-ui-final.log
+  s_142b4668ab2d27::t_91aef0a68b6bb9 1-14
+artifacts/acceptance/B-20260920-local/web-app-isolated.log
+  s_142b4668ab2d27::t_e1d3203b7d40d4 1-43
+artifacts/acceptance/B-20260920-local/web-build.log
+  s_142b4668ab2d27::t_f18633e0346c67 1-94
+artifacts/acceptance/B-20260920-local/web-lint.log
+  s_142b4668ab2d27::t_8712b00d6264cc 1-5
+artifacts/acceptance/B-20260920-local/web-typecheck.log
+  s_142b4668ab2d27::t_8db70068456840 1-5
+artifacts/acceptance/B-20260920-local/web-unit-bounded-workers.log
+  s_142b4668ab2d27::t_7d07cb69f6a184 1-1112
+artifacts/acceptance/B-20260920-local/web-unit.log
+  s_142b4668ab2d27::t_8208ecdc2ae9cd 1-173
+server/src/workflows/turn.ts
+  s_142b4668ab2d27::t_3758cad1382d19 115-118
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "1ce544b04f8145322c732ca16567dafe360e311c",
+  "prompts": {},
+  "sessions": {
+    "s_142b4668ab2d27": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0bd99-a08c-7de0-918a-b07ee54ef41c",
+        "model": "gpt-6-astra-ga"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    },
+    "s_213b8d48b95d6e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1fedf060-17f3-4a88-805d-c5d7fc4fd002",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    },
+    "s_eafa0141ee00fb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "dc3cd18f-cdd7-4633-9d82-8305641f06c9",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    }
+  }
+}
