@@ -11,23 +11,21 @@
 //     → packets(problem_hash, version).packet_json  ← 就是 B 的 Packet
 // 该绑定见 server/src/features/learning/learning-session.service.ts:260。
 //
-// 【两处已知降级，来自 A 的会话模型不含对应字段，均已在此显式注明】
+// currentGoal / 历史假设 / 探针 / 实际帮助从已提交事件与 probe_counters 恢复。
+// 待对接：题库元数据仍未关联（占位 source/bank_version，is_official=false 不代表自拟题）；
+// 独立检验 attempt / canStartCheck 需由 A 的 Assessment 门面提供，不能猜测学生已学会。
+// 上述限制不是产品范围删减，也不是项目方已批准的降级。
 //
-// 1. Problem.bank_version / source 无从取得，用固定占位；is_official 一律 false。
-//    项目方明确决定不做题库表 join。**因此 is_official 不可作为「是否真题」的依据**
-//    —— 它恒为 false，无法区分真题与自拟题。前端据此隐藏了对应标签，避免把真题
-//    显示成自拟题。
-//
-// 2. currentGoalKey / attempt / notice / canStartCheck 在 A 的模型里没有对应物，
-//    返回保守值（null / false / 空串）。B03 的探针与检验状态因此暂不可用。
-//
-// 本文件只读；写入（提交一轮后的消息落库）见 save() 的说明。
+// 本文件只读；写入统一经 LearningSessionService.commitTurn，不再允许只推进版本。
 
-import { Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable, ServiceUnavailableException } from '@nestjs/common';
+import { createHash } from 'node:crypto';
 import { sql } from 'kysely';
 import { z } from 'zod';
-import { PacketSchema, type Packet } from '../../contracts/domain.schema.js';
+import { PacketSchema, TranscriptLineSchema, type Submission, type Packet } from '../../contracts/domain.schema.js';
 import { DatabaseService } from '../../database/database.service.js';
+import { CanonicalGoalRegistry } from './probe-counter.js';
+import { restorePersistedTeaching } from './persisted-teaching.js';
 import type { PrivateMessage } from './student-view.js';
 import type { TutorSession, TutorSessionPort } from './tutor.service.js';
 
@@ -60,16 +58,18 @@ function parseJson(value: unknown): unknown {
 export class DatabaseTutorSessionPort implements TutorSessionPort {
   constructor(@Inject(DatabaseService) private readonly database: DatabaseService) {}
 
-  async load(sessionId: string): Promise<TutorSession | null> {
+  async load(sessionId: string, ownerId?: string): Promise<TutorSession | null> {
+    if (!ownerId || !/^[1-9]\d*$/.test(sessionId)) return null;
     const client = this.database.client;
 
     const session = await client
       .selectFrom('sessions')
       .selectAll()
       .where('id', '=', sessionId)
+      .where('user_id', '=', ownerId)
       .where('expires_at', '>', new Date())
       .executeTakeFirst();
-    if (!session) return null;
+    if (!session || !(session.phase in PHASE_MAP)) return null;
 
     // preparation_bound 是「会话 ⇄ Packet」的唯一权威绑定。
     const boundEvent = await client
@@ -81,7 +81,8 @@ export class DatabaseTutorSessionPort implements TutorSessionPort {
       .orderBy('seq', 'desc')
       .executeTakeFirst();
     const bound = preparationBoundSchema.safeParse(parseJson(boundEvent?.payload_json));
-    if (!bound.success) {
+    if (!bound.success || bound.data.status !== 'ready'
+      || bound.data.problemHash !== createHash('sha256').update(session.problem_markdown).digest('hex')) {
       // 没有可用的 Packet 绑定，教学轮无法进行（决策图与 canonical goal 都无从推导）。
       // 显式返回 null，由调用方按「会话不存在/未就绪」处理，不编造一份空图。
       return null;
@@ -89,39 +90,87 @@ export class DatabaseTutorSessionPort implements TutorSessionPort {
 
     const packetRow = await client
       .selectFrom('packets')
-      .select(['packet_json', 'problem_id'])
-      .where('problem_hash', '=', Buffer.from(bound.data.problemHash, 'hex') as never)
+      .select(['packet_json', 'problem_id', 'status'])
+      .where('problem_hash', '=', Buffer.from(bound.data.problemHash, 'hex'))
       .where('version', '=', bound.data.packetVersion)
       .executeTakeFirst();
 
     const packetParsed = packetRow
       ? PacketSchema.safeParse(parseJson(packetRow.packet_json))
       : null;
-    if (!packetParsed?.success) return null;
+    if (!packetParsed?.success || !packetParsed.data.ready || packetRow?.status !== 'ready'
+      || packetParsed.data.problem_hash !== bound.data.problemHash || packetParsed.data.version !== bound.data.packetVersion) return null;
     const packet: Packet = packetParsed.data;
 
     const messages = await client
       .selectFrom('learning_messages')
-      .select(['id', 'role', 'content_markdown', 'db_create_time'])
+      .select(['id', 'request_id', 'role', 'message_type', 'metadata_json', 'content_markdown', 'db_create_time'])
       .where('session_id', '=', sessionId)
       .orderBy('seq', 'asc')
       .execute();
 
     const privateMessages: PrivateMessage[] = messages.map((message) => ({
-      id: String(message.id),
-      role: message.role === 'student' ? 'student' : message.role === 'teacher' ? 'teacher' : 'system',
+      id: message.request_id && (message.role === 'student' || message.role === 'guide')
+        ? `${message.role === 'student' ? 'student' : 'teacher'}-${message.request_id}` : String(message.id),
+      role: message.role === 'student' ? 'student' : message.role === 'teacher' || message.role === 'guide' ? 'teacher' : 'system',
       text_md: message.content_markdown,
-      created_at: new Date(message.db_create_time as unknown as string).toISOString(),
+      created_at: new Date(message.db_create_time).toISOString(),
     }));
+
+    const transcriptIds = [...new Set(messages.flatMap(message => {
+      if (message.role !== 'student' || message.message_type !== 'student_attempt') return [];
+      const metadata = parseJson(message.metadata_json) as {transcriptId?: unknown} | null;
+      return typeof metadata?.transcriptId === 'string' && /^[1-9]\d*$/.test(metadata.transcriptId)
+        ? [metadata.transcriptId] : [];
+    }))];
+    const transcripts = transcriptIds.length ? await client.selectFrom('transcripts').selectAll()
+      .where('id', 'in', transcriptIds)
+      .where('user_id', '=', ownerId).where('expires_at', '>', new Date())
+      .where(eb => eb.or([eb('session_id', '=', sessionId), eb('session_id', 'is', null)])).execute() : [];
+    const submissions: Submission[] = messages.flatMap((message, index) => {
+      if (message.role !== 'student' || message.message_type !== 'student_attempt') return [];
+      const metadata = parseJson(message.metadata_json) as {transcriptId?:string; transcriptRevision?:number} | null;
+      const transcriptId = metadata?.transcriptId ?? null;
+      const revision = metadata?.transcriptRevision ?? 1;
+      const current = transcripts.find(row => String(row.id) === transcriptId);
+      const lines = current ? TranscriptLineSchema.array().parse(parseJson(current.lines_json)) : [];
+      const confirmed = !transcriptId || Boolean(current && current.confirmed === 1 && current.revision === revision
+        && lines.map(line => line.text.trim()).filter(Boolean).join('\n\n') === message.content_markdown.trim());
+      return [{id:privateMessages[index]!.id, task_id:packet.problem_id, revision, text_md:message.content_markdown,
+        source:transcriptId ? 'handwriting' : 'typed', media_id:current?.media_id ?? null, transcript_id:transcriptId,
+        confirmed, invalidated:!confirmed, created_at:privateMessages[index]!.created_at}];
+    });
+    const events = await client.selectFrom('events')
+      .select(['id', 'subject_id', 'event_type', 'payload_json', 'invalidated', 'db_create_time'])
+      .where('session_id', '=', sessionId)
+      .where('event_type', 'in', ['help_exposed', 'diagnostic_probe_shown', 'checked_teaching_turn'])
+      .orderBy('seq', 'asc').execute();
+    const restored = restorePersistedTeaching(packet.problem_id, bound.data.problemHash, packet.decisions, events, submissions);
+    const counters = await client.selectFrom('probe_counters').select(['canonical_goal_key', 'shown_count'])
+      .where('session_id', '=', sessionId).where('task_id', '=', packet.problem_id).execute();
+    const registry = new CanonicalGoalRegistry();
+    registry.register(packet.problem_id, packet.decisions);
+    const canonicalKeys = new Set(packet.decisions.map(decision => registry.resolve(packet.problem_id, decision)));
+    for (const counter of counters) {
+      if (!canonicalKeys.has(counter.canonical_goal_key) || !Number.isInteger(counter.shown_count)
+        || counter.shown_count < 0 || counter.shown_count > 2) {
+        throw new ServiceUnavailableException('persisted probe counters require reconciliation');
+      }
+      restored.teachingState.probesShownByGoal[counter.canonical_goal_key] = Math.max(counter.shown_count,
+        restored.teachingState.probesShownByGoal[counter.canonical_goal_key] ?? 0);
+    }
 
     return {
       id: String(session.id),
       version: session.version,
-      phase: PHASE_MAP[session.phase] ?? 'study',
+      phase: PHASE_MAP[session.phase]!,
       packetVersion: bound.data.packetVersion,
       decisions: packet.decisions,
+      routes: packet.routes,
+      referenceMd: packet.reference_md,
+      checkTask: packet.check_tasks[0] ?? null,
       messages: privateMessages,
-      // 见文件头「降级 1」：A 的会话模型不含这些字段，用占位值。
+      // 题库元数据待通过 A 的读取接口关联；不得据此判断是否真题。
       problem: {
         id: packet.problem_id,
         bank_version: 'session-bound',
@@ -134,32 +183,19 @@ export class DatabaseTutorSessionPort implements TutorSessionPort {
         issues: [],
         topic_tags: [],
       },
-      // 见文件头「降级 2」：无对应物，返回保守值。
-      currentGoalKey: null,
+      // 教学事实已恢复，独立检验状态仍待 Assessment 门面对接。
+      currentGoalKey: restored.currentGoalKey,
+      teachingState: restored.teachingState,
+      submissions,
       attempt: null,
       notice: '',
       canStartCheck: false,
     };
   }
 
-  /**
-   * 提交一轮后的写入。
-   *
-   * **当前实现为版本号乐观推进，不写 learning_messages。** 理由：消息内容由
-   * B 的 checked commit 产出，而真正的落库应当与 run/lease/事件同事务——那需要
-   * A 的 StorePort 门面（尚未交付，见 B01 步骤 5/6）。此处只保证「同一会话的
-   * 并发提交不会双写」：版本对不上就拒绝，由调用方重新读取。
-   *
-   * 这是一个**不完整**的实现，已在交接中记明；不得据此声称教学轮已持久化。
-   */
-  async save(session: TutorSession, expectedVersion: number): Promise<boolean> {
-    const result = await this.database.client
-      .updateTable('sessions')
-      .set({ version: session.version })
-      .where('id', '=', session.id)
-      .where('version', '=', expectedVersion)
-      .executeTakeFirst();
-    return Number(result.numUpdatedRows ?? 0) > 0;
+  /** No split version-only write: production submits only through LearningSessionService.commitTurn. */
+  async save(): Promise<boolean> {
+    throw new ServiceUnavailableException('use the atomic learning transaction');
   }
 
   /** 供健康检查/诊断使用：确认 binding 链是否可达（不返回私有内容）。 */

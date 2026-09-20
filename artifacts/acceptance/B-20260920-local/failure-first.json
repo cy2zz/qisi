@@ -1,0 +1,109 @@
+{
+  "baseline": "qisi-3.1",
+  "source": "Observed tool results earlier in this same run; raw initial-red terminal output was not saved to files. Subsequent green logs are retained separately. The closing-red-green.json supplement has retained raw red and green logs.",
+  "runs": [
+    {
+      "task": "B04",
+      "suite": "diagnosis/evidence",
+      "exit_code": 1,
+      "tests": 14,
+      "failed": 12,
+      "passed": 2
+    },
+    {
+      "task": "B03/B04",
+      "suite": "diagnosis/canonical-goal",
+      "exit_code": 1,
+      "tests": 3,
+      "failed": 3,
+      "passed": 0
+    },
+    {
+      "task": "B05",
+      "suite": "strategy/admission",
+      "exit_code": 1,
+      "tests": 17,
+      "failed": 9,
+      "passed": 8
+    },
+    {
+      "task": "B05",
+      "suite": "strategy/ladder",
+      "exit_code": 1,
+      "tests": 8,
+      "failed": 2,
+      "passed": 6
+    },
+    {
+      "task": "B05",
+      "suite": "strategy/route-admission",
+      "exit_code": 1,
+      "tests": 6,
+      "failed": 5,
+      "passed": 1
+    },
+    {
+      "task": "B06",
+      "suite": "corrections",
+      "exit_code": 1,
+      "tests": 5,
+      "failed": 5,
+      "passed": 0
+    },
+    {
+      "task": "B07",
+      "suite": "workflows/actual-exposure",
+      "exit_code": 1,
+      "tests": 5,
+      "failed": 5,
+      "passed": 0
+    },
+    {
+      "task": "B07",
+      "suite": "workflows/budget-safety",
+      "exit_code": 1,
+      "tests": 8,
+      "failed": 8,
+      "passed": 0
+    },
+    {
+      "task": "B08",
+      "suite": "eval/evaluate-teaching.node.mjs",
+      "exit_code": 1,
+      "tests": 5,
+      "failed": 5,
+      "passed": 0
+    },
+    {
+      "task": "B09",
+      "suite": "tutor/b09-adversarial",
+      "exit_code": 1,
+      "tests": 3,
+      "failed": 3,
+      "passed": 0
+    },
+    {
+      "task": "B08",
+      "suite": "latency_percentiles_missing_and_failed",
+      "exit_code": 1,
+      "tests": 6,
+      "failed": 1,
+      "passed": 5,
+      "evidence_file": "eval-latency-red.log"
+    },
+    {
+      "task": "B03/B04/B05",
+      "suite": "admission_failure_boundary",
+      "exit_code": 1,
+      "tests": 4,
+      "failed": 3,
+      "passed": 1,
+      "evidence_file": "admission-boundary-red.log"
+    }
+  ],
+  "additional_notes": [
+    "Teacher UI first behavior red 1/2 then passed 2/2; backend HTTP 6/6 regression passed without changing controller behavior.",
+    "Temporary evaluator CLI syntax error was repaired; syntax failure was not counted as behavior red.",
+    "Route positive fixture required schema note; missing-fixture failure was fixed separately, not used as behavior evidence."
+  ]
+}

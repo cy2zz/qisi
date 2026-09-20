@@ -1,0 +1,173 @@
+
+> @qisi/web@0.1.0 test
+> vitest run --reporter=dot
+
+
+ RUN  v5.0.1 D:/math/qisi-dashboard/web
+
+··············xx·x···················x································································
+
+ Test Files  1 failed | 22 passed (23)
+      Tests  4 failed | 98 passed (102)
+   Start at  15:47:51
+   Duration  41.75s (environment 49%, tests 30%, import 10%, setup 7%, transform 3%)
+
+Environment  jsdom was created 23 times · 121.01s total, 49% of tracked time
+             create it once per worker with pool: 'vmThreads' (keeps per-file isolation) or isolate: false (shares it across files)
+             learn more: https://vitest.dev/guide/improving-performance#test-environments
+
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/App.test.tsx > App > restores an existing student from the cookie
+TestingLibraryElementError: Unable to find role="heading" and name "今天想解决哪道题？"
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+
+Ignored nodes: comments, script, style
+<html>
+  <head />
+  <body>
+    <div />
+  </body>
+</html>
+ ❯ waitForWrapper ../node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ src/App.test.tsx:77:11
+     75|     renderApp();
+     76|
+     77|     await waitFor(() => {
+       |           ^
+     78|       expect(screen.getByRole('heading', { name: '今天想解决哪道题？' })).toBeI…
+     79|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  src/App.test.tsx > App > restores structured checked verdicts and keeps incorrect work out of independent assessment
+TestingLibraryElementError: Unable to find role="heading" and name "根式化简"
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <main
+      aria-busy="true"
+      class="route-loading"
+    >
+      <div
+        class="auth-loading"
+        role="status"
+      >
+        <span
+          aria-hidden="true"
+          class="loading-mark"
+        />
+        正在打开学习空间…
+      </div>
+    </main>
+  </div>
+</body>
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <main
+      aria-busy="true"
+      class="route-loading"
+    >
+      <div
+        class="auth-loading"
+        role="status"
+      >
+        <span
+          aria-hidden="true"
+          class="loading-mark"
+        />
+        正在打开学习空间…
+      </div>
+    </main>
+  </div>
+</body>
+ ❯ waitForWrapper ../node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ ../node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/App.test.tsx:194:25
+    192|     renderApp('/study');
+    193|
+    194|     expect(await screen.findByRole('heading', { name: '根式化简' })).toBeI…
+       |                         ^
+    195|     expect(screen.getByText('我还不确定')).toBeInTheDocument();
+    196|     expect(screen.getByLabelText('帮助深度：最小提示')).toBeInTheDocument();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  src/App.test.tsx > App > restores and automatically saves the current learning draft
+TestingLibraryElementError: Unable to find role="textbox" and name "输入题目或想法"
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <main
+      aria-busy="true"
+      class="route-loading"
+    >
+      <div
+        class="auth-loading"
+        role="status"
+      >
+        <span
+          aria-hidden="true"
+          class="loading-mark"
+        />
+        正在打开学习空间…
+      </div>
+    </main>
+  </div>
+</body>
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <main
+      aria-busy="true"
+      class="route-loading"
+    >
+      <div
+        class="auth-loading"
+        role="status"
+      >
+        <span
+          aria-hidden="true"
+          class="loading-mark"
+        />
+        正在打开学习空间…
+      </div>
+    </main>
+  </div>
+</body>
+ ❯ waitForWrapper ../node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ ../node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/App.test.tsx:269:33
+    267|     renderApp('/study?session=91');
+    268|
+    269|     const editor = await screen.findByRole('textbox', { name: '输入题目或想法…
+       |                                 ^
+    270|     await waitFor(() => {
+    271|       expect(editor).toHaveTextContent('我准备先移项，再配成 $(a-b)^2$。');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  src/App.test.tsx > App > keeps handwriting out of teaching until its confirmed revision is submitted
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/App.test.tsx:291:3
+    289|   });
+    290|
+    291|   it('keeps handwriting out of teaching until its confirmed revision i…
+       |   ^
+    292|     vi.spyOn(URL, 'createObjectURL').mockReturnValue('blob:handwriting…
+    293|     vi.spyOn(URL, 'revokeObjectURL').mockImplementation(() => undefine…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+

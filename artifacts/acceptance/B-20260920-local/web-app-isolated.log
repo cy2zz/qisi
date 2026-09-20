@@ -1,0 +1,43 @@
+
+> @qisi/web@0.1.0 test
+> vitest run --run src/App.test.tsx --maxWorkers=1 --reporter=dot
+
+
+ RUN  v5.0.1 D:/math/qisi-dashboard/web
+
+x··········
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/App.test.tsx > App > restores an existing student from the cookie
+TestingLibraryElementError: Unable to find role="heading" and name "今天想解决哪道题？"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div />[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<html>[39m
+  [36m<head />[39m
+  [36m<body>[39m
+    [36m<div />[39m
+  [36m</body>[39m
+[36m</html>[39m
+ ❯ waitForWrapper ../node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ src/App.test.tsx:77:11
+     75|     renderApp();
+     76|
+     77|     await waitFor(() => {
+       |           ^
+     78|       expect(screen.getByRole('heading', { name: '今天想解决哪道题？' })).toBeI…
+     79|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 10 passed (11)
+   Start at  16:00:27
+   Duration  14.73s (tests 72%, environment 20%, setup 3%, transform 2%, import 2%)
+

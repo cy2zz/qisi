@@ -1,0 +1,101 @@
+[
+  {
+    "id": "server-typecheck-final",
+    "command": "npm --prefix server run typecheck",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "started_at": "2026-09-20T15:59:29.414303+08:00",
+    "finished_at": "2026-09-20T15:59:35.481913+08:00",
+    "exit_code": 0,
+    "result": "passed",
+    "test_summary": [],
+    "evidence_file": "artifacts/acceptance/B-20260920-local/server-typecheck-final.log",
+    "source_changes_during_command": []
+  },
+  {
+    "id": "server-lint-final",
+    "command": "npm --prefix server run lint",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "started_at": "2026-09-20T15:59:35.684269+08:00",
+    "finished_at": "2026-09-20T15:59:42.655937+08:00",
+    "exit_code": 0,
+    "result": "passed",
+    "test_summary": [],
+    "evidence_file": "artifacts/acceptance/B-20260920-local/server-lint-final.log",
+    "source_changes_during_command": []
+  },
+  {
+    "id": "server-unit-final",
+    "command": "npm --prefix server test -- --reporter=dot",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "started_at": "2026-09-20T15:59:42.801354+08:00",
+    "finished_at": "2026-09-20T16:00:15.857937+08:00",
+    "exit_code": 1,
+    "result": "failed",
+    "test_summary": [
+      "⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯",
+      "Test Files  2 failed | 65 passed (67)",
+      "Tests  2 failed | 560 passed (562)"
+    ],
+    "evidence_file": "artifacts/acceptance/B-20260920-local/server-unit-final.log",
+    "source_changes_during_command": []
+  },
+  {
+    "id": "server-build-final",
+    "command": "npm --prefix server run build",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "started_at": "2026-09-20T16:00:16.083404+08:00",
+    "finished_at": "2026-09-20T16:00:24.132833+08:00",
+    "exit_code": 0,
+    "result": "passed",
+    "test_summary": [],
+    "evidence_file": "artifacts/acceptance/B-20260920-local/server-build-final.log",
+    "source_changes_during_command": []
+  },
+  {
+    "id": "web-app-isolated",
+    "command": "npm --prefix web test -- --run src/App.test.tsx --maxWorkers=1 --reporter=dot",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "started_at": "2026-09-20T16:00:24.468348+08:00",
+    "finished_at": "2026-09-20T16:00:42.977340+08:00",
+    "exit_code": 1,
+    "result": "failed",
+    "test_summary": [
+      "⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯",
+      "Test Files  1 failed (1)",
+      "Tests  1 failed | 10 passed (11)"
+    ],
+    "evidence_file": "artifacts/acceptance/B-20260920-local/web-app-isolated.log",
+    "source_changes_during_command": []
+  },
+  {
+    "id": "teacher-ui-final",
+    "command": "npm --prefix web test -- --run src/pages/teacher/TeacherPage.test.tsx --reporter=dot",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "started_at": "2026-09-20T16:00:43.205804+08:00",
+    "finished_at": "2026-09-20T16:00:50.964403+08:00",
+    "exit_code": 0,
+    "result": "passed",
+    "test_summary": [
+      "Test Files  1 passed (1)",
+      "Tests  2 passed (2)"
+    ],
+    "evidence_file": "artifacts/acceptance/B-20260920-local/teacher-ui-final.log",
+    "source_changes_during_command": []
+  },
+  {
+    "id": "eval-final",
+    "command": "node --test server/test/eval/evaluate-teaching.node.mjs",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "started_at": "2026-09-20T16:00:51.165175+08:00",
+    "finished_at": "2026-09-20T16:00:51.952593+08:00",
+    "exit_code": 0,
+    "result": "passed",
+    "test_summary": [
+      "ℹ tests 6",
+      "ℹ pass 6",
+      "ℹ fail 0"
+    ],
+    "evidence_file": "artifacts/acceptance/B-20260920-local/eval-final.log",
+    "source_changes_during_command": []
+  }
+]

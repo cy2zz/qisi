@@ -1,0 +1,198 @@
+{
+  "captured_at": "2026-09-20T09:09:40.959991+00:00",
+  "files": [
+    {
+      "path": "server/src/features/tutor/tutor.controller.ts",
+      "sha256": "bcc7127130e95edb3eb403deb05336ac434208f00a7880514fddbc110b7a2dbf",
+      "modified_at": "2026-09-20T08:31:56.292278+00:00",
+      "before_sha256": "0af7e77a81a107966d62b51563b0821001f08633f0dfcd64bdeedd994334400b",
+      "provenance": "targeted extension; preserves pre-existing/collaborator work",
+      "owner": "B"
+    },
+    {
+      "path": "server/src/features/tutor/tutor.module.ts",
+      "sha256": "904ddbd909df35105ebc95c4a14e1c785d93142dc464e94497a2064a3b7604b1",
+      "modified_at": "2026-09-20T08:38:26.981371+00:00",
+      "before_sha256": null,
+      "provenance": "targeted extension; preserves pre-existing/collaborator work",
+      "owner": "B"
+    },
+    {
+      "path": "server/src/features/tutor/tutor.service.ts",
+      "sha256": "cd6ee25441fcb572b6bf25febe9eb370d62db880d62e63c78943503d0818385e",
+      "modified_at": "2026-09-20T08:31:56.290279+00:00",
+      "before_sha256": "ec62f4b23fafdca843075ed337d062d0e8cb82a646655edace98078221634009",
+      "provenance": "targeted extension; preserves pre-existing/collaborator work",
+      "owner": "B"
+    },
+    {
+      "path": "server/src/features/tutor/submit-turn.deps.ts",
+      "sha256": "e51589d1ebd20cf2a835455d2fef22b49ffdcb1b22d0000a65886bc6d7f19123",
+      "modified_at": "2026-09-20T08:38:26.979373+00:00",
+      "before_sha256": "76b7c71d4cbeb0419bbdb4e51320d188078a1c97ea0a7a90cb02d49a36648a4e",
+      "provenance": "targeted extension; preserves pre-existing/collaborator work",
+      "owner": "B"
+    },
+    {
+      "path": "server/src/features/tutor/database-session.port.ts",
+      "sha256": "d9481f5a55208a394878e38625a02429975ad265d48e061d40686e3dd75e832c",
+      "modified_at": "2026-09-20T08:53:02.601442+00:00",
+      "before_sha256": "f1fbd2ca82ef83b67ccab862768b2d0957e36c2648acf1cb64691a607c201460",
+      "provenance": "targeted extension; preserves pre-existing/collaborator work",
+      "owner": "B"
+    },
+    {
+      "path": "server/src/features/tutor/probe-counter.ts",
+      "sha256": "24cc99899a1bca61b52b12ffb9eb2d836d1f899721695676f3175581732f9b93",
+      "modified_at": "2026-09-20T08:31:56.298370+00:00",
+      "before_sha256": null,
+      "provenance": "targeted extension; preserves pre-existing/collaborator work",
+      "owner": "B"
+    },
+    {
+      "path": "server/src/features/tutor/learning-turn.store.ts",
+      "sha256": "cefd4a26415eb9dc8d5e39b1d3074d56297f97b065411b7bb29b33696b272158",
+      "modified_at": "2026-09-20T09:00:22.731088+00:00",
+      "before_sha256": null,
+      "provenance": "new in this integration",
+      "owner": "B"
+    },
+    {
+      "path": "server/src/features/tutor/persisted-teaching.ts",
+      "sha256": "b660bcc911d3462784fd4d257d4790be084e7ab9a4a5ff18c4b39fb4d147280c",
+      "modified_at": "2026-09-20T08:53:02.602443+00:00",
+      "before_sha256": null,
+      "provenance": "new in this integration",
+      "owner": "B"
+    },
+    {
+      "path": "server/src/workflows/store.port.ts",
+      "sha256": "6af2210cead7b50259881e614b561f7f770f73e98c8e7f82e447232b2733a62a",
+      "modified_at": "2026-09-20T08:37:34.599875+00:00",
+      "before_sha256": null,
+      "provenance": "targeted extension; preserves pre-existing/collaborator work",
+      "owner": "B"
+    },
+    {
+      "path": "server/src/workflows/orchestrator.ts",
+      "sha256": "b78a0b091b4e329517918b775836d32e6308bea0d4144adc24557af9c1ff023d",
+      "modified_at": "2026-09-20T08:37:34.601445+00:00",
+      "before_sha256": "10e25863f6ea89317c8296de25b781464c59cc80b4e01613636b06fdfd9bf225",
+      "provenance": "targeted extension; preserves pre-existing/collaborator work",
+      "owner": "B"
+    },
+    {
+      "path": "server/src/features/learning/learning-session.service.ts",
+      "sha256": "9e3c5af973f95449aff3c5d2e958ca9b909ebfd01b509a9fc0554345b0f9d8a3",
+      "modified_at": "2026-09-20T09:00:22.731088+00:00",
+      "before_sha256": "972f4ed9d9e2736d18bb2bc48de1976c46608cc4856614a2859634eedaaf9edb",
+      "provenance": "targeted extension; preserves pre-existing/collaborator work",
+      "owner": "A; local compatibility patch awaiting review"
+    },
+    {
+      "path": "server/src/database/database.types.ts",
+      "sha256": "61c6f3a2bd83d264399a7c8e2951f370cd3f2a68277dc78132c24416f3408c76",
+      "modified_at": "2026-09-20T08:34:13.342686+00:00",
+      "before_sha256": null,
+      "provenance": "targeted extension; preserves pre-existing/collaborator work",
+      "owner": "A; local compatibility patch awaiting review"
+    },
+    {
+      "path": "server/test/tutor/persistence-boundary.spec.ts",
+      "sha256": "7720fd3160e44759e4f22e624113478c9bcdf1014d96a44f812d8f0a2bceb301",
+      "modified_at": "2026-09-20T08:52:09.830495+00:00",
+      "before_sha256": null,
+      "provenance": "new in this integration",
+      "owner": "B"
+    },
+    {
+      "path": "server/test/tutor/learning-transaction.spec.ts",
+      "sha256": "b9ccaba0cfcd37e2d1988b680e21b427bbb09757740bf488343d5a5aa8712170",
+      "modified_at": "2026-09-20T08:52:09.827636+00:00",
+      "before_sha256": null,
+      "provenance": "new in this integration",
+      "owner": "B"
+    },
+    {
+      "path": "server/test/tutor/persistent-runner.spec.ts",
+      "sha256": "bfebef2301cc0e02a216b8a437281b28820c4fb66d582f1070a57841361b1471",
+      "modified_at": "2026-09-20T08:41:51.673239+00:00",
+      "before_sha256": null,
+      "provenance": "new in this integration",
+      "owner": "B"
+    },
+    {
+      "path": "server/test/tutor/learning-persistence.mysql.spec.ts",
+      "sha256": "e6e32c16ba53fa694ecd491d8394bf17e18b21dfac1d03780e915111d8219a9b",
+      "modified_at": "2026-09-20T08:58:16.781444+00:00",
+      "before_sha256": null,
+      "provenance": "new in this integration",
+      "owner": "B"
+    },
+    {
+      "path": "server/test/tutor/run-isolated-mysql.py",
+      "sha256": "24b478f983456dd4f15740fbc838eab256201a4406a12e22a19ff788c8993d21",
+      "modified_at": "2026-09-20T08:57:10.758547+00:00",
+      "before_sha256": null,
+      "provenance": "new in this integration",
+      "owner": "B"
+    },
+    {
+      "path": "qisi-sdd-v3/changes/B01.md",
+      "sha256": "7feb6ca370051973600436cac3c45f521154e888c0e175355fc2616bdca8dc46",
+      "modified_at": "2026-09-20T09:01:58.871660+00:00",
+      "before_sha256": null,
+      "provenance": "targeted extension; preserves pre-existing/collaborator work",
+      "owner": "B"
+    },
+    {
+      "path": "qisi-sdd-v3/changes/B03.md",
+      "sha256": "bf0244605a8769017a2707e9687a6359b654498222a5c064232c27aa933b7df2",
+      "modified_at": "2026-09-20T09:01:58.873662+00:00",
+      "before_sha256": null,
+      "provenance": "targeted extension; preserves pre-existing/collaborator work",
+      "owner": "B"
+    },
+    {
+      "path": "qisi-sdd-v3/changes/B07.md",
+      "sha256": "9630965c2fbec6f93bafd880ce26c50f9c73802edad6474dd8d79ce4a5acc274",
+      "modified_at": "2026-09-20T09:01:58.875658+00:00",
+      "before_sha256": null,
+      "provenance": "targeted extension; preserves pre-existing/collaborator work",
+      "owner": "B"
+    },
+    {
+      "path": "qisi-sdd-v3/handoffs/B01.md",
+      "sha256": "7d03e7e32963d8d016cc3e5528ec431377f3b5d435cc2f38a9b6f346edf2609c",
+      "modified_at": "2026-09-20T09:09:40.505304+00:00",
+      "before_sha256": null,
+      "provenance": "targeted extension; preserves pre-existing/collaborator work",
+      "owner": "B"
+    },
+    {
+      "path": "qisi-sdd-v3/handoffs/B03.md",
+      "sha256": "97da821f4e690c9d6cff3e96fe13cbab652df6ca5de99c00d2bbd485f232d9ee",
+      "modified_at": "2026-09-20T09:09:40.519427+00:00",
+      "before_sha256": null,
+      "provenance": "targeted extension; preserves pre-existing/collaborator work",
+      "owner": "B"
+    },
+    {
+      "path": "qisi-sdd-v3/handoffs/B07.md",
+      "sha256": "fcfb448b584c0e075a89b620994a4f2ce0d93b3c199c38ca04f576f39c597840",
+      "modified_at": "2026-09-20T09:09:40.532492+00:00",
+      "before_sha256": null,
+      "provenance": "targeted extension; preserves pre-existing/collaborator work",
+      "owner": "B"
+    }
+  ],
+  "generated_build_metadata": [
+    "server/tsconfig.build.tsbuildinfo",
+    "web/tsconfig.app.tsbuildinfo"
+  ],
+  "notes": [
+    "Hashes describe this checkpoint only; not historical release acceptance.",
+    "Only six original before hashes were captured; missing entries are not fabricated.",
+    "Raw evidence/log files are listed in commands.json; no secrets, real student sessions or private images were intentionally collected."
+  ]
+}

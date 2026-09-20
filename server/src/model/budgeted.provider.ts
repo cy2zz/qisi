@@ -37,7 +37,8 @@ export class ProviderCallError extends Error {
   readonly role: string;
 
   constructor(role: string, cause: unknown) {
-    super(`provider 调用失败（${role}）：${cause instanceof Error ? cause.message : String(cause)}`);
+    super(`provider 调用失败（${role}）`);
+    void cause; // Deliberately do not retain/log raw provider messages or credentials.
     this.name = 'ProviderCallError';
     this.role = role;
   }
@@ -46,27 +47,40 @@ export class ProviderCallError extends Error {
 /** 简单计数信号量。等待期间不占数据库事务（模型调用在事务外执行）。 */
 class Semaphore {
   #available: number;
-  readonly #waiters: (() => void)[] = [];
-
+  readonly #waiters: { resolve: () => void; reject: (reason: unknown) => void; signal: AbortSignal; abort: () => void }[] = [];
   constructor(permits: number) {
+    if (!Number.isSafeInteger(permits) || permits < 1) throw new Error('INVALID_CONCURRENCY');
     this.#available = permits;
   }
-
-  async acquire(): Promise<() => void> {
-    if (this.#available > 0) {
-      this.#available -= 1;
-    } else {
-      await new Promise<void>((resolve) => this.#waiters.push(resolve));
-    }
+  async acquire(signal: AbortSignal): Promise<() => void> {
+    signal.throwIfAborted();
+    if (this.#available > 0) this.#available--;
+    else await new Promise<void>((resolve, reject) => {
+      const waiter = { resolve, reject, signal, abort: () => {
+        const index = this.#waiters.indexOf(waiter);
+        if (index >= 0) this.#waiters.splice(index, 1);
+        reject(signal.reason);
+      } };
+      this.#waiters.push(waiter); signal.addEventListener('abort', waiter.abort, { once: true });
+    });
     let released = false;
     return () => {
-      if (released) return;
-      released = true;
+      if (released) return; released = true;
       const next = this.#waiters.shift();
-      if (next) next();
-      else this.#available += 1;
+      if (next) { next.signal.removeEventListener('abort', next.abort); next.resolve(); }
+      else this.#available++;
     };
   }
+}
+
+/** A non-cooperating provider may keep billing, but its late output cannot be used. */
+function untilAborted<T>(operation: Promise<T>, signal: AbortSignal): Promise<T> {
+  return new Promise<T>((resolve, reject) => {
+    const abort = () => reject(signal.reason);
+    signal.addEventListener('abort', abort, { once: true });
+    if (signal.aborted) abort();
+    operation.then(value => { signal.removeEventListener('abort', abort); if (!signal.aborted) resolve(value); }, error => { signal.removeEventListener('abort', abort); reject(error); });
+  });
 }
 
 function formatIssues(error: z.ZodError): string[] {
@@ -105,12 +119,19 @@ export class BudgetedModelPort implements ModelPort {
   }
 
   async generate(request: ModelRequest): Promise<ModelResponse> {
-    const release = await this.#semaphore.acquire();
+    const deadline = new AbortController();
+    const timer = setTimeout(() => deadline.abort(new Error('DEADLINE_EXCEEDED')), this.#ledger.remainingTimeMs);
+    timer.unref();
+    const signal = AbortSignal.any([request.signal, this.#ledger.signal, deadline.signal]);
+    let release: (() => void) | undefined;
     try {
-      return await this.#generateWithinPermit(request);
-    } finally {
-      release();
-    }
+      release = await this.#semaphore.acquire(signal);
+      signal.throwIfAborted();
+      return await this.#generateWithinPermit({ ...request, signal });
+    } catch (error) {
+      if (signal.aborted && !(error instanceof ProviderCallError)) throw new ProviderCallError(request.role, error);
+      throw error;
+    } finally { clearTimeout(timer); release?.(); }
   }
 
   async #generateWithinPermit(request: ModelRequest): Promise<ModelResponse> {
@@ -125,7 +146,9 @@ export class BudgetedModelPort implements ModelPort {
       const startedAt = this.#now();
       let response: ModelResponse;
       try {
-        response = await this.#provider.generate({ ...attempt, signal: this.#mergeSignals(attempt.signal) });
+        attempt.signal.throwIfAborted();
+        response = await untilAborted(this.#provider.generate({ ...attempt, signal: this.#mergeSignals(attempt.signal) }), attempt.signal);
+        attempt.signal.throwIfAborted();
       } catch (error) {
         // 失败不结算、不退还：预留继续占用额度。规格要求失败、超时、重试都计入预算。
         throw new ProviderCallError(attempt.role, error);

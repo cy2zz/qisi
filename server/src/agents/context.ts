@@ -71,13 +71,41 @@ export interface SessionContext {
   readonly strategy: Strategy;
 
   // --- Assessment 可见：锁定计划与最终答案，无历史诊断 ---
-  readonly checkTask: CheckTask;
+  /**
+   * 检验题可以为空：A 的会话模型允许没有检验题的会话（packet.check_tasks 可空）。
+   * 教学轮不读这个字段；评分读它，且必须在为空时**拒绝**——编一份空 rubric 会让
+   * 评分看起来正常完成，而那个结论是编造的。见 projectAssessmentInput。
+   */
+  readonly checkTask: CheckTask | null;
   readonly lockedPlanMd: string;
   readonly finalAnswerMd: string;
 
   // --- Guard 可见：候选产物与披露边界 ---
   readonly guardReferenceMd: string;
 }
+
+/**
+ * 各投影函数的入参：**只声明该角色真正读到的字段**。
+ *
+ * 这是本模块权限边界的加强版。此前统一收 SessionContext，投影函数"读不到"的字段
+ * 仍作为入参存在，边界靠"函数内不去读"维持；收窄后字段根本传不进来——与
+ * projectPreparationInput 的注释所说「无法写出会话，因为输入里没有它」同一机制。
+ *
+ * 实际后果：教学轮可以在**诊断与策略尚未产出**时构造各阶段输入（见
+ * features/tutor/submit-turn.deps.ts），无需为不存在的字段编造占位值。
+ */
+export type PreparationSource = Pick<SessionContext, 'problem' | 'referenceMaterialMd' | 'studentRouteMd'>;
+export type DiagnosisSource = Pick<
+  SessionContext,
+  'taskId' | 'problem' | 'decisions' | 'routes' | 'submissions' | 'previousHypotheses' | 'previousProbes' | 'privateReferenceMd'
+>;
+export type StrategySource = Pick<
+  SessionContext,
+  'diagnosis' | 'userAction' | 'exposures' | 'remainingProbes' | 'remainingCalls' | 'routePatch' | 'decisions' | 'privateReferenceMd'
+>;
+export type AssessmentSource = Pick<SessionContext, 'taskId' | 'checkTask' | 'lockedPlanMd' | 'finalAnswerMd'>;
+export type RendererSource = Pick<SessionContext, 'taskId' | 'publicPromptMd' | 'publicHistoryMd' | 'strategy'>;
+export type GuardSource = Pick<SessionContext, 'taskId' | 'guardReferenceMd'>;
 
 /** 诊断证据只取当前有效且已确认的提交（contracts/README.md §7）。 */
 export function confirmedSubmissions(submissions: readonly Submission[]): readonly Submission[] {
@@ -89,7 +117,7 @@ export function confirmedSubmissions(submissions: readonly Submission[]): readon
  * 不含 owner 身份、不含会话状态——Preparation 无法写出会话，因为输入里没有它。
  */
 export function projectPreparationInput(
-  context: SessionContext,
+  context: PreparationSource,
   mode: PreparationInput['mode'],
   evidenceRefs: readonly EvidenceRef[] = [],
 ): PreparationInput {
@@ -106,7 +134,7 @@ export function projectPreparationInput(
  * Diagnosis：证据只取已确认且未失效的提交。
  * 未确认的手写转写与非法的未来检验内容不会进入——不是靠过滤掉，而是这里根本不读。
  */
-export function projectDiagnosisInput(context: SessionContext): DiagnosisInput {
+export function projectDiagnosisInput(context: DiagnosisSource): DiagnosisInput {
   return {
     task_id: context.taskId,
     prompt_md: context.problem.statement_md,
@@ -120,7 +148,7 @@ export function projectDiagnosisInput(context: SessionContext): DiagnosisInput {
 }
 
 /** Strategy：诊断 + 求助意图 + 曝光账 + 剩余预算。不改变预算，只被告知剩余量。 */
-export function projectStrategyInput(context: SessionContext): StrategyInput {
+export function projectStrategyInput(context: StrategySource): StrategyInput {
   return {
     diagnosis: context.diagnosis,
     user_action: context.userAction,
@@ -133,14 +161,25 @@ export function projectStrategyInput(context: SessionContext): StrategyInput {
   };
 }
 
+/** 会话没有检验题，因此不可评分。 */
+export class MissingCheckTaskError extends Error {
+  constructor(taskId: string) {
+    super(`任务 ${taskId} 没有检验题，无法评分；不得以空 rubric 代替`);
+    this.name = 'MissingCheckTaskError';
+  }
+}
+
 /**
  * Assessment：**只有**锁定计划、最终答案与检验题本身。
  *
  * 规格要求「上下文不含历史误诊、学习画像或 teacher 标签，减少先入偏见」
  * （contracts/README.md §8）。此处不读取 context.diagnosis / submissions /
  * previousHypotheses——先入信息无法进入，而非"传了但不看"。
+ *
+ * 没有检验题时抛出：空 rubric 会让评分看起来正常完成，而结论是编造的。
  */
-export function projectAssessmentInput(context: SessionContext): AssessmentInput {
+export function projectAssessmentInput(context: AssessmentSource): AssessmentInput {
+  if (context.checkTask === null) throw new MissingCheckTaskError(context.taskId);
   return {
     task: context.checkTask,
     locked_plan_md: context.lockedPlanMd,
@@ -149,7 +188,7 @@ export function projectAssessmentInput(context: SessionContext): AssessmentInput
 }
 
 /** Renderer：最小信息，不含完整私有参考、未来 rubric 或原始诊断。 */
-export function projectRendererInput(context: SessionContext, approvedFacts: readonly ApprovedFact[]): RendererInput {
+export function projectRendererInput(context: RendererSource, approvedFacts: readonly ApprovedFact[]): RendererInput {
   return {
     task_id: context.taskId,
     public_prompt_md: context.publicPromptMd,
@@ -170,7 +209,7 @@ export function projectRendererInput(context: SessionContext, approvedFacts: rea
  * 该设计使"模型看到的是待检验的文本"而非"已经解析过的结构"，避免解析成功被误当作校验通过。
  */
 export function projectGuardInput(
-  context: SessionContext,
+  context: GuardSource,
   mode: GuardInput['mode'],
   candidate: unknown,
   allowedDisclosures: readonly string[],

@@ -1,0 +1,69 @@
+[
+  {
+    "id": "server-typecheck-closing",
+    "command": "npm --prefix server run typecheck",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "started_at": "2026-09-20T16:03:09.093686+08:00",
+    "finished_at": "2026-09-20T16:03:22.143112+08:00",
+    "exit_code": 0,
+    "result": "passed",
+    "test_summary": [],
+    "evidence_file": "artifacts/acceptance/B-20260920-local/server-typecheck-closing.log",
+    "source_changes_during_command": []
+  },
+  {
+    "id": "server-lint-closing",
+    "command": "npm --prefix server run lint",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "started_at": "2026-09-20T16:03:22.323035+08:00",
+    "finished_at": "2026-09-20T16:03:31.410764+08:00",
+    "exit_code": 0,
+    "result": "passed",
+    "test_summary": [],
+    "evidence_file": "artifacts/acceptance/B-20260920-local/server-lint-closing.log",
+    "source_changes_during_command": []
+  },
+  {
+    "id": "server-unit-closing",
+    "command": "npm --prefix server test -- --reporter=dot",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "started_at": "2026-09-20T16:03:31.559106+08:00",
+    "finished_at": "2026-09-20T16:04:17.842110+08:00",
+    "exit_code": 1,
+    "result": "failed",
+    "test_summary": [
+      "⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯",
+      "Test Files  1 failed | 67 passed (68)",
+      "Tests  1 failed | 565 passed (566)"
+    ],
+    "evidence_file": "artifacts/acceptance/B-20260920-local/server-unit-closing.log",
+    "source_changes_during_command": []
+  },
+  {
+    "id": "server-build-closing",
+    "command": "npm --prefix server run build",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "started_at": "2026-09-20T16:04:18.032210+08:00",
+    "finished_at": "2026-09-20T16:04:27.102847+08:00",
+    "exit_code": 0,
+    "result": "passed",
+    "test_summary": [],
+    "evidence_file": "artifacts/acceptance/B-20260920-local/server-build-closing.log",
+    "source_changes_during_command": []
+  },
+  {
+    "id": "b-rules-closing",
+    "command": "npm --prefix server test -- --run test/diagnosis test/strategy test/corrections test/teacher test/tutor/b09-adversarial.spec.ts test/workflows/actual-exposure.spec.ts test/workflows/budget-safety.spec.ts test/workflows/admission-failure.spec.ts --reporter=dot",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "started_at": "2026-09-20T16:04:27.265958+08:00",
+    "finished_at": "2026-09-20T16:04:35.141787+08:00",
+    "exit_code": 0,
+    "result": "passed",
+    "test_summary": [
+      "Test Files  12 passed (12)",
+      "Tests  90 passed (90)"
+    ],
+    "evidence_file": "artifacts/acceptance/B-20260920-local/b-rules-closing.log",
+    "source_changes_during_command": []
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "baseline": "qisi-3.1",
+  "task_id": "B09",
+  "status": "in_progress",
+  "scope": "三个合成对抗反例先失败后修复：嵌套假设引用导致的后继失效；异解核验不得忽略 fail/unknown。",
+  "changed_files": [
+    "server/test/tutor/b09-adversarial.spec.ts",
+    "server/src/features/tutor/corrections.ts",
+    "server/src/agents/strategy/route-admission.ts"
+  ],
+  "review": "self_review",
+  "acceptance": {
+    "AT05": "not_run_full_acceptance",
+    "AT16": "not_run_full_acceptance",
+    "AT19": "not_run_full_acceptance",
+    "AT24": "not_run_full_acceptance",
+    "AT28": "not_run_full_acceptance",
+    "AT57": "not_run_full_acceptance"
+  },
+  "evidence": [
+    "commands.json",
+    "recheck-commands.json",
+    "task-gates.json",
+    "failure-first.json",
+    "final-commands.json",
+    "closing-commands.json",
+    "closing-red-green.json",
+    "task-gate-diagnostic.json"
+  ],
+  "blocking_or_remaining": "未调参真实模型保留集和全P0评测未运行；当前全量仍有失败，不能把合成规则回归称为 held-out 教学质量评估。"
+}

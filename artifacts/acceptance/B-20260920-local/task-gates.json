@@ -1,0 +1,92 @@
+[
+  {
+    "task": "B01",
+    "command": "npm run test:task -- B01",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 1,
+    "result": "failed",
+    "test_count": 0,
+    "evidence_file": "artifacts/acceptance/B-20260920-local/B01-task-gate.log"
+  },
+  {
+    "task": "B02",
+    "command": "npm run test:task -- B02",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 1,
+    "result": "failed",
+    "test_count": 0,
+    "evidence_file": "artifacts/acceptance/B-20260920-local/B02-task-gate.log"
+  },
+  {
+    "task": "B03",
+    "command": "npm run test:task -- B03",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 1,
+    "result": "failed",
+    "test_count": null,
+    "evidence_file": "artifacts/acceptance/B-20260920-local/B03-task-gate.log"
+  },
+  {
+    "task": "B04",
+    "command": "npm run test:task -- B04",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 1,
+    "result": "failed",
+    "test_count": 0,
+    "evidence_file": "artifacts/acceptance/B-20260920-local/B04-task-gate.log"
+  },
+  {
+    "task": "B05",
+    "command": "npm run test:task -- B05",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 1,
+    "result": "failed",
+    "test_count": 0,
+    "evidence_file": "artifacts/acceptance/B-20260920-local/B05-task-gate.log"
+  },
+  {
+    "task": "B06",
+    "command": "npm run test:task -- B06",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 1,
+    "result": "failed",
+    "test_count": 0,
+    "evidence_file": "artifacts/acceptance/B-20260920-local/B06-task-gate.log"
+  },
+  {
+    "task": "B07",
+    "command": "npm run test:task -- B07",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 1,
+    "result": "failed",
+    "test_count": 0,
+    "evidence_file": "artifacts/acceptance/B-20260920-local/B07-task-gate.log"
+  },
+  {
+    "task": "B08",
+    "command": "npm run test:task -- B08",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 1,
+    "result": "failed",
+    "test_count": 0,
+    "evidence_file": "artifacts/acceptance/B-20260920-local/B08-task-gate.log"
+  },
+  {
+    "task": "B09",
+    "command": "npm run test:task -- B09",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 1,
+    "result": "failed",
+    "test_count": 0,
+    "evidence_file": "artifacts/acceptance/B-20260920-local/B09-task-gate.log"
+  },
+  {
+    "task": "B10",
+    "command": "npm run test:task -- B10",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 1,
+    "result": "failed",
+    "test_count": 0,
+    "evidence_file": "artifacts/acceptance/B-20260920-local/B10-task-gate.log"
+  }
+]

@@ -1,0 +1,434 @@
+[
+  {
+    "command": "npm --prefix server exec -- vitest run test/tutor/persistence-boundary.spec.ts",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 1,
+    "status": "failed",
+    "tests": {
+      "passed": 0,
+      "failed": 3,
+      "skipped": 0
+    },
+    "kind": "fixture",
+    "log": "boundary-red.log",
+    "log_modified_at": "2026-09-20T08:30:31.924552+00:00"
+  },
+  {
+    "command": "npm --prefix server exec -- vitest run test/tutor/learning-transaction.spec.ts",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 1,
+    "status": "failed",
+    "tests": {
+      "passed": 0,
+      "failed": 3,
+      "skipped": 0
+    },
+    "kind": "fixture",
+    "log": "transaction-red.log",
+    "log_modified_at": "2026-09-20T08:32:32.989375+00:00"
+  },
+  {
+    "command": "npm --prefix server exec -- vitest run test/tutor/learning-transaction.spec.ts",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 1,
+    "status": "failed",
+    "tests": {
+      "passed": 3,
+      "failed": 1,
+      "skipped": 0
+    },
+    "kind": "fixture",
+    "log": "lock-order-red.log",
+    "log_modified_at": "2026-09-20T08:52:14.221814+00:00"
+  },
+  {
+    "command": "npm --prefix server exec -- vitest run test/tutor/persistence-boundary.spec.ts test/tutor/learning-transaction.spec.ts test/tutor/submit-turn-deps.spec.ts test/tutor/submit-turn.spec.ts test/tutor/app-wiring.spec.ts",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 0,
+    "status": "passed",
+    "tests": {
+      "passed": 30,
+      "failed": 0,
+      "skipped": 0
+    },
+    "kind": "fixture",
+    "log": "boundary-green-first.log",
+    "log_modified_at": "2026-09-20T08:39:14.340321+00:00"
+  },
+  {
+    "command": "npm --prefix server exec -- vitest run test/tutor/persistent-runner.spec.ts",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 0,
+    "status": "passed",
+    "tests": {
+      "passed": 8,
+      "failed": 0,
+      "skipped": 0
+    },
+    "kind": "fixture",
+    "log": "adapter-first.log",
+    "log_modified_at": "2026-09-20T08:41:57.015424+00:00"
+  },
+  {
+    "command": "npm --prefix server exec -- vitest run test/tutor/learning-transaction.spec.ts test/tutor/persistence-boundary.spec.ts test/tutor/persistent-runner.spec.ts",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 0,
+    "status": "passed",
+    "tests": {
+      "passed": 15,
+      "failed": 0,
+      "skipped": 0
+    },
+    "kind": "fixture",
+    "log": "adapter-green.log",
+    "log_modified_at": "2026-09-20T08:53:12.253813+00:00"
+  },
+  {
+    "command": "npm --prefix server exec -- vitest run test/tutor/persistence-boundary.spec.ts test/tutor/learning-transaction.spec.ts test/tutor/persistent-runner.spec.ts test/tutor/submit-turn-deps.spec.ts test/tutor/submit-turn.spec.ts test/tutor/app-wiring.spec.ts",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 0,
+    "status": "passed",
+    "tests": {
+      "passed": 39,
+      "failed": 0,
+      "skipped": 0
+    },
+    "kind": "fixture",
+    "log": "targeted-closing.log",
+    "log_modified_at": "2026-09-20T09:05:05.977954+00:00"
+  },
+  {
+    "command": "python server/test/tutor/run-isolated-mysql.py",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 1,
+    "status": "failed",
+    "tests": null,
+    "kind": "isolated_real_mysql_8_0_fixture_model",
+    "log": "mysql-first.log",
+    "log_modified_at": "2026-09-20T08:45:55.491645+00:00",
+    "test_cwd": "D:\\math\\qisi-dashboard\\server",
+    "test_command": "node <resolved installed vitest CLI> run test/tutor/learning-persistence.mysql.spec.ts",
+    "limitation": "launcher failure; no product test result"
+  },
+  {
+    "command": "python server/test/tutor/run-isolated-mysql.py",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 1,
+    "status": "failed",
+    "tests": null,
+    "kind": "isolated_real_mysql_8_0_fixture_model",
+    "log": "mysql-second.log",
+    "log_modified_at": "2026-09-20T08:49:23.108746+00:00",
+    "test_cwd": "D:\\math\\qisi-dashboard\\server",
+    "test_command": "node <resolved installed vitest CLI> run test/tutor/learning-persistence.mysql.spec.ts",
+    "limitation": "launcher failure; no product test result"
+  },
+  {
+    "command": "python server/test/tutor/run-isolated-mysql.py",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 1,
+    "status": "failed",
+    "tests": null,
+    "kind": "isolated_real_mysql_8_0_fixture_model",
+    "log": "mysql-third.log",
+    "log_modified_at": "2026-09-20T08:50:28.332815+00:00",
+    "test_cwd": "D:\\math\\qisi-dashboard\\server",
+    "test_command": "node <resolved installed vitest CLI> run test/tutor/learning-persistence.mysql.spec.ts",
+    "limitation": "launcher failure; no product test result"
+  },
+  {
+    "command": "python server/test/tutor/run-isolated-mysql.py",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 0,
+    "status": "passed",
+    "tests": {
+      "passed": 9,
+      "failed": 0,
+      "skipped": 0
+    },
+    "kind": "isolated_real_mysql_8_0_fixture_model",
+    "log": "mysql-red.log",
+    "log_modified_at": "2026-09-20T08:51:25.624143+00:00",
+    "test_cwd": "D:\\math\\qisi-dashboard\\server",
+    "test_command": "node <resolved installed vitest CLI> run test/tutor/learning-persistence.mysql.spec.ts",
+    "limitation": "filename is historical; actual result was 9 passed, not a red product test"
+  },
+  {
+    "command": "python server/test/tutor/run-isolated-mysql.py",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 1,
+    "status": "failed",
+    "tests": null,
+    "kind": "isolated_real_mysql_8_0_fixture_model",
+    "log": "mysql-expanded.log",
+    "log_modified_at": "2026-09-20T08:54:58.940116+00:00",
+    "test_cwd": "D:\\math\\qisi-dashboard\\server",
+    "test_command": "node <resolved installed vitest CLI> run test/tutor/learning-persistence.mysql.spec.ts",
+    "limitation": "GBK stdout encoding failure; underlying test result not captured, cannot count as passed"
+  },
+  {
+    "command": "python server/test/tutor/run-isolated-mysql.py",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 0,
+    "status": "passed",
+    "tests": {
+      "passed": 13,
+      "failed": 0,
+      "skipped": 0
+    },
+    "kind": "isolated_real_mysql_8_0_fixture_model",
+    "log": "mysql-final.log",
+    "log_modified_at": "2026-09-20T08:57:26.762398+00:00",
+    "test_cwd": "D:\\math\\qisi-dashboard\\server",
+    "test_command": "node <resolved installed vitest CLI> run test/tutor/learning-persistence.mysql.spec.ts"
+  },
+  {
+    "command": "python server/test/tutor/run-isolated-mysql.py",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 1,
+    "status": "failed",
+    "tests": {
+      "passed": 13,
+      "failed": 1,
+      "skipped": 0
+    },
+    "kind": "isolated_real_mysql_8_0_fixture_model",
+    "log": "mysql-prior-evidence-red.log",
+    "log_modified_at": "2026-09-20T08:58:34.887623+00:00",
+    "test_cwd": "D:\\math\\qisi-dashboard\\server",
+    "test_command": "node <resolved installed vitest CLI> run test/tutor/learning-persistence.mysql.spec.ts"
+  },
+  {
+    "command": "python server/test/tutor/run-isolated-mysql.py",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 0,
+    "status": "passed",
+    "tests": {
+      "passed": 14,
+      "failed": 0,
+      "skipped": 0
+    },
+    "kind": "isolated_real_mysql_8_0_fixture_model",
+    "log": "mysql-prior-evidence-green.log",
+    "log_modified_at": "2026-09-20T09:00:40.445984+00:00",
+    "test_cwd": "D:\\math\\qisi-dashboard\\server",
+    "test_command": "node <resolved installed vitest CLI> run test/tutor/learning-persistence.mysql.spec.ts"
+  },
+  {
+    "command": "npm --prefix server run typecheck",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 2,
+    "status": "failed",
+    "tests": null,
+    "kind": "static_or_build",
+    "log": "typecheck-first.log",
+    "log_modified_at": "2026-09-20T08:38:37.863095+00:00"
+  },
+  {
+    "command": "npm --prefix server run typecheck",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 0,
+    "status": "passed",
+    "tests": null,
+    "kind": "static_or_build",
+    "log": "typecheck-current.log",
+    "log_modified_at": "2026-09-20T08:49:27.817210+00:00"
+  },
+  {
+    "command": "npm --prefix server run typecheck",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 0,
+    "status": "passed",
+    "tests": null,
+    "kind": "static_or_build",
+    "log": "typecheck-final.log",
+    "log_modified_at": "2026-09-20T08:54:56.254601+00:00"
+  },
+  {
+    "command": "npm --prefix server run typecheck",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 0,
+    "status": "passed",
+    "tests": null,
+    "kind": "static_or_build",
+    "log": "typecheck-closing.log",
+    "log_modified_at": "2026-09-20T09:02:15.949917+00:00"
+  },
+  {
+    "command": "npm --prefix server run lint",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 1,
+    "status": "failed",
+    "tests": null,
+    "kind": "static_or_build",
+    "log": "lint-first.log",
+    "log_modified_at": "2026-09-20T08:51:49.546020+00:00"
+  },
+  {
+    "command": "npm --prefix server run lint",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 0,
+    "status": "passed",
+    "tests": null,
+    "kind": "static_or_build",
+    "log": "lint-final.log",
+    "log_modified_at": "2026-09-20T08:55:13.432050+00:00"
+  },
+  {
+    "command": "npm --prefix server run lint",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 0,
+    "status": "passed",
+    "tests": null,
+    "kind": "static_or_build",
+    "log": "lint-closing.log",
+    "log_modified_at": "2026-09-20T09:02:25.706916+00:00"
+  },
+  {
+    "command": "npm --prefix server run build",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 0,
+    "status": "passed",
+    "tests": null,
+    "kind": "static_or_build",
+    "log": "build-closing.log",
+    "log_modified_at": "2026-09-20T09:02:36.703041+00:00"
+  },
+  {
+    "command": "npm --prefix server run test",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 1,
+    "status": "failed",
+    "tests": {
+      "passed": 580,
+      "failed": 1,
+      "skipped": 13
+    },
+    "kind": "fixture",
+    "log": "server-full.log",
+    "log_modified_at": "2026-09-20T08:56:09.337663+00:00"
+  },
+  {
+    "command": "npm --prefix server run test",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 1,
+    "status": "failed",
+    "tests": {
+      "passed": 580,
+      "failed": 1,
+      "skipped": 14
+    },
+    "kind": "fixture",
+    "log": "server-full-closing.log",
+    "log_modified_at": "2026-09-20T09:05:00.197116+00:00"
+  },
+  {
+    "command": "npm run typecheck",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 0,
+    "status": "passed",
+    "tests": null,
+    "kind": "static_or_build",
+    "log": "root-typecheck.log",
+    "log_modified_at": "2026-09-20T09:05:27.860517+00:00"
+  },
+  {
+    "command": "npm run test:task -- B01",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "started_at": "2026-09-20T17:05:04.6476612+08:00",
+    "ended_at": "2026-09-20T17:05:06.7855489+08:00",
+    "exit_code": 1,
+    "tests_run": 0,
+    "status": "failed",
+    "log": "gate-B01-test-task.log"
+  },
+  {
+    "command": "npm run test:e2e:task -- B01",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "started_at": "2026-09-20T17:05:06.7992378+08:00",
+    "ended_at": "2026-09-20T17:05:08.2525561+08:00",
+    "exit_code": 1,
+    "tests_run": 0,
+    "status": "failed",
+    "log": "gate-B01-test-e2e-task.log"
+  },
+  {
+    "command": "npm run test:stack -- B01",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "started_at": "2026-09-20T17:05:08.2535547+08:00",
+    "ended_at": "2026-09-20T17:05:09.8560029+08:00",
+    "exit_code": 1,
+    "tests_run": 0,
+    "status": "failed",
+    "log": "gate-B01-test-stack.log"
+  },
+  {
+    "command": "npm run test:task -- B03",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "started_at": "2026-09-20T17:05:09.8585469+08:00",
+    "ended_at": "2026-09-20T17:05:11.4317036+08:00",
+    "exit_code": 1,
+    "tests_run": 0,
+    "status": "failed",
+    "log": "gate-B03-test-task.log"
+  },
+  {
+    "command": "npm run test:e2e:task -- B03",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "started_at": "2026-09-20T17:05:11.4326996+08:00",
+    "ended_at": "2026-09-20T17:05:12.8167989+08:00",
+    "exit_code": 1,
+    "tests_run": 0,
+    "status": "failed",
+    "log": "gate-B03-test-e2e-task.log"
+  },
+  {
+    "command": "npm run test:task -- B07",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "started_at": "2026-09-20T17:05:12.8183102+08:00",
+    "ended_at": "2026-09-20T17:05:14.4572212+08:00",
+    "exit_code": 1,
+    "tests_run": 0,
+    "status": "failed",
+    "log": "gate-B07-test-task.log"
+  },
+  {
+    "command": "npm run test:e2e:task -- B07",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "started_at": "2026-09-20T17:05:14.4582243+08:00",
+    "ended_at": "2026-09-20T17:05:15.9547972+08:00",
+    "exit_code": 1,
+    "tests_run": 0,
+    "status": "failed",
+    "log": "gate-B07-test-e2e-task.log"
+  },
+  {
+    "command": "npm run test:stack -- B07",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "started_at": "2026-09-20T17:05:15.9567931+08:00",
+    "ended_at": "2026-09-20T17:05:17.7945867+08:00",
+    "exit_code": 1,
+    "tests_run": 0,
+    "status": "failed",
+    "log": "gate-B07-test-stack.log"
+  },
+  {
+    "command": "git -c core.whitespace=cr-at-eol diff --check",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 0,
+    "status": "passed",
+    "tests": null,
+    "kind": "whitespace_only",
+    "log": "diff-check.log",
+    "log_modified_at": "2026-09-20T09:07:20.927139+00:00"
+  },
+  {
+    "command": "git -c core.whitespace=cr-at-eol diff --check",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 0,
+    "status": "passed",
+    "tests": null,
+    "kind": "whitespace_only",
+    "log": "diff-check-final.log"
+  }
+]

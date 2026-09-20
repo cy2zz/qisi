@@ -112,29 +112,15 @@ export class TurnWorkflow {
     readonly knownDecisionIds: ReadonlySet<string>;
     readonly context: TurnStrategyContext;
   }): PolicyDecision {
-    // 探针额度用尽时把策略里的 probe 摘掉再交给 PolicyGate。规格要求
-    // 「已两次探针时…改用局部解释/低风险帮助/明确待定」，而不是整轮失败——
-    // 学生仍应得到帮助，只是不再通过追问来诊断。
-    const probeExhausted = params.context.probeAdmission !== null && !params.context.probeAdmission.allowed;
-    const effectiveStrategy: Strategy = probeExhausted ? { ...params.strategy, probe: null } : params.strategy;
-
-    const decision = gateTurn({
-      strategy: effectiveStrategy,
+    // Never edit a candidate after Renderer/Guard: removing the field does not remove
+    // the question from the checked text. A no-probe alternative needs its own check.
+    return gateTurn({
+      strategy: params.strategy,
       guard: params.guard,
       knownDecisionIds: params.knownDecisionIds,
       knownGoalKeys: params.context.knownGoalKeys,
-      // 传真实已显示次数而非 0：探针已被摘掉时 gateTurn 的探针分支本就不会触发，
-      // 而未摘掉时这个值必须真实，否则等于谎报额度用量。
       probesShownForFocusGoal: params.context.shownCount,
     });
-
-    if (probeExhausted && decision.approved) {
-      return {
-        ...decision,
-        reason: `${decision.reason}；探针额度已用尽，本轮转为局部解释或待定`,
-      };
-    }
-    return decision;
   }
 
   /**

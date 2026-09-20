@@ -1,0 +1,11 @@
+
+> @qisi/server@0.1.0 lint
+> eslint src test --max-warnings=0
+
+
+D:\math\qisi-dashboard\server\src\features\tutor\submit-turn.deps.ts
+  42:10  error  'Inject' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 1 problem (1 error, 0 warnings)
+
+

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "web-unit-bounded-workers",
+    "command": "npm --prefix web test -- --maxWorkers=2 --reporter=dot",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "started_at": "2026-09-20T15:50:21.492880+08:00",
+    "exit_code": 1,
+    "result": "failed",
+    "test_summary": [
+      "Test Files  1 failed | 22 passed (23)",
+      "Tests  2 failed | 100 passed (102)",
+      "⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯"
+    ],
+    "evidence_file": "artifacts/acceptance/B-20260920-local/web-unit-bounded-workers.log"
+  },
+  {
+    "id": "server-lint-recheck",
+    "command": "npm --prefix server run lint",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "started_at": "2026-09-20T15:51:42.771503+08:00",
+    "exit_code": 1,
+    "result": "failed",
+    "test_summary": [
+      "✖ 1 problem (1 error, 0 warnings)"
+    ],
+    "evidence_file": "artifacts/acceptance/B-20260920-local/server-lint-recheck.log"
+  },
+  {
+    "id": "server-B-rules",
+    "command": "npm --prefix server test -- --run test/diagnosis test/strategy test/corrections test/teacher test/tutor/b09-adversarial.spec.ts test/workflows/actual-exposure.spec.ts test/workflows/budget-safety.spec.ts --reporter=dot",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "started_at": "2026-09-20T15:51:58.916669+08:00",
+    "exit_code": 0,
+    "result": "passed",
+    "test_summary": [
+      "Test Files  11 passed (11)",
+      "Tests  86 passed (86)"
+    ],
+    "evidence_file": "artifacts/acceptance/B-20260920-local/server-B-rules.log"
+  }
+]

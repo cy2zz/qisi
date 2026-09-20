@@ -121,10 +121,10 @@ async function runTurnAndCapture(diagnosisOverride?: unknown) {
     }),
     buildRendererInput: (strategy) => projectRendererInput({ ...context, strategy }, strategyFixture.allowed_facts),
     buildGuardInput: (strategy, candidate) =>
-      projectGuardInput({ ...context, strategy }, 'message', candidate, strategyFixture.allowed_disclosures, strategyFixture.reserved_decisions),
+      projectGuardInput(context, 'message', candidate, strategyFixture.allowed_disclosures, strategyFixture.reserved_decisions),
     knownDecisionIds: new Set(packet.decisions.map((decision) => decision.id)),
     knownGoalKeys: new Set(packet.decisions.map((decision) => decision.goal_key)),
-    probesShownForFocusGoal: 0,
+    shownProbesFor: () => 0,
   });
 
   return provider;

@@ -1,0 +1,37 @@
+{
+  "baseline": "qisi-3.1",
+  "task_id": "B05",
+  "status": "in_progress",
+  "scope": "七类干预结构/用户意图准入、独立证据跳阶/撤架候选、保持来源的受核对异解准入。",
+  "changed_files": [
+    "server/src/workflows/policy.ts",
+    "server/src/agents/strategy/index.ts",
+    "server/src/agents/strategy/route-admission.ts",
+    "server/src/features/tutor/ladder.ts",
+    "server/test/strategy/admission.spec.ts",
+    "server/test/strategy/ladder.spec.ts",
+    "server/test/strategy/route-admission.spec.ts",
+    "server/test/workflows/admission-failure.spec.ts"
+  ],
+  "review": "self_review",
+  "acceptance": {
+    "AT16": "not_run_full_acceptance",
+    "AT17": "not_run_full_acceptance",
+    "AT18": "not_run_full_acceptance",
+    "AT24": "not_run_full_acceptance",
+    "AT25": "not_run_full_acceptance",
+    "AT26": "not_run_full_acceptance",
+    "AT60": "not_run_full_acceptance"
+  },
+  "evidence": [
+    "commands.json",
+    "recheck-commands.json",
+    "task-gates.json",
+    "failure-first.json",
+    "final-commands.json",
+    "closing-commands.json",
+    "closing-red-green.json",
+    "task-gate-diagnostic.json"
+  ],
+  "blocking_or_remaining": "将 ladder/route admission 候选接进正式编排、提交及教学UI；不能丢弃 route_review 返回值或将模型自评当数学核验；待真实教学质量回归。"
+}

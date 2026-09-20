@@ -1,0 +1,31 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT06",
+  "result": "not_run",
+  "executed_at": null,
+  "executed_by": null,
+  "application_commit": "a0730a45bbed54640f2d60d466d6a9ccbb59b59d",
+  "layer": "full_acceptance_not_executed",
+  "environment": {
+    "os": "Windows",
+    "node": "24.21.0",
+    "dirty_workspace": true
+  },
+  "bank_version": null,
+  "scope_hash": null,
+  "model_version": null,
+  "prompt_version": null,
+  "provider_mode": "fixture",
+  "commands": [],
+  "expected": null,
+  "actual": "Only applicable deterministic subchecks ran in this session; full criterion not executed. See associated task handoffs.",
+  "evidence_files": [
+    "commands.json",
+    "recheck-commands.json",
+    "run-summary.json"
+  ],
+  "limitations": [
+    "No real MySQL8.4/live-model/human/learning/e2e evidence in this run.",
+    "This dated record does not overwrite earlier root acceptance records; no new whole-AT pass is claimed."
+  ]
+}

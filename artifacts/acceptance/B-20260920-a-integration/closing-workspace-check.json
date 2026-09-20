@@ -1,0 +1,105 @@
+{
+  "a_root": "D:/math/develop/qisi-dashboard",
+  "a_head": "9451ee3c4aa42ac60f25a463361a42a9f6f14f2c",
+  "a_status": "## develop...origin/develop\n M README.md",
+  "b_root": "D:/math/qisi-dashboard",
+  "b_head": "a0730a45bbed54640f2d60d466d6a9ccbb59b59d",
+  "b_status": "## develop-B-v1.0...origin/develop-B-v1.0\n M qisi-sdd-v3/changes/B02.md\n M qisi-sdd-v3/changes/B03.md\n M qisi-sdd-v3/changes/B04.md\n M qisi-sdd-v3/handoffs/B01.md\n M qisi-sdd-v3/handoffs/B02.md\n M qisi-sdd-v3/handoffs/B03.md\n M qisi-sdd-v3/handoffs/B04.md\n M qisi-sdd-v3/tasks.json\n M server/src/agents/context.ts\n M server/src/agents/diagnosis/index.ts\n M server/src/agents/strategy/index.ts\n M server/src/app.module.ts\n M server/src/database/database.types.ts\n M server/src/features/learning/learning-session.service.ts\n M server/src/features/tutor/database-session.port.ts\n M server/src/features/tutor/probe-counter.ts\n M server/src/features/tutor/tutor.controller.ts\n M server/src/features/tutor/tutor.module.ts\n M server/src/features/tutor/tutor.service.ts\n M server/src/model/budget.ts\n M server/src/model/budgeted.provider.ts\n M server/src/workflows/orchestrator.ts\n M server/src/workflows/policy-gate.ts\n M server/src/workflows/store.port.ts\n M server/src/workflows/turn.ts\n M server/test/agents/at13-role-isolation.spec.ts\n M server/test/tutor/at27-renderer-input.spec.ts\n M server/test/tutor/probe-and-projection.spec.ts\n M server/test/tutor/submit-turn.spec.ts\n M server/tsconfig.build.tsbuildinfo\n M web/tsconfig.app.tsbuildinfo\n?? .raven/\n?? artifacts/acceptance/B-20260920-a-integration/\n?? artifacts/acceptance/B-20260920-local/\n?? artifacts/eval/\n?? artifacts/release/\n?? docs/model-card.md\n?? docs/popo-20-cards.md\n?? docs/raven-setup.md\n?? docs/teaching-demo.md\n?? qisi-sdd-v3/changes/B01.md\n?? qisi-sdd-v3/changes/B05.md\n?? qisi-sdd-v3/changes/B06.md\n?? qisi-sdd-v3/changes/B07.md\n?? qisi-sdd-v3/changes/B08.md\n?? qisi-sdd-v3/changes/B09.md\n?? qisi-sdd-v3/changes/B10.md\n?? qisi-sdd-v3/handoffs/B05.md\n?? qisi-sdd-v3/handoffs/B06.md\n?? qisi-sdd-v3/handoffs/B07.md\n?? qisi-sdd-v3/handoffs/B08.md\n?? qisi-sdd-v3/handoffs/B09.md\n?? qisi-sdd-v3/handoffs/B10.md\n?? ravenspec/changes/.gitkeep\n?? ravenspec/changes/b01-agent-workflow-foundation/\n?? ravenspec/config.yaml\n?? ravenspec/schemas/\n?? ravenspec/specs/\n?? scripts/evaluate-teaching.md\n?? scripts/evaluate-teaching.mjs\n?? scripts/link-raven-skills.mjs\n?? scripts/link-raven-skills.test.mjs\n?? server/src/agents/strategy/route-admission.ts\n?? server/src/features/teacher/\n?? server/src/features/tutor/corrections.ts\n?? server/src/features/tutor/evidence.ts\n?? server/src/features/tutor/ladder.ts\n?? server/src/features/tutor/learning-turn.store.ts\n?? server/src/features/tutor/persisted-teaching.ts\n?? server/src/features/tutor/submit-turn.deps.ts\n?? server/src/workflows/policy.ts\n?? server/test/agents/context.spec.ts\n?? server/test/corrections/\n?? server/test/diagnosis/\n?? server/test/eval/\n?? server/test/strategy/\n?? server/test/teacher/\n?? server/test/tutor/app-wiring.spec.ts\n?? server/test/tutor/b09-adversarial.spec.ts\n?? server/test/tutor/learning-persistence.mysql.spec.ts\n?? server/test/tutor/learning-transaction.spec.ts\n?? server/test/tutor/persistence-boundary.spec.ts\n?? server/test/tutor/persistent-runner.spec.ts\n?? server/test/tutor/run-isolated-mysql.py\n?? server/test/tutor/submit-turn-deps.spec.ts\n?? server/test/workflows/actual-exposure.spec.ts\n?? server/test/workflows/admission-failure.spec.ts\n?? server/test/workflows/budget-safety.spec.ts\n?? server/test/workflows/probe-count-from-strategy.spec.ts\n?? web/src/pages/teacher/",
+  "ddl": [
+    {
+      "path": "server/db/assessment_tasks.sql",
+      "sha256": "45e156c93c189a125ce691e5183844e5b1341903a6734794aa2242eda70b2303",
+      "normalized_matches_a": true
+    },
+    {
+      "path": "server/db/check_attempts.sql",
+      "sha256": "43bb7f5f75a752493802ecb46c9545cb568ef73987d36695370cb7e11ebc10c8",
+      "normalized_matches_a": true
+    },
+    {
+      "path": "server/db/events.sql",
+      "sha256": "ae604bad9f8e5852ed0e30b0b667e79d03e768d257fb770b02870c46596aa57b",
+      "normalized_matches_a": true
+    },
+    {
+      "path": "server/db/learning_drafts.sql",
+      "sha256": "770ff45b01ce4b1f3734b1c2a2e2389c9421c47d66abcdcd0d9b1931e99341b4",
+      "normalized_matches_a": true
+    },
+    {
+      "path": "server/db/learning_messages.sql",
+      "sha256": "fbdb61fdab0931c69ad3f93e0a63b03841fea560e1af15f627799f2d2618cc04",
+      "normalized_matches_a": true
+    },
+    {
+      "path": "server/db/media.sql",
+      "sha256": "0135275eede11dcd88fd5ee37b389fabfcf2aa83750229fd221ddbfd1d2b2aa2",
+      "normalized_matches_a": true
+    },
+    {
+      "path": "server/db/node_runs.sql",
+      "sha256": "6131e9785f3cb1fadf06fc9cf829b28db1443fbb8660deaf8f71038520d42b9a",
+      "normalized_matches_a": true
+    },
+    {
+      "path": "server/db/owner_privacy_state.sql",
+      "sha256": "da56cf89b20d06445bcf148672a8f300928cfd7c75e6c1cb638840b950847bad",
+      "normalized_matches_a": true
+    },
+    {
+      "path": "server/db/packets.sql",
+      "sha256": "f68a91128286123db9faf2832da7342781b840aef827786f7aa1aeb016c6f926",
+      "normalized_matches_a": true
+    },
+    {
+      "path": "server/db/paper.sql",
+      "sha256": "820ac4f79b303e46e3b6b21ff2af13cc00a319dde8faa3319d23159918acc5cb",
+      "normalized_matches_a": true
+    },
+    {
+      "path": "server/db/paper_question.sql",
+      "sha256": "bf79c6a421433b31acac940118873489b0dbd240a357e2af3a27ddb6e5f79376",
+      "normalized_matches_a": true
+    },
+    {
+      "path": "server/db/probe_counters.sql",
+      "sha256": "ba20be75169f62b11165a46eccfd220584f666c8578d17e8fe5156f888017fde",
+      "normalized_matches_a": true
+    },
+    {
+      "path": "server/db/question.sql",
+      "sha256": "a1d11058a3c230d1bb66eacfebcf50f7a6d92624ba5f067b6db2dbd4d1a1fd78",
+      "normalized_matches_a": true
+    },
+    {
+      "path": "server/db/requests.sql",
+      "sha256": "835c9062be6310c46f12c640e1599a36c6c5956190f6f6062e454fd3ce1beb0e",
+      "normalized_matches_a": true
+    },
+    {
+      "path": "server/db/runs.sql",
+      "sha256": "6d9eb761ead96fa656888b8afc93bfb711eb37df18c0eafdcd8851e1195e96a3",
+      "normalized_matches_a": true
+    },
+    {
+      "path": "server/db/seen_tasks.sql",
+      "sha256": "9dcceab59dabcc59fb0f9c628aef839e60d9ae2c9478515db134489841275e11",
+      "normalized_matches_a": true
+    },
+    {
+      "path": "server/db/sessions.sql",
+      "sha256": "f4a48b078cc8b77b1b41b3802c6c3e4d8cf75016de7dba0ba13356098145ef92",
+      "normalized_matches_a": true
+    },
+    {
+      "path": "server/db/transcripts.sql",
+      "sha256": "942f7ab4aacb2c6dcd1d3a3eb2e41cc572f84ee48145a1beeb633071e1cbd9c6",
+      "normalized_matches_a": true
+    },
+    {
+      "path": "server/db/users.sql",
+      "sha256": "626404dd51f58ed9c1e07086405809b57ebabc917806db786c8d874b515b0712",
+      "normalized_matches_a": true
+    }
+  ]
+}

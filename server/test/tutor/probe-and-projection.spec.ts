@@ -197,7 +197,7 @@ describe('TurnWorkflow.gate', () => {
     expect(decision.approved).toBe(true);
   });
 
-  it('额度用尽时摘掉探针但仍放行本轮——学生应得到帮助而非报错', () => {
+  it('AT22 拒绝已渲染的第三探针，不通过删字段假装低风险帮助', () => {
     workflow.recordCommittedProbe({ sessionId: SESSION_ID, taskId: TASK_ID, context: contextFor(true) });
     workflow.recordCommittedProbe({ sessionId: SESSION_ID, taskId: TASK_ID, context: contextFor(true) });
 
@@ -205,10 +205,8 @@ describe('TurnWorkflow.gate', () => {
     expect(context.probeAdmission?.allowed).toBe(false);
 
     const decision = workflow.gate({ strategy: withProbe(strategyFixture, focusGoalKey), guard: guardFixture, knownDecisionIds, context });
-    expect(decision.approved).toBe(true);
-    if (decision.approved) {
-      expect(decision.reason).toMatch(/探针额度已用尽/);
-    }
+    expect(decision).toMatchObject({ approved: false, code: 'PROBE_LIMIT_REACHED' });
+
   });
 
   it('模型给的 focus_goal_key 不在已登记决策中时不给探针额度', () => {

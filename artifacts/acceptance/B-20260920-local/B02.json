@@ -1,0 +1,24 @@
+{
+  "baseline": "qisi-3.1",
+  "task_id": "B02",
+  "status": "in_progress",
+  "scope": "审计：已有备课图结构、缓存键/候选等实现；本轮未把旧组件测试或历史模型记录当作新验收。",
+  "changed_files": [],
+  "review": "self_review",
+  "acceptance": {
+    "AT05": "not_run_full_acceptance",
+    "AT06": "not_run_full_acceptance",
+    "AT07": "not_run_full_acceptance"
+  },
+  "evidence": [
+    "commands.json",
+    "recheck-commands.json",
+    "task-gates.json",
+    "failure-first.json",
+    "final-commands.json",
+    "closing-commands.json",
+    "closing-red-green.json",
+    "task-gate-diagnostic.json"
+  ],
+  "blocking_or_remaining": "核验 Packet 数学来源/独立检验题、实际持久缓存与真实模型/人工样本；保持所有题库失败分母，不冒充当前已完成。"
+}

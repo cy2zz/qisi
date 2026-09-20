@@ -1,0 +1,12 @@
+{
+  "command": "node -e \"const r=require('node:child_process').spawnSync('npm.cmd',['--version']); console.log(JSON.stringify({status:r.status,errorCode:r.error?.code,errorMessage:r.error?.message}));\"",
+  "cwd": "D:\\math\\qisi-dashboard",
+  "exit_code": 0,
+  "diagnostic": {
+    "status": null,
+    "errorCode": "EINVAL",
+    "errorMessage": "spawnSync npm.cmd EINVAL"
+  },
+  "result": "diagnostic_reproduced",
+  "note": "Diagnostic process exits 0 but its npm.cmd child fails EINVAL. This is not a successful task test. run-task-gate.mjs uses the same spawnSync pattern; no root gate code changed."
+}

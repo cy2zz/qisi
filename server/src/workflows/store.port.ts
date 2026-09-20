@@ -9,6 +9,8 @@
 // 真实 MySQL 实现归 A（contracts/README.md §12：A 拥有 server/src/shared/db/**），
 // B 提供本接口与测试替身（server/src/workflows/memory-store.ts）。
 
+import type { ModelResponse } from '../model/ports.js';
+import type { Diagnosis, Strategy } from '../contracts/domain.schema.js';
 import type { WorkflowName } from './runtime.js';
 
 export interface SqlTransaction {
@@ -54,6 +56,8 @@ export interface CheckedMutation {
   readonly nextState: unknown;
   /** 该 request 的幂等安全响应。 */
   readonly safeResponse: unknown;
+  /** Private checked teaching facts, persisted atomically, never part of the public DTO. */
+  readonly teaching?: { readonly diagnosis: Diagnosis; readonly strategy: Strategy };
 }
 
 export type StoreErrorCode = 'REQUEST_CONFLICT' | 'VERSION_CONFLICT' | 'BUSY' | 'LEASE_INVALID' | 'NOT_FOUND';
@@ -68,6 +72,15 @@ export class StoreError extends Error {
   }
 }
 
+export interface NodeExecutionAudit {
+  readonly modelId: string;
+  readonly promptVersion: string;
+  readonly startedAt: string;
+  readonly finishedAt: string;
+  /** Final successful attempt only; not a durable aggregate budget ledger. */
+  readonly response: ModelResponse;
+}
+
 export interface StorePort {
   /**
    * 建立 run 与 lease。短事务内校验 session.version 且不得存在其他 active_run。
@@ -79,7 +92,7 @@ export interface StorePort {
   /** 仅当 inputHash 与已存节点一致且 lease 仍有效时返回私有结果，否则 null。 */
   getReusableNode(runId: string, nodeKey: string, inputHash: string): Promise<unknown | null>;
 
-  saveNode(runId: string, leaseToken: string, nodeKey: string, inputHash: string, result: unknown): Promise<void>;
+  saveNode(runId: string, leaseToken: string, nodeKey: string, inputHash: string, result: unknown, audit?: NodeExecutionAudit): Promise<void>;
 
   /**
    * **唯一**的业务提交点。单事务写安全检查后的消息、事件、实际曝光、状态/版本与

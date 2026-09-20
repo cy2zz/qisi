@@ -19,6 +19,9 @@ export type PolicyDenialCode =
   | 'DISCLOSURE_UNKNOWN_DECISION'
   | 'PROBE_GOAL_INVALID'
   | 'PROBE_LIMIT_REACHED'
+  | 'PROBE_COUNT_INVALID'
+  | 'DIAGNOSIS_EVIDENCE_INVALID'
+  | 'STRATEGY_POLICY_INVALID'
   | 'PACKET_CHECK_TASKS_INSUFFICIENT'
   | 'PACKET_HASH_MISMATCH'
   | 'PACKET_NOT_READY'
@@ -56,6 +59,10 @@ const PROBE_LIMIT_PER_CANONICAL_GOAL = 2;
  */
 export function gateTurn(input: TurnGateInput): PolicyDecision {
   const { strategy, guard, knownDecisionIds, knownGoalKeys, probesShownForFocusGoal } = input;
+
+  if (!Number.isSafeInteger(probesShownForFocusGoal) || probesShownForFocusGoal < 0) {
+    return { approved: false, code: 'PROBE_COUNT_INVALID', reason: '持久探针计数无效' };
+  }
 
   const allowed = new Set(strategy.allowed_disclosures);
   const reserved = new Set(strategy.reserved_decisions);
@@ -119,7 +126,7 @@ export function gateTurn(input: TurnGateInput): PolicyDecision {
 
   return {
     approved: true,
-    approvedDisclosures: [...allowed],
+    approvedDisclosures: [...new Set(guard.actual_disclosed_ids)],
     wholeTaskDisclosed,
     reason: wholeTaskDisclosed ? '已批准，并记整题策略曝光' : '已批准',
   };

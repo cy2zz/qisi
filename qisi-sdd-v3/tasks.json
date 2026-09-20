@@ -148,7 +148,7 @@
     "acceptance": [
       "AT13"
     ],
-    "status": "planned",
+    "status": "in_progress",
     "test_commands": [
       "npm run typecheck",
       "npm run test:task -- B01",
@@ -282,7 +282,7 @@
       "AT06",
       "AT07"
     ],
-    "status": "planned",
+    "status": "in_progress",
     "test_commands": [
       "npm run typecheck",
       "npm run test:task -- B02",
@@ -417,7 +417,7 @@
       "AT15",
       "AT27"
     ],
-    "status": "planned",
+    "status": "in_progress",
     "test_commands": [
       "npm run typecheck",
       "npm run test:task -- B03",
@@ -546,7 +546,7 @@
       "AT22",
       "AT23"
     ],
-    "status": "planned",
+    "status": "in_progress",
     "test_commands": [
       "npm run typecheck",
       "npm run test:task -- B04",
@@ -686,7 +686,7 @@
       "AT26",
       "AT60"
     ],
-    "status": "planned",
+    "status": "in_progress",
     "test_commands": [
       "npm run typecheck",
       "npm run test:task -- B05",
@@ -828,7 +828,7 @@
       "AT40",
       "AT41"
     ],
-    "status": "planned",
+    "status": "in_progress",
     "test_commands": [
       "npm run typecheck",
       "npm run test:task -- B06",
@@ -981,7 +981,7 @@
       "AT45",
       "AT49"
     ],
-    "status": "planned",
+    "status": "in_progress",
     "test_commands": [
       "npm run typecheck",
       "npm run test:task -- B07",
@@ -1128,7 +1128,7 @@
       "AT51",
       "AT52"
     ],
-    "status": "planned",
+    "status": "in_progress",
     "test_commands": [
       "npm run typecheck",
       "npm run test:task -- B08",
@@ -1272,7 +1272,7 @@
       "AT28",
       "AT57"
     ],
-    "status": "planned",
+    "status": "in_progress",
     "test_commands": [
       "npm run typecheck",
       "npm run test:task -- B09",
@@ -1418,7 +1418,7 @@
       "AT41",
       "AT55"
     ],
-    "status": "planned",
+    "status": "in_progress",
     "test_commands": [
       "npm run typecheck",
       "npm run test:task -- B10",

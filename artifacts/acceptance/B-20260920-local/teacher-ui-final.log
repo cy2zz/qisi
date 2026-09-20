@@ -1,0 +1,14 @@
+
+> @qisi/web@0.1.0 test
+> vitest run --run src/pages/teacher/TeacherPage.test.tsx --reporter=dot
+
+
+ RUN  v5.0.1 D:/math/qisi-dashboard/web
+
+··
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  16:00:45
+   Duration  4.78s (environment 57%, import 18%, tests 13%, setup 8%, transform 4%)
+

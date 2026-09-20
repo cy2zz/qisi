@@ -1,0 +1,29 @@
+{
+  "baseline": "qisi-3.1",
+  "task_id": "B01",
+  "status": "in_progress",
+  "scope": "审计：契约/角色/预算/编排已有实现，但持久工作流与正式 ST 未验收。预算基础缺陷修复归本轮 B07 切片。",
+  "changed_files": [
+    "server/src/model/budget.ts",
+    "server/src/model/budgeted.provider.ts",
+    "server/src/workflows/orchestrator.ts"
+  ],
+  "review": "self_review",
+  "acceptance": {
+    "AT13": "not_run_full_acceptance",
+    "ST05": "not_run_full_acceptance",
+    "ST06": "not_run_full_acceptance",
+    "ST07": "not_run_full_acceptance"
+  },
+  "evidence": [
+    "commands.json",
+    "recheck-commands.json",
+    "task-gates.json",
+    "failure-first.json",
+    "final-commands.json",
+    "closing-commands.json",
+    "closing-red-green.json",
+    "task-gate-diagnostic.json"
+  ],
+  "blocking_or_remaining": "需要 A 的真实 MySQL StorePort、可恢复调用审计/预算和正式8.4领取/重启/单次提交；当前协作适配器显式 MemoryStore 不满足此门禁。"
+}

@@ -1,0 +1,20 @@
+
+> @qisi/server@0.1.0 test
+> vitest run --run test/diagnosis test/strategy test/corrections test/teacher test/tutor/b09-adversarial.spec.ts test/workflows/actual-exposure.spec.ts test/workflows/budget-safety.spec.ts --reporter=dot
+
+
+ RUN  v5.0.1 D:/math/qisi-dashboard/server
+
+······················································································
+
+ Test Files  11 passed (11)
+      Tests  86 passed (86)
+   Start at  15:52:04
+   Duration  7.29s (transform 53%, import 39%, tests 7%, worker 1%)
+
+  Transform  transforming modules took 16.01s · 53% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             on CI this only helps when the cache directory is persisted between runs
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+

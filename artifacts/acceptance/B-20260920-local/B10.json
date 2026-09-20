@@ -1,0 +1,31 @@
+{
+  "baseline": "qisi-3.1",
+  "task_id": "B10",
+  "status": "in_progress",
+  "scope": "演示手册/模型卡/源码提示与配置快照，明确未发布、未现场演示、未证明学会。",
+  "changed_files": [
+    "docs/teaching-demo.md",
+    "docs/model-card.md",
+    "artifacts/release/teaching/B-20260920-local/snapshot.json"
+  ],
+  "review": "self_review",
+  "acceptance": {
+    "AT13": "not_run_full_acceptance",
+    "AT40": "not_run_full_acceptance",
+    "AT41": "not_run_full_acceptance",
+    "AT55": "not_run_full_acceptance",
+    "ST05": "not_run_full_acceptance",
+    "ST12": "not_run_full_acceptance"
+  },
+  "evidence": [
+    "commands.json",
+    "recheck-commands.json",
+    "task-gates.json",
+    "failure-first.json",
+    "final-commands.json",
+    "closing-commands.json",
+    "closing-red-green.json",
+    "task-gate-diagnostic.json"
+  ],
+  "blocking_or_remaining": "补齐前置、A/B共同真实复核、干净版本冻结、实时四分支演示和正式发布清单；本次没有发布/打包/部署。"
+}

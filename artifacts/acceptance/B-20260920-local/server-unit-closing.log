@@ -1,0 +1,47 @@
+
+> @qisi/server@0.1.0 test
+> vitest run --reporter=dot
+
+
+ RUN  v5.0.1 D:/math/qisi-dashboard/server
+
+·x············································································································[Nest] 20288  - 2026/09/20 16:03:52    WARN [ProblemAnalysisController] Bank preparation unavailable for question 804: Error
+········································································································································································································································································································································································································································································
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/database/database.factory.spec.ts > createDatabase > loads the configured CA certificate for TLS connections
+AssertionError: expected "vi.fn()" to be called with arguments: [ StringMatching{…}, 'utf8' ]
+
+Received:
+
+  1st vi.fn() call:
+
+  [
+-   StringMatching /certs\/ApsaraDB-CA-Chain\.pem$/,
++   "D:\\math\\qisi-dashboard\\server\\certs\\ApsaraDB-CA-Chain.pem",
+    "utf8",
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/database/database.factory.spec.ts:36:32
+     34|     const database = createDatabase(environment);
+     35|
+     36|     expect(mocks.readFileSync).toHaveBeenCalledWith(
+       |                                ^
+     37|       expect.stringMatching(/certs\/ApsaraDB-CA-Chain\.pem$/),
+     38|       'utf8',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 67 passed (68)
+      Tests  1 failed | 565 passed (566)
+   Start at  16:03:35
+   Duration  42.05s (import 79%, tests 10%, transform 10%, worker 1%)
+
+    Isolate  68 workers spawned · ~1.24s startup each (spawn + environment, per file)
+             at least ~10.77s faster with isolate: false — reuses workers across files instead of one per file
+
