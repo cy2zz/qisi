@@ -1,0 +1,627 @@
+server/db/learning_messages.sql
+  s_2bda1447c404e4::t_2a1c9856b22061 1-16
+web/src/features/input/image-question-client.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-31
+server/src/features/media/question-image-loader.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-79
+server/src/database/database.types.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 12-259,261-277
+server/test/preparation/preparation.service.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-229
+server/db/check_attempts.sql
+  s_2bda1447c404e4::t_2a1c9856b22061 1-31
+web/src/pages/bank/RichComposer.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 5,45,47-49,51-52,58,77-80,82-84,86,92,94,99,108,110-114,118-172,193-196,204,207,210-212,214,216-217,221-247,276-282
+server/db/node_runs.sql
+  s_2bda1447c404e4::t_2a1c9856b22061 1-19
+server/src/features/bank/paper-manifest.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-220
+server/db/packets.sql
+  s_2bda1447c404e4::t_2a1c9856b22061 1-14
+server/src/features/preparation/preparation.module.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-14
+server/src/features/assessment/assessment.module.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-14
+qisi-sdd-v3/handoffs/B04.md
+  s_2bda1447c404e4::t_2a1c9856b22061 1-24
+data/papers/2022年高考数学试卷（上海）（春考）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-1517
+server/package.json
+  s_2bda1447c404e4::t_2a1c9856b22061 16-17,19-30,32-34,46-47,56
+artifacts/acceptance/AT10.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-49
+server/db/paper.sql
+  s_2bda1447c404e4::t_2a1c9856b22061 1-15
+data/papers/2022年高考数学试卷（文）（全国乙卷）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2289
+server/src/features/speech/text-to-speech.port.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-5
+data/papers/2021年高考数学试卷（天津）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-1839
+server/scripts/verify-tutor-live-ui.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-79
+server/scripts/import-papers.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-40
+qisi-sdd-v3/changes/A01.md
+  s_2bda1447c404e4::t_2a1c9856b22061 80-113
+web/src/features/input/HandwritingInput.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-217
+server/db/learning_drafts.sql
+  s_2bda1447c404e4::t_2a1c9856b22061 1-12
+web/tests/e2e/keyboard-flow.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-302
+web/src/features/input/speech-client.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-106
+data/papers/2023年高考数学试卷（文）（全国乙卷）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2059
+server/src/shared/delete.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-182
+data/papers/2020年高考数学试卷（天津）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-1871
+server/src/features/assessment/assessment.service.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-662
+web/src/features/input/speech-client.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-18
+server/scripts/verify-tutor-live.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-147
+data/papers/2020年高考数学试卷（新高考Ⅰ卷）（山东）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2155
+web/src/features/input/audio-capture.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-35
+server/src/features/speech/youdao-speech.adapter.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-115
+server/src/config/env.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 11,49-78
+  s_2bda1447c404e4::t_e240203b5ac40a 79
+server/src/features/assessment/assessment.service.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-629
+web/src/pages/bank/PaperPickerDialog.spec.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-173
+server/src/app.module.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 8-14,26-30,32-33
+qisi-sdd-v3/changes/B03.md
+  s_2bda1447c404e4::t_2a1c9856b22061 1-153
+server/src/features/analysis/problem-analysis.module.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 2-6,9-12,17-24,26-33
+server/src/features/preparation/preparation.repository.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-79
+server/src/features/auth/auth.controller.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 15,52
+server/src/features/bank/paper-import.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-156
+server/db/runs.sql
+  s_2bda1447c404e4::t_2a1c9856b22061 1-22
+data/papers/2023年高考数学试卷（天津）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-1884
+web/tsconfig.node.tsbuildinfo
+  s_2bda1447c404e4::t_2a1c9856b22061 1
+data/papers/2020年高考数学试卷（文）（新课标Ⅱ）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2207
+server/src/features/assessment/assessment.schema.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-35
+qisi-sdd-v3/changes/A06.md
+  s_2bda1447c404e4::t_2a1c9856b22061 1-33
+scripts/upload-exam-images-to-oss.test.mjs
+  s_2bda1447c404e4::t_2a1c9856b22061 11,28-34
+  s_2bda1447c404e4::t_b9b3a60e93d550 35-37
+qisi-sdd-v3/changes/B02.md
+  s_2bda1447c404e4::t_2a1c9856b22061 1-25
+server/src/features/media/handwriting-transcript.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-76
+server/src/features/media/question-image-validation.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-56
+web/src/features/speech/ReadAloud.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-265
+server/src/main.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 4,7-8,15-23,25,29
+web/src/pages/bank/StudySidebar.spec.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-50
+server/src/features/media/question-image-loader.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-53
+data/papers/2021年高考数学试卷（上海）（春考）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-1630
+data/papers/2025年高考数学试卷（北京）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-1952
+server/src/features/report/report.service.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-285
+data/papers/2020年高考数学试卷（文）（新课标Ⅲ）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2066
+web/src/pages/learn/check/AssessmentCheckPage.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-984
+artifacts/acceptance/AT21.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-34
+server/scripts/test-database.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 47-70,72
+server/src/database/sql-migration.provider.spec.ts
+  s_2bda1447c404e4::t_c2af0ce6644a11 32
+  s_2bda1447c404e4::t_2a1c9856b22061 13-31,33-38,40-41,43-107,109-127,138-146,156-181
+  s_2bda1447c404e4::t_e240203b5ac40a 147-148,182
+  s_2bda1447c404e4::t_7d32295fab82dd 1,9
+server/scripts/verify-history-persistence.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-142
+server/db/transcripts.sql
+  s_2bda1447c404e4::t_2a1c9856b22061 1-18
+web/src/pages/bank/QuestionCard.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-173
+web/src/pages/learn/report/ReportPage.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-314
+scripts/upload-exam-images-to-oss.mjs
+  s_2bda1447c404e4::t_2a1c9856b22061 7,34-40,161,175-177,186,210,216,291,301-307,361-381
+artifacts/acceptance/AT30.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-114
+server/db/owner_privacy_state.sql
+  s_2bda1447c404e4::t_2a1c9856b22061 1-8
+web/tests/e2e/media.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-173
+server/src/features/media/media.controller.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-106
+data/papers/2023年高考数学试卷（新课标Ⅱ卷）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2032
+server/src/config/web-origin.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-21
+web/src/pages/bank/QuestionCard.spec.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-111
+web/src/features/input/ImageQuestionInput.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-135
+data/papers/2021年高考数学试卷（新高考Ⅱ卷）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-1980
+server/src/features/analysis/problem-chat.schema.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 12-13,17-21,23-32,36,41-44,49
+  s_2bda1447c404e4::t_e240203b5ac40a 45-47
+data/papers/2024年高考数学试卷（新课标Ⅱ卷）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2088
+artifacts/acceptance/AT15.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-120
+server/src/features/bank/bank.repository.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-218
+artifacts/acceptance/AT31.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-26
+web/src/shared/MathMarkdown.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 11-74,92
+qisi-sdd-v3/changes/A02.md
+  s_2bda1447c404e4::t_2a1c9856b22061 26-89
+server/src/features/analysis/problem-analysis.service.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2,4-28,33-35,38-74,76-94,104,107-365,367-372,376-384,405-447,449-451,453-534,536-546,548-549,553-677,680-700
+  s_2bda1447c404e4::t_e240203b5ac40a 75,366,678-679
+data/papers/2021年高考数学试卷（上海）（秋考）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-1819
+artifacts/acceptance/AT14.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-66
+artifacts/acceptance/AT32.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-52
+server/src/features/speech/speech.module.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-25
+server/src/features/assessment/reassess.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-7
+web/src/shared/math-input.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-13
+server/src/workflows/turn.ts
+  s_2bda1447c404e4::t_ec97d0ce4fb35a 125
+  s_2bda1447c404e4::t_4868a20c23225f 82,93,100
+  s_2bda1447c404e4::t_ec37b6f867918d 28-33
+server/src/features/learning/learning-session.controller.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-74
+server/src/database/sql-migration.provider.ts
+  s_2bda1447c404e4::t_1dc073be122f3c 26
+  s_2bda1447c404e4::t_2a1c9856b22061 7-25,27,34,36-51,54-55,57,60
+data/papers/2022年高考数学试卷（理）（全国乙卷）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2479
+web/src/pages/bank/BankFlow.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-9,11-22,25-29,31,43,46,48,50,52-54,72-88,90-118,121-170,237-241,246,249-258,266-267,269-270,272-293,296-303,305-369,375-451,456-469,474-493,501-502,509,523,525-528,551,554,569-571,574-580,586-591,593-598,605,610,614,618-620,623-629,649-652,660,671,674-693,696,707-722,729-738,741,755,761-766,768-773,788,790,796,798,801-802,807-845,847-876,880,883-888,890-898,900-908,910-928,930-935,937-1073,1075-1092,1106-1110,1112,1115-1216,1218-1244,1246-1273,1279-1312,1316-1319,1321-1350,1352-1438,1441-1448,1450-1470,1478-1479,1481-1490,1494-1568,1589-1597,1605-1651,1653-1699,1701-1706,1709-1710,1712-1735,1737-1739,1741-1749,1751-1766,1768-1799,1801-1810,1812,1815-1877,1879-1973,1975-2006,2009-2010,2013-2014
+  s_2bda1447c404e4::t_e240203b5ac40a 1074,1217
+data/papers/2024年高考数学试卷（天津）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-1996
+web/tests/e2e/privacy.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-198
+web/src/pages/bank/StudySidebar.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-193
+server/scripts/verify-media-persistence.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-238
+server/src/features/speech/speech.controller.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-182
+server/src/features/learning/learning-session.controller.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-59
+server/src/features/history/history.module.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-14
+server/src/features/analysis/problem-chat.schema.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-28
+server/scripts/verify-bank-preparation-live.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-138
+qisi-sdd-v3/changes/A04.md
+  s_2bda1447c404e4::t_2a1c9856b22061 1-81
+data/papers/2023年高考数学试卷（理）（全国乙卷）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2158
+data/papers/2021年高考数学试卷（文）（全国甲卷）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2066
+artifacts/acceptance/AT47.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-57
+data/papers/2025年高考数学试卷（全国Ⅰ卷）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2235
+server/db/paper_question.sql
+  s_2bda1447c404e4::t_2a1c9856b22061 1-10
+data/papers/2021年高考数学试卷（理）（全国甲卷）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2190
+data/papers/2024年高考数学试卷（新课标Ⅰ卷）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-1957
+server/db/requests.sql
+  s_2bda1447c404e4::t_2a1c9856b22061 1-18
+server/src/agents/renderer/index.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 12,22,30-36
+server/scripts/verify-privacy-retention.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-383
+artifacts/acceptance/AT11.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-50
+server/src/workflows/orchestrator.ts
+  s_2bda1447c404e4::t_7dcd3a8018ebd5 164,166
+  s_2bda1447c404e4::t_f79f5468d2440e 197-200,218,220,224-237,241
+  s_2bda1447c404e4::t_2a1c9856b22061 11-21,71,167,196,201-217,219,221-223,366,386
+server/src/config/web-origin.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-14
+server/db/question.sql
+  s_2bda1447c404e4::t_2a1c9856b22061 1-15
+web/src/App.tsx
+  s_2bda1447c404e4::t_2cbf6f4b1bff4e 10-15
+  s_2bda1447c404e4::t_2a1c9856b22061 1,6-9,16-30,78,116-131,133-155,220-222
+  s_2bda1447c404e4::t_92117f678a77ba 132
+data/papers/2024年高考数学试卷（北京）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-1964
+server/src/config/env.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 21,26-32,49-53
+  s_2bda1447c404e4::t_e240203b5ac40a 54-55
+data/papers/2024年高考数学试卷（文）（全国甲卷）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-1708
+web/src/features/input/HandwritingInput.spec.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-65
+server/src/shared/retention.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-13
+server/src/features/speech/volcengine-tts.adapter.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-99
+data/papers/2021年高考数学试卷（浙江）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2067
+server/db/seen_tasks.sql
+  s_2bda1447c404e4::t_2a1c9856b22061 1-17
+server/src/features/speech/speech-realtime.gateway.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-196
+server/src/features/history/history.controller.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-69
+artifacts/acceptance/AT22.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-38
+data/papers/2022年高考数学试卷（天津）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-1850
+server/test/workflows/policy-gate.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 22,45,73-90,107-129,174-179,181,185,189,196
+qisi-sdd-v3/handoffs/A02.md
+  s_2bda1447c404e4::t_2a1c9856b22061 37-133
+web/src/features/input/voice-activity.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-18
+web/src/pages/bank/PaperPickerDialog.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-307
+qisi-sdd-v3/changes/A05.md
+  s_2bda1447c404e4::t_2a1c9856b22061 1-29
+server/src/features/bank/bank.service.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-23
+server/src/retention-cli.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-27
+server/src/features/learning/learning-session.module.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-12
+web/src/features/input/VoiceInputButton.silence.spec.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-80
+qisi-sdd-v3/changes/A09.md
+  s_2bda1447c404e4::t_2a1c9856b22061 1-27
+data/papers/2025年高考数学试卷（天津）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-1894
+data/papers/2022年高考数学试卷（浙江）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2021
+web/src/pages/history/HistoryPage.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-385
+server/db/media.sql
+  s_2bda1447c404e4::t_2a1c9856b22061 1-18
+server/src/shared/math-markdown.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-74
+server/src/features/media/media.module.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-28
+artifacts/acceptance/AT23.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-36
+web/src/lib/api.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 31-35,51-61
+data/papers/2021年高考数学试卷（北京）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-1834
+server/src/features/bank/paper-manifest.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-43
+server/src/shared/delete.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-29
+data/papers/2020年高考数学试卷（理）（新课标Ⅱ）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2299
+server/db/assessment_tasks.sql
+  s_2bda1447c404e4::t_2a1c9856b22061 1-22
+web/src/pages/learn/check/AssessmentCheckPage.spec.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-800
+data/papers/2020年高考数学试卷（北京）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2041
+web/tests/e2e/assessment.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-946
+server/test/preparation/preparation-policy.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-101
+qisi-sdd-v3/tasks.json
+  s_2bda1447c404e4::t_2a1c9856b22061 762
+  s_2bda1447c404e4::t_dfe5a1c449052f 2-3,70,716-717
+web/src/features/input/MathFormatButton.spec.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-52
+web/src/App.test.tsx
+  s_2bda1447c404e4::t_e240203b5ac40a 420,684-685
+  s_2bda1447c404e4::t_2a1c9856b22061 6-55,71-72,81,88-284,287-419,421-451,468,488,490-493,498-499,501-502,504-506,513,516,518-519,521-522,524-535,539,551-683,691-692,704,725,728-731,734-738,741-743,746,749-753,757,759-762,765-783,787
+server/src/features/analysis/problem-analysis.controller.ts
+  s_2bda1447c404e4::t_e240203b5ac40a 127-128,253
+  s_2bda1447c404e4::t_2a1c9856b22061 9-10,13,16,20,23-28,32-40,43-47,68-69,72,74-78,80,90,94,100-126,129-194,204,208,213-232,240-252,258-265,268-317,323-335
+server/db/events.sql
+  s_2bda1447c404e4::t_2a1c9856b22061 1-15
+.gitignore
+  s_2bda1447c404e4::t_2a1c9856b22061 8,28-30
+web/vite.config.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 16-19
+server/scripts/verify-assessment-live.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-263
+server/src/model/openai-compatible-model.port.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 23-24,26,47-63,71-72,112-113
+web/src/pages/bank/RichComposer.spec.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-8,11-12,31-161
+  s_2bda1447c404e4::t_e240203b5ac40a 162
+server/src/features/preparation/preparation.service.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-199
+server/src/features/speech/speech-to-text.port.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-6
+data/papers/2023年高考数学试卷（理）（全国甲卷）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2173
+artifacts/acceptance/AT06.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-43
+server/src/features/media/question-image-recognition.service.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-36
+web/src/pages/bank/PaperBankPage.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-325
+server/scripts/verify-assessment-persistence.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-611
+data/papers/2024年高考数学试卷（上海）（秋考）（回忆版）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-1799
+server/src/features/bank/bank.controller.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-92
+server/test/agents/at13-role-isolation.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 141,158,185,198,316,349
+data/papers/2024年高考数学试卷（理）（全国甲卷）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2054
+server/src/features/media/question-image-validation.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-52
+web/src/shared/MathMarkdown.spec.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-19
+artifacts/acceptance/AT35.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-44
+data/papers/2022年高考数学试卷（文）（全国甲卷）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2030
+server/scripts/evaluate-diagnosis-live.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-245
+artifacts/acceptance/AT17.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-34
+server/tsconfig.build.tsbuildinfo
+  s_2bda1447c404e4::t_2a1c9856b22061 1
+server/src/features/history/history.controller.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-54
+server/src/features/report/report.controller.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-22
+data/papers/2021年高考数学试卷（新高考Ⅰ卷）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2018
+data/papers/2025年高考数学试卷（上海6月）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-1829
+qisi-sdd-v3/handoffs/A09.md
+  s_2bda1447c404e4::t_2a1c9856b22061 1-34
+qisi-sdd-v3/handoffs/A05.md
+  s_2bda1447c404e4::t_2a1c9856b22061 1-31
+web/tests/e2e/a01.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 14
+server/src/features/media/private-media-storage.service.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-48
+data/papers/2020年高考数学试卷（文）（新课标Ⅰ）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2150
+artifacts/acceptance/AT59.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-26
+data/papers/2023年高考数学试卷（北京）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2280
+data/papers/2023年高考数学试卷（新课标Ⅰ卷）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2266
+data/papers/2023年高考数学试卷（文）（全国甲卷）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2105
+artifacts/acceptance/AT56.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-113
+server/src/features/speech/speech-math-formatter.service.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-41
+qisi-sdd-v3/changes/A03.md
+  s_2bda1447c404e4::t_2a1c9856b22061 1-37
+artifacts/acceptance/AT07.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-38
+data/papers/2021年高考数学试卷（文）（全国乙卷）（新课标Ⅰ）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-1850
+server/src/features/learning/learning-session.service.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-95
+artifacts/acceptance/AT34.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-59
+data/papers/2022年高考数学试卷（新高考Ⅰ卷）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2157
+web/src/features/input/image-question-client.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-49
+data/papers/2020年高考数学试卷（江苏）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2311
+web/src/features/input/MathFormatButton.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-76
+web/src/features/input/VoiceInputButton.spec.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-23
+data/papers/2022年高考数学试卷（新高考Ⅱ卷）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2107
+qisi-sdd-v3/changes/B04.md
+  s_2bda1447c404e4::t_2a1c9856b22061 1-19
+server/src/model/model.port.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 10-16,18-19,21-22,46
+server/src/features/analysis/problem-analysis.controller.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 7-12,19-27,30-34,37-40,45,48,50-53,55,57-61,67,84,88-94,112-308,334,336-413,424-428,434-435,439-443,451,453-461,463-491,495-496,499
+  s_2bda1447c404e4::t_e240203b5ac40a 309-310
+artifacts/acceptance/AT27.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-52
+server/src/features/media/media.service.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-171
+server/src/features/speech/speech-math-formatter.service.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-63
+server/src/features/assessment/assessment.repository.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-1038
+server/scripts/verify-preparation-persistence.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-74
+server/src/features/speech/youdao-speech.adapter.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-100
+artifacts/acceptance/AT05.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-35
+server/src/model/openai-compatible-model.port.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 3,41,57-66,76-122,124-131
+  s_2bda1447c404e4::t_e240203b5ac40a 123,132
+server/src/features/history/history.service.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-305
+server/src/features/media/private-media-storage.service.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-43
+data/papers/2025年高考数学试卷（全国Ⅱ卷）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-1710
+server/scripts/verify-learning-persistence.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-326
+artifacts/acceptance/AT08.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-66
+server/.env.example
+  s_2bda1447c404e4::t_2a1c9856b22061 17-23
+server/db/sessions.sql
+  s_2bda1447c404e4::t_2a1c9856b22061 1-22
+web/src/pages/bank/PaperBankPage.spec.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-157
+artifacts/acceptance/A02-bank-import-selection.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-94
+server/src/shared/retention.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-158
+data/papers/2020年高考数学试卷（理）（新课标Ⅲ）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2204
+data/papers/2021年高考数学试卷（理）（全国乙卷）（新课标Ⅰ）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2468
+.gitattributes
+  s_2bda1447c404e4::t_2a1c9856b22061 5
+web/tests/e2e/a02-fixture-flow.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 4-18,41-83,99,101-102,112-113,119,122-123,125-129,132-161,163-177,179-188,190-192,197-200,203,206,222-231,233-234
+  s_2bda1447c404e4::t_e240203b5ac40a 162,178,232,235-239
+web/src/pages/history/HistoryPage.spec.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-224
+web/src/shared/MathMarkdown.test.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 20-96
+web/src/features/input/handwriting-client.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-48
+web/src/features/input/voice-activity.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-14
+server/src/features/assessment/assessment.schema.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-101
+server/src/features/bank/bank.controller.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-71
+server/src/features/speech/volcengine-tts.adapter.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-103
+server/src/features/speech/speech.controller.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-141
+web/tsconfig.app.tsbuildinfo
+  s_2bda1447c404e4::t_867f3d15398e85 1
+server/src/features/media/handwriting-recognition.service.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-32
+qisi-sdd-v3/handoffs/A06.md
+  s_2bda1447c404e4::t_2a1c9856b22061 1-47
+artifacts/acceptance/AT36.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-26
+artifacts/acceptance/AT09.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-44
+server/src/features/analysis/problem-analysis.service.spec.ts
+  s_2bda1447c404e4::t_e240203b5ac40a 93,214-215
+  s_2bda1447c404e4::t_2a1c9856b22061 2-3,6-7,16-92,94-113,116-117,125,130-132,137-213,216-273,276,278-279,281-286,288-354,356-594,596-600
+server/src/features/media/media.controller.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-130
+server/src/features/bank/bank.module.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-13
+data/papers/2020年高考数学试卷（理）（新课标Ⅰ）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2192
+web/src/features/input/ImageQuestionInput.spec.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-61
+server/src/features/media/question-image-recognition.service.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-47
+artifacts/acceptance/AT38.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-59
+web/src/features/input/VoiceInputButton.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-304
+data/papers/2020年高考数学试卷（浙江）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-1849
+qisi-sdd-v3/handoffs/A01.md
+  s_2bda1447c404e4::t_2a1c9856b22061 71-97
+server/src/agents/renderer/index.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-84
+data/papers/2022年高考数学试卷（北京）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-1917
+server/src/features/media/handwriting-transcript.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-94
+web/src/pages/learn/report/assessment-next-action.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-92
+data/papers/2020年高考数学试卷（新高考Ⅱ卷）（海南）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2212
+web/src/features/input/audio-capture.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-118
+server/src/features/assessment/assessment.controller.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-141
+web/src/features/speech/ReadAloud.spec.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-115
+server/src/features/learning/learning-session.service.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-946
+server/src/features/media/handwriting-recognition.service.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-49
+data/papers/2022年高考数学试卷（理）（全国甲卷）_资源清单.online.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-2415
+web/src/styles.css
+  s_2bda1447c404e4::t_e240203b5ac40a 1854,1860,1942,1944,1972,1978,2012,2037-2038,2040,2080,2098,2105,2117,2122,2129,2147,2149,2196,2325,2328,2337,2341,2353,2370,2375,2388-2389,2406,2408,2428,2461-2462,2467,3600-3602,4209,4215,4365,4371,4373,4390,4396,4398,4994
+  s_2bda1447c404e4::t_2a1c9856b22061 34-45,472-483,626,716,726-727,744-1039,1056-1058,1066-1075,1092-1098,1147-1192,1194-1200,1208,1210-1213,1216-1219,1222,1224-1233,1235,1237-1238,1241-1245,1247-1251,1254-1260,1263-1270,1273-1288,1290-1295,1298-1300,1302-1303,1306-1332,1334-1337,1339-1363,1365,1368-1380,1382,1385-1386,1388-1396,1398,1400-1408,1410-1419,1421-1444,1446-1456,1458-1461,1464,1466-1480,1482-1484,1486-1570,1572-1576,1578-1675,1677-1678,1680-1681,1683-1689,1691-1696,1698-1706,1708-1723,1725-1727,1729-1733,1735-1767,1769-1771,1773-1775,1777-1779,1781-1787,1790-1804,1806-1813,1815,1817-1824,1826-1853,1855-1856,1858-1859,1861,1863-1865,1868-1869,1871-1875,1877-1880,1882-1888,1890-1892,1894-1903,1905-1907,1909-1912,1914-1921,1923-1924,1926-1929,1931-1941,1943,1945-1951,1953,1955-1964,1966-1971,1973-1977,1979,1981-1987,1989-2009,2011,2013-2015,2017-2024,2027-2028,2031,2033-2036,2039,2041,2043-2044,2046-2067,2069-2075,2077,2079,2081-2097,2099-2104,2106-2116,2118-2121,2124-2125,2127-2128,2130-2144,2146,2148,2150-2184,2186,2188-2191,2193,2195,2197-2208,2210-2226,2228-2242,2245,2247-2248,2250-2258,2260-2265,2267-2274,2277-2280,2282-2284,2287-2293,2296-2309,2311,2313,2315-2324,2326-2327,2329-2336,2338-2340,2342-2352,2354-2369,2371-2374,2376-2387,2390-2405,2407,2409-2427,2429-2460,2463-2466,2468-3599,3603-4208,4210-4214,4216-4364,4366-4370,4372,4374-4389,4391-4395,4397,4399-4993,4995-4996,4998-5003,5005-5021,5023-5027,5030-5034,5036-5042,5044-5050,5052-5053,5055-5060,5062,5064-5072,5074-5079,5081-5086,5088-5091,5093-5095,5098-5099,5101-5106,5108-5131,5133-5140,5142-5150,5152-5202
+server/src/workflows/policy-gate.ts
+  s_2bda1447c404e4::t_e240203b5ac40a 194
+  s_2bda1447c404e4::t_2a1c9856b22061 14,17,20,22-23,25-26,44,58,81-100,128-138,152-193
+artifacts/acceptance/AT33.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-52
+web/src/pages/learn/report/ReportPage.spec.tsx
+  s_2bda1447c404e4::t_2a1c9856b22061 1-258
+web/src/features/input/math-format-client.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-13
+server/db/probe_counters.sql
+  s_2bda1447c404e4::t_e30d782fc9215c 1,3-6,8-9,11-12,14-24
+qisi-sdd-v3/handoffs/A03.md
+  s_2bda1447c404e4::t_2a1c9856b22061 1-36
+web/src/pages/learn/report/assessment-next-action.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-172
+artifacts/acceptance/AT37.json
+  s_2bda1447c404e4::t_2a1c9856b22061 1-26
+server/src/features/report/report.module.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-11
+qisi-sdd-v3/handoffs/A04.md
+  s_2bda1447c404e4::t_2a1c9856b22061 1-91
+server/src/features/history/history.service.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-76
+server/src/features/report/report.service.spec.ts
+  s_2bda1447c404e4::t_2a1c9856b22061 1-83
+package-lock.json
+  s_2bda1447c404e4::t_e11ad41f7baa67 305-314,969-1516,2728-2737,7680-7728,9320-9340,9475-9476,9485
+server/.env.development.local
+  s_2bda1447c404e4::t_7dc4f7f022f736 1,14-43
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "6811b5f77110652a84b842addef46c35c99aca04",
+  "prompts": {},
+  "sessions": {
+    "s_2bda1447c404e4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7cd1e4f4-057e-45f3-bb37-6489bbffbcc7",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    }
+  }
+}

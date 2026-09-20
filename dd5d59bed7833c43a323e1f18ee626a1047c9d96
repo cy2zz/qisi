@@ -1,0 +1,19 @@
+docs/b-reconciliation.md
+  s_2bda1447c404e4::t_3ce392b63c5018 1-134
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "dd5d59bed7833c43a323e1f18ee626a1047c9d96",
+  "prompts": {},
+  "sessions": {
+    "s_2bda1447c404e4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7cd1e4f4-057e-45f3-bb37-6489bbffbcc7",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    }
+  }
+}
