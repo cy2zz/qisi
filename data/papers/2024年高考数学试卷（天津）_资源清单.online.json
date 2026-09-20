@@ -1,0 +1,1996 @@
+{
+  "title": "2024年高考数学试卷（天津）",
+  "variant": "题目与解析",
+  "prefix": "2024年高考数学试卷（天津）",
+  "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+  "sourcePages": 24,
+  "questionCount": 20,
+  "notes": [],
+  "resources": [
+    {
+      "label": "卷首说明",
+      "number": null,
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E5%85%B6%E4%BB%96%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%8D%B7%E9%A6%96%E8%AF%B4%E6%98%8E.png",
+      "width": 1600,
+      "height": 611,
+      "safeBreaks": [
+        83,
+        177,
+        253,
+        326,
+        399,
+        472,
+        545
+      ],
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            47.147,
+            51.987,
+            560.6,
+            244.211
+          ]
+        }
+      ],
+      "kind": "intro"
+    },
+    {
+      "label": "第01题题目",
+      "number": 1,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 1181,
+      "safeBreaks": [
+        66,
+        139,
+        212,
+        285,
+        358,
+        432,
+        529,
+        631,
+        773,
+        913,
+        991,
+        1090
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            47.147,
+            252.555,
+            560.6,
+            756.381
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            50.704,
+            560.6,
+            63.54
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          1181
+        ]
+      ]
+    },
+    {
+      "label": "第01题解析",
+      "number": 1,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 465,
+      "safeBreaks": [
+        75,
+        148,
+        223,
+        319,
+        407
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            47.147,
+            252.555,
+            560.6,
+            756.381
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            50.704,
+            560.6,
+            63.54
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          1181,
+          1646
+        ]
+      ]
+    },
+    {
+      "label": "第02题题目",
+      "number": 2,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 221,
+      "safeBreaks": [
+        70,
+        148
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            77.66,
+            560.6,
+            266.354
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          221
+        ]
+      ]
+    },
+    {
+      "label": "第02题解析",
+      "number": 2,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 379,
+      "safeBreaks": [
+        73,
+        146,
+        225,
+        311
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            77.66,
+            560.6,
+            266.354
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          221,
+          600
+        ]
+      ]
+    },
+    {
+      "label": "第03题题目",
+      "number": 3,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 743,
+      "safeBreaks": [
+        63,
+        402
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            276.944,
+            560.6,
+            656.578
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          743
+        ]
+      ]
+    },
+    {
+      "label": "第03题解析",
+      "number": 3,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 452,
+      "safeBreaks": [
+        73,
+        146,
+        219,
+        294,
+        387
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            276.944,
+            560.6,
+            656.578
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          743,
+          1195
+        ]
+      ]
+    },
+    {
+      "label": "第04题题目",
+      "number": 4,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 205,
+      "safeBreaks": [
+        68
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            666.847,
+            560.6,
+            749.963
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            50.704,
+            560.6,
+            391.187
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          205
+        ]
+      ]
+    },
+    {
+      "label": "第04题解析",
+      "number": 4,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1151,
+      "safeBreaks": [
+        72,
+        140,
+        219,
+        358,
+        459,
+        597,
+        759,
+        885,
+        1001,
+        1086
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            666.847,
+            560.6,
+            749.963
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            50.704,
+            560.6,
+            391.187
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          205,
+          1356
+        ]
+      ]
+    },
+    {
+      "label": "第05题题目",
+      "number": 5,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 152,
+      "safeBreaks": [
+        79
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            403.703,
+            560.6,
+            718.835
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          152
+        ]
+      ]
+    },
+    {
+      "label": "第05题解析",
+      "number": 5,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 842,
+      "safeBreaks": [
+        74,
+        147,
+        227,
+        320,
+        415,
+        512,
+        611,
+        703,
+        779
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            403.703,
+            560.6,
+            718.835
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          152,
+          994
+        ]
+      ]
+    },
+    {
+      "label": "第06题题目",
+      "number": 6,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 231,
+      "safeBreaks": [
+        58,
+        139
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            729.425,
+            560.6,
+            742.261
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            47.147,
+            54.234,
+            560.6,
+            344.335
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          231
+        ]
+      ]
+    },
+    {
+      "label": "第06题解析",
+      "number": 6,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 749,
+      "safeBreaks": [
+        79,
+        152,
+        225,
+        303,
+        393,
+        493,
+        590,
+        681
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            729.425,
+            560.6,
+            742.261
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            47.147,
+            54.234,
+            560.6,
+            344.335
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          231,
+          980
+        ]
+      ]
+    },
+    {
+      "label": "第07题题目",
+      "number": 7,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 234,
+      "safeBreaks": [
+        121
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            47.147,
+            356.529,
+            560.6,
+            755.739
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            47.147,
+            51.666,
+            560.6,
+            172.97
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          234
+        ]
+      ]
+    },
+    {
+      "label": "第07题解析",
+      "number": 7,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1424,
+      "safeBreaks": [
+        66,
+        142,
+        282,
+        361,
+        504,
+        649,
+        748,
+        893,
+        1028,
+        1360
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            47.147,
+            356.529,
+            560.6,
+            755.739
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            47.147,
+            51.666,
+            560.6,
+            172.97
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          234,
+          1658
+        ]
+      ]
+    },
+    {
+      "label": "第08题题目",
+      "number": 8,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 364,
+      "safeBreaks": [
+        125,
+        223
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            47.147,
+            186.769,
+            560.6,
+            761.836
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            47.147,
+            51.024,
+            560.6,
+            172.97
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          364
+        ]
+      ]
+    },
+    {
+      "label": "第08题解析",
+      "number": 8,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1844,
+      "safeBreaks": [
+        76,
+        150,
+        246,
+        320,
+        421,
+        556,
+        961,
+        1097,
+        1240,
+        1334,
+        1446,
+        1537,
+        1639,
+        1777
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            47.147,
+            186.769,
+            560.6,
+            761.836
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            47.147,
+            51.024,
+            560.6,
+            172.97
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          364,
+          2208
+        ]
+      ]
+    },
+    {
+      "label": "第09题题目",
+      "number": 9,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 571,
+      "safeBreaks": [
+        63,
+        135,
+        381,
+        430
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            47.147,
+            183.239,
+            560.6,
+            758.948
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            47.147,
+            49.741,
+            560.6,
+            111.676
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          571
+        ]
+      ]
+    },
+    {
+      "label": "第09题解析",
+      "number": 9,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1452,
+      "safeBreaks": [
+        75,
+        148,
+        222,
+        300,
+        386,
+        465,
+        537,
+        613,
+        752,
+        823,
+        1131,
+        1172,
+        1241,
+        1313,
+        1386
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            47.147,
+            183.239,
+            560.6,
+            758.948
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            47.147,
+            49.741,
+            560.6,
+            111.676
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          571,
+          2023
+        ]
+      ]
+    },
+    {
+      "label": "第10题题目",
+      "number": 10,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 240,
+      "safeBreaks": [
+        66,
+        138
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            47.147,
+            120.02,
+            560.6,
+            326.364
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          240
+        ]
+      ]
+    },
+    {
+      "label": "第10题解析",
+      "number": 10,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 415,
+      "safeBreaks": [
+        89,
+        165,
+        237,
+        340
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            47.147,
+            120.02,
+            560.6,
+            326.364
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          240,
+          655
+        ]
+      ]
+    },
+    {
+      "label": "第11题题目",
+      "number": 11,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 139,
+      "safeBreaks": [],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            47.147,
+            338.558,
+            560.6,
+            578.277
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          139
+        ]
+      ]
+    },
+    {
+      "label": "第11题解析",
+      "number": 11,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 620,
+      "safeBreaks": [
+        71,
+        144,
+        216,
+        366,
+        461,
+        555
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            47.147,
+            338.558,
+            560.6,
+            578.277
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          139,
+          759
+        ]
+      ]
+    },
+    {
+      "label": "第12题题目",
+      "number": 12,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 148,
+      "safeBreaks": [
+        76
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            47.147,
+            591.434,
+            560.6,
+            734.559
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            47.147,
+            50.062,
+            560.6,
+            231.696
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          148
+        ]
+      ]
+    },
+    {
+      "label": "第12题解析",
+      "number": 12,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 900,
+      "safeBreaks": [
+        108,
+        174,
+        247,
+        316,
+        415,
+        553,
+        663,
+        791
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            47.147,
+            591.434,
+            560.6,
+            734.559
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            47.147,
+            50.062,
+            560.6,
+            231.696
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          148,
+          1048
+        ]
+      ]
+    },
+    {
+      "label": "第13题题目",
+      "number": 13,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 144,
+      "safeBreaks": [
+        71
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            47.147,
+            241.644,
+            560.6,
+            725.895
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            47.147,
+            51.987,
+            560.6,
+            154.036
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          144
+        ]
+      ]
+    },
+    {
+      "label": "第13题解析",
+      "number": 13,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1719,
+      "safeBreaks": [
+        108,
+        174,
+        248,
+        320,
+        393,
+        471,
+        563,
+        648,
+        770,
+        855,
+        952,
+        1094,
+        1171,
+        1246,
+        1383,
+        1553,
+        1613
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            47.147,
+            241.644,
+            560.6,
+            725.895
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            47.147,
+            51.987,
+            560.6,
+            154.036
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          144,
+          1863
+        ]
+      ]
+    },
+    {
+      "label": "第14题题目",
+      "number": 14,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 532,
+      "safeBreaks": [
+        114,
+        199
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            47.147,
+            154.678,
+            560.6,
+            749.321
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            47.147,
+            52.308,
+            560.6,
+            707.924
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          532
+        ]
+      ]
+    },
+    {
+      "label": "第14题解析",
+      "number": 14,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3400,
+      "safeBreaks": [
+        113,
+        177,
+        275,
+        373,
+        508,
+        617,
+        718,
+        807,
+        917,
+        1053,
+        1198,
+        1339,
+        1470,
+        1579,
+        1646,
+        2085,
+        2229,
+        2374,
+        2570,
+        2715,
+        2861,
+        3005,
+        3155,
+        3289
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            47.147,
+            154.678,
+            560.6,
+            749.321
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            47.147,
+            52.308,
+            560.6,
+            707.924
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          532,
+          3932
+        ]
+      ]
+    },
+    {
+      "label": "第15题题目",
+      "number": 15,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 88,
+      "safeBreaks": [],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            47.147,
+            713.7,
+            560.6,
+            765.687
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            47.147,
+            50.704,
+            560.6,
+            764.404
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            47.147,
+            52.308,
+            560.6,
+            709.207
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            47.147,
+            52.308,
+            560.6,
+            742.261
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            47.147,
+            52.629,
+            560.6,
+            319.304
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          88
+        ]
+      ]
+    },
+    {
+      "label": "第15题解析",
+      "number": 15,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 7434,
+      "safeBreaks": [
+        92,
+        163,
+        401,
+        479,
+        572,
+        646,
+        749,
+        839,
+        986,
+        1230,
+        1476,
+        1564,
+        1668,
+        1762,
+        1860,
+        1960,
+        2063,
+        2153,
+        2253,
+        2340,
+        2573,
+        2720,
+        2893,
+        2907,
+        2963,
+        3104,
+        3158,
+        3285,
+        3353,
+        3497,
+        3737,
+        3840,
+        3936,
+        4178,
+        4411,
+        4647,
+        4736,
+        4840,
+        4932,
+        5034,
+        5132,
+        5235,
+        5325,
+        5425,
+        5519,
+        5763,
+        5908,
+        6050,
+        6105,
+        6249,
+        6489,
+        6585,
+        6673,
+        6911,
+        7015,
+        7109,
+        7209
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            47.147,
+            713.7,
+            560.6,
+            765.687
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            47.147,
+            50.704,
+            560.6,
+            764.404
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            47.147,
+            52.308,
+            560.6,
+            709.207
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            47.147,
+            52.308,
+            560.6,
+            742.261
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            47.147,
+            52.629,
+            560.6,
+            319.304
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          88,
+          7522
+        ]
+      ]
+    },
+    {
+      "label": "第16题题目",
+      "number": 16,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 403,
+      "safeBreaks": [
+        62,
+        169,
+        235,
+        311
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 14,
+          "bbox": [
+            47.147,
+            330.536,
+            560.6,
+            731.029
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            47.147,
+            47.174,
+            560.6,
+            763.762
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          403
+        ]
+      ]
+    },
+    {
+      "label": "第16题解析",
+      "number": 16,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3114,
+      "safeBreaks": [
+        79,
+        165,
+        213,
+        325,
+        397,
+        483,
+        562,
+        635,
+        708,
+        786,
+        863,
+        974,
+        1040,
+        1110,
+        1265,
+        1454,
+        1593,
+        1747,
+        1820,
+        1964,
+        2100,
+        2264,
+        2404,
+        2547,
+        2692,
+        2836,
+        2990
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 14,
+          "bbox": [
+            47.147,
+            330.536,
+            560.6,
+            731.029
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            47.147,
+            47.174,
+            560.6,
+            763.762
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          403,
+          3517
+        ]
+      ]
+    },
+    {
+      "label": "第17题题目",
+      "number": 17,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 850,
+      "safeBreaks": [
+        79,
+        164,
+        574,
+        661,
+        759
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 16,
+          "bbox": [
+            47.147,
+            53.913,
+            560.6,
+            739.694
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            47.147,
+            54.234,
+            560.6,
+            748.037
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          850
+        ]
+      ]
+    },
+    {
+      "label": "第17题解析",
+      "number": 17,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3485,
+      "safeBreaks": [
+        81,
+        166,
+        223,
+        312,
+        366,
+        447,
+        535,
+        612,
+        686,
+        759,
+        837,
+        917,
+        1027,
+        1134,
+        1221,
+        1305,
+        1388,
+        1480,
+        1557,
+        1633,
+        2116,
+        2212,
+        2311,
+        2402,
+        2561,
+        2651,
+        2746,
+        2898,
+        3036,
+        3113,
+        3204,
+        3363
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 16,
+          "bbox": [
+            47.147,
+            53.913,
+            560.6,
+            739.694
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            47.147,
+            54.234,
+            560.6,
+            748.037
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          850,
+          4335
+        ]
+      ]
+    },
+    {
+      "label": "第18题题目",
+      "number": 18,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 519,
+      "safeBreaks": [
+        115,
+        228,
+        298,
+        438
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 18,
+          "bbox": [
+            47.147,
+            53.913,
+            560.6,
+            740.335
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            47.147,
+            52.308,
+            560.6,
+            695.729
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          519
+        ]
+      ]
+    },
+    {
+      "label": "第18题解析",
+      "number": 18,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3661,
+      "safeBreaks": [
+        140,
+        284,
+        360,
+        428,
+        539,
+        625,
+        695,
+        802,
+        949,
+        1086,
+        1161,
+        1506,
+        1638,
+        1725,
+        1914,
+        2025,
+        2116,
+        2260,
+        2408,
+        2555,
+        2749,
+        2934,
+        3143,
+        3273,
+        3387,
+        3521,
+        3598
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 18,
+          "bbox": [
+            47.147,
+            53.913,
+            560.6,
+            740.335
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            47.147,
+            52.308,
+            560.6,
+            695.729
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          519,
+          4180
+        ]
+      ]
+    },
+    {
+      "label": "第19题题目",
+      "number": 19,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 559,
+      "safeBreaks": [
+        83,
+        172,
+        318,
+        409,
+        511
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 19,
+          "bbox": [
+            47.147,
+            707.282,
+            560.6,
+            756.702
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            47.147,
+            51.024,
+            560.6,
+            757.985
+          ]
+        },
+        {
+          "page": 21,
+          "bbox": [
+            47.147,
+            50.704,
+            560.6,
+            437.398
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          559
+        ]
+      ]
+    },
+    {
+      "label": "第19题解析",
+      "number": 19,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3063,
+      "safeBreaks": [
+        93,
+        238,
+        314,
+        407,
+        482,
+        582,
+        725,
+        801,
+        899,
+        994,
+        1094,
+        1232,
+        1312,
+        1402,
+        1556,
+        1647,
+        1747,
+        1840,
+        1914,
+        2008,
+        2105,
+        2199,
+        2298,
+        2392,
+        2545,
+        2688,
+        2834,
+        2929
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 19,
+          "bbox": [
+            47.147,
+            707.282,
+            560.6,
+            756.702
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            47.147,
+            51.024,
+            560.6,
+            757.985
+          ]
+        },
+        {
+          "page": 21,
+          "bbox": [
+            47.147,
+            50.704,
+            560.6,
+            437.398
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          559,
+          3622
+        ]
+      ]
+    },
+    {
+      "label": "第20题题目",
+      "number": 20,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 378,
+      "safeBreaks": [
+        81,
+        177,
+        275
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 21,
+          "bbox": [
+            47.147,
+            449.913,
+            560.6,
+            765.687
+          ]
+        },
+        {
+          "page": 22,
+          "bbox": [
+            47.147,
+            52.308,
+            560.6,
+            754.776
+          ]
+        },
+        {
+          "page": 23,
+          "bbox": [
+            47.147,
+            52.95,
+            560.6,
+            724.932
+          ]
+        },
+        {
+          "page": 24,
+          "bbox": [
+            47.147,
+            56.801,
+            560.6,
+            483.609
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          378
+        ]
+      ]
+    },
+    {
+      "label": "第20题解析",
+      "number": 20,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 6303,
+      "safeBreaks": [
+        71,
+        164,
+        240,
+        312,
+        386,
+        461,
+        553,
+        624,
+        712,
+        807,
+        877,
+        988,
+        1075,
+        1151,
+        1244,
+        1398,
+        1537,
+        1636,
+        1778,
+        1856,
+        2000,
+        2097,
+        2192,
+        2271,
+        2406,
+        2573,
+        2617,
+        2837,
+        2963,
+        3078,
+        3217,
+        3302,
+        3416,
+        3500,
+        3613,
+        3748,
+        3847,
+        4089,
+        4284,
+        4429,
+        4527,
+        4624,
+        4722,
+        4819,
+        4955,
+        5077,
+        5222,
+        5319,
+        5419,
+        5561,
+        5655,
+        5766,
+        5904,
+        6049,
+        6147,
+        6222
+      ],
+      "sourcePDF": "2024年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 21,
+          "bbox": [
+            47.147,
+            449.913,
+            560.6,
+            765.687
+          ]
+        },
+        {
+          "page": 22,
+          "bbox": [
+            47.147,
+            52.308,
+            560.6,
+            754.776
+          ]
+        },
+        {
+          "page": 23,
+          "bbox": [
+            47.147,
+            52.95,
+            560.6,
+            724.932
+          ]
+        },
+        {
+          "page": 24,
+          "bbox": [
+            47.147,
+            56.801,
+            560.6,
+            483.609
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（天津）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          378,
+          6681
+        ]
+      ]
+    }
+  ],
+  "layout": "question-analysis-pairs"
+}

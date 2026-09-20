@@ -1,0 +1,52 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT33",
+  "result": "passed_self_review",
+  "executed_at": "2026-09-20T08:00:00+08:00",
+  "executed_by": "Codex self_review",
+  "application_commit": null,
+  "layer": "real_mysql_integration_and_mock_e2e",
+  "environment": "local MySQL 8.0.45; Playwright PC 1440/1280 and H5 390/360",
+  "provider_mode": "fixture grading plus persisted real MySQL evidence",
+  "commands": [
+    "npm run test:db",
+    "npm --prefix server test -- src/features/report/report.service.spec.ts",
+    "npm --prefix web test -- --run src/pages/learn/report/assessment-next-action.spec.ts src/pages/learn/report/ReportPage.spec.tsx",
+    "npx playwright test web/tests/e2e/assessment.spec.ts --grep AT33",
+    "npm --prefix web test && npm --prefix web run typecheck && npm --prefix web run lint && npm --prefix web run build",
+    "npm --prefix server test && npm --prefix server run typecheck && npm --prefix server run lint && npm --prefix server run build",
+    "npx playwright test",
+    "git diff --check"
+  ],
+  "expected": "Report planning and execution separately; a correct plan with incorrect execution must not pass the whole task.",
+  "actual": {
+    "planning": "correct",
+    "execution": "incorrect",
+    "independent_planning": true,
+    "independent_execution": false,
+    "independent_task_pass": false,
+    "next_action": "execution remediation",
+    "next_action_href": "/study?session=12&remediate=execution",
+    "frozen_plan_projected": true,
+    "frozen_final_answer_projected": true,
+    "skipped_plan_does_not_revive_stale_text": true,
+    "student_work_rendered_before_model_evidence": true,
+    "formula_rendered_with_katex": true,
+    "attempt_phase_projected": true,
+    "responsive_projects": ["pc-1440", "pc-1280", "h5-390", "h5-360"],
+    "web_suite": "22 files / 99 tests passed",
+    "server_suite": "46 files / 346 tests passed",
+    "playwright_suite": "80/80 passed"
+  },
+  "evidence_files": [
+    "server/src/features/report/report.service.ts",
+    "server/src/features/report/report.service.spec.ts",
+    "server/scripts/verify-assessment-persistence.ts",
+    "web/src/pages/learn/report/ReportPage.tsx",
+    "web/src/pages/learn/report/assessment-next-action.ts",
+    "web/tests/e2e/assessment.spec.ts",
+    "artifacts/acceptance/A05-report-pc-1440.png",
+    "artifacts/acceptance/A05-report-h5-390.png"
+  ],
+  "limitations": ["No independent reviewer, human-reviewed task pool, or real student observation was performed."]
+}

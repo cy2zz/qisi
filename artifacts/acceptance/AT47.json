@@ -1,0 +1,57 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT47",
+  "result": "passed_self_review",
+  "executed_at": "2026-09-20T01:53:52+08:00",
+  "executed_by": "Codex self_review",
+  "application_commit": null,
+  "layer": "real_mysql_integration_and_mock_e2e",
+  "environment": "local MySQL 8.0.45; Playwright PC 1440/1280 and H5 390/360",
+  "provider_mode": "not_applicable_retention_and_owner_scoped_deletion",
+  "commands": [
+    "npm --prefix server test -- --run src/features/history/history.controller.spec.ts src/shared/retention.spec.ts src/shared/delete.spec.ts src/database/sql-migration.provider.spec.ts",
+    "npm --prefix server run db:migrate:dev",
+    "npm --prefix server run test:privacy-retention",
+    "npm --prefix server run test:db",
+    "npm run test:e2e -- web/tests/e2e/privacy.spec.ts",
+    "npm run test:e2e -- web/tests/e2e/tutor.spec.ts web/tests/e2e/assessment.spec.ts web/tests/e2e/privacy.spec.ts"
+  ],
+  "expected": "After 24 hours only uploaded image bytes and temporary drafts are removed; after session expiry or explicit confirmation, private session text and events cascade-delete while public question-bank rows remain unchanged and deletion cannot wash first-seen eligibility.",
+  "actual": {
+    "temporary_drafts_cleared": true,
+    "locked_plan_preserved": true,
+    "final_answer_preserved": true,
+    "private_image_bytes_deleted_after_24h": true,
+    "confirmed_text_retained_without_media": true,
+    "expired_session_cascade": true,
+    "linked_reassessment_and_help_deleted": true,
+    "linked_session_delete_count": 3,
+    "linked_private_media_deleted": true,
+    "failed_media_delete_left_retryable_record": true,
+    "deferred_media_cleanup_retried": true,
+    "late_provider_commit_rejected": true,
+    "history_incomplete_recorded": true,
+    "future_first_seen_eligible": false,
+    "question_bank_unchanged": true,
+    "explicit_confirmation_required": true,
+    "cross_origin_delete_rejected": true,
+    "responsive_projects": ["pc-1440", "pc-1280", "h5-390", "h5-360"]
+  },
+  "evidence_files": [
+    "server/db/owner_privacy_state.sql",
+    "server/src/shared/retention.ts",
+    "server/src/shared/delete.ts",
+    "server/scripts/verify-privacy-retention.ts",
+    "server/src/features/history/history.controller.ts",
+    "web/src/pages/history/HistoryPage.tsx",
+    "web/tests/e2e/privacy.spec.ts",
+    "artifacts/acceptance/A06-delete-confirm-pc-1440.png",
+    "artifacts/acceptance/A06-delete-confirm-h5-390.png"
+  ],
+  "limitations": [
+    "The available local database is MySQL 8.0.45, while the production target remains MySQL 8.4.",
+    "The cleanup executable is verified locally; production scheduling and deployment are not yet validated.",
+    "No independent reviewer or real student observation was performed.",
+    "real_student_observation: not_run"
+  ]
+}

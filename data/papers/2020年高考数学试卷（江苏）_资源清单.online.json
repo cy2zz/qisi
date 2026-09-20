@@ -1,0 +1,2311 @@
+{
+  "title": "2020年高考数学试卷（江苏）",
+  "variant": "题目与解析",
+  "prefix": "2020年高考数学试卷（江苏）",
+  "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+  "sourcePages": 28,
+  "questionCount": 25,
+  "notes": [],
+  "resources": [
+    {
+      "label": "卷首说明",
+      "number": null,
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E5%85%B6%E4%BB%96%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%8D%B7%E9%A6%96%E8%AF%B4%E6%98%8E.png",
+      "width": 1600,
+      "height": 1163,
+      "safeBreaks": [
+        76,
+        179,
+        258,
+        334,
+        410,
+        487,
+        562,
+        638,
+        714,
+        790,
+        866,
+        942,
+        1018,
+        1094
+      ],
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            49.847,
+            65.204,
+            541.952,
+            419.212
+          ]
+        }
+      ],
+      "kind": "intro"
+    },
+    {
+      "label": "第01题题目",
+      "number": 1,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 243,
+      "safeBreaks": [
+        81,
+        148
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            49.847,
+            396.452,
+            541.952,
+            683.411
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          243
+        ]
+      ]
+    },
+    {
+      "label": "第01题解析",
+      "number": 1,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 702,
+      "safeBreaks": [
+        101,
+        180,
+        256,
+        335,
+        433,
+        535,
+        634
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            49.847,
+            396.452,
+            541.952,
+            683.411
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          243,
+          945
+        ]
+      ]
+    },
+    {
+      "label": "第02题题目",
+      "number": 2,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 74,
+      "safeBreaks": [],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            49.847,
+            697.251,
+            541.952,
+            761.225
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            49.847,
+            62.128,
+            541.952,
+            223.293
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          74
+        ]
+      ]
+    },
+    {
+      "label": "第02题解析",
+      "number": 2,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 694,
+      "safeBreaks": [
+        81,
+        152,
+        222,
+        303,
+        396,
+        475,
+        553,
+        628
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            49.847,
+            697.251,
+            541.952,
+            761.225
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            49.847,
+            62.128,
+            541.952,
+            223.293
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          74,
+          768
+        ]
+      ]
+    },
+    {
+      "label": "第03题题目",
+      "number": 3,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 72,
+      "safeBreaks": [],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            49.847,
+            237.441,
+            541.952,
+            449.353
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          72
+        ]
+      ]
+    },
+    {
+      "label": "第03题解析",
+      "number": 3,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 629,
+      "safeBreaks": [
+        81,
+        157,
+        234,
+        316,
+        406,
+        487,
+        563
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            49.847,
+            237.441,
+            541.952,
+            449.353
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          72,
+          701
+        ]
+      ]
+    },
+    {
+      "label": "第04题题目",
+      "number": 4,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 60,
+      "safeBreaks": [],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            49.847,
+            459.811,
+            541.952,
+            730.161
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          60
+        ]
+      ]
+    },
+    {
+      "label": "第04题解析",
+      "number": 4,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 831,
+      "safeBreaks": [
+        113,
+        182,
+        258,
+        335,
+        413,
+        516,
+        654,
+        772
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            49.847,
+            459.811,
+            541.952,
+            730.161
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          60,
+          891
+        ]
+      ]
+    },
+    {
+      "label": "第05题题目",
+      "number": 5,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 548,
+      "safeBreaks": [
+        61
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            49.847,
+            740.618,
+            541.952,
+            753.843
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            49.847,
+            64.896,
+            541.952,
+            379.228
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          548
+        ]
+      ]
+    },
+    {
+      "label": "第05题解析",
+      "number": 5,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 553,
+      "safeBreaks": [
+        81,
+        157,
+        233,
+        316,
+        406,
+        487
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            49.847,
+            740.618,
+            541.952,
+            753.843
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            49.847,
+            64.896,
+            541.952,
+            379.228
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          548,
+          1101
+        ]
+      ]
+    },
+    {
+      "label": "第06题题目",
+      "number": 6,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 206,
+      "safeBreaks": [
+        130
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            49.847,
+            391.839,
+            541.952,
+            699.097
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          206
+        ]
+      ]
+    },
+    {
+      "label": "第06题解析",
+      "number": 6,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 805,
+      "safeBreaks": [
+        112,
+        181,
+        257,
+        337,
+        485,
+        629,
+        746
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            49.847,
+            391.839,
+            541.952,
+            699.097
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          206,
+          1011
+        ]
+      ]
+    },
+    {
+      "label": "第07题题目",
+      "number": 7,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 96,
+      "safeBreaks": [],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            49.847,
+            708.324,
+            541.952,
+            775.065
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            49.847,
+            62.128,
+            541.952,
+            184.232
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          96
+        ]
+      ]
+    },
+    {
+      "label": "第07题解析",
+      "number": 7,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 554,
+      "safeBreaks": [
+        73,
+        141,
+        215,
+        303,
+        416,
+        488
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            49.847,
+            708.324,
+            541.952,
+            775.065
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            49.847,
+            62.128,
+            541.952,
+            184.232
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          96,
+          650
+        ]
+      ]
+    },
+    {
+      "label": "第08题题目",
+      "number": 8,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 102,
+      "safeBreaks": [],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            49.847,
+            191.306,
+            541.952,
+            449.353
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          102
+        ]
+      ]
+    },
+    {
+      "label": "第08题解析",
+      "number": 8,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 749,
+      "safeBreaks": [
+        108,
+        176,
+        252,
+        332,
+        471,
+        583,
+        691
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            49.847,
+            191.306,
+            541.952,
+            449.353
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          102,
+          851
+        ]
+      ]
+    },
+    {
+      "label": "第09题题目",
+      "number": 9,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 492,
+      "safeBreaks": [
+        65,
+        138,
+        171
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            49.847,
+            459.811,
+            541.952,
+            751.075
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            49.847,
+            58.745,
+            541.952,
+            168.546
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          492
+        ]
+      ]
+    },
+    {
+      "label": "第09题解析",
+      "number": 9,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 848,
+      "safeBreaks": [
+        112,
+        181,
+        257,
+        337,
+        473,
+        585,
+        686,
+        789
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            49.847,
+            459.811,
+            541.952,
+            751.075
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            49.847,
+            58.745,
+            541.952,
+            168.546
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          492,
+          1340
+        ]
+      ]
+    },
+    {
+      "label": "第10题题目",
+      "number": 10,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 166,
+      "safeBreaks": [
+        112,
+        146
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            49.847,
+            178.08,
+            541.952,
+            472.728
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          166
+        ]
+      ]
+    },
+    {
+      "label": "第10题解析",
+      "number": 10,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 804,
+      "safeBreaks": [
+        111,
+        180,
+        256,
+        332,
+        435,
+        537,
+        638,
+        745
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            49.847,
+            178.08,
+            541.952,
+            472.728
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          166,
+          970
+        ]
+      ]
+    },
+    {
+      "label": "第11题题目",
+      "number": 11,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 162,
+      "safeBreaks": [
+        72
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            49.847,
+            483.186,
+            541.952,
+            754.151
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            49.847,
+            63.974,
+            541.952,
+            270.043
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          162
+        ]
+      ]
+    },
+    {
+      "label": "第11题解析",
+      "number": 11,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1425,
+      "safeBreaks": [
+        80,
+        156,
+        235,
+        334,
+        435,
+        585,
+        737,
+        873,
+        1285,
+        1359
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            49.847,
+            483.186,
+            541.952,
+            754.151
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            49.847,
+            63.974,
+            541.952,
+            270.043
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          162,
+          1587
+        ]
+      ]
+    },
+    {
+      "label": "第12题题目",
+      "number": 12,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 79,
+      "safeBreaks": [],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 11,
+          "bbox": [
+            49.847,
+            281.73,
+            541.952,
+            706.786
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          79
+        ]
+      ]
+    },
+    {
+      "label": "第12题解析",
+      "number": 12,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1315,
+      "safeBreaks": [
+        115,
+        184,
+        267,
+        411,
+        515,
+        663,
+        810,
+        921,
+        1028,
+        1098,
+        1174,
+        1250
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 11,
+          "bbox": [
+            49.847,
+            281.73,
+            541.952,
+            706.786
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          79,
+          1394
+        ]
+      ]
+    },
+    {
+      "label": "第13题题目",
+      "number": 13,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 409,
+      "safeBreaks": [
+        62,
+        169
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 11,
+          "bbox": [
+            49.847,
+            717.243,
+            541.952,
+            763.685
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            49.847,
+            63.051,
+            541.952,
+            755.689
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            49.847,
+            58.745,
+            541.952,
+            166.085
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          409
+        ]
+      ]
+    },
+    {
+      "label": "第13题解析",
+      "number": 13,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2403,
+      "safeBreaks": [
+        113,
+        182,
+        252,
+        366,
+        437,
+        516,
+        604,
+        718,
+        864,
+        972,
+        1124,
+        1197,
+        1276,
+        1349,
+        1429,
+        1578,
+        1678,
+        1822,
+        1938,
+        2036,
+        2144,
+        2251,
+        2324
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 11,
+          "bbox": [
+            49.847,
+            717.243,
+            541.952,
+            763.685
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            49.847,
+            63.051,
+            541.952,
+            755.689
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            49.847,
+            58.745,
+            541.952,
+            166.085
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          409,
+          2812
+        ]
+      ]
+    },
+    {
+      "label": "第14题题目",
+      "number": 14,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 184,
+      "safeBreaks": [
+        110
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 13,
+          "bbox": [
+            49.847,
+            174.697,
+            541.952,
+            574.225
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          184
+        ]
+      ]
+    },
+    {
+      "label": "第14题解析",
+      "number": 14,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1127,
+      "safeBreaks": [
+        94,
+        173,
+        249,
+        326,
+        404,
+        546,
+        666,
+        757,
+        858,
+        959,
+        1057
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 13,
+          "bbox": [
+            49.847,
+            174.697,
+            541.952,
+            574.225
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          184,
+          1311
+        ]
+      ]
+    },
+    {
+      "label": "第15题题目",
+      "number": 15,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 908,
+      "safeBreaks": [
+        68,
+        145,
+        216,
+        719,
+        832
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 13,
+          "bbox": [
+            49.847,
+            583.759,
+            541.952,
+            644.657
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            49.847,
+            66.127,
+            541.952,
+            738.157
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          908
+        ]
+      ]
+    },
+    {
+      "label": "第15题解析",
+      "number": 15,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1511,
+      "safeBreaks": [
+        76,
+        151,
+        233,
+        330,
+        432,
+        533,
+        632,
+        736,
+        835,
+        942,
+        1373,
+        1435
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 13,
+          "bbox": [
+            49.847,
+            583.759,
+            541.952,
+            644.657
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            49.847,
+            66.127,
+            541.952,
+            738.157
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          908,
+          2419
+        ]
+      ]
+    },
+    {
+      "label": "第16题题目",
+      "number": 16,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 604,
+      "safeBreaks": [
+        69,
+        117,
+        373,
+        490
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 14,
+          "bbox": [
+            49.847,
+            751.075,
+            541.952,
+            766.761
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            49.847,
+            62.436,
+            541.952,
+            734.159
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            49.847,
+            65.511,
+            541.952,
+            168.546
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          604
+        ]
+      ]
+    },
+    {
+      "label": "第16题解析",
+      "number": 16,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2026,
+      "safeBreaks": [
+        138,
+        219,
+        295,
+        372,
+        453,
+        546,
+        700,
+        853,
+        1005,
+        1157,
+        1258,
+        1412,
+        1554,
+        1673,
+        1716,
+        1884,
+        1949
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 14,
+          "bbox": [
+            49.847,
+            751.075,
+            541.952,
+            766.761
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            49.847,
+            62.436,
+            541.952,
+            734.159
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            49.847,
+            65.511,
+            541.952,
+            168.546
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          604,
+          2630
+        ]
+      ]
+    },
+    {
+      "label": "第17题题目",
+      "number": 17,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 1086,
+      "safeBreaks": [
+        70,
+        158,
+        269,
+        377,
+        758,
+        824,
+        902,
+        974
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 16,
+          "bbox": [
+            49.847,
+            179.003,
+            541.952,
+            749.845
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            49.847,
+            58.745,
+            541.952,
+            160.857
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          1086
+        ]
+      ]
+    },
+    {
+      "label": "第17题解析",
+      "number": 17,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1138,
+      "safeBreaks": [
+        70,
+        145,
+        221,
+        299,
+        368,
+        487,
+        566,
+        680,
+        788,
+        907,
+        991,
+        1073
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 16,
+          "bbox": [
+            49.847,
+            179.003,
+            541.952,
+            749.845
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            49.847,
+            58.745,
+            541.952,
+            160.857
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          1086,
+          2224
+        ]
+      ]
+    },
+    {
+      "label": "第18题题目",
+      "number": 18,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 920,
+      "safeBreaks": [
+        127,
+        216,
+        662,
+        743,
+        837
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 17,
+          "bbox": [
+            49.847,
+            174.39,
+            541.952,
+            766.761
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            49.847,
+            63.666,
+            541.952,
+            759.379
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            49.847,
+            63.974,
+            541.952,
+            165.163
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          920
+        ]
+      ]
+    },
+    {
+      "label": "第18题解析",
+      "number": 18,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3657,
+      "safeBreaks": [
+        145,
+        225,
+        307,
+        401,
+        551,
+        634,
+        736,
+        884,
+        1024,
+        1118,
+        1218,
+        1315,
+        1422,
+        1519,
+        1669,
+        1749,
+        1852,
+        1953,
+        2053,
+        2155,
+        2298,
+        2409,
+        2523,
+        2663,
+        2752,
+        2810,
+        2918,
+        3067,
+        3310,
+        3447,
+        3533
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 17,
+          "bbox": [
+            49.847,
+            174.39,
+            541.952,
+            766.761
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            49.847,
+            63.666,
+            541.952,
+            759.379
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            49.847,
+            63.974,
+            541.952,
+            165.163
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          920,
+          4577
+        ]
+      ]
+    },
+    {
+      "label": "第19题题目",
+      "number": 19,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 481,
+      "safeBreaks": [
+        78,
+        182,
+        277,
+        387
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 19,
+          "bbox": [
+            49.847,
+            182.386,
+            541.952,
+            757.842
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            49.847,
+            63.359,
+            541.952,
+            753.228
+          ]
+        },
+        {
+          "page": 21,
+          "bbox": [
+            49.847,
+            62.128,
+            541.952,
+            332.478
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          481
+        ]
+      ]
+    },
+    {
+      "label": "第19题解析",
+      "number": 19,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 4572,
+      "safeBreaks": [
+        103,
+        181,
+        260,
+        359,
+        458,
+        539,
+        636,
+        721,
+        810,
+        894,
+        992,
+        1096,
+        1196,
+        1289,
+        1408,
+        1502,
+        1578,
+        1677,
+        1784,
+        1878,
+        1959,
+        2049,
+        2168,
+        2261,
+        2354,
+        2464,
+        2574,
+        2664,
+        2768,
+        2869,
+        2973,
+        3073,
+        3174,
+        3271,
+        3381,
+        3472,
+        3579,
+        3675,
+        3775,
+        3916,
+        4026,
+        4128,
+        4228,
+        4328,
+        4430,
+        4507
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 19,
+          "bbox": [
+            49.847,
+            182.386,
+            541.952,
+            757.842
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            49.847,
+            63.359,
+            541.952,
+            753.228
+          ]
+        },
+        {
+          "page": 21,
+          "bbox": [
+            49.847,
+            62.128,
+            541.952,
+            332.478
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          481,
+          5053
+        ]
+      ]
+    },
+    {
+      "label": "第20题题目",
+      "number": 20,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 569,
+      "safeBreaks": [
+        82,
+        192,
+        282,
+        398,
+        489
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 21,
+          "bbox": [
+            49.847,
+            344.166,
+            541.952,
+            751.383
+          ]
+        },
+        {
+          "page": 22,
+          "bbox": [
+            49.847,
+            60.283,
+            541.952,
+            775.065
+          ]
+        },
+        {
+          "page": 23,
+          "bbox": [
+            49.847,
+            64.589,
+            541.952,
+            372.769
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          569
+        ]
+      ]
+    },
+    {
+      "label": "第20题解析",
+      "number": 20,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 4141,
+      "safeBreaks": [
+        75,
+        226,
+        302,
+        379,
+        460,
+        553,
+        636,
+        773,
+        807,
+        878,
+        955,
+        1046,
+        1087,
+        1160,
+        1307,
+        1458,
+        1610,
+        1712,
+        1811,
+        1967,
+        2061,
+        2102,
+        2168,
+        2269,
+        2377,
+        2471,
+        2620,
+        2657,
+        2732,
+        2930,
+        3030,
+        3121,
+        3209,
+        3362,
+        3463,
+        3612,
+        3691,
+        3767,
+        3841,
+        3920,
+        3995,
+        4071
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 21,
+          "bbox": [
+            49.847,
+            344.166,
+            541.952,
+            751.383
+          ]
+        },
+        {
+          "page": 22,
+          "bbox": [
+            49.847,
+            60.283,
+            541.952,
+            775.065
+          ]
+        },
+        {
+          "page": 23,
+          "bbox": [
+            49.847,
+            64.589,
+            541.952,
+            372.769
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          569,
+          4710
+        ]
+      ]
+    },
+    {
+      "label": "第21题题目",
+      "number": 21,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC21%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 289,
+      "safeBreaks": [
+        129,
+        210
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 23,
+          "bbox": [
+            49.847,
+            384.149,
+            541.952,
+            737.542
+          ]
+        },
+        {
+          "page": 24,
+          "bbox": [
+            49.847,
+            62.436,
+            541.952,
+            411.83
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第21题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          289
+        ]
+      ]
+    },
+    {
+      "label": "第21题解析",
+      "number": 21,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC21%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2032,
+      "safeBreaks": [
+        247,
+        326,
+        408,
+        498,
+        580,
+        732,
+        878,
+        1023,
+        1177,
+        1634,
+        1883,
+        1960
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 23,
+          "bbox": [
+            49.847,
+            384.149,
+            541.952,
+            737.542
+          ]
+        },
+        {
+          "page": 24,
+          "bbox": [
+            49.847,
+            62.436,
+            541.952,
+            411.83
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第21题.png",
+      "originalImageIntervals": [
+        [
+          289,
+          2321
+        ]
+      ]
+    },
+    {
+      "label": "第22题题目",
+      "number": 22,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC22%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 366,
+      "safeBreaks": [
+        98,
+        191,
+        287
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 24,
+          "bbox": [
+            49.847,
+            421.365,
+            541.952,
+            759.072
+          ]
+        },
+        {
+          "page": 25,
+          "bbox": [
+            49.847,
+            61.206,
+            541.952,
+            318.33
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第22题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          366
+        ]
+      ]
+    },
+    {
+      "label": "第22题解析",
+      "number": 22,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC22%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1604,
+      "safeBreaks": [
+        109,
+        178,
+        255,
+        333,
+        406,
+        518,
+        662,
+        749,
+        950,
+        1059,
+        1143,
+        1259,
+        1358,
+        1464,
+        1532
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 24,
+          "bbox": [
+            49.847,
+            421.365,
+            541.952,
+            759.072
+          ]
+        },
+        {
+          "page": 25,
+          "bbox": [
+            49.847,
+            61.206,
+            541.952,
+            318.33
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第22题.png",
+      "originalImageIntervals": [
+        [
+          366,
+          1970
+        ]
+      ]
+    },
+    {
+      "label": "第23题题目",
+      "number": 23,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC23%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 67,
+      "safeBreaks": [],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 25,
+          "bbox": [
+            49.847,
+            327.25,
+            541.952,
+            676.337
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第23题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          67
+        ]
+      ]
+    },
+    {
+      "label": "第23题解析",
+      "number": 23,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC23%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1080,
+      "safeBreaks": [
+        147,
+        226,
+        302,
+        379,
+        524,
+        641,
+        781,
+        896,
+        1012
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 25,
+          "bbox": [
+            49.847,
+            327.25,
+            541.952,
+            676.337
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第23题.png",
+      "originalImageIntervals": [
+        [
+          67,
+          1147
+        ]
+      ]
+    },
+    {
+      "label": "第24题题目",
+      "number": 24,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC24%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 664,
+      "safeBreaks": [
+        67,
+        153,
+        465,
+        547
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 25,
+          "bbox": [
+            49.847,
+            686.179,
+            541.952,
+            727.7
+          ]
+        },
+        {
+          "page": 26,
+          "bbox": [
+            49.847,
+            70.125,
+            541.952,
+            759.687
+          ]
+        },
+        {
+          "page": 27,
+          "bbox": [
+            49.847,
+            61.513,
+            541.952,
+            371.539
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第24题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          664
+        ]
+      ]
+    },
+    {
+      "label": "第24题解析",
+      "number": 24,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC24%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2781,
+      "safeBreaks": [
+        84,
+        139,
+        218,
+        294,
+        371,
+        451,
+        1105,
+        1158,
+        1257,
+        1356,
+        1514,
+        1606,
+        1662,
+        1697,
+        1755,
+        1901,
+        1936,
+        2000,
+        2037,
+        2107,
+        2304,
+        2342,
+        2411,
+        2473,
+        2560,
+        2714
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 25,
+          "bbox": [
+            49.847,
+            686.179,
+            541.952,
+            727.7
+          ]
+        },
+        {
+          "page": 26,
+          "bbox": [
+            49.847,
+            70.125,
+            541.952,
+            759.687
+          ]
+        },
+        {
+          "page": 27,
+          "bbox": [
+            49.847,
+            61.513,
+            541.952,
+            371.539
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第24题.png",
+      "originalImageIntervals": [
+        [
+          664,
+          3445
+        ]
+      ]
+    },
+    {
+      "label": "第25题题目",
+      "number": 25,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC25%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 365,
+      "safeBreaks": [
+        65,
+        142,
+        219,
+        295
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 27,
+          "bbox": [
+            49.847,
+            381.996,
+            541.952,
+            773.22
+          ]
+        },
+        {
+          "page": 28,
+          "bbox": [
+            49.847,
+            58.745,
+            541.952,
+            388.763
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第25题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          365
+        ]
+      ]
+    },
+    {
+      "label": "第25题解析",
+      "number": 25,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2020%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2020%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%B1%9F%E8%8B%8F%EF%BC%89_%E7%AC%AC25%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2016,
+      "safeBreaks": [
+        112,
+        181,
+        257,
+        339,
+        431,
+        505,
+        614,
+        715,
+        817,
+        925,
+        1033,
+        1135,
+        1236,
+        1349,
+        1422,
+        1740,
+        1881,
+        1951
+      ],
+      "sourcePDF": "2020年高考数学试卷（江苏）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 27,
+          "bbox": [
+            49.847,
+            381.996,
+            541.952,
+            773.22
+          ]
+        },
+        {
+          "page": 28,
+          "bbox": [
+            49.847,
+            58.745,
+            541.952,
+            388.763
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2020年高考数学试卷（江苏）（解析卷）_第25题.png",
+      "originalImageIntervals": [
+        [
+          365,
+          2381
+        ]
+      ]
+    }
+  ],
+  "layout": "question-analysis-pairs"
+}

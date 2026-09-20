@@ -1,0 +1,49 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT10",
+  "result": "passed_self_review",
+  "executed_at": "2026-09-20T01:45:55+08:00",
+  "executed_by": "Codex self_review",
+  "application_commit": null,
+  "layer": "unit_and_mysql_integration",
+  "environment": "local NestJS + private temporary storage + MySQL 8.0.45",
+  "bank_version": null,
+  "scope_hash": null,
+  "model_version": null,
+  "prompt_version": null,
+  "provider_mode": "no_model_security_boundary",
+  "commands": [
+    "npm --prefix server test -- --run src/features/media/question-image-validation.spec.ts src/features/media/media.controller.spec.ts src/features/media/private-media-storage.service.spec.ts",
+    "npm --prefix server run test:media-persistence",
+    "npm --prefix server run test:privacy-retention"
+  ],
+  "expected": "Fake images, payloads over 8MB, images over 20MP and SVG are rejected; another owner receives no media; original files have no public URL.",
+  "actual": {
+    "fake_image_rejected": true,
+    "mismatched_mime_rejected": true,
+    "over_8mb_rejected": true,
+    "over_20mp_rejected": true,
+    "svg_rejected": true,
+    "generated_private_filename_only": true,
+    "authenticated_owner_scoped_endpoint": true,
+    "other_owner_not_found": true,
+    "public_object_url_exposed": false,
+    "expired_private_bytes_deleted": 2,
+    "explicit_session_delete_removes_private_bytes": true,
+    "failed_immediate_delete_remains_retryable": true
+  },
+  "evidence_files": [
+    "server/src/features/media/question-image-validation.ts",
+    "server/src/features/media/question-image-validation.spec.ts",
+    "server/src/features/media/private-media-storage.service.spec.ts",
+    "server/src/features/media/media.service.ts",
+    "server/scripts/verify-media-persistence.ts",
+    "server/scripts/verify-privacy-retention.ts",
+    "server/src/shared/delete.ts"
+  ],
+  "limitations": [
+    "The local integration database is MySQL 8.0.45; production-target MySQL 8.4 validation remains not_run.",
+    "No independent reviewer or external penetration test was performed.",
+    "real_student_observation: not_run"
+  ]
+}

@@ -2,6 +2,7 @@ import {
   forwardRef,
   type KeyboardEvent,
   type ReactNode,
+  useId,
   useImperativeHandle,
   useRef,
   useState,
@@ -41,14 +42,20 @@ export function richTextToMarkdown(editor: HTMLElement) {
 }
 
 export interface RichComposerHandle {
+  advanceFormulaSlot: () => boolean;
   clear: () => void;
-  focus: () => void;
+  commitVoiceDraft: (text: string) => void;
+  focus: (options?: FocusOptions) => void;
+  insertFormulaTemplate: (text: string) => void;
   insertText: (text: string) => void;
+  replaceText: (text: string, options?: { focus?: boolean }) => void;
+  updateVoiceDraft: (text: string) => void;
 }
 
 interface RichComposerProps {
   disabled?: boolean;
   onChange: (markdown: string) => void;
+  onImagePaste?: (file: File) => void;
   onSubmit: () => void;
   placeholder: string;
 }
@@ -67,33 +74,100 @@ const formattingActions: Array<{
 ];
 
 export const RichComposer = forwardRef<RichComposerHandle, RichComposerProps>(
-  function RichComposer({ disabled = false, onChange, onSubmit, placeholder }, forwardedRef) {
+  function RichComposer(
+    { disabled = false, onChange, onImagePaste, onSubmit, placeholder },
+    forwardedRef,
+  ) {
     const editorRef = useRef<HTMLDivElement>(null);
+    const formattingToggleRef = useRef<HTMLButtonElement>(null);
+    const voiceDraftNodeRef = useRef<Text | null>(null);
+    const formattingToolbarId = useId();
     const [activeFormats, setActiveFormats] = useState<Partial<Record<FormatCommand, boolean>>>({});
+    const [formattingOpen, setFormattingOpen] = useState(false);
 
     function emitChange() {
       if (editorRef.current) onChange(richTextToMarkdown(editorRef.current));
     }
 
-    function insertText(text: string) {
+    function insertTextNode(text: string) {
       const editor = editorRef.current;
-      if (!editor) return;
+      if (!editor) return null;
       editor.focus();
 
       const selection = window.getSelection();
       const range = selection?.rangeCount ? selection.getRangeAt(0) : null;
+      const textNode = document.createTextNode(text);
       if (range && editor.contains(range.commonAncestorContainer)) {
         range.deleteContents();
-        const textNode = document.createTextNode(text);
         range.insertNode(textNode);
         range.setStartAfter(textNode);
         range.collapse(true);
         selection?.removeAllRanges();
         selection?.addRange(range);
       } else {
-        editor.append(document.createTextNode(text));
+        editor.append(textNode);
       }
+      return textNode;
+    }
+
+    function insertText(text: string) {
+      insertTextNode(text);
       emitChange();
+    }
+
+    function placeCaret(node: Text, offset: number) {
+      const selection = window.getSelection();
+      const range = document.createRange();
+      range.setStart(node, Math.max(0, Math.min(offset, node.data.length)));
+      range.collapse(true);
+      selection?.removeAllRanges();
+      selection?.addRange(range);
+    }
+
+    function insertFormulaTemplate(text: string) {
+      const textNode = insertTextNode(text);
+      if (!textNode) return;
+      const firstSlot = text.indexOf('{}');
+      placeCaret(textNode, firstSlot >= 0 ? firstSlot + 1 : text.length);
+      emitChange();
+    }
+
+    function moveToNextFormulaSlot() {
+      const editor = editorRef.current;
+      const selection = window.getSelection();
+      const node = selection?.anchorNode;
+      if (!editor || !selection || !(node instanceof Text) || !editor.contains(node)) return false;
+
+      const caretOffset = selection.anchorOffset;
+      const formulaStart = node.data.lastIndexOf('$', Math.max(0, caretOffset - 1));
+      const formulaEnd = node.data.indexOf('$', caretOffset);
+      if (formulaStart < 0 || formulaEnd < 0 || formulaEnd <= formulaStart) return false;
+
+      const nextSlot = node.data.indexOf('{}', caretOffset);
+      placeCaret(node, nextSlot >= 0 && nextSlot < formulaEnd ? nextSlot + 1 : formulaEnd + 1);
+      return true;
+    }
+
+    function replaceText(text: string, options?: { focus?: boolean }) {
+      const editor = editorRef.current;
+      if (!editor) return;
+      editor.replaceChildren(document.createTextNode(text));
+      voiceDraftNodeRef.current = null;
+      emitChange();
+      if (options?.focus !== false) editor.focus();
+    }
+
+    function updateVoiceDraft(text: string) {
+      const editor = editorRef.current;
+      const current = voiceDraftNodeRef.current;
+      if (editor && current && editor.contains(current)) current.data = text;
+      else voiceDraftNodeRef.current = insertTextNode(text);
+      emitChange();
+    }
+
+    function commitVoiceDraft(text: string) {
+      updateVoiceDraft(text);
+      voiceDraftNodeRef.current = null;
     }
 
     function refreshFormats() {
@@ -116,6 +190,10 @@ export const RichComposer = forwardRef<RichComposerHandle, RichComposerProps>(
     }
 
     function handleKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+      if (event.key === 'Tab' && !event.shiftKey && moveToNextFormulaSlot()) {
+        event.preventDefault();
+        return;
+      }
       if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing) {
         event.preventDefault();
         onSubmit();
@@ -123,19 +201,50 @@ export const RichComposer = forwardRef<RichComposerHandle, RichComposerProps>(
     }
 
     useImperativeHandle(forwardedRef, () => ({
+      advanceFormulaSlot: moveToNextFormulaSlot,
       clear() {
         if (editorRef.current) editorRef.current.replaceChildren();
+        voiceDraftNodeRef.current = null;
         onChange('');
       },
-      focus() {
-        editorRef.current?.focus();
+      commitVoiceDraft,
+      focus(options) {
+        editorRef.current?.focus(options);
       },
+      insertFormulaTemplate,
       insertText,
+      replaceText,
+      updateVoiceDraft,
     }));
 
     return (
-      <div className="rich-composer">
-        <div className="rich-composer-toolbar" role="toolbar" aria-label="文字格式">
+      <div className="rich-composer" data-formatting-open={formattingOpen}>
+        <button
+          ref={formattingToggleRef}
+          type="button"
+          className="rich-composer-format-toggle"
+          aria-controls={formattingToolbarId}
+          aria-expanded={formattingOpen}
+          aria-label="更多文字格式"
+          title="更多文字格式"
+          onMouseDown={(event) => event.preventDefault()}
+          onClick={() => setFormattingOpen((current) => !current)}
+        >
+          <span aria-hidden="true">Aa</span>
+        </button>
+        <div
+          id={formattingToolbarId}
+          className="rich-composer-toolbar"
+          role="toolbar"
+          aria-label="文字格式"
+          data-open={formattingOpen}
+          onKeyDown={(event) => {
+            if (event.key !== 'Escape') return;
+            event.preventDefault();
+            setFormattingOpen(false);
+            formattingToggleRef.current?.focus();
+          }}
+        >
           {formattingActions.map((action) => (
             <button
               type="button"
@@ -164,6 +273,13 @@ export const RichComposer = forwardRef<RichComposerHandle, RichComposerProps>(
           onMouseUp={refreshFormats}
           onPaste={(event) => {
             event.preventDefault();
+            const image = Array.from(event.clipboardData.items)
+              .find((item) => item.kind === 'file' && item.type.startsWith('image/'))
+              ?.getAsFile();
+            if (image && onImagePaste) {
+              onImagePaste(image);
+              return;
+            }
             insertText(event.clipboardData.getData('text/plain'));
           }}
         />

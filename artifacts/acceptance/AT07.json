@@ -1,0 +1,38 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT07",
+  "result": "partial",
+  "executed_at": "2026-09-19T22:21:00+08:00",
+  "executed_by": "Codex self_review",
+  "application_commit": null,
+  "layer": "fixture_guard_conflict",
+  "environment": "local Vitest",
+  "provider_mode": "fixture_model",
+  "commands": [
+    "npm --prefix server test -- --run test/preparation/preparation-policy.spec.ts test/preparation/preparation.service.spec.ts",
+    "PORT=3100 npm --prefix server run test:bank-preparation-live"
+  ],
+  "expected": "A mathematically wrong, unsupported or conflicting reference is not automatically certified and remains needs_review with an auditable issue.",
+  "actual": {
+    "guard_unknown_blocks_ready": true,
+    "conflict_issue_persisted": true,
+    "model_human_review_claim_downgraded": true,
+    "model_source_reference_claim_downgraded": true,
+    "live_provider_attempt": "HTTP 502 AI provider request failed",
+    "unavailable_reference_keeps_problem_and_blocks_packet_use": true,
+    "real_provider_wrong_reference_review": false,
+    "human_math_review": false
+  },
+  "evidence_files": [
+    "server/src/features/preparation/preparation.service.ts",
+    "server/src/features/analysis/problem-analysis.controller.ts",
+    "server/src/workflows/policy-gate.ts",
+    "server/test/preparation/preparation.service.spec.ts",
+    "server/scripts/verify-bank-preparation-live.ts"
+  ],
+  "limitations": [
+    "AT07 is a model_review case. The deterministic Guard fixture proves the state boundary but does not establish real-provider mathematical review quality.",
+    "The imported bank has original solution images, but the real provider was unavailable during the live image review attempt, so their mathematical transcription and Packet quality remain unverified.",
+    "real_student_observation: not_run"
+  ]
+}

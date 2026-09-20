@@ -1,0 +1,2088 @@
+{
+  "title": "2024年高考数学试卷（新课标Ⅱ卷）",
+  "variant": "题目与解析",
+  "prefix": "2024年高考数学试卷（新课标Ⅱ卷）",
+  "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+  "sourcePages": 25,
+  "questionCount": 19,
+  "notes": [],
+  "resources": [
+    {
+      "label": "卷首说明",
+      "number": null,
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E5%85%B6%E4%BB%96%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%8D%B7%E9%A6%96%E8%AF%B4%E6%98%8E.png",
+      "width": 1600,
+      "height": 839,
+      "safeBreaks": [
+        84,
+        179,
+        256,
+        330,
+        404,
+        477,
+        551,
+        625,
+        698,
+        772
+      ],
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            47.147,
+            51.774,
+            555.362,
+            314.458
+          ]
+        }
+      ],
+      "kind": "intro"
+    },
+    {
+      "label": "第01题题目",
+      "number": 1,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 333,
+      "safeBreaks": [
+        66,
+        141,
+        243
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            47.147,
+            322.716,
+            555.362,
+            547.284
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          333
+        ]
+      ]
+    },
+    {
+      "label": "第01题解析",
+      "number": 1,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 386,
+      "safeBreaks": [
+        77,
+        151,
+        222,
+        325
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            47.147,
+            322.716,
+            555.362,
+            547.284
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          333,
+          719
+        ]
+      ]
+    },
+    {
+      "label": "第02题题目",
+      "number": 2,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 226,
+      "safeBreaks": [
+        72,
+        152
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            47.147,
+            561.26,
+            555.362,
+            754.381
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            50.821,
+            555.362,
+            87.032
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          226
+        ]
+      ]
+    },
+    {
+      "label": "第02题解析",
+      "number": 2,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 532,
+      "safeBreaks": [
+        72,
+        145,
+        221,
+        320,
+        400,
+        469
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            47.147,
+            561.26,
+            555.362,
+            754.381
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            50.821,
+            555.362,
+            87.032
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          226,
+          758
+        ]
+      ]
+    },
+    {
+      "label": "第03题题目",
+      "number": 3,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 235,
+      "safeBreaks": [
+        96
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            96.561,
+            555.362,
+            430.077
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          235
+        ]
+      ]
+    },
+    {
+      "label": "第03题解析",
+      "number": 3,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 827,
+      "safeBreaks": [
+        77,
+        148,
+        251,
+        321,
+        420,
+        523,
+        617,
+        761
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            96.561,
+            555.362,
+            430.077
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          235,
+          1062
+        ]
+      ]
+    },
+    {
+      "label": "第04题题目",
+      "number": 4,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 782,
+      "safeBreaks": [
+        65,
+        125,
+        423,
+        486,
+        561,
+        635,
+        708
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            440.876,
+            555.362,
+            752.793
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            50.821,
+            555.362,
+            305.247
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          782
+        ]
+      ]
+    },
+    {
+      "label": "第04题解析",
+      "number": 4,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1037,
+      "safeBreaks": [
+        72,
+        145,
+        218,
+        287,
+        367,
+        453,
+        528,
+        638,
+        710,
+        792,
+        908,
+        974
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            440.876,
+            555.362,
+            752.793
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            50.821,
+            555.362,
+            305.247
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          782,
+          1819
+        ]
+      ]
+    },
+    {
+      "label": "第05题题目",
+      "number": 5,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 444,
+      "safeBreaks": [
+        76,
+        156,
+        304
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            318.587,
+            555.362,
+            695.301
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          444
+        ]
+      ]
+    },
+    {
+      "label": "第05题解析",
+      "number": 5,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 754,
+      "safeBreaks": [
+        77,
+        151,
+        225,
+        305,
+        398,
+        485,
+        593,
+        696
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            318.587,
+            555.362,
+            695.301
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          444,
+          1198
+        ]
+      ]
+    },
+    {
+      "label": "第06题题目",
+      "number": 6,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 244,
+      "safeBreaks": [
+        82,
+        152
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            707.372,
+            555.362,
+            749.935
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            47.147,
+            51.139,
+            555.362,
+            741.041
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            47.147,
+            52.41,
+            555.362,
+            188.357
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          244
+        ]
+      ]
+    },
+    {
+      "label": "第06题解析",
+      "number": 6,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2550,
+      "safeBreaks": [
+        74,
+        150,
+        244,
+        324,
+        416,
+        494,
+        590,
+        691,
+        783,
+        885,
+        983,
+        1081,
+        1182,
+        1277,
+        1371,
+        1450,
+        1525,
+        1621,
+        1719,
+        1819,
+        1916,
+        2014,
+        2104,
+        2194,
+        2289,
+        2389,
+        2485
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            707.372,
+            555.362,
+            749.935
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            47.147,
+            51.139,
+            555.362,
+            741.041
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            47.147,
+            52.41,
+            555.362,
+            188.357
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          244,
+          2794
+        ]
+      ]
+    },
+    {
+      "label": "第07题题目",
+      "number": 7,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 271,
+      "safeBreaks": [
+        107,
+        172
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            47.147,
+            195.345,
+            555.362,
+            751.84
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            47.147,
+            52.41,
+            555.362,
+            656.55
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          271
+        ]
+      ]
+    },
+    {
+      "label": "第07题解析",
+      "number": 7,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3419,
+      "safeBreaks": [
+        74,
+        151,
+        295,
+        443,
+        536,
+        615,
+        712,
+        861,
+        957,
+        1107,
+        1194,
+        1456,
+        1499,
+        1637,
+        1784,
+        1934,
+        2070,
+        2188,
+        2273,
+        2609,
+        2668,
+        2765,
+        2907,
+        3022,
+        3159,
+        3248,
+        3363
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            47.147,
+            195.345,
+            555.362,
+            751.84
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            47.147,
+            52.41,
+            555.362,
+            656.55
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          271,
+          3690
+        ]
+      ]
+    },
+    {
+      "label": "第08题题目",
+      "number": 8,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 183,
+      "safeBreaks": [
+        68
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            47.147,
+            693.396,
+            555.362,
+            765.499
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            47.147,
+            50.821,
+            555.362,
+            757.558
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            47.147,
+            47.328,
+            555.362,
+            180.734
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          183
+        ]
+      ]
+    },
+    {
+      "label": "第08题解析",
+      "number": 8,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2749,
+      "safeBreaks": [
+        62,
+        133,
+        232,
+        322,
+        404,
+        502,
+        595,
+        699,
+        791,
+        895,
+        988,
+        1089,
+        1185,
+        1261,
+        1363,
+        1452,
+        1533,
+        1677,
+        1779,
+        1877,
+        1970,
+        2071,
+        2169,
+        2311,
+        2422,
+        2514,
+        2592,
+        2681
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            47.147,
+            693.396,
+            555.362,
+            765.499
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            47.147,
+            50.821,
+            555.362,
+            757.558
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            47.147,
+            47.328,
+            555.362,
+            180.734
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          183,
+          2932
+        ]
+      ]
+    },
+    {
+      "label": "第09题题目",
+      "number": 9,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 386,
+      "safeBreaks": [
+        66,
+        140,
+        245,
+        313
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            47.147,
+            217.262,
+            555.362,
+            675.608
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          386
+        ]
+      ]
+    },
+    {
+      "label": "第09题解析",
+      "number": 9,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1069,
+      "safeBreaks": [
+        73,
+        147,
+        215,
+        319,
+        429,
+        515,
+        604,
+        712,
+        810,
+        920,
+        1001
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            47.147,
+            217.262,
+            555.362,
+            675.608
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          386,
+          1455
+        ]
+      ]
+    },
+    {
+      "label": "第10题题目",
+      "number": 10,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 483,
+      "safeBreaks": [
+        76,
+        153,
+        222,
+        314,
+        404
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            47.147,
+            688.949,
+            555.362,
+            753.746
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            47.147,
+            52.092,
+            555.362,
+            756.605
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            47.147,
+            52.41,
+            555.362,
+            534.896
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          483
+        ]
+      ]
+    },
+    {
+      "label": "第10题解析",
+      "number": 10,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3518,
+      "safeBreaks": [
+        74,
+        153,
+        242,
+        344,
+        440,
+        520,
+        611,
+        688,
+        767,
+        859,
+        951,
+        1061,
+        1157,
+        1303,
+        1401,
+        1549,
+        1642,
+        1719,
+        1795,
+        1891,
+        1981,
+        2110,
+        2229,
+        2311,
+        2411,
+        2487,
+        2634,
+        2786,
+        2874,
+        2954,
+        3029
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            47.147,
+            688.949,
+            555.362,
+            753.746
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            47.147,
+            52.092,
+            555.362,
+            756.605
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            47.147,
+            52.41,
+            555.362,
+            534.896
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          483,
+          4001
+        ]
+      ]
+    },
+    {
+      "label": "第11题题目",
+      "number": 11,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 398,
+      "safeBreaks": [
+        77,
+        154,
+        227,
+        302
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            47.147,
+            544.743,
+            555.362,
+            762.322
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            47.147,
+            54.315,
+            555.362,
+            763.275
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            47.147,
+            53.363,
+            555.362,
+            452.947
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          398
+        ]
+      ]
+    },
+    {
+      "label": "第11题解析",
+      "number": 11,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3837,
+      "safeBreaks": [
+        74,
+        148,
+        227,
+        305,
+        388,
+        481,
+        563,
+        656,
+        758,
+        850,
+        932,
+        1022,
+        1104,
+        1199,
+        1295,
+        1393,
+        1488,
+        1572,
+        1664,
+        1761,
+        1860,
+        1956,
+        2038,
+        2125,
+        2204,
+        2284,
+        2377,
+        2474,
+        2561,
+        2641,
+        2844,
+        2917,
+        2995,
+        3086,
+        3233,
+        3345,
+        3427,
+        3511,
+        3603,
+        3700
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            47.147,
+            544.743,
+            555.362,
+            762.322
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            47.147,
+            54.315,
+            555.362,
+            763.275
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            47.147,
+            53.363,
+            555.362,
+            452.947
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          398,
+          4235
+        ]
+      ]
+    },
+    {
+      "label": "第12题题目",
+      "number": 12,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 161,
+      "safeBreaks": [
+        73
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 12,
+          "bbox": [
+            47.147,
+            466.922,
+            555.362,
+            691.49
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          161
+        ]
+      ]
+    },
+    {
+      "label": "第12题解析",
+      "number": 12,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 558,
+      "safeBreaks": [
+        77,
+        156,
+        244,
+        391,
+        501
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 12,
+          "bbox": [
+            47.147,
+            466.922,
+            555.362,
+            691.49
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          161,
+          719
+        ]
+      ]
+    },
+    {
+      "label": "第13题题目",
+      "number": 13,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 155,
+      "safeBreaks": [
+        91,
+        134
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 12,
+          "bbox": [
+            47.147,
+            703.56,
+            555.362,
+            747.076
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            47.147,
+            53.045,
+            555.362,
+            615.575
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          155
+        ]
+      ]
+    },
+    {
+      "label": "第13题解析",
+      "number": 13,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1789,
+      "safeBreaks": [
+        79,
+        133,
+        210,
+        306,
+        380,
+        531,
+        674,
+        774,
+        873,
+        1018,
+        1170,
+        1263,
+        1417,
+        1504,
+        1663,
+        1749
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 12,
+          "bbox": [
+            47.147,
+            703.56,
+            555.362,
+            747.076
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            47.147,
+            53.045,
+            555.362,
+            615.575
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          155,
+          1944
+        ]
+      ]
+    },
+    {
+      "label": "第14题题目",
+      "number": 14,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 520,
+      "safeBreaks": [
+        65,
+        136
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 13,
+          "bbox": [
+            47.147,
+            627.963,
+            555.362,
+            665.444
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            47.147,
+            49.551,
+            555.362,
+            594.294
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          520
+        ]
+      ]
+    },
+    {
+      "label": "第14题解析",
+      "number": 14,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1349,
+      "safeBreaks": [
+        84,
+        155,
+        229,
+        303,
+        377,
+        450,
+        524,
+        603,
+        691,
+        770,
+        843,
+        917,
+        990,
+        1064,
+        1138,
+        1211,
+        1285
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 13,
+          "bbox": [
+            47.147,
+            627.963,
+            555.362,
+            665.444
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            47.147,
+            49.551,
+            555.362,
+            594.294
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          520,
+          1869
+        ]
+      ]
+    },
+    {
+      "label": "第15题题目",
+      "number": 15,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 332,
+      "safeBreaks": [
+        71,
+        160,
+        241
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 14,
+          "bbox": [
+            47.147,
+            607.317,
+            555.362,
+            767.087
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            47.147,
+            50.821,
+            555.362,
+            724.206
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            47.147,
+            52.727,
+            555.362,
+            607.317
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          332
+        ]
+      ]
+    },
+    {
+      "label": "第15题解析",
+      "number": 15,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 4097,
+      "safeBreaks": [
+        112,
+        189,
+        260,
+        352,
+        430,
+        504,
+        576,
+        654,
+        789,
+        903,
+        973,
+        1068,
+        1211,
+        1320,
+        1391,
+        1530,
+        1645,
+        1730,
+        1874,
+        1983,
+        2053,
+        2144,
+        2251,
+        2333,
+        2465,
+        2574,
+        2645,
+        2787,
+        2887,
+        3030,
+        3140,
+        3206,
+        3283,
+        3378,
+        3517,
+        3633,
+        3762,
+        3927,
+        4016
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 14,
+          "bbox": [
+            47.147,
+            607.317,
+            555.362,
+            767.087
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            47.147,
+            50.821,
+            555.362,
+            724.206
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            47.147,
+            52.727,
+            555.362,
+            607.317
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          332,
+          4429
+        ]
+      ]
+    },
+    {
+      "label": "第16题题目",
+      "number": 16,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 254,
+      "safeBreaks": [
+        78,
+        175
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 16,
+          "bbox": [
+            47.147,
+            622.881,
+            555.362,
+            756.605
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            47.147,
+            50.821,
+            555.362,
+            740.088
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            47.147,
+            54.633,
+            555.362,
+            382.114
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          254
+        ]
+      ]
+    },
+    {
+      "label": "第16题解析",
+      "number": 16,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3428,
+      "safeBreaks": [
+        95,
+        185,
+        254,
+        328,
+        407,
+        498,
+        596,
+        677,
+        771,
+        865,
+        966,
+        1062,
+        1143,
+        1237,
+        1329,
+        1412,
+        1504,
+        1605,
+        1703,
+        1793,
+        1909,
+        1998,
+        2096,
+        2197,
+        2294,
+        2379,
+        2463,
+        2558,
+        2655,
+        2755,
+        2854,
+        2952,
+        3050,
+        3148,
+        3247,
+        3345
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 16,
+          "bbox": [
+            47.147,
+            622.881,
+            555.362,
+            756.605
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            47.147,
+            50.821,
+            555.362,
+            740.088
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            47.147,
+            54.633,
+            555.362,
+            382.114
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          254,
+          3682
+        ]
+      ]
+    },
+    {
+      "label": "第17题题目",
+      "number": 17,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 672,
+      "safeBreaks": [
+        72,
+        188,
+        523,
+        598
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 18,
+          "bbox": [
+            47.147,
+            395.772,
+            555.362,
+            765.816
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            47.147,
+            50.821,
+            555.362,
+            727.065
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            47.147,
+            53.045,
+            555.362,
+            258.237
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          672
+        ]
+      ]
+    },
+    {
+      "label": "第17题解析",
+      "number": 17,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3328,
+      "safeBreaks": [
+        76,
+        163,
+        217,
+        294,
+        368,
+        441,
+        511,
+        580,
+        651,
+        760,
+        850,
+        993,
+        1072,
+        1145,
+        1218,
+        1292,
+        1370,
+        1463,
+        1557,
+        1636,
+        1708,
+        1787,
+        1880,
+        1978,
+        2075,
+        2169,
+        2330,
+        2421,
+        2515,
+        2664,
+        2799,
+        2891,
+        2945
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 18,
+          "bbox": [
+            47.147,
+            395.772,
+            555.362,
+            765.816
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            47.147,
+            50.821,
+            555.362,
+            727.065
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            47.147,
+            53.045,
+            555.362,
+            258.237
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          672,
+          4000
+        ]
+      ]
+    },
+    {
+      "label": "第18题题目",
+      "number": 18,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 677,
+      "safeBreaks": [
+        63,
+        136,
+        210,
+        285,
+        363,
+        450,
+        529,
+        603
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 20,
+          "bbox": [
+            47.147,
+            269.354,
+            555.362,
+            757.875
+          ]
+        },
+        {
+          "page": 21,
+          "bbox": [
+            47.147,
+            50.821,
+            555.362,
+            687.678
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          677
+        ]
+      ]
+    },
+    {
+      "label": "第18题解析",
+      "number": 18,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2902,
+      "safeBreaks": [
+        73,
+        147,
+        220,
+        293,
+        392,
+        466,
+        540,
+        614,
+        712,
+        785,
+        879,
+        978,
+        1069,
+        1166,
+        1267,
+        1371,
+        1464,
+        1559,
+        1637,
+        1730,
+        1835,
+        1930,
+        2028,
+        2127,
+        2201,
+        2304,
+        2397,
+        2495,
+        2593,
+        2686,
+        2765,
+        2839
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 20,
+          "bbox": [
+            47.147,
+            269.354,
+            555.362,
+            757.875
+          ]
+        },
+        {
+          "page": 21,
+          "bbox": [
+            47.147,
+            50.821,
+            555.362,
+            687.678
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          677,
+          3579
+        ]
+      ]
+    },
+    {
+      "label": "第19题题目",
+      "number": 19,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 606,
+      "safeBreaks": [
+        83,
+        172,
+        265,
+        397,
+        518
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 21,
+          "bbox": [
+            47.147,
+            699.748,
+            555.362,
+            748.664
+          ]
+        },
+        {
+          "page": 22,
+          "bbox": [
+            47.147,
+            52.41,
+            555.362,
+            750.57
+          ]
+        },
+        {
+          "page": 23,
+          "bbox": [
+            47.147,
+            50.821,
+            555.362,
+            754.064
+          ]
+        },
+        {
+          "page": 24,
+          "bbox": [
+            47.147,
+            47.645,
+            555.362,
+            747.711
+          ]
+        },
+        {
+          "page": 25,
+          "bbox": [
+            47.147,
+            53.998,
+            555.362,
+            648.927
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          606
+        ]
+      ]
+    },
+    {
+      "label": "第19题解析",
+      "number": 19,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%B0%E8%AF%BE%E6%A0%87%E2%85%A1%E5%8D%B7%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 8145,
+      "safeBreaks": [
+        92,
+        170,
+        249,
+        338,
+        421,
+        516,
+        608,
+        684,
+        1091,
+        1176,
+        1326,
+        1422,
+        1519,
+        1597,
+        1690,
+        1788,
+        1885,
+        1981,
+        2128,
+        2270,
+        2419,
+        2572,
+        2721,
+        2865,
+        3012,
+        3149,
+        3264,
+        3331,
+        3422,
+        3528,
+        3630,
+        3818,
+        3921,
+        4026,
+        4135,
+        4208,
+        4351,
+        4491,
+        4600,
+        4679,
+        4759,
+        4867,
+        4975,
+        5108,
+        5259,
+        5409,
+        5504,
+        5574,
+        5677,
+        5776,
+        5874,
+        6031,
+        6120,
+        6254,
+        6380,
+        6489,
+        6568,
+        6648,
+        6756,
+        6864,
+        6997,
+        7147,
+        7300,
+        7437,
+        7595,
+        7692,
+        7785,
+        7883,
+        7983,
+        8079
+      ],
+      "sourcePDF": "2024年高考数学试卷（新课标Ⅱ卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 21,
+          "bbox": [
+            47.147,
+            699.748,
+            555.362,
+            748.664
+          ]
+        },
+        {
+          "page": 22,
+          "bbox": [
+            47.147,
+            52.41,
+            555.362,
+            750.57
+          ]
+        },
+        {
+          "page": 23,
+          "bbox": [
+            47.147,
+            50.821,
+            555.362,
+            754.064
+          ]
+        },
+        {
+          "page": 24,
+          "bbox": [
+            47.147,
+            47.645,
+            555.362,
+            747.711
+          ]
+        },
+        {
+          "page": 25,
+          "bbox": [
+            47.147,
+            53.998,
+            555.362,
+            648.927
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（新课标Ⅱ卷）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          606,
+          8751
+        ]
+      ]
+    }
+  ],
+  "layout": "question-analysis-pairs"
+}

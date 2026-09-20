@@ -1,0 +1,44 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT09",
+  "result": "partial",
+  "executed_at": "2026-09-20T01:45:55+08:00",
+  "executed_by": "Codex self_review",
+  "application_commit": null,
+  "layer": "domain_unit_mock_e2e_and_mysql_integration",
+  "environment": "local React/Vite + NestJS + MySQL 8.0.45",
+  "bank_version": null,
+  "scope_hash": null,
+  "model_version": null,
+  "prompt_version": "prompt-v3.0",
+  "provider_mode": "fixture_handwriting_recognition",
+  "commands": [
+    "npm --prefix server test -- --run src/features/media/question-image-validation.spec.ts src/features/media/media.controller.spec.ts src/features/media/private-media-storage.service.spec.ts",
+    "npm --prefix server run test:media-persistence",
+    "npx playwright test web/tests/e2e/media.spec.ts"
+  ],
+  "expected": "Handwriting containing 1+1/x² and an uncertain minus sign is transcribed without silently changing the mathematics, and unconfirmed text cannot enter teaching or grading.",
+  "actual": {
+    "formula_text_preserved_by_domain_fixture": true,
+    "uncertain_line_visibly_marked": true,
+    "uncertain_line_requires_explicit_confirmation": true,
+    "send_unavailable_during_review": true,
+    "confirmed_revision_required_before_teaching": true,
+    "changed_text_rejected_after_confirmation": true,
+    "responsive_projects": ["pc-1440", "pc-1280", "h5-390", "h5-360"],
+    "real_handwriting_provider_fidelity": false
+  },
+  "evidence_files": [
+    "server/src/features/media/handwriting-transcript.spec.ts",
+    "server/scripts/verify-media-persistence.ts",
+    "web/tests/e2e/media.spec.ts",
+    "artifacts/acceptance/A03-handwriting-review-pc-1440.png",
+    "artifacts/acceptance/A03-handwriting-review-h5-390.png"
+  ],
+  "limitations": [
+    "The recognition payload is deterministic fixture data; a real handwritten image with an ambiguous minus sign has not yet been checked against the configured vision provider.",
+    "The local integration database is MySQL 8.0.45; production-target MySQL 8.4 validation remains not_run.",
+    "No independent reviewer or real student observation was performed.",
+    "real_student_observation: not_run"
+  ]
+}

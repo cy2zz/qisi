@@ -8,7 +8,17 @@
 // 接入 app.module.ts 属 A 的写集，作为交接项（B01 写集不含装配入口）。
 
 import { createHash } from 'node:crypto';
-import type { AssessmentOutput, Diagnosis, GuardResult, Packet, RenderedMessage, RoutePatch, Strategy } from '../contracts/domain.schema.js';
+import {
+  PreparationInputSchema,
+  type AssessmentOutput,
+  type Diagnosis,
+  type GuardInput,
+  type GuardResult,
+  type Packet,
+  type RenderedMessage,
+  type RoutePatch,
+  type Strategy,
+} from '../contracts/domain.schema.js';
 import { DiagnosisAgent } from '../agents/diagnosis/index.js';
 import { Guard } from '../agents/guard/index.js';
 import { PreparationAgent, type PreparationResult } from '../agents/preparation/index.js';
@@ -51,6 +61,7 @@ export interface TurnCommand {
   readonly rendererInput: unknown;
   readonly guardInput: unknown;
   readonly knownDecisionIds: ReadonlySet<string>;
+  readonly knownGoalKeys: ReadonlySet<string>;
   readonly probesShownForFocusGoal: number;
 }
 
@@ -139,6 +150,7 @@ export class WorkflowOrchestrator {
     readonly payloadHash: string;
     readonly expectedVersion: number;
     readonly preparationInput: unknown;
+    readonly trustedVerificationReferences: ReadonlySet<string>;
   }): Promise<WorkflowOutcome<Packet | RoutePatch>> {
     const run = await this.#reserve('prepare', command);
     const budget = new BudgetLedger({ workflow: 'prepare', deadlineAt: new Date(run.deadlineAt) });
@@ -158,7 +170,29 @@ export class WorkflowOrchestrator {
     }
 
     const packet = prepared.value.packet;
-    const decision = gatePreparation(packet);
+    const preparationInput = PreparationInputSchema.parse(command.preparationInput);
+    const guardModel = this.#config.models.guard;
+    const guardInput: GuardInput = {
+      allowed_disclosures: [],
+      candidate_json: JSON.stringify(packet),
+      mode: 'packet',
+      reference_md: preparationInput.reference_material_md,
+      reserved_decisions: [],
+      task_id: packet.problem_id,
+    };
+    const guardNode = await this.#runNode<GuardResult>({
+      runId: run.runId,
+      leaseToken: run.leaseToken,
+      nodeKey: 'packet_guard',
+      model: guardModel,
+      input: guardInput,
+      execute: () => this.guard.run(guardInput, port, this.#callOptions(guardModel, budget)),
+    });
+    const decision = gatePreparation(packet, {
+      expectedProblemHash: preparationInput.problem.content_hash,
+      guard: guardNode.value,
+      trustedVerificationReferences: command.trustedVerificationReferences,
+    });
     if (!decision.approved) {
       return { status: 'rejected', value: null, decision };
     }
@@ -277,6 +311,7 @@ export class WorkflowOrchestrator {
       strategy,
       guard: guardResult,
       knownDecisionIds: command.knownDecisionIds,
+      knownGoalKeys: command.knownGoalKeys,
       probesShownForFocusGoal: command.probesShownForFocusGoal,
     });
 
@@ -296,6 +331,7 @@ export class WorkflowOrchestrator {
         strategy,
         guard: guardResult,
         knownDecisionIds: command.knownDecisionIds,
+        knownGoalKeys: command.knownGoalKeys,
         probesShownForFocusGoal: command.probesShownForFocusGoal,
       });
     }

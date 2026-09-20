@@ -1,0 +1,50 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT11",
+  "result": "passed_self_review",
+  "executed_at": "2026-09-20T01:45:55+08:00",
+  "executed_by": "Codex self_review",
+  "application_commit": null,
+  "layer": "domain_mock_e2e_and_mysql_integration",
+  "environment": "local React/Vite + NestJS + MySQL 8.0.45",
+  "bank_version": null,
+  "scope_hash": null,
+  "model_version": null,
+  "prompt_version": null,
+  "provider_mode": "fixture_recognition_no_grading_model",
+  "commands": [
+    "npm --prefix server test",
+    "npm --prefix server run test:media-persistence",
+    "npm --prefix server run test:assessment-persistence",
+    "npx playwright test web/tests/e2e/media.spec.ts",
+    "npx playwright test web/tests/e2e/assessment.spec.ts"
+  ],
+  "expected": "Every uncertain line is corrected or explicitly confirmed, a new confirmed revision is recorded before submission, and repeating the same confirmation is idempotent.",
+  "actual": {
+    "uncertain_line_gate": true,
+    "confirmed_revision": 2,
+    "duplicate_confirmation_idempotent": true,
+    "stale_revision_rejected": true,
+    "changed_text_rejected": true,
+    "teaching_submission_provenance_persisted": true,
+    "assessment_plan_provenance_persisted": true,
+    "assessment_answer_provenance_persisted": true,
+    "private_image_or_answer_duplicated_in_event": false,
+    "responsive_projects": ["pc-1440", "pc-1280", "h5-390", "h5-360"]
+  },
+  "evidence_files": [
+    "server/src/features/media/handwriting-transcript.spec.ts",
+    "server/scripts/verify-media-persistence.ts",
+    "server/scripts/verify-assessment-persistence.ts",
+    "web/tests/e2e/media.spec.ts",
+    "web/tests/e2e/assessment.spec.ts",
+    "artifacts/acceptance/A03-assessment-handwriting-pc-1440.png",
+    "artifacts/acceptance/A03-assessment-handwriting-h5-390.png"
+  ],
+  "limitations": [
+    "Recognition itself is fixture-backed in browser and MySQL acceptance; this case proves confirmation and provenance boundaries, not real-provider OCR quality.",
+    "The local integration database is MySQL 8.0.45; production-target MySQL 8.4 validation remains not_run.",
+    "No independent reviewer or real student observation was performed.",
+    "real_student_observation: not_run"
+  ]
+}

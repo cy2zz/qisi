@@ -1,0 +1,1894 @@
+{
+  "title": "2025年高考数学试卷（天津）",
+  "variant": "题目与解析",
+  "prefix": "2025年高考数学试卷（天津）",
+  "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+  "sourcePages": 21,
+  "questionCount": 20,
+  "notes": [],
+  "resources": [
+    {
+      "label": "卷首说明",
+      "number": null,
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E5%85%B6%E4%BB%96%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%8D%B7%E9%A6%96%E8%AF%B4%E6%98%8E.png",
+      "width": 1600,
+      "height": 1394,
+      "safeBreaks": [
+        81,
+        171,
+        244,
+        314,
+        384,
+        454,
+        524,
+        593,
+        662,
+        733,
+        803,
+        873,
+        946,
+        1036,
+        1131,
+        1271
+      ],
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            47.147,
+            51.579,
+            583.033,
+            514.45
+          ]
+        }
+      ],
+      "kind": "intro"
+    },
+    {
+      "label": "第01题题目",
+      "number": 1,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 247,
+      "safeBreaks": [
+        64,
+        159
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            47.147,
+            525.838,
+            583.033,
+            763.302
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            50.909,
+            583.033,
+            63.636
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          247
+        ]
+      ]
+    },
+    {
+      "label": "第01题解析",
+      "number": 1,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 536,
+      "safeBreaks": [
+        71,
+        141,
+        214,
+        305,
+        398,
+        481
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            47.147,
+            525.838,
+            583.033,
+            763.302
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            50.909,
+            583.033,
+            63.636
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          247,
+          783
+        ]
+      ]
+    },
+    {
+      "label": "第02题题目",
+      "number": 2,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 199,
+      "safeBreaks": [
+        59,
+        129
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            74.354,
+            583.033,
+            321.197
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          199
+        ]
+      ]
+    },
+    {
+      "label": "第02题解析",
+      "number": 2,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 550,
+      "safeBreaks": [
+        70,
+        140,
+        209,
+        279,
+        349,
+        419,
+        489
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            74.354,
+            583.033,
+            321.197
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          199,
+          749
+        ]
+      ]
+    },
+    {
+      "label": "第03题题目",
+      "number": 3,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 587,
+      "safeBreaks": [
+        74,
+        459
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            333.254,
+            583.033,
+            750.24
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          587
+        ]
+      ]
+    },
+    {
+      "label": "第03题解析",
+      "number": 3,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 670,
+      "safeBreaks": [
+        73,
+        146,
+        241,
+        378,
+        515,
+        607
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            333.254,
+            583.033,
+            750.24
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          587,
+          1257
+        ]
+      ]
+    },
+    {
+      "label": "第04题题目",
+      "number": 4,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 256,
+      "safeBreaks": [
+        74,
+        167
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            53.924,
+            583.033,
+            383.828
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          256
+        ]
+      ]
+    },
+    {
+      "label": "第04题解析",
+      "number": 4,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 741,
+      "safeBreaks": [
+        74,
+        156,
+        243,
+        331,
+        420,
+        499,
+        588,
+        676
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            53.924,
+            583.033,
+            383.828
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          256,
+          997
+        ]
+      ]
+    },
+    {
+      "label": "第05题题目",
+      "number": 5,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 434,
+      "safeBreaks": [
+        60,
+        153,
+        248,
+        337,
+        406
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            394.211,
+            583.033,
+            719.427
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          434
+        ]
+      ]
+    },
+    {
+      "label": "第05题解析",
+      "number": 5,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 549,
+      "safeBreaks": [
+        69,
+        139,
+        212,
+        302,
+        394,
+        486
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            394.211,
+            583.033,
+            719.427
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          434,
+          983
+        ]
+      ]
+    },
+    {
+      "label": "第06题题目",
+      "number": 6,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 137,
+      "safeBreaks": [
+        76
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            730.144,
+            583.033,
+            749.57
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            47.147,
+            51.914,
+            583.033,
+            477.273
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          137
+        ]
+      ]
+    },
+    {
+      "label": "第06题解析",
+      "number": 6,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1227,
+      "safeBreaks": [
+        71,
+        143,
+        236,
+        328,
+        414,
+        522,
+        603,
+        700,
+        793,
+        886,
+        981,
+        1071,
+        1166
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            730.144,
+            583.033,
+            749.57
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            47.147,
+            51.914,
+            583.033,
+            477.273
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          137,
+          1364
+        ]
+      ]
+    },
+    {
+      "label": "第07题题目",
+      "number": 7,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 168,
+      "safeBreaks": [
+        81
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            47.147,
+            488.996,
+            583.033,
+            757.944
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          168
+        ]
+      ]
+    },
+    {
+      "label": "第07题解析",
+      "number": 7,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 647,
+      "safeBreaks": [
+        74,
+        144,
+        216,
+        305,
+        401,
+        493,
+        584
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            47.147,
+            488.996,
+            583.033,
+            757.944
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          168,
+          815
+        ]
+      ]
+    },
+    {
+      "label": "第08题题目",
+      "number": 8,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 400,
+      "safeBreaks": [
+        124,
+        265
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            47.147,
+            52.584,
+            583.033,
+            734.499
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          400
+        ]
+      ]
+    },
+    {
+      "label": "第08题解析",
+      "number": 8,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1648,
+      "safeBreaks": [
+        73,
+        143,
+        213,
+        286,
+        517,
+        659,
+        793,
+        936,
+        1168,
+        1307,
+        1448,
+        1585
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            47.147,
+            52.584,
+            583.033,
+            734.499
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          400,
+          2048
+        ]
+      ]
+    },
+    {
+      "label": "第09题题目",
+      "number": 9,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 349,
+      "safeBreaks": [
+        118,
+        213,
+        298
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            47.147,
+            54.258,
+            583.033,
+            711.054
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          349
+        ]
+      ]
+    },
+    {
+      "label": "第09题解析",
+      "number": 9,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1624,
+      "safeBreaks": [
+        73,
+        141,
+        285,
+        355,
+        495,
+        583,
+        673,
+        821,
+        916,
+        1050,
+        1142,
+        1215
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            47.147,
+            54.258,
+            583.033,
+            711.054
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          349,
+          1973
+        ]
+      ]
+    },
+    {
+      "label": "第10题题目",
+      "number": 10,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 480,
+      "safeBreaks": [
+        63,
+        131,
+        201,
+        271,
+        345
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            47.147,
+            720.766,
+            583.033,
+            758.948
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            47.147,
+            49.904,
+            583.033,
+            318.852
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          480
+        ]
+      ]
+    },
+    {
+      "label": "第10题解析",
+      "number": 10,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 473,
+      "safeBreaks": [
+        90,
+        158,
+        229,
+        265,
+        395
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            47.147,
+            720.766,
+            583.033,
+            758.948
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            47.147,
+            49.904,
+            583.033,
+            318.852
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          480,
+          953
+        ]
+      ]
+    },
+    {
+      "label": "第11题题目",
+      "number": 11,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 80,
+      "safeBreaks": [],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            47.147,
+            332.249,
+            583.033,
+            539.57
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          80
+        ]
+      ]
+    },
+    {
+      "label": "第11题解析",
+      "number": 11,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 551,
+      "safeBreaks": [
+        71,
+        141,
+        212,
+        304,
+        397,
+        489
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            47.147,
+            332.249,
+            583.033,
+            539.57
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          80,
+          631
+        ]
+      ]
+    },
+    {
+      "label": "第12题题目",
+      "number": 12,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 164,
+      "safeBreaks": [
+        77
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            47.147,
+            552.632,
+            583.033,
+            740.862
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            47.147,
+            50.909,
+            583.033,
+            283.015
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          164
+        ]
+      ]
+    },
+    {
+      "label": "第12题解析",
+      "number": 12,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1127,
+      "safeBreaks": [
+        74,
+        146,
+        236,
+        332,
+        416,
+        499,
+        597,
+        698,
+        760
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            47.147,
+            552.632,
+            583.033,
+            740.862
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            47.147,
+            50.909,
+            583.033,
+            283.015
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          164,
+          1291
+        ]
+      ]
+    },
+    {
+      "label": "第13题题目",
+      "number": 13,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 288,
+      "safeBreaks": [
+        60,
+        130,
+        207
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            47.147,
+            292.393,
+            583.033,
+            594.163
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          288
+        ]
+      ]
+    },
+    {
+      "label": "第13题解析",
+      "number": 13,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 625,
+      "safeBreaks": [
+        77,
+        145,
+        215,
+        286,
+        378,
+        473,
+        562
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            47.147,
+            292.393,
+            583.033,
+            594.163
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          288,
+          913
+        ]
+      ]
+    },
+    {
+      "label": "第14题题目",
+      "number": 14,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 184,
+      "safeBreaks": [
+        112
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            47.147,
+            608.565,
+            583.033,
+            763.302
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            47.147,
+            49.904,
+            583.033,
+            465.886
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          184
+        ]
+      ]
+    },
+    {
+      "label": "第14题解析",
+      "number": 14,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1556,
+      "safeBreaks": [
+        104,
+        167,
+        236,
+        298,
+        664,
+        762,
+        862,
+        995,
+        1133,
+        1227,
+        1358,
+        1460
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            47.147,
+            608.565,
+            583.033,
+            763.302
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            47.147,
+            49.904,
+            583.033,
+            465.886
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          184,
+          1740
+        ]
+      ]
+    },
+    {
+      "label": "第15题题目",
+      "number": 15,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 72,
+      "safeBreaks": [],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            47.147,
+            474.594,
+            583.033,
+            757.944
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            47.147,
+            48.9,
+            583.033,
+            149.378
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          72
+        ]
+      ]
+    },
+    {
+      "label": "第15题解析",
+      "number": 15,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1110,
+      "safeBreaks": [
+        73,
+        140,
+        240,
+        306,
+        378,
+        462,
+        571,
+        654,
+        792,
+        895,
+        974,
+        1050
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            47.147,
+            474.594,
+            583.033,
+            757.944
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            47.147,
+            48.9,
+            583.033,
+            149.378
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          72,
+          1182
+        ]
+      ]
+    },
+    {
+      "label": "第16题题目",
+      "number": 16,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 383,
+      "safeBreaks": [
+        67,
+        152,
+        225,
+        300
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            47.147,
+            159.091,
+            583.033,
+            754.259
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            47.147,
+            50.574,
+            583.033,
+            327.225
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          383
+        ]
+      ]
+    },
+    {
+      "label": "第16题解析",
+      "number": 16,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2256,
+      "safeBreaks": [
+        106,
+        171,
+        254,
+        305,
+        378,
+        448,
+        523,
+        606,
+        676,
+        783,
+        866,
+        956,
+        1060,
+        1118,
+        1227,
+        1299,
+        1412,
+        1479,
+        1548,
+        1621,
+        1758,
+        1888,
+        1995,
+        2136
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            47.147,
+            159.091,
+            583.033,
+            754.259
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            47.147,
+            50.574,
+            583.033,
+            327.225
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          383,
+          2639
+        ]
+      ]
+    },
+    {
+      "label": "第17题题目",
+      "number": 17,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 655,
+      "safeBreaks": [
+        62,
+        453,
+        516,
+        586
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 11,
+          "bbox": [
+            47.147,
+            342.632,
+            583.033,
+            763.302
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            47.147,
+            50.574,
+            583.033,
+            763.302
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            47.147,
+            46.22,
+            583.033,
+            438.757
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          655
+        ]
+      ]
+    },
+    {
+      "label": "第17题解析",
+      "number": 17,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3961,
+      "safeBreaks": [
+        65,
+        164,
+        264,
+        332,
+        416,
+        490,
+        559,
+        621,
+        690,
+        778,
+        925,
+        1063,
+        1198,
+        1292,
+        1385,
+        1477,
+        1565,
+        1643,
+        1732,
+        1825,
+        1917,
+        2066,
+        2148,
+        2222,
+        2293,
+        2388,
+        2472,
+        2623,
+        2710,
+        2773,
+        2927,
+        2995,
+        3085,
+        3211,
+        3374,
+        3499
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 11,
+          "bbox": [
+            47.147,
+            342.632,
+            583.033,
+            763.302
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            47.147,
+            50.574,
+            583.033,
+            763.302
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            47.147,
+            46.22,
+            583.033,
+            438.757
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          655,
+          4616
+        ]
+      ]
+    },
+    {
+      "label": "第18题题目",
+      "number": 18,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 358,
+      "safeBreaks": [
+        111,
+        219,
+        283
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 13,
+          "bbox": [
+            47.147,
+            451.819,
+            583.033,
+            750.24
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            47.147,
+            50.574,
+            583.033,
+            730.814
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            47.147,
+            55.263,
+            583.033,
+            757.944
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            47.147,
+            54.928,
+            583.033,
+            227.417
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          358
+        ]
+      ]
+    },
+    {
+      "label": "第18题解析",
+      "number": 18,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 5261,
+      "safeBreaks": [
+        131,
+        204,
+        274,
+        344,
+        414,
+        484,
+        551,
+        617,
+        693,
+        818,
+        932,
+        1014,
+        1145,
+        1247,
+        1341,
+        1443,
+        1526,
+        1657,
+        1996,
+        2066,
+        2150,
+        2225,
+        2411,
+        2497,
+        2606,
+        2725,
+        2960,
+        3034,
+        3170,
+        3401,
+        3546,
+        3643,
+        3713,
+        3882,
+        4085,
+        4179,
+        4237,
+        4345,
+        4564,
+        4668,
+        4728,
+        4889,
+        4992,
+        5134,
+        5201
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 13,
+          "bbox": [
+            47.147,
+            451.819,
+            583.033,
+            750.24
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            47.147,
+            50.574,
+            583.033,
+            730.814
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            47.147,
+            55.263,
+            583.033,
+            757.944
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            47.147,
+            54.928,
+            583.033,
+            227.417
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          358,
+          5619
+        ]
+      ]
+    },
+    {
+      "label": "第19题题目",
+      "number": 19,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 547,
+      "safeBreaks": [
+        80,
+        173,
+        266,
+        362,
+        455
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 16,
+          "bbox": [
+            47.147,
+            239.139,
+            583.033,
+            742.202
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            47.147,
+            51.914,
+            583.033,
+            749.905
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            47.147,
+            54.593,
+            583.033,
+            570.383
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          547
+        ]
+      ]
+    },
+    {
+      "label": "第19题解析",
+      "number": 19,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 4639,
+      "safeBreaks": [
+        89,
+        185,
+        256,
+        346,
+        422,
+        507,
+        586,
+        671,
+        745,
+        836,
+        907,
+        973,
+        1058,
+        1201,
+        1288,
+        1365,
+        1458,
+        1549,
+        1641,
+        1734,
+        1829,
+        1966,
+        2058,
+        2157,
+        2246,
+        2343,
+        2432,
+        2529,
+        2619,
+        2709,
+        2811,
+        2896,
+        2991,
+        3081,
+        3156,
+        3251,
+        3351,
+        3412,
+        3505,
+        3601,
+        3700,
+        3784,
+        3879,
+        3975,
+        4070,
+        4157,
+        4230,
+        4332,
+        4393,
+        4486,
+        4556
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 16,
+          "bbox": [
+            47.147,
+            239.139,
+            583.033,
+            742.202
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            47.147,
+            51.914,
+            583.033,
+            749.905
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            47.147,
+            54.593,
+            583.033,
+            570.383
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          547,
+          5186
+        ]
+      ]
+    },
+    {
+      "label": "第20题题目",
+      "number": 20,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 467,
+      "safeBreaks": [
+        77,
+        166,
+        259,
+        337
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 18,
+          "bbox": [
+            47.147,
+            583.781,
+            583.033,
+            757.944
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            47.147,
+            52.584,
+            583.033,
+            740.192
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            47.147,
+            53.254,
+            583.033,
+            712.728
+          ]
+        },
+        {
+          "page": 21,
+          "bbox": [
+            47.147,
+            51.244,
+            583.033,
+            263.254
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          467
+        ]
+      ]
+    },
+    {
+      "label": "第20题解析",
+      "number": 20,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2025%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2025%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%A4%A9%E6%B4%A5%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 4792,
+      "safeBreaks": [
+        71,
+        198,
+        271,
+        344,
+        439,
+        476,
+        671,
+        811,
+        943,
+        1020,
+        1101,
+        1177,
+        1215,
+        1296,
+        1385,
+        1463,
+        1554,
+        1642,
+        1691,
+        1790,
+        1827,
+        1971,
+        2076,
+        2148,
+        2230,
+        2325,
+        2411,
+        2483,
+        2768,
+        2841,
+        2918,
+        3026,
+        3122,
+        3210,
+        3294,
+        3496,
+        3583,
+        3712,
+        3815,
+        3908,
+        4005,
+        4141,
+        4327,
+        4413,
+        4501,
+        4612,
+        4686
+      ],
+      "sourcePDF": "2025年高考数学试卷（天津）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 18,
+          "bbox": [
+            47.147,
+            583.781,
+            583.033,
+            757.944
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            47.147,
+            52.584,
+            583.033,
+            740.192
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            47.147,
+            53.254,
+            583.033,
+            712.728
+          ]
+        },
+        {
+          "page": 21,
+          "bbox": [
+            47.147,
+            51.244,
+            583.033,
+            263.254
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2025年高考数学试卷（天津）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          467,
+          5259
+        ]
+      ]
+    }
+  ],
+  "layout": "question-analysis-pairs"
+}

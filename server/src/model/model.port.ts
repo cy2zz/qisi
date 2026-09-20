@@ -7,9 +7,19 @@ export type ModelRole =
   | 'strategy'
   | 'vision';
 
+export type ModelImageMime = 'image/jpeg' | 'image/png' | 'image/webp';
+
+export interface ModelImage {
+  bytes: Uint8Array;
+  mime: ModelImageMime;
+}
+
 export interface ModelRequest {
-  input: string;
+  images?: readonly ModelImage[];
+  input: unknown;
   maxOutputTokens: number;
+  model?: string;
+  outputSchema?: z.ZodType;
   role: ModelRole;
   signal: AbortSignal;
   system: string;
@@ -33,3 +43,4 @@ export interface ModelPort {
 }
 
 export const MODEL_PORT = Symbol('MODEL_PORT');
+import type { z } from 'zod';

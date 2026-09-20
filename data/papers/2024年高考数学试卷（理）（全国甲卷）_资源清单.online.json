@@ -1,0 +1,2054 @@
+{
+  "title": "2024年高考数学试卷（理）（全国甲卷）",
+  "variant": "题目与解析",
+  "prefix": "2024年高考数学试卷（理）（全国甲卷）",
+  "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+  "sourcePages": 20,
+  "questionCount": 23,
+  "notes": [],
+  "resources": [
+    {
+      "label": "卷首说明",
+      "number": null,
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E5%85%B6%E4%BB%96%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%8D%B7%E9%A6%96%E8%AF%B4%E6%98%8E.png",
+      "width": 1600,
+      "height": 869,
+      "safeBreaks": [
+        75,
+        178,
+        274,
+        353,
+        427,
+        502,
+        577,
+        652,
+        726,
+        801
+      ],
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.366,
+            54.348,
+            550.122,
+            322.03
+          ]
+        }
+      ],
+      "kind": "intro"
+    },
+    {
+      "label": "第01题题目",
+      "number": 1,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 316,
+      "safeBreaks": [
+        68,
+        141,
+        247
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.366,
+            330.464,
+            550.122,
+            547.233
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          316
+        ]
+      ]
+    },
+    {
+      "label": "第01题解析",
+      "number": 1,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 390,
+      "safeBreaks": [
+        76,
+        151,
+        229,
+        324
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.366,
+            330.464,
+            550.122,
+            547.233
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          316,
+          706
+        ]
+      ]
+    },
+    {
+      "label": "第02题题目",
+      "number": 2,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 194,
+      "safeBreaks": [
+        102
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.366,
+            555.354,
+            550.122,
+            765.564
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          194
+        ]
+      ]
+    },
+    {
+      "label": "第02题解析",
+      "number": 2,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 491,
+      "safeBreaks": [
+        77,
+        152,
+        224,
+        333,
+        425
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.366,
+            555.354,
+            550.122,
+            765.564
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          194,
+          685
+        ]
+      ]
+    },
+    {
+      "label": "第03题题目",
+      "number": 3,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 298,
+      "safeBreaks": [
+        188
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            50.366,
+            49.663,
+            550.122,
+            594.085
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          298
+        ]
+      ]
+    },
+    {
+      "label": "第03题解析",
+      "number": 3,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1457,
+      "safeBreaks": [
+        69,
+        144,
+        218,
+        411,
+        722,
+        818,
+        925,
+        989,
+        1100,
+        1285,
+        1399
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            50.366,
+            49.663,
+            550.122,
+            594.085
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          298,
+          1755
+        ]
+      ]
+    },
+    {
+      "label": "第04题题目",
+      "number": 4,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 191,
+      "safeBreaks": [
+        77
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            50.366,
+            605.954,
+            550.122,
+            763.378
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            50.366,
+            52.474,
+            550.122,
+            110.259
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          191
+        ]
+      ]
+    },
+    {
+      "label": "第04题解析",
+      "number": 4,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 534,
+      "safeBreaks": [
+        68,
+        149,
+        245,
+        331,
+        468
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            50.366,
+            605.954,
+            550.122,
+            763.378
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            50.366,
+            52.474,
+            550.122,
+            110.259
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          191,
+          725
+        ]
+      ]
+    },
+    {
+      "label": "第05题题目",
+      "number": 5,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 300,
+      "safeBreaks": [
+        124,
+        207
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            50.366,
+            124.314,
+            550.122,
+            398.868
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          300
+        ]
+      ]
+    },
+    {
+      "label": "第05题解析",
+      "number": 5,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 591,
+      "safeBreaks": [
+        78,
+        153,
+        230,
+        322,
+        425,
+        534
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            50.366,
+            124.314,
+            550.122,
+            398.868
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          300,
+          891
+        ]
+      ]
+    },
+    {
+      "label": "第06题题目",
+      "number": 6,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 230,
+      "safeBreaks": [
+        114
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            50.366,
+            414.485,
+            550.122,
+            738.702
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            50.366,
+            52.474,
+            550.122,
+            110.259
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          230
+        ]
+      ]
+    },
+    {
+      "label": "第06题解析",
+      "number": 6,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1029,
+      "safeBreaks": [
+        68,
+        145,
+        241,
+        312,
+        468,
+        626,
+        706,
+        826,
+        963
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            50.366,
+            414.485,
+            550.122,
+            738.702
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            50.366,
+            52.474,
+            550.122,
+            110.259
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          230,
+          1259
+        ]
+      ]
+    },
+    {
+      "label": "第07题题目",
+      "number": 7,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 686,
+      "safeBreaks": [
+        90,
+        388
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            50.366,
+            121.191,
+            550.122,
+            562.85
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          686
+        ]
+      ]
+    },
+    {
+      "label": "第07题解析",
+      "number": 7,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 740,
+      "safeBreaks": [
+        76,
+        153,
+        249,
+        353,
+        451,
+        598,
+        676
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            50.366,
+            121.191,
+            550.122,
+            562.85
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          686,
+          1426
+        ]
+      ]
+    },
+    {
+      "label": "第08题题目",
+      "number": 8,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 280,
+      "safeBreaks": [
+        134
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            50.366,
+            575.032,
+            550.122,
+            739.014
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            50.366,
+            57.472,
+            550.122,
+            203.963
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          280
+        ]
+      ]
+    },
+    {
+      "label": "第08题解析",
+      "number": 8,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 750,
+      "safeBreaks": [
+        78,
+        151,
+        224,
+        263,
+        332,
+        384,
+        538,
+        682
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            50.366,
+            575.032,
+            550.122,
+            739.014
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            50.366,
+            57.472,
+            550.122,
+            203.963
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          280,
+          1030
+        ]
+      ]
+    },
+    {
+      "label": "第09题题目",
+      "number": 9,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 283,
+      "safeBreaks": [
+        89,
+        185
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            50.366,
+            215.208,
+            550.122,
+            578.468
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          283
+        ]
+      ]
+    },
+    {
+      "label": "第09题解析",
+      "number": 9,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 892,
+      "safeBreaks": [
+        78,
+        153,
+        232,
+        329,
+        424,
+        530,
+        626,
+        727,
+        825
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            50.366,
+            215.208,
+            550.122,
+            578.468
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          283,
+          1175
+        ]
+      ]
+    },
+    {
+      "label": "第10题题目",
+      "number": 10,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 430,
+      "safeBreaks": [
+        81,
+        180,
+        276,
+        355
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            50.366,
+            591.586,
+            550.122,
+            765.564
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            50.366,
+            50.6,
+            550.122,
+            500.381
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          430
+        ]
+      ]
+    },
+    {
+      "label": "第10题解析",
+      "number": 10,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1603,
+      "safeBreaks": [
+        75,
+        145,
+        221,
+        310,
+        396,
+        490,
+        590,
+        685,
+        770,
+        864,
+        957,
+        1372,
+        1459,
+        1540
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            50.366,
+            591.586,
+            550.122,
+            765.564
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            50.366,
+            50.6,
+            550.122,
+            500.381
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          430,
+          2033
+        ]
+      ]
+    },
+    {
+      "label": "第11题题目",
+      "number": 11,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 272,
+      "safeBreaks": [
+        123
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            50.366,
+            515.061,
+            550.122,
+            739.014
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            50.366,
+            54.973,
+            550.122,
+            219.58
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          272
+        ]
+      ]
+    },
+    {
+      "label": "第11题解析",
+      "number": 11,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1008,
+      "safeBreaks": [
+        78,
+        147,
+        266,
+        342,
+        463,
+        583,
+        695,
+        804,
+        941
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            50.366,
+            515.061,
+            550.122,
+            739.014
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            50.366,
+            54.973,
+            550.122,
+            219.58
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          272,
+          1280
+        ]
+      ]
+    },
+    {
+      "label": "第12题题目",
+      "number": 12,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 256,
+      "safeBreaks": [
+        83,
+        163
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            50.366,
+            231.45,
+            550.122,
+            695.286
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          256
+        ]
+      ]
+    },
+    {
+      "label": "第12题解析",
+      "number": 12,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1241,
+      "safeBreaks": [
+        78,
+        153,
+        234,
+        324,
+        479,
+        579,
+        675,
+        768,
+        1187
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            50.366,
+            231.45,
+            550.122,
+            695.286
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          256,
+          1497
+        ]
+      ]
+    },
+    {
+      "label": "第13题题目",
+      "number": 13,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 211,
+      "safeBreaks": [
+        70
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            50.366,
+            705.281,
+            550.122,
+            765.564
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            50.366,
+            50.6,
+            550.122,
+            461.337
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          211
+        ]
+      ]
+    },
+    {
+      "label": "第13题解析",
+      "number": 13,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1333,
+      "safeBreaks": [
+        70,
+        139,
+        401,
+        472,
+        613,
+        878,
+        1119,
+        1268
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            50.366,
+            705.281,
+            550.122,
+            765.564
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            50.366,
+            50.6,
+            550.122,
+            461.337
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          211,
+          1544
+        ]
+      ]
+    },
+    {
+      "label": "第14题题目",
+      "number": 14,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 235,
+      "safeBreaks": [
+        86
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            50.366,
+            473.519,
+            550.122,
+            721.523
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            50.366,
+            48.726,
+            550.122,
+            147.428
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          235
+        ]
+      ]
+    },
+    {
+      "label": "第14题解析",
+      "number": 14,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 911,
+      "safeBreaks": [
+        91,
+        145,
+        223,
+        299,
+        369,
+        473,
+        577,
+        787,
+        871
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            50.366,
+            473.519,
+            550.122,
+            721.523
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            50.366,
+            48.726,
+            550.122,
+            147.428
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          235,
+          1146
+        ]
+      ]
+    },
+    {
+      "label": "第15题题目",
+      "number": 15,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 126,
+      "safeBreaks": [],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            50.366,
+            163.045,
+            550.122,
+            406.677
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          126
+        ]
+      ]
+    },
+    {
+      "label": "第15题解析",
+      "number": 15,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 666,
+      "safeBreaks": [
+        78,
+        158,
+        253,
+        405,
+        501,
+        599
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            50.366,
+            163.045,
+            550.122,
+            406.677
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          126,
+          792
+        ]
+      ]
+    },
+    {
+      "label": "第16题题目",
+      "number": 16,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 236,
+      "safeBreaks": [
+        65,
+        164
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            50.366,
+            417.296,
+            550.122,
+            756.506
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            50.366,
+            52.162,
+            550.122,
+            387.623
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          236
+        ]
+      ]
+    },
+    {
+      "label": "第16题解析",
+      "number": 16,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1960,
+      "safeBreaks": [
+        110,
+        183,
+        272,
+        357,
+        452,
+        601,
+        701,
+        779,
+        868,
+        958,
+        1058,
+        1158,
+        1258,
+        1356,
+        1433,
+        1508,
+        1583,
+        1652,
+        1761,
+        1856
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            50.366,
+            417.296,
+            550.122,
+            756.506
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            50.366,
+            52.162,
+            550.122,
+            387.623
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          236,
+          2196
+        ]
+      ]
+    },
+    {
+      "label": "第17题题目",
+      "number": 17,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 2196,
+      "safeBreaks": [
+        67,
+        143,
+        219,
+        292,
+        356,
+        823,
+        913,
+        1147,
+        1279,
+        1343,
+        1424,
+        1515,
+        1668,
+        1766,
+        1907
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            50.366,
+            392.933,
+            550.122,
+            745.574
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            50.366,
+            43.729,
+            550.122,
+            754.944
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            50.366,
+            50.6,
+            550.122,
+            321.406
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          2196
+        ]
+      ]
+    },
+    {
+      "label": "第17题解析",
+      "number": 17,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2137,
+      "safeBreaks": [
+        101,
+        176,
+        257,
+        349,
+        499,
+        576,
+        640,
+        1046,
+        1180,
+        1252,
+        1322,
+        1397,
+        1466,
+        1582,
+        1604,
+        1676,
+        1767,
+        1924,
+        2070
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            50.366,
+            392.933,
+            550.122,
+            745.574
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            50.366,
+            43.729,
+            550.122,
+            754.944
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            50.366,
+            50.6,
+            550.122,
+            321.406
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          2196,
+          4333
+        ]
+      ]
+    },
+    {
+      "label": "第18题题目",
+      "number": 18,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 285,
+      "safeBreaks": [
+        84,
+        184
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 12,
+          "bbox": [
+            50.366,
+            332.963,
+            550.122,
+            757.443
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            50.366,
+            50.913,
+            550.122,
+            295.793
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          285
+        ]
+      ]
+    },
+    {
+      "label": "第18题解析",
+      "number": 18,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1894,
+      "safeBreaks": [
+        102,
+        196,
+        276,
+        378,
+        470,
+        554,
+        650,
+        753,
+        897,
+        997,
+        1091,
+        1165,
+        1263,
+        1361,
+        1461,
+        1560,
+        1717,
+        1813
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 12,
+          "bbox": [
+            50.366,
+            332.963,
+            550.122,
+            757.443
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            50.366,
+            50.913,
+            550.122,
+            295.793
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          285,
+          2179
+        ]
+      ]
+    },
+    {
+      "label": "第19题题目",
+      "number": 19,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 713,
+      "safeBreaks": [
+        67,
+        162,
+        561,
+        638
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 13,
+          "bbox": [
+            50.366,
+            308.287,
+            550.122,
+            746.511
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            50.366,
+            50.6,
+            550.122,
+            669.986
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            50.366,
+            50.288,
+            550.122,
+            181.474
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          713
+        ]
+      ]
+    },
+    {
+      "label": "第19题解析",
+      "number": 19,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3153,
+      "safeBreaks": [
+        79,
+        166,
+        221,
+        299,
+        380,
+        468,
+        549,
+        629,
+        708,
+        778,
+        853,
+        928,
+        1008,
+        1097,
+        1181,
+        1279,
+        1372,
+        1453,
+        1530,
+        1631,
+        1727,
+        1820,
+        1927,
+        2031,
+        2121,
+        2276,
+        2433,
+        2578,
+        2715
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 13,
+          "bbox": [
+            50.366,
+            308.287,
+            550.122,
+            746.511
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            50.366,
+            50.6,
+            550.122,
+            669.986
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            50.366,
+            50.288,
+            550.122,
+            181.474
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          713,
+          3866
+        ]
+      ]
+    },
+    {
+      "label": "第20题题目",
+      "number": 20,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 384,
+      "safeBreaks": [
+        124,
+        205,
+        300
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 15,
+          "bbox": [
+            50.366,
+            194.593,
+            550.122,
+            759.942
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            50.366,
+            50.288,
+            550.122,
+            633.129
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          384
+        ]
+      ]
+    },
+    {
+      "label": "第20题解析",
+      "number": 20,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3328,
+      "safeBreaks": [
+        139,
+        218,
+        295,
+        393,
+        496,
+        590,
+        673,
+        819,
+        963,
+        1044,
+        1137,
+        1444,
+        1586,
+        1702,
+        1833,
+        2045,
+        2189,
+        2273,
+        2342,
+        2540,
+        2608,
+        2620,
+        2741,
+        2836,
+        2917,
+        3012,
+        3089,
+        3170,
+        3259
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 15,
+          "bbox": [
+            50.366,
+            194.593,
+            550.122,
+            759.942
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            50.366,
+            50.288,
+            550.122,
+            633.129
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          384,
+          3712
+        ]
+      ]
+    },
+    {
+      "label": "第21题题目",
+      "number": 21,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC21%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 258,
+      "safeBreaks": [
+        82,
+        179
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 16,
+          "bbox": [
+            50.366,
+            645.623,
+            550.122,
+            742.45
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            50.366,
+            47.477,
+            550.122,
+            724.646
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            50.366,
+            52.787,
+            550.122,
+            346.081
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第21题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          258
+        ]
+      ]
+    },
+    {
+      "label": "第21题解析",
+      "number": 21,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC21%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3219,
+      "safeBreaks": [
+        70,
+        182,
+        250,
+        320,
+        432,
+        505,
+        602,
+        751,
+        897,
+        1002,
+        1097,
+        1197,
+        1277,
+        1424,
+        1569,
+        1719,
+        1832,
+        1923,
+        2016,
+        2133,
+        2261,
+        2400,
+        2549,
+        2650,
+        2742,
+        2856,
+        2925,
+        2998,
+        3074,
+        3149
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 16,
+          "bbox": [
+            50.366,
+            645.623,
+            550.122,
+            742.45
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            50.366,
+            47.477,
+            550.122,
+            724.646
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            50.366,
+            52.787,
+            550.122,
+            346.081
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第21题.png",
+      "originalImageIntervals": [
+        [
+          258,
+          3477
+        ]
+      ]
+    },
+    {
+      "label": "第22题题目",
+      "number": 22,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC22%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 405,
+      "safeBreaks": [
+        77,
+        173,
+        253
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 18,
+          "bbox": [
+            50.366,
+            358.575,
+            550.122,
+            751.508
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            50.366,
+            51.225,
+            550.122,
+            548.795
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第22题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          405
+        ]
+      ]
+    },
+    {
+      "label": "第22题解析",
+      "number": 22,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC22%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2482,
+      "safeBreaks": [
+        88,
+        203,
+        269,
+        424,
+        496,
+        571,
+        646,
+        718,
+        871,
+        964,
+        1039,
+        1113,
+        1220,
+        1465,
+        1564,
+        1663,
+        1759,
+        1871,
+        2013,
+        2115,
+        2208,
+        2311,
+        2418
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 18,
+          "bbox": [
+            50.366,
+            358.575,
+            550.122,
+            751.508
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            50.366,
+            51.225,
+            550.122,
+            548.795
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第22题.png",
+      "originalImageIntervals": [
+        [
+          405,
+          2887
+        ]
+      ]
+    },
+    {
+      "label": "第23题题目",
+      "number": 23,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC23%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 279,
+      "safeBreaks": [
+        78,
+        173
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 19,
+          "bbox": [
+            50.366,
+            560.976,
+            550.122,
+            765.876
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            50.366,
+            50.913,
+            550.122,
+            240.82
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第23题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          279
+        ]
+      ]
+    },
+    {
+      "label": "第23题解析",
+      "number": 23,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E7%90%86%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC23%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1021,
+      "safeBreaks": [
+        74,
+        149,
+        228,
+        320,
+        394,
+        465,
+        568,
+        664,
+        760,
+        839,
+        944
+      ],
+      "sourcePDF": "2024年高考数学试卷（理）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 19,
+          "bbox": [
+            50.366,
+            560.976,
+            550.122,
+            765.876
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            50.366,
+            50.913,
+            550.122,
+            240.82
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（理）（全国甲卷）（解析卷）_第23题.png",
+      "originalImageIntervals": [
+        [
+          279,
+          1300
+        ]
+      ]
+    }
+  ],
+  "layout": "question-analysis-pairs"
+}

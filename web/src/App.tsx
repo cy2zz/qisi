@@ -1,10 +1,30 @@
-import { type FormEvent, useEffect, useState } from 'react';
+import { lazy, Suspense, type FormEvent, useEffect, useState } from 'react';
 import { Link, Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { Button } from './components/ui/button';
 import { Input } from './components/ui/input';
 import { ApiError, apiFetch } from './lib/api';
-import { BankPage, FixtureLearningPage, PreparePage } from './pages/bank/BankFlow';
-import { MathMarkdown } from './shared/MathMarkdown';
+
+const BankPage = lazy(async () => ({
+  default: (await import('./pages/bank/BankFlow')).BankPage,
+}));
+const FixtureLearningPage = lazy(async () => ({
+  default: (await import('./pages/bank/BankFlow')).FixtureLearningPage,
+}));
+const PreparePage = lazy(async () => ({
+  default: (await import('./pages/bank/BankFlow')).PreparePage,
+}));
+const PaperBankPage = lazy(async () => ({
+  default: (await import('./pages/bank/PaperBankPage')).PaperBankPage,
+}));
+const HistoryPage = lazy(async () => ({
+  default: (await import('./pages/history/HistoryPage')).HistoryPage,
+}));
+const AssessmentCheckPage = lazy(async () => ({
+  default: (await import('./pages/learn/check/AssessmentCheckPage')).AssessmentCheckPage,
+}));
+const ReportPage = lazy(async () => ({
+  default: (await import('./pages/learn/report/ReportPage')).ReportPage,
+}));
 
 interface User {
   id: string;
@@ -52,7 +72,7 @@ export function App() {
         method: 'POST',
       });
       setAuth({ status: 'authenticated', user: result.user });
-      navigate('/bank', { replace: true });
+      navigate('/study', { replace: true });
     } catch (requestError) {
       setError(
         requestError instanceof ApiError && requestError.status === 400
@@ -90,19 +110,46 @@ export function App() {
   }
 
   return (
-    <Routes>
-      <Route path="/" element={<Navigate to="/bank" replace />} />
-      <Route path="/bank" element={<BankPage username={auth.user.username} />} />
-      <Route
-        path="/bank/prepare/:problemId"
-        element={<PreparePage username={auth.user.username} />}
-      />
-      <Route
-        path="/learn/:sessionId"
-        element={<FixtureLearningPage username={auth.user.username} />}
-      />
-      <Route path="*" element={<Navigate to="/bank" replace />} />
-    </Routes>
+    <Suspense fallback={<RouteLoading />}>
+      <Routes>
+        <Route path="/" element={<Navigate to="/study" replace />} />
+        <Route path="/bank" element={<PaperBankPage username={auth.user.username} />} />
+        <Route
+          path="/bank/papers/:paperId/questions/:questionId"
+          element={<PaperBankPage username={auth.user.username} />}
+        />
+        <Route path="/study" element={<BankPage username={auth.user.username} />} />
+        <Route path="/history" element={<HistoryPage username={auth.user.username} />} />
+        <Route
+          path="/bank/prepare/:problemId"
+          element={<PreparePage username={auth.user.username} />}
+        />
+        <Route
+          path="/learn/:sessionId"
+          element={<FixtureLearningPage username={auth.user.username} />}
+        />
+        <Route
+          path="/learn/:sessionId/check"
+          element={<AssessmentCheckPage username={auth.user.username} />}
+        />
+        <Route
+          path="/learn/:sessionId/report"
+          element={<ReportPage username={auth.user.username} />}
+        />
+        <Route path="*" element={<Navigate to="/study" replace />} />
+      </Routes>
+    </Suspense>
+  );
+}
+
+function RouteLoading() {
+  return (
+    <main className="route-loading" aria-busy="true">
+      <div className="auth-loading" role="status">
+        <span className="loading-mark" aria-hidden="true" />
+        正在打开学习空间…
+      </div>
+    </main>
   );
 }
 
@@ -167,7 +214,9 @@ function LoginPage({
               <span className="math-field-index">今日数学坐标</span>
               <strong>先观察，再推导</strong>
               <p>从图像、变化与关键点开始，让每一笔都有依据。</p>
-              <MathMarkdown className="math-equation" content={"$f'(x_0)=0$"} />
+              <div className="math-equation" role="img" aria-label="f 撇 x 零等于零">
+                <span aria-hidden="true">f′(x₀) = 0</span>
+              </div>
             </figcaption>
 
             <svg

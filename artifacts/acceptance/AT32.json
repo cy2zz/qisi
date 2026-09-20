@@ -1,0 +1,52 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT32",
+  "result": "passed_self_review",
+  "executed_at": "2026-09-20T02:43:00+08:00",
+  "executed_by": "Codex self_review",
+  "application_commit": null,
+  "layer": "real_mysql_integration_and_mock_e2e",
+  "environment": "local MySQL 8.0.45; Playwright PC 1440/1280 and H5 390/360",
+  "provider_mode": "provider_failure_boundary_without_model_call; guarded reply fixture for exposure",
+  "commands": [
+    "npm run test:db",
+    "npm --prefix web test -- --run src/pages/learn/check/AssessmentCheckPage.spec.tsx -t 'irreversible help boundary'",
+    "npx playwright test web/tests/e2e/assessment.spec.ts --grep AT32",
+    "npm --prefix web test",
+    "npm --prefix web run typecheck && npm --prefix web run lint && npm --prefix web run build",
+    "npx playwright test"
+  ],
+  "expected": "Persist assistance_requested before help; provider failure leaves help_exposed false and independent eligibility cannot recover.",
+  "actual": {
+    "draft_persisted_before_help": true,
+    "assistance_requested": true,
+    "help_exposed_before_reply": false,
+    "same_task_help_session_created": true,
+    "task_and_draft_restored": true,
+    "help_exposed_after_committed_reply": true,
+    "failed_or_uncommitted_reply_marks_exposure": false,
+    "independent_eligibility_recovers": false,
+    "confirmation_declares_modal_semantics": true,
+    "confirmation_defaults_to_safe_action": true,
+    "confirmation_focus_trapped": true,
+    "confirmation_escape_cancels": true,
+    "confirmation_cancel_restores_editor_focus": true,
+    "confirmation_cancel_sends_help_request": false,
+    "responsive_projects": ["pc-1440", "pc-1280", "h5-390", "h5-360"]
+  },
+  "evidence_files": [
+    "server/scripts/verify-assessment-persistence.ts",
+    "server/src/features/assessment/assessment.repository.ts",
+    "server/src/features/learning/learning-session.service.ts",
+    "web/src/pages/learn/check/AssessmentCheckPage.tsx",
+    "web/src/pages/learn/check/AssessmentCheckPage.spec.tsx",
+    "web/tests/e2e/assessment.spec.ts",
+    "artifacts/acceptance/A04-help-confirm-pc-1440.png",
+    "artifacts/acceptance/A04-help-confirm-h5-390.png"
+  ],
+  "limitations": [
+    "No real screen reader matrix was executed.",
+    "No independent reviewer or real student observation was performed.",
+    "real_student_observation: not_run"
+  ]
+}

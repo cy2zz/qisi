@@ -11,7 +11,7 @@ test('@A01 login shell keeps the mathematics context usable', async ({ page }) =
     'data-slot',
     'button',
   );
-  await expect(page.locator('.math-field .katex')).toBeVisible();
+  await expect(page.getByRole('img', { name: 'f 撇 x 零等于零' })).toBeVisible();
 
   const hasHorizontalOverflow = await page.evaluate(
     () => document.documentElement.scrollWidth > document.documentElement.clientWidth,

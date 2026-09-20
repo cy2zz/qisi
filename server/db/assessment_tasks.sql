@@ -1,0 +1,22 @@
+CREATE TABLE `assessment_tasks` (
+`id`                         BIGINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '独立检验任务ID',
+`user_id`                    BIGINT UNSIGNED NOT NULL COMMENT '任务所属学生用户ID',
+`source_session_id`          BIGINT UNSIGNED NOT NULL COMMENT '生成该检验任务的原学习会话ID',
+`source_question_id`         BIGINT UNSIGNED NULL COMMENT '原学习题库题目ID，手动输入时为空',
+`prompt_markdown`            MEDIUMTEXT      NOT NULL COMMENT '向学生展示的新任务题干',
+`reference_answer_markdown`  MEDIUMTEXT      NOT NULL COMMENT '仅服务端评分使用的参考答案',
+`rubric_json`                JSON            NOT NULL COMMENT '仅服务端评分使用的核对标准',
+`relation`                   VARCHAR(32)     NOT NULL COMMENT '与原题关系，near_transfer或near_duplicate',
+`equivalence_group`          VARCHAR(128)    NOT NULL COMMENT '等价任务组标识',
+`task_hash`                  BINARY(32)      NOT NULL COMMENT '规范化题干摘要，用于已见任务判定',
+`verification_json`          JSON            NOT NULL COMMENT '任务生成与独立复核的模型及结果记录',
+`status`                     VARCHAR(24)     NOT NULL COMMENT '任务状态，verified或rejected',
+`expires_at`                 TIMESTAMP       NOT NULL COMMENT '任务数据到期时间',
+`db_update_time`             TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+`db_create_time`             TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+PRIMARY KEY (`id`),
+UNIQUE KEY `uq_assessment_tasks_user_hash` (`user_id`, `task_hash`),
+KEY `idx_assessment_tasks_source` (`source_session_id`, `status`),
+CONSTRAINT `fk_assessment_tasks_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+CONSTRAINT `fk_assessment_tasks_session` FOREIGN KEY (`source_session_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = '独立检验任务表';

@@ -1,0 +1,35 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT05",
+  "result": "passed_self_review",
+  "executed_at": "2026-09-19T21:34:54+08:00",
+  "executed_by": "Codex self_review",
+  "application_commit": null,
+  "layer": "unit_semantic_and_policy_gate",
+  "environment": "local Vitest",
+  "provider_mode": "fixture_model",
+  "commands": [
+    "npm --prefix server test -- --run test/preparation/preparation-policy.spec.ts",
+    "npm --prefix server test -- --run test/preparation/preparation.service.spec.ts test/workflows/policy-gate.spec.ts"
+  ],
+  "expected": "Cyclic, out-of-scope, blocked or merely model-certified preparation packets remain needs_review and cannot become teaching truth.",
+  "actual": {
+    "failure_first_cases": 5,
+    "cycle_rejected_by_code": true,
+    "blocking_issue_rejected": true,
+    "model_checked_not_certification": true,
+    "guard_accept_not_sufficient": true,
+    "untrusted_check_tasks_forced_unverified": true,
+    "needs_review_persisted": true
+  },
+  "evidence_files": [
+    "server/src/workflows/policy-gate.ts",
+    "server/test/preparation/preparation-policy.spec.ts",
+    "server/test/preparation/preparation.service.spec.ts"
+  ],
+  "limitations": [
+    "The mathematical content is a deterministic self-authored fixture, not a human review of the imported exam bank.",
+    "No independent reviewer or real student observation was performed.",
+    "real_student_observation: not_run"
+  ]
+}
