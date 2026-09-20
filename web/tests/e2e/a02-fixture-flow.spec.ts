@@ -55,25 +55,37 @@ test.beforeEach(async ({ page }) => {
       track: '综合',
       variant: '题目与解析',
     };
+    const question = {
+      id: '801',
+      imageHeight: 425,
+      imageWidth: 1600,
+      number: 1,
+      questionCode: '2024北京#01',
+      questionImageUrl: 'https://example.test/question.png',
+      statementMarkdown: null,
+      status: 'ready',
+    };
+    const scope = {
+      bankVersion: 'exam-bank@2026-09-20T00:00:00.000Z',
+      invalidCount: 0,
+      needsReviewCount: 0,
+      paperCount: 1,
+      readyCount: 1,
+      selectableCount: 1,
+      totalCount: 1,
+      unreadableCount: 0,
+      updatedAt: '2026-09-20T00:00:00.000Z',
+    };
     const body = pathname.endsWith('/filters')
       ? { regions: ['北京'], tracks: ['综合'], years: [2024] }
+      : pathname.endsWith('/questions/random')
+        ? { requestId: 'fixture-random-request', scope, selection: { paper, question } }
       : pathname.endsWith('/papers/41')
         ? {
             ...paper,
-            questions: [
-              {
-                id: '801',
-                imageHeight: 425,
-                imageWidth: 1600,
-                number: 1,
-                questionCode: '2024北京#01',
-                questionImageUrl: 'https://example.test/question.png',
-                statementMarkdown: null,
-                status: 'ready',
-              },
-            ],
+            questions: [question],
           }
-        : { papers: [paper], total: 1 };
+        : { papers: [paper], scope, total: 1 };
 
     await route.fulfill({
       body: JSON.stringify(body),
@@ -135,6 +147,9 @@ test('@A02 chat workspace opens the real paper picker and accepts formula input'
   await expect(page.getByRole('heading', { name: '历年真题，按卷选题' })).toHaveCount(0);
   await expect(page.getByRole('region', { name: '题库选择工作区' })).toBeVisible();
   await expect(page.getByLabel('筛选试卷')).toHaveClass(/paper-picker-filters/);
+  const standaloneScope = page.getByRole('region', { name: '当前抽题范围' });
+  await expect(standaloneScope).toContainText('全部试卷');
+  await expect(standaloneScope).toContainText('1 道可练习题');
   await expect(page.locator('.paper-bank-paper-panel .paper-picker-papers')).toHaveClass(
     /paper-picker-papers/,
   );
@@ -143,6 +158,13 @@ test('@A02 chat workspace opens the real paper picker and accepts formula input'
   await expect(standalonePaper.getByRole('article', { name: '第 1 题' })).toBeVisible();
   await expect(standalonePaper.getByText('题面可读')).toBeVisible();
   await expect(page.getByRole('heading', { name: '选择题号' })).toHaveCount(0);
+  await expect(standalonePaper.getByRole('button', { name: '选择第 1 题' })).toBeEnabled();
+  await standaloneScope.getByRole('button', { name: '随机抽一道' }).click();
+  await expect(standalonePaper.getByRole('article', { name: '第 1 题' })).toHaveAttribute(
+    'data-random-target',
+    'true',
+  );
+  await expect(standalonePaper.getByText('随机抽中', { exact: true })).toBeVisible();
   await expect(standalonePaper.getByRole('button', { name: '选择第 1 题' })).toBeEnabled();
   const standaloneQuestionListDisplay = await standalonePaper.locator('ol').evaluate(
     (element) => window.getComputedStyle(element).display,
@@ -178,9 +200,14 @@ test('@A02 chat workspace opens the real paper picker and accepts formula input'
 
   await page.getByRole('button', { name: '去题库选择' }).click();
   await expect(page.getByRole('dialog', { name: '从题库选择' })).toBeVisible();
+  const dialogScope = page.getByRole('dialog').getByRole('region', { name: '当前抽题范围' });
+  await dialogScope.getByRole('button', { name: '随机抽一道' }).click();
   await expect(page.getByRole('region', { name: '试卷内容' })).toBeVisible();
-  await expect(page.getByRole('article', { name: '第 1 题' })).toBeVisible();
-  await expect(page.getByRole('dialog').getByText('题面可读')).toBeVisible();
+  await expect(page.getByRole('article', { name: '第 1 题' })).toHaveAttribute(
+    'data-random-target',
+    'true',
+  );
+  await expect(page.getByRole('dialog').getByText('随机抽中', { exact: true })).toBeVisible();
   const questionListDisplay = await page.locator('.paper-picker-questions ol').evaluate(
     (element) => window.getComputedStyle(element).display,
   );
@@ -192,6 +219,43 @@ test('@A02 chat workspace opens the real paper picker and accepts formula input'
   ).toBeVisible();
 
   const editor = page.getByRole('textbox', { name: '输入题目或想法' });
+  await editor.fill('先圈出题图中的边界条件。');
+  if (!isDesktop) await page.getByRole('button', { name: '展开题目' }).click();
+  const imageReaderTrigger = page.getByRole('button', {
+    name: '放大查看2024年高考数学试卷（北京）第 1 题',
+  });
+  await imageReaderTrigger.scrollIntoViewIfNeeded();
+  await imageReaderTrigger.click();
+  const imageReader = page.getByRole('dialog', {
+    name: '题图阅读：2024年高考数学试卷（北京）第 1 题',
+  });
+  await expect(imageReader).toBeVisible();
+  await expect(imageReader.getByText('适合窗口 · 100%')).toBeVisible();
+  await expect(imageReader.getByRole('button', { name: '关闭题图阅读' })).toBeFocused();
+  for (const action of await imageReader.getByRole('button').all()) {
+    const size = await action.boundingBox();
+    expect(size?.height).toBeGreaterThanOrEqual(44);
+  }
+  await imageReader.getByRole('button', { name: '放大题图' }).click();
+  await expect(imageReader.getByText('放大阅读 · 125%')).toBeVisible();
+  const imageCanvas = imageReader.locator('.math-image-viewer-canvas');
+  await expect.poll(async () => imageCanvas.evaluate(
+    (element) => element.scrollWidth > element.clientWidth,
+  )).toBe(true);
+  await page.keyboard.press('+');
+  await expect(imageReader.getByText('放大阅读 · 150%')).toBeVisible();
+  if (testInfo.project.name === 'pc-1440' || testInfo.project.name === 'h5-390') {
+    await page.screenshot({
+      path: `artifacts/acceptance/A02-question-reader-${testInfo.project.name}.png`,
+    });
+  }
+  await page.keyboard.press('0');
+  await expect(imageReader.getByText('适合窗口 · 100%')).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(imageReader).toBeHidden();
+  await expect(imageReaderTrigger).toBeFocused();
+  await expect(editor).toHaveText('先圈出题图中的边界条件。');
+
   await editor.fill('先求导');
   await editor.selectText();
   if (!isDesktop) {

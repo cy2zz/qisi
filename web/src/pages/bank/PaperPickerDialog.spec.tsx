@@ -40,6 +40,18 @@ const paperDetail = {
   ],
 };
 
+const scope = {
+  bankVersion: 'exam-bank@2026-09-20T00:00:00.000Z',
+  invalidCount: 0,
+  needsReviewCount: 0,
+  paperCount: 1,
+  readyCount: 1,
+  selectableCount: 1,
+  totalCount: 1,
+  unreadableCount: 0,
+  updatedAt: '2026-09-20T00:00:00.000Z',
+};
+
 describe('PaperPickerDialog', () => {
   afterEach(() => {
     cleanup();
@@ -51,9 +63,15 @@ describe('PaperPickerDialog', () => {
       const url = String(input);
       const body = url === '/api/bank/filters'
         ? filters
+        : url === '/api/bank/questions/random'
+          ? {
+              requestId: '018f15b8-0b48-7f8a-9db6-4415b775a001',
+              scope,
+              selection: { paper: paperSummary, question: paperDetail.questions[0] },
+            }
         : url === '/api/bank/papers/41'
           ? paperDetail
-          : { papers: [paperSummary], total: 1 };
+          : { papers: [paperSummary], scope, total: 1 };
 
       return Promise.resolve(
         new Response(JSON.stringify(body), {
@@ -92,6 +110,36 @@ describe('PaperPickerDialog', () => {
     fireEvent.keyDown(document, { key: 'Escape' });
 
     expect(onClose).toHaveBeenCalledOnce();
+  });
+
+  it('keeps a random result in the picker until the student confirms it', async () => {
+    vi.spyOn(globalThis, 'fetch').mockImplementation((input) => {
+      const url = String(input);
+      const body = url === '/api/bank/filters'
+        ? filters
+        : url === '/api/bank/questions/random'
+          ? {
+              requestId: '018f15b8-0b48-7f8a-9db6-4415b775a001',
+              scope,
+              selection: { paper: paperSummary, question: paperDetail.questions[0] },
+            }
+          : url === '/api/bank/papers/41'
+            ? paperDetail
+            : { papers: [paperSummary], scope, total: 1 };
+      return Promise.resolve(new Response(JSON.stringify(body), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      }));
+    });
+    const onSelect = vi.fn();
+    render(<PaperPickerDialog open onClose={vi.fn()} onSelect={onSelect} />);
+
+    fireEvent.click(await screen.findByRole('button', { name: '随机抽一道' }));
+
+    const question = await screen.findByRole('article', { name: '第 1 题' });
+    expect(question).toHaveAttribute('data-random-target', 'true');
+    expect(question).toHaveTextContent('随机抽中');
+    expect(onSelect).not.toHaveBeenCalled();
   });
 
   it('keeps keyboard focus inside the dialog and restores the opener', async () => {

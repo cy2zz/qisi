@@ -498,6 +498,11 @@ describe('ProblemAnalysisController', () => {
     expect(stream).toContain('event: done');
     expect(stream).toContain('"currentVerdict":"incorrect"');
     expect(stream.indexOf('event: chunk')).toBeGreaterThan(stream.indexOf('event: status'));
+    const publicChunks = response.write.mock.calls
+      .map(([chunk]) => chunk)
+      .filter((chunk) => chunk.includes('event: chunk'));
+    expect(publicChunks).toHaveLength(1);
+    expect(publicChunks[0]).toContain('先求导，再根据导函数的正负判断单调区间。');
     expect(response.end).toHaveBeenCalledOnce();
   });
 });

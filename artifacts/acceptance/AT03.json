@@ -1,0 +1,24 @@
+{
+  "case_id": "AT03",
+  "task_id": "A02",
+  "result": "partial",
+  "executed_at": "2026-09-20T05:51:00.000Z",
+  "evidence": {
+    "same_process_retry": {
+      "same_user": true,
+      "same_request_id": true,
+      "same_filters": true,
+      "same_response": true,
+      "repository_draw_count": 1
+    },
+    "conflict_check": "The same user/request_id with different filters returns a conflict.",
+    "real_api_retry": "Two POST requests with the same request_id returned the same paper 40 and question 877.",
+    "bank_version": "exam-bank@2026-09-20T01:58:32.000Z"
+  },
+  "limitations": [
+    "The replay cache is process-local and expires after ten minutes; restart-safe MySQL persistence is not implemented.",
+    "No scope hash is stored because the user explicitly decided that the question-bank schema must not contain hash fields."
+  ],
+  "review": "self_review",
+  "real_student_observation": "not_run"
+}

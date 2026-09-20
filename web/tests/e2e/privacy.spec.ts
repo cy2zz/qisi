@@ -62,10 +62,17 @@ test.beforeEach(async ({ page }) => {
 test('@A06 @AT47 deletion requires confirmation and removes the private history entry', async ({ page }, testInfo) => {
   await page.goto('/history');
 
-  await page.getByRole('button', { name: '删除记录' }).click();
+  const deleteTrigger = page.getByRole('button', { name: '删除记录' });
+  await deleteTrigger.click();
   const confirmation = page.getByRole('alertdialog', { name: '删除这条学习记录？' });
   await expect(confirmation).toBeVisible();
   await expect(confirmation).toContainText('公开题库不受影响');
+  await expect(confirmation.getByRole('button', { name: '保留记录' })).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(confirmation).toBeHidden();
+  await expect(deleteTrigger).toBeFocused();
+
+  await deleteTrigger.click();
   if (testInfo.project.name === 'pc-1440' || testInfo.project.name === 'h5-390') {
     await page.screenshot({
       fullPage: true,
@@ -75,9 +82,10 @@ test('@A06 @AT47 deletion requires confirmation and removes the private history 
 
   await confirmation.getByRole('button', { name: '保留记录' }).click();
   await expect(confirmation).toBeHidden();
+  await expect(deleteTrigger).toBeFocused();
   await expect(page.getByRole('heading', { name: '二次函数最值' })).toBeVisible();
 
-  await page.getByRole('button', { name: '删除记录' }).click();
+  await deleteTrigger.click();
   await page.getByRole('button', { name: '确认删除' }).click();
   await expect(page.getByRole('heading', { name: '二次函数最值' })).toBeHidden();
 });
@@ -195,4 +203,43 @@ test('@A06 history does not bypass original-answer correction', async ({ page })
   await expect(correctionLink).toBeVisible();
   const size = await correctionLink.boundingBox();
   expect(size?.height).toBeGreaterThanOrEqual(44);
+});
+
+test('@A06 history distinguishes requested help from exposed help', async ({ page }) => {
+  await page.unroute('**/api/history');
+  await page.route('**/api/history', async (route) => {
+    await route.fulfill({
+      body: JSON.stringify({
+        entries: [{
+          ...historyFixtureEntry,
+          assessment: {
+            ...historyFixtureEntry.assessment,
+            assistance_requested: true,
+            execution: 'correct',
+            help_exposed: false,
+            planning: 'correct',
+          },
+          help: { exposed: false, modes: [], requested: false },
+          session_id: '14',
+          title: '请求帮助但未展示的检验',
+        }],
+        retention: {
+          delayed_evidence: 'not_evaluated',
+          history_incomplete: false,
+          session_days: 7,
+        },
+      }),
+      contentType: 'application/json',
+      status: 200,
+    });
+  });
+
+  await page.goto('/history');
+  const disclosure = page.locator('.history-entry-disclosure').first();
+  await expect(disclosure.locator('summary')).toContainText('本次检验请求过帮助，尚未记录实际展示');
+  await expect(disclosure.locator('summary')).not.toContainText('本次检验使用过帮助');
+  await expect(disclosure.getByRole('link', { name: '查看证据边界' })).toHaveAttribute(
+    'href',
+    '/study?session=14&remediate=evidence',
+  );
 });

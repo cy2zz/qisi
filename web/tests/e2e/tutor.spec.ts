@@ -351,6 +351,29 @@ test('@B03 guarded learning flow keeps every core action reachable', async ({ pa
     await expect(textFormattingToggle).toBeHidden();
     await expect(textFormatting).toBeVisible();
   }
+
+  if (isMobile) {
+    await textFormattingToggle.click();
+    await expect(textFormatting).toBeVisible();
+  }
+  const answerStructureTools = textFormatting.getByRole('group', { name: '作答结构' });
+  const proofStructure = answerStructureTools.getByRole('button', { name: '插入证明结构' });
+  const chatRequestsBeforeStructure = chatRequestCount;
+  await proofStructure.click();
+  await expect(editor).toContainText('要证：');
+  await expect(editor).toContainText('依据：');
+  await expect(editor).toContainText('结论：');
+  await expect(editor).toBeFocused();
+  await expect(page.locator('.composer-wrap')).toHaveAttribute('data-multistep', 'true');
+  expect(chatRequestCount).toBe(chatRequestsBeforeStructure);
+  if (isMobile) await expect(textFormatting).toBeHidden();
+  if (testInfo.project.name === 'pc-1440' || testInfo.project.name === 'h5-390') {
+    await page.screenshot({
+      path: `artifacts/acceptance/B03-proof-structure-${testInfo.project.name}.png`,
+    });
+  }
+  await editor.fill('');
+
   const formulaTrigger = page.getByRole('button', { name: '公式', exact: true });
   const formulaTools = page.getByRole('group', { name: '公式快捷输入' });
   await formulaTrigger.focus();
@@ -371,7 +394,29 @@ test('@B03 guarded learning flow keeps every core action reachable', async ({ pa
   }
   await editor.pressSequentially('3');
   await expect(editor).toHaveText(String.raw`$\frac{2}{3}$`);
-  await expect(page.getByLabel('公式预览').locator('.katex')).toBeVisible();
+  await expect(page.getByLabel('公式预览').locator('.katex').first()).toBeVisible();
+  await editor.fill('');
+  const multistepTemplate = formulaTools.getByRole('button', { name: '插入多步等式链' });
+  await multistepTemplate.scrollIntoViewIfNeeded();
+  await multistepTemplate.click();
+  await expect(editor).toContainText(String.raw`\begin{aligned}`);
+  await expect(page.getByLabel('公式预览').locator('.katex-display')).toBeVisible();
+  await expect(page.locator('.composer-wrap')).toHaveAttribute('data-multistep', 'true');
+  await expect(
+    page.locator(isMobile ? '.composer-note-mobile' : '.composer-note-desktop'),
+  ).toContainText('多步演算');
+  const requestCountBeforeMultistepEnter = chatRequestCount;
+  await editor.press('Control+End');
+  await editor.press('Enter');
+  expect(chatRequestCount).toBe(requestCountBeforeMultistepEnter);
+  await expect(page.locator('.composer-wrap')).toHaveAttribute('data-multistep', 'true');
+  if (testInfo.project.name === 'pc-1440' || testInfo.project.name === 'h5-390') {
+    await page.screenshot({
+      path: `artifacts/acceptance/B03-multistep-composer-${testInfo.project.name}.png`,
+    });
+  }
+  await editor.fill(String.raw`$\frac{2}{3}$`);
+  await expect(page.locator('.composer-wrap')).toHaveAttribute('data-multistep', 'false');
   const lastFormulaShortcut = formulaTools.getByRole('button', { name: '插入联立式' });
   await expect(lastFormulaShortcut).toBeAttached();
   await lastFormulaShortcut.scrollIntoViewIfNeeded();
@@ -452,7 +497,48 @@ test('@B03 guarded learning flow keeps every core action reachable', async ({ pa
   }
 });
 
-test('@B03 unsent learning draft survives refresh', async ({ page }) => {
+test('@B03 a long checked reply can be stopped without losing the student turn', async ({ page }, testInfo) => {
+  let releaseRequest: (() => void) | undefined;
+  let markRequestStarted: (() => void) | undefined;
+  const requestStarted = new Promise<void>((resolve) => {
+    markRequestStarted = resolve;
+  });
+  const heldRequest = new Promise<void>((resolve) => {
+    releaseRequest = resolve;
+  });
+
+  await page.route('**/api/problems/chat', async (route) => {
+    expect(route.request().postDataJSON()).toMatchObject({ assistanceMode: 'hint' });
+    markRequestStarted?.();
+    await heldRequest;
+    await route.abort('aborted').catch(() => undefined);
+  });
+
+  await page.goto('/study');
+  const editor = page.getByRole('textbox', { name: '输入题目或想法' });
+  await editor.fill('根号2除以根号3怎么化简？');
+  await page.getByRole('button', { name: '发送' }).click();
+  await expect(page.getByRole('heading', { name: '题目分析' })).toBeVisible();
+
+  await page.getByRole('button', { name: '提示一点' }).click();
+  await requestStarted;
+  const stop = page.getByRole('button', { name: '停止本轮回复' });
+  await expect(stop).toBeVisible();
+  if (testInfo.project.name.startsWith('h5-')) {
+    expect((await stop.boundingBox())?.height).toBeGreaterThanOrEqual(44);
+  }
+
+  await stop.click();
+  releaseRequest?.();
+  await expect(page.getByText('已停止本轮回复。你的作答已保留，可以重新回答。')).toBeVisible();
+  await expect(page.getByLabel('帮助状态：已请求，尚未发出')).toBeVisible();
+  await expect(page.getByLabel('帮助深度：最小提示')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: '重新回答' })).toBeVisible();
+  await expect(editor).toBeFocused();
+});
+
+test('@B03 unsent learning draft survives refresh', async ({ page }, testInfo) => {
+  let chatRequestCount = 0;
   let persistedDraft = '我准备先移项，再配成 $(a-b)^2$。';
   const session = {
     content: '证明 $a^2+b^2\\geq 2ab$。',
@@ -480,6 +566,18 @@ test('@B03 unsent learning draft survives refresh', async ({ page }) => {
           id: '1',
           messageType: 'analysis',
           role: 'guide',
+        }, {
+          content: [
+            '要证：$a^2+b^2\\geq 2ab$',
+            '依据：平方恒非负',
+            '证明：',
+            '步骤 1：移项',
+            '步骤 2：配成 $(a-b)^2$',
+            '结论：原不等式成立',
+          ].join('\n'),
+          id: '2',
+          messageType: 'text',
+          role: 'student',
         }],
         record: session,
       }),
@@ -496,10 +594,84 @@ test('@B03 unsent learning draft survives refresh', async ({ page }) => {
       status: 200,
     });
   });
+  await page.route('**/api/problems/chat', async (route) => {
+    chatRequestCount += 1;
+    await route.fulfill({ body: '', status: 204 });
+  });
 
   await page.goto('/study?session=91');
+  const submittedWork = page.getByRole('article', { name: '你的多步演算，共 6 行' });
+  await expect(submittedWork).toBeVisible();
+  await expect(submittedWork.getByText('6 行 · 已提交')).toBeVisible();
+  await expect(submittedWork.locator('.math-markdown')).toHaveCSS('white-space', 'pre-wrap');
+  await expect(submittedWork.locator('.katex')).not.toHaveCount(0);
+  if ((page.viewportSize()?.width ?? 0) <= 720) {
+    const submittedWorkBox = await submittedWork.boundingBox();
+    const chatScrollBox = await page.locator('.chat-scroll').boundingBox();
+    expect(submittedWorkBox).not.toBeNull();
+    expect(chatScrollBox).not.toBeNull();
+    expect(submittedWorkBox!.y).toBeGreaterThanOrEqual(chatScrollBox!.y - 1);
+  }
+  const reviewSubmittedWork = submittedWork.getByRole('button', {
+    name: '完整回看多步演算',
+  });
+  if ((page.viewportSize()?.width ?? 0) <= 720) {
+    expect((await reviewSubmittedWork.boundingBox())?.height).toBeGreaterThanOrEqual(44);
+  }
+  await reviewSubmittedWork.click();
+  const workReader = page.getByRole('dialog', { name: '回看你的多步演算' });
+  await expect(workReader).toBeVisible();
+  await expect(workReader).toContainText('步骤 1：移项');
+  await expect(workReader).toContainText('结论：原不等式成立');
+  await expect(workReader.locator('.katex')).not.toHaveCount(0);
+  const closeWorkReader = workReader.getByRole('button', { name: '关闭多步演算回看' });
+  await expect(closeWorkReader).toBeFocused();
+  const firstQuoteAction = workReader.getByRole('button', { name: '引用第 1 行到草稿' });
+  const lastQuoteAction = workReader.getByRole('button', { name: '引用第 6 行到草稿' });
+  await page.keyboard.press('Tab');
+  await expect(firstQuoteAction).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
+  await expect(closeWorkReader).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
+  await expect(lastQuoteAction).toBeFocused();
+  if (testInfo.project.name === 'pc-1440' || testInfo.project.name === 'h5-390') {
+    await page.screenshot({
+      path: `artifacts/acceptance/B03-student-work-reader-${testInfo.project.name}.png`,
+    });
+  }
+  await page.keyboard.press('Escape');
+  await expect(workReader).toHaveCount(0);
+  await expect(reviewSubmittedWork).toBeFocused();
+  if (testInfo.project.name === 'pc-1440' || testInfo.project.name === 'h5-390') {
+    await page.screenshot({
+      path: `artifacts/acceptance/B03-submitted-work-${testInfo.project.name}.png`,
+    });
+  }
   const editor = page.getByRole('textbox', { name: '输入题目或想法' });
   await expect(editor).toHaveText(persistedDraft);
+  await reviewSubmittedWork.click();
+  await page.getByRole('dialog', { name: '回看你的多步演算' })
+    .getByRole('button', { name: '引用第 1 行到草稿' })
+    .click();
+  await expect(editor).toContainText(String.raw`我想核对第 1 行：“要证：$a^2+b^2\geq 2ab$”`);
+  await expect(page.getByLabel('公式预览').locator('.katex').first()).toBeVisible();
+  expect(chatRequestCount).toBe(0);
+  await editor.fill(persistedDraft);
+  await expect.poll(() => persistedDraft).toBe('我准备先移项，再配成 $(a-b)^2$。');
+  await reviewSubmittedWork.click();
+  const quoteFourthLine = page.getByRole('dialog', { name: '回看你的多步演算' })
+    .getByRole('button', { name: '引用第 4 行到草稿' });
+  if ((page.viewportSize()?.width ?? 0) <= 720) {
+    expect((await quoteFourthLine.boundingBox())?.height).toBeGreaterThanOrEqual(44);
+  }
+  await quoteFourthLine.click();
+  await expect(page.getByRole('dialog', { name: '回看你的多步演算' })).toHaveCount(0);
+  await expect(editor).toBeFocused();
+  await expect(editor).toContainText('我想核对第 4 行：“步骤 1：移项”');
+  await expect(editor).toContainText('我的疑问：');
+  expect(chatRequestCount).toBe(0);
+  await editor.fill(persistedDraft);
+  await expect.poll(() => persistedDraft).toBe('我准备先移项，再配成 $(a-b)^2$。');
   await editor.fill('我准备先移项，得到 $a^2-2ab+b^2$。');
   await expect.poll(() => persistedDraft).toBe('我准备先移项，得到 $a^2-2ab+b^2$。');
   await expect(page.getByRole('status', { name: '草稿保存状态' })).toHaveText('已自动保存');
@@ -508,6 +680,103 @@ test('@B03 unsent learning draft survives refresh', async ({ page }) => {
   await expect(page.getByRole('textbox', { name: '输入题目或想法' })).toHaveText(
     '我准备先移项，得到 $a^2-2ab+b^2$。',
   );
+});
+
+test('@B03 an unsynced local draft survives refresh and syncs when the network returns', async ({
+  page,
+}, testInfo) => {
+  let allowDraftSync = false;
+  let cloudDraft = '云端旧草稿：我准备先移项。';
+  const session = {
+    content: '证明 $a^2+b^2\\geq 2ab$。',
+    id: '92',
+    problemMd: '证明 $a^2+b^2\\geq 2ab$。',
+    title: '基本不等式证明',
+    topic: '不等式',
+    updatedAt: '2026-09-20T00:00:00.000Z',
+    version: 1,
+  };
+  await page.route('**/api/learning/sessions', async (route) => {
+    await route.fulfill({
+      body: JSON.stringify({ sessions: [session] }),
+      contentType: 'application/json',
+      status: 200,
+    });
+  });
+  await page.route('**/api/learning/sessions/92', async (route) => {
+    await route.fulfill({
+      body: JSON.stringify({
+        analysis,
+        draftMarkdown: cloudDraft,
+        messages: [{
+          content: analysis.overview,
+          id: '1',
+          messageType: 'analysis',
+          role: 'guide',
+        }],
+        record: session,
+      }),
+      contentType: 'application/json',
+      status: 200,
+    });
+  });
+  await page.route('**/api/learning/sessions/92/draft', async (route) => {
+    if (!allowDraftSync) {
+      await route.fulfill({
+        body: JSON.stringify({ message: 'network unavailable' }),
+        contentType: 'application/json',
+        status: 503,
+      });
+      return;
+    }
+    const body = route.request().postDataJSON() as { markdown: string };
+    cloudDraft = body.markdown;
+    await route.fulfill({
+      body: JSON.stringify({ savedAt: '2026-09-20T00:00:02.000Z' }),
+      contentType: 'application/json',
+      status: 200,
+    });
+  });
+
+  await page.goto('/study?session=92');
+  const editor = page.getByRole('textbox', { name: '输入题目或想法' });
+  await expect(editor).toHaveText(cloudDraft);
+  const localDraft = '断网继续推导：\n步骤 1：$a^2-2ab+b^2$\n步骤 2：$(a-b)^2\\geq 0$';
+  await editor.fill(localDraft);
+  await expect(page.getByRole('status', { name: '草稿保存状态' })).toContainText(
+    '已保存在本机，等待网络恢复',
+  );
+  const cachedDraft = await page.evaluate(() => {
+    const key = Object.keys(localStorage).find((item) => item.startsWith('qisi:learning-draft:'));
+    if (!key) return null;
+    return JSON.parse(localStorage.getItem(key) ?? 'null') as { markdown?: string } | null;
+  });
+  expect(cachedDraft?.markdown).toContain('断网继续推导');
+  expect(cachedDraft?.markdown).toContain(String.raw`$a^2-2ab+b^2$`);
+  expect(cachedDraft?.markdown).toContain(String.raw`$(a-b)^2\geq 0$`);
+  if (testInfo.project.name === 'pc-1440' || testInfo.project.name === 'h5-390') {
+    await page.screenshot({
+      path: `artifacts/acceptance/B03-offline-draft-${testInfo.project.name}.png`,
+    });
+  }
+
+  await page.reload();
+  const restoredEditor = page.getByRole('textbox', { name: '输入题目或想法' });
+  await expect(restoredEditor).toContainText('断网继续推导');
+  expect(await restoredEditor.evaluate((element) => element.textContent)).toBe(cachedDraft?.markdown);
+  await expect(page.getByRole('status', { name: '草稿保存状态' })).toContainText(
+    '已恢复本机草稿，尚未同步',
+  );
+
+  allowDraftSync = true;
+  const syncRequest = page.waitForRequest('**/api/learning/sessions/92/draft');
+  await page.evaluate(() => window.dispatchEvent(new Event('online')));
+  await syncRequest;
+  await expect(page.getByRole('status', { name: '草稿保存状态' })).toHaveText('已自动保存');
+  expect(cloudDraft).toBe(cachedDraft?.markdown);
+  const remainingDraftKeys = await page.evaluate(() => Object.keys(localStorage)
+    .filter((key) => key.startsWith('qisi:learning-draft:')));
+  expect(remainingDraftKeys).toEqual([]);
 });
 
 test('@B03 failed help request is not presented as exposed help', async ({ page }) => {

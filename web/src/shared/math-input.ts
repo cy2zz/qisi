@@ -9,5 +9,10 @@ export const MATH_FORMULA_SHORTCUTS = [
   { label: '积分', name: '插入积分', syntax: '$\\int_{}^{}$' },
   { label: '极限', name: '插入极限', syntax: '$\\lim_{x\\to {}}$' },
   { label: '向量', name: '插入向量', syntax: '$\\vec{}$' },
+  {
+    label: '等式链',
+    name: '插入多步等式链',
+    syntax: '$$\n\\begin{aligned}\n{} &= {} \\\\\n{} &= {} \\\\\n{} &= {}\n\\end{aligned}\n$$',
+  },
   { label: '联立', name: '插入联立式', syntax: '$\\begin{cases}{}\\\\{}\\end{cases}$' },
 ] as const;

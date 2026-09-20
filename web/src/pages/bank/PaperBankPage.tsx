@@ -1,7 +1,12 @@
 import { type ReactNode, useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { apiFetch } from '../../lib/api';
-import { QuestionCard, type BankQuestion } from './QuestionCard';
+import { bankStatusLabel, QuestionCard, type BankQuestion } from './QuestionCard';
+import {
+  type BankScope,
+  RandomQuestionControl,
+  type RandomQuestionSelection,
+} from './RandomQuestionControl';
 import { StudySidebar } from './StudySidebar';
 
 interface StudentPageProps {
@@ -36,6 +41,7 @@ interface PaperDetail extends PaperSummary {
 
 interface PaperListResponse {
   papers: PaperSummary[];
+  scope?: BankScope;
   total: number;
 }
 
@@ -94,6 +100,8 @@ export function PaperBankPage({ username }: StudentPageProps) {
   const [filters, setFilters] = useState<PaperFilters>(EMPTY_FILTERS);
   const [options, setOptions] = useState<FilterOptions>({ regions: [], tracks: [], years: [] });
   const [papers, setPapers] = useState<PaperSummary[]>([]);
+  const [scope, setScope] = useState<BankScope | null>(null);
+  const [randomTarget, setRandomTarget] = useState<{ paperId: string; questionId: string } | null>(null);
   const [selectedPaperId, setSelectedPaperId] = useState(routeParams.paperId ?? '');
   const [paper, setPaper] = useState<PaperDetail | null>(null);
   const [filterPanelOpen, setFilterPanelOpen] = useState(() => !shouldUseCompactPaperBank());
@@ -130,6 +138,8 @@ export function PaperBankPage({ username }: StudentPageProps) {
     apiFetch<PaperListResponse>(`/api/bank/papers${queryString}`, { signal: controller.signal })
       .then((result) => {
         setPapers(result.papers);
+        setScope(result.scope ?? null);
+        setRandomTarget(null);
         setSelectedPaperId((current) => {
           if (routeParams.paperId && result.papers.some((item) => item.id === routeParams.paperId)) {
             return routeParams.paperId;
@@ -163,6 +173,13 @@ export function PaperBankPage({ username }: StudentPageProps) {
 
   function updateFilter(name: keyof PaperFilters, value: string) {
     setFilters((current) => ({ ...current, [name]: value }));
+    if (routeParams.paperId) navigate('/bank', { replace: true });
+  }
+
+  function revealRandomQuestion(selection: RandomQuestionSelection) {
+    setSelectedPaperId(selection.paper.id);
+    setRandomTarget({ paperId: selection.paper.id, questionId: selection.question.id });
+    if (shouldUseCompactPaperBank()) setPaperPanelOpen(false);
     if (routeParams.paperId) navigate('/bank', { replace: true });
   }
 
@@ -241,6 +258,8 @@ export function PaperBankPage({ username }: StudentPageProps) {
           </div>
         </details>
 
+        <RandomQuestionControl filters={filters} scope={scope} onDraw={revealRandomQuestion} />
+
         <div className="paper-picker-body paper-bank-picker-body">
           <details
             className="paper-bank-paper-panel"
@@ -273,7 +292,9 @@ export function PaperBankPage({ username }: StudentPageProps) {
                       <span>{item.examYear}</span>
                       <strong>{item.title}</strong>
                       <small>
-                        {[item.region, item.track, `${item.questionCount} 题`].filter(Boolean).join(' · ')}
+                        {[item.region, item.track, `${item.questionCount} 题`, bankStatusLabel(item.status)]
+                          .filter(Boolean)
+                          .join(' · ')}
                       </small>
                     </button>
                   </li>
@@ -301,11 +322,17 @@ export function PaperBankPage({ username }: StudentPageProps) {
                   {paper.questions.map((question) => {
                     const isSelected =
                       routeParams.paperId === paper.id && routeParams.questionId === question.id;
+                    const isRandomTarget =
+                      randomTarget?.paperId === paper.id && randomTarget.questionId === question.id;
 
                     return (
                       <li key={question.id}>
                         <QuestionCard
                           question={question}
+                          highlighted={isRandomTarget}
+                          footerNote={isRandomTarget
+                            ? '从当前范围随机抽中，核对题面后再选择'
+                            : undefined}
                           selected={isSelected}
                           onSelect={confirmQuestion}
                         />

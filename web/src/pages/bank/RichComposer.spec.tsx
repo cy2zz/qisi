@@ -1,6 +1,7 @@
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { createRef } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import { MATH_FORMULA_SHORTCUTS } from '../../shared/math-input';
 import {
   RichComposer,
   type RichComposerHandle,
@@ -136,6 +137,85 @@ describe('richTextToMarkdown', () => {
 
     fireEvent.keyDown(editor, { key: 'Tab' });
     expect(window.getSelection()?.anchorOffset).toBe(formulaNode.data.length);
+  });
+
+  it('keeps Enter inside a multiline derivation and uses Ctrl or Command plus Enter to send', () => {
+    const ref = createRef<RichComposerHandle>();
+    const onSubmit = vi.fn();
+    render(
+      <RichComposer
+        ref={ref}
+        placeholder="输入题目"
+        onChange={vi.fn()}
+        onSubmit={onSubmit}
+      />,
+    );
+
+    act(() => ref.current?.insertText('第一步\n第二步'));
+    const editor = screen.getByRole('textbox');
+
+    fireEvent.keyDown(editor, { key: 'Enter' });
+    expect(onSubmit).not.toHaveBeenCalled();
+
+    fireEvent.keyDown(editor, { ctrlKey: true, key: 'Enter' });
+    fireEvent.keyDown(editor, { key: 'Enter', metaKey: true });
+    expect(onSubmit).toHaveBeenCalledTimes(2);
+  });
+
+  it('inserts empty proof and case-analysis structures without sending or supplying a solution', () => {
+    const ref = createRef<RichComposerHandle>();
+    const onChange = vi.fn();
+    const onSubmit = vi.fn();
+    render(
+      <RichComposer
+        ref={ref}
+        placeholder="输入题目"
+        onChange={onChange}
+        onSubmit={onSubmit}
+      />,
+    );
+
+    fireEvent.click(screen.getByRole('button', { name: '插入证明结构' }));
+    expect(screen.getByRole('textbox')).toHaveTextContent('要证：');
+    expect(screen.getByRole('textbox')).toHaveTextContent('依据：');
+    expect(screen.getByRole('textbox')).toHaveTextContent('结论：');
+    expect(onChange).toHaveBeenLastCalledWith(
+      '要证：\n依据：\n证明：\n步骤 1：\n步骤 2：\n结论：',
+    );
+    expect(onSubmit).not.toHaveBeenCalled();
+    expect(screen.getByRole('textbox')).toHaveFocus();
+
+    act(() => ref.current?.clear());
+    fireEvent.click(screen.getByRole('button', { name: '插入分类讨论结构' }));
+    expect(onChange).toHaveBeenLastCalledWith(
+      '分类依据：\n情况 1：\n情况 2：\n综上：',
+    );
+    expect(onSubmit).not.toHaveBeenCalled();
+  });
+
+  it('moves through the multiline equation-chain slots without leaving the draft', () => {
+    const ref = createRef<RichComposerHandle>();
+    render(
+      <RichComposer
+        ref={ref}
+        placeholder="输入题目"
+        onChange={vi.fn()}
+        onSubmit={vi.fn()}
+      />,
+    );
+    const template = MATH_FORMULA_SHORTCUTS.find(
+      (shortcut) => shortcut.name === '插入多步等式链',
+    );
+    expect(template).toBeDefined();
+
+    act(() => ref.current?.insertFormulaTemplate(template!.syntax));
+    const formulaNode = screen.getByRole('textbox').firstChild as Text;
+    const firstSlot = formulaNode.data.indexOf('{}');
+    const secondSlot = formulaNode.data.indexOf('{}', firstSlot + 2);
+    expect(window.getSelection()?.anchorOffset).toBe(firstSlot + 1);
+
+    act(() => expect(ref.current?.advanceFormulaSlot()).toBe(true));
+    expect(window.getSelection()?.anchorOffset).toBe(secondSlot + 1);
   });
 
   it('hands a pasted image to the question image flow instead of inserting unsafe HTML', () => {

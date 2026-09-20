@@ -22,6 +22,17 @@ const papers = {
       variant: '题目与解析',
     },
   ],
+  scope: {
+    bankVersion: 'exam-bank@2026-09-20T00:00:00.000Z',
+    invalidCount: 0,
+    needsReviewCount: 2,
+    paperCount: 1,
+    readyCount: 12,
+    selectableCount: 12,
+    totalCount: 14,
+    unreadableCount: 0,
+    updatedAt: '2026-09-20T00:00:00.000Z',
+  },
   total: 1,
 };
 const paper = {
@@ -59,6 +70,12 @@ function mockBankApi(paperDetail = paper) {
     const url = String(input);
     const body = url.includes('/api/bank/filters')
       ? filters
+      : url.includes('/api/bank/questions/random')
+        ? {
+            requestId: '018f15b8-0b48-7f8a-9db6-4415b775a001',
+            scope: papers.scope,
+            selection: { paper: papers.papers[0], question: paperDetail.questions[0] },
+          }
       : url.includes('/api/bank/papers/41')
         ? paperDetail
         : papers;
@@ -126,6 +143,32 @@ describe('PaperBankPage', () => {
     fireEvent.click(screen.getByRole('button', { name: '选择第 1 题' }));
 
     expect(await screen.findByRole('button', { name: '已选择第 1 题' })).toBeDisabled();
+  });
+
+  it('draws from the visible scope and waits for the student to confirm the question', async () => {
+    const fetchMock = mockBankApi();
+    renderPage();
+
+    const scope = await screen.findByRole('region', { name: '当前抽题范围' });
+    expect(scope).toHaveTextContent('全部试卷');
+    expect(scope).toHaveTextContent('12 道可练习题');
+
+    fireEvent.click(screen.getByRole('button', { name: '随机抽一道' }));
+
+    await waitFor(() => {
+      expect(fetchMock).toHaveBeenCalledWith(
+        '/api/bank/questions/random',
+        expect.objectContaining({
+          body: expect.stringContaining('"filters":{}'),
+          credentials: 'include',
+          method: 'POST',
+        }),
+      );
+    });
+    const question = await screen.findByRole('article', { name: '第 1 题' });
+    expect(question).toHaveAttribute('data-random-target', 'true');
+    expect(question).toHaveTextContent('随机抽中');
+    expect(screen.getByRole('button', { name: '选择第 1 题' })).not.toHaveTextContent('已选择');
   });
 
   it('renders a text-only question as mathematical Markdown', async () => {

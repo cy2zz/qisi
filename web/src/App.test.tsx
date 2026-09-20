@@ -533,6 +533,17 @@ describe('App', () => {
     expect(screen.getByRole('button', { name: '朗读关键条件' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: '朗读目标' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: '朗读当前问题' })).toBeInTheDocument();
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: '放大查看2024年高考数学试卷（北京）第 1 题',
+      }),
+    );
+    expect(
+      screen.getByRole('dialog', {
+        name: '题图阅读：2024年高考数学试卷（北京）第 1 题',
+      }),
+    ).toBeInTheDocument();
+    fireEvent.keyDown(window, { key: 'Escape' });
     expect(fetchMock).toHaveBeenCalledWith(
       '/api/problems/analyze',
       expect.objectContaining({
@@ -683,9 +694,9 @@ describe('App', () => {
     );
   });
 
-  it('streams a checked reply for each student turn', async () => {
+  it('reveals a checked reply atomically after all formula chunks arrive', async () => {
     const encoder = new TextEncoder();
-    let streamController: ReadableStreamDefaultController<Uint8Array> | undefined;
+    const streamControllers: ReadableStreamDefaultController<Uint8Array>[] = [];
     const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation((input) => {
       const url = String(input);
       const bankResult = bankResponse(url);
@@ -712,7 +723,7 @@ describe('App', () => {
           new Response(
             new ReadableStream<Uint8Array>({
               start(controller) {
-                streamController = controller;
+                streamControllers.push(controller);
                 controller.enqueue(
                   encoder.encode('event: status\ndata: {"message":"正在核对你的这一步"}\n\n'),
                 );
@@ -738,29 +749,46 @@ describe('App', () => {
     fireEvent.click(screen.getByRole('button', { name: '提示一点' }));
 
     expect(await screen.findByText('正在核对你的这一步')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: '停止本轮回复' })).toBeEnabled();
     expect(screen.queryByRole('group', { name: '快捷回应' })).not.toBeInTheDocument();
     expect(screen.getByRole('group', { name: '学习帮助' })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: '停止本轮回复' }));
+    await act(async () => {
+      streamControllers[0]?.close();
+    });
+    expect(await screen.findByText('已停止本轮回复。你的作答已保留，可以重新回答。')).toBeInTheDocument();
+    expect(screen.getByLabelText('帮助状态：已请求，尚未发出')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: '重新回答' })).toBeEnabled();
+    await waitFor(() => {
+      expect(screen.getByRole('textbox', { name: '输入题目或想法' })).toHaveFocus();
+    });
+
+    fireEvent.click(screen.getByRole('button', { name: '重新回答' }));
+    await waitFor(() => expect(streamControllers).toHaveLength(2));
+    expect(await screen.findByText('正在核对你的这一步')).toBeInTheDocument();
     const formulaReply = String.raw`有依据：试着把 [ \frac{\sqrt{2}}{\sqrt{3}} ] 的分子分母同时乘以 (\sqrt{3})：[ \frac{\sqrt{2}}{\sqrt{3}}\times\frac{\sqrt{3}}{\sqrt{3}} ]。`;
     await act(async () => {
-      streamController?.enqueue(
+      streamControllers[1]?.enqueue(
         encoder.encode(`event: chunk\ndata: ${JSON.stringify({ text: formulaReply })}\n\n`),
       );
     });
-    await waitFor(() => {
-      expect(document.querySelectorAll('.streaming-reply .katex')).toHaveLength(3);
-    });
-    expect(screen.getByText('最小提示')).toBeInTheDocument();
+    expect(screen.getByText('正在核对你的这一步')).toBeInTheDocument();
+    expect(document.querySelectorAll('.chat-message-guide .katex')).toHaveLength(0);
+    expect(screen.queryByText(/试着把/)).not.toBeInTheDocument();
+    expect(screen.queryByText('最小提示')).not.toBeInTheDocument();
     expect(screen.queryByRole('button', { name: '朗读启思回复' })).not.toBeInTheDocument();
 
     await act(async () => {
-      streamController?.enqueue(
+      streamControllers[1]?.enqueue(
         encoder.encode('event: chunk\ndata: {"text":"你先算一下。"}\n\nevent: done\ndata: {}\n\n'),
       );
     });
     expect(await screen.findByText(/你先算一下/)).toBeInTheDocument();
+    expect(document.querySelectorAll('.chat-message-guide .katex')).toHaveLength(3);
+    expect(screen.getByText('最小提示')).toBeInTheDocument();
 
     await act(async () => {
-      streamController?.close();
+      streamControllers[1]?.close();
     });
     await waitFor(() => {
       expect(screen.getByRole('textbox', { name: '输入题目或想法' })).toHaveFocus();

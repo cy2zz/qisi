@@ -150,6 +150,19 @@ describe('HistoryPage', () => {
             session_id: '24',
             title: '近迁移已通过',
           },
+          {
+            ...baseEntry,
+            assessment: {
+              ...baseEntry.assessment,
+              execution: 'correct',
+              independent_task_pass: false,
+              invalidated: true,
+              phase: 'summary',
+              planning: 'correct',
+            },
+            session_id: '25',
+            title: '独立资格已失效',
+          },
         ],
       }), {
         headers: { 'Content-Type': 'application/json' },
@@ -168,10 +181,12 @@ describe('HistoryPage', () => {
       'href',
       '/study?session=22&remediate=method',
     );
-    expect(screen.getByRole('link', { name: '查看证据边界' })).toHaveAttribute(
-      'href',
-      '/study?session=23&remediate=evidence',
-    );
+    expect(screen.getAllByRole('link', { name: '查看证据边界' }).some(
+      (link) => link.getAttribute('href') === '/study?session=23&remediate=evidence',
+    )).toBe(true);
+    expect(screen.getAllByText('本次检验请求过帮助，尚未记录实际展示').length).toBeGreaterThan(0);
+    expect(screen.queryByText('本次检验使用过帮助')).not.toBeInTheDocument();
+    expect(screen.getAllByText('本次独立资格已失效').length).toBeGreaterThan(0);
     expect(screen.getByRole('link', { name: '再测一道不同新题' })).toHaveAttribute(
       'href',
       '/learn/24/check?intent=reassess',
@@ -205,6 +220,28 @@ describe('HistoryPage', () => {
       'href',
       '/study?session=13',
     );
+  });
+
+  it('focuses the safe delete action and restores the trigger when cancelled', async () => {
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue(
+      new Response(JSON.stringify(response), {
+        headers: { 'Content-Type': 'application/json' },
+        status: 200,
+      }),
+    );
+
+    render(<MemoryRouter><HistoryPage username="小林" /></MemoryRouter>);
+
+    await screen.findByRole('heading', { name: '二次函数最值' });
+    const trigger = screen.getByRole('button', { name: '删除记录' });
+    fireEvent.click(trigger);
+    const confirmation = screen.getByRole('alertdialog', { name: '删除这条学习记录？' });
+    const keep = screen.getByRole('button', { name: '保留记录' });
+    await waitFor(() => expect(keep).toHaveFocus());
+
+    fireEvent.keyDown(confirmation, { key: 'Escape' });
+    expect(screen.queryByRole('alertdialog', { name: '删除这条学习记录？' })).not.toBeInTheDocument();
+    await waitFor(() => expect(trigger).toHaveFocus());
   });
 
   it('recovers from a load failure without leaving the page stuck', async () => {

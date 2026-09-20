@@ -13,6 +13,8 @@
     "npm --prefix server run db:migrate:dev",
     "npm --prefix server run test:privacy-retention",
     "npm --prefix server run test:db",
+    "npm --prefix web test -- --run src/pages/history/HistoryPage.spec.tsx",
+    "npx playwright test web/tests/e2e/privacy.spec.ts --project=pc-1440 --project=pc-1280 --project=h5-390 --project=h5-360 --grep 'deletion requires confirmation'",
     "npm run test:e2e -- web/tests/e2e/privacy.spec.ts",
     "npm run test:e2e -- web/tests/e2e/tutor.spec.ts web/tests/e2e/assessment.spec.ts web/tests/e2e/privacy.spec.ts"
   ],
@@ -34,6 +36,12 @@
     "future_first_seen_eligible": false,
     "question_bank_unchanged": true,
     "explicit_confirmation_required": true,
+    "safe_action_initially_focused": true,
+    "escape_restores_delete_trigger_focus": true,
+    "cancel_restores_delete_trigger_focus": true,
+    "delete_confirmation_responsive_projects_passed": 4,
+    "web_unit_tests_passed": 102,
+    "playwright_tests_passed": 88,
     "cross_origin_delete_rejected": true,
     "responsive_projects": ["pc-1440", "pc-1280", "h5-390", "h5-360"]
   },

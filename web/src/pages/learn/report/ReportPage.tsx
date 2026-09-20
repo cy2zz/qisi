@@ -59,6 +59,18 @@ const originalLabels: Record<OriginalStatus, string> = {
   unknown: '证据不足',
 };
 
+function attemptOutcomeLabel(attempt: AttemptReport) {
+  if (attempt.phase && attempt.phase !== 'summary') return '检验进行中';
+  if (attempt.invalidated) return '独立资格已失效';
+  if (attempt.independent_task_pass) return '新题独立完成';
+  if (attempt.relation === 'near_duplicate') return '近重复练习';
+  if (attempt.help_exposed) return '使用过帮助';
+  if (attempt.assistance_requested) return '请求过帮助';
+  if (attempt.planning !== 'correct') return '方法需要修正';
+  if (attempt.execution !== 'correct') return '执行需要修正';
+  return '证据边界待确认';
+}
+
 export function ReportPage({ username }: { username: string }) {
   const { sessionId = '' } = useParams();
   const focusReportAfterLoadRef = useRef(false);
@@ -69,12 +81,14 @@ export function ReportPage({ username }: { username: string }) {
   const [loading, setLoading] = useState(true);
   const [reloadKey, setReloadKey] = useState(0);
   const [report, setReport] = useState<Report | null>(null);
+  const [selectedAttemptId, setSelectedAttemptId] = useState<string | null>(null);
 
   useEffect(() => {
     const controller = new AbortController();
     let active = true;
     setLoading(true);
     setReport(null);
+    setSelectedAttemptId(null);
     apiFetch<Report>(`/api/reports/sessions/${sessionId}`, { signal: controller.signal })
       .then((result) => {
         if (!active) return;
@@ -163,7 +177,14 @@ export function ReportPage({ username }: { username: string }) {
     );
   }
 
-  const attempt = report.attempts.at(-1);
+  const latestAttempt = report.attempts.at(-1);
+  const attempt = report.attempts.find((item) => item.attempt_id === selectedAttemptId)
+    ?? latestAttempt;
+  const selectedAttemptIndex = attempt
+    ? report.attempts.findIndex((item) => item.attempt_id === attempt.attempt_id)
+    : -1;
+  const hasAttemptHistory = report.attempts.length > 1;
+  const viewingLatestAttempt = attempt?.attempt_id === latestAttempt?.attempt_id;
   const originalObservation = report.observations[0];
   const assessmentObservations = report.observations.slice(1);
   const nextChecks = [
@@ -174,16 +195,16 @@ export function ReportPage({ username }: { username: string }) {
   const nextAction = getAssessmentNextAction(
     report.session_id,
     report.original_status,
-    attempt
+    latestAttempt
       ? {
-          assistanceRequested: attempt.assistance_requested,
-          execution: attempt.execution,
-          helpExposed: attempt.help_exposed,
-          independentTaskPass: attempt.independent_task_pass,
-          invalidated: attempt.invalidated,
-          phase: attempt.phase,
-          planning: attempt.planning,
-          relation: attempt.relation,
+          assistanceRequested: latestAttempt.assistance_requested,
+          execution: latestAttempt.execution,
+          helpExposed: latestAttempt.help_exposed,
+          independentTaskPass: latestAttempt.independent_task_pass,
+          invalidated: latestAttempt.invalidated,
+          phase: latestAttempt.phase,
+          planning: latestAttempt.planning,
+          relation: latestAttempt.relation,
         }
       : null,
   );
@@ -199,10 +220,48 @@ export function ReportPage({ username }: { username: string }) {
         <span>LEARNING EVIDENCE / NOT A SCORE</span>
         <h1 ref={reportTitleRef} id="report-title" tabIndex={-1}>这次学习留下了什么证据</h1>
         <p>只记录这一次实际发生的作答、帮助和独立检验，不换算掌握百分比，也不推断长期能力。</p>
-        {report.attempts.length > 1 ? (
-          <small>已保留 {report.attempts.length} 次独立检验记录；下面重点展示最近一次，较早记录没有被覆盖。</small>
+        {hasAttemptHistory ? (
+          <small>已保留 {report.attempts.length} 次独立检验记录；可逐次对照首次计划、最终答案和当次判定。</small>
         ) : null}
       </section>
+
+      {hasAttemptHistory ? (
+        <section className="report-attempt-history" aria-labelledby="report-attempt-history-title">
+          <header>
+            <span>ATTEMPT TRACE / 对照变化</span>
+            <div>
+              <h2 id="report-attempt-history-title">独立检验记录</h2>
+              <p>默认查看最近一次；切换只用于对照，不会改变最新学习结论。</p>
+            </div>
+          </header>
+          <div className="report-attempt-switch" role="group" aria-label="切换独立检验记录">
+            {report.attempts.map((item, index) => {
+              const selected = item.attempt_id === attempt?.attempt_id;
+              const helpLabel = item.help_exposed
+                ? '看过帮助'
+                : item.assistance_requested ? '请求过帮助' : '未记录帮助';
+              return (
+                <button
+                  type="button"
+                  key={item.attempt_id}
+                  aria-label={`查看第 ${index + 1} 次独立检验：${attemptOutcomeLabel(item)}`}
+                  aria-pressed={selected}
+                  data-selected={selected}
+                  onClick={() => setSelectedAttemptId(item.attempt_id)}
+                >
+                  <span>{index === report.attempts.length - 1 ? '最近一次' : `第 ${index + 1} 次`}</span>
+                  <strong>{attemptOutcomeLabel(item)}</strong>
+                  <small>{item.relation === 'near_transfer' ? '近迁移任务' : '近重复练习'} · {helpLabel}</small>
+                </button>
+              );
+            })}
+          </div>
+          <p className="report-attempt-current" role="status" aria-live="polite">
+            正在查看第 {selectedAttemptIndex + 1} 次独立检验
+            {viewingLatestAttempt ? '（最近一次）' : ''}
+          </p>
+        </section>
+      ) : null}
 
       <div className="report-evidence-grid">
         <article className="report-evidence-block report-original" data-status={report.original_status}>
@@ -274,7 +333,12 @@ export function ReportPage({ username }: { username: string }) {
       {assessmentObservations.length ? (
         <section className="report-observations" aria-labelledby="report-observations-title">
           <span>DIRECT EVIDENCE</span>
-          <h2 id="report-observations-title">本次判定依据</h2>
+          <h2 id="report-observations-title">
+            {hasAttemptHistory ? '全部检验记录中的判定依据' : '本次判定依据'}
+          </h2>
+          {hasAttemptHistory ? (
+            <p className="report-observations-scope">这里汇总所有已保存检验的依据，不随上方记录切换。</p>
+          ) : null}
           <ul>
             {assessmentObservations.map((item) => (
               <li key={item}><MathMarkdown content={item} /></li>
@@ -292,6 +356,9 @@ export function ReportPage({ username }: { username: string }) {
         <div>
           <h2 id="report-next-action-title">{nextAction.title}</h2>
           <p>{nextAction.description}</p>
+          {hasAttemptHistory ? (
+            <p className="report-next-action-basis">下一步始终依据最近一次检验，切换记录只用于对照。</p>
+          ) : null}
           <div className="report-actions">
             {nextAction.kind === 'reassess' ? (
               <Link className="primary" to="/history">回到学习历史</Link>

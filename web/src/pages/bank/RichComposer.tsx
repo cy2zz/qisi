@@ -73,6 +73,21 @@ const formattingActions: Array<{
   { command: 'insertOrderedList', content: '1. 列表', label: '编号列表' },
 ];
 
+const answerStructureActions = [
+  {
+    label: '证明',
+    name: '插入证明结构',
+    template: '要证：\n依据：\n证明：\n步骤 1：\n步骤 2：\n结论：',
+    caretOffset: '要证：'.length,
+  },
+  {
+    label: '分类讨论',
+    name: '插入分类讨论结构',
+    template: '分类依据：\n情况 1：\n情况 2：\n综上：',
+    caretOffset: '分类依据：'.length,
+  },
+] as const;
+
 export const RichComposer = forwardRef<RichComposerHandle, RichComposerProps>(
   function RichComposer(
     { disabled = false, onChange, onImagePaste, onSubmit, placeholder },
@@ -129,6 +144,19 @@ export const RichComposer = forwardRef<RichComposerHandle, RichComposerProps>(
       if (!textNode) return;
       const firstSlot = text.indexOf('{}');
       placeCaret(textNode, firstSlot >= 0 ? firstSlot + 1 : text.length);
+      emitChange();
+    }
+
+    function insertAnswerStructure(
+      action: (typeof answerStructureActions)[number],
+    ) {
+      const editor = editorRef.current;
+      if (!editor) return;
+      const prefix = richTextToMarkdown(editor) ? '\n\n' : '';
+      const textNode = insertTextNode(`${prefix}${action.template}`);
+      if (!textNode) return;
+      placeCaret(textNode, prefix.length + action.caretOffset);
+      setFormattingOpen(false);
       emitChange();
     }
 
@@ -194,10 +222,20 @@ export const RichComposer = forwardRef<RichComposerHandle, RichComposerProps>(
         event.preventDefault();
         return;
       }
-      if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing) {
+      if (event.key !== 'Enter' || event.nativeEvent.isComposing) return;
+
+      if (event.ctrlKey || event.metaKey) {
         event.preventDefault();
         onSubmit();
+        return;
       }
+      if (event.shiftKey) return;
+
+      const markdown = editorRef.current ? richTextToMarkdown(editorRef.current) : '';
+      if (markdown.includes('\n')) return;
+
+      event.preventDefault();
+      onSubmit();
     }
 
     useImperativeHandle(forwardedRef, () => ({
@@ -251,12 +289,30 @@ export const RichComposer = forwardRef<RichComposerHandle, RichComposerProps>(
               key={action.command}
               aria-label={action.label}
               aria-pressed={Boolean(activeFormats[action.command])}
+              disabled={disabled}
               onMouseDown={(event) => event.preventDefault()}
               onClick={() => applyFormat(action.command)}
             >
               {action.content}
             </button>
           ))}
+          <span className="rich-composer-toolbar-divider" role="separator" />
+          <div className="rich-composer-structure-group" role="group" aria-label="作答结构">
+            {answerStructureActions.map((action) => (
+              <button
+                type="button"
+                className="rich-composer-structure-action"
+                key={action.name}
+                aria-label={action.name}
+                disabled={disabled}
+                title={`${action.label}：只插入空白作答结构，不提供解法`}
+                onMouseDown={(event) => event.preventDefault()}
+                onClick={() => insertAnswerStructure(action)}
+              >
+                {action.label}
+              </button>
+            ))}
+          </div>
         </div>
         <div
           ref={editorRef}

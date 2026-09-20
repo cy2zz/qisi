@@ -2,7 +2,7 @@
   "baseline": "qisi-3.1",
   "acceptance_id": "AT33",
   "result": "passed_self_review",
-  "executed_at": "2026-09-20T08:00:00+08:00",
+  "executed_at": "2026-09-20T10:44:00+08:00",
   "executed_by": "Codex self_review",
   "application_commit": null,
   "layer": "real_mysql_integration_and_mock_e2e",
@@ -33,10 +33,17 @@
     "student_work_rendered_before_model_evidence": true,
     "formula_rendered_with_katex": true,
     "attempt_phase_projected": true,
+    "all_attempts_selectable": true,
+    "latest_attempt_selected_by_default": true,
+    "selected_attempt_changes_frozen_work": true,
+    "next_action_remains_based_on_latest_attempt": true,
+    "aggregate_observation_scope_disclosed": true,
+    "mobile_attempt_track_scrollable": true,
+    "attempt_touch_target_min_px": 44,
     "responsive_projects": ["pc-1440", "pc-1280", "h5-390", "h5-360"],
-    "web_suite": "22 files / 99 tests passed",
+    "web_suite": "22 files / 101 tests passed",
     "server_suite": "46 files / 346 tests passed",
-    "playwright_suite": "80/80 passed"
+    "playwright_suite": "84/84 passed"
   },
   "evidence_files": [
     "server/src/features/report/report.service.ts",

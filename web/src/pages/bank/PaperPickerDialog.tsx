@@ -1,6 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { apiFetch } from '../../lib/api';
-import { QuestionCard, type BankQuestion } from './QuestionCard';
+import { bankStatusLabel, QuestionCard, type BankQuestion } from './QuestionCard';
+import {
+  type BankScope,
+  RandomQuestionControl,
+  type RandomQuestionSelection,
+} from './RandomQuestionControl';
 
 interface FilterOptions {
   regions: string[];
@@ -32,6 +37,7 @@ interface PaperDetail extends PaperSummary {
 
 interface PaperListResponse {
   papers: PaperSummary[];
+  scope?: BankScope;
   total: number;
 }
 
@@ -63,6 +69,8 @@ export function PaperPickerDialog({ onClose, onSelect, open }: PaperPickerDialog
   const [filters, setFilters] = useState<PaperFilters>(EMPTY_FILTERS);
   const [options, setOptions] = useState<FilterOptions>({ regions: [], tracks: [], years: [] });
   const [papers, setPapers] = useState<PaperSummary[]>([]);
+  const [scope, setScope] = useState<BankScope | null>(null);
+  const [randomTarget, setRandomTarget] = useState<{ paperId: string; questionId: string } | null>(null);
   const [selectedPaperId, setSelectedPaperId] = useState('');
   const [paper, setPaper] = useState<PaperDetail | null>(null);
   const [isListLoading, setIsListLoading] = useState(false);
@@ -139,6 +147,8 @@ export function PaperPickerDialog({ onClose, onSelect, open }: PaperPickerDialog
     apiFetch<PaperListResponse>(`/api/bank/papers${queryString}`, { signal: controller.signal })
       .then((result) => {
         setPapers(result.papers);
+        setScope(result.scope ?? null);
+        setRandomTarget(null);
         setSelectedPaperId((current) =>
           result.papers.some((item) => item.id === current) ? current : (result.papers[0]?.id ?? ''),
         );
@@ -175,6 +185,11 @@ export function PaperPickerDialog({ onClose, onSelect, open }: PaperPickerDialog
 
   function updateFilter(name: keyof PaperFilters, value: string) {
     setFilters((current) => ({ ...current, [name]: value }));
+  }
+
+  function revealRandomQuestion(selection: RandomQuestionSelection) {
+    setSelectedPaperId(selection.paper.id);
+    setRandomTarget({ paperId: selection.paper.id, questionId: selection.question.id });
   }
 
   return (
@@ -235,6 +250,8 @@ export function PaperPickerDialog({ onClose, onSelect, open }: PaperPickerDialog
           </label>
         </div>
 
+        <RandomQuestionControl filters={filters} scope={scope} onDraw={revealRandomQuestion} />
+
         {hasError ? (
           <div className="paper-picker-state" role="alert">
             <strong>暂时无法读取题库</strong>
@@ -263,7 +280,11 @@ export function PaperPickerDialog({ onClose, onSelect, open }: PaperPickerDialog
                       >
                         <span>{item.examYear}</span>
                         <strong>{item.title}</strong>
-                        <small>{[item.region, item.track, `${item.questionCount} 题`].filter(Boolean).join(' · ')}</small>
+                        <small>
+                          {[item.region, item.track, `${item.questionCount} 题`, bankStatusLabel(item.status)]
+                            .filter(Boolean)
+                            .join(' · ')}
+                        </small>
                       </button>
                     </li>
                   ))}
@@ -287,6 +308,16 @@ export function PaperPickerDialog({ onClose, onSelect, open }: PaperPickerDialog
                     <li key={question.id}>
                       <QuestionCard
                         question={question}
+                        highlighted={
+                          randomTarget?.paperId === paper.id
+                          && randomTarget.questionId === question.id
+                        }
+                        footerNote={
+                          randomTarget?.paperId === paper.id
+                          && randomTarget.questionId === question.id
+                            ? '从当前范围随机抽中，核对题面后再选择'
+                            : undefined
+                        }
                         onSelect={(selectedQuestion) => onSelect({
                           paper: selectedSummary,
                           question: selectedQuestion,

@@ -16,9 +16,16 @@ type StemState = 'error' | 'fallback' | 'loading' | 'missing' | 'ready';
 
 interface QuestionCardProps {
   footerNote?: string;
+  highlighted?: boolean;
   onSelect: (question: BankQuestion) => void;
   question: BankQuestion;
   selected?: boolean;
+}
+
+export function bankStatusLabel(status: string) {
+  if (status === 'ready') return '可练习';
+  if (status === 'invalid') return '资料异常';
+  return '待核对';
 }
 
 export function questionLabel(question: BankQuestion) {
@@ -59,7 +66,8 @@ const stateLabels: Record<StemState, string> = {
 };
 
 export function QuestionCard({
-  footerNote = '仅展示题目，解析未提前显示',
+  footerNote,
+  highlighted = false,
   onSelect,
   question,
   selected = false,
@@ -69,7 +77,15 @@ export function QuestionCard({
   const [zoomed, setZoomed] = useState(() => shouldStartZoomed(question));
   const label = questionLabel(question);
   const hasMarkdown = Boolean(question.statementMarkdown?.trim());
-  const selectable = stemState === 'ready' || stemState === 'fallback';
+  const selectable = question.status !== 'invalid'
+    && (stemState === 'ready' || stemState === 'fallback');
+  const effectiveFooterNote = footerNote ?? (
+    question.status === 'invalid'
+      ? '这道题的题库资料异常，保留可见但不会进入作答'
+      : question.status === 'ready'
+        ? '仅展示题目，解析未提前显示'
+        : '题解依据待核对，选择后会保留这道题而不暗换题'
+  );
 
   function retryImage() {
     setZoomed(shouldStartZoomed(question));
@@ -78,12 +94,24 @@ export function QuestionCard({
   }
 
   return (
-    <article aria-label={label} data-selected={selected || undefined} data-stem-state={stemState}>
+    <article
+      aria-label={label}
+      data-bank-status={question.status}
+      data-random-target={highlighted || undefined}
+      data-selected={selected || undefined}
+      data-stem-state={stemState}
+    >
       <header>
         <span className="paper-picker-question-number">{question.number ?? '—'}</span>
         <strong>{label}</strong>
         <span className="paper-bank-question-status" aria-live="polite">
-          {selected ? '已选择' : stateLabels[stemState]}
+          {selected
+            ? '已选择'
+            : highlighted
+              ? '随机抽中'
+              : question.status === 'ready'
+                ? stateLabels[stemState]
+                : bankStatusLabel(question.status)}
         </span>
       </header>
 
@@ -158,14 +186,20 @@ export function QuestionCard({
       </div>
 
       <footer>
-        <span>{selected ? '选择已保存到当前链接，刷新后仍会回到这道题' : footerNote}</span>
+        <span>{selected ? '选择已保存到当前链接，刷新后仍会回到这道题' : effectiveFooterNote}</span>
         <button
           type="button"
           disabled={selected || !selectable}
-          aria-label={`${selected ? '已选择' : '选择'}${label}`}
+          aria-label={`${selected ? '已选择' : question.status === 'invalid' ? '暂不可选' : '选择'}${label}`}
           onClick={() => onSelect(question)}
         >
-          {selected ? '已选择' : stemState === 'loading' ? '读取中' : '选择'}
+          {selected
+            ? '已选择'
+            : question.status === 'invalid'
+              ? '资料异常'
+              : stemState === 'loading'
+                ? '读取中'
+                : '选择'}
         </button>
       </footer>
     </article>

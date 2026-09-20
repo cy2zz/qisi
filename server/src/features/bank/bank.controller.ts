@@ -1,11 +1,13 @@
 import {
   BadRequestException,
+  Body,
   Controller,
   Get,
   Header,
   Inject,
   NotFoundException,
   Param,
+  Post,
   Query,
   Headers,
 } from '@nestjs/common';
@@ -24,6 +26,12 @@ const filterSchema = z
   .strict();
 
 const paperIdSchema = z.string().regex(/^[1-9]\d*$/);
+const randomQuestionSchema = z
+  .object({
+    filters: filterSchema,
+    requestId: z.string().uuid(),
+  })
+  .strict();
 
 @Controller('bank')
 export class BankController {
@@ -65,7 +73,19 @@ export class BankController {
     return paper;
   }
 
+  @Post('questions/random')
+  @Header('Cache-Control', 'no-store')
+  async drawRandomQuestion(
+    @Body() body: unknown,
+    @Headers('cookie') cookieHeader: string | undefined,
+  ) {
+    const parsed = randomQuestionSchema.safeParse(body);
+    if (!parsed.success) throw new BadRequestException('invalid random question request');
+    const user = await this.authenticate(cookieHeader);
+    return this.bank.drawRandomQuestion(user.id, parsed.data);
+  }
+
   private async authenticate(cookieHeader: string | undefined) {
-    await this.auth.authenticate(readCookie(cookieHeader, AUTH_COOKIE_NAME));
+    return this.auth.authenticate(readCookie(cookieHeader, AUTH_COOKIE_NAME));
   }
 }

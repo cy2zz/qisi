@@ -17,9 +17,15 @@ import { MathFormatButton } from '../../../features/input/MathFormatButton';
 import { ApiError, apiFetch } from '../../../lib/api';
 import { MathMarkdown } from '../../../shared/MathMarkdown';
 import { MATH_FORMULA_SHORTCUTS } from '../../../shared/math-input';
+import {
+  type AssessmentDraftPhase,
+  clearCachedAssessmentDraft,
+  readCachedAssessmentDraft,
+  writeCachedAssessmentDraft,
+} from './assessment-draft-cache';
 
 type Verdict = 'correct' | 'incorrect' | 'unknown' | 'unanswered';
-type DraftSaveState = 'dirty' | 'error' | 'saved' | 'saving';
+type DraftSaveState = 'dirty' | 'error' | 'local' | 'recovered' | 'saved' | 'saving';
 
 interface AssessmentResult {
   evidence: string[];
@@ -64,6 +70,22 @@ const verdictLabels: Record<Verdict, string> = {
 };
 const ORIGINAL_ANSWER_NOT_READY_MESSAGE = '先回到原题完成核对并修正当前答案，再开始独立检验。';
 const REASSESSMENT_NOT_READY_MESSAGE = '暂时没有可可靠检验的不同新题。上一份结果已保留，稍后可以再试。';
+
+function isAssessmentDraftPhase(phase: AssessmentAttempt['phase']): phase is AssessmentDraftPhase {
+  return phase === 'check_plan' || phase === 'check_answer';
+}
+
+function getAssessmentDraftStorage() {
+  try {
+    return window.localStorage;
+  } catch {
+    return null;
+  }
+}
+
+function draftMarkdownForAttempt(attempt: AssessmentAttempt, phase = attempt.phase) {
+  return phase === 'check_plan' ? attempt.planDraftMarkdown : attempt.answerDraftMarkdown;
+}
 
 function getAssessmentSummaryTitle(result: AssessmentResult) {
   if (result.independentTaskPass) return '这次新题独立完成';
@@ -228,6 +250,21 @@ export function AssessmentCheckPage({ username }: { username: string }) {
     return () => window.clearTimeout(timeout);
   }, [attempt?.id, attempt?.phase, attempt?.version, draft, draftSaveState, pendingAction]);
 
+  useEffect(() => {
+    function syncRecoveredDraft() {
+      if (
+        !attempt
+        || !isAssessmentDraftPhase(attempt.phase)
+        || pendingAction
+        || !['error', 'local', 'recovered'].includes(draftSaveState)
+      ) return;
+      void saveDraft(false);
+    }
+
+    window.addEventListener('online', syncRecoveredDraft);
+    return () => window.removeEventListener('online', syncRecoveredDraft);
+  }, [attempt?.id, attempt?.phase, attempt?.version, draft, draftSaveState, pendingAction]);
+
   function applyAttempt(next: AssessmentAttempt) {
     saveRequestRef.current += 1;
     if (
@@ -236,10 +273,32 @@ export function AssessmentCheckPage({ username }: { username: string }) {
     ) {
       setTaskCollapsed(false);
     }
+    const serverDraft = draftMarkdownForAttempt(next);
+    let nextDraft = serverDraft;
+    let nextSaveState: DraftSaveState = 'saved';
+    const storage = getAssessmentDraftStorage();
+    if (storage && next.phase !== 'check_plan') {
+      clearCachedAssessmentDraft(storage, next.id, 'check_plan');
+    }
+    if (storage && !isAssessmentDraftPhase(next.phase)) {
+      clearCachedAssessmentDraft(storage, next.id, 'check_answer');
+    }
+    if (isAssessmentDraftPhase(next.phase)) {
+      const cachedDraft = storage
+        ? readCachedAssessmentDraft(storage, next.id, next.phase)
+        : null;
+      if (storage && cachedDraft?.markdown === serverDraft) {
+        clearCachedAssessmentDraft(storage, next.id, next.phase);
+      } else if (cachedDraft) {
+        nextDraft = cachedDraft.markdown;
+        nextSaveState = 'recovered';
+        draftRevisionRef.current += 1;
+      }
+    }
     setAttempt(next);
     setConfirmedHandwriting(null);
-    setDraft(next.phase === 'check_plan' ? next.planDraftMarkdown : next.answerDraftMarkdown);
-    setDraftSaveState('saved');
+    setDraft(nextDraft);
+    setDraftSaveState(nextSaveState);
     setError('');
     if (
       focusEditorAfterTransitionRef.current
@@ -286,8 +345,9 @@ export function AssessmentCheckPage({ username }: { username: string }) {
   }
 
   async function saveDraft(manual = true) {
-    if (!attempt || (attempt.phase !== 'check_plan' && attempt.phase !== 'check_answer')) return;
+    if (!attempt || !isAssessmentDraftPhase(attempt.phase)) return;
     const currentAttempt = attempt;
+    const currentPhase = attempt.phase;
     const currentDraft = draft;
     const currentRevision = draftRevisionRef.current;
     const requestNumber = ++saveRequestRef.current;
@@ -308,20 +368,30 @@ export function AssessmentCheckPage({ username }: { username: string }) {
       if (saveRequestRef.current !== requestNumber) return;
       setAttempt(result.attempt);
       if (draftRevisionRef.current === currentRevision) {
-        setDraft(
-          result.attempt.phase === 'check_plan'
-            ? result.attempt.planDraftMarkdown
-            : result.attempt.answerDraftMarkdown,
-        );
+        const storage = getAssessmentDraftStorage();
+        if (storage) clearCachedAssessmentDraft(storage, currentAttempt.id, currentPhase);
+        setDraft(draftMarkdownForAttempt(result.attempt));
         setDraftSaveState('saved');
         setError('');
       } else {
         setDraftSaveState('dirty');
       }
     } catch {
-      if (saveRequestRef.current !== requestNumber) return;
-      setDraftSaveState('error');
-      setError('自动保存失败，当前输入仍保留在页面中；可立即重试。');
+      if (
+        saveRequestRef.current !== requestNumber
+        || draftRevisionRef.current !== currentRevision
+      ) return;
+      const storage = getAssessmentDraftStorage();
+      const cached = storage
+        ? writeCachedAssessmentDraft(
+            storage,
+            currentAttempt.id,
+            currentPhase,
+            currentDraft,
+          )
+        : false;
+      setDraftSaveState(cached ? 'local' : 'error');
+      setError(cached ? '' : '自动保存失败，当前输入仍保留在页面中；可立即重试。');
     }
   }
 
@@ -348,6 +418,10 @@ export function AssessmentCheckPage({ username }: { username: string }) {
           method: 'POST',
         },
       );
+      const storage = getAssessmentDraftStorage();
+      if (storage && isAssessmentDraftPhase(attempt.phase)) {
+        clearCachedAssessmentDraft(storage, attempt.id, attempt.phase);
+      }
       applyAttempt(result.attempt);
     } catch {
       focusEditorAfterTransitionRef.current = false;
@@ -378,6 +452,10 @@ export function AssessmentCheckPage({ username }: { username: string }) {
           method: 'POST',
         },
       );
+      const storage = getAssessmentDraftStorage();
+      if (storage && isAssessmentDraftPhase(attempt.phase)) {
+        clearCachedAssessmentDraft(storage, attempt.id, attempt.phase);
+      }
       applyAttempt(result.attempt);
     } catch {
       setError('最终答案尚未提交，请稍后重试。你的输入仍保留在页面中。');
@@ -398,6 +476,10 @@ export function AssessmentCheckPage({ username }: { username: string }) {
           method: 'POST',
         },
       );
+      const storage = getAssessmentDraftStorage();
+      if (storage && isAssessmentDraftPhase(attempt.phase)) {
+        clearCachedAssessmentDraft(storage, attempt.id, attempt.phase);
+      }
       applyAttempt(result.attempt);
       setHelpConfirmation(false);
     } catch {
@@ -434,6 +516,10 @@ export function AssessmentCheckPage({ username }: { username: string }) {
     draftRevisionRef.current += 1;
     setConfirmedHandwriting(null);
     setDraft(value);
+    const storage = getAssessmentDraftStorage();
+    if (storage && attempt && isAssessmentDraftPhase(attempt.phase)) {
+      writeCachedAssessmentDraft(storage, attempt.id, attempt.phase, value);
+    }
     setDraftSaveState('dirty');
   }
 
@@ -441,6 +527,10 @@ export function AssessmentCheckPage({ username }: { username: string }) {
     draftRevisionRef.current += 1;
     setConfirmedHandwriting(result);
     setDraft(result.markdown);
+    const storage = getAssessmentDraftStorage();
+    if (storage && attempt && isAssessmentDraftPhase(attempt.phase)) {
+      writeCachedAssessmentDraft(storage, attempt.id, attempt.phase, result.markdown);
+    }
     setDraftSaveState('dirty');
   }
 
@@ -506,6 +596,10 @@ export function AssessmentCheckPage({ username }: { username: string }) {
     ? '已自动保存'
     : draftSaveState === 'saving'
       ? '正在自动保存'
+      : draftSaveState === 'local'
+        ? '已保存在本机，等待网络恢复'
+        : draftSaveState === 'recovered'
+          ? '已恢复本机草稿，尚未同步'
       : draftSaveState === 'error'
         ? '自动保存失败'
         : '尚未保存';
@@ -583,7 +677,11 @@ export function AssessmentCheckPage({ username }: { username: string }) {
                 <span className="assessment-save-status" data-state={draftSaveState} role="status" aria-label="草稿保存状态">{saveStatusLabel}</span>
                 {draftSaveState === 'saved' ? null : (
                   <button type="button" className="secondary" disabled={Boolean(pendingAction) || saveInProgress || reviewingHandwriting} onClick={() => void saveDraft()}>
-                    {saveInProgress ? '保存中…' : draftSaveState === 'error' ? '重试保存' : '立即保存'}
+                    {saveInProgress
+                      ? '保存中…'
+                      : ['error', 'local', 'recovered'].includes(draftSaveState)
+                        ? '立即同步'
+                        : '立即保存'}
                   </button>
                 )}
                 <button type="button" className="quiet" disabled={Boolean(pendingAction) || saveInProgress || reviewingHandwriting} onClick={() => void submitPlan(true)}>暂时没有计划</button>
@@ -622,7 +720,11 @@ export function AssessmentCheckPage({ username }: { username: string }) {
                 <span className="assessment-save-status" data-state={draftSaveState} role="status" aria-label="草稿保存状态">{saveStatusLabel}</span>
                 {draftSaveState === 'saved' ? null : (
                   <button type="button" className="secondary" disabled={Boolean(pendingAction) || saveInProgress || reviewingHandwriting} onClick={() => void saveDraft()}>
-                    {saveInProgress ? '保存中…' : draftSaveState === 'error' ? '重试保存' : '立即保存'}
+                    {saveInProgress
+                      ? '保存中…'
+                      : ['error', 'local', 'recovered'].includes(draftSaveState)
+                        ? '立即同步'
+                        : '立即保存'}
                   </button>
                 )}
                 <button type="button" disabled={Boolean(pendingAction) || saveInProgress || reviewingHandwriting} onClick={() => void finishCheck()}>

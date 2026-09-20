@@ -108,4 +108,44 @@ describe('QuestionCard', () => {
     expect(screen.getByTestId('question-image-scroll')).toHaveAttribute('data-zoomed', 'true');
     expect(screen.getByRole('button', { name: '适合宽度显示第 1 题' })).toBeInTheDocument();
   });
+
+  it('keeps an invalid bank item visible without letting it enter study', () => {
+    render(
+      <QuestionCard
+        question={{
+          ...imageQuestion,
+          id: '804',
+          number: 4,
+          questionImageUrl: null,
+          statementMarkdown: '题面原始记录',
+          status: 'invalid',
+        }}
+        onSelect={vi.fn()}
+      />,
+    );
+
+    expect(screen.getAllByText('资料异常')).toHaveLength(2);
+    expect(screen.getByText('这道题的题库资料异常，保留可见但不会进入作答')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: '暂不可选第 4 题' })).toBeDisabled();
+  });
+
+  it('labels a needs-review item while preserving explicit selection', () => {
+    render(
+      <QuestionCard
+        question={{
+          ...imageQuestion,
+          id: '805',
+          number: 5,
+          questionImageUrl: null,
+          statementMarkdown: '题面待核对',
+          status: 'needs_review',
+        }}
+        onSelect={vi.fn()}
+      />,
+    );
+
+    expect(screen.getByText('待核对')).toBeInTheDocument();
+    expect(screen.getByText(/选择后会保留这道题而不暗换题/)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: '选择第 5 题' })).toBeEnabled();
+  });
 });

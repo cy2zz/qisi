@@ -106,6 +106,82 @@ describe('ReportPage', () => {
     expect(within(frozenWork).queryByText('不应展示的旧计划')).not.toBeInTheDocument();
   });
 
+  it('compares every frozen attempt while keeping the next action based on the latest result', async () => {
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response(JSON.stringify({
+      attempts: [
+        {
+          assistance_requested: true,
+          attempt_id: '80',
+          execution: 'incorrect',
+          final_answer_markdown: '$m=-3$',
+          help_exposed: false,
+          independent_execution: false,
+          independent_planning: true,
+          independent_task_pass: false,
+          invalidated: false,
+          limitations: ['第一次执行需要修正。'],
+          locked_plan_markdown: '先配方判断最小值。',
+          phase: 'summary',
+          plan_unanswered: false,
+          planning: 'correct',
+          relation: 'near_transfer',
+          task_id: '60',
+        },
+        {
+          assistance_requested: false,
+          attempt_id: '81',
+          execution: 'correct',
+          final_answer_markdown: '$m\\ge -4$',
+          help_exposed: false,
+          independent_execution: true,
+          independent_planning: true,
+          independent_task_pass: true,
+          invalidated: false,
+          limitations: [],
+          locked_plan_markdown: '改用判别式核对参数范围。',
+          phase: 'summary',
+          plan_unanswered: false,
+          planning: 'correct',
+          relation: 'near_transfer',
+          task_id: '61',
+        },
+      ],
+      delayed_evidence: 'not_evaluated',
+      limitations: ['长期保持尚未评估。'],
+      observations: ['原题作答有依据。'],
+      original_status: 'completed_without_recorded_help',
+      session_id: '12',
+    }), { headers: { 'Content-Type': 'application/json' }, status: 200 }));
+
+    render(
+      <MemoryRouter initialEntries={['/learn/12/report']}>
+        <Routes>
+          <Route path="/learn/:sessionId/report" element={<ReportPage username="小林" />} />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    const attemptSwitch = await screen.findByRole('group', { name: '切换独立检验记录' });
+    const firstAttempt = within(attemptSwitch).getByRole('button', {
+      name: /查看第 1 次独立检验：请求过帮助/,
+    });
+    const latestAttempt = within(attemptSwitch).getByRole('button', { name: /查看第 2 次独立检验/ });
+    expect(latestAttempt).toHaveAttribute('aria-pressed', 'true');
+    expect(firstAttempt).toHaveAttribute('aria-pressed', 'false');
+
+    const frozenWork = screen.getByRole('region', { name: '本次冻结的独立作答' });
+    expect(within(frozenWork).getByText('改用判别式核对参数范围。')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: '本次近迁移成立，下一步看能否稳定保持' })).toBeInTheDocument();
+
+    fireEvent.click(firstAttempt);
+    expect(firstAttempt).toHaveAttribute('aria-pressed', 'true');
+    expect(within(frozenWork).getByText('先配方判断最小值。')).toBeInTheDocument();
+    expect(within(frozenWork).queryByText('改用判别式核对参数范围。')).not.toBeInTheDocument();
+    expect(screen.getByText('正在查看第 1 次独立检验')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: '本次近迁移成立，下一步看能否稳定保持' })).toBeInTheDocument();
+    expect(screen.getByText('下一步始终依据最近一次检验，切换记录只用于对照。')).toBeInTheDocument();
+  });
+
   it.each([
     {
       expectedHref: '/study?session=12&remediate=method',

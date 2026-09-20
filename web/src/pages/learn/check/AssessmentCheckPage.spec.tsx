@@ -2,6 +2,10 @@ import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-libra
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { AssessmentCheckPage } from './AssessmentCheckPage';
+import {
+  assessmentDraftCacheKey,
+  writeCachedAssessmentDraft,
+} from './assessment-draft-cache';
 
 const baseAttempt = {
   answerDraftMarkdown: '',
@@ -48,7 +52,105 @@ function renderPage(initialEntry = '/learn/12/check') {
 describe('AssessmentCheckPage', () => {
   afterEach(() => {
     cleanup();
+    localStorage.clear();
     vi.restoreAllMocks();
+  });
+
+  it('restores an unsynced local plan after refresh and syncs it when the network returns', async () => {
+    let allowDraftSync = false;
+    let storedAttempt = {
+      ...baseAttempt,
+      planDraftMarkdown: '云端旧计划：先配方。',
+    };
+    const requestKinds: string[] = [];
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation((input, init) => {
+      const url = String(input);
+      if (url === '/api/assessment/sessions/12' && !init?.method) {
+        return jsonResponse({ attempt: storedAttempt });
+      }
+      if (url.endsWith('/draft') && init?.method === 'PATCH') {
+        requestKinds.push('draft');
+        if (!allowDraftSync) return jsonResponse({ message: 'offline' }, 503);
+        const body = JSON.parse(String(init.body)) as {
+          markdown: string;
+        };
+        storedAttempt = {
+          ...storedAttempt,
+          planDraftMarkdown: body.markdown,
+          version: storedAttempt.version + 1,
+        };
+        return jsonResponse({ attempt: storedAttempt });
+      }
+      if (url.endsWith('/plan')) requestKinds.push('plan');
+      if (url.endsWith('/finish')) requestKinds.push('finish');
+      if (url.endsWith('/help')) requestKinds.push('help');
+      return jsonResponse({});
+    });
+
+    renderPage();
+    const editor = await screen.findByRole('textbox', { name: '独立检验作答' });
+    expect(editor).toHaveValue('云端旧计划：先配方。');
+    const localPlan = '先配方得到 $g(x)=(x-3)^2-4$，再判断平方项非负。';
+    fireEvent.change(editor, { target: { value: localPlan } });
+
+    expect(screen.getByRole('status', { name: '草稿保存状态' })).toHaveTextContent('尚未保存');
+    expect(await screen.findByText('已保存在本机，等待网络恢复', {}, { timeout: 2_500 }))
+      .toBeInTheDocument();
+    expect(Object.keys(localStorage).some((key) => key.includes('assessment'))).toBe(true);
+    expect(requestKinds).toEqual(['draft']);
+
+    cleanup();
+    renderPage();
+    expect(await screen.findByRole('textbox', { name: '独立检验作答' })).toHaveValue(localPlan);
+    expect(screen.getByRole('status', { name: '草稿保存状态' }))
+      .toHaveTextContent('已恢复本机草稿，尚未同步');
+    expect(requestKinds).toEqual(['draft']);
+
+    allowDraftSync = true;
+    fireEvent(window, new Event('online'));
+    await waitFor(() => {
+      expect(screen.getByRole('status', { name: '草稿保存状态' })).toHaveTextContent('已自动保存');
+    });
+    expect(storedAttempt.planDraftMarkdown).toBe(localPlan);
+    expect(Object.keys(localStorage).some((key) => key.includes('assessment'))).toBe(false);
+    expect(requestKinds).toEqual(['draft', 'draft']);
+    expect(fetchMock.mock.calls.some(([url]) => String(url).endsWith('/plan'))).toBe(false);
+    expect(fetchMock.mock.calls.some(([url]) => String(url).endsWith('/finish'))).toBe(false);
+    expect(fetchMock.mock.calls.some(([url]) => String(url).endsWith('/help'))).toBe(false);
+  });
+
+  it('restores only the answer draft after the first plan has been locked', async () => {
+    const answerAttempt = {
+      ...baseAttempt,
+      answerDraftMarkdown: '云端旧答案',
+      lockedPlanMarkdown: '先配方。',
+      phase: 'check_answer' as const,
+      planDraftMarkdown: '先配方。',
+      version: 2,
+    };
+    writeCachedAssessmentDraft(localStorage, '81', 'check_plan', '未锁定的本机计划');
+    writeCachedAssessmentDraft(
+      localStorage,
+      '81',
+      'check_answer',
+      '本机答案：$g(x)=(x-3)^2-4$。',
+    );
+    vi.spyOn(globalThis, 'fetch').mockImplementation((input, init) => {
+      if (String(input) === '/api/assessment/sessions/12' && !init?.method) {
+        return jsonResponse({ attempt: answerAttempt });
+      }
+      return jsonResponse({});
+    });
+
+    renderPage();
+    expect(await screen.findByRole('textbox', { name: '独立检验作答' })).toHaveValue(
+      '本机答案：$g(x)=(x-3)^2-4$。',
+    );
+    expect(screen.getByRole('note', { name: '已锁定的首次计划' })).toHaveTextContent('先配方');
+    expect(screen.getByRole('status', { name: '草稿保存状态' }))
+      .toHaveTextContent('已恢复本机草稿，尚未同步');
+    expect(localStorage.getItem(assessmentDraftCacheKey('81', 'check_plan'))).toBeNull();
+    expect(localStorage.getItem(assessmentDraftCacheKey('81', 'check_answer'))).not.toBeNull();
   });
 
   it('autosaves an unfinished plan and restores it after refresh without grading', async () => {
