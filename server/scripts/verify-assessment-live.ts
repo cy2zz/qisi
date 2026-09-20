@@ -1,4 +1,4 @@
-import { randomBytes } from 'node:crypto';
+import { randomBytes, randomUUID } from 'node:crypto';
 import type { ConfigService } from '@nestjs/config';
 import { config as loadEnvironmentFile } from 'dotenv';
 import type { AppEnvironment } from '../src/config/env.js';
@@ -58,6 +58,21 @@ async function main() {
     return body as T;
   }
 
+  async function requestStream(path: string, body: unknown) {
+    const response = await fetch(`${apiBase}${path}`, {
+      body: JSON.stringify(body),
+      headers: {
+        'Content-Type': 'application/json',
+        ...(cookie ? { Cookie: cookie } : {}),
+        Origin: environment.WEB_ORIGIN,
+      },
+      method: 'POST',
+    });
+    const text = await response.text();
+    if (!response.ok) throw new Error(`${path} failed with ${response.status}: ${text}`);
+    return text;
+  }
+
   try {
     const originalAnalysis = {
       firstQuestion: '你准备怎么配方？',
@@ -94,15 +109,32 @@ async function main() {
       body: JSON.stringify({ username }),
       method: 'POST',
     });
-    const analyzed = await request<{ session: { id: string } }>('/problems/analyze', {
+    const originalProblemMarkdown = '求函数 $f(x)=x^2-4x$ 的最小值，并说明关键一步。';
+    const analyzed = await request<{ session: { id: string; version: number } }>('/problems/analyze', {
       body: JSON.stringify({
-        content: '求函数 $f(x)=x^2-4x$ 的最小值，并说明关键一步。',
-        problemMd: '求函数 $f(x)=x^2-4x$ 的最小值，并说明关键一步。',
+        content: originalProblemMarkdown,
+        problemMd: originalProblemMarkdown,
         title: '独立检验真实模型验证',
         topic: '二次函数最值',
       }),
       method: 'POST',
     });
+    const originalCheckStream = await requestStream('/problems/chat', {
+      assistanceMode: 'finish_problem',
+      expectedVersion: analyzed.session.version,
+      history: [],
+      message: '配方得到 $f(x)=(x-2)^2-4$；因为平方项非负，所以最小值是 $-4$。',
+      problemMd: originalProblemMarkdown,
+      requestId: randomUUID(),
+      sessionId: analyzed.session.id,
+    });
+    const donePayload = [...originalCheckStream.matchAll(/event: done\ndata: ([^\n]+)/g)].at(-1)?.[1];
+    const originalCheck = donePayload
+      ? JSON.parse(donePayload) as { currentVerdict?: string }
+      : null;
+    if (originalCheck?.currentVerdict !== 'correct') {
+      throw new Error('live original answer was not checked correct before independent assessment');
+    }
     const started = await request<AttemptResponse>(
       `/assessment/sessions/${analyzed.session.id}/start`,
       { body: '{}', method: 'POST' },
@@ -174,8 +206,30 @@ async function main() {
     ) {
       throw new Error('live reassessment reused an equivalent or non-transfer task');
     }
+    const auditRows = await database
+      .selectFrom('runs as run')
+      .innerJoin('node_runs as node', 'node.run_id', 'run.id')
+      .select(['node.node_key', 'node.status', 'node.usage_json', 'run.workflow'])
+      .where('run.user_id', '=', (builder) => builder
+        .selectFrom('users')
+        .select('id')
+        .where('username_normalized', '=', username))
+      .where('run.workflow', 'in', ['grade', 'prepare'])
+      .execute();
+    const auditedNodeKeys = new Set(auditRows.map((row) => row.node_key));
+    if (
+      !auditedNodeKeys.has('task_generation_1')
+      || !auditedNodeKeys.has('task_guard_1')
+      || !auditedNodeKeys.has('grade')
+      || !auditedNodeKeys.has('grade_guard')
+      || !auditRows.some((row) => row.node_key.startsWith('reassessment_generation_'))
+      || !auditRows.some((row) => row.node_key.startsWith('reassessment_guard_'))
+      || auditRows.some((row) => row.status !== 'completed' || row.usage_json === null)
+    ) {
+      throw new Error('live assessment model nodes were not completely audited');
+    }
     console.info(
-      `live assessment passed: phase=${finished.attempt.phase}, planning=${finished.attempt.result.planning}, execution=${finished.attempt.result.execution}, independentPass=${finished.attempt.result.independentTaskPass}, privateMaterialLeaked=false, liveNearDuplicateRejected=true, reassessmentDistinct=true`,
+      `live assessment passed: phase=${finished.attempt.phase}, planning=${finished.attempt.result.planning}, execution=${finished.attempt.result.execution}, independentPass=${finished.attempt.result.independentTaskPass}, privateMaterialLeaked=false, liveNearDuplicateRejected=true, reassessmentDistinct=true, nodeAudit=true`,
     );
     console.info(JSON.stringify({
       initialTask: {

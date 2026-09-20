@@ -1,4 +1,4 @@
-import { BadGatewayException, Inject, Injectable } from '@nestjs/common';
+import { BadGatewayException, Inject, Injectable, Optional } from '@nestjs/common';
 import { createHash } from 'node:crypto';
 import { z } from 'zod';
 import { DiagnosisAgent } from '../../agents/diagnosis/index.js';
@@ -8,6 +8,7 @@ import { Renderer } from '../../agents/renderer/index.js';
 import { StrategyAgent } from '../../agents/strategy/index.js';
 import type {
   Decision,
+  Diagnosis,
   DiagnosisInput,
   Exposure,
   GuardInput,
@@ -24,6 +25,7 @@ import { MODEL_PORT, type ModelPort, type ModelResponse } from '../../model/mode
 import type { ModelPort as RoleModelPort } from '../../model/ports.js';
 import { PROMPT_VERSION } from '../../prompts/index.js';
 import { gateTurn } from '../../workflows/policy-gate.js';
+import { PreparationService } from '../preparation/preparation.service.js';
 import {
   problemAnalysisSchema,
   type ProblemAnalysis,
@@ -34,12 +36,14 @@ import type {
 } from './problem-chat.schema.js';
 
 type AssistanceMode = ProblemChatRequest['assistanceMode'];
+type RemediationFocus = NonNullable<ProblemChatRequest['remediationFocus']>;
 
 type ProblemChatInput = Pick<
   ProblemChatRequest,
-  'assistanceMode' | 'history' | 'message' | 'problemMd' | 'requestId' | 'sessionId'
+  'assistanceMode' | 'history' | 'message' | 'problemMd' | 'remediationFocus' | 'requestId' | 'sessionId'
 > & {
   analysis: ProblemAnalysis;
+  packetVersion?: string | null;
   teachingState: TutorTeachingState;
 };
 
@@ -52,6 +56,7 @@ export interface TutorTurnAudit {
   decisionIds: string[];
   focusGoalKey: string;
   intervention: Strategy['intervention'];
+  probe: Strategy['probe'];
   probeGoalKey: string | null;
   scaffoldLevel: number;
   wholeTaskDisclosed: boolean;
@@ -105,6 +110,12 @@ const ASSISTANCE_MODE_POLICIES: Record<AssistanceMode, string> = {
   explain: '局部解释：最多 L3，只解释当前卡点，停在整题下一项关键判断之前。',
   worked_solution: '直接讲解：允许 L4，清楚讲当前关键步骤，但仍需简洁且记录实际披露。',
   finish_problem: '核对本题结论：核对当前答案和关键依据，不声称已经掌握或独立通过。',
+};
+
+const REMEDIATION_FOCUS_POLICIES: Record<RemediationFocus, string> = {
+  method: '方法修正：只核对学生的选法和依据，要求补齐一个方法判断；不要直接代做后续计算。',
+  execution: '执行修正：回流标记只限定本轮反馈范围，不是掌握结论。若已确认的诊断证据仍支持原方法，只定位第一处需要修正的计算、变形或表达；不要要求学生重新解释已经成立的整套方法。若证据矛盾，先中性说明证据不足。',
+  evidence: '证据边界：只解释本次为何不能记为独立通过，并让学生补充缺少的独立证据；不要把答案正确等同于已经掌握。',
 };
 
 const SAFE_GUARD_FALLBACKS: Record<AssistanceMode, string> = {
@@ -203,6 +214,56 @@ function buildSubmissions(input: ProblemChatInput): Submission[] {
   }];
 }
 
+function normalizedEvidenceText(value: string) {
+  return value.replace(/\r\n?/g, '\n');
+}
+
+class TutorSemanticError extends Error {
+  constructor(name: string, message: string) {
+    super(message);
+    this.name = name;
+  }
+}
+
+function validateDiagnosisEvidence(
+  diagnosis: Diagnosis,
+  submissions: Submission[],
+  decisions: Decision[],
+) {
+  const submissionsByRevision = new Map(
+    submissions
+      .filter((submission) => submission.confirmed && !submission.invalidated)
+      .map((submission) => [`${submission.id}:${submission.revision}`, submission]),
+  );
+  const evidenceRefs = [
+    ...diagnosis.evidence_refs,
+    ...diagnosis.hypotheses.flatMap((hypothesis) => hypothesis.evidence_refs),
+  ];
+  for (const reference of evidenceRefs) {
+    const submission = submissionsByRevision.get(`${reference.submission_id}:${reference.revision}`);
+    const quote = normalizedEvidenceText(reference.quote).trim();
+    if (
+      !submission
+      || !quote
+      || !normalizedEvidenceText(submission.text_md).includes(quote)
+    ) {
+      throw new TutorSemanticError('DiagnosisEvidenceInvalid', 'diagnosis cited invalid evidence');
+    }
+  }
+
+  const decisionIds = new Set(decisions.map((decision) => decision.id));
+  const goalKeys = new Set(decisions.map((decision) => decision.goal_key));
+  if (diagnosis.satisfied_decision_ids.some((id) => !decisionIds.has(id))) {
+    throw new TutorSemanticError('DiagnosisDecisionUnknown', 'diagnosis cited an unknown decision');
+  }
+  if (
+    !goalKeys.has(diagnosis.focus_goal_key)
+    || (diagnosis.probe !== null && diagnosis.probe.goal_key !== diagnosis.focus_goal_key)
+  ) {
+    throw new TutorSemanticError('DiagnosisGoalInvalid', 'diagnosis cited an unstable goal');
+  }
+}
+
 function problemForRouteReview(
   taskId: string,
   problemMd: string,
@@ -275,6 +336,34 @@ function strategyMatchesRequestedDepth(mode: AssistanceMode, strategy: Strategy)
   return strategy.action === 'complete' || strategy.action === 'uncertain';
 }
 
+function validateStrategyFacts(
+  strategy: Strategy,
+  diagnosis: Diagnosis,
+  decisions: readonly Decision[],
+) {
+  const knownDecisionIds = new Set(decisions.map((decision) => decision.id));
+  const trustedStaticSources = new Set(['private_reference_md', '题目原文', '题目条件']);
+
+  for (const fact of strategy.allowed_facts) {
+    if (fact.decision_ids.some((id) => !knownDecisionIds.has(id))) {
+      throw new TutorSemanticError(
+        'StrategyFactDecisionUnknown',
+        'strategy fact cited an unknown decision',
+      );
+    }
+    if (trustedStaticSources.has(fact.source_ref)) continue;
+
+    const evidenceMatch = /^diagnosis\.evidence_refs\[(\d+)]$/.exec(fact.source_ref);
+    const evidenceIndex = evidenceMatch ? Number(evidenceMatch[1]) : -1;
+    if (evidenceIndex >= 0 && evidenceIndex < diagnosis.evidence_refs.length) continue;
+
+    throw new TutorSemanticError(
+      'StrategyFactSourceInvalid',
+      'strategy fact cited an untrusted source',
+    );
+  }
+}
+
 function fallback(mode: AssistanceMode): ProblemChatResponse {
   return {
     ...(mode === 'finish_problem' ? { currentVerdict: 'unknown' as const } : {}),
@@ -286,6 +375,7 @@ function fallback(mode: AssistanceMode): ProblemChatResponse {
 export class ProblemAnalysisService {
   constructor(
     @Inject(MODEL_PORT) private readonly model: ModelPort,
+    @Optional() private readonly preparation?: PreparationService,
     private readonly diagnosisAgent: DiagnosisAgent = new DiagnosisAgent(),
     private readonly preparationAgent: PreparationAgent = new PreparationAgent(),
     private readonly strategyAgent: StrategyAgent = new StrategyAgent(),
@@ -319,8 +409,16 @@ export class ProblemAnalysisService {
     onNode?: (record: TutorNodeRecord) => Promise<void>,
   ): Promise<TutorTurnResult> {
     const taskId = `session-${input.sessionId}`;
-    const { decisions, routes } = buildTeachingRoute(taskId, input.analysis);
-    const privateReference = [
+    const preparedPacket = input.packetVersion && this.preparation
+      ? await this.preparation.findReadyPacket(
+          createHash('sha256').update(input.problemMd).digest('hex'),
+          input.packetVersion,
+        )
+      : null;
+    const fallbackRoute = buildTeachingRoute(taskId, input.analysis);
+    const decisions = preparedPacket?.decisions ?? fallbackRoute.decisions;
+    const routes = preparedPacket?.routes ?? fallbackRoute.routes;
+    const privateReference = preparedPacket?.reference_md.trim() || [
       `题目：${input.problemMd}`,
       `初步分析（未替代正式参考答案）：${input.analysis.overview}`,
       `关键条件：${input.analysis.keyConditions.join('；')}`,
@@ -328,8 +426,9 @@ export class ProblemAnalysisService {
     ].join('\n');
     const roleModel = this.model as unknown as RoleModelPort;
 
+    const confirmedEvidence = buildSubmissions(input);
     const diagnosisInput: DiagnosisInput = {
-      confirmed_evidence: buildSubmissions(input),
+      confirmed_evidence: confirmedEvidence,
       decisions,
       previous_hypotheses: [],
       previous_probes: [],
@@ -348,6 +447,7 @@ export class ProblemAnalysisService {
         signal,
       }),
       onNode,
+      (value) => validateDiagnosisEvidence(value, confirmedEvidence, decisions),
     );
 
     let reviewedRoutePatch: RoutePatch | null = null;
@@ -409,31 +509,47 @@ export class ProblemAnalysisService {
       }
     }
 
-    const probesShownForFocusGoal = Math.max(
-      0,
-      input.teachingState.probesShownByGoal[diagnosis.focus_goal_key] ?? 0,
-    );
+    const knownGoalKeys = new Set(decisionsForStrategy.map((decision) => decision.goal_key));
+    const diagnosisFocusProbeCount = knownGoalKeys.has(diagnosis.focus_goal_key)
+      ? Math.max(0, input.teachingState.probesShownByGoal[diagnosis.focus_goal_key] ?? 0)
+      : 2;
     const strategyInput: StrategyInput = {
       decisions: decisionsForStrategy,
       diagnosis,
       exposures: input.teachingState.exposures,
       private_reference_md: privateReference,
       remaining_calls: diagnosis.route_review_needed ? 1 : 3,
-      remaining_probes: Math.max(0, 2 - probesShownForFocusGoal),
+      remaining_probes: Math.max(0, 2 - diagnosisFocusProbeCount),
       route_patch: reviewedRoutePatch,
-      user_action: `${ASSISTANCE_MODE_POLICIES[input.assistanceMode]}\n学生本轮输入：${input.message}`,
+      user_action: [
+        ASSISTANCE_MODE_POLICIES[input.assistanceMode],
+        ...(input.remediationFocus
+          ? [`独立检验回流要求：${REMEDIATION_FOCUS_POLICIES[input.remediationFocus]}`]
+          : []),
+        `allowed_facts.source_ref 仅可使用：private_reference_md、题目原文、题目条件${diagnosis.evidence_refs.map((_, index) => `、diagnosis.evidence_refs[${index}]`).join('')}。`,
+        `学生本轮输入：${input.message}`,
+      ].join('\n'),
     };
     onPhase?.('planning');
-    const strategy = await this.runNode(
-      'strategy',
-      strategyInput,
-      () => this.strategyAgent.run(strategyInput, roleModel, {
-        maxOutputTokens: 1600,
-        model: 'configured-provider-model',
-        signal,
-      }),
-      onNode,
-    );
+    let strategy: Strategy;
+    try {
+      strategy = await this.runNode(
+        'strategy',
+        strategyInput,
+        () => this.strategyAgent.run(strategyInput, roleModel, {
+          maxOutputTokens: 1600,
+          model: 'configured-provider-model',
+          signal,
+        }),
+        onNode,
+        (value) => validateStrategyFacts(value, diagnosis, decisionsForStrategy),
+      );
+    } catch (error) {
+      if (error instanceof TutorSemanticError && error.name.startsWith('StrategyFact')) {
+        return fallback(input.assistanceMode);
+      }
+      throw error;
+    }
 
     if (!strategyMatchesRequestedDepth(input.assistanceMode, strategy)) {
       return fallback(input.assistanceMode);
@@ -469,7 +585,13 @@ export class ProblemAnalysisService {
       allowed_disclosures: strategy.allowed_disclosures,
       candidate_json: JSON.stringify(rendered),
       mode: 'message',
-      reference_md: `${privateReference}\n帮助深度要求：${ASSISTANCE_MODE_POLICIES[input.assistanceMode]}`,
+      reference_md: [
+        privateReference,
+        `帮助深度要求：${ASSISTANCE_MODE_POLICIES[input.assistanceMode]}`,
+        ...(input.remediationFocus
+          ? [`独立检验回流要求：${REMEDIATION_FOCUS_POLICIES[input.remediationFocus]}`]
+          : []),
+      ].join('\n'),
       reserved_decisions: strategy.reserved_decisions,
       task_id: taskId,
     };
@@ -491,9 +613,13 @@ export class ProblemAnalysisService {
       throw error;
     }
 
+    const probesShownForFocusGoal = knownGoalKeys.has(strategy.focus_goal_key)
+      ? Math.max(0, input.teachingState.probesShownByGoal[strategy.focus_goal_key] ?? 0)
+      : 2;
     const gate = gateTurn({
       guard: guardResult,
       knownDecisionIds: new Set(decisionsForStrategy.map((decision) => decision.id)),
+      knownGoalKeys,
       probesShownForFocusGoal,
       strategy,
     });
@@ -504,6 +630,7 @@ export class ProblemAnalysisService {
         decisionIds: [...gate.approvedDisclosures],
         focusGoalKey: strategy.focus_goal_key,
         intervention: strategy.intervention,
+        probe: strategy.probe,
         probeGoalKey: strategy.probe?.goal_key ?? null,
         scaffoldLevel: strategy.scaffold_level,
         wholeTaskDisclosed: gate.wholeTaskDisclosed,
@@ -526,6 +653,7 @@ export class ProblemAnalysisService {
     input: unknown,
     execute: () => Promise<{ value: T; response: ModelResponse }>,
     onNode?: (record: TutorNodeRecord) => Promise<void>,
+    validate?: (value: T) => void,
   ): Promise<T> {
     const startedAt = new Date();
     const inputHash = createHash('sha256')
@@ -534,6 +662,7 @@ export class ProblemAnalysisService {
     let result: { value: T; response: ModelResponse };
     try {
       result = await execute();
+      validate?.(result.value);
     } catch (error) {
       await onNode?.({
         finishedAt: new Date().toISOString(),

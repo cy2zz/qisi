@@ -1,4 +1,9 @@
-import { BadGatewayException, BadRequestException, ForbiddenException } from '@nestjs/common';
+import {
+  BadGatewayException,
+  BadRequestException,
+  ForbiddenException,
+  StreamableFile,
+} from '@nestjs/common';
 import type { ConfigService } from '@nestjs/config';
 import { describe, expect, it, vi } from 'vitest';
 import type { AppEnvironment } from '../../config/env.js';
@@ -7,6 +12,7 @@ import type { AuthService } from '../auth/auth.service.js';
 import { SpeechController } from './speech.controller.js';
 import type { SpeechMathFormatterService } from './speech-math-formatter.service.js';
 import type { SpeechToTextPort } from './speech-to-text.port.js';
+import type { TextToSpeechPort } from './text-to-speech.port.js';
 
 function wavBuffer() {
   const wav = Buffer.alloc(48);
@@ -32,6 +38,9 @@ function createController() {
     createRealtimeUrl: vi.fn(),
     transcribeWav: vi.fn().mockResolvedValue('先求导'),
   };
+  const textToSpeech: TextToSpeechPort = {
+    synthesize: vi.fn().mockResolvedValue(Buffer.from('mp3-audio')),
+  };
   const config = {
     get: vi.fn((key: keyof AppEnvironment) =>
       key === 'WEB_ORIGIN' ? 'http://localhost:5173' : undefined,
@@ -50,14 +59,54 @@ function createController() {
       auth as unknown as AuthService,
       config as unknown as ConfigService<AppEnvironment, true>,
       speech,
+      textToSpeech,
       formatter as unknown as SpeechMathFormatterService,
     ),
     formatter,
     speech,
+    textToSpeech,
   };
 }
 
 describe('SpeechController', () => {
+  it('authenticates and returns synthesized audio without exposing provider credentials', async () => {
+    const { auth, controller, textToSpeech } = createController();
+
+    const result = await controller.synthesize(
+      { text: '先看分母为零的位置。' },
+      `${AUTH_COOKIE_NAME}=${'a'.repeat(43)}`,
+      'http://localhost:5173',
+    );
+
+    expect(result).toBeInstanceOf(StreamableFile);
+    expect(auth.authenticate).toHaveBeenCalledWith('a'.repeat(43));
+    expect(textToSpeech.synthesize).toHaveBeenCalledWith('先看分母为零的位置。');
+  });
+
+  it('accepts the 127.0.0.1 alias for the configured localhost development origin', async () => {
+    const { controller } = createController();
+
+    await expect(
+      controller.synthesize(
+        { text: '测试本地朗读。' },
+        `${AUTH_COOKIE_NAME}=${'a'.repeat(43)}`,
+        'http://127.0.0.1:5173',
+      ),
+    ).resolves.toBeInstanceOf(StreamableFile);
+  });
+
+  it('rejects cross-origin or oversized synthesis requests before calling the provider', async () => {
+    const { controller, textToSpeech } = createController();
+
+    await expect(
+      controller.synthesize({ text: '测试' }, undefined, 'https://attacker.example'),
+    ).rejects.toBeInstanceOf(ForbiddenException);
+    await expect(
+      controller.synthesize({ text: '长'.repeat(4_001) }, undefined, 'http://localhost:5173'),
+    ).rejects.toBeInstanceOf(BadRequestException);
+    expect(textToSpeech.synthesize).not.toHaveBeenCalled();
+  });
+
   it('authenticates and formats a manually entered math draft', async () => {
     const { auth, controller, formatter } = createController();
 

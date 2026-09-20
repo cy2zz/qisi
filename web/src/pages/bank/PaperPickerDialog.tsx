@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { apiFetch } from '../../lib/api';
+import { QuestionCard, type BankQuestion } from './QuestionCard';
 
 interface FilterOptions {
   regions: string[];
@@ -23,16 +24,7 @@ export interface PaperSummary {
   variant: string | null;
 }
 
-export interface PaperQuestion {
-  id: string;
-  imageHeight: number | null;
-  imageWidth: number | null;
-  number: number | null;
-  questionCode: string | null;
-  questionImageUrl: string | null;
-  statementMarkdown: string | null;
-  status: string;
-}
+export type PaperQuestion = BankQuestion;
 
 interface PaperDetail extends PaperSummary {
   questions: PaperQuestion[];
@@ -63,13 +55,11 @@ interface PaperPickerDialogProps {
 
 const EMPTY_FILTERS: PaperFilters = { keyword: '', region: '', track: '', year: '' };
 
-function questionLabel(question: PaperQuestion) {
-  return question.number === null ? '未编号题目' : `第 ${question.number} 题`;
-}
-
 export function PaperPickerDialog({ onClose, onSelect, open }: PaperPickerDialogProps) {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLElement>(null);
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
   const [filters, setFilters] = useState<PaperFilters>(EMPTY_FILTERS);
   const [options, setOptions] = useState<FilterOptions>({ regions: [], tracks: [], years: [] });
   const [papers, setPapers] = useState<PaperSummary[]>([]);
@@ -97,16 +87,18 @@ export function PaperPickerDialog({ onClose, onSelect, open }: PaperPickerDialog
     closeButtonRef.current?.focus();
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === 'Escape') {
-        onClose();
+        event.preventDefault();
+        event.stopPropagation();
+        onCloseRef.current();
         return;
       }
       if (event.key !== 'Tab' || !dialogRef.current) return;
 
       const focusable = Array.from(
         dialogRef.current.querySelectorAll<HTMLElement>(
-          'button:not(:disabled), input:not(:disabled), select:not(:disabled), [href], [tabindex]:not([tabindex="-1"])',
+          'button, input, select, a[href], [tabindex]',
         ),
-      );
+      ).filter((element) => !element.matches(':disabled, [tabindex="-1"]'));
       const first = focusable[0];
       const last = focusable.at(-1);
       if (!first || !last) return;
@@ -123,7 +115,7 @@ export function PaperPickerDialog({ onClose, onSelect, open }: PaperPickerDialog
       document.removeEventListener('keydown', handleKeyDown);
       previouslyFocused?.focus();
     };
-  }, [onClose, open]);
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
@@ -293,40 +285,13 @@ export function PaperPickerDialog({ onClose, onSelect, open }: PaperPickerDialog
                 <ol>
                   {paper.questions.map((question) => (
                     <li key={question.id}>
-                      <article aria-labelledby={`paper-picker-question-${question.id}`}>
-                        <header>
-                          <span className="paper-picker-question-number">{question.number ?? '—'}</span>
-                          <strong id={`paper-picker-question-${question.id}`}>
-                            {questionLabel(question)}
-                          </strong>
-                        </header>
-                        <div className="paper-picker-question-content">
-                          {question.questionImageUrl ? (
-                            <img
-                              src={question.questionImageUrl}
-                              alt={`${questionLabel(question)}题目`}
-                              width={question.imageWidth ?? undefined}
-                              height={question.imageHeight ?? undefined}
-                              loading="lazy"
-                            />
-                          ) : question.statementMarkdown ? (
-                            <p>{question.statementMarkdown}</p>
-                          ) : (
-                            <p>暂无可用题目内容</p>
-                          )}
-                        </div>
-                        <footer>
-                          <span>仅展示题目，解析未提前显示</span>
-                          <button
-                            type="button"
-                            aria-label={`选择${questionLabel(question)}`}
-                            disabled={!question.questionImageUrl && !question.statementMarkdown}
-                            onClick={() => onSelect({ paper: selectedSummary, question })}
-                          >
-                            选择
-                          </button>
-                        </footer>
-                      </article>
+                      <QuestionCard
+                        question={question}
+                        onSelect={(selectedQuestion) => onSelect({
+                          paper: selectedSummary,
+                          question: selectedQuestion,
+                        })}
+                      />
                     </li>
                   ))}
                 </ol>

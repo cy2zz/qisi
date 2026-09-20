@@ -28,7 +28,11 @@ export async function apiFetch<T>(path: string, init: RequestInit = {}): Promise
 export type ApiStreamEvent =
   | { message: string; type: 'status' }
   | { text: string; type: 'chunk' }
-  | { type: 'done'; version?: number }
+  | {
+      currentVerdict?: 'correct' | 'incorrect' | 'unknown';
+      type: 'done';
+      version?: number;
+    }
   | { message: string; type: 'error' };
 
 function parseStreamEvent(block: string): ApiStreamEvent | null {
@@ -47,6 +51,11 @@ function parseStreamEvent(block: string): ApiStreamEvent | null {
   if (event === 'done') {
     return {
       type: 'done',
+      ...(parsed.currentVerdict === 'correct'
+        || parsed.currentVerdict === 'incorrect'
+        || parsed.currentVerdict === 'unknown'
+        ? { currentVerdict: parsed.currentVerdict }
+        : {}),
       ...(typeof parsed.version === 'number' ? { version: parsed.version } : {}),
     };
   }

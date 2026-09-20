@@ -1,9 +1,11 @@
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 export interface StudyRecord {
   content: string;
   id: string;
   problemMd?: string;
+  preparationStatus?: 'needs_review' | 'ready' | 'unavailable';
   questionId?: string;
   recognitionUncertain?: string[];
   title: string;
@@ -31,6 +33,53 @@ export function StudySidebar({
   records = [],
   username,
 }: StudySidebarProps) {
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const onCloseRef = useRef(onClose);
+  const sidebarRef = useRef<HTMLElement>(null);
+  onCloseRef.current = onClose;
+
+  useEffect(() => {
+    if (!open) return;
+
+    const previouslyFocused = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null;
+    const focusFrame = requestAnimationFrame(() => closeButtonRef.current?.focus());
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        event.stopPropagation();
+        onCloseRef.current();
+        return;
+      }
+      if (event.key !== 'Tab' || !sidebarRef.current) return;
+
+      const focusable = Array.from(
+        sidebarRef.current.querySelectorAll<HTMLElement>(
+          'button, input, select, a[href], [tabindex]',
+        ),
+      ).filter((element) => !element.matches(':disabled, [tabindex="-1"]'));
+      const first = focusable[0];
+      const last = focusable.at(-1);
+      if (!first || !last) return;
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      cancelAnimationFrame(focusFrame);
+      document.removeEventListener('keydown', handleKeyDown);
+      previouslyFocused?.focus();
+    };
+  }, [open]);
+
   return (
     <>
       <button
@@ -41,7 +90,12 @@ export function StudySidebar({
         onClick={onClose}
       />
 
-      <aside className="chat-sidebar" data-open={open}>
+      <aside
+        ref={sidebarRef}
+        className="chat-sidebar"
+        data-open={open}
+        aria-label="学习侧栏"
+      >
         <div className="chat-sidebar-top">
           <div className="chat-brand-row">
             <Link className="chat-brand" to="/study" aria-label="启思 AI 学习空间">
@@ -49,6 +103,7 @@ export function StudySidebar({
               <strong>启思 AI</strong>
             </Link>
             <button
+              ref={closeButtonRef}
               className="chat-sidebar-close"
               type="button"
               aria-label="关闭导航"

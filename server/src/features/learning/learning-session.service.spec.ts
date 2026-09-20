@@ -2,10 +2,19 @@ import { describe, expect, it, vi } from 'vitest';
 import type { DatabaseService } from '../../database/database.service.js';
 import {
   LearningSessionService,
+  remediationTrackAfterTurn,
   restoreTutorTeachingState,
 } from './learning-session.service.js';
 
 describe('LearningSessionService', () => {
+  it('keeps remediation active across turns and closes it only after a correct final check', () => {
+    expect(remediationTrackAfterTurn('execution', 'attempt', undefined)).toBe('execution');
+    expect(remediationTrackAfterTurn('execution', 'finish_problem', 'incorrect')).toBe('execution');
+    expect(remediationTrackAfterTurn('execution', 'finish_problem', 'unknown')).toBe('execution');
+    expect(remediationTrackAfterTurn('execution', 'finish_problem', 'correct')).toBeNull();
+    expect(remediationTrackAfterTurn(undefined, 'finish_problem', 'correct')).toBeUndefined();
+  });
+
   it('restores irreversible help exposure and probe counts from committed events', () => {
     const teachingState = restoreTutorTeachingState('91', '题目 $x^2=1$', [
       {

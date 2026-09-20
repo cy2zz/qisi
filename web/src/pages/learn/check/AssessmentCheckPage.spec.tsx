@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { AssessmentCheckPage } from './AssessmentCheckPage';
@@ -32,9 +32,9 @@ function jsonResponse(body: unknown, status = 200) {
   );
 }
 
-function renderPage() {
+function renderPage(initialEntry = '/learn/12/check') {
   render(
-    <MemoryRouter initialEntries={['/learn/12/check']}>
+    <MemoryRouter initialEntries={[initialEntry]}>
       <Routes>
         <Route
           path="/learn/:sessionId/check"
@@ -49,6 +49,274 @@ describe('AssessmentCheckPage', () => {
   afterEach(() => {
     cleanup();
     vi.restoreAllMocks();
+  });
+
+  it('autosaves an unfinished plan and restores it after refresh without grading', async () => {
+    let storedAttempt = baseAttempt;
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation((input, init) => {
+      const url = String(input);
+      if (url === '/api/assessment/sessions/12' && !init?.method) {
+        return jsonResponse({ attempt: storedAttempt });
+      }
+      if (url.endsWith('/draft') && init?.method === 'PATCH') {
+        const body = JSON.parse(String(init.body)) as {
+          expectedVersion: number;
+          kind: 'answer' | 'plan';
+          markdown: string;
+        };
+        storedAttempt = {
+          ...storedAttempt,
+          planDraftMarkdown: body.markdown,
+          version: storedAttempt.version + 1,
+        };
+        return jsonResponse({ attempt: storedAttempt });
+      }
+      return jsonResponse({});
+    });
+
+    renderPage();
+    const editor = await screen.findByRole('textbox', { name: '独立检验作答' });
+    fireEvent.change(editor, { target: { value: '先配方，再利用平方项非负。' } });
+
+    expect(screen.getByRole('status', { name: '草稿保存状态' })).toHaveTextContent('尚未保存');
+    await waitFor(
+      () => expect(fetchMock).toHaveBeenCalledWith(
+        '/api/assessment/attempts/81/draft',
+        expect.objectContaining({ method: 'PATCH' }),
+      ),
+      { timeout: 2_500 },
+    );
+    expect(await screen.findByText('已自动保存')).toBeInTheDocument();
+    expect(fetchMock.mock.calls.some(([url]) => String(url).endsWith('/finish'))).toBe(false);
+
+    cleanup();
+    renderPage();
+    expect(await screen.findByRole('textbox', { name: '独立检验作答' })).toHaveValue(
+      '先配方，再利用平方项非负。',
+    );
+  });
+
+  it('does not replace newer typing when an older autosave response arrives', async () => {
+    let resolveSave: ((response: Response) => void) | undefined;
+    vi.spyOn(globalThis, 'fetch').mockImplementation((input, init) => {
+      const url = String(input);
+      if (url === '/api/assessment/sessions/12' && !init?.method) {
+        return jsonResponse({ attempt: baseAttempt });
+      }
+      if (url.endsWith('/draft')) {
+        return new Promise<Response>((resolve) => {
+          resolveSave = resolve;
+        });
+      }
+      return jsonResponse({});
+    });
+
+    renderPage();
+    const editor = await screen.findByRole('textbox', { name: '独立检验作答' });
+    fireEvent.change(editor, { target: { value: '先配方。' } });
+    await waitFor(() => expect(resolveSave).toBeTypeOf('function'), { timeout: 2_500 });
+
+    fireEvent.change(editor, { target: { value: '先配方，再看平方项非负。' } });
+    await act(async () => {
+      resolveSave?.(new Response(JSON.stringify({
+        attempt: { ...baseAttempt, planDraftMarkdown: '先配方。', version: 2 },
+      }), { headers: { 'Content-Type': 'application/json' }, status: 200 }));
+    });
+
+    expect(editor).toHaveValue('先配方，再看平方项非负。');
+    expect(screen.getByRole('status', { name: '草稿保存状态' })).toHaveTextContent('尚未保存');
+  });
+
+  it('puts the caret inside formula slots and advances without making students hunt for braces', async () => {
+    vi.spyOn(globalThis, 'fetch').mockImplementation((input, init) => {
+      if (String(input) === '/api/assessment/sessions/12' && !init?.method) {
+        return jsonResponse({ attempt: baseAttempt });
+      }
+      return jsonResponse({});
+    });
+
+    renderPage();
+    const editor = await screen.findByRole('textbox', { name: '独立检验作答' }) as HTMLTextAreaElement;
+    fireEvent.click(screen.getByRole('button', { name: '插入分式' }));
+
+    expect(editor).toHaveValue('$\\frac{}{}$');
+    await waitFor(() => expect(editor.selectionStart).toBe(editor.value.indexOf('{}') + 1));
+
+    fireEvent.change(editor, { target: { value: '$\\frac{2}{}$' } });
+    const firstSlotEnd = editor.value.indexOf('2') + 1;
+    editor.setSelectionRange(firstSlotEnd, firstSlotEnd);
+    fireEvent.keyDown(editor, { key: 'Tab' });
+    expect(editor.selectionStart).toBe(editor.value.indexOf('{}') + 1);
+
+    expect(screen.getByRole('button', { name: '移动到下一个公式输入格' })).toBeInTheDocument();
+  });
+
+  it('binds a confirmed handwriting revision to the locked assessment plan', async () => {
+    vi.spyOn(URL, 'createObjectURL').mockReturnValue('blob:assessment-handwriting');
+    vi.spyOn(URL, 'revokeObjectURL').mockImplementation(() => undefined);
+    const requestBodies: Array<Record<string, unknown>> = [];
+    let currentPhase: 'check_answer' | 'check_plan' = 'check_plan';
+    let currentVersion = 1;
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation((input, init) => {
+      const url = String(input);
+      if (url === '/api/assessment/sessions/12' && !init?.method) {
+        return jsonResponse({
+          attempt: { ...baseAttempt, phase: currentPhase, version: currentVersion },
+        });
+      }
+      if (url === '/api/media/handwriting?sessionId=12') {
+        return jsonResponse({
+          image: { height: 600, mediaId: '31', url: '/api/media/31', width: 900 },
+          transcript: {
+            confirmed: false,
+            id: '41',
+            lines: [
+              { explicitly_confirmed: false, index: 1, text: '先配方', uncertain: false },
+              { explicitly_confirmed: false, index: 2, text: '再利用平方项非负', uncertain: true },
+            ],
+            media_id: '31',
+            revision: 1,
+          },
+        });
+      }
+      if (url === '/api/media/transcripts/41/confirm') {
+        return jsonResponse({
+          confirmed: true,
+          id: '41',
+          lines: [
+            { explicitly_confirmed: false, index: 1, text: '先配方', uncertain: false },
+            { explicitly_confirmed: true, index: 2, text: '再利用平方项非负', uncertain: true },
+          ],
+          media_id: '31',
+          revision: 2,
+        });
+      }
+      if (url.endsWith('/plan')) {
+        const body = JSON.parse(String(init?.body)) as Record<string, unknown> & {
+          expectedVersion: number;
+        };
+        requestBodies.push(body);
+        currentPhase = 'check_answer';
+        currentVersion = body.expectedVersion + 1;
+        return jsonResponse({
+          attempt: {
+            ...baseAttempt,
+            lockedPlanMarkdown: '先配方\n\n再利用平方项非负',
+            phase: currentPhase,
+            planDraftMarkdown: '先配方\n\n再利用平方项非负',
+            version: currentVersion,
+          },
+        });
+      }
+      if (url.endsWith('/finish')) {
+        const body = JSON.parse(String(init?.body)) as Record<string, unknown> & {
+          expectedVersion: number;
+        };
+        requestBodies.push(body);
+        return jsonResponse({
+          attempt: {
+            ...baseAttempt,
+            finalAnswerMarkdown: '先配方\n\n再利用平方项非负',
+            lockedPlanMarkdown: '先配方\n\n再利用平方项非负',
+            phase: 'summary',
+            result: {
+              evidence: [],
+              execution: 'unknown',
+              independentExecution: false,
+              independentPlanning: false,
+              independentTaskPass: false,
+              limitations: ['fixture'],
+              planning: 'unknown',
+              summary: '本测试只核对手写来源绑定。',
+            },
+            version: body.expectedVersion + 2,
+          },
+        });
+      }
+      if (url.endsWith('/draft')) {
+        const body = JSON.parse(String(init?.body)) as {
+          expectedVersion: number;
+          kind: 'answer' | 'plan';
+          markdown: string;
+        };
+        currentVersion = body.expectedVersion + 1;
+        return jsonResponse({
+          attempt: {
+            ...baseAttempt,
+            answerDraftMarkdown: body.kind === 'answer' ? body.markdown : '',
+            lockedPlanMarkdown: currentPhase === 'check_answer'
+              ? '先配方\n\n再利用平方项非负'
+              : null,
+            phase: currentPhase,
+            planDraftMarkdown: body.kind === 'plan' ? body.markdown : '先配方\n\n再利用平方项非负',
+            version: currentVersion,
+          },
+        });
+      }
+      return jsonResponse({});
+    });
+
+    renderPage();
+    await screen.findByRole('textbox', { name: '独立检验作答' });
+    fireEvent.click(screen.getByRole('button', { name: '添加手写作答' }));
+    const image = new File([new Uint8Array([1, 2, 3])], 'plan.png', { type: 'image/png' });
+    fireEvent.change(screen.getByLabelText('选择手写作答图片'), {
+      target: { files: [image] },
+    });
+    fireEvent.click(screen.getByRole('button', { name: '识别手写作答' }));
+
+    const confirmTranscript = await screen.findByRole('button', {
+      name: '确认转写并放入输入框',
+    });
+    expect(confirmTranscript).toBeDisabled();
+    expect(screen.getByRole('button', { name: '锁定计划，开始作答' })).toBeDisabled();
+    fireEvent.click(screen.getByRole('button', { name: '确认第 2 行' }));
+    fireEvent.click(confirmTranscript);
+
+    const editor = await screen.findByRole('textbox', { name: '独立检验作答' });
+    expect(editor).toHaveValue('先配方\n\n再利用平方项非负');
+    expect(screen.getByText('手写转写已确认；继续编辑后将按普通文字提交。')).toBeInTheDocument();
+    const lockPlan = screen.getByRole('button', { name: '锁定计划，开始作答' });
+    await waitFor(() => expect(lockPlan).toBeEnabled());
+    fireEvent.click(lockPlan);
+
+    await screen.findByRole('heading', { name: '现在独立完成答案' });
+    expect(requestBodies[0]).toMatchObject({
+      noPlan: false,
+      planMarkdown: '先配方\n\n再利用平方项非负',
+      transcriptId: '41',
+      transcriptRevision: 2,
+    });
+    expect(fetchMock).toHaveBeenCalledWith(
+      '/api/media/handwriting?sessionId=12',
+      expect.objectContaining({ body: image, method: 'POST' }),
+    );
+
+    fireEvent.click(screen.getByRole('button', { name: '添加手写作答' }));
+    fireEvent.change(screen.getByLabelText('选择手写作答图片'), {
+      target: { files: [image] },
+    });
+    fireEvent.click(screen.getByRole('button', { name: '识别手写作答' }));
+    const confirmAnswer = await screen.findByRole('button', {
+      name: '确认转写并放入输入框',
+    });
+    fireEvent.click(screen.getByRole('button', { name: '确认第 2 行' }));
+    fireEvent.click(confirmAnswer);
+    const answerEditor = await screen.findByRole('textbox', { name: '独立检验作答' });
+    fireEvent.change(answerEditor, {
+      target: { value: '先配方\n\n再利用平方项非负\n\n我补充说明这是配方法。' },
+    });
+    expect(screen.queryByText('手写转写已确认；继续编辑后将按普通文字提交。')).not.toBeInTheDocument();
+    const submitAnswer = screen.getByRole('button', { name: '提交最终答案' });
+    await waitFor(() => expect(submitAnswer).toBeEnabled());
+    fireEvent.click(submitAnswer);
+
+    await screen.findByRole('heading', { name: '计划证据还不足' });
+    expect(requestBodies[1]).toMatchObject({
+      answerMarkdown: '先配方\n\n再利用平方项非负\n\n我补充说明这是配方法。',
+    });
+    expect(requestBodies[1]).not.toHaveProperty('transcriptId');
+    expect(requestBodies[1]).not.toHaveProperty('transcriptRevision');
   });
 
   it('locks the first plan, withholds correctness during work, and grades only after finish', async () => {
@@ -97,6 +365,7 @@ describe('AssessmentCheckPage', () => {
     expect(screen.queryByText('有依据')).not.toBeInTheDocument();
 
     const editor = screen.getByRole('textbox', { name: '独立检验作答' });
+    expect(editor).toHaveFocus();
     fireEvent.change(editor, { target: { value: '先配方，再利用平方项非负。' } });
     fireEvent.click(screen.getByRole('button', { name: '锁定计划，开始作答' }));
 
@@ -106,13 +375,22 @@ describe('AssessmentCheckPage', () => {
     expect(screen.getByRole('heading', { name: '现在独立完成答案' })).toBeInTheDocument();
     expect(screen.queryByText('有依据')).not.toBeInTheDocument();
 
-    fireEvent.change(screen.getByRole('textbox', { name: '独立检验作答' }), {
+    const answerEditor = screen.getByRole('textbox', { name: '独立检验作答' });
+    expect(answerEditor).toHaveFocus();
+    fireEvent.change(answerEditor, {
       target: { value: '$g(x)=(x-3)^2-4$，最小值为 $-4$。' },
     });
     fireEvent.click(screen.getByRole('button', { name: '提交最终答案' }));
 
     expect(await screen.findByRole('heading', { name: '这次新题独立完成' })).toBeInTheDocument();
     expect(screen.getAllByText('有依据')).toHaveLength(2);
+    const submittedEvidence = screen.getByRole('region', { name: '你的独立作答证据' });
+    expect(submittedEvidence).toHaveTextContent('先配方，再利用平方项非负。');
+    expect(submittedEvidence).toHaveTextContent('最小值为');
+    expect(submittedEvidence.querySelectorAll('.katex')).not.toHaveLength(0);
+    expect(screen.getByRole('region', { name: '本次核对依据' })).toHaveTextContent(
+      '最终答案给出顶点式与最小值',
+    );
     const planBody = JSON.parse(
       String(fetchMock.mock.calls.find(([url]) => String(url).endsWith('/plan'))?.[1]?.body),
     ) as { noPlan: boolean; planMarkdown: string };
@@ -121,6 +399,26 @@ describe('AssessmentCheckPage', () => {
       noPlan: false,
       planMarkdown: '先配方，再利用平方项非负。',
     });
+  });
+
+  it('returns a direct-url visitor to an original answer that still needs correction', async () => {
+    vi.spyOn(globalThis, 'fetch').mockImplementation((input, init) => {
+      const url = String(input);
+      if (url === '/api/assessment/sessions/12' && !init?.method) return jsonResponse({}, 404);
+      if (url.endsWith('/start')) {
+        return jsonResponse({ code: 'ORIGINAL_ANSWER_NOT_READY' }, 409);
+      }
+      return jsonResponse({});
+    });
+
+    renderPage();
+    fireEvent.click(await screen.findByRole('button', { name: '开始独立检验' }));
+
+    expect(await screen.findByRole('alert')).toHaveTextContent('先回到原题完成核对');
+    expect(screen.getByRole('link', { name: '返回原题完成核对' })).toHaveAttribute(
+      'href',
+      '/study?session=12',
+    );
   });
 
   it('shows the irreversible help boundary and saves the current draft first', async () => {
@@ -149,9 +447,24 @@ describe('AssessmentCheckPage', () => {
 
     const confirmation = screen
       .getByText('结束本次独立检验并求助？')
-      .closest('[role="alertdialog"]');
+      .closest('[role="alertdialog"]') as HTMLElement;
     expect(confirmation).not.toBeNull();
+    expect(confirmation).toHaveAttribute('aria-modal', 'true');
     expect(confirmation).toHaveTextContent('只记为“带帮助完成”');
+    const continueWorking = screen.getByRole('button', { name: '继续独立完成' });
+    const confirmHelp = screen.getByRole('button', { name: '确认求助' });
+    expect(continueWorking).toHaveFocus();
+
+    fireEvent.keyDown(document, { key: 'Tab', shiftKey: true });
+    expect(confirmHelp).toHaveFocus();
+    fireEvent.keyDown(document, { key: 'Tab' });
+    expect(continueWorking).toHaveFocus();
+    fireEvent.keyDown(document, { key: 'Escape' });
+    expect(screen.queryByText('结束本次独立检验并求助？')).not.toBeInTheDocument();
+    await waitFor(() => expect(editor).toHaveFocus());
+    expect(fetchMock.mock.calls.some(([url]) => String(url).endsWith('/help'))).toBe(false);
+
+    fireEvent.click(screen.getByRole('button', { name: '我需要帮助' }));
     fireEvent.click(screen.getByRole('button', { name: '确认求助' }));
 
     expect(await screen.findByText('当前草稿已保留')).toBeInTheDocument();
@@ -212,6 +525,243 @@ describe('AssessmentCheckPage', () => {
       '/api/assessment/sessions/12/reassess',
       expect.objectContaining({ method: 'POST' }),
     );
+  });
+
+  it('enters a different new task directly when correction hands off with reassessment intent', async () => {
+    const completedAttempt = {
+      ...baseAttempt,
+      finalAnswerMarkdown: '$g(x)=(x-3)^2+4$。',
+      lockedPlanMarkdown: '先配方，再修正常数项。',
+      phase: 'summary' as const,
+      result: {
+        evidence: ['修正前的独立检验执行有误'],
+        execution: 'incorrect' as const,
+        independentExecution: false,
+        independentPlanning: true,
+        independentTaskPass: false,
+        limitations: ['这份结果只用于保留修正前证据。'],
+        planning: 'correct' as const,
+        summary: '计划有依据，执行需要修正。',
+      },
+      version: 4,
+    };
+    const reassessment = {
+      ...baseAttempt,
+      id: '82',
+      promptMarkdown: '抛物线 $y=x^2-10x+21$ 的顶点纵坐标是多少？',
+      sessionId: '13',
+      taskId: '62',
+    };
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation((input, init) => {
+      const url = String(input);
+      if (url === '/api/assessment/sessions/12' && !init?.method) {
+        return jsonResponse({ attempt: completedAttempt });
+      }
+      if (url === '/api/assessment/sessions/12/reassess') {
+        return jsonResponse({ attempt: reassessment });
+      }
+      return jsonResponse({});
+    });
+
+    renderPage('/learn/12/check?intent=reassess');
+
+    expect(await screen.findByRole('heading', { name: '先写你准备怎么做' })).toBeInTheDocument();
+    expect(screen.getByText(/顶点纵坐标/)).toBeInTheDocument();
+    expect(screen.queryByText('计划有依据，执行需要修正。')).not.toBeInTheDocument();
+    expect(fetchMock).toHaveBeenCalledWith(
+      '/api/assessment/sessions/12/reassess',
+      expect.objectContaining({ method: 'POST' }),
+    );
+  });
+
+  it('starts the first independent task directly when reassessment intent has no earlier attempt', async () => {
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation((input, init) => {
+      const url = String(input);
+      if (url === '/api/assessment/sessions/12' && !init?.method) {
+        return jsonResponse({}, 404);
+      }
+      if (url === '/api/assessment/sessions/12/start') {
+        return jsonResponse({ attempt: baseAttempt });
+      }
+      return jsonResponse({});
+    });
+
+    renderPage('/learn/12/check?intent=reassess');
+
+    expect(await screen.findByRole('heading', { name: '先写你准备怎么做' })).toBeInTheDocument();
+    expect(fetchMock).toHaveBeenCalledWith(
+      '/api/assessment/sessions/12/start',
+      expect.objectContaining({ method: 'POST' }),
+    );
+  });
+
+  it('restores an unfinished reassessment without creating another task', async () => {
+    const activeReassessment = {
+      ...baseAttempt,
+      id: '82',
+      planDraftMarkdown: '先求对称轴。',
+      promptMarkdown: '抛物线 $y=x^2-10x+21$ 的顶点纵坐标是多少？',
+      sessionId: '13',
+      taskId: '62',
+    };
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation((input, init) => {
+      if (String(input) === '/api/assessment/sessions/12' && !init?.method) {
+        return jsonResponse({ attempt: activeReassessment });
+      }
+      return jsonResponse({});
+    });
+
+    renderPage('/learn/12/check?intent=reassess');
+
+    expect(await screen.findByRole('textbox', { name: '独立检验作答' })).toHaveValue('先求对称轴。');
+    expect(fetchMock.mock.calls.some(([url]) => String(url).endsWith('/reassess'))).toBe(false);
+  });
+
+  it('keeps the earlier summary visible when automatic reassessment is not ready', async () => {
+    const completedAttempt = {
+      ...baseAttempt,
+      finalAnswerMarkdown: '$g(x)=(x-3)^2+4$。',
+      lockedPlanMarkdown: '先配方。',
+      phase: 'summary' as const,
+      result: {
+        evidence: ['最终常数项计算有误'],
+        execution: 'incorrect' as const,
+        independentExecution: false,
+        independentPlanning: true,
+        independentTaskPass: false,
+        limitations: ['任务尚未经过人工审题。'],
+        planning: 'correct' as const,
+        summary: '计划有依据，执行需要修正。',
+      },
+      version: 4,
+    };
+    vi.spyOn(globalThis, 'fetch').mockImplementation((input, init) => {
+      const url = String(input);
+      if (url === '/api/assessment/sessions/12' && !init?.method) {
+        return jsonResponse({ attempt: completedAttempt });
+      }
+      if (url === '/api/assessment/sessions/12/reassess') return jsonResponse({}, 422);
+      return jsonResponse({});
+    });
+
+    renderPage('/learn/12/check?intent=reassess');
+
+    expect(await screen.findByRole('heading', { name: '方法有依据，执行还需要修正' })).toBeInTheDocument();
+    expect(screen.getByRole('alert')).toHaveTextContent('暂时没有可可靠检验的不同新题');
+    expect(screen.getByText('计划有依据，执行需要修正。')).toBeInTheDocument();
+  });
+
+  it('routes an execution failure back to remediation before offering another test', async () => {
+    vi.spyOn(globalThis, 'fetch').mockImplementation((input, init) => {
+      const url = String(input);
+      if (url === '/api/assessment/sessions/12' && !init?.method) {
+        return jsonResponse({
+          attempt: {
+            ...baseAttempt,
+            finalAnswerMarkdown: '$g(x)=(x-3)^2+4$。',
+            lockedPlanMarkdown: '先配方，再利用平方项非负。',
+            phase: 'summary',
+            result: {
+              evidence: ['首次计划明确使用配方法', '最终常数项计算有误'],
+              execution: 'incorrect',
+              independentExecution: false,
+              independentPlanning: true,
+              independentTaskPass: false,
+              limitations: ['任务尚未经过人工审题。'],
+              planning: 'correct',
+              summary: '计划有依据，执行需要修正。',
+            },
+            version: 4,
+          },
+        });
+      }
+      return jsonResponse({});
+    });
+
+    renderPage();
+
+    expect(await screen.findByRole('heading', { name: '方法有依据，执行还需要修正' })).toBeInTheDocument();
+    expect(await screen.findByRole('link', { name: '回学习页处理执行卡点' })).toHaveAttribute(
+      'href',
+      '/study?session=12&remediate=execution',
+    );
+    expect(screen.getByText('先修正执行，再决定是否换题')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: '换题再测' })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: '再测一道不同的新题' })).not.toBeInTheDocument();
+  });
+
+  it('routes a planning failure back to method work first', async () => {
+    vi.spyOn(globalThis, 'fetch').mockImplementation((input, init) => {
+      const url = String(input);
+      if (url === '/api/assessment/sessions/12' && !init?.method) {
+        return jsonResponse({
+          attempt: {
+            ...baseAttempt,
+            finalAnswerMarkdown: '$g(x)=4$。',
+            lockedPlanMarkdown: '先代入几个数试试。',
+            phase: 'summary',
+            result: {
+              evidence: ['首次计划没有说明如何覆盖定义域'],
+              execution: 'unknown',
+              independentExecution: false,
+              independentPlanning: false,
+              independentTaskPass: false,
+              limitations: ['现有证据不足。'],
+              planning: 'incorrect',
+              summary: '计划需要先修正。',
+            },
+            version: 4,
+          },
+        });
+      }
+      return jsonResponse({});
+    });
+
+    renderPage();
+
+    expect(await screen.findByRole('heading', { name: '方法还需要修正' })).toBeInTheDocument();
+    expect(await screen.findByRole('link', { name: '回学习页梳理方法' })).toHaveAttribute(
+      'href',
+      '/study?session=12&remediate=method',
+    );
+    expect(screen.getByText('先把方法想清楚，再决定是否换题')).toBeInTheDocument();
+  });
+
+  it('explains the evidence boundary when both verdicts are correct but the task is not independently passed', async () => {
+    vi.spyOn(globalThis, 'fetch').mockImplementation((input, init) => {
+      const url = String(input);
+      if (url === '/api/assessment/sessions/12' && !init?.method) {
+        return jsonResponse({
+          attempt: {
+            ...baseAttempt,
+            finalAnswerMarkdown: '$g(x)=(x-3)^2-4$。',
+            lockedPlanMarkdown: '先配方。',
+            phase: 'summary',
+            result: {
+              evidence: ['计划与执行均有依据', '本次发生过帮助请求'],
+              execution: 'correct',
+              independentExecution: false,
+              independentPlanning: false,
+              independentTaskPass: false,
+              limitations: ['本次不满足独立检验资格。'],
+              planning: 'correct',
+              summary: '答案有依据，但不能记为独立通过。',
+            },
+            version: 4,
+          },
+        });
+      }
+      return jsonResponse({});
+    });
+
+    renderPage();
+
+    expect(await screen.findByRole('heading', { name: '答案有依据，但这次不能记为独立通过' })).toBeInTheDocument();
+    expect(await screen.findByRole('link', { name: '回学习页查看证据边界' })).toHaveAttribute(
+      'href',
+      '/study?session=12&remediate=evidence',
+    );
+    expect(screen.getByText('先看清为什么这次还不能记为独立通过')).toBeInTheDocument();
   });
 
   it('keeps the completed summary when no distinct reassessment is ready', async () => {

@@ -6,6 +6,7 @@ import type { AppEnvironment } from '../../config/env.js';
 import { AUTH_COOKIE_NAME } from '../auth/auth.cookie.js';
 import type { AuthService } from '../auth/auth.service.js';
 import { MediaController } from './media.controller.js';
+import type { MediaService } from './media.service.js';
 import type { QuestionImageRecognitionService } from './question-image-recognition.service.js';
 
 function createController() {
@@ -23,6 +24,11 @@ function createController() {
       uncertain: [],
     }),
   };
+  const media = {
+    confirmTranscript: vi.fn(),
+    readOwnedMedia: vi.fn(),
+    transcribeHandwriting: vi.fn(),
+  };
 
   return {
     auth,
@@ -30,7 +36,9 @@ function createController() {
       auth as unknown as AuthService,
       config as unknown as ConfigService<AppEnvironment, true>,
       recognition as unknown as QuestionImageRecognitionService,
+      media as unknown as MediaService,
     ),
+    media,
     recognition,
   };
 }
@@ -77,5 +85,46 @@ describe('MediaController', () => {
       ),
     ).rejects.toBeInstanceOf(BadRequestException);
     expect(recognition.recognize).not.toHaveBeenCalled();
+  });
+
+  it('creates an owner-scoped handwriting draft and confirms its reviewed revision', async () => {
+    const { controller, media } = createController();
+    const image = await sharp({
+      create: { background: '#ffffff', channels: 3, height: 8, width: 8 },
+    }).png().toBuffer();
+    const draft = {
+      confirmed: false,
+      id: '41',
+      lines: [{ explicitly_confirmed: false, index: 1, text: '$x=1$', uncertain: false }],
+      media_id: '31',
+      revision: 1,
+    };
+    media.transcribeHandwriting.mockResolvedValue({ transcript: draft });
+    media.confirmTranscript.mockResolvedValue({ ...draft, confirmed: true, revision: 2 });
+
+    await expect(controller.transcribeHandwriting(
+      image,
+      '91',
+      'image/png',
+      `${AUTH_COOKIE_NAME}=${'a'.repeat(43)}`,
+      'http://localhost:5173',
+    )).resolves.toEqual({ transcript: draft });
+    expect(media.transcribeHandwriting).toHaveBeenCalledWith(
+      '7',
+      '91',
+      expect.objectContaining({ mime: 'image/png' }),
+    );
+
+    await expect(controller.confirmTranscript(
+      '41',
+      {
+        expected_revision: 1,
+        lines: draft.lines,
+        request_id: '7cd1cc14-35b3-4e73-8c0a-ad9223330ad8',
+        transcript_id: '41',
+      },
+      `${AUTH_COOKIE_NAME}=${'a'.repeat(43)}`,
+      'http://localhost:5173',
+    )).resolves.toMatchObject({ confirmed: true, revision: 2 });
   });
 });

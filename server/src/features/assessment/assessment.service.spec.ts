@@ -1,6 +1,7 @@
 import { NotFoundException } from '@nestjs/common';
 import { describe, expect, it, vi } from 'vitest';
 import type { ModelPort, ModelResponse } from '../../model/model.port.js';
+import type { MediaService } from '../media/media.service.js';
 import type {
   AssessmentAttemptRecord,
   AssessmentRepository,
@@ -45,8 +46,54 @@ function attempt(overrides: Partial<AssessmentAttemptRecord> = {}): AssessmentAt
   };
 }
 
+function preparedCheckTask() {
+  return {
+    content_hash: 'a'.repeat(64),
+    decisions: [{
+      acceptance_rule: '配方后正确读出最小值',
+      common_gaps: ['忘记利用平方项非负'],
+      entry_condition: '能将二次式配方',
+      expected_artifact: '顶点式和最小值',
+      goal: '用配方法求最值',
+      goal_key: 'complete-square-minimum',
+      id: 'decision-1',
+      parent_goal_key: null,
+      part_id: 'part-1',
+      prerequisite_ids: [],
+      source: 'teacher' as const,
+    }],
+    equivalence_group: 'quadratic-minimum-from-linear-constraint',
+    execution_rubric: '正确化为一元二次式，配方并给出最小值',
+    id: 'prepared-check-1',
+    planning_rubric: '计划中说明先消元再配方',
+    prompt_md: '已知 $x+y=4$，求 $x^2+y^2$ 的最小值。',
+    reference_md: '代入 $y=4-x$ 后配方，最小值为 $8$。',
+    relation: 'near_transfer' as const,
+    routes: [{
+      decision_ids: ['decision-1'],
+      evidence_refs: [],
+      id: 'route-1',
+      math_status: 'valid' as const,
+      note: '消元后配方',
+      source: 'teacher' as const,
+      terminal_ids: ['decision-1'],
+    }],
+    source_problem_id: 'question-1',
+    verification: [{
+      checked_at: '2026-09-19T00:00:00.000Z',
+      kind: 'model_checked' as const,
+      reference: 'prepared-check-1',
+      reviewer_or_model: 'fixture-preparation',
+      status: 'pass' as const,
+      summary: '备课候选已做结构检查',
+    }],
+    verified: false,
+  };
+}
+
 function setup() {
   const repository = {
+    completeModelRun: vi.fn().mockResolvedValue(undefined),
     createAttempt: vi.fn(),
     createReassessment: vi.fn(),
     freezeAnswer: vi.fn(),
@@ -60,24 +107,215 @@ function setup() {
         overview: '二次函数最值题',
         target: '求最小值',
       },
+      currentAnswerVerdict: 'correct',
       problemMarkdown: '求 $f(x)=x^2-4x$ 的最小值。',
       questionId: null,
     }),
     lockPlan: vi.fn(),
     isTaskSeen: vi.fn(),
     requestHelp: vi.fn(),
+    recordModelNode: vi.fn().mockResolvedValue(undefined),
     saveDraft: vi.fn(),
     saveGrade: vi.fn(),
+    startModelRun: vi.fn().mockResolvedValue({
+      deadlineAt: new Date(Date.now() + 60_000).toISOString(),
+      leaseToken: 'fixture-lease',
+      requestId: 'fixture-request-id',
+      runId: 'fixture-run-id',
+    }),
   } as unknown as AssessmentRepository;
   const model = { generate: vi.fn() } as unknown as ModelPort;
+  const media = {
+    assertConfirmedTranscript: vi.fn().mockResolvedValue(undefined),
+  } as unknown as MediaService;
   return {
+    media,
     model,
     repository,
-    service: new AssessmentService(repository, model),
+    service: new AssessmentService(repository, model, media),
   };
 }
 
 describe('AssessmentService', () => {
+  it('validates confirmed handwriting before locking a plan or freezing an answer', async () => {
+    const { media, repository, service } = setup();
+    vi.mocked(repository.lockPlan).mockResolvedValue(attempt({
+      lockedPlanMarkdown: '先配方。',
+      phase: 'check_answer',
+      planDraftMarkdown: '先配方。',
+      version: 2,
+    }));
+    vi.mocked(repository.freezeAnswer).mockResolvedValue(attempt({
+      finalAnswerMarkdown: '$g(x)=(x-3)^2-4$。',
+      phase: 'summary',
+      version: 4,
+    }));
+
+    await service.submitPlan('7', '81', {
+      expectedVersion: 1,
+      noPlan: false,
+      planMarkdown: '  先配方。  ',
+      transcriptId: '41',
+      transcriptRevision: 2,
+    });
+    await service.finish('7', '81', {
+      answerMarkdown: '  $g(x)=(x-3)^2-4$。  ',
+      expectedVersion: 3,
+      transcriptId: '42',
+      transcriptRevision: 3,
+    });
+
+    expect(media.assertConfirmedTranscript).toHaveBeenNthCalledWith(
+      1,
+      '7',
+      '41',
+      2,
+      '先配方。',
+    );
+    expect(media.assertConfirmedTranscript).toHaveBeenNthCalledWith(
+      2,
+      '7',
+      '42',
+      3,
+      '$g(x)=(x-3)^2-4$。',
+    );
+    expect(repository.lockPlan).toHaveBeenCalledWith(
+      '7',
+      '81',
+      expect.objectContaining({ transcriptId: '41', transcriptRevision: 2 }),
+    );
+    expect(repository.freezeAnswer).toHaveBeenCalledWith(
+      '7',
+      '81',
+      expect.objectContaining({ transcriptId: '42', transcriptRevision: 3 }),
+    );
+  });
+
+  it('does not start an independent assessment before the original answer is correct', async () => {
+    const { model, repository, service } = setup();
+    vi.mocked(repository.getCurrentAttempt).mockRejectedValue(new NotFoundException());
+    vi.mocked(repository.getSourceSession).mockResolvedValue({
+      analysis: {
+        keyConditions: ['分母含有根式'],
+        knowledgePoints: ['分母有理化'],
+        overview: '根式化简题',
+        target: '使分母不含根号',
+      },
+      currentAnswerVerdict: 'incorrect',
+      preparedCheckTasks: [],
+      preparedPacketVersion: null,
+      problemMarkdown: '化简 $\\frac{\\sqrt2}{\\sqrt3}$。',
+      questionId: null,
+    } as Awaited<ReturnType<AssessmentRepository['getSourceSession']>> & {
+      currentAnswerVerdict: 'incorrect';
+    });
+
+    await expect(service.start('7', '12')).rejects.toMatchObject({
+      response: expect.objectContaining({ code: 'ORIGINAL_ANSWER_NOT_READY' }),
+    });
+    expect(repository.startModelRun).not.toHaveBeenCalled();
+    expect(model.generate).not.toHaveBeenCalled();
+  });
+
+  it('independently reviews a bound ready-packet task before generating another task', async () => {
+    const { model, repository, service } = setup();
+    vi.mocked(repository.getCurrentAttempt).mockRejectedValue(new NotFoundException());
+    vi.mocked(repository.getSourceSession).mockResolvedValue({
+      analysis: {
+        keyConditions: ['二次项系数为正'],
+        knowledgePoints: ['配方法', '二次函数最值'],
+        overview: '二次函数最值题',
+        target: '求最小值',
+      },
+      currentAnswerVerdict: 'correct',
+      preparedCheckTasks: [preparedCheckTask()],
+      preparedPacketVersion: 'b'.repeat(64),
+      problemMarkdown: '求 $f(x)=x^2-4x$ 的最小值。',
+      questionId: 'question-1',
+    });
+    vi.mocked(repository.isTaskSeen).mockResolvedValue(false);
+    vi.mocked(model.generate).mockResolvedValueOnce(
+      response({ reason: '条件完整，参考答案与迁移关系可核对', verdict: 'accept' }),
+    );
+    vi.mocked(repository.createAttempt).mockResolvedValue(attempt({
+      promptMarkdown: preparedCheckTask().prompt_md,
+    }));
+
+    const result = await service.start('7', '12');
+
+    expect(model.generate).toHaveBeenCalledTimes(1);
+    expect(vi.mocked(model.generate).mock.calls[0]?.[0].role).toBe('guard');
+    expect(repository.startModelRun).toHaveBeenCalledWith(
+      '7',
+      '12',
+      'prepare',
+      expect.objectContaining({ operation: 'assessment_start' }),
+    );
+    expect(repository.recordModelNode).toHaveBeenCalledWith(
+      '7',
+      expect.objectContaining({ runId: 'fixture-run-id' }),
+      expect.objectContaining({ nodeKey: 'prepared_task_guard_1', status: 'completed' }),
+    );
+    expect(repository.completeModelRun).toHaveBeenCalledWith(
+      '7',
+      expect.objectContaining({ runId: 'fixture-run-id' }),
+      'completed',
+    );
+    expect(repository.createAttempt).toHaveBeenCalledWith(
+      '7',
+      '12',
+      expect.objectContaining({
+        candidate: expect.objectContaining({
+          promptMarkdown: preparedCheckTask().prompt_md,
+          rubric: [preparedCheckTask().planning_rubric, preparedCheckTask().execution_rubric],
+        }),
+        verification: expect.objectContaining({ source: 'prepared_packet' }),
+      }),
+    );
+    expect(result.attempt.promptMarkdown).toContain('x+y=4');
+    expect(result.attempt).not.toHaveProperty('referenceAnswerMarkdown');
+  });
+
+  it('records conservative estimated usage when the assessment provider reports unknown usage', async () => {
+    const { model, repository, service } = setup();
+    vi.mocked(repository.getCurrentAttempt).mockRejectedValue(new NotFoundException());
+    vi.mocked(repository.getSourceSession).mockResolvedValue({
+      analysis: {
+        keyConditions: ['二次项系数为正'],
+        knowledgePoints: ['配方法'],
+        overview: '二次函数最值题',
+        target: '求最小值',
+      },
+      currentAnswerVerdict: 'correct',
+      preparedCheckTasks: [preparedCheckTask()],
+      preparedPacketVersion: 'b'.repeat(64),
+      problemMarkdown: '求 $f(x)=x^2-4x$ 的最小值。',
+      questionId: 'question-1',
+    });
+    vi.mocked(repository.isTaskSeen).mockResolvedValue(false);
+    vi.mocked(model.generate).mockResolvedValueOnce({
+      ...response({ reason: '迁移关系可核对', verdict: 'accept' }),
+      usage: { input: 0, kind: 'unknown', output: 0 },
+    });
+    vi.mocked(repository.createAttempt).mockResolvedValue(attempt());
+
+    await service.start('7', '12');
+
+    expect(repository.recordModelNode).toHaveBeenCalledWith(
+      '7',
+      expect.objectContaining({ runId: 'fixture-run-id' }),
+      expect.objectContaining({
+        usage: expect.objectContaining({
+          input: expect.any(Number),
+          kind: 'estimated',
+          output: 800,
+        }),
+      }),
+    );
+    const recorded = vi.mocked(repository.recordModelNode).mock.calls[0]?.[2];
+    expect(recorded?.usage?.input).toBeGreaterThan(0);
+  });
+
   it('generates and independently reviews a near-transfer task without exposing the rubric', async () => {
     const { model, repository, service } = setup();
     vi.mocked(repository.getCurrentAttempt).mockRejectedValue(new NotFoundException());
@@ -107,6 +345,10 @@ describe('AssessmentService', () => {
     expect(result.attempt).not.toHaveProperty('referenceAnswerMarkdown');
     expect(result.attempt).not.toHaveProperty('rubric');
     expect(result.attempt.promptMarkdown).toContain('g(x)');
+    expect(vi.mocked(repository.recordModelNode).mock.calls.map((call) => call[2].nodeKey)).toEqual([
+      'task_generation_1',
+      'task_guard_1',
+    ]);
   });
 
   it('does not persist a generated task rejected by the independent review', async () => {
@@ -135,6 +377,11 @@ describe('AssessmentService', () => {
     });
     expect(model.generate).toHaveBeenCalledTimes(4);
     expect(repository.createAttempt).not.toHaveBeenCalled();
+    expect(repository.completeModelRun).toHaveBeenCalledWith(
+      '7',
+      expect.objectContaining({ runId: 'fixture-run-id' }),
+      'failed',
+    );
   });
 
   it('uses the second bounded candidate when the first initial task is a near duplicate', async () => {
@@ -294,6 +541,21 @@ describe('AssessmentService', () => {
       independentPlanning: true,
       independentTaskPass: true,
     });
+    expect(repository.startModelRun).toHaveBeenCalledWith(
+      '7',
+      '12',
+      'grade',
+      expect.objectContaining({ attemptId: '81', operation: 'assessment_finish' }),
+    );
+    expect(vi.mocked(repository.recordModelNode).mock.calls.map((call) => call[2].nodeKey)).toEqual([
+      'grade',
+      'grade_guard',
+    ]);
+    expect(repository.completeModelRun).toHaveBeenCalledWith(
+      '7',
+      expect.objectContaining({ runId: 'fixture-run-id' }),
+      'completed',
+    );
   });
 
   it('never grants independent credit after assistance was requested', async () => {
@@ -362,6 +624,16 @@ describe('AssessmentService', () => {
       planning: 'unknown',
     });
     expect(model.generate).toHaveBeenCalledTimes(1);
+    expect(repository.recordModelNode).toHaveBeenCalledWith(
+      '7',
+      expect.objectContaining({ runId: 'fixture-run-id' }),
+      expect.objectContaining({ nodeKey: 'grade', status: 'failed' }),
+    );
+    expect(repository.completeModelRun).toHaveBeenCalledWith(
+      '7',
+      expect.objectContaining({ runId: 'fixture-run-id' }),
+      'failed',
+    );
   });
 
   it('persists the current draft before ending independent eligibility for help', async () => {

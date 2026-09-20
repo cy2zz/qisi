@@ -3,14 +3,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { apiFetch } from '../../lib/api';
 import { StudySidebar } from '../bank/StudySidebar';
 import { MathMarkdown } from '../../shared/MathMarkdown';
+import {
+  getAssessmentNextAction,
+  type AssessmentVerdict,
+  type OriginalLearningStatus,
+} from '../learn/report/assessment-next-action';
 
-type Verdict = 'correct' | 'incorrect' | 'unknown' | 'unanswered';
-type OriginalStatus =
-  | 'in_progress'
-  | 'incomplete'
-  | 'unknown'
-  | 'completed_with_help'
-  | 'completed_without_recorded_help';
+type Verdict = AssessmentVerdict;
+type OriginalStatus = OriginalLearningStatus;
 type HelpMode = 'hint' | 'explain' | 'worked_solution';
 
 interface HistoryEntry {
@@ -19,6 +19,7 @@ interface HistoryEntry {
     execution: Verdict;
     help_exposed: boolean;
     independent_task_pass: boolean;
+    invalidated?: boolean;
     limitations: string[];
     phase: string;
     planning: Verdict;
@@ -96,6 +97,7 @@ export function HistoryPage({ username }: { username: string }) {
   const [deleteError, setDeleteError] = useState('');
   const [deleteTarget, setDeleteTarget] = useState<string | null>(null);
   const [deletingSessionId, setDeletingSessionId] = useState<string | null>(null);
+  const [expandedEntryIds, setExpandedEntryIds] = useState<Set<string>>(() => new Set());
   const [reloadKey, setReloadKey] = useState(0);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -103,7 +105,16 @@ export function HistoryPage({ username }: { username: string }) {
     const controller = new AbortController();
     setError('');
     apiFetch<HistoryResponse>('/api/history', { signal: controller.signal })
-      .then(setHistory)
+      .then((nextHistory) => {
+        setHistory(nextHistory);
+        setExpandedEntryIds((current) => {
+          const availableIds = new Set(nextHistory.entries.map((entry) => entry.session_id));
+          const next = new Set([...current].filter((sessionId) => availableIds.has(sessionId)));
+          const latestSessionId = nextHistory.entries[0]?.session_id;
+          if (latestSessionId) next.add(latestSessionId);
+          return next;
+        });
+      })
       .catch((requestError: unknown) => {
         if (requestError instanceof DOMException && requestError.name === 'AbortError') return;
         setError('暂时无法读取学习历史。你的学习记录没有被修改，可以重新读取。');
@@ -122,6 +133,15 @@ export function HistoryPage({ username }: { username: string }) {
       setHistory((current) => current
         ? { ...current, entries: current.entries.filter((entry) => entry.session_id !== sessionId) }
         : current);
+      setExpandedEntryIds((current) => {
+        const next = new Set(current);
+        next.delete(sessionId);
+        const nextLatestSessionId = history?.entries.find(
+          (entry) => entry.session_id !== sessionId,
+        )?.session_id;
+        if (nextLatestSessionId) next.add(nextLatestSessionId);
+        return next;
+      });
       setDeleteTarget(null);
     } catch {
       setDeleteError('删除失败，这条记录没有被修改，可以重试。');
@@ -186,19 +206,71 @@ export function HistoryPage({ username }: { username: string }) {
             </div>
           ) : (
             <ol className="history-list" aria-label="学习记录">
-              {history?.entries.map((entry, index) => (
+              {history?.entries.map((entry, index) => {
+                const nextAction = getAssessmentNextAction(
+                  entry.session_id,
+                  entry.original_status,
+                  entry.assessment
+                    ? {
+                        assistanceRequested: entry.assessment.assistance_requested,
+                        execution: entry.assessment.execution,
+                        helpExposed: entry.assessment.help_exposed,
+                        independentTaskPass: entry.assessment.independent_task_pass,
+                        invalidated: entry.assessment.invalidated,
+                        phase: entry.assessment.phase,
+                        planning: entry.assessment.planning,
+                        relation: entry.assessment.relation,
+                      }
+                    : null,
+                );
+                const isExpanded = expandedEntryIds.has(entry.session_id);
+
+                return (
                 <li key={entry.session_id} className="history-entry">
                   <div className="history-entry-index" aria-hidden="true">
                     <span>{String(index + 1).padStart(2, '0')}</span>
                   </div>
-                  <article>
-                    <header className="history-entry-header">
-                      <div>
+                  <details
+                    className="history-entry-disclosure"
+                    open={isExpanded}
+                    onToggle={(event) => {
+                      const shouldExpand = event.currentTarget.open;
+                      setExpandedEntryIds((current) => {
+                        if (current.has(entry.session_id) === shouldExpand) return current;
+                        const next = new Set(current);
+                        if (shouldExpand) next.add(entry.session_id);
+                        else next.delete(entry.session_id);
+                        return next;
+                      });
+                    }}
+                  >
+                    <summary className="history-entry-header">
+                      <div className="history-summary-title">
                         <p>{formatDate(entry.updated_at)} · {entry.topic || '手动输入'}</p>
                         <h2>{entry.title}</h2>
                       </div>
-                      <span data-status={entry.original_status}>{originalLabels[entry.original_status]}</span>
-                    </header>
+                      <div className="history-summary-statuses">
+                        <span>原题状态</span>
+                        <strong
+                          className="history-summary-original"
+                          data-status={entry.original_status}
+                        >
+                          {originalLabels[entry.original_status]}
+                        </strong>
+                        <span>独立检验</span>
+                        <strong>{assessmentLabel(entry)}</strong>
+                      </div>
+                      <div className="history-summary-next" data-action={nextAction.kind}>
+                        <span>{nextAction.eyebrow}</span>
+                        <strong>{nextAction.title}</strong>
+                      </div>
+                      <span className="history-summary-toggle">
+                        <i aria-hidden="true" />
+                        {isExpanded ? '收起详情' : '展开详情'}
+                      </span>
+                    </summary>
+
+                    <article className="history-entry-body">
 
                     <div className="history-evidence-track">
                       <section>
@@ -232,6 +304,18 @@ export function HistoryPage({ username }: { username: string }) {
                       </section>
                     </div>
 
+                    <section
+                      className="history-next-action"
+                      data-action={nextAction.kind}
+                      aria-labelledby={`history-next-action-${entry.session_id}`}
+                    >
+                      <span>{nextAction.eyebrow}</span>
+                      <div>
+                        <h3 id={`history-next-action-${entry.session_id}`}>{nextAction.title}</h3>
+                        <p>{nextAction.description}</p>
+                      </div>
+                    </section>
+
                     <footer>
                       <button
                         className="history-delete-trigger"
@@ -244,11 +328,11 @@ export function HistoryPage({ username }: { username: string }) {
                       >
                         删除记录
                       </button>
-                      <Link to={`/study?session=${entry.session_id}`}>继续原题</Link>
                       <Link to={`/learn/${entry.session_id}/report`}>查看证据报告</Link>
-                      <Link className="primary" to={`/learn/${entry.session_id}/check`}>
-                        {entry.assessment ? '继续独立检验' : '去独立检验'}
-                      </Link>
+                      {!nextAction.href.startsWith('/study') ? (
+                        <Link to={`/study?session=${entry.session_id}`}>查看原题记录</Link>
+                      ) : null}
+                      <Link className="primary" to={nextAction.href}>{nextAction.label}</Link>
                     </footer>
                     {deleteTarget === entry.session_id ? (
                       <section
@@ -280,9 +364,11 @@ export function HistoryPage({ username }: { username: string }) {
                         </div>
                       </section>
                     ) : null}
-                  </article>
+                    </article>
+                  </details>
                 </li>
-              ))}
+                );
+              })}
             </ol>
           )}
 

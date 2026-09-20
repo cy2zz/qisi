@@ -1,6 +1,7 @@
 import { type ReactNode, useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { apiFetch } from '../../lib/api';
+import { QuestionCard, type BankQuestion } from './QuestionCard';
 import { StudySidebar } from './StudySidebar';
 
 interface StudentPageProps {
@@ -29,19 +30,8 @@ interface PaperSummary {
   variant: string | null;
 }
 
-interface PaperQuestion {
-  id: string;
-  imageHeight: number | null;
-  imageWidth: number | null;
-  number: number | null;
-  questionCode: string | null;
-  questionImageUrl: string | null;
-  statementMarkdown: string | null;
-  status: string;
-}
-
 interface PaperDetail extends PaperSummary {
-  questions: PaperQuestion[];
+  questions: BankQuestion[];
 }
 
 interface PaperListResponse {
@@ -58,8 +48,8 @@ interface PaperFilters {
 
 const EMPTY_FILTERS: PaperFilters = { keyword: '', region: '', track: '', year: '' };
 
-function questionLabel(question: PaperQuestion) {
-  return question.number === null ? '未编号题目' : `第 ${question.number} 题`;
+function shouldUseCompactPaperBank() {
+  return typeof window !== 'undefined' && window.innerWidth <= 720;
 }
 
 function PaperBankShell({ children, username }: StudentPageProps & { children: ReactNode }) {
@@ -106,6 +96,8 @@ export function PaperBankPage({ username }: StudentPageProps) {
   const [papers, setPapers] = useState<PaperSummary[]>([]);
   const [selectedPaperId, setSelectedPaperId] = useState(routeParams.paperId ?? '');
   const [paper, setPaper] = useState<PaperDetail | null>(null);
+  const [filterPanelOpen, setFilterPanelOpen] = useState(() => !shouldUseCompactPaperBank());
+  const [paperPanelOpen, setPaperPanelOpen] = useState(() => !shouldUseCompactPaperBank());
   const [isListLoading, setIsListLoading] = useState(true);
   const [isPaperLoading, setIsPaperLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
@@ -176,10 +168,11 @@ export function PaperBankPage({ username }: StudentPageProps) {
 
   function choosePaper(paperId: string) {
     setSelectedPaperId(paperId);
+    if (shouldUseCompactPaperBank()) setPaperPanelOpen(false);
     if (routeParams.paperId) navigate('/bank', { replace: true });
   }
 
-  function confirmQuestion(question: PaperQuestion) {
+  function confirmQuestion(question: BankQuestion) {
     if (!paper) return;
     navigate(`/bank/papers/${paper.id}/questions/${question.id}`);
   }
@@ -198,10 +191,23 @@ export function PaperBankPage({ username }: StudentPageProps) {
     );
   }
 
+  const selectedPaper = papers.find((item) => item.id === selectedPaperId);
+  const activeFilterCount = Object.values(filters).filter((value) => value.trim()).length;
+
   return (
     <PaperBankShell username={username}>
       <section className="paper-bank-workspace" aria-label="题库选择工作区">
-        <div className="paper-picker-filters paper-bank-filters" aria-label="筛选试卷">
+        <details
+          className="paper-bank-filter-panel"
+          open={filterPanelOpen}
+          onToggle={(event) => setFilterPanelOpen(event.currentTarget.open)}
+        >
+          <summary>
+            <span>筛选试卷</span>
+            <strong>{activeFilterCount ? `${activeFilterCount} 项条件` : '全部试卷'}</strong>
+            <small>{filterPanelOpen ? '收起' : '展开'}</small>
+          </summary>
+          <div className="paper-picker-filters paper-bank-filters" aria-label="筛选试卷">
           <label>
             <span>年份</span>
             <select value={filters.year} onChange={(event) => updateFilter('year', event.target.value)}>
@@ -232,10 +238,21 @@ export function PaperBankPage({ username }: StudentPageProps) {
               onChange={(event) => updateFilter('keyword', event.target.value)}
             />
           </label>
-        </div>
+          </div>
+        </details>
 
         <div className="paper-picker-body paper-bank-picker-body">
-          <aside className="paper-picker-papers" aria-label="试卷列表">
+          <details
+            className="paper-bank-paper-panel"
+            open={paperPanelOpen}
+            onToggle={(event) => setPaperPanelOpen(event.currentTarget.open)}
+          >
+            <summary>
+              <span>当前试卷</span>
+              <strong>{selectedPaper?.title ?? '选择一份试卷'}</strong>
+              <small>{papers.length} 份 · {paperPanelOpen ? '收起' : '换卷'}</small>
+            </summary>
+            <aside className="paper-picker-papers" aria-label="试卷列表">
             <div className="paper-picker-section-title">
               <strong>试卷</strong>
               <span>{isListLoading ? '读取中' : `${papers.length} 份`}</span>
@@ -263,7 +280,8 @@ export function PaperBankPage({ username }: StudentPageProps) {
                 ))}
               </ol>
             )}
-          </aside>
+            </aside>
+          </details>
 
           <section className="paper-picker-questions" aria-label="试卷内容">
             <div className="paper-picker-section-title">
@@ -283,60 +301,14 @@ export function PaperBankPage({ username }: StudentPageProps) {
                   {paper.questions.map((question) => {
                     const isSelected =
                       routeParams.paperId === paper.id && routeParams.questionId === question.id;
-                    const hasQuestionContent = Boolean(
-                      question.questionImageUrl || question.statementMarkdown,
-                    );
 
                     return (
                       <li key={question.id}>
-                        <article
-                          aria-labelledby={`paper-bank-question-${question.id}`}
-                          data-selected={isSelected || undefined}
-                        >
-                          <header>
-                            <span className="paper-picker-question-number">{question.number ?? '—'}</span>
-                            <strong id={`paper-bank-question-${question.id}`}>
-                              {questionLabel(question)}
-                            </strong>
-                            <span className="paper-bank-question-status">
-                              {isSelected
-                                ? '已选择'
-                                : question.status === 'ready'
-                                  ? '题图已就绪'
-                                  : '待核对'}
-                            </span>
-                          </header>
-                          <div className="paper-picker-question-content">
-                            {question.questionImageUrl ? (
-                              <img
-                                src={question.questionImageUrl}
-                                alt={`${questionLabel(question)}题目`}
-                                width={question.imageWidth ?? undefined}
-                                height={question.imageHeight ?? undefined}
-                                loading="lazy"
-                              />
-                            ) : question.statementMarkdown ? (
-                              <p>{question.statementMarkdown}</p>
-                            ) : (
-                              <p>暂无可用题目内容</p>
-                            )}
-                          </div>
-                          <footer>
-                            <span>
-                              {isSelected
-                                ? '选择已保存到当前链接，刷新后仍会回到这道题'
-                                : '仅展示题目，解析未提前显示'}
-                            </span>
-                            <button
-                              type="button"
-                              disabled={isSelected || !hasQuestionContent}
-                              aria-label={`${isSelected ? '已选择' : '选择'}${questionLabel(question)}`}
-                              onClick={() => confirmQuestion(question)}
-                            >
-                              {isSelected ? '已选择' : '选择'}
-                            </button>
-                          </footer>
-                        </article>
+                        <QuestionCard
+                          question={question}
+                          selected={isSelected}
+                          onSelect={confirmQuestion}
+                        />
                       </li>
                     );
                   })}

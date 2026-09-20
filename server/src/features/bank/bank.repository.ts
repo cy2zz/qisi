@@ -23,6 +23,9 @@ interface StoredPaperMetadata {
 }
 
 interface StoredQuestionMetadata {
+  analysisImage?: StoredImageMetadata;
+  knowledgePointTags?: string[];
+  paperSourceFile?: string;
   questionImage?: StoredImageMetadata;
 }
 
@@ -174,15 +177,42 @@ export class BankRepository {
   async getQuestionForAnalysis(questionId: string) {
     const question = await this.database.client
       .selectFrom('question')
-      .select(['question_image_url', 'statement_markdown'])
+      .select([
+        'analysis_image_url',
+        'analysis_markdown',
+        'metadata_json',
+        'question_code',
+        'question_image_url',
+        'statement_markdown',
+        'status',
+      ])
       .where('id', '=', questionId)
       .where('status', '!=', 'invalid')
       .executeTakeFirst();
     if (!question) return undefined;
 
+    const paper = await this.database.client
+      .selectFrom('paper_question as relation')
+      .innerJoin('paper as paper', 'paper.id', 'relation.paper_id')
+      .select(['paper.is_official', 'paper.paper_code', 'paper.title'])
+      .where('relation.question_id', '=', questionId)
+      .orderBy('relation.id', 'asc')
+      .executeTakeFirst();
+    const metadata = parseMetadata<StoredQuestionMetadata>(question.metadata_json);
+
     return {
+      analysisImageUrl: question.analysis_image_url,
+      analysisMarkdown: question.analysis_markdown,
+      bankVersion: paper?.paper_code ?? metadata.paperSourceFile ?? 'unversioned-bank-question',
+      isOfficial: paper?.is_official === 1,
+      questionCode: question.question_code,
       questionImageUrl: question.question_image_url,
+      source: paper?.title ?? metadata.paperSourceFile ?? question.question_code ?? `题库题目 ${questionId}`,
       statementMarkdown: question.statement_markdown,
+      status: question.status === 'ready' ? 'ready' as const : 'needs_review' as const,
+      topicTags: Array.isArray(metadata.knowledgePointTags)
+        ? metadata.knowledgePointTags.filter((tag): tag is string => typeof tag === 'string')
+        : [],
     };
   }
 }

@@ -2,7 +2,7 @@
   "baseline": "qisi-3.1",
   "acceptance_id": "AT02",
   "result": "partial",
-  "executed_at": "2026-09-19T10:18:00+08:00",
+  "executed_at": "2026-09-20T06:34:07+08:00",
   "executed_by": "Codex self_review",
   "application_commit": null,
   "layer": "integration_and_visual",
@@ -22,6 +22,10 @@
     "npm --prefix web test (5 files / 15 tests)",
     "npm run test:e2e -- web/tests/e2e/a02-fixture-flow.spec.ts (4/4 viewports)",
     "standalone /bank dialog-style visual self-review at 1440x900 and 390x844",
+    "npm --prefix web run test -- --run src/pages/bank/QuestionCard.spec.tsx src/pages/bank/PaperBankPage.spec.tsx src/pages/bank/PaperPickerDialog.spec.tsx (14/14)",
+    "npx playwright test web/tests/e2e/a02-fixture-flow.spec.ts (8/8 across four viewports)",
+    "npm --prefix web run test (22 files / 97 tests)",
+    "npm run test:e2e (80/80)",
     "git diff --check"
   ],
   "expected": "Create the three local tables, import every online paper manifest, filter papers by year/region-or-paper-variant/track/keyword, preview and select a question without exposing analysis.",
@@ -54,6 +58,16 @@
     "standalone_canvas": "white",
     "question_images_preserve_aspect_ratio": true,
     "mobile_wide_question_images_scroll_horizontally": true,
+    "selection_waits_for_readable_question_stem": true,
+    "question_image_failure_retryable": true,
+    "missing_question_stem_compact_and_disabled": true,
+    "wide_question_image_zoom_toggle": true,
+    "mobile_wide_image_default": "readable-scale with internal horizontal pan",
+    "question_image_ratio_audit": {
+      "count": 1151,
+      "wide_ratio_gte_2_count": 1035,
+      "median_width_height_ratio": 5.41
+    },
     "mobile_close_target_px": 44,
     "horizontal_overflow": false
   },
@@ -62,7 +76,11 @@
     "server/src/features/bank/bank.controller.spec.ts",
     "web/src/pages/bank/PaperBankPage.spec.tsx",
     "web/src/pages/bank/PaperPickerDialog.spec.tsx",
+    "web/src/pages/bank/QuestionCard.tsx",
+    "web/src/pages/bank/QuestionCard.spec.tsx",
     "web/tests/e2e/a02-fixture-flow.spec.ts",
+    "artifacts/acceptance/A02-bank-pc-1440.png",
+    "artifacts/acceptance/A02-bank-h5-390.png",
     "qisi-sdd-v3/handoffs/A02.md"
   ],
   "limitations": [

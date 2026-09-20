@@ -30,8 +30,148 @@ test.beforeEach(async ({ page }) => {
   });
 });
 
+test('@A04 independent assessment direct URL preserves the original-answer gate', async ({ page }) => {
+  await page.route('**/api/assessment/**', async (route) => {
+    if (route.request().method() === 'GET') {
+      await route.fulfill({ body: '{}', contentType: 'application/json', status: 404 });
+      return;
+    }
+    await route.fulfill({
+      body: JSON.stringify({ code: 'ORIGINAL_ANSWER_NOT_READY' }),
+      contentType: 'application/json',
+      status: 409,
+    });
+  });
+
+  await page.goto('/learn/12/check');
+  await page.getByRole('button', { name: '开始独立检验' }).click();
+  await expect(page.getByRole('alert')).toContainText('先回到原题完成核对');
+  const returnLink = page.getByRole('link', { name: '返回原题完成核对' });
+  await expect(returnLink).toHaveAttribute('href', '/study?session=12');
+  const size = await returnLink.boundingBox();
+  expect(size?.height).toBeGreaterThanOrEqual(44);
+});
+
+test('@A03 @A04 handwriting is confirmed before an assessment plan is locked', async ({ page }, testInfo) => {
+  let current = { ...baseAttempt };
+  let submittedPlan: Record<string, unknown> | undefined;
+  await page.route('**/api/assessment/**', async (route) => {
+    const pathname = new URL(route.request().url()).pathname;
+    if (pathname.endsWith('/draft')) {
+      const body = route.request().postDataJSON() as {
+        kind: 'answer' | 'plan';
+        markdown: string;
+      };
+      current = {
+        ...current,
+        planDraftMarkdown: body.kind === 'plan' ? body.markdown : current.planDraftMarkdown,
+        version: current.version + 1,
+      };
+    } else if (pathname.endsWith('/plan')) {
+      submittedPlan = route.request().postDataJSON() as Record<string, unknown>;
+      current = {
+        ...current,
+        lockedPlanMarkdown: String(submittedPlan.planMarkdown),
+        phase: 'check_answer' as const,
+        planDraftMarkdown: String(submittedPlan.planMarkdown),
+        version: current.version + 1,
+      };
+    }
+    await route.fulfill({
+      body: JSON.stringify({ attempt: current }),
+      contentType: 'application/json',
+      status: 200,
+    });
+  });
+  await page.route('**/api/media/handwriting?sessionId=12', async (route) => {
+    await route.fulfill({
+      body: JSON.stringify({
+        image: { height: 800, mediaId: '31', url: '/api/media/31', width: 1200 },
+        transcript: {
+          confirmed: false,
+          id: '41',
+          lines: [
+            { explicitly_confirmed: false, index: 1, text: '先配方', uncertain: false },
+            { explicitly_confirmed: false, index: 2, text: '再利用平方项非负', uncertain: true },
+          ],
+          media_id: '31',
+          revision: 1,
+        },
+      }),
+      contentType: 'application/json',
+      status: 200,
+    });
+  });
+  await page.route('**/api/media/transcripts/41/confirm', async (route) => {
+    await route.fulfill({
+      body: JSON.stringify({
+        confirmed: true,
+        id: '41',
+        lines: [
+          { explicitly_confirmed: false, index: 1, text: '先配方', uncertain: false },
+          { explicitly_confirmed: true, index: 2, text: '再利用平方项非负', uncertain: true },
+        ],
+        media_id: '31',
+        revision: 2,
+      }),
+      contentType: 'application/json',
+      status: 200,
+    });
+  });
+
+  await page.goto('/learn/12/check');
+  await expect(page.getByRole('button', { name: '添加手写作答' })).toBeVisible();
+  await page.getByLabel('选择手写作答图片').setInputFiles({
+    buffer: Buffer.from(
+      'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9Y9ZQmcAAAAASUVORK5CYII=',
+      'base64',
+    ),
+    mimeType: 'image/png',
+    name: 'assessment-plan.png',
+  });
+  await page.getByRole('button', { name: '识别手写作答' }).click();
+
+  const review = page.getByRole('region', { name: '手写转写核对' });
+  await expect(review).toBeVisible();
+  await expect(page.getByRole('textbox', { name: '独立检验作答' })).toBeHidden();
+  await expect(page.getByRole('button', { name: '锁定计划，开始作答' })).toBeDisabled();
+  await expect(page.getByRole('button', { name: '我需要帮助' })).toBeDisabled();
+  const confirm = review.getByRole('button', { name: '确认转写并放入输入框' });
+  await expect(confirm).toBeDisabled();
+
+  const viewport = page.viewportSize();
+  const isMobile = (viewport?.width ?? 0) <= 720;
+  const columns = await review.evaluate(
+    (element) => window.getComputedStyle(element).gridTemplateColumns,
+  );
+  expect(columns.split(' ')).toHaveLength(isMobile ? 1 : 2);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+    viewport?.width ?? 1440,
+  );
+  if (testInfo.project.name === 'pc-1440' || testInfo.project.name === 'h5-390') {
+    await page.screenshot({
+      fullPage: true,
+      path: `artifacts/acceptance/A03-assessment-handwriting-${testInfo.project.name}.png`,
+    });
+  }
+
+  await review.getByRole('button', { name: '确认第 2 行' }).click();
+  await confirm.click();
+  const lockPlan = page.getByRole('button', { name: '锁定计划，开始作答' });
+  await expect(lockPlan).toBeEnabled();
+  await lockPlan.click();
+  await expect(page.getByRole('heading', { name: '现在独立完成答案' })).toBeVisible();
+  expect(submittedPlan).toMatchObject({
+    planMarkdown: '先配方\n\n再利用平方项非负',
+    transcriptId: '41',
+    transcriptRevision: 2,
+  });
+});
+
 test('@A04 @AT30 locks the first plan and withholds feedback until final submission', async ({ page }, testInfo) => {
   let current: typeof baseAttempt | Record<string, unknown> | null = null;
+  const initialViewport = page.viewportSize();
+  const isMobile = (initialViewport?.width ?? 0) <= 720;
   await page.route('**/api/assessment/**', async (route) => {
     const url = new URL(route.request().url());
     if (route.request().method() === 'GET') {
@@ -44,14 +184,27 @@ test('@A04 @AT30 locks the first plan and withholds feedback until final submiss
     }
     if (url.pathname.endsWith('/start')) {
       current = baseAttempt;
+    } else if (url.pathname.endsWith('/draft')) {
+      const body = route.request().postDataJSON() as {
+        kind: 'answer' | 'plan';
+        markdown: string;
+      };
+      const version = Number((current as { version?: number } | null)?.version ?? 0) + 1;
+      current = {
+        ...current,
+        ...(body.kind === 'plan'
+          ? { planDraftMarkdown: body.markdown }
+          : { answerDraftMarkdown: body.markdown }),
+        version,
+      };
     } else if (url.pathname.endsWith('/plan')) {
       const body = route.request().postDataJSON() as { planMarkdown: string };
       current = {
-        ...baseAttempt,
+        ...current,
         lockedPlanMarkdown: body.planMarkdown,
         phase: 'check_answer',
         planDraftMarkdown: body.planMarkdown,
-        version: 2,
+        version: Number((current as { version?: number } | null)?.version ?? 0) + 1,
       };
     } else if (url.pathname.endsWith('/finish')) {
       const body = route.request().postDataJSON() as { answerMarkdown: string };
@@ -86,7 +239,55 @@ test('@A04 @AT30 locks the first plan and withholds feedback until final submiss
   await expect(page.getByText('有依据')).toHaveCount(0);
 
   const editor = page.getByRole('textbox', { name: '独立检验作答' });
+  if (isMobile) {
+    await page.setViewportSize({ width: initialViewport!.width, height: 560 });
+    await editor.focus();
+    await expect(page.locator('.assessment-paper')).toHaveAttribute('data-collapsed', 'true');
+    const expandTask = page.getByRole('button', { name: '展开完整题目' });
+    await expect(expandTask).toBeVisible();
+    await expect(page.locator('.assessment-paper-compact')).toBeInViewport();
+    await expect(editor).toBeInViewport();
+    const compactPaper = await page.locator('.assessment-paper').boundingBox();
+    const expandTaskBox = await expandTask.boundingBox();
+    expect(compactPaper).not.toBeNull();
+    expect(expandTaskBox).not.toBeNull();
+    expect(compactPaper!.height).toBeLessThanOrEqual(150);
+    expect(expandTaskBox!.x).toBeGreaterThanOrEqual(compactPaper!.x);
+    expect(expandTaskBox!.x + expandTaskBox!.width).toBeLessThanOrEqual(
+      compactPaper!.x + compactPaper!.width,
+    );
+    if (testInfo.project.name === 'h5-390') {
+      await page.screenshot({
+        path: 'artifacts/acceptance/A04-writing-keyboard-h5-390.png',
+      });
+    }
+    await page.setViewportSize(initialViewport!);
+  }
+  await page.getByRole('button', { name: '插入分式' }).click();
+  await editor.press('2');
+  await page.getByRole('button', { name: '移动到下一个公式输入格' }).click();
+  await editor.press('3');
+  await expect(editor).toHaveValue('$\\frac{2}{3}$');
+  await editor.press('End');
+  const systemsButton = page.getByRole('button', { name: '插入联立式' });
+  await systemsButton.click();
+  await expect(editor).toHaveValue(/\\begin\{cases\}/);
+
   await editor.fill('先配方，再利用平方项非负。');
+  await expect(page.getByRole('status', { name: '草稿保存状态' })).toHaveText('已自动保存');
+
+  await page.reload();
+  await expect(page.getByRole('heading', { name: '先写你准备怎么做' })).toBeVisible();
+  await expect(page.getByRole('textbox', { name: '独立检验作答' })).toHaveValue('先配方，再利用平方项非负。');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+    page.viewportSize()?.width ?? 1440,
+  );
+  if (testInfo.project.name === 'pc-1440' || testInfo.project.name === 'h5-390') {
+    await page.screenshot({
+      fullPage: true,
+      path: `artifacts/acceptance/A04-autosave-${testInfo.project.name}.png`,
+    });
+  }
   await page.getByRole('button', { name: '锁定计划，开始作答' }).click();
   await expect(page.getByRole('note', { name: '已锁定的首次计划' })).toContainText('先配方');
   await expect(page.getByText('有依据')).toHaveCount(0);
@@ -102,10 +303,16 @@ test('@A04 @AT30 locks the first plan and withholds feedback until final submiss
   await page.getByRole('button', { name: '提交最终答案' }).click();
   await expect(page.getByRole('heading', { name: '这次新题独立完成' })).toBeVisible();
   await expect(page.getByText('独立证据成立')).toHaveCount(2);
+  const submittedEvidence = page.getByRole('region', { name: '你的独立作答证据' });
+  await expect(submittedEvidence).toContainText('先配方，再利用平方项非负');
+  await expect(submittedEvidence).toContainText('最小值为');
+  await expect(submittedEvidence.locator('.katex')).not.toHaveCount(0);
+  await expect(page.getByRole('region', { name: '本次核对依据' })).toContainText(
+    '最终答案给出顶点式和最小值',
+  );
   await expect(page.getByText('掌握百分比')).toHaveCount(0);
 
   const viewport = page.viewportSize();
-  const isMobile = (viewport?.width ?? 0) <= 720;
   if (isMobile) {
     const workbenchDisplay = await page.locator('.assessment-workbench').evaluate(
       (element) => window.getComputedStyle(element).display,
@@ -128,8 +335,9 @@ test('@A04 @AT30 locks the first plan and withholds feedback until final submiss
   }
 });
 
-test('@A04 @AT32 requesting help records disqualification before any help is exposed', async ({ page }) => {
+test('@A04 @AT32 requesting help records disqualification before any help is exposed', async ({ page }, testInfo) => {
   let current: Record<string, unknown> = baseAttempt;
+  let helpRequests = 0;
   const helpAnalysis = {
     firstQuestion: '先指出你卡住的位置，或在下方选择需要的帮助深度。',
     keyConditions: [],
@@ -140,6 +348,7 @@ test('@A04 @AT32 requesting help records disqualification before any help is exp
   await page.route('**/api/assessment/**', async (route) => {
     const url = new URL(route.request().url());
     if (url.pathname.endsWith('/help')) {
+      helpRequests += 1;
       const body = route.request().postDataJSON() as { currentMarkdown: string };
       current = {
         ...baseAttempt,
@@ -209,10 +418,34 @@ test('@A04 @AT32 requesting help records disqualification before any help is exp
   await page.getByRole('textbox', { name: '独立检验作答' }).fill('我准备先配方。');
   await page.getByRole('button', { name: '我需要帮助' }).click();
   const confirmation = page.getByRole('alertdialog', { name: '结束本次独立检验并求助' });
+  await expect(confirmation).toHaveAttribute('aria-modal', 'true');
   await expect(confirmation).toContainText('只记为“带帮助完成”');
-  await confirmation.getByRole('button', { name: '确认求助' }).click();
+  const continueWorking = confirmation.getByRole('button', { name: '继续独立完成' });
+  const confirmHelp = confirmation.getByRole('button', { name: '确认求助' });
+  await expect(continueWorking).toBeFocused();
+  if (testInfo.project.name === 'pc-1440' || testInfo.project.name === 'h5-390') {
+    await page.screenshot({
+      fullPage: true,
+      path: `artifacts/acceptance/A04-help-confirm-${testInfo.project.name}.png`,
+    });
+  }
+  await page.keyboard.press('Shift+Tab');
+  await expect(confirmHelp).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(continueWorking).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(confirmation).toBeHidden();
+  await expect(page.getByRole('textbox', { name: '独立检验作答' })).toBeFocused();
+  expect(helpRequests).toBe(0);
+
+  await page.getByRole('button', { name: '我需要帮助' }).click();
+  await expect(continueWorking).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(confirmHelp).toBeFocused();
+  await page.keyboard.press('Enter');
 
   await expect(page.getByRole('heading', { name: '当前草稿已保留' })).toBeVisible();
+  expect(helpRequests).toBe(1);
   await expect(page.getByText(/实际帮助尚未发出/)).toBeVisible();
   await expect(page.getByRole('link', { name: '进入同题教学' })).toHaveAttribute(
     'href',
@@ -267,6 +500,8 @@ test('@A06 @AT34 starts a distinct reassessment without replacing the previous r
 
   await page.goto('/learn/12/check');
   await expect(page.getByRole('heading', { name: '这次新题独立完成' })).toBeVisible();
+  await expect(page.getByRole('region', { name: '你的独立作答证据' })).toContainText('先配方');
+  await expect(page.getByRole('region', { name: '你的独立作答证据' }).locator('.katex')).toBeVisible();
   await expect(page.getByRole('link', { name: '查看完整学习报告' })).toHaveAttribute(
     'href',
     '/learn/12/report',
@@ -289,6 +524,278 @@ test('@A06 @AT34 starts a distinct reassessment without replacing the previous r
   }
 });
 
+test('@A04 @A06 correction success enters a different task without replaying the old summary', async ({ page }, testInfo) => {
+  const completedAttempt = {
+    ...baseAttempt,
+    finalAnswerMarkdown: String.raw`$g(x)=(x-3)^2+4$。`,
+    lockedPlanMarkdown: '先配方，再修正常数项。',
+    phase: 'summary',
+    result: {
+      evidence: ['修正前的独立检验执行有误'],
+      execution: 'incorrect',
+      independentExecution: false,
+      independentPlanning: true,
+      independentTaskPass: false,
+      limitations: ['这份结果只用于保留修正前证据。'],
+      planning: 'correct',
+      summary: '计划有依据，执行需要修正。',
+    },
+    version: 4,
+  };
+  const reassessment = {
+    ...baseAttempt,
+    id: '82',
+    promptMarkdown: String.raw`抛物线 $y=x^2-10x+21$ 的顶点纵坐标是多少？`,
+    sessionId: '13',
+    taskId: '62',
+  };
+  let current: typeof completedAttempt | typeof reassessment = completedAttempt;
+  let reassessmentRequests = 0;
+  await page.route('**/api/assessment/**', async (route) => {
+    const pathname = new URL(route.request().url()).pathname;
+    if (pathname.endsWith('/reassess')) {
+      reassessmentRequests += 1;
+      current = reassessment;
+    }
+    await route.fulfill({
+      body: JSON.stringify({ attempt: current }),
+      contentType: 'application/json',
+      status: 200,
+    });
+  });
+
+  await page.goto('/learn/12/check?intent=reassess');
+
+  await expect(page.getByRole('heading', { name: '先写你准备怎么做' })).toBeVisible();
+  await expect(page.getByText(/顶点纵坐标/)).toBeVisible();
+  await expect(page.getByText('计划有依据，执行需要修正。')).toHaveCount(0);
+  await expect(page).toHaveURL(/\/learn\/12\/check$/);
+  await expect(page.getByRole('textbox', { name: '独立检验作答' })).toBeFocused();
+  expect(reassessmentRequests).toBe(1);
+
+  await page.reload();
+  await expect(page.getByRole('heading', { name: '先写你准备怎么做' })).toBeVisible();
+  expect(reassessmentRequests).toBe(1);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+    page.viewportSize()?.width ?? 1440,
+  );
+  if (testInfo.project.name === 'pc-1440' || testInfo.project.name === 'h5-390') {
+    await page.screenshot({
+      fullPage: true,
+      path: `artifacts/acceptance/A06-remediation-direct-reassessment-${testInfo.project.name}.png`,
+    });
+  }
+});
+
+test('@A04 @AT30 routes an execution failure back to correction before reassessment', async ({ page }, testInfo) => {
+  let chatRequests = 0;
+  const remediationRequests: Array<{ remediationFocus?: string }> = [];
+  let persistedRemediationFocus: string | null = null;
+  let learningVersion = 4;
+  const executionFailure = {
+    ...baseAttempt,
+    finalAnswerMarkdown: String.raw`$g(x)=(x-3)^2+4$。`,
+    lockedPlanMarkdown: '先配方，再利用平方项非负。',
+    phase: 'summary',
+    result: {
+      evidence: ['首次计划明确使用配方法', '最终常数项计算有误'],
+      execution: 'incorrect',
+      independentExecution: false,
+      independentPlanning: true,
+      independentTaskPass: false,
+      limitations: ['任务尚未经过人工审题。'],
+      planning: 'correct',
+      summary: '计划有依据，执行需要修正。',
+    },
+    version: 4,
+  };
+  await page.route('**/api/assessment/**', async (route) => {
+    await route.fulfill({
+      body: JSON.stringify({ attempt: executionFailure }),
+      contentType: 'application/json',
+      status: 200,
+    });
+  });
+  const learningRecord = {
+    content: baseAttempt.promptMarkdown,
+    id: '12',
+    problemMd: baseAttempt.promptMarkdown,
+    title: '二次函数最值 · 执行修正',
+    topic: '二次函数 · 配方法',
+    updatedAt: '2026-09-20T00:00:00.000Z',
+    version: 4,
+  };
+  await page.route('**/api/learning/sessions**', async (route) => {
+    const pathname = new URL(route.request().url()).pathname;
+    if (pathname === '/api/learning/sessions/12/remediation') {
+      const body = route.request().postDataJSON() as { focus: string | null };
+      persistedRemediationFocus = body.focus;
+      await route.fulfill({
+        body: JSON.stringify({ remediationFocus: persistedRemediationFocus }),
+        contentType: 'application/json',
+        status: 200,
+      });
+      return;
+    }
+    if (pathname === '/api/learning/sessions/12/draft') {
+      await route.fulfill({
+        body: JSON.stringify({ savedAt: '2026-09-20T00:00:01.000Z' }),
+        contentType: 'application/json',
+        status: 200,
+      });
+      return;
+    }
+    if (pathname === '/api/learning/sessions/12') {
+      await route.fulfill({
+        body: JSON.stringify({
+          analysis: {
+            firstQuestion: '哪一行计算或变形与原计划不一致？',
+            keyConditions: ['计划使用配方法', '最终常数项计算有误'],
+            knowledgePoints: ['配方法', '代数运算'],
+            overview: '方法已经成立，本轮只定位执行中的计算或变形错误。',
+            target: '修正执行步骤，不重新更换解题方法。',
+          },
+          draftMarkdown: '我原来写到这里。',
+          remediationFocus: persistedRemediationFocus,
+          messages: [{
+            content: '方法已经成立，本轮只定位执行中的计算或变形错误。',
+            id: '1',
+            messageType: 'analysis',
+            role: 'guide',
+          }],
+          record: { ...learningRecord, version: learningVersion },
+        }),
+        contentType: 'application/json',
+        status: 200,
+      });
+      return;
+    }
+    await route.fulfill({
+      body: JSON.stringify({ sessions: [learningRecord] }),
+      contentType: 'application/json',
+      status: 200,
+    });
+  });
+  await page.route('**/api/problems/chat', async (route) => {
+    chatRequests += 1;
+    remediationRequests.push(route.request().postDataJSON() as { remediationFocus?: string });
+    learningVersion += 1;
+    await route.fulfill({
+      body: [
+        'event: chunk\ndata: {"text":"先圈出第一处和原计划不一致的变形，再只重算这一行。"}',
+        `event: done\ndata: ${JSON.stringify({ version: learningVersion })}`,
+        '',
+      ].join('\n\n'),
+      contentType: 'text/event-stream',
+      status: 200,
+    });
+  });
+
+  await page.goto('/learn/12/check');
+  await expect(page.getByRole('heading', { name: '方法有依据，执行还需要修正' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '方法已经成立，下一步只处理执行卡点' })).toBeVisible();
+  const remediation = page.getByRole('link', { name: '回学习页处理执行卡点' });
+  await expect(remediation).toHaveAttribute('href', '/study?session=12&remediate=execution');
+  await expect(page.getByText('先修正执行，再决定是否换题')).toBeVisible();
+  await expect(page.getByRole('button', { name: '换题再测' })).toBeVisible();
+  await expect(page.getByRole('button', { name: '再测一道不同的新题' })).toHaveCount(0);
+
+  const viewport = page.viewportSize();
+  if ((viewport?.width ?? 0) <= 720) {
+    for (const action of await page.locator('.assessment-summary-actions > a, .assessment-summary-actions > button').all()) {
+      const size = await action.boundingBox();
+      expect(size?.height).toBeGreaterThanOrEqual(44);
+    }
+  }
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+    viewport?.width ?? 1440,
+  );
+  if (testInfo.project.name === 'pc-1440' || testInfo.project.name === 'h5-390') {
+    await page.screenshot({
+      fullPage: true,
+      path: `artifacts/acceptance/A04-check-remediation-${testInfo.project.name}.png`,
+    });
+  }
+
+  await remediation.click();
+  await expect(page).toHaveURL(/\/study\?session=12&remediate=execution$/);
+  const handoff = page.getByRole('region', { name: '独立检验修正衔接' });
+  await expect(handoff).toContainText('方法已经成立，只定位执行卡点');
+  await expect(handoff).toContainText('不会自动发送');
+  const editor = page.getByRole('textbox', { name: '输入题目或想法' });
+  await expect(editor).not.toBeFocused();
+  if ((viewport?.width ?? 0) <= 720) {
+    for (const action of await handoff.getByRole('button').all()) {
+      const size = await action.boundingBox();
+      expect(size?.height).toBeGreaterThanOrEqual(44);
+    }
+  }
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+    viewport?.width ?? 1440,
+  );
+  if (testInfo.project.name === 'pc-1440' || testInfo.project.name === 'h5-390') {
+    await page.screenshot({
+      fullPage: true,
+      path: `artifacts/acceptance/A04-remediation-handoff-${testInfo.project.name}.png`,
+    });
+  }
+  await handoff.getByRole('button', { name: '写下执行卡点' }).click();
+  await expect(editor).toContainText('我原来写到这里。');
+  await expect(editor).toContainText('我的方法是对的，但执行中有一步需要修正。我卡在：');
+  await expect(editor).toBeFocused();
+  await expect(page).toHaveURL(/\/study\?session=12$/);
+  expect(chatRequests).toBe(0);
+  await expect.poll(() => persistedRemediationFocus).toBe('execution');
+  const focus = page.getByRole('status', { name: '本轮修正目标' });
+  await expect(focus).toContainText('只处理执行卡点');
+  if ((viewport?.width ?? 0) <= 720) {
+    for (const action of await focus.getByRole('button').all()) {
+      const size = await action.boundingBox();
+      expect(size?.height).toBeGreaterThanOrEqual(44);
+      expect(size?.width).toBeGreaterThanOrEqual(120);
+    }
+  }
+  await editor.pressSequentially('展开后符号不确定。');
+  await page.getByRole('button', { name: '发送' }).click();
+  await expect(page.getByText('先圈出第一处和原计划不一致的变形')).toBeVisible();
+  expect(remediationRequests[0]?.remediationFocus).toBe('execution');
+  await expect(focus).toContainText('只处理执行卡点');
+  await expect(page.getByLabel('修正类型：只处理执行卡点')).toBeVisible();
+
+  await editor.fill('我只重算刚才出错的常数项。');
+  await page.getByRole('button', { name: '发送' }).click();
+  expect(remediationRequests[1]?.remediationFocus).toBe('execution');
+  await expect(focus).toContainText('后续作答会继续按这个范围诊断');
+  await expect(page.locator('.chat-message-guide .guide-reply-row')).toHaveCount(2);
+  await expect(page.getByRole('group', { name: '学习帮助' })).toHaveCount(0);
+  await expect(focus.getByRole('button', { name: '核对修正结果' })).toBeVisible();
+  if (testInfo.project.name === 'pc-1440' || testInfo.project.name === 'h5-390') {
+    await page.screenshot({
+      fullPage: true,
+      path: `artifacts/acceptance/A04-remediation-track-${testInfo.project.name}.png`,
+    });
+  }
+
+  await page.reload();
+  await expect(focus).toContainText('只处理执行卡点');
+  await focus.getByRole('button', { name: '退出修正模式' }).click();
+  await expect(focus).toHaveCount(0);
+  await expect.poll(() => persistedRemediationFocus).toBeNull();
+  await editor.fill('现在改为普通讨论。');
+  await page.getByRole('button', { name: '发送' }).click();
+  expect(remediationRequests[2]?.remediationFocus).toBeUndefined();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+    viewport?.width ?? 1440,
+  );
+  if (testInfo.project.name === 'pc-1440' || testInfo.project.name === 'h5-390') {
+    await page.screenshot({
+      fullPage: true,
+      path: `artifacts/acceptance/A04-remediation-turn-${testInfo.project.name}.png`,
+    });
+  }
+  expect(chatRequests).toBe(3);
+});
+
 test('@A05 @AT33 evidence report keeps planning and execution separate', async ({ page }, testInfo) => {
   await page.route('**/api/reports/sessions/12', async (route) => {
     await route.fulfill({
@@ -303,6 +810,10 @@ test('@A05 @AT33 evidence report keeps planning and execution separate', async (
           independent_task_pass: false,
           invalidated: false,
           limitations: ['任务由模型生成并独立复核，尚未经过人工审题。'],
+          locked_plan_markdown: '先配方，再利用平方项非负。',
+          plan_unanswered: false,
+          final_answer_markdown: '$g(x)=(x-3)^2-4$，所以最小值为 $-4$。',
+          phase: 'summary',
           planning: 'correct',
           relation: 'near_transfer',
           task_id: '61',
@@ -333,7 +844,18 @@ test('@A05 @AT33 evidence report keeps planning and execution separate', async (
   await expect(page.getByRole('heading', { name: '还需要验证什么' })).toBeVisible();
   await expect(page.getByText('独立证据成立')).toHaveCount(1);
   await expect(page.getByText('未形成独立通过证据')).toHaveCount(1);
+  const frozenWork = page.getByRole('region', { name: '本次冻结的独立作答' });
+  await expect(frozenWork.getByRole('heading', { name: '首次计划' })).toBeVisible();
+  await expect(frozenWork).toContainText('先配方，再利用平方项非负');
+  await expect(frozenWork.getByRole('heading', { name: '最终答案' })).toBeVisible();
+  await expect(frozenWork).toContainText('所以最小值为');
+  await expect(frozenWork.locator('.katex')).not.toHaveCount(0);
   await expect(page.getByText('整题不记为独立通过；计划和执行继续分开保留。')).toBeVisible();
+  await expect(page.getByRole('heading', { name: '方法不用推倒重来，只修执行卡点' })).toBeVisible();
+  await expect(page.getByRole('link', { name: '回学习页处理执行卡点' })).toHaveAttribute(
+    'href',
+    '/study?session=12&remediate=execution',
+  );
   await expect(page.getByText(/\d+%/)).toHaveCount(0);
 
   const viewport = page.viewportSize();
@@ -358,4 +880,67 @@ test('@A05 @AT33 evidence report keeps planning and execution separate', async (
       path: `artifacts/acceptance/A05-report-${testInfo.project.name}.png`,
     });
   }
+});
+
+test('@A05 @A09 @AT56 report loading failure is recoverable by keyboard', async ({ page }, testInfo) => {
+  let requestCount = 0;
+  let allowSuccess = false;
+  let releaseRetry: (() => void) | undefined;
+  const retryGate = new Promise<void>((resolve) => {
+    releaseRetry = resolve;
+  });
+  await page.route('**/api/reports/sessions/12', async (route) => {
+    requestCount += 1;
+    if (!allowSuccess) {
+      await route.fulfill({
+        body: JSON.stringify({ code: 'TEMPORARY_FAILURE' }),
+        contentType: 'application/json',
+        status: 503,
+      });
+      return;
+    }
+    await retryGate;
+    await route.fulfill({
+      body: JSON.stringify({
+        attempts: [],
+        delayed_evidence: 'not_evaluated',
+        limitations: ['近迁移结果只说明本次任务表现，不等同于长期掌握。'],
+        observations: ['原题仍在进行中。'],
+        original_status: 'in_progress',
+        session_id: '12',
+      }),
+      contentType: 'application/json',
+      status: 200,
+    });
+  });
+
+  await page.goto('/learn/12/report');
+  const retry = page.getByRole('button', { name: '重新读取学习报告' });
+  await expect(page.getByRole('heading', { name: '学习报告还没加载出来' })).toBeVisible();
+  await expect(retry).toBeFocused();
+  const viewport = page.viewportSize();
+  if ((viewport?.width ?? 0) <= 720) {
+    const size = await retry.boundingBox();
+    expect(size?.height).toBeGreaterThanOrEqual(44);
+  }
+  if (testInfo.project.name === 'pc-1440' || testInfo.project.name === 'h5-390') {
+    await page.screenshot({
+      fullPage: true,
+      path: `artifacts/acceptance/A05-report-recovery-${testInfo.project.name}.png`,
+    });
+  }
+
+  allowSuccess = true;
+  await page.keyboard.press('Enter');
+  await expect(page.getByRole('status')).toContainText('正在重新读取学习报告');
+  await expect(page.getByRole('button', { name: '正在重新读取学习报告' })).toBeDisabled();
+  releaseRetry?.();
+
+  const reportTitle = page.getByRole('heading', { name: '这次学习留下了什么证据' });
+  await expect(reportTitle).toBeVisible();
+  await expect(reportTitle).toBeFocused();
+  expect(requestCount).toBeGreaterThanOrEqual(2);
+  expect(await page.evaluate(
+    () => document.documentElement.scrollWidth <= document.documentElement.clientWidth,
+  )).toBe(true);
 });

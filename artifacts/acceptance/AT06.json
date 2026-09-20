@@ -1,0 +1,43 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT06",
+  "result": "passed_self_review",
+  "executed_at": "2026-09-19T22:21:00+08:00",
+  "executed_by": "Codex self_review",
+  "application_commit": null,
+  "layer": "integration_cache_and_mysql",
+  "environment": "local MySQL 8.0.45 and Vitest",
+  "provider_mode": "fixture_model",
+  "commands": [
+    "npm --prefix server run db:migrate:dev",
+    "npm --prefix server run test:preparation-persistence",
+    "npm --prefix server test -- --run test/preparation/preparation.service.spec.ts"
+  ],
+  "expected": "A cached packet is reusable only for the exact problem hash and prompt/model/config/reference version; changed content cannot reuse the old packet.",
+  "actual": {
+    "mysql_migration": "v3_011_packets: Success",
+    "exact_key_cache_hit": true,
+    "changed_problem_hash_cache_miss": true,
+    "changed_reference_changes_runtime_version": true,
+    "changed_reference_image_changes_runtime_version": true,
+    "reference_image_forwarded_to_preparation_and_guard": true,
+    "exact_packet_version_bound_to_session_event": true,
+    "only_ready_bound_packet_reaches_tutor_turn": true,
+    "needs_review_round_trip": true,
+    "ready_update_round_trip": true,
+    "cleanup_exact_test_row": true
+  },
+  "evidence_files": [
+    "server/db/packets.sql",
+    "server/src/features/preparation/preparation.repository.ts",
+    "server/src/features/preparation/preparation.service.ts",
+    "server/src/features/learning/learning-session.service.ts",
+    "server/scripts/verify-preparation-persistence.ts",
+    "server/scripts/verify-learning-persistence.ts"
+  ],
+  "limitations": [
+    "The local integration database is MySQL 8.0.45; production-target MySQL 8.4 validation remains not_run.",
+    "Imported questions include original solution images, but the real provider returned HTTP 502 during the live multimodal run; live-bank packet readiness is therefore not claimed.",
+    "real_student_observation: not_run"
+  ]
+}

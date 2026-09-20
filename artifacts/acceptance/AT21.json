@@ -1,0 +1,34 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT21",
+  "result": "passed_self_review",
+  "executed_at": "2026-09-19T21:10:14+08:00",
+  "executed_by": "Codex self_review",
+  "application_commit": null,
+  "layer": "unit_semantic_gate",
+  "environment": "local Vitest",
+  "provider_mode": "fixture_model",
+  "commands": [
+    "npm --prefix server test -- --run src/features/analysis/problem-analysis.service.spec.ts -t nonexistent submission",
+    "npm --prefix server test -- --run src/features/analysis/problem-analysis.service.spec.ts"
+  ],
+  "expected": "Diagnosis references only current confirmed, non-invalidated submissions at the exact revision and quotes text that exists after explicit newline normalization.",
+  "actual": {
+    "missing_submission_rejected": true,
+    "wrong_revision_rejected_by_same_gate": true,
+    "empty_or_nonmatching_quote_rejected": true,
+    "unknown_satisfied_decision_rejected": true,
+    "unstable_focus_goal_rejected": true,
+    "invalid_diagnosis_persisted_as_completed_node": false,
+    "later_strategy_called_after_invalid_diagnosis": false
+  },
+  "evidence_files": [
+    "server/src/features/analysis/problem-analysis.service.ts",
+    "server/src/features/analysis/problem-analysis.service.spec.ts"
+  ],
+  "limitations": [
+    "Handwriting revisions are not yet persisted as formal confirmed Submission records, so this gate currently protects typed submissions in the live tutor path.",
+    "No independent reviewer or real student observation was performed.",
+    "real_student_observation: not_run"
+  ]
+}

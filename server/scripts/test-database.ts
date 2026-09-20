@@ -61,6 +61,7 @@ async function main() {
       'seen_tasks',
       'check_attempts',
       'owner_privacy_state',
+      'packets',
     ]) {
       if (!tableNames.has(requiredTable)) {
         throw new Error(`${requiredTable} table is missing`);
@@ -68,7 +69,7 @@ async function main() {
     }
 
     console.info(
-      `database smoke passed: MySQL ${current.version}, UTC, READ COMMITTED, users and learning persistence schema`,
+      `database smoke passed: MySQL ${current.version}, UTC, READ COMMITTED, users, packets, and learning persistence schema`,
     );
   } finally {
     await database.destroy();

@@ -1,0 +1,36 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT23",
+  "result": "passed_self_review",
+  "executed_at": "2026-09-19T21:10:14+08:00",
+  "executed_by": "Codex self_review",
+  "application_commit": null,
+  "layer": "real_mysql_integration_and_controller_unit",
+  "environment": "local NestJS code; local MySQL 8.0.45 development database",
+  "provider_mode": "fixture_probe_with_real_database_commit",
+  "commands": [
+    "npm --prefix server test -- --run src/features/analysis/problem-analysis.controller.spec.ts src/features/learning/learning-session.service.spec.ts",
+    "npm --prefix server run test:persistence"
+  ],
+  "expected": "Before a diagnostic probe is displayed, its question, expected evidence, counter-evidence and next action are atomically committed and cannot be rewritten after the student responds.",
+  "actual": {
+    "probe_event_committed_before_sse_chunks": true,
+    "question_markdown_persisted": true,
+    "two_branches_persisted": true,
+    "expected_persisted": true,
+    "counter_evidence_persisted": true,
+    "next_action_persisted": true,
+    "failed_commit_displays_probe": false,
+    "probe_payload_exposed_in_student_session_response": false
+  },
+  "evidence_files": [
+    "server/src/features/analysis/problem-analysis.controller.ts",
+    "server/src/features/learning/learning-session.service.ts",
+    "server/scripts/verify-learning-persistence.ts"
+  ],
+  "limitations": [
+    "The integration verifier uses a deterministic probe payload; live provider quality for the branch distinctions still requires B04 model review.",
+    "No independent reviewer or real student observation was performed.",
+    "real_student_observation: not_run"
+  ]
+}

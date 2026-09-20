@@ -33,8 +33,8 @@ const paper = {
       imageWidth: 1600,
       number: 1,
       questionCode: '2024年高考数学试卷（北京）#01',
-      questionImageUrl: 'https://example.test/question.png',
-      statementMarkdown: null,
+      questionImageUrl: 'https://example.test/question.png' as string | null,
+      statementMarkdown: null as string | null,
       status: 'ready',
     },
   ],
@@ -54,13 +54,13 @@ function renderPage(initialEntry = '/bank') {
   );
 }
 
-function mockBankApi() {
+function mockBankApi(paperDetail = paper) {
   return vi.spyOn(globalThis, 'fetch').mockImplementation((input) => {
     const url = String(input);
     const body = url.includes('/api/bank/filters')
       ? filters
       : url.includes('/api/bank/papers/41')
-        ? paper
+        ? paperDetail
         : papers;
     return Promise.resolve(
       new Response(JSON.stringify(body), {
@@ -97,11 +97,15 @@ describe('PaperBankPage', () => {
     expect(paperContent).toHaveClass('paper-picker-questions');
     expect(await within(paperContent).findAllByRole('article')).toHaveLength(1);
     expect(screen.queryByRole('heading', { name: '选择题号' })).not.toBeInTheDocument();
-    expect(screen.getByRole('button', { name: '选择第 1 题' })).toHaveTextContent('选择');
-    expect(await screen.findByRole('img', { name: '第 1 题题目' })).toHaveAttribute(
+    const questionImage = await screen.findByRole('img', { name: '第 1 题题目' });
+    expect(questionImage).toHaveAttribute(
       'src',
       'https://example.test/question.png',
     );
+    expect(screen.getByRole('button', { name: '选择第 1 题' })).toBeDisabled();
+    fireEvent.load(questionImage);
+    expect(screen.getByRole('button', { name: '选择第 1 题' })).toHaveTextContent('选择');
+    expect(screen.getByRole('button', { name: '选择第 1 题' })).toBeEnabled();
     expect(document.body.textContent).not.toContain('解析图片');
     expect(document.body.innerHTML).not.toContain('analysis');
 
@@ -118,10 +122,29 @@ describe('PaperBankPage', () => {
     mockBankApi();
     renderPage();
 
-    await screen.findByRole('img', { name: '第 1 题题目' });
+    fireEvent.load(await screen.findByRole('img', { name: '第 1 题题目' }));
     fireEvent.click(screen.getByRole('button', { name: '选择第 1 题' }));
 
     expect(await screen.findByRole('button', { name: '已选择第 1 题' })).toBeDisabled();
+  });
+
+  it('renders a text-only question as mathematical Markdown', async () => {
+    mockBankApi({
+      ...paper,
+      questions: [{
+        ...paper.questions[0],
+        id: '802',
+        number: 2,
+        questionCode: '2024年高考数学试卷（北京）#02',
+        questionImageUrl: null,
+        statementMarkdown: String.raw`化简 $\frac{\sqrt{2}}{\sqrt{3}}$。`,
+      }],
+    });
+    renderPage();
+
+    const question = await screen.findByRole('article', { name: '第 2 题' });
+    expect(question.querySelector('.katex')).not.toBeNull();
+    expect(question).not.toHaveTextContent(String.raw`$\frac{\sqrt{2}}{\sqrt{3}}$`);
   });
 
   it('shows a retryable API error state', async () => {

@@ -71,12 +71,14 @@ describe('PaperPickerDialog', () => {
     const paperContent = await screen.findByRole('region', { name: '试卷内容' });
     expect(await within(paperContent).findAllByRole('article')).toHaveLength(1);
     expect(await screen.findByRole('button', { name: '选择第 1 题' })).toBeInTheDocument();
-    expect(screen.getByRole('img', { name: '第 1 题题目' })).toHaveAttribute(
+    const questionImage = screen.getByRole('img', { name: '第 1 题题目' });
+    expect(questionImage).toHaveAttribute(
       'src',
       'https://example.test/question.png',
     );
     expect(document.body.innerHTML).not.toContain('analysisImage');
 
+    fireEvent.load(questionImage);
     fireEvent.click(screen.getByRole('button', { name: '选择第 1 题' }));
 
     expect(onSelect).toHaveBeenCalledWith({ paper: paperSummary, question: paperDetail.questions[0] });
@@ -90,5 +92,82 @@ describe('PaperPickerDialog', () => {
     fireEvent.keyDown(document, { key: 'Escape' });
 
     expect(onClose).toHaveBeenCalledOnce();
+  });
+
+  it('keeps keyboard focus inside the dialog and restores the opener', async () => {
+    vi.spyOn(globalThis, 'fetch').mockImplementation((input) => {
+      const url = String(input);
+      const body = url === '/api/bank/filters'
+        ? filters
+        : url === '/api/bank/papers/41'
+          ? paperDetail
+          : { papers: [paperSummary], total: 1 };
+      return Promise.resolve(new Response(JSON.stringify(body), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      }));
+    });
+    const opener = document.createElement('button');
+    opener.textContent = '打开题库';
+    document.body.append(opener);
+    opener.focus();
+    const onClose = vi.fn();
+    const view = render(<PaperPickerDialog open onClose={onClose} onSelect={vi.fn()} />);
+
+    const close = screen.getByRole('button', { name: '关闭题库' });
+    expect(close).toHaveFocus();
+    const questionImage = await screen.findByRole('img', { name: '第 1 题题目' });
+    fireEvent.load(questionImage);
+    const select = screen.getByRole('button', { name: '选择第 1 题' });
+    const dialog = screen.getByRole('dialog', { name: '从题库选择' });
+    expect(dialog).toContainElement(select);
+    expect(select).toBeEnabled();
+    const focusable = Array.from(dialog.querySelectorAll<HTMLElement>(
+      'button, input, select, a[href], [tabindex]',
+    )).filter((element) => !element.matches(':disabled, [tabindex="-1"]'));
+    expect(focusable.at(-1)).toBe(select);
+    close.focus();
+
+    fireEvent.keyDown(document, { key: 'Tab', shiftKey: true });
+    expect(select).toHaveFocus();
+    fireEvent.keyDown(document, { key: 'Tab' });
+    expect(close).toHaveFocus();
+
+    fireEvent.keyDown(document, { key: 'Escape' });
+    view.rerender(<PaperPickerDialog open={false} onClose={onClose} onSelect={vi.fn()} />);
+    expect(opener).toHaveFocus();
+    opener.remove();
+  });
+
+  it('renders a text-only question as mathematical Markdown', async () => {
+    const textQuestion = {
+      ...paperDetail.questions[0],
+      id: '802',
+      number: 2,
+      questionCode: '2024北京#02',
+      questionImageUrl: null,
+      statementMarkdown: String.raw`化简 $\frac{\sqrt{2}}{\sqrt{3}}$。`,
+    };
+    vi.spyOn(globalThis, 'fetch').mockImplementation((input) => {
+      const url = String(input);
+      const body = url === '/api/bank/filters'
+        ? filters
+        : url === '/api/bank/papers/41'
+          ? { ...paperDetail, questions: [textQuestion] }
+          : { papers: [paperSummary], total: 1 };
+
+      return Promise.resolve(
+        new Response(JSON.stringify(body), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' },
+        }),
+      );
+    });
+
+    render(<PaperPickerDialog open onClose={vi.fn()} onSelect={vi.fn()} />);
+
+    const question = await screen.findByRole('article', { name: '第 2 题' });
+    expect(question.querySelector('.katex')).not.toBeNull();
+    expect(question).not.toHaveTextContent(String.raw`$\frac{\sqrt{2}}{\sqrt{3}}$`);
   });
 });

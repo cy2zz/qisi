@@ -138,6 +138,7 @@ describe('AT13：四角色经过各自的契约与提示节点', () => {
       payloadHash: 'hash-prepare',
       expectedVersion: 1,
       preparationInput: projectPreparationInput(context, 'prepare'),
+      trustedVerificationReferences: new Set(['自拟开发夹具']),
     });
     expect(prepared.status).toBe('committed');
     const preparedPacket = PacketSchema.parse(prepared.value);
@@ -154,6 +155,7 @@ describe('AT13：四角色经过各自的契约与提示节点', () => {
       rendererInput: projectRendererInput(context, strategyFixture.allowed_facts),
       guardInput: projectGuardInput(context, 'message', { text_md: '' }, strategyFixture.allowed_disclosures, strategyFixture.reserved_decisions),
       knownDecisionIds: new Set(packet.decisions.map((decision) => decision.id)),
+      knownGoalKeys: new Set(packet.decisions.map((decision) => decision.goal_key)),
       probesShownForFocusGoal: 0,
     });
     expect(turn.status).toBe('committed');
@@ -180,6 +182,7 @@ describe('AT13：四角色经过各自的契约与提示节点', () => {
       payloadHash: 'hash-prepare',
       expectedVersion: 1,
       preparationInput: projectPreparationInput(context, 'prepare'),
+      trustedVerificationReferences: new Set(['自拟开发夹具']),
     });
     await orchestrator.turn({
       sessionId: SESSION_ID,
@@ -192,6 +195,7 @@ describe('AT13：四角色经过各自的契约与提示节点', () => {
       rendererInput: projectRendererInput(context, strategyFixture.allowed_facts),
       guardInput: projectGuardInput(context, 'message', {}, [], []),
       knownDecisionIds: new Set(packet.decisions.map((decision) => decision.id)),
+      knownGoalKeys: new Set(packet.decisions.map((decision) => decision.goal_key)),
       probesShownForFocusGoal: 0,
     });
     await orchestrator.grade({
@@ -309,6 +313,7 @@ describe('AT13：单角色输出不合格不得被其他角色补成成功', () 
         rendererInput: projectRendererInput(context, []),
         guardInput: projectGuardInput(context, 'message', {}, [], []),
         knownDecisionIds: new Set(packet.decisions.map((decision) => decision.id)),
+        knownGoalKeys: new Set(packet.decisions.map((decision) => decision.goal_key)),
         probesShownForFocusGoal: 0,
       }),
     ).rejects.toThrowError(/diagnosis/);
@@ -341,6 +346,7 @@ describe('AT13：单角色输出不合格不得被其他角色补成成功', () 
       rendererInput: projectRendererInput(context, []),
       guardInput: projectGuardInput(context, 'message', {}, [], []),
       knownDecisionIds: new Set(packet.decisions.map((decision) => decision.id)),
+      knownGoalKeys: new Set(packet.decisions.map((decision) => decision.goal_key)),
       probesShownForFocusGoal: 0,
     });
 

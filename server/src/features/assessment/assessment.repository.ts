@@ -1,7 +1,10 @@
 import { ConflictException, Inject, Injectable, NotFoundException } from '@nestjs/common';
+import { createHash, randomBytes, randomUUID } from 'node:crypto';
 import type { Transaction } from 'kysely';
+import { PacketSchema, type CheckTask } from '../../contracts/domain.schema.js';
 import type { Database } from '../../database/database.types.js';
 import { DatabaseService } from '../../database/database.service.js';
+import { workflowBudget, type WorkflowName } from '../../workflows/runtime.js';
 import type { AssessmentGrade, AssessmentTaskCandidate } from './assessment.schema.js';
 
 const SESSION_TTL_MS = 7 * 24 * 60 * 60 * 1000;
@@ -51,9 +54,165 @@ export interface AssessmentResult extends AssessmentGrade {
   limitations: string[];
 }
 
+export interface AssessmentModelRun {
+  deadlineAt: string;
+  leaseToken: string;
+  requestId: string;
+  runId: string;
+}
+
+export interface AssessmentModelNodeRecord {
+  finishedAt: string;
+  inputHash: string;
+  modelId: string;
+  nodeKey: string;
+  output: unknown | null;
+  promptVersion: string;
+  startedAt: string;
+  status: 'completed' | 'failed';
+  usage: {
+    elapsedMs: number;
+    input: number;
+    kind: 'estimated' | 'reported' | 'unknown';
+    output: number;
+    provider: string;
+    providerRequestId?: string;
+  } | null;
+}
+
 @Injectable()
 export class AssessmentRepository {
   constructor(@Inject(DatabaseService) private readonly database: DatabaseService) {}
+
+  async startModelRun(
+    ownerId: string,
+    sessionId: string,
+    workflow: Extract<WorkflowName, 'grade' | 'prepare'>,
+    context: Record<string, unknown>,
+  ): Promise<AssessmentModelRun> {
+    const requestId = randomUUID();
+    const runId = randomUUID();
+    const leaseToken = randomBytes(32).toString('base64url');
+    const deadlineAt = new Date(Date.now() + workflowBudget(workflow).deadline_ms);
+    const expiresAt = new Date(Date.now() + SESSION_TTL_MS);
+    const payloadHash = createHash('sha256')
+      .update(JSON.stringify({ context, sessionId, workflow }), 'utf8')
+      .digest();
+
+    await this.database.client.transaction().execute(async (transaction) => {
+      const session = await transaction
+        .selectFrom('sessions')
+        .select('version')
+        .where('id', '=', sessionId)
+        .where('user_id', '=', ownerId)
+        .where('expires_at', '>', new Date())
+        .executeTakeFirst();
+      if (!session) throw new NotFoundException('learning session not found');
+
+      await transaction
+        .insertInto('requests')
+        .values({
+          error_json: null,
+          expires_at: expiresAt,
+          payload_hash: payloadHash,
+          request_id: requestId,
+          safe_response_json: null,
+          session_id: sessionId,
+          status: 'in_progress',
+          user_id: ownerId,
+        })
+        .execute();
+      await transaction
+        .insertInto('runs')
+        .values({
+          deadline_at: deadlineAt,
+          fencing_token: 1,
+          id: runId,
+          lease_token: leaseToken,
+          request_id: requestId,
+          reserved_version: session.version,
+          run_json: json({ ...context, auditOnly: true }),
+          session_id: sessionId,
+          start_version: session.version,
+          status: 'active',
+          user_id: ownerId,
+          workflow,
+        })
+        .execute();
+    });
+
+    return { deadlineAt: deadlineAt.toISOString(), leaseToken, requestId, runId };
+  }
+
+  async recordModelNode(
+    ownerId: string,
+    run: AssessmentModelRun,
+    record: AssessmentModelNodeRecord,
+  ) {
+    await this.database.client.transaction().execute(async (transaction) => {
+      const active = await transaction
+        .selectFrom('runs')
+        .select(['deadline_at', 'lease_token', 'status'])
+        .where('id', '=', run.runId)
+        .where('user_id', '=', ownerId)
+        .forUpdate()
+        .executeTakeFirst();
+      if (
+        !active
+        || active.status !== 'active'
+        || active.lease_token !== run.leaseToken
+        || new Date(active.deadline_at).getTime() <= Date.now()
+      ) {
+        throw new ConflictException('assessment model run lease is no longer valid');
+      }
+
+      await transaction
+        .insertInto('node_runs')
+        .values({
+          attempt: 1,
+          finished_at: new Date(record.finishedAt),
+          input_hash: Buffer.from(record.inputHash, 'hex'),
+          model_id: record.modelId,
+          node_key: record.nodeKey,
+          output_json: record.output === null ? null : json(record.output),
+          prompt_version: record.promptVersion,
+          run_id: run.runId,
+          started_at: new Date(record.startedAt),
+          status: record.status,
+          usage_json: record.usage === null ? null : json(record.usage),
+        })
+        .execute();
+    });
+  }
+
+  async completeModelRun(
+    ownerId: string,
+    run: AssessmentModelRun,
+    status: 'completed' | 'failed',
+  ) {
+    await this.database.client.transaction().execute(async (transaction) => {
+      const updated = await transaction
+        .updateTable('runs')
+        .set({ status })
+        .where('id', '=', run.runId)
+        .where('user_id', '=', ownerId)
+        .where('lease_token', '=', run.leaseToken)
+        .where('status', '=', 'active')
+        .executeTakeFirst();
+      if (Number(updated.numUpdatedRows) !== 1) {
+        throw new ConflictException('assessment model run is no longer active');
+      }
+      await transaction
+        .updateTable('requests')
+        .set(status === 'completed'
+          ? { error_json: null, safe_response_json: json({ auditOnly: true }), status: 'succeeded' }
+          : { error_json: json({ code: 'ASSESSMENT_MODEL_RUN_FAILED' }), status: 'failed' })
+        .where('user_id', '=', ownerId)
+        .where('request_id', '=', run.requestId)
+        .where('status', '=', 'in_progress')
+        .executeTakeFirstOrThrow();
+    });
+  }
 
   async getSourceSession(ownerId: string, sessionId: string) {
     const session = await this.database.client
@@ -65,6 +224,71 @@ export class AssessmentRepository {
       .executeTakeFirst();
     if (!session) throw new NotFoundException('learning session not found');
 
+    const [preparationEvent, checkedEvent] = await Promise.all([
+      this.database.client
+        .selectFrom('events')
+        .select('payload_json')
+        .where('session_id', '=', sessionId)
+        .where('event_type', '=', 'preparation_bound')
+        .where('invalidated', '=', 0)
+        .orderBy('seq', 'desc')
+        .executeTakeFirst(),
+      this.database.client
+        .selectFrom('events')
+        .select('payload_json')
+        .where('session_id', '=', sessionId)
+        .where('event_type', '=', 'current_answer_checked')
+        .where('invalidated', '=', 0)
+        .orderBy('seq', 'desc')
+        .executeTakeFirst(),
+    ]);
+    const checkedPayload = checkedEvent
+      ? parseJson<{ verdict?: unknown }>(checkedEvent.payload_json)
+      : null;
+    const currentAnswerVerdict = checkedPayload?.verdict === 'correct'
+      || checkedPayload?.verdict === 'incorrect'
+      || checkedPayload?.verdict === 'unknown'
+      ? checkedPayload.verdict
+      : checkedEvent ? 'unknown' : null;
+    let preparedCheckTasks: CheckTask[] = [];
+    let preparedPacketVersion: string | null = null;
+    if (preparationEvent) {
+      const binding = parseJson<{
+        packetVersion?: unknown;
+        problemHash?: unknown;
+        status?: unknown;
+      }>(preparationEvent.payload_json);
+      if (
+        binding.status === 'ready'
+        && typeof binding.packetVersion === 'string'
+        && typeof binding.problemHash === 'string'
+        && /^[0-9a-f]{64}$/.test(binding.problemHash)
+      ) {
+        const packetRow = await this.database.client
+          .selectFrom('packets')
+          .select(['packet_json', 'status'])
+          .where('problem_hash', '=', Buffer.from(binding.problemHash, 'hex'))
+          .where('version', '=', binding.packetVersion)
+          .where('status', '=', 'ready')
+          .executeTakeFirst();
+        const parsedPacket = packetRow
+          ? PacketSchema.safeParse(parseJson(packetRow.packet_json))
+          : null;
+        if (
+          parsedPacket?.success
+          && parsedPacket.data.ready
+          && parsedPacket.data.problem_hash === binding.problemHash
+          && parsedPacket.data.version === binding.packetVersion
+          && (!session.question_id || parsedPacket.data.problem_id === String(session.question_id))
+        ) {
+          preparedCheckTasks = parsedPacket.data.check_tasks.filter(
+            (task) => task.source_problem_id === parsedPacket.data.problem_id,
+          );
+          preparedPacketVersion = binding.packetVersion;
+        }
+      }
+    }
+
     return {
       analysis: parseJson<{
         keyConditions: string[];
@@ -72,6 +296,9 @@ export class AssessmentRepository {
         overview: string;
         target: string;
       }>(session.analysis_json),
+      currentAnswerVerdict,
+      preparedCheckTasks,
+      preparedPacketVersion,
       problemMarkdown: session.problem_markdown,
       questionId: session.question_id ? String(session.question_id) : null,
     };
@@ -168,6 +395,24 @@ export class AssessmentRepository {
         .where('user_id', '=', ownerId)
         .executeTakeFirst();
       if (existingAttempt) return String(existingAttempt.id);
+
+      const checkedEvent = await transaction
+        .selectFrom('events')
+        .select('payload_json')
+        .where('session_id', '=', sessionId)
+        .where('event_type', '=', 'current_answer_checked')
+        .where('invalidated', '=', 0)
+        .orderBy('seq', 'desc')
+        .executeTakeFirst();
+      const checkedPayload = checkedEvent
+        ? parseJson<{ verdict?: unknown }>(checkedEvent.payload_json)
+        : null;
+      if (checkedPayload?.verdict !== 'correct') {
+        throw new ConflictException({
+          code: 'ORIGINAL_ANSWER_NOT_READY',
+          message: '请先完成原题核对并修正当前答案，再开始独立检验。',
+        });
+      }
       return this.insertTaskAndAttempt(
         transaction,
         ownerId,
@@ -313,7 +558,13 @@ export class AssessmentRepository {
   async lockPlan(
     ownerId: string,
     attemptId: string,
-    input: { expectedVersion: number; noPlan: boolean; planMarkdown: string },
+    input: {
+      expectedVersion: number;
+      noPlan: boolean;
+      planMarkdown: string;
+      transcriptId?: string;
+      transcriptRevision?: number;
+    },
   ) {
     await this.database.client.transaction().execute(async (transaction) => {
       const attempt = await this.lockAttempt(transaction, ownerId, attemptId);
@@ -333,6 +584,16 @@ export class AssessmentRepository {
         .where('id', '=', attemptId)
         .executeTakeFirstOrThrow();
 
+      await this.appendHandwritingSource(
+        transaction,
+        ownerId,
+        attemptId,
+        String(attempt.session_id),
+        'plan',
+        input.transcriptId,
+        input.transcriptRevision,
+      );
+
       await transaction
         .updateTable('sessions')
         .set({ phase: 'check_answer', version: (expression) => expression('version', '+', 1) })
@@ -345,7 +606,12 @@ export class AssessmentRepository {
   async freezeAnswer(
     ownerId: string,
     attemptId: string,
-    input: { answerMarkdown: string; expectedVersion: number },
+    input: {
+      answerMarkdown: string;
+      expectedVersion: number;
+      transcriptId?: string;
+      transcriptRevision?: number;
+    },
   ) {
     await this.database.client.transaction().execute(async (transaction) => {
       const attempt = await this.lockAttempt(transaction, ownerId, attemptId);
@@ -367,6 +633,16 @@ export class AssessmentRepository {
         })
         .where('id', '=', attemptId)
         .executeTakeFirstOrThrow();
+
+      await this.appendHandwritingSource(
+        transaction,
+        ownerId,
+        attemptId,
+        String(attempt.session_id),
+        'answer',
+        input.transcriptId,
+        input.transcriptRevision,
+      );
       await transaction
         .updateTable('sessions')
         .set({ phase: 'grading', version: (expression) => expression('version', '+', 1) })
@@ -711,6 +987,49 @@ export class AssessmentRepository {
       .executeTakeFirst();
     if (!attempt) throw new NotFoundException('assessment attempt not found');
     return attempt;
+  }
+
+  private async appendHandwritingSource(
+    transaction: Transaction<Database>,
+    ownerId: string,
+    attemptId: string,
+    sessionId: string,
+    kind: 'answer' | 'plan',
+    transcriptId?: string,
+    transcriptRevision?: number,
+  ) {
+    if (Boolean(transcriptId) !== Boolean(transcriptRevision)) {
+      throw new ConflictException('handwriting binding is incomplete');
+    }
+    if (!transcriptId || !transcriptRevision) return;
+
+    const session = await transaction
+      .selectFrom('sessions')
+      .select('next_event_seq')
+      .where('id', '=', sessionId)
+      .where('user_id', '=', ownerId)
+      .forUpdate()
+      .executeTakeFirst();
+    if (!session) throw new NotFoundException('learning session not found');
+
+    await transaction
+      .insertInto('events')
+      .values({
+        dependency_ids_json: json([]),
+        event_type: 'assessment_handwriting_submitted',
+        invalidated: 0,
+        payload_json: json({ kind, transcriptId, transcriptRevision }),
+        seq: session.next_event_seq,
+        session_id: sessionId,
+        subject_id: attemptId,
+      })
+      .execute();
+    await transaction
+      .updateTable('sessions')
+      .set({ next_event_seq: session.next_event_seq + 1 })
+      .where('id', '=', sessionId)
+      .where('user_id', '=', ownerId)
+      .executeTakeFirstOrThrow();
   }
 
   private assertVersion(current: number, expected: number) {

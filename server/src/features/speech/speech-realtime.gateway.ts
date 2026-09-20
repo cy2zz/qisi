@@ -4,6 +4,7 @@ import type { IncomingMessage, Server } from 'node:http';
 import type { Duplex } from 'node:stream';
 import { WebSocket, WebSocketServer, type RawData } from 'ws';
 import type { AppEnvironment } from '../../config/env.js';
+import { isAllowedWebOrigin } from '../../config/web-origin.js';
 import { AUTH_COOKIE_NAME, readCookie } from '../auth/auth.cookie.js';
 import { AuthService } from '../auth/auth.service.js';
 import { SpeechMathFormatterService } from './speech-math-formatter.service.js';
@@ -59,7 +60,10 @@ export class SpeechRealtimeGateway {
       const url = new URL(request.url ?? '/', 'http://localhost');
       if (url.pathname !== REALTIME_PATH) return;
 
-      if (request.headers.origin !== this.config.get('WEB_ORIGIN', { infer: true })) {
+      if (!isAllowedWebOrigin(
+        request.headers.origin,
+        this.config.get('WEB_ORIGIN', { infer: true }),
+      )) {
         rejectUpgrade(socket, 403);
         return;
       }

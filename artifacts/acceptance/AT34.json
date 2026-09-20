@@ -2,7 +2,7 @@
   "baseline": "qisi-3.1",
   "acceptance_id": "AT34",
   "result": "passed_self_review",
-  "executed_at": "2026-09-19T19:28:00+08:00",
+  "executed_at": "2026-09-20T05:38:00+08:00",
   "executed_by": "Codex self_review",
   "application_commit": null,
   "layer": "real_mysql_integration_and_mock_e2e",
@@ -13,7 +13,8 @@
     "npm --prefix server run test:assessment-persistence",
     "npm --prefix server run test:db",
     "npx playwright test web/tests/e2e/assessment.spec.ts",
-    "npx playwright test web/tests/e2e/assessment.spec.ts --grep '@A06'"
+    "npx playwright test web/tests/e2e/assessment.spec.ts --grep '@A06'",
+    "npx playwright test web/tests/e2e/assessment.spec.ts --grep 'correction success enters'"
   ],
   "expected": "A completed or helped attempt is followed only by a verified, unseen, non-equivalent near-transfer task; otherwise the API returns NOT_READY without renaming or replacing prior evidence.",
   "actual": {
@@ -25,6 +26,12 @@
     "previous_attempt_preserved": true,
     "active_reassessment_restored": true,
     "concurrent_reassessment_idempotent": true,
+    "correction_success_enters_reassessment_directly": true,
+    "previous_summary_not_replayed_during_handoff": true,
+    "unfinished_reassessment_restored_without_duplicate": true,
+    "reassessment_intent_removed_after_success": true,
+    "automatic_not_ready_preserves_previous_summary": true,
+    "full_playwright": "76/76 passed",
     "report_attempt_count": 2,
     "history_duplicate_entries": 0,
     "responsive_projects": ["pc-1440", "pc-1280", "h5-390", "h5-360"],
@@ -40,7 +47,9 @@
     "artifacts/acceptance/A06-reassessment-summary-pc-1440.png",
     "artifacts/acceptance/A06-reassessment-new-task-pc-1440.png",
     "artifacts/acceptance/A06-reassessment-summary-h5-390.png",
-    "artifacts/acceptance/A06-reassessment-new-task-h5-390.png"
+    "artifacts/acceptance/A06-reassessment-new-task-h5-390.png",
+    "artifacts/acceptance/A06-remediation-direct-reassessment-pc-1440.png",
+    "artifacts/acceptance/A06-remediation-direct-reassessment-h5-390.png"
   ],
   "limitations": [
     "Candidate generation and review were deterministic fixtures; AT35 real model review remains not_run.",

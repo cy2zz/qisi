@@ -2,6 +2,7 @@ import {
   forwardRef,
   type KeyboardEvent,
   type ReactNode,
+  useId,
   useImperativeHandle,
   useRef,
   useState,
@@ -47,7 +48,7 @@ export interface RichComposerHandle {
   focus: (options?: FocusOptions) => void;
   insertFormulaTemplate: (text: string) => void;
   insertText: (text: string) => void;
-  replaceText: (text: string) => void;
+  replaceText: (text: string, options?: { focus?: boolean }) => void;
   updateVoiceDraft: (text: string) => void;
 }
 
@@ -78,8 +79,11 @@ export const RichComposer = forwardRef<RichComposerHandle, RichComposerProps>(
     forwardedRef,
   ) {
     const editorRef = useRef<HTMLDivElement>(null);
+    const formattingToggleRef = useRef<HTMLButtonElement>(null);
     const voiceDraftNodeRef = useRef<Text | null>(null);
+    const formattingToolbarId = useId();
     const [activeFormats, setActiveFormats] = useState<Partial<Record<FormatCommand, boolean>>>({});
+    const [formattingOpen, setFormattingOpen] = useState(false);
 
     function emitChange() {
       if (editorRef.current) onChange(richTextToMarkdown(editorRef.current));
@@ -144,13 +148,13 @@ export const RichComposer = forwardRef<RichComposerHandle, RichComposerProps>(
       return true;
     }
 
-    function replaceText(text: string) {
+    function replaceText(text: string, options?: { focus?: boolean }) {
       const editor = editorRef.current;
       if (!editor) return;
       editor.replaceChildren(document.createTextNode(text));
       voiceDraftNodeRef.current = null;
       emitChange();
-      editor.focus();
+      if (options?.focus !== false) editor.focus();
     }
 
     function updateVoiceDraft(text: string) {
@@ -214,8 +218,33 @@ export const RichComposer = forwardRef<RichComposerHandle, RichComposerProps>(
     }));
 
     return (
-      <div className="rich-composer">
-        <div className="rich-composer-toolbar" role="toolbar" aria-label="文字格式">
+      <div className="rich-composer" data-formatting-open={formattingOpen}>
+        <button
+          ref={formattingToggleRef}
+          type="button"
+          className="rich-composer-format-toggle"
+          aria-controls={formattingToolbarId}
+          aria-expanded={formattingOpen}
+          aria-label="更多文字格式"
+          title="更多文字格式"
+          onMouseDown={(event) => event.preventDefault()}
+          onClick={() => setFormattingOpen((current) => !current)}
+        >
+          <span aria-hidden="true">Aa</span>
+        </button>
+        <div
+          id={formattingToolbarId}
+          className="rich-composer-toolbar"
+          role="toolbar"
+          aria-label="文字格式"
+          data-open={formattingOpen}
+          onKeyDown={(event) => {
+            if (event.key !== 'Escape') return;
+            event.preventDefault();
+            setFormattingOpen(false);
+            formattingToggleRef.current?.focus();
+          }}
+        >
           {formattingActions.map((action) => (
             <button
               type="button"

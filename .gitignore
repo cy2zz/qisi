@@ -5,6 +5,7 @@ web/dist/
 web/coverage/
 server/dist/
 server/coverage/
+server/.data/
 npm-debug.log*
 playwright-report/
 test-results/

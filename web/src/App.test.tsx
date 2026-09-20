@@ -85,7 +85,7 @@ describe('App', () => {
     );
   });
 
-  it('restores the latest persisted problem, checked messages, and help exposure after refresh', async () => {
+  it('restores structured checked verdicts and keeps incorrect work out of independent assessment', async () => {
     vi.spyOn(globalThis, 'fetch').mockImplementation((input) => {
       const url = String(input);
       if (url === '/api/auth/me') {
@@ -133,10 +133,52 @@ describe('App', () => {
               messageType: 'guide_reply',
               role: 'guide',
             },
+            {
+              content: '结果是 $\\frac23$。',
+              id: '4',
+              messageType: 'student_attempt',
+              role: 'student',
+            },
+            {
+              assistanceMode: 'finish_problem',
+              content: '这次结论需要修正，请检查分子。',
+              id: '5',
+              messageType: 'guide_reply',
+              metadata: { currentVerdict: 'incorrect' },
+              role: 'guide',
+            },
+            {
+              content: '请解释我为什么不能直接把根号去掉。',
+              id: '6',
+              messageType: 'student_attempt',
+              role: 'student',
+            },
+            {
+              assistanceMode: 'explain',
+              content: '平方根不是可以直接约掉的公因式。',
+              id: '7',
+              messageType: 'guide_reply',
+              role: 'guide',
+            },
+            {
+              content: '分子分母同乘 $\\sqrt3$，结果为 $\\frac{\\sqrt6}{3}$。',
+              id: '8',
+              messageType: 'student_attempt',
+              role: 'student',
+            },
+            {
+              assistanceMode: 'finish_problem',
+              content: '这次结论有依据。',
+              id: '9',
+              messageType: 'guide_reply',
+              metadata: { currentVerdict: 'correct' },
+              role: 'guide',
+            },
           ],
           record: {
             content: '化简 $\\frac{\\sqrt2}{\\sqrt3}$。',
             id: '91',
+            preparationStatus: 'ready',
             problemMd: '化简 $\\frac{\\sqrt2}{\\sqrt3}$。',
             title: '根式化简',
             topic: '二次根式',
@@ -153,7 +195,248 @@ describe('App', () => {
     expect(screen.getByText('我还不确定')).toBeInTheDocument();
     expect(screen.getByLabelText('帮助深度：最小提示')).toBeInTheDocument();
     expect(screen.getByText('已保存，可刷新继续')).toBeInTheDocument();
+    expect(screen.getByText('原卷解析已核对')).toBeInTheDocument();
+    const incorrectCheckpoint = screen
+      .getByText('这次结论还需要修正')
+      .closest('[role="note"]');
+    expect(incorrectCheckpoint).not.toBeNull();
+    expect(incorrectCheckpoint?.querySelector('a')).toBeNull();
+    expect(incorrectCheckpoint?.querySelector('button')).toBeNull();
+    expect(incorrectCheckpoint).toHaveTextContent('已由后续作答更新');
+    expect(incorrectCheckpoint).toHaveTextContent('帮助记录已使用：最小提示');
+    expect(incorrectCheckpoint).not.toHaveTextContent('局部解释');
+    const correctCheckpoint = screen
+      .getByText('这次结论已经核对')
+      .closest('[role="note"]');
+    expect(correctCheckpoint).toHaveTextContent('帮助记录已使用：最小提示、局部解释');
+    expect(screen.getAllByRole('link', { name: /独立检验/ })).toHaveLength(1);
     expect(document.querySelectorAll('.chat-message-guide .katex')).not.toHaveLength(0);
+  });
+
+  it('restores and automatically saves the current learning draft', async () => {
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation((input) => {
+      const url = String(input);
+      if (url === '/api/auth/me') {
+        return jsonResponse({ user: { id: '7', username: '小林' } });
+      }
+      if (url === '/api/learning/sessions') {
+        return jsonResponse({
+          sessions: [{
+            content: String.raw`证明 $a^2+b^2\geq 2ab$。`,
+            id: '91',
+            problemMd: String.raw`证明 $a^2+b^2\geq 2ab$。`,
+            title: '基本不等式证明',
+            topic: '不等式',
+            updatedAt: '2026-09-20T00:00:00.000Z',
+            version: 1,
+          }],
+        });
+      }
+      if (url === '/api/learning/sessions/91') {
+        return jsonResponse({
+          analysis: {
+            firstQuestion: '移项后能否写成一个平方？',
+            keyConditions: ['$a,b$ 为实数'],
+            knowledgePoints: ['基本不等式'],
+            overview: '这是一道不等式证明题。',
+            target: '证明不等式恒成立。',
+          },
+          draftMarkdown: '我准备先移项，再配成 $(a-b)^2$。',
+          messages: [{
+            content: '这是一道不等式证明题。',
+            id: '1',
+            messageType: 'analysis',
+            role: 'guide',
+          }],
+          record: {
+            content: String.raw`证明 $a^2+b^2\geq 2ab$。`,
+            id: '91',
+            problemMd: String.raw`证明 $a^2+b^2\geq 2ab$。`,
+            title: '基本不等式证明',
+            topic: '不等式',
+            version: 1,
+          },
+        });
+      }
+      if (url === '/api/learning/sessions/91/draft') {
+        return jsonResponse({ savedAt: '2026-09-20T00:00:01.000Z' });
+      }
+      return jsonResponse({});
+    });
+
+    renderApp('/study?session=91');
+
+    const editor = await screen.findByRole('textbox', { name: '输入题目或想法' });
+    await waitFor(() => {
+      expect(editor).toHaveTextContent('我准备先移项，再配成 $(a-b)^2$。');
+    });
+    expect(screen.getByRole('status', { name: '草稿保存状态' })).toHaveTextContent('已自动保存');
+
+    editor.textContent = '我准备先移项，得到 $a^2-2ab+b^2$。';
+    fireEvent.input(editor);
+
+    await waitFor(() => {
+      expect(fetchMock).toHaveBeenCalledWith(
+        '/api/learning/sessions/91/draft',
+        expect.objectContaining({
+          body: JSON.stringify({ markdown: '我准备先移项，得到 $a^2-2ab+b^2$。' }),
+          credentials: 'include',
+          method: 'PATCH',
+        }),
+      );
+    });
+    expect(screen.getByRole('status', { name: '草稿保存状态' })).toHaveTextContent('已自动保存');
+  });
+
+  it('keeps handwriting out of teaching until its confirmed revision is submitted', async () => {
+    vi.spyOn(URL, 'createObjectURL').mockReturnValue('blob:handwriting-preview');
+    vi.spyOn(URL, 'revokeObjectURL').mockImplementation(() => undefined);
+    const chatBodies: Array<Record<string, unknown>> = [];
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation((input, init) => {
+      const url = String(input);
+      if (url === '/api/auth/me') {
+        return jsonResponse({ user: { id: '7', username: '小林' } });
+      }
+      if (url === '/api/learning/sessions') {
+        return jsonResponse({
+          sessions: [{
+            content: String.raw`证明 $a^2+b^2\geq 2ab$。`,
+            id: '91',
+            problemMd: String.raw`证明 $a^2+b^2\geq 2ab$。`,
+            title: '基本不等式证明',
+            topic: '不等式',
+            updatedAt: '2026-09-20T00:00:00.000Z',
+            version: 1,
+          }],
+        });
+      }
+      if (url === '/api/learning/sessions/91') {
+        return jsonResponse({
+          analysis: {
+            firstQuestion: '移项后能否写成一个平方？',
+            keyConditions: ['$a,b$ 为实数'],
+            knowledgePoints: ['基本不等式'],
+            overview: '这是一道不等式证明题。',
+            target: '证明不等式恒成立。',
+          },
+          messages: [{
+            content: '这是一道不等式证明题。',
+            id: '1',
+            messageType: 'analysis',
+            role: 'guide',
+          }],
+          record: {
+            content: String.raw`证明 $a^2+b^2\geq 2ab$。`,
+            id: '91',
+            problemMd: String.raw`证明 $a^2+b^2\geq 2ab$。`,
+            title: '基本不等式证明',
+            topic: '不等式',
+            version: 1,
+          },
+        });
+      }
+      if (url === '/api/media/handwriting?sessionId=91') {
+        return jsonResponse({
+          image: { height: 800, mediaId: '31', url: '/api/media/31', width: 1200 },
+          transcript: {
+            confirmed: false,
+            id: '41',
+            lines: [
+              { explicitly_confirmed: false, index: 1, text: '$a^2-2ab+b^2$', uncertain: false },
+              { explicitly_confirmed: false, index: 2, text: '$=(a-b)^2\\geq 0$', uncertain: true },
+            ],
+            media_id: '31',
+            revision: 1,
+          },
+        });
+      }
+      if (url === '/api/media/transcripts/41/confirm') {
+        return jsonResponse({
+          confirmed: true,
+          id: '41',
+          lines: [
+            { explicitly_confirmed: false, index: 1, text: '$a^2-2ab+b^2$', uncertain: false },
+            { explicitly_confirmed: true, index: 2, text: '$=(a-b)^2\\geq 0$', uncertain: true },
+          ],
+          media_id: '31',
+          revision: 2,
+        });
+      }
+      if (url === '/api/problems/chat') {
+        chatBodies.push(JSON.parse(String(init?.body)) as Record<string, unknown>);
+        return Promise.resolve(new Response([
+          'event: chunk',
+          'data: {"text":"先说明这一步使用了完全平方。"}',
+          '',
+          'event: done',
+          'data: {"version":2}',
+          '',
+          '',
+        ].join('\n'), {
+          headers: { 'Content-Type': 'text/event-stream' },
+          status: 200,
+        }));
+      }
+      return jsonResponse({});
+    });
+
+    renderApp('/study?session=91');
+
+    await screen.findByRole('heading', { name: '基本不等式证明' });
+    expect(screen.getByRole('button', { name: '添加手写作答' })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: '添加题目图片' })).not.toBeInTheDocument();
+
+    const image = new File([new Uint8Array([1, 2, 3])], 'proof.png', { type: 'image/png' });
+    fireEvent.change(screen.getByLabelText('选择手写作答图片'), {
+      target: { files: [image] },
+    });
+    fireEvent.click(screen.getByRole('button', { name: '识别手写作答' }));
+
+    const confirmTranscript = await screen.findByRole('button', {
+      name: '确认转写并放入输入框',
+    });
+    expect(confirmTranscript).toBeDisabled();
+    expect(screen.getByRole('button', { name: '发送' })).toBeDisabled();
+    fireEvent.click(screen.getByRole('button', { name: '确认第 2 行' }));
+    fireEvent.click(confirmTranscript);
+
+    const editor = screen.getByRole('textbox', { name: '输入题目或想法' });
+    await waitFor(() => {
+      expect(editor).toHaveTextContent('$a^2-2ab+b^2$');
+      expect(screen.getByText('手写转写已确认；如果继续修改，将按普通文字提交。')).toBeInTheDocument();
+    });
+    fireEvent.click(screen.getByRole('button', { name: '发送' }));
+
+    await waitFor(() => expect(chatBodies).toHaveLength(1));
+    expect(chatBodies[0]).toMatchObject({
+      message: '$a^2-2ab+b^2$\n\n$=(a-b)^2\\geq 0$',
+      transcriptId: '41',
+      transcriptRevision: 2,
+    });
+    expect(fetchMock).toHaveBeenCalledWith(
+      '/api/media/handwriting?sessionId=91',
+      expect.objectContaining({ body: image, method: 'POST' }),
+    );
+
+    await screen.findByText('先说明这一步使用了完全平方。');
+    fireEvent.change(screen.getByLabelText('选择手写作答图片'), {
+      target: { files: [image] },
+    });
+    fireEvent.click(screen.getByRole('button', { name: '识别手写作答' }));
+    const secondConfirm = await screen.findByRole('button', {
+      name: '确认转写并放入输入框',
+    });
+    fireEvent.click(screen.getByRole('button', { name: '确认第 2 行' }));
+    fireEvent.click(secondConfirm);
+    await waitFor(() => expect(editor).toHaveTextContent('$a^2-2ab+b^2$'));
+
+    editor.textContent = '$a^2-2ab+b^2$\n\n$=(a-b)^2\\geq 0$\n\n我补充说明这是配方法。';
+    fireEvent.input(editor);
+    expect(screen.queryByText('手写转写已确认；如果继续修改，将按普通文字提交。')).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: '发送' }));
+    await waitFor(() => expect(chatBodies).toHaveLength(2));
+    expect(chatBodies[1]).not.toHaveProperty('transcriptId');
+    expect(chatBodies[1]).not.toHaveProperty('transcriptRevision');
   });
 
   it('logs in with only a username', async () => {
@@ -218,6 +501,7 @@ describe('App', () => {
                 overview: '这是一道根式化简题。',
                 target: '求出 $\\frac{\\sqrt{6}}{3}$。',
               },
+              preparation: { cached: false, status: 'needs_review' },
               problemMd: '已知 $\\frac{\\sqrt{2}}{\\sqrt{3}}$，请化简。',
               recognitionUncertain: ['根号范围待核对'],
             }),
@@ -234,6 +518,7 @@ describe('App', () => {
     fireEvent.click(await screen.findByRole('button', { name: '去题库选择' }));
     expect(screen.getByRole('dialog', { name: '从题库选择' })).toBeInTheDocument();
 
+    fireEvent.load(await screen.findByRole('img', { name: '第 1 题题目' }));
     fireEvent.click(await screen.findByRole('button', { name: '选择第 1 题' }));
     expect(await screen.findByRole('heading', { name: '题目分析' })).toBeInTheDocument();
     expect(screen.getByRole('complementary', { name: '题目原文' })).toBeInTheDocument();
@@ -241,8 +526,13 @@ describe('App', () => {
     expect(screen.getByRole('group', { name: '快捷回应' })).toBeInTheDocument();
     expect(screen.queryByRole('group', { name: '学习帮助' })).not.toBeInTheDocument();
     expect(screen.getByText('题面识别有待核对')).toBeInTheDocument();
+    expect(screen.getByText('题解依据仍在核对')).toBeInTheDocument();
     expect(screen.getByText('根号范围待核对')).toBeInTheDocument();
     expect(document.querySelectorAll('.problem-analysis .katex')).toHaveLength(3);
+    expect(screen.getByRole('button', { name: '朗读题目分析' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: '朗读关键条件' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: '朗读目标' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: '朗读当前问题' })).toBeInTheDocument();
     expect(fetchMock).toHaveBeenCalledWith(
       '/api/problems/analyze',
       expect.objectContaining({
@@ -273,6 +563,7 @@ describe('App', () => {
 
     renderApp('/study');
     fireEvent.click(await screen.findByRole('button', { name: '去题库选择' }));
+    fireEvent.load(await screen.findByRole('img', { name: '第 1 题题目' }));
     fireEvent.click(await screen.findByRole('button', { name: '选择第 1 题' }));
 
     const editor = screen.getByRole('textbox', { name: '输入题目或想法' });
@@ -436,6 +727,7 @@ describe('App', () => {
 
     renderApp('/study');
     fireEvent.click(await screen.findByRole('button', { name: '去题库选择' }));
+    fireEvent.load(await screen.findByRole('img', { name: '第 1 题题目' }));
     fireEvent.click(await screen.findByRole('button', { name: '选择第 1 题' }));
     await screen.findByRole('heading', { name: '题目分析' });
 
@@ -458,15 +750,23 @@ describe('App', () => {
       expect(document.querySelectorAll('.streaming-reply .katex')).toHaveLength(3);
     });
     expect(screen.getByText('最小提示')).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: '朗读启思回复' })).not.toBeInTheDocument();
 
     await act(async () => {
       streamController?.enqueue(
         encoder.encode('event: chunk\ndata: {"text":"你先算一下。"}\n\nevent: done\ndata: {}\n\n'),
       );
-      streamController?.close();
     });
     expect(await screen.findByText(/你先算一下/)).toBeInTheDocument();
+
+    await act(async () => {
+      streamController?.close();
+    });
+    await waitFor(() => {
+      expect(screen.getByRole('textbox', { name: '输入题目或想法' })).toHaveFocus();
+    });
     expect(document.querySelectorAll('.chat-message-guide .katex')).toHaveLength(3);
+    expect(screen.getByRole('button', { name: '朗读启思回复' })).toBeInTheDocument();
     expect(fetchMock).toHaveBeenCalledWith(
       '/api/problems/chat',
       expect.objectContaining({

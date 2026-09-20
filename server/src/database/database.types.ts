@@ -131,6 +131,42 @@ export interface LearningMessagesTable {
   db_create_time: ColumnType<Date, Date | string | undefined, never>;
 }
 
+export interface LearningDraftsTable {
+  session_id: string;
+  user_id: string;
+  draft_markdown: string;
+  expires_at: ColumnType<Date, Date | string, Date | string>;
+  db_update_time: ColumnType<Date, Date | string | undefined, Date | string | undefined>;
+  db_create_time: ColumnType<Date, Date | string | undefined, never>;
+}
+
+export interface MediaTable {
+  id: Generated<string>;
+  user_id: string;
+  session_id: string | null;
+  purpose: string;
+  private_path: string;
+  mime: string;
+  width: number;
+  height: number;
+  expires_at: ColumnType<Date, Date | string, Date | string>;
+  db_update_time: ColumnType<Date, Date | string | undefined, Date | string | undefined>;
+  db_create_time: ColumnType<Date, Date | string | undefined, never>;
+}
+
+export interface TranscriptsTable {
+  id: Generated<string>;
+  user_id: string;
+  session_id: string | null;
+  media_id: string | null;
+  revision: number;
+  lines_json: ColumnType<unknown, string, string>;
+  confirmed: number;
+  expires_at: ColumnType<Date, Date | string, Date | string>;
+  db_update_time: ColumnType<Date, Date | string | undefined, Date | string | undefined>;
+  db_create_time: ColumnType<Date, Date | string | undefined, never>;
+}
+
 export interface EventsTable {
   id: Generated<string>;
   session_id: string;
@@ -207,13 +243,30 @@ export interface OwnerPrivacyStateTable {
   db_create_time: ColumnType<Date, Date | string | undefined, never>;
 }
 
+export interface PacketsTable {
+  problem_hash: Buffer;
+  version: string;
+  problem_id: string;
+  model_id: string;
+  prompt_version: string;
+  config_hash: string;
+  packet_json: ColumnType<unknown, string, string>;
+  status: string;
+  review_json: ColumnType<unknown, string, string>;
+  db_update_time: ColumnType<Date, Date | string | undefined, Date | string | undefined>;
+  db_create_time: ColumnType<Date, Date | string | undefined, never>;
+}
+
 export interface Database {
   assessment_tasks: AssessmentTasksTable;
   check_attempts: CheckAttemptsTable;
   events: EventsTable;
+  learning_drafts: LearningDraftsTable;
   learning_messages: LearningMessagesTable;
+  media: MediaTable;
   node_runs: NodeRunsTable;
   owner_privacy_state: OwnerPrivacyStateTable;
+  packets: PacketsTable;
   paper: PaperTable;
   paper_question: PaperQuestionTable;
   question: QuestionTable;
@@ -221,5 +274,6 @@ export interface Database {
   runs: RunsTable;
   seen_tasks: SeenTasksTable;
   sessions: SessionsTable;
+  transcripts: TranscriptsTable;
   users: UsersTable;
 }

@@ -6,8 +6,15 @@ import {
   UnprocessableEntityException,
 } from '@nestjs/common';
 import { createHash } from 'node:crypto';
+import type { z } from 'zod';
+import type { CheckTask } from '../../contracts/domain.schema.js';
+import { BudgetLedger } from '../../model/budget.js';
 import { MODEL_PORT, type ModelPort, type ModelResponse } from '../../model/model.port.js';
+import { estimateInputTokens } from '../../model/token-estimate.js';
+import type { WorkflowName } from '../../workflows/runtime.js';
+import { MediaService } from '../media/media.service.js';
 import {
+  type AssessmentModelRun,
   type AssessmentAttemptRecord,
   AssessmentRepository,
   type AssessmentResult,
@@ -18,6 +25,7 @@ import {
   assessmentTaskCandidateSchema,
   assessmentTaskVerificationSchema,
   type AssessmentGrade,
+  type AssessmentTaskCandidate,
 } from './assessment.schema.js';
 import {
   MAX_REASSESSMENT_CANDIDATES,
@@ -55,6 +63,7 @@ const TASK_GENERATION_MAX_OUTPUT_TOKENS = 3_200;
 const TASK_REVIEW_MAX_OUTPUT_TOKENS = 800;
 const GRADE_MAX_OUTPUT_TOKENS = 2_400;
 const GRADE_REVIEW_MAX_OUTPUT_TOKENS = 800;
+const ASSESSMENT_PROMPT_VERSION = 'assessment-v1';
 
 function modelMetadata(response: ModelResponse) {
   return {
@@ -72,11 +81,23 @@ function taskHash(promptMarkdown: string) {
     .digest();
 }
 
+function candidateFromPreparedTask(task: CheckTask): AssessmentTaskCandidate | null {
+  const parsed = assessmentTaskCandidateSchema.safeParse({
+    equivalenceGroup: task.equivalence_group,
+    promptMarkdown: task.prompt_md,
+    referenceAnswerMarkdown: task.reference_md,
+    relation: task.relation,
+    rubric: [task.planning_rubric, task.execution_rubric].filter((item) => item.trim()),
+  });
+  return parsed.success ? parsed.data : null;
+}
+
 @Injectable()
 export class AssessmentService {
   constructor(
     @Inject(AssessmentRepository) private readonly repository: AssessmentRepository,
     @Inject(MODEL_PORT) private readonly model: ModelPort,
+    @Inject(MediaService) private readonly media: MediaService,
   ) {}
 
   async getCurrent(ownerId: string, sessionId: string) {
@@ -91,58 +112,141 @@ export class AssessmentService {
     }
 
     const source = await this.repository.getSourceSession(ownerId, sessionId);
-    for (let candidateIndex = 0; candidateIndex < MAX_REASSESSMENT_CANDIDATES; candidateIndex += 1) {
-      const generation = await this.model.generate({
-        input: JSON.stringify({
-          originalAnalysis: source.analysis,
-          originalProblemMarkdown: source.problemMarkdown,
-          requirement: '生成不是只换数字、变量或情境的近迁移新题。',
-        }),
-        maxOutputTokens: TASK_GENERATION_MAX_OUTPUT_TOKENS,
-        role: 'preparation',
-        signal: new AbortController().signal,
-        system: TASK_GENERATION_PROMPT,
+    if (source.currentAnswerVerdict !== 'correct') {
+      throw new ConflictException({
+        code: 'ORIGINAL_ANSWER_NOT_READY',
+        message: '请先完成原题核对并修正当前答案，再开始独立检验。',
       });
-      const candidate = assessmentTaskCandidateSchema.safeParse(generation.parsed);
-      if (!candidate.success || candidate.data.relation !== 'near_transfer') continue;
-
-      const candidateHash = taskHash(candidate.data.promptMarkdown);
-      if (await this.repository.isTaskSeen(
-        ownerId,
-        candidateHash,
-        candidate.data.equivalenceGroup,
-      )) continue;
-      const verification = await this.model.generate({
-        input: JSON.stringify({
-          candidate: candidate.data,
-          originalAnalysis: source.analysis,
-          originalProblemMarkdown: source.problemMarkdown,
-        }),
-        maxOutputTokens: TASK_REVIEW_MAX_OUTPUT_TOKENS,
-        role: 'guard',
-        signal: new AbortController().signal,
-        system: TASK_VERIFICATION_PROMPT,
-      });
-      const checked = assessmentTaskVerificationSchema.safeParse(verification.parsed);
-      if (!checked.success || checked.data.verdict !== 'accept') continue;
-
-      try {
-        const attempt = await this.repository.createAttempt(ownerId, sessionId, {
-          candidate: candidate.data,
-          taskHash: candidateHash,
-          verification: {
-            generation: modelMetadata(generation),
-            review: { ...modelMetadata(verification), reason: checked.data.reason },
-          },
-        });
-        return this.toPublic(attempt);
-      } catch (error) {
-        if (error instanceof ConflictException) continue;
-        throw error;
-      }
     }
+    return this.withModelRun(
+      ownerId,
+      sessionId,
+      'prepare',
+      { operation: 'assessment_start' },
+      async (runContext) => {
+        let reviewedPreparedCandidates = 0;
+        for (const task of source.preparedCheckTasks ?? []) {
+          if (reviewedPreparedCandidates >= MAX_REASSESSMENT_CANDIDATES) break;
+          const candidate = candidateFromPreparedTask(task);
+          if (!candidate || candidate.relation !== 'near_transfer') continue;
+          const candidateHash = taskHash(candidate.promptMarkdown);
+          if (await this.repository.isTaskSeen(ownerId, candidateHash, candidate.equivalenceGroup)) {
+            continue;
+          }
+          reviewedPreparedCandidates += 1;
+          const verification = await this.runModelNode(
+            ownerId,
+            runContext,
+            {
+              input: {
+                candidate,
+                originalAnalysis: source.analysis,
+                originalProblemMarkdown: source.problemMarkdown,
+                preparedTaskContext: {
+                  decisions: task.decisions,
+                  packetVersion: source.preparedPacketVersion,
+                  routes: task.routes,
+                  sourceVerification: task.verification,
+                },
+              },
+              maxOutputTokens: TASK_REVIEW_MAX_OUTPUT_TOKENS,
+              nodeKey: `prepared_task_guard_${reviewedPreparedCandidates}`,
+              role: 'guard',
+              schema: assessmentTaskVerificationSchema,
+              system: TASK_VERIFICATION_PROMPT,
+            },
+          );
+          if (!verification || verification.value.verdict !== 'accept') continue;
 
-    throw new UnprocessableEntityException(REASSESSMENT_NOT_READY);
+          try {
+            const attempt = await this.repository.createAttempt(ownerId, sessionId, {
+              candidate,
+              taskHash: candidateHash,
+              verification: {
+                packetVersion: source.preparedPacketVersion,
+                review: {
+                  ...modelMetadata(verification.response),
+                  reason: verification.value.reason,
+                },
+                source: 'prepared_packet',
+                sourceTaskId: task.id,
+                sourceVerification: task.verification,
+              },
+            });
+            return this.toPublic(attempt);
+          } catch (error) {
+            if (error instanceof ConflictException) continue;
+            throw error;
+          }
+        }
+
+        const generatedCandidateBudget = MAX_REASSESSMENT_CANDIDATES - reviewedPreparedCandidates;
+        for (let candidateIndex = 0; candidateIndex < generatedCandidateBudget; candidateIndex += 1) {
+          const ordinal = candidateIndex + 1;
+          const generation = await this.runModelNode(
+            ownerId,
+            runContext,
+            {
+              input: {
+                originalAnalysis: source.analysis,
+                originalProblemMarkdown: source.problemMarkdown,
+                requirement: '生成不是只换数字、变量或情境的近迁移新题。',
+              },
+              maxOutputTokens: TASK_GENERATION_MAX_OUTPUT_TOKENS,
+              nodeKey: `task_generation_${ordinal}`,
+              role: 'preparation',
+              schema: assessmentTaskCandidateSchema,
+              system: TASK_GENERATION_PROMPT,
+            },
+          );
+          if (!generation || generation.value.relation !== 'near_transfer') continue;
+
+          const candidateHash = taskHash(generation.value.promptMarkdown);
+          if (await this.repository.isTaskSeen(
+            ownerId,
+            candidateHash,
+            generation.value.equivalenceGroup,
+          )) continue;
+          const verification = await this.runModelNode(
+            ownerId,
+            runContext,
+            {
+              input: {
+                candidate: generation.value,
+                originalAnalysis: source.analysis,
+                originalProblemMarkdown: source.problemMarkdown,
+              },
+              maxOutputTokens: TASK_REVIEW_MAX_OUTPUT_TOKENS,
+              nodeKey: `task_guard_${ordinal}`,
+              role: 'guard',
+              schema: assessmentTaskVerificationSchema,
+              system: TASK_VERIFICATION_PROMPT,
+            },
+          );
+          if (!verification || verification.value.verdict !== 'accept') continue;
+
+          try {
+            const attempt = await this.repository.createAttempt(ownerId, sessionId, {
+              candidate: generation.value,
+              taskHash: candidateHash,
+              verification: {
+                generation: modelMetadata(generation.response),
+                review: {
+                  ...modelMetadata(verification.response),
+                  reason: verification.value.reason,
+                },
+              },
+            });
+            return this.toPublic(attempt);
+          } catch (error) {
+            if (error instanceof ConflictException) continue;
+            throw error;
+          }
+        }
+
+        throw new UnprocessableEntityException(REASSESSMENT_NOT_READY);
+      },
+    );
   }
 
   async reassess(ownerId: string, rootSessionId: string) {
@@ -159,61 +263,81 @@ export class AssessmentService {
 
     const source = await this.repository.getSourceSession(ownerId, rootSessionId);
     const previousTasks = await this.repository.getReassessmentHistory(ownerId, rootSessionId);
-    for (let candidateIndex = 0; candidateIndex < MAX_REASSESSMENT_CANDIDATES; candidateIndex += 1) {
-      const generation = await this.model.generate({
-        input: JSON.stringify({
-          originalAnalysis: source.analysis,
-          originalProblemMarkdown: source.problemMarkdown,
-          previousAssessmentTasks: previousTasks,
-          requirement: '生成与所有已展示检验题都不等价、不是只换数字的近迁移新题。',
-        }),
-        maxOutputTokens: TASK_GENERATION_MAX_OUTPUT_TOKENS,
-        role: 'preparation',
-        signal: new AbortController().signal,
-        system: TASK_GENERATION_PROMPT,
-      });
-      const candidate = assessmentTaskCandidateSchema.safeParse(generation.parsed);
-      if (!candidate.success || candidate.data.relation !== 'near_transfer') continue;
+    return this.withModelRun(
+      ownerId,
+      rootSessionId,
+      'prepare',
+      { operation: 'assessment_reassess' },
+      async (runContext) => {
+        for (let candidateIndex = 0; candidateIndex < MAX_REASSESSMENT_CANDIDATES; candidateIndex += 1) {
+          const ordinal = candidateIndex + 1;
+          const generation = await this.runModelNode(
+            ownerId,
+            runContext,
+            {
+              input: {
+                originalAnalysis: source.analysis,
+                originalProblemMarkdown: source.problemMarkdown,
+                previousAssessmentTasks: previousTasks,
+                requirement: '生成与所有已展示检验题都不等价、不是只换数字的近迁移新题。',
+              },
+              maxOutputTokens: TASK_GENERATION_MAX_OUTPUT_TOKENS,
+              nodeKey: `reassessment_generation_${ordinal}`,
+              role: 'preparation',
+              schema: assessmentTaskCandidateSchema,
+              system: TASK_GENERATION_PROMPT,
+            },
+          );
+          if (!generation || generation.value.relation !== 'near_transfer') continue;
 
-      const candidateHash = taskHash(candidate.data.promptMarkdown);
-      if (await this.repository.isTaskSeen(
-        ownerId,
-        candidateHash,
-        candidate.data.equivalenceGroup,
-      )) continue;
+          const candidateHash = taskHash(generation.value.promptMarkdown);
+          if (await this.repository.isTaskSeen(
+            ownerId,
+            candidateHash,
+            generation.value.equivalenceGroup,
+          )) continue;
 
-      const verification = await this.model.generate({
-        input: JSON.stringify({
-          candidate: candidate.data,
-          originalAnalysis: source.analysis,
-          originalProblemMarkdown: source.problemMarkdown,
-          previousAssessmentTasks: previousTasks,
-        }),
-        maxOutputTokens: TASK_REVIEW_MAX_OUTPUT_TOKENS,
-        role: 'guard',
-        signal: new AbortController().signal,
-        system: TASK_VERIFICATION_PROMPT,
-      });
-      const checked = assessmentTaskVerificationSchema.safeParse(verification.parsed);
-      if (!checked.success || checked.data.verdict !== 'accept') continue;
+          const verification = await this.runModelNode(
+            ownerId,
+            runContext,
+            {
+              input: {
+                candidate: generation.value,
+                originalAnalysis: source.analysis,
+                originalProblemMarkdown: source.problemMarkdown,
+                previousAssessmentTasks: previousTasks,
+              },
+              maxOutputTokens: TASK_REVIEW_MAX_OUTPUT_TOKENS,
+              nodeKey: `reassessment_guard_${ordinal}`,
+              role: 'guard',
+              schema: assessmentTaskVerificationSchema,
+              system: TASK_VERIFICATION_PROMPT,
+            },
+          );
+          if (!verification || verification.value.verdict !== 'accept') continue;
 
-      try {
-        const attempt = await this.repository.createReassessment(ownerId, rootSessionId, {
-          candidate: candidate.data,
-          taskHash: candidateHash,
-          verification: {
-            generation: modelMetadata(generation),
-            review: { ...modelMetadata(verification), reason: checked.data.reason },
-          },
-        });
-        return this.toPublic(attempt);
-      } catch (error) {
-        if (error instanceof ConflictException) continue;
-        throw error;
-      }
-    }
+          try {
+            const attempt = await this.repository.createReassessment(ownerId, rootSessionId, {
+              candidate: generation.value,
+              taskHash: candidateHash,
+              verification: {
+                generation: modelMetadata(generation.response),
+                review: {
+                  ...modelMetadata(verification.response),
+                  reason: verification.value.reason,
+                },
+              },
+            });
+            return this.toPublic(attempt);
+          } catch (error) {
+            if (error instanceof ConflictException) continue;
+            throw error;
+          }
+        }
 
-    throw new UnprocessableEntityException(REASSESSMENT_NOT_READY);
+        throw new UnprocessableEntityException(REASSESSMENT_NOT_READY);
+      },
+    );
   }
 
   async saveDraft(
@@ -227,60 +351,107 @@ export class AssessmentService {
   async submitPlan(
     ownerId: string,
     attemptId: string,
-    input: { expectedVersion: number; noPlan: boolean; planMarkdown: string },
+    input: {
+      expectedVersion: number;
+      noPlan: boolean;
+      planMarkdown: string;
+      transcriptId?: string;
+      transcriptRevision?: number;
+    },
   ) {
+    const planMarkdown = input.planMarkdown.trim();
+    if (input.transcriptId && input.transcriptRevision) {
+      await this.media.assertConfirmedTranscript(
+        ownerId,
+        input.transcriptId,
+        input.transcriptRevision,
+        planMarkdown,
+      );
+    }
     return this.toPublic(await this.repository.lockPlan(ownerId, attemptId, {
       ...input,
-      planMarkdown: input.planMarkdown.trim(),
+      planMarkdown,
     }));
   }
 
   async finish(
     ownerId: string,
     attemptId: string,
-    input: { answerMarkdown: string; expectedVersion: number },
+    input: {
+      answerMarkdown: string;
+      expectedVersion: number;
+      transcriptId?: string;
+      transcriptRevision?: number;
+    },
   ) {
+    const answerMarkdown = input.answerMarkdown.trim();
+    if (input.transcriptId && input.transcriptRevision) {
+      await this.media.assertConfirmedTranscript(
+        ownerId,
+        input.transcriptId,
+        input.transcriptRevision,
+        answerMarkdown,
+      );
+    }
     const frozen = await this.repository.freezeAnswer(ownerId, attemptId, {
       ...input,
-      answerMarkdown: input.answerMarkdown.trim(),
+      answerMarkdown,
     });
     if (frozen.phase === 'summary') return this.toPublic(frozen);
 
     let grade: AssessmentGrade;
     try {
-      const response = await this.model.generate({
-        input: JSON.stringify({
-          finalAnswerMarkdown: frozen.finalAnswerMarkdown,
-          lockedPlanMarkdown: frozen.lockedPlanMarkdown,
-          planUnanswered: frozen.planUnanswered,
-          referenceAnswerMarkdown: frozen.referenceAnswerMarkdown,
-          rubric: frozen.rubric,
-          taskPromptMarkdown: frozen.promptMarkdown,
-        }),
-        maxOutputTokens: GRADE_MAX_OUTPUT_TOKENS,
-        role: 'assessment',
-        signal: new AbortController().signal,
-        system: GRADE_PROMPT,
-      });
-      grade = assessmentGradeSchema.parse(response.parsed);
+      grade = await this.withModelRun(
+        ownerId,
+        frozen.sessionId,
+        'grade',
+        { attemptId, operation: 'assessment_finish' },
+        async (runContext) => {
+          const graded = await this.runModelNode(
+            ownerId,
+            runContext,
+            {
+              input: {
+                finalAnswerMarkdown: frozen.finalAnswerMarkdown,
+                lockedPlanMarkdown: frozen.lockedPlanMarkdown,
+                planUnanswered: frozen.planUnanswered,
+                referenceAnswerMarkdown: frozen.referenceAnswerMarkdown,
+                rubric: frozen.rubric,
+                taskPromptMarkdown: frozen.promptMarkdown,
+              },
+              maxOutputTokens: GRADE_MAX_OUTPUT_TOKENS,
+              nodeKey: 'grade',
+              role: 'assessment',
+              schema: assessmentGradeSchema,
+              system: GRADE_PROMPT,
+            },
+          );
+          if (!graded) throw new Error('grade output was invalid');
 
-      const guard = await this.model.generate({
-        input: JSON.stringify({
-          finalAnswerMarkdown: frozen.finalAnswerMarkdown,
-          grade,
-          lockedPlanMarkdown: frozen.lockedPlanMarkdown,
-          planUnanswered: frozen.planUnanswered,
-          referenceAnswerMarkdown: frozen.referenceAnswerMarkdown,
-          rubric: frozen.rubric,
-          taskPromptMarkdown: frozen.promptMarkdown,
-        }),
-        maxOutputTokens: GRADE_REVIEW_MAX_OUTPUT_TOKENS,
-        role: 'guard',
-        signal: new AbortController().signal,
-        system: GRADE_GUARD_PROMPT,
-      });
-      const checked = assessmentGradeGuardSchema.parse(guard.parsed);
-      if (checked.verdict !== 'accept') throw new Error('grade rejected');
+          const guard = await this.runModelNode(
+            ownerId,
+            runContext,
+            {
+              input: {
+                finalAnswerMarkdown: frozen.finalAnswerMarkdown,
+                grade: graded.value,
+                lockedPlanMarkdown: frozen.lockedPlanMarkdown,
+                planUnanswered: frozen.planUnanswered,
+                referenceAnswerMarkdown: frozen.referenceAnswerMarkdown,
+                rubric: frozen.rubric,
+                taskPromptMarkdown: frozen.promptMarkdown,
+              },
+              maxOutputTokens: GRADE_REVIEW_MAX_OUTPUT_TOKENS,
+              nodeKey: 'grade_guard',
+              role: 'guard',
+              schema: assessmentGradeGuardSchema,
+              system: GRADE_GUARD_PROMPT,
+            },
+          );
+          if (!guard || guard.value.verdict !== 'accept') throw new Error('grade rejected');
+          return graded.value;
+        },
+      );
     } catch {
       grade = {
         evidence: [],
@@ -302,6 +473,112 @@ export class AssessmentService {
     input: { currentMarkdown: string; expectedVersion: number },
   ) {
     return this.toPublic(await this.repository.requestHelp(ownerId, attemptId, input));
+  }
+
+  private async withModelRun<T>(
+    ownerId: string,
+    sessionId: string,
+    workflow: Extract<WorkflowName, 'grade' | 'prepare'>,
+    context: Record<string, unknown>,
+    execute: (runContext: { budget: BudgetLedger; run: AssessmentModelRun }) => Promise<T>,
+  ): Promise<T> {
+    const run = await this.repository.startModelRun(ownerId, sessionId, workflow, context);
+    const budget = new BudgetLedger({ deadlineAt: new Date(run.deadlineAt), workflow });
+    try {
+      const value = await execute({ budget, run });
+      await this.repository.completeModelRun(ownerId, run, 'completed');
+      return value;
+    } catch (error) {
+      budget.cancel();
+      await this.repository.completeModelRun(ownerId, run, 'failed');
+      throw error;
+    }
+  }
+
+  private async runModelNode<T>(
+    ownerId: string,
+    context: { budget: BudgetLedger; run: AssessmentModelRun },
+    input: {
+      input: unknown;
+      maxOutputTokens: number;
+      nodeKey: string;
+      role: 'assessment' | 'guard' | 'preparation';
+      schema: z.ZodType<T>;
+      system: string;
+    },
+  ): Promise<{ response: ModelResponse; value: T } | null> {
+    const startedAt = new Date();
+    const inputHash = createHash('sha256')
+      .update(JSON.stringify({
+        input: input.input,
+        maxOutputTokens: input.maxOutputTokens,
+        nodeKey: input.nodeKey,
+        promptVersion: ASSESSMENT_PROMPT_VERSION,
+        role: input.role,
+        system: input.system,
+      }), 'utf8')
+      .digest('hex');
+    const estimatedInput = estimateInputTokens(input.system, input.input);
+    let reservation: { inputTokens: number; outputTokens: number };
+    let rawResponse: ModelResponse;
+    try {
+      reservation = context.budget.authorizeCall({
+        inputTokens: estimatedInput,
+        outputTokens: input.maxOutputTokens,
+      });
+      rawResponse = await this.model.generate({
+        input: input.input,
+        maxOutputTokens: input.maxOutputTokens,
+        outputSchema: input.schema,
+        role: input.role,
+        signal: context.budget.signal,
+        system: input.system,
+      });
+    } catch (error) {
+      await this.repository.recordModelNode(ownerId, context.run, {
+        finishedAt: new Date().toISOString(),
+        inputHash,
+        modelId: '',
+        nodeKey: input.nodeKey,
+        output: null,
+        promptVersion: ASSESSMENT_PROMPT_VERSION,
+        startedAt: startedAt.toISOString(),
+        status: 'failed',
+        usage: null,
+      });
+      throw error;
+    }
+
+    const usage = rawResponse.usage.kind === 'reported'
+      ? rawResponse.usage
+      : { input: estimatedInput, kind: 'estimated' as const, output: input.maxOutputTokens };
+    context.budget.settle(reservation, {
+      inputTokens: usage.input,
+      outputTokens: usage.output,
+    });
+    const parsed = input.schema.safeParse(rawResponse.parsed);
+    const response = { ...rawResponse, parsed: parsed.success ? parsed.data : rawResponse.parsed, usage };
+    await this.repository.recordModelNode(ownerId, context.run, {
+      finishedAt: new Date().toISOString(),
+      inputHash,
+      modelId: response.model,
+      nodeKey: input.nodeKey,
+      output: parsed.success ? parsed.data : null,
+      promptVersion: ASSESSMENT_PROMPT_VERSION,
+      startedAt: startedAt.toISOString(),
+      status: parsed.success ? 'completed' : 'failed',
+      usage: {
+        elapsedMs: response.elapsedMs,
+        input: response.usage.input,
+        kind: response.usage.kind,
+        output: response.usage.output,
+        provider: response.provider,
+        ...(response.providerRequestId
+          ? { providerRequestId: response.providerRequestId }
+          : {}),
+      },
+    });
+    return parsed.success ? { response, value: parsed.data } : null;
   }
 
   private buildResult(attempt: AssessmentAttemptRecord, grade: AssessmentGrade): AssessmentResult {

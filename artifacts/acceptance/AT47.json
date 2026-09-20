@@ -2,7 +2,7 @@
   "baseline": "qisi-3.1",
   "acceptance_id": "AT47",
   "result": "passed_self_review",
-  "executed_at": "2026-09-19T19:48:00+08:00",
+  "executed_at": "2026-09-20T01:53:52+08:00",
   "executed_by": "Codex self_review",
   "application_commit": null,
   "layer": "real_mysql_integration_and_mock_e2e",
@@ -21,10 +21,14 @@
     "temporary_drafts_cleared": true,
     "locked_plan_preserved": true,
     "final_answer_preserved": true,
-    "uploaded_image_bytes_persisted": false,
+    "private_image_bytes_deleted_after_24h": true,
+    "confirmed_text_retained_without_media": true,
     "expired_session_cascade": true,
     "linked_reassessment_and_help_deleted": true,
     "linked_session_delete_count": 3,
+    "linked_private_media_deleted": true,
+    "failed_media_delete_left_retryable_record": true,
+    "deferred_media_cleanup_retried": true,
     "late_provider_commit_rejected": true,
     "history_incomplete_recorded": true,
     "future_first_seen_eligible": false,
@@ -47,6 +51,7 @@
   "limitations": [
     "The available local database is MySQL 8.0.45, while the production target remains MySQL 8.4.",
     "The cleanup executable is verified locally; production scheduling and deployment are not yet validated.",
-    "No independent reviewer or real student observation was performed."
+    "No independent reviewer or real student observation was performed.",
+    "real_student_observation: not_run"
   ]
 }

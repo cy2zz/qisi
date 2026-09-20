@@ -1,5 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { buildAttemptReport, deriveOriginalStatus } from './report.service.js';
+import {
+  buildAttemptReport,
+  deriveOriginalStatus,
+  projectFrozenAttemptWork,
+} from './report.service.js';
 
 const baseAttempt = {
   assistanceRequested: false,
@@ -53,5 +57,27 @@ describe('report evidence rules', () => {
     expect(deriveOriginalStatus('incorrect', false)).toBe('incomplete');
     expect(deriveOriginalStatus('correct', false)).toBe('completed_without_recorded_help');
     expect(deriveOriginalStatus('correct', true)).toBe('completed_with_help');
+  });
+
+  it('projects the frozen plan and final answer without reviving a skipped plan', () => {
+    expect(projectFrozenAttemptWork({
+      finalAnswerMarkdown: '$g(x)=(x-3)^2-4$',
+      lockedPlanMarkdown: '先配方。',
+      planUnanswered: false,
+    })).toEqual({
+      final_answer_markdown: '$g(x)=(x-3)^2-4$',
+      locked_plan_markdown: '先配方。',
+      plan_unanswered: false,
+    });
+
+    expect(projectFrozenAttemptWork({
+      finalAnswerMarkdown: null,
+      lockedPlanMarkdown: '不应展示的旧计划',
+      planUnanswered: true,
+    })).toEqual({
+      final_answer_markdown: null,
+      locked_plan_markdown: null,
+      plan_unanswered: true,
+    });
   });
 });

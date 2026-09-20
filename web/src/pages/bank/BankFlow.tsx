@@ -10,12 +10,19 @@ import { Link, Navigate, useLocation, useNavigate, useParams } from 'react-route
 import { Button } from '../../components/ui/button';
 import { MathFormatButton } from '../../features/input/MathFormatButton';
 import {
+  HandwritingInput,
+  type ConfirmedHandwriting,
+  type HandwritingInputHandle,
+} from '../../features/input/HandwritingInput';
+import {
   ImageQuestionInput,
   type ImageQuestionInputHandle,
 } from '../../features/input/ImageQuestionInput';
 import { VoiceInputButton } from '../../features/input/VoiceInputButton';
+import { ReadAloudButton, ReadAloudProvider } from '../../features/speech/ReadAloud';
 import { apiFetch, apiStream } from '../../lib/api';
 import { MathMarkdown } from '../../shared/MathMarkdown';
+import { MATH_FORMULA_SHORTCUTS } from '../../shared/math-input';
 import {
   PaperPickerDialog,
   type PaperSelection,
@@ -36,11 +43,15 @@ interface ConversationMessage {
   assistanceMode?: AssistanceMode;
   analysis?: ProblemAnalysis;
   content: string;
+  currentVerdict?: 'correct' | 'incorrect' | 'unknown';
   history?: ProblemChatMessage[];
+  handwriting?: Pick<ConfirmedHandwriting, 'revision' | 'transcriptId'>;
   id: string;
+  preparationStatus?: 'needs_review' | 'ready' | 'unavailable';
   request?: string;
   requestId?: string;
   recognitionUncertain?: string[];
+  remediationFocus?: RemediationFocus;
   role: 'guide' | 'student';
   state?: 'analysis' | 'error' | 'loading' | 'reply' | 'reply-loading' | 'reply-streaming' | 'text';
 }
@@ -59,6 +70,7 @@ interface ProblemAnalysis {
 }
 
 type AssistanceMode = 'attempt' | 'hint' | 'explain' | 'worked_solution' | 'finish_problem';
+type RemediationFocus = 'evidence' | 'execution' | 'method';
 
 const assistanceModeLabels: Record<AssistanceMode, string> = {
   attempt: '思路反馈',
@@ -68,21 +80,55 @@ const assistanceModeLabels: Record<AssistanceMode, string> = {
   finish_problem: '本题核对',
 };
 
-type SessionRecord = StudyRecord;
+const remediationFocusDetails: Record<RemediationFocus, {
+  action: string;
+  activeLabel: string;
+  detail: string;
+  label: string;
+  prompt: string;
+  title: string;
+}> = {
+  evidence: {
+    action: '询问证据边界',
+    activeLabel: '只核对证据边界',
+    detail: '核对帮助记录和独立资格，不把答案正确直接等同于已经掌握。',
+    label: 'EVIDENCE / 证据边界',
+    prompt: '请解释这次为什么还不能记为独立通过。',
+    title: '先看清这次为什么不能记为独立通过',
+  },
+  execution: {
+    action: '写下执行卡点',
+    activeLabel: '只处理执行卡点',
+    detail: '对照刚才的步骤，只找计算、变形或表达中需要修正的一行。',
+    label: 'EXECUTION / 执行修正',
+    prompt: '我的方法是对的，但执行中有一步需要修正。我卡在：',
+    title: '方法已经成立，只定位执行卡点',
+  },
+  method: {
+    action: '写下方法卡点',
+    activeLabel: '只梳理方法依据',
+    detail: '回到原题，只梳理准备怎么做；暂时不急着重算整题。',
+    label: 'METHOD / 方法修正',
+    prompt: '我想先把方法想清楚。我的原计划是：',
+    title: '先把方法依据补完整',
+  },
+};
 
-const formulaShortcuts = [
-  { label: '分式', name: '插入分式', syntax: '$\\frac{}{}$' },
-  { label: '根式', name: '插入根式', syntax: '$\\sqrt{}$' },
-  { label: '上标', name: '插入上标', syntax: '$x^{}$' },
-  { label: '下标', name: '插入下标', syntax: '$x_{}$' },
-  { label: '绝对值', name: '插入绝对值', syntax: '$\\left|{}\\right|$' },
-  { label: '括号', name: '插入自适应括号', syntax: '$\\left({}\\right)$' },
-  { label: '求和', name: '插入求和', syntax: '$\\sum_{}^{}$' },
-  { label: '积分', name: '插入积分', syntax: '$\\int_{}^{}$' },
-  { label: '极限', name: '插入极限', syntax: '$\\lim_{x\\to {}}$' },
-  { label: '向量', name: '插入向量', syntax: '$\\vec{}$' },
-  { label: '联立', name: '插入联立式', syntax: '$\\begin{cases}{}\\\\{}\\end{cases}$' },
-];
+function isRemediationFocus(value: unknown): value is RemediationFocus {
+  return value === 'method' || value === 'execution' || value === 'evidence';
+}
+
+function getRemediationFocus(search: string): RemediationFocus | null {
+  const focus = new URLSearchParams(search).get('remediate');
+  return isRemediationFocus(focus) ? focus : null;
+}
+
+type SessionRecord = StudyRecord;
+type DraftSaveState = 'dirty' | 'error' | 'saved' | 'saving';
+
+function shouldUseCompactQuestionContext() {
+  return typeof window !== 'undefined' && window.innerWidth <= 720;
+}
 
 const quickReplies: ReadonlyArray<{
   intent: string;
@@ -113,6 +159,14 @@ const learningHelpActions: ReadonlyArray<{
   { compactLabel: '提示一点', label: '给一点提示', message: '请只给我一个最小提示，不要直接给答案。', mode: 'hint' },
   { compactLabel: '解释卡点', label: '解释当前卡点', message: '请解释我当前最可能卡住的这个地方。', mode: 'explain' },
   { compactLabel: '直接讲解', label: '直接讲清楚', message: '请直接讲清楚当前关键步骤。', mode: 'worked_solution' },
+] as const;
+
+const stuckPointOptions = [
+  { label: '条件没看懂', prompt: '我卡在题目条件：我还没看懂这些条件之间的关系。' },
+  { label: '方法想不到', prompt: '我卡在方法选择：我不知道应该先用哪个知识点。' },
+  { label: '公式不会列', prompt: '我卡在列式：思路大概知道，但不知道公式怎么写。' },
+  { label: '计算卡住', prompt: '我卡在计算：方法已经确定，但这一步算不下去。' },
+  { label: '答案不确定', prompt: '我卡在核对：已经算完，但不确定哪一步可能有问题。' },
 ] as const;
 
 type JourneyStep = 'choose' | 'prepare' | 'learn';
@@ -181,16 +235,27 @@ function StudyFrame({
 
 export function BankPage({ username }: StudentPageProps) {
   const location = useLocation();
+  const navigate = useNavigate();
   const requestedSessionId = new URLSearchParams(location.search).get('session');
+  const remediationFocus = getRemediationFocus(location.search);
+  const remediation = remediationFocus ? remediationFocusDetails[remediationFocus] : null;
   const analysisRequestRef = useRef(0);
   const chatAbortRef = useRef<AbortController | null>(null);
   const chatRequestRef = useRef(0);
   const chatScrollRef = useRef<HTMLDivElement>(null);
+  const composerDockRef = useRef<HTMLDivElement>(null);
   const composerFormRef = useRef<HTMLFormElement>(null);
   const composerRef = useRef<RichComposerHandle>(null);
+  const draftRevisionRef = useRef(0);
+  const draftSaveRequestRef = useRef(0);
+  const formulaToolsRef = useRef<HTMLDivElement>(null);
+  const formulaTriggerRef = useRef<HTMLButtonElement>(null);
   const highImpactHelpConfirmRef = useRef<HTMLButtonElement>(null);
+  const highImpactHelpDialogRef = useRef<HTMLElement>(null);
+  const handwritingInputRef = useRef<HandwritingInputHandle>(null);
   const imageInputRef = useRef<ImageQuestionInputHandle>(null);
   const restoreRequestRef = useRef(0);
+  const suppressNextDraftChangeRef = useRef(false);
   const [activeRecord, setActiveRecord] = useState<SessionRecord | null>(null);
   const [bankOpen, setBankOpen] = useState(false);
   const [formulaOpen, setFormulaOpen] = useState(false);
@@ -199,10 +264,16 @@ export function BankPage({ username }: StudentPageProps) {
   const [records, setRecords] = useState<SessionRecord[]>([]);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [questionCollapsed, setQuestionCollapsed] = useState(false);
+  const [questionFocusMode, setQuestionFocusMode] = useState(false);
   const [draft, setDraft] = useState('');
+  const [confirmedHandwriting, setConfirmedHandwriting] = useState<ConfirmedHandwriting | null>(null);
+  const [draftSaveState, setDraftSaveState] = useState<DraftSaveState>('saved');
   const [isReplying, setIsReplying] = useState(false);
   const [finishIntent, setFinishIntent] = useState(false);
+  const [stuckPointOpen, setStuckPointOpen] = useState(false);
   const [pendingHelpAction, setPendingHelpAction] = useState<(typeof learningHelpActions)[number] | null>(null);
+  const [pendingRemediationFocus, setPendingRemediationFocus] = useState<RemediationFocus | null>(null);
+  const [remediationTrackError, setRemediationTrackError] = useState<string | null>(null);
   const [replyToRevealId, setReplyToRevealId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -220,6 +291,14 @@ export function BankPage({ username }: StudentPageProps) {
 
     return () => abortController.abort();
   }, [requestedSessionId]);
+
+  useEffect(() => {
+    if (!activeRecord?.version || draftSaveState !== 'dirty') return;
+    const timeout = window.setTimeout(() => {
+      void persistDraft(activeRecord.id, draft, draftRevisionRef.current);
+    }, 800);
+    return () => window.clearTimeout(timeout);
+  }, [activeRecord?.id, activeRecord?.version, draft, draftSaveState]);
 
   useLayoutEffect(() => {
     const scrollArea = chatScrollRef.current;
@@ -239,8 +318,8 @@ export function BankPage({ username }: StudentPageProps) {
         scrollArea.scrollTop + replyTop - scrollAreaTop - 12,
       );
     }
-    composerRef.current?.focus({ preventScroll: true });
-  }, [messages, replyToRevealId]);
+    if (!isReplying) composerRef.current?.focus({ preventScroll: true });
+  }, [isReplying, messages, replyToRevealId]);
 
   useEffect(() => {
     if (pendingHelpAction) {
@@ -248,19 +327,67 @@ export function BankPage({ username }: StudentPageProps) {
     }
   }, [pendingHelpAction]);
 
+  useEffect(() => {
+    if (!pendingHelpAction) return;
+
+    const cancelHelpDisclosure = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setPendingHelpAction(null);
+        requestAnimationFrame(() => composerRef.current?.focus());
+        return;
+      }
+      if (event.key !== 'Tab' || !highImpactHelpDialogRef.current) return;
+
+      const actions = Array.from(
+        highImpactHelpDialogRef.current.querySelectorAll<HTMLButtonElement>('button:not(:disabled)'),
+      );
+      const first = actions[0];
+      const last = actions.at(-1);
+      if (!first || !last) return;
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    window.addEventListener('keydown', cancelHelpDisclosure);
+    return () => window.removeEventListener('keydown', cancelHelpDisclosure);
+  }, [pendingHelpAction]);
+
+  useEffect(() => {
+    if (!questionFocusMode) return;
+    const leaveQuestionFocus = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+      setQuestionFocusMode(false);
+      requestAnimationFrame(() => composerRef.current?.focus());
+    };
+    window.addEventListener('keydown', leaveQuestionFocus);
+    return () => window.removeEventListener('keydown', leaveQuestionFocus);
+  }, [questionFocusMode]);
+
   function rememberRecord(record: SessionRecord) {
     setRecords((current) => [record, ...current.filter((item) => item.id !== record.id)]);
   }
 
   async function restoreSession(sessionId: string) {
     const requestNumber = ++restoreRequestRef.current;
+    const draftRevision = draftRevisionRef.current;
     try {
       const detail = await apiFetch<{
         analysis: ProblemAnalysis;
+        draftMarkdown?: string;
+        remediationFocus?: unknown;
         messages: Array<{
           assistanceMode?: AssistanceMode;
           content: string;
           id: string;
+          metadata?: {
+            currentVerdict?: 'correct' | 'incorrect' | 'unknown';
+            remediationFocus?: unknown;
+          };
           messageType: string;
           role: 'guide' | 'student';
         }>;
@@ -274,6 +401,7 @@ export function BankPage({ username }: StudentPageProps) {
               analysis: detail.analysis,
               content: message.content,
               id: `analysis-${detail.record.id}`,
+              preparationStatus: detail.record.preparationStatus,
               recognitionUncertain: detail.record.recognitionUncertain,
               role: 'guide',
               state: 'analysis',
@@ -281,7 +409,11 @@ export function BankPage({ username }: StudentPageProps) {
           : {
               assistanceMode: message.assistanceMode,
               content: message.content,
+              currentVerdict: message.metadata?.currentVerdict,
               id: `persisted-${message.id}`,
+              remediationFocus: isRemediationFocus(message.metadata?.remediationFocus)
+                ? message.metadata.remediationFocus
+                : undefined,
               role: message.role,
               state: 'reply',
             },
@@ -291,12 +423,25 @@ export function BankPage({ username }: StudentPageProps) {
       setMessages(restoredMessages);
       rememberRecord(detail.record);
       setHasProblem(true);
+      handwritingInputRef.current?.clear();
+      imageInputRef.current?.clear();
       setFormulaOpen(false);
       setFinishIntent(false);
+      setStuckPointOpen(false);
       setPendingHelpAction(null);
-      setQuestionCollapsed(false);
+      setPendingRemediationFocus(
+        isRemediationFocus(detail.remediationFocus) ? detail.remediationFocus : null,
+      );
+      setRemediationTrackError(null);
+      setQuestionCollapsed(shouldUseCompactQuestionContext());
+      setQuestionFocusMode(false);
       setSidebarOpen(false);
-      requestAnimationFrame(() => composerRef.current?.focus());
+      requestAnimationFrame(() => {
+        if (draftRevisionRef.current === draftRevision) {
+          replaceComposerDraft(detail.draftMarkdown ?? '', !remediation);
+        }
+        if (!remediation) composerRef.current?.focus();
+      });
     } catch {
       if (restoreRequestRef.current === requestNumber) {
         setRecords((current) => current.filter((record) => record.id !== sessionId));
@@ -310,6 +455,7 @@ export function BankPage({ username }: StudentPageProps) {
     try {
       const result = await apiFetch<{
         analysis: ProblemAnalysis;
+        preparation?: { cached: boolean; status: 'needs_review' | 'ready' | 'unavailable' };
         problemMd?: string;
         recognitionUncertain?: string[];
         session?: { id: string; title: string; version: number };
@@ -335,6 +481,7 @@ export function BankPage({ username }: StudentPageProps) {
             }
           : {}),
         ...(result.problemMd ? { problemMd: result.problemMd } : {}),
+        ...(result.preparation ? { preparationStatus: result.preparation.status } : {}),
         ...(result.recognitionUncertain
           ? { recognitionUncertain: result.recognitionUncertain }
           : {}),
@@ -351,6 +498,7 @@ export function BankPage({ username }: StudentPageProps) {
                 analysis: result.analysis,
                 content: result.analysis.overview,
                 id: analysisMessageId,
+                preparationStatus: result.preparation?.status,
                 recognitionUncertain: result.recognitionUncertain,
                 role: 'guide',
                 state: 'analysis',
@@ -358,6 +506,7 @@ export function BankPage({ username }: StudentPageProps) {
             : message,
         ),
       );
+      if (shouldUseCompactQuestionContext()) setQuestionCollapsed(true);
     } catch {
       if (analysisRequestRef.current !== requestNumber) return;
 
@@ -417,13 +566,18 @@ export function BankPage({ username }: StudentPageProps) {
     setActiveRecord(record);
     rememberRecord(record);
     setHasProblem(true);
-    composerRef.current?.clear();
+    clearComposerWithoutSaving();
+    handwritingInputRef.current?.clear();
     imageInputRef.current?.clear();
     setBankOpen(false);
     setFormulaOpen(false);
     setFinishIntent(false);
+    setStuckPointOpen(false);
     setPendingHelpAction(null);
+    setPendingRemediationFocus(null);
+    setRemediationTrackError(null);
     setQuestionCollapsed(false);
+    setQuestionFocusMode(false);
     setSidebarOpen(false);
     void analyzeProblem(record, requestNumber);
     requestAnimationFrame(() => composerRef.current?.focus());
@@ -448,6 +602,7 @@ export function BankPage({ username }: StudentPageProps) {
   function openLocalBank() {
     setBankOpen(true);
     setFormulaOpen(false);
+    setStuckPointOpen(false);
     setSidebarOpen(false);
   }
 
@@ -460,13 +615,18 @@ export function BankPage({ username }: StudentPageProps) {
     setActiveRecord(null);
     setMessages([]);
     setHasProblem(false);
-    composerRef.current?.clear();
+    clearComposerWithoutSaving();
+    handwritingInputRef.current?.clear();
     imageInputRef.current?.clear();
     setBankOpen(false);
     setFormulaOpen(false);
     setFinishIntent(false);
+    setStuckPointOpen(false);
     setPendingHelpAction(null);
+    setPendingRemediationFocus(null);
+    setRemediationTrackError(null);
     setQuestionCollapsed(false);
+    setQuestionFocusMode(false);
     setSidebarOpen(false);
     requestAnimationFrame(() => composerRef.current?.focus());
   }
@@ -488,6 +648,8 @@ export function BankPage({ username }: StudentPageProps) {
     history: ProblemChatMessage[],
     assistanceMode: AssistanceMode,
     requestId: string,
+    handwriting?: Pick<ConfirmedHandwriting, 'revision' | 'transcriptId'>,
+    remediationFocus?: RemediationFocus,
   ) {
     if (!activeRecord) return;
 
@@ -521,6 +683,13 @@ export function BankPage({ username }: StudentPageProps) {
           history,
           message: studentMessage,
           problemMd: activeRecord.problemMd ?? activeRecord.content,
+          ...(remediationFocus ? { remediationFocus } : {}),
+          ...(handwriting
+            ? {
+                transcriptId: handwriting.transcriptId,
+                transcriptRevision: handwriting.revision,
+              }
+            : {}),
         },
         (event) => {
           if (chatRequestRef.current !== requestNumber) return;
@@ -537,7 +706,19 @@ export function BankPage({ username }: StudentPageProps) {
               }
               if (event.type === 'done') {
                 committedVersion = event.version;
-                return { ...message, state: 'reply' };
+                if (
+                  remediationFocus
+                  && assistanceMode === 'finish_problem'
+                  && event.currentVerdict === 'correct'
+                ) {
+                  setPendingRemediationFocus(null);
+                  setRemediationTrackError(null);
+                }
+                return {
+                  ...message,
+                  ...(event.currentVerdict ? { currentVerdict: event.currentVerdict } : {}),
+                  state: 'reply',
+                };
               }
               return { ...message, content: event.message, state: 'error' };
             }),
@@ -577,9 +758,19 @@ export function BankPage({ username }: StudentPageProps) {
     }
   }
 
-  function submitContent(rawContent: string, assistanceMode: AssistanceMode = 'attempt') {
+  function submitContent(
+    rawContent: string,
+    assistanceMode: AssistanceMode = 'attempt',
+    handwriting: ConfirmedHandwriting | null = null,
+  ) {
     const content = rawContent.trim();
     if (!content || isReplying) return;
+    const handwritingBinding = handwriting?.markdown.trim() === content
+      ? {
+          revision: handwriting.revision,
+          transcriptId: handwriting.transcriptId,
+        }
+      : undefined;
 
     if (!hasProblem) {
       const recordId = `custom-${Date.now()}`;
@@ -596,6 +787,7 @@ export function BankPage({ username }: StudentPageProps) {
     const guideMessageId = `guide-${messageId}`;
     const requestId = crypto.randomUUID();
     const history = visibleChatHistory();
+    const remediationFocus = pendingRemediationFocus ?? undefined;
     setMessages((current) => [
       ...current,
       { content, id: messageId, role: 'student' },
@@ -603,26 +795,154 @@ export function BankPage({ username }: StudentPageProps) {
         content: '正在核对你的这一步',
         assistanceMode,
         history,
+        handwriting: handwritingBinding,
         id: guideMessageId,
         request: content,
         requestId,
+        remediationFocus,
         role: 'guide',
         state: 'reply-loading',
       },
     ]);
-    composerRef.current?.clear();
+    clearComposerWithoutSaving();
     setFormulaOpen(false);
+    setStuckPointOpen(false);
     if (assistanceMode === 'finish_problem') setFinishIntent(false);
-    void requestReply(guideMessageId, content, history, assistanceMode, requestId);
+    void requestReply(
+      guideMessageId,
+      content,
+      history,
+      assistanceMode,
+      requestId,
+      handwritingBinding,
+      remediationFocus,
+    );
   }
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    submitContent(draft, finishIntent ? 'finish_problem' : 'attempt');
+    submitContent(
+      draft,
+      finishIntent ? 'finish_problem' : 'attempt',
+      confirmedHandwriting,
+    );
+  }
+
+  function updateDraft(markdown: string) {
+    setDraft(markdown);
+    if (suppressNextDraftChangeRef.current) {
+      suppressNextDraftChangeRef.current = false;
+      setDraftSaveState('saved');
+      return;
+    }
+    setConfirmedHandwriting(null);
+    draftRevisionRef.current += 1;
+    setDraftSaveState('dirty');
+  }
+
+  function clearComposerWithoutSaving() {
+    setConfirmedHandwriting(null);
+    suppressNextDraftChangeRef.current = true;
+    composerRef.current?.clear();
+  }
+
+  function replaceComposerDraft(markdown: string, focus = true) {
+    setConfirmedHandwriting(null);
+    suppressNextDraftChangeRef.current = true;
+    composerRef.current?.replaceText(markdown, { focus });
+  }
+
+  async function persistDraft(sessionId: string, markdown: string, revision: number) {
+    const requestNumber = ++draftSaveRequestRef.current;
+    setDraftSaveState('saving');
+    try {
+      await apiFetch<{ savedAt: string }>(`/api/learning/sessions/${sessionId}/draft`, {
+        body: JSON.stringify({ markdown }),
+        method: 'PATCH',
+      });
+      if (
+        draftSaveRequestRef.current === requestNumber
+        && draftRevisionRef.current === revision
+      ) {
+        setDraftSaveState('saved');
+      }
+    } catch {
+      if (
+        draftSaveRequestRef.current === requestNumber
+        && draftRevisionRef.current === revision
+      ) {
+        setDraftSaveState('error');
+      }
+    }
   }
 
   function insertFormula(syntax: string) {
     composerRef.current?.insertFormulaTemplate(syntax);
+  }
+
+  function insertStuckPoint(prompt: string) {
+    setFinishIntent(false);
+    composerRef.current?.insertText(`${draft.trim() ? '\n' : ''}${prompt}`);
+    setStuckPointOpen(false);
+    requestAnimationFrame(() => composerRef.current?.focus());
+  }
+
+  function startFinishCheck() {
+    setStuckPointOpen(false);
+    if (draft.trim()) {
+      submitContent(draft, 'finish_problem', confirmedHandwriting);
+      return;
+    }
+    setFinishIntent(true);
+    requestAnimationFrame(() => composerRef.current?.focus());
+  }
+
+  function clearRemediationHandoff() {
+    const searchParams = new URLSearchParams(location.search);
+    searchParams.delete('remediate');
+    const search = searchParams.toString();
+    void navigate(
+      { pathname: location.pathname, search: search ? `?${search}` : '' },
+      { replace: true },
+    );
+  }
+
+  async function persistRemediationTrack(focus: RemediationFocus | null) {
+    if (!activeRecord) return false;
+    setRemediationTrackError(null);
+    try {
+      await apiFetch<{ remediationFocus: RemediationFocus | null }>(
+        `/api/learning/sessions/${activeRecord.id}/remediation`,
+        {
+          body: JSON.stringify({ focus }),
+          method: 'PATCH',
+        },
+      );
+      return true;
+    } catch {
+      setRemediationTrackError(
+        focus ? '修正轨道暂未保存；发送成功后会再次保存。' : '暂时无法退出修正轨道，请重试。',
+      );
+      return false;
+    }
+  }
+
+  async function exitRemediationTrack() {
+    if (await persistRemediationTrack(null)) {
+      setPendingRemediationFocus(null);
+      requestAnimationFrame(() => composerRef.current?.focus());
+    }
+  }
+
+  function insertRemediationStarter() {
+    if (!remediation || !remediationFocus) return;
+    setFinishIntent(false);
+    setStuckPointOpen(false);
+    setPendingRemediationFocus(remediationFocus);
+    void persistRemediationTrack(remediationFocus);
+    composerRef.current?.insertText(`${draft.trim() ? '\n' : ''}${remediation.prompt}`);
+    clearRemediationHandoff();
+    requestAnimationFrame(() => composerRef.current?.focus());
   }
 
   function handleRecognizedImage(markdown: string, autoSubmit: boolean) {
@@ -633,28 +953,128 @@ export function BankPage({ username }: StudentPageProps) {
     composerRef.current?.replaceText(markdown);
   }
 
+  function handleConfirmedHandwriting(result: ConfirmedHandwriting) {
+    setConfirmedHandwriting(result);
+    suppressNextDraftChangeRef.current = true;
+    composerRef.current?.replaceText(result.markdown);
+    requestAnimationFrame(() => composerRef.current?.focus());
+  }
+
   const currentAnalysis = messages.find((message) => message.analysis)?.analysis;
   const hasStudentAttempt = messages.some(
     (message) => message.role === 'student' && !message.id.startsWith('student-'),
   );
   const isAnalyzing = messages.some((message) => message.state === 'loading');
   const hasFinishTurn = messages.some((message) => message.assistanceMode === 'finish_problem');
-  const exposedHelpLabels = messages.reduce<string[]>((labels, message) => {
+  const latestFinishMessageId = messages.reduce<string | null>(
+    (latestId, message) => (
+      message.role === 'guide' && message.assistanceMode === 'finish_problem'
+        ? message.id
+        : latestId
+    ),
+    null,
+  );
+  const latestFinishMessage = latestFinishMessageId
+    ? messages.find((message) => message.id === latestFinishMessageId)
+    : undefined;
+  const readyForIndependentAssessment = latestFinishMessage?.currentVerdict === 'correct'
+    && messages[messages.length - 1]?.id === latestFinishMessageId;
+  const exposedHelpSummaryByMessage = new Map<string, string>();
+  let cumulativeHelpLabels: string[] = [];
+  for (const message of messages) {
     const mode = message.assistanceMode;
     if (
-      message.role !== 'guide'
-      || message.state !== 'reply'
-      || (mode !== 'hint' && mode !== 'explain' && mode !== 'worked_solution')
-    ) return labels;
+      message.role === 'guide'
+      && message.state === 'reply'
+      && (mode === 'hint' || mode === 'explain' || mode === 'worked_solution')
+    ) {
+      const label = assistanceModeLabels[mode];
+      if (!cumulativeHelpLabels.includes(label)) {
+        cumulativeHelpLabels = [...cumulativeHelpLabels, label];
+      }
+    }
+    exposedHelpSummaryByMessage.set(
+      message.id,
+      cumulativeHelpLabels.length
+        ? `已使用：${cumulativeHelpLabels.join('、')}`
+        : '本页未记录帮助',
+    );
+  }
+  const learningStageIndex = readyForIndependentAssessment
+    ? learningStages.length
+    : isAnalyzing ? 0 : hasFinishTurn ? 3 : hasStudentAttempt ? 2 : 1;
+  const learningStage = readyForIndependentAssessment
+    ? {
+        detail: '撤去本题帮助，换一道新题确认能否独立完成。',
+        label: '独立验证',
+        title: '本题已核对，去独立验证',
+      }
+    : isAnalyzing
+      ? learningStages[0]
+      : hasFinishTurn
+        ? learningStages[3]
+        : hasStudentAttempt
+          ? learningStages[2]
+          : learningStages[1];
+  const draftSaveLabel = !hasProblem
+    ? '发送后建立学习记录'
+    : !activeRecord?.version
+      ? '正在建立草稿记录'
+      : draftSaveState === 'saved'
+        ? '已自动保存'
+        : draftSaveState === 'saving'
+          ? '正在自动保存'
+          : draftSaveState === 'error'
+            ? '自动保存失败，输入仍在本页'
+            : '尚未保存';
 
-    const label = assistanceModeLabels[mode];
-    return labels.includes(label) ? labels : [...labels, label];
-  }, []);
-  const learningStageIndex = isAnalyzing ? 0 : hasFinishTurn ? 3 : hasStudentAttempt ? 2 : 1;
-  const learningStage = learningStages[learningStageIndex];
+  useLayoutEffect(() => {
+    if (!readyForIndependentAssessment || !latestFinishMessageId) return;
+
+    const scrollArea = chatScrollRef.current;
+    const composerDock = composerDockRef.current;
+    const finishMessage = document.getElementById(latestFinishMessageId);
+    const action = finishMessage?.querySelector<HTMLElement>('.learning-checkpoint-action');
+    if (!scrollArea || !action) return;
+
+    let frameId = 0;
+    const alignActionAboveComposer = () => {
+      const scrollAreaBottom = scrollArea.getBoundingClientRect().bottom;
+      const composerTop = composerDock?.getBoundingClientRect().top ?? scrollAreaBottom;
+      const visibleBottom = Math.min(scrollAreaBottom, composerTop) - 12;
+      const actionBottom = action.getBoundingClientRect().bottom;
+      if (actionBottom > visibleBottom) {
+        scrollArea.scrollTop += actionBottom - visibleBottom;
+      }
+    };
+    const scheduleAlignment = () => {
+      cancelAnimationFrame(frameId);
+      frameId = requestAnimationFrame(alignActionAboveComposer);
+    };
+
+    alignActionAboveComposer();
+    scheduleAlignment();
+    window.addEventListener('resize', scheduleAlignment);
+    window.visualViewport?.addEventListener('resize', scheduleAlignment);
+
+    const resizeObserver = typeof ResizeObserver === 'undefined'
+      ? null
+      : new ResizeObserver(scheduleAlignment);
+    resizeObserver?.observe(scrollArea);
+    resizeObserver?.observe(action);
+    if (composerDock) resizeObserver?.observe(composerDock);
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      resizeObserver?.disconnect();
+      window.removeEventListener('resize', scheduleAlignment);
+      window.visualViewport?.removeEventListener('resize', scheduleAlignment);
+    };
+  }, [latestFinishMessageId, readyForIndependentAssessment]);
 
   return (
-    <main className="study-chat-page">
+    <ReadAloudProvider>
+      <main className="study-chat-page">
       <PaperPickerDialog
         open={bankOpen}
         onClose={() => setBankOpen(false)}
@@ -696,6 +1116,7 @@ export function BankPage({ username }: StudentPageProps) {
           className="study-workbench"
           data-has-problem={hasProblem}
           data-question-collapsed={hasProblem && questionCollapsed}
+          data-question-focus={hasProblem && questionFocusMode}
         >
           {hasProblem && activeRecord && (
             <aside className="problem-sheet" role="complementary" aria-label="题目原文">
@@ -705,14 +1126,55 @@ export function BankPage({ username }: StudentPageProps) {
                   <h1 id="problem-sheet-title">{activeRecord.title}</h1>
                   {activeRecord.topic && <p>{activeRecord.topic}</p>}
                 </div>
-                <button
-                  type="button"
-                  aria-expanded={!questionCollapsed}
-                  onClick={() => setQuestionCollapsed((current) => !current)}
-                >
-                  {questionCollapsed ? '展开题目' : '收起题目'}
-                </button>
+                <div className="problem-sheet-actions" role="group" aria-label="题目显示方式">
+                  {questionFocusMode ? (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setQuestionFocusMode(false);
+                        requestAnimationFrame(() => composerRef.current?.focus());
+                      }}
+                    >
+                      返回作答
+                    </button>
+                  ) : (
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setQuestionCollapsed(false);
+                          setQuestionFocusMode(true);
+                        }}
+                      >
+                        专注读题
+                      </button>
+                      <button
+                        type="button"
+                        aria-expanded={!questionCollapsed}
+                        onClick={() => setQuestionCollapsed((current) => !current)}
+                      >
+                        {questionCollapsed ? '展开题目' : '收起题目'}
+                      </button>
+                    </>
+                  )}
+                </div>
               </header>
+              {questionCollapsed && currentAnalysis && (
+                <section
+                  className="problem-sheet-collapsed-context"
+                  aria-label="折叠题目摘要"
+                >
+                  <span>CURRENT / 当前目标</span>
+                  <div
+                    className="problem-sheet-collapsed-target"
+                    role="region"
+                    aria-label="当前目标"
+                  >
+                    <MathMarkdown content={currentAnalysis.target} />
+                  </div>
+                  <p>题干仍保留，随时展开核对。</p>
+                </section>
+              )}
               {!questionCollapsed && (
                 <div className="problem-sheet-body">
                   <section aria-label="题目正文">
@@ -752,6 +1214,36 @@ export function BankPage({ username }: StudentPageProps) {
                 </ol>
               </header>
             )}
+
+            {hasProblem
+              && activeRecord?.id === requestedSessionId
+              && remediation ? (
+              <section className="remediation-handoff" aria-label="独立检验修正衔接">
+                <span>{remediation.label}</span>
+                <div>
+                  <strong>{remediation.title}</strong>
+                  <p>
+                    {remediation.detail}
+                    <small>只会追加到输入框，不会自动发送，也不会覆盖已有草稿。</small>
+                  </p>
+                </div>
+                <div className="remediation-handoff-actions">
+                  <button type="button" onClick={insertRemediationStarter}>
+                    {remediation.action}
+                  </button>
+                  <button
+                    className="secondary"
+                    type="button"
+                    onClick={() => {
+                      setPendingRemediationFocus(null);
+                      clearRemediationHandoff();
+                    }}
+                  >
+                    暂不处理
+                  </button>
+                </div>
+              </section>
+            ) : null}
 
             <div className="chat-scroll" ref={chatScrollRef}>
               <div className="chat-content">
@@ -798,6 +1290,16 @@ export function BankPage({ username }: StudentPageProps) {
                           </span>
                         )}
                       {message.role === 'guide'
+                        && message.remediationFocus
+                        && (message.state === 'reply' || message.state === 'reply-streaming') && (
+                          <span
+                            className="chat-message-mode chat-message-remediation"
+                            aria-label={`修正类型：${remediationFocusDetails[message.remediationFocus].activeLabel}`}
+                          >
+                            {remediationFocusDetails[message.remediationFocus].activeLabel}
+                          </span>
+                        )}
+                      {message.role === 'guide'
                         && message.assistanceMode
                         && message.state === 'error' && (
                           <span
@@ -817,30 +1319,133 @@ export function BankPage({ username }: StudentPageProps) {
                               <span>{message.recognitionUncertain.join('；')}</span>
                             </div>
                           ) : null}
-                          <MathMarkdown
-                            className="analysis-overview"
-                            content={message.analysis.overview}
-                          />
-                          <div className="analysis-tags" aria-label="相关知识点">
-                            {message.analysis.knowledgePoints.map((point) => (
-                              <span key={point}>{point}</span>
-                            ))}
-                          </div>
-                          <dl>
-                            <div>
-                              <dt>关键条件</dt>
-                              <dd>
-                                <MathMarkdown content={message.analysis.keyConditions.join('；')} />
-                              </dd>
+                          {message.preparationStatus ? (
+                            <div
+                              className="analysis-preparation-note"
+                              data-status={message.preparationStatus}
+                              role="status"
+                            >
+                              <span aria-hidden="true">
+                                {message.preparationStatus === 'ready'
+                                  ? '✓'
+                                  : message.preparationStatus === 'unavailable'
+                                    ? '!'
+                                    : '…'}
+                              </span>
+                              <div>
+                                <strong>
+                                  {message.preparationStatus === 'ready'
+                                    ? '原卷解析已核对'
+                                    : message.preparationStatus === 'unavailable'
+                                      ? '原卷解析暂时不可用'
+                                      : '题解依据仍在核对'}
+                                </strong>
+                                <small>
+                                  {message.preparationStatus === 'ready'
+                                    ? '后续提示会依据这道题的条件与路线生成，但不会提前显示答案。'
+                                    : message.preparationStatus === 'unavailable'
+                                      ? '先保留题目并从题面起步；不会用未经检查的答案继续教学。'
+                                      : '先从题面帮助你起步，不把未经核对的内容当作结论。'}
+                                </small>
+                              </div>
                             </div>
-                            <div>
-                              <dt>目标</dt>
-                              <dd><MathMarkdown content={message.analysis.target} /></dd>
+                          ) : null}
+                          {message.analysis.keyConditions.length > 0
+                            || message.analysis.knowledgePoints.length > 0 ? (
+                            <details
+                              className="analysis-brief"
+                              aria-label="题面提要"
+                              onToggle={(event) => {
+                                if (event.currentTarget.open || !shouldUseCompactQuestionContext()) return;
+                                requestAnimationFrame(() => {
+                                  const scrollArea = chatScrollRef.current;
+                                  if (scrollArea) scrollArea.scrollTop = scrollArea.scrollHeight;
+                                });
+                              }}
+                            >
+                              <summary>
+                                <span>题面提要</span>
+                                <strong>
+                                  {message.analysis.keyConditions.length} 个条件
+                                  <i aria-hidden="true">·</i>
+                                  {message.analysis.knowledgePoints.length} 个知识点
+                                </strong>
+                                <small>
+                                  <span className="analysis-brief-label-closed">展开核对</span>
+                                  <span className="analysis-brief-label-open">收起提要</span>
+                                  <i aria-hidden="true">↓</i>
+                                </small>
+                              </summary>
+                              <div className="analysis-brief-body">
+                                <div className="speech-content-row analysis-overview-row">
+                                  <MathMarkdown
+                                    className="analysis-overview"
+                                    content={message.analysis.overview}
+                                  />
+                                  <ReadAloudButton
+                                    id={`${message.id}-overview`}
+                                    label="朗读题目分析"
+                                    text={message.analysis.overview}
+                                  />
+                                </div>
+                                <div className="analysis-tags" aria-label="相关知识点">
+                                  {message.analysis.knowledgePoints.map((point) => (
+                                    <span key={point}>{point}</span>
+                                  ))}
+                                </div>
+                                <dl>
+                                  <div>
+                                    <dt>关键条件</dt>
+                                    <dd>
+                                      <div className="speech-content-row">
+                                        <MathMarkdown content={message.analysis.keyConditions.join('；')} />
+                                        <ReadAloudButton
+                                          id={`${message.id}-conditions`}
+                                          label="朗读关键条件"
+                                          text={message.analysis.keyConditions.join('；')}
+                                        />
+                                      </div>
+                                    </dd>
+                                  </div>
+                                  <div>
+                                    <dt>目标</dt>
+                                    <dd>
+                                      <div className="speech-content-row">
+                                        <MathMarkdown content={message.analysis.target} />
+                                        <ReadAloudButton
+                                          id={`${message.id}-target`}
+                                          label="朗读目标"
+                                          text={message.analysis.target}
+                                        />
+                                      </div>
+                                    </dd>
+                                  </div>
+                                </dl>
+                              </div>
+                            </details>
+                          ) : (
+                            <div className="speech-content-row analysis-overview-row">
+                              <MathMarkdown
+                                className="analysis-overview"
+                                content={message.analysis.overview}
+                              />
+                              <ReadAloudButton
+                                id={`${message.id}-overview`}
+                                label="朗读题目分析"
+                                text={message.analysis.overview}
+                              />
                             </div>
-                          </dl>
+                          )}
                           <div className="analysis-first-question">
                             <span>先想一步</span>
-                            <MathMarkdown content={message.analysis.firstQuestion} />
+                            <div className="speech-content-row">
+                              <MathMarkdown content={message.analysis.firstQuestion} />
+                              <ReadAloudButton
+                                id={`${message.id}-first-question`}
+                                label="朗读当前问题"
+                                text={message.analysis.firstQuestion}
+                              />
+                            </div>
                           </div>
                           {!messages.some(
                             (item) => item.role === 'student' && !item.id.startsWith('student-'),
@@ -874,6 +1479,15 @@ export function BankPage({ username }: StudentPageProps) {
                           <MathMarkdown content={message.content} />
                           <span aria-hidden="true" />
                         </div>
+                      ) : message.role === 'guide' && message.state === 'reply' ? (
+                        <div className="speech-content-row guide-reply-row">
+                          <MathMarkdown content={message.content} />
+                          <ReadAloudButton
+                            id={`${message.id}-reply`}
+                            label="朗读启思回复"
+                            text={message.content}
+                          />
+                        </div>
                       ) : (
                         <MathMarkdown content={message.content} />
                       )}
@@ -882,36 +1496,74 @@ export function BankPage({ username }: StudentPageProps) {
                         && message.state === 'reply' && (
                           <aside
                             className="learning-checkpoint-note"
+                            data-verdict={message.currentVerdict ?? 'unknown'}
                             role="note"
                             aria-label="本题核对说明"
                           >
-                            <span aria-hidden="true">CHECKED / CURRENT PROBLEM</span>
-                            <strong>只核对这次作答</strong>
-                            <p>掌握情况尚未独立验证，之后需要用新题检验。</p>
+                            <span aria-hidden="true">
+                              {message.currentVerdict === 'correct'
+                                ? 'CHECKED / CURRENT PROBLEM'
+                                : message.currentVerdict === 'incorrect'
+                                  ? 'REVISE / CURRENT PROBLEM'
+                                  : 'MORE EVIDENCE / CURRENT PROBLEM'}
+                            </span>
+                            <strong>
+                              {message.currentVerdict === 'correct'
+                                ? '这次结论已经核对'
+                                : message.currentVerdict === 'incorrect'
+                                  ? '这次结论还需要修正'
+                                  : '目前证据还不足'}
+                            </strong>
+                            <p>
+                              {message.currentVerdict === 'correct'
+                                ? '掌握情况尚未独立验证，之后需要用新题检验。'
+                                : message.currentVerdict === 'incorrect'
+                                  ? '先修改本题结论或关键步骤，暂不进入独立检验。'
+                                  : '再补一行关键依据，暂不把这次作答记为正确。'}
+                            </p>
                             <dl className="learning-evidence-strip">
                               <div>
                                 <dt>本题作答</dt>
-                                <dd>已核对</dd>
+                                <dd>
+                                  {message.currentVerdict === 'correct'
+                                    ? '结论正确'
+                                    : message.currentVerdict === 'incorrect'
+                                      ? '需要修正'
+                                      : '证据不足'}
+                                </dd>
                               </div>
                               <div>
                                 <dt>帮助记录</dt>
-                                <dd>{exposedHelpLabels.length
-                                  ? `已使用：${exposedHelpLabels.join('、')}`
-                                  : '本页未记录帮助'}</dd>
+                                <dd>{exposedHelpSummaryByMessage.get(message.id)}</dd>
                               </div>
                               <div>
                                 <dt>独立检验</dt>
-                                <dd>尚未进行</dd>
+                                <dd>{message.currentVerdict === 'correct' ? '尚未进行' : '暂不开始'}</dd>
                               </div>
                             </dl>
-                            {activeRecord ? (
+                            {message.id !== latestFinishMessageId ? (
+                              <small className="learning-checkpoint-superseded">
+                                已由后续作答更新
+                              </small>
+                            ) : activeRecord && message.currentVerdict === 'correct' ? (
                               <Link
                                 className="learning-checkpoint-action"
-                                to={`/learn/${activeRecord.id}/check`}
+                                to={`/learn/${activeRecord.id}/check?intent=reassess`}
                               >
                                 换一道题独立检验 <span aria-hidden="true">→</span>
                               </Link>
-                            ) : null}
+                            ) : (
+                              <button
+                                className="learning-checkpoint-action learning-checkpoint-revise"
+                                type="button"
+                                onClick={() => composerRef.current?.focus()}
+                              >
+                                {message.currentVerdict === 'incorrect'
+                                  ? '继续修改这次答案'
+                                  : '补充一行关键依据'}
+                                <span aria-hidden="true">↓</span>
+                              </button>
+                            )}
                           </aside>
                         )}
                       {message.state === 'loading' && (
@@ -940,6 +1592,8 @@ export function BankPage({ username }: StudentPageProps) {
                               message.history!,
                               message.assistanceMode ?? 'attempt',
                               message.requestId ?? crypto.randomUUID(),
+                              message.handwriting,
+                              message.remediationFocus,
                             )
                           }
                         >
@@ -954,12 +1608,14 @@ export function BankPage({ username }: StudentPageProps) {
               </div>
             </div>
 
-            <div className="composer-dock">
-              <div className="composer-wrap">
+            <div ref={composerDockRef} className="composer-dock">
+              <div className="composer-wrap" data-formula-open={formulaOpen}>
                 {hasProblem && hasStudentAttempt && pendingHelpAction && (
                   <section
+                    ref={highImpactHelpDialogRef}
                     className="help-disclosure-confirmation"
                     role="alertdialog"
+                    aria-modal="true"
                     aria-labelledby="help-disclosure-title"
                     aria-describedby="help-disclosure-description"
                   >
@@ -994,14 +1650,30 @@ export function BankPage({ username }: StudentPageProps) {
                   </section>
                 )}
 
-                {hasProblem && hasStudentAttempt && !pendingHelpAction && !finishIntent && (
+                {hasProblem
+                  && hasStudentAttempt
+                  && !pendingHelpAction
+                  && !finishIntent
+                  && !pendingRemediationFocus
+                  && !readyForIndependentAssessment && (
                   <>
                   <div className="learning-helpbar" role="group" aria-label="学习帮助">
                     <div>
-                      <strong>卡住了？自己选帮助深度</strong>
-                      <span>每次帮助都会标明深度</span>
+                      <strong>卡住了？先标卡点或选帮助</strong>
+                      <span>标记不发送；帮助会标明深度</span>
                     </div>
                     <div>
+                      <button
+                        className="stuck-point-trigger"
+                        type="button"
+                        aria-controls="stuck-point-options"
+                        aria-expanded={stuckPointOpen}
+                        aria-label="先标记卡点，仅填入输入框"
+                        onClick={() => setStuckPointOpen((current) => !current)}
+                      >
+                        <span className="help-action-long">先标记卡点</span>
+                        <span className="help-action-short" aria-hidden="true">标卡点</span>
+                      </button>
                       {learningHelpActions.map((action, index) => (
                         <button
                           type="button"
@@ -1011,6 +1683,7 @@ export function BankPage({ username }: StudentPageProps) {
                           disabled={!currentAnalysis || isReplying}
                           onClick={() => {
                             if (action.mode === 'worked_solution') {
+                              setStuckPointOpen(false);
                               setPendingHelpAction(action);
                               return;
                             }
@@ -1025,6 +1698,30 @@ export function BankPage({ username }: StudentPageProps) {
                       ))}
                     </div>
                   </div>
+                  {stuckPointOpen && (
+                    <section
+                      className="stuck-point-panel"
+                      id="stuck-point-options"
+                      role="group"
+                      aria-label="卡点类型"
+                    >
+                      <div>
+                        <strong>先选最接近的一类</strong>
+                        <span>只放进输入框，你还能继续补充或修改。</span>
+                      </div>
+                      <div>
+                        {stuckPointOptions.map((option) => (
+                          <button
+                            type="button"
+                            key={option.label}
+                            onClick={() => insertStuckPoint(option.prompt)}
+                          >
+                            {option.label}
+                          </button>
+                        ))}
+                      </div>
+                    </section>
+                  )}
                   <div className="learning-finishbar">
                     <div>
                       <span>FINISH / 本题结论</span>
@@ -1033,14 +1730,7 @@ export function BankPage({ username }: StudentPageProps) {
                     <button
                       type="button"
                       disabled={!currentAnalysis || isReplying}
-                      onClick={() => {
-                        if (draft.trim()) {
-                          submitContent(draft, 'finish_problem');
-                          return;
-                        }
-                        setFinishIntent(true);
-                        requestAnimationFrame(() => composerRef.current?.focus());
-                      }}
+                      onClick={startFinishCheck}
                     >
                       核对本题结论 <span aria-hidden="true">→</span>
                     </button>
@@ -1048,7 +1738,11 @@ export function BankPage({ username }: StudentPageProps) {
                   </>
                 )}
 
-                {hasProblem && hasStudentAttempt && !pendingHelpAction && finishIntent && (
+                {hasProblem
+                  && hasStudentAttempt
+                  && !pendingHelpAction
+                  && finishIntent
+                  && !readyForIndependentAssessment && (
                   <section
                     className="finish-composer-intent"
                     role="status"
@@ -1071,10 +1765,55 @@ export function BankPage({ username }: StudentPageProps) {
                   </section>
                 )}
 
+                {pendingRemediationFocus && !finishIntent && (
+                  <section
+                    className="remediation-composer-focus"
+                    role="status"
+                    aria-label="本轮修正目标"
+                  >
+                    <span aria-hidden="true">FIX / 修正</span>
+                    <div>
+                      <strong>{remediationFocusDetails[pendingRemediationFocus].activeLabel}</strong>
+                      <small>后续作答会继续按这个范围诊断；核对修正完成后再换新题独立检验。</small>
+                      {remediationTrackError && <small role="alert">{remediationTrackError}</small>}
+                    </div>
+                    <div className="remediation-composer-actions">
+                      <button
+                        className="secondary"
+                        type="button"
+                        disabled={isReplying}
+                        onClick={() => void exitRemediationTrack()}
+                      >
+                        退出修正模式
+                      </button>
+                      <button
+                        className="primary"
+                        type="button"
+                        disabled={!currentAnalysis || isReplying}
+                        onClick={startFinishCheck}
+                      >
+                        核对修正结果
+                      </button>
+                    </div>
+                  </section>
+                )}
+
                 {formulaOpen && (
-                  <div className="formula-tools" role="group" aria-label="公式快捷输入">
+                  <div
+                    ref={formulaToolsRef}
+                    className="formula-tools"
+                    id="formula-tools"
+                    role="group"
+                    aria-label="公式快捷输入"
+                    onKeyDown={(event) => {
+                      if (event.key !== 'Escape') return;
+                      event.preventDefault();
+                      setFormulaOpen(false);
+                      requestAnimationFrame(() => formulaTriggerRef.current?.focus());
+                    }}
+                  >
                     <div className="formula-toolbar">
-                      {formulaShortcuts.map((shortcut) => (
+                      {MATH_FORMULA_SHORTCUTS.map((shortcut) => (
                         <button
                           type="button"
                           key={shortcut.name}
@@ -1111,28 +1850,48 @@ export function BankPage({ username }: StudentPageProps) {
                 )}
 
                 <form ref={composerFormRef} className="chat-composer" onSubmit={handleSubmit}>
-                  <ImageQuestionInput
-                    ref={imageInputRef}
-                    disabled={isReplying}
-                    onRecognized={handleRecognizedImage}
-                  />
+                  {hasProblem && activeRecord?.version ? (
+                    <HandwritingInput
+                      ref={handwritingInputRef}
+                      disabled={isReplying}
+                      onConfirmed={handleConfirmedHandwriting}
+                      sessionId={activeRecord.id}
+                    />
+                  ) : !hasProblem ? (
+                    <ImageQuestionInput
+                      ref={imageInputRef}
+                      disabled={isReplying}
+                      onRecognized={handleRecognizedImage}
+                    />
+                  ) : null}
                   <RichComposer
                     ref={composerRef}
-                    placeholder={finishIntent
+                    placeholder={readyForIndependentAssessment
+                      ? '想比较其他解法？可在这里继续补充…'
+                      : finishIntent
                       ? '写最终结论，并补上最关键的一步依据…'
                       : hasProblem ? '写下你的判断、步骤或公式…' : '输入或粘贴一道数学题…'}
-                    onChange={setDraft}
-                    onImagePaste={(file) => imageInputRef.current?.selectFile(file)}
+                    onChange={updateDraft}
+                    onImagePaste={(file) => {
+                      if (hasProblem) handwritingInputRef.current?.selectFile(file);
+                      else imageInputRef.current?.selectFile(file);
+                    }}
                     onSubmit={() => composerFormRef.current?.requestSubmit()}
                   />
                   <div className="composer-actions">
                     <div>
                       <button
                         type="button"
-                        aria-label="添加题目图片"
-                        data-tooltip="添加题目图片"
-                        title="添加题目图片"
-                        onClick={() => imageInputRef.current?.openFilePicker()}
+                        aria-label={hasProblem ? '添加手写作答' : '添加题目图片'}
+                        data-tooltip={hasProblem ? '添加手写作答' : '添加题目图片'}
+                        title={hasProblem ? '添加手写作答' : '添加题目图片'}
+                        disabled={isReplying || (hasProblem && !activeRecord?.version)}
+                        onClick={() => {
+                          setFormulaOpen(false);
+                          setBankOpen(false);
+                          if (hasProblem) handwritingInputRef.current?.openFilePicker();
+                          else imageInputRef.current?.openFilePicker();
+                        }}
                       >
                         <svg className="composer-tool-icon" aria-hidden="true" viewBox="0 0 24 24">
                           <rect x="3.5" y="4" width="17" height="16" rx="2" />
@@ -1158,14 +1917,24 @@ export function BankPage({ username }: StudentPageProps) {
                         <span className="composer-action-label">题库</span>
                       </button>
                       <button
+                        ref={formulaTriggerRef}
                         type="button"
                         aria-label="公式"
+                        aria-controls="formula-tools"
                         aria-expanded={formulaOpen}
                         data-tooltip="公式快捷输入"
                         title="公式快捷输入"
-                        onClick={() => {
-                          setFormulaOpen((current) => !current);
+                        onClick={(event) => {
+                          const opening = !formulaOpen;
+                          setFormulaOpen(opening);
                           setBankOpen(false);
+                          if (opening && event.detail === 0) {
+                            requestAnimationFrame(() => {
+                              formulaToolsRef.current
+                                ?.querySelector<HTMLButtonElement>('button:not(:disabled)')
+                                ?.focus();
+                            });
+                          }
                         }}
                       >
                         <span className="composer-formula-symbol" aria-hidden="true">∑</span>
@@ -1196,20 +1965,53 @@ export function BankPage({ username }: StudentPageProps) {
                     </div>
                   </div>
                 </form>
-                <p className="composer-note">
-                  <span className="composer-note-desktop">
-                    {finishIntent ? 'Enter 提交本题结论，Shift + Enter 换行。' : 'Enter 发送，Shift + Enter 换行。一次只推进一个关键判断。'}
+                <div className="composer-note">
+                  <span
+                    className="composer-draft-status"
+                    data-state={draftSaveState}
+                    role="status"
+                    aria-label="草稿保存状态"
+                  >
+                    {draftSaveLabel}
+                    {draftSaveState === 'error' && activeRecord?.version ? (
+                      <button
+                        type="button"
+                        onClick={() => void persistDraft(
+                          activeRecord.id,
+                          draft,
+                          draftRevisionRef.current,
+                        )}
+                      >
+                        重试
+                      </button>
+                    ) : null}
                   </span>
-                  <span className="composer-note-mobile">
-                    {finishIntent ? '提交前确认最终答案和关键依据都写清楚。' : '公式可预览，发送前还能继续修改。'}
+                  <span className="composer-guidance composer-note-desktop">
+                    {confirmedHandwriting
+                      ? '手写转写已确认；如果继续修改，将按普通文字提交。'
+                      : readyForIndependentAssessment
+                      ? '本题仍可继续讨论；是否掌握，以新题独立检验为准。'
+                      : finishIntent
+                        ? 'Enter 提交本题结论，Shift + Enter 换行。'
+                        : 'Enter 发送，Shift + Enter 换行。一次只推进一个关键判断。'}
                   </span>
-                </p>
+                  <span className="composer-guidance composer-note-mobile">
+                    {confirmedHandwriting
+                      ? '手写转写已确认；修改后按普通文字提交。'
+                      : readyForIndependentAssessment
+                      ? '可继续讨论；掌握情况要用新题验证。'
+                      : finishIntent
+                        ? '提交前确认最终答案和关键依据都写清楚。'
+                        : '公式可预览，发送前还能继续修改。'}
+                  </span>
+                </div>
               </div>
             </div>
           </section>
         </div>
       </section>
-    </main>
+      </main>
+    </ReadAloudProvider>
   );
 }
 

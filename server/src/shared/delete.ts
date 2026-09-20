@@ -1,5 +1,6 @@
-import { Inject, Injectable, NotFoundException } from '@nestjs/common';
+import { Inject, Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { DatabaseService } from '../database/database.service.js';
+import { PrivateMediaStorageService } from '../features/media/private-media-storage.service.js';
 
 interface LinkedSessionEvent {
   eventType: string;
@@ -50,10 +51,16 @@ export function collectLinkedSessionIds(
 
 @Injectable()
 export class DeleteService {
-  constructor(@Inject(DatabaseService) private readonly database: DatabaseService) {}
+  private readonly logger = new Logger(DeleteService.name);
+
+  constructor(
+    @Inject(DatabaseService) private readonly database: DatabaseService,
+    @Inject(PrivateMediaStorageService)
+    private readonly mediaStorage: PrivateMediaStorageService,
+  ) {}
 
   async deleteSession(ownerId: string, rootSessionId: string) {
-    return this.database.client.transaction().execute(async (transaction) => {
+    const deletion = await this.database.client.transaction().execute(async (transaction) => {
       const root = await transaction
         .selectFrom('sessions')
         .select('id')
@@ -95,6 +102,21 @@ export class DeleteService {
         .where('user_id', '=', ownerId)
         .forUpdate()
         .execute();
+      const mediaRows = await transaction
+        .selectFrom('media')
+        .select(['id', 'private_path'])
+        .where('session_id', 'in', sessionIds)
+        .where('user_id', '=', ownerId)
+        .forUpdate()
+        .execute();
+      if (mediaRows.length) {
+        await transaction
+          .updateTable('media')
+          .set({ expires_at: new Date(), session_id: null })
+          .where('id', 'in', mediaRows.map((media) => media.id))
+          .where('user_id', '=', ownerId)
+          .execute();
+      }
       await transaction
         .insertInto('owner_privacy_state')
         .values({ history_incomplete: 1, user_id: ownerId })
@@ -127,7 +149,34 @@ export class DeleteService {
         deleted: true as const,
         deletedSessionCount: Number(deleted.numDeletedRows),
         historyIncomplete: true as const,
+        mediaRows,
       };
     });
+
+    const deletedMedia = await Promise.all(deletion.mediaRows.map(async (media) => {
+      try {
+        await this.mediaStorage.remove(media.private_path);
+        await this.database.client
+          .deleteFrom('media')
+          .where('id', '=', media.id)
+          .where('user_id', '=', ownerId)
+          .executeTakeFirst();
+        return true;
+      } catch (error) {
+        this.logger.warn(
+          `Private media deletion deferred for media ${String(media.id)}: ${error instanceof Error ? error.name : 'UnknownError'}`,
+        );
+        return false;
+      }
+    }));
+    const deletedMediaCount = deletedMedia.filter(Boolean).length;
+
+    return {
+      deleted: deletion.deleted,
+      deletedMediaCount,
+      deletedSessionCount: deletion.deletedSessionCount,
+      historyIncomplete: deletion.historyIncomplete,
+      pendingMediaDeletionCount: deletion.mediaRows.length - deletedMediaCount,
+    };
   }
 }

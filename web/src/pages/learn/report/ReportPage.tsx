@@ -1,26 +1,30 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ApiError, apiFetch } from '../../../lib/api';
 import { MathMarkdown } from '../../../shared/MathMarkdown';
+import {
+  getAssessmentNextAction,
+  type AssessmentVerdict,
+  type OriginalLearningStatus,
+} from './assessment-next-action';
 
-type Verdict = 'correct' | 'incorrect' | 'unknown' | 'unanswered';
-type OriginalStatus =
-  | 'in_progress'
-  | 'incomplete'
-  | 'unknown'
-  | 'completed_with_help'
-  | 'completed_without_recorded_help';
+type Verdict = AssessmentVerdict;
+type OriginalStatus = OriginalLearningStatus;
 
 interface AttemptReport {
   assistance_requested: boolean;
   attempt_id: string;
   execution: Verdict;
+  final_answer_markdown?: string | null;
   help_exposed: boolean;
   independent_execution: boolean;
   independent_planning: boolean;
   independent_task_pass: boolean;
   invalidated: boolean;
   limitations: string[];
+  locked_plan_markdown?: string | null;
+  phase?: string;
+  plan_unanswered?: boolean;
   planning: Verdict;
   relation: 'near_duplicate' | 'near_transfer';
   task_id: string;
@@ -33,6 +37,11 @@ interface Report {
   observations: string[];
   original_status: OriginalStatus;
   session_id: string;
+}
+
+interface ReportLoadError {
+  message: string;
+  retryable: boolean;
 }
 
 const verdictLabels: Record<Verdict, string> = {
@@ -52,29 +61,103 @@ const originalLabels: Record<OriginalStatus, string> = {
 
 export function ReportPage({ username }: { username: string }) {
   const { sessionId = '' } = useParams();
-  const [error, setError] = useState('');
+  const focusReportAfterLoadRef = useRef(false);
+  const recoveryTitleRef = useRef<HTMLHeadingElement>(null);
+  const reportTitleRef = useRef<HTMLHeadingElement>(null);
+  const retryButtonRef = useRef<HTMLButtonElement>(null);
+  const [error, setError] = useState<ReportLoadError | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [reloadKey, setReloadKey] = useState(0);
   const [report, setReport] = useState<Report | null>(null);
 
   useEffect(() => {
     const controller = new AbortController();
+    let active = true;
+    setLoading(true);
+    setReport(null);
     apiFetch<Report>(`/api/reports/sessions/${sessionId}`, { signal: controller.signal })
-      .then(setReport)
+      .then((result) => {
+        if (!active) return;
+        setError(null);
+        setReport(result);
+      })
       .catch((requestError: unknown) => {
+        if (!active) return;
         if (requestError instanceof DOMException && requestError.name === 'AbortError') return;
-        setError(
-          requestError instanceof ApiError && requestError.status === 404
+        const notFound = requestError instanceof ApiError && requestError.status === 404;
+        setError({
+          message: notFound
             ? '这份学习记录不存在或已过保存期。'
             : '暂时无法读取学习报告，请稍后重试。',
-        );
+          retryable: !notFound,
+        });
+      })
+      .finally(() => {
+        if (active) setLoading(false);
       });
-    return () => controller.abort();
-  }, [sessionId]);
+    return () => {
+      active = false;
+      controller.abort();
+    };
+  }, [reloadKey, sessionId]);
+
+  useEffect(() => {
+    if (!error) return;
+    requestAnimationFrame(() => {
+      if (error.retryable) retryButtonRef.current?.focus();
+      else recoveryTitleRef.current?.focus();
+    });
+  }, [error]);
+
+  useEffect(() => {
+    if (!report || !focusReportAfterLoadRef.current) return;
+    focusReportAfterLoadRef.current = false;
+    requestAnimationFrame(() => reportTitleRef.current?.focus());
+  }, [report]);
+
+  function retryReport() {
+    focusReportAfterLoadRef.current = true;
+    setLoading(true);
+    setReloadKey((key) => key + 1);
+  }
 
   if (!report) {
+    if (error) {
+      return (
+        <main className="report-page">
+          <header className="report-topbar">
+            <Link to={`/learn/${sessionId}/check`}>← 返回独立检验</Link>
+            <span>{username} · 学习证据</span>
+          </header>
+          <section className="report-recovery" role="alert" aria-labelledby="report-recovery-title">
+            <span>LEARNING EVIDENCE / RECOVERY</span>
+            <h1 ref={recoveryTitleRef} id="report-recovery-title" tabIndex={-1}>
+              {error.retryable ? '学习报告还没加载出来' : '这份学习记录暂时找不到'}
+            </h1>
+            <p>{error.message}</p>
+            <div>
+              {error.retryable ? (
+                <button
+                  ref={retryButtonRef}
+                  type="button"
+                  disabled={loading}
+                  onClick={retryReport}
+                >
+                  {loading ? '正在重新读取学习报告' : '重新读取学习报告'}
+                </button>
+              ) : null}
+              <Link to={`/study?session=${sessionId}`}>回到原题记录</Link>
+              <Link to={`/learn/${sessionId}/check`}>查看独立检验</Link>
+            </div>
+            {loading ? <span className="sr-only" role="status">正在重新读取学习报告…</span> : null}
+          </section>
+        </main>
+      );
+    }
     return (
       <main className="report-page">
-        <div className={error ? 'report-load report-load-error' : 'report-load'} role="status">
-          {error || '正在整理这次学习证据…'}
+        <div className="report-load" role="status">
+          {loading && reloadKey > 0 ? '正在重新读取学习报告…' : '正在整理这次学习证据…'}
         </div>
       </main>
     );
@@ -88,6 +171,22 @@ export function ReportPage({ username }: { username: string }) {
     ...report.limitations,
     report.delayed_evidence === 'not_evaluated' ? '隔一段时间后能否保持，尚未评估。' : '',
   ].filter(Boolean);
+  const nextAction = getAssessmentNextAction(
+    report.session_id,
+    report.original_status,
+    attempt
+      ? {
+          assistanceRequested: attempt.assistance_requested,
+          execution: attempt.execution,
+          helpExposed: attempt.help_exposed,
+          independentTaskPass: attempt.independent_task_pass,
+          invalidated: attempt.invalidated,
+          phase: attempt.phase,
+          planning: attempt.planning,
+          relation: attempt.relation,
+        }
+      : null,
+  );
 
   return (
     <main className="report-page">
@@ -98,7 +197,7 @@ export function ReportPage({ username }: { username: string }) {
 
       <section className="report-heading" aria-labelledby="report-title">
         <span>LEARNING EVIDENCE / NOT A SCORE</span>
-        <h1 id="report-title">这次学习留下了什么证据</h1>
+        <h1 ref={reportTitleRef} id="report-title" tabIndex={-1}>这次学习留下了什么证据</h1>
         <p>只记录这一次实际发生的作答、帮助和独立检验，不换算掌握百分比，也不推断长期能力。</p>
         {report.attempts.length > 1 ? (
           <small>已保留 {report.attempts.length} 次独立检验记录；下面重点展示最近一次，较早记录没有被覆盖。</small>
@@ -137,6 +236,41 @@ export function ReportPage({ username }: { username: string }) {
         </article>
       </div>
 
+      {attempt ? (
+        <section
+          className="report-frozen-work"
+          aria-labelledby="report-frozen-work-title"
+        >
+          <header>
+            <span>STUDENT WORK / FROZEN</span>
+            <div>
+              <h2 id="report-frozen-work-title">本次冻结的独立作答</h2>
+              <p>按提交时的原样保留，先看你当时怎么想，再对照下面的判定依据。</p>
+            </div>
+          </header>
+          <div className="report-frozen-work-grid">
+            <article data-empty={!attempt.locked_plan_markdown}>
+              <div><span>01</span><h3>首次计划</h3></div>
+              {attempt.plan_unanswered ? (
+                <p className="report-frozen-empty">本次明确选择了不写首次计划。</p>
+              ) : attempt.locked_plan_markdown ? (
+                <MathMarkdown content={attempt.locked_plan_markdown} />
+              ) : (
+                <p className="report-frozen-empty">本次没有留下锁定的首次计划。</p>
+              )}
+            </article>
+            <article data-empty={!attempt.final_answer_markdown}>
+              <div><span>02</span><h3>最终答案</h3></div>
+              {attempt.final_answer_markdown ? (
+                <MathMarkdown content={attempt.final_answer_markdown} />
+              ) : (
+                <p className="report-frozen-empty">本次还没有提交最终答案。</p>
+              )}
+            </article>
+          </div>
+        </section>
+      ) : null}
+
       {assessmentObservations.length ? (
         <section className="report-observations" aria-labelledby="report-observations-title">
           <span>DIRECT EVIDENCE</span>
@@ -149,10 +283,32 @@ export function ReportPage({ username }: { username: string }) {
         </section>
       ) : null}
 
-      <footer className="report-actions">
-        <Link to={`/study?session=${report.session_id}`}>回到原题记录</Link>
-        <Link className="primary" to={`/learn/${report.session_id}/check`}>查看独立检验</Link>
-      </footer>
+      <section
+        className="report-next-action"
+        data-action={nextAction.kind}
+        aria-labelledby="report-next-action-title"
+      >
+        <span>{nextAction.eyebrow}</span>
+        <div>
+          <h2 id="report-next-action-title">{nextAction.title}</h2>
+          <p>{nextAction.description}</p>
+          <div className="report-actions">
+            {nextAction.kind === 'reassess' ? (
+              <Link className="primary" to="/history">回到学习历史</Link>
+            ) : (
+              <Link className="primary" to={nextAction.href}>{nextAction.label}</Link>
+            )}
+            {nextAction.kind === 'reassess' ? (
+              <Link to={nextAction.href}>{nextAction.label}</Link>
+            ) : (
+              <Link to="/history">查看学习历史</Link>
+            )}
+            {!nextAction.href.startsWith('/study') ? (
+              <Link to={`/study?session=${report.session_id}`}>查看原题记录</Link>
+            ) : null}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

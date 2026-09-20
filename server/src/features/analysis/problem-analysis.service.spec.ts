@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
+import { createHash } from 'node:crypto';
 import type { ModelPort, ModelRequest, ModelResponse } from '../../model/model.port.js';
 import { ProblemAnalysisService } from './problem-analysis.service.js';
 
@@ -177,6 +178,122 @@ describe('ProblemAnalysisService', () => {
       approved_facts: validStrategy.allowed_facts,
       scaffold_level: 1,
     });
+    expect(calls[1]?.input).toMatchObject({
+      user_action: expect.stringContaining('allowed_facts.source_ref 仅可使用'),
+    });
+  });
+
+  it.each([
+    ['method', '方法修正', '只核对学生的选法和依据'],
+    ['execution', '执行修正', '只定位第一处需要修正的计算、变形或表达'],
+    ['evidence', '证据边界', '只解释本次为何不能记为独立通过'],
+  ] as const)(
+    'keeps an independent-check %s return inside its remediation boundary',
+    async (remediationFocus, label, boundary) => {
+    const model = createRoleModel();
+    const service = new ProblemAnalysisService(model);
+
+    await service.reply(chatInput({
+      message: '我准备先求导。我的方法是对的，但执行中有一步需要修正。我卡在：展开后符号不确定。',
+      remediationFocus,
+    }));
+
+    const strategyRequest = vi.mocked(model.generate).mock.calls
+      .map(([request]) => request)
+      .find((request) => request.role === 'strategy');
+    expect(strategyRequest?.input).toMatchObject({
+      user_action: expect.stringContaining(label),
+    });
+    expect((strategyRequest?.input as { user_action: string }).user_action).toContain(boundary);
+    const guardRequest = vi.mocked(model.generate).mock.calls
+      .map(([request]) => request)
+      .find((request) => request.role === 'guard');
+    expect(guardRequest?.input).toMatchObject({
+      reference_md: expect.stringContaining(boundary),
+    });
+  });
+
+  it('uses the exact ready preparation packet bound to the learning session', async () => {
+    const decision = {
+      acceptance_rule: '写出定义域与取等条件。',
+      common_gaps: ['漏写定义域', '漏写取等条件'],
+      entry_condition: '已经读懂题目。',
+      expected_artifact: '说明 $x>0$ 且 $x=1$ 时取等。',
+      goal: '核对基本不等式的使用条件',
+      goal_key: 'official:am-gm-condition',
+      id: 'official:d1',
+      parent_goal_key: null,
+      part_id: 'question-803',
+      prerequisite_ids: [],
+      source: 'teacher' as const,
+    };
+    const route = {
+      decision_ids: [decision.id],
+      evidence_refs: [],
+      id: 'official:route-1',
+      math_status: 'valid' as const,
+      note: '原卷解析路线。',
+      source: 'teacher' as const,
+      terminal_ids: [decision.id],
+    };
+    const diagnosis = {
+      ...validDiagnosis,
+      focus_goal_key: decision.goal_key,
+      hypotheses: [{
+        ...validDiagnosis.hypotheses[0],
+        explanation: '学生选择了方法，但还没有写取等条件。',
+      }],
+      satisfied_decision_ids: [],
+    };
+    const strategy = {
+      ...validStrategy,
+      allowed_disclosures: [decision.id],
+      allowed_facts: [{
+        decision_ids: [decision.id],
+        source_ref: 'private_reference_md',
+        text_md: '$x>0$ 是使用基本不等式的必要条件。',
+      }],
+      focus_goal_key: decision.goal_key,
+      reserved_decisions: [],
+    };
+    const guard = {
+      ...validGuard,
+      actual_disclosed_ids: [decision.id],
+    };
+    const model = createRoleModel({ diagnosis, guard, strategy });
+    const preparation = {
+      findReadyPacket: vi.fn().mockResolvedValue({
+        decisions: [decision],
+        problem_hash: createHash('sha256')
+          .update('已知函数 $f(x)=x^3-3x$，求单调区间与极值。')
+          .digest('hex'),
+        ready: true,
+        reference_md: '原卷解析：先核对定义域，再使用基本不等式并检查取等条件。',
+        routes: [route],
+        version: 'a'.repeat(64),
+      }),
+    };
+    const service = new ProblemAnalysisService(model, preparation as never);
+
+    await expect(service.reply(chatInput({ packetVersion: 'a'.repeat(64) })))
+      .resolves.toMatchObject({ reply: validRendered.text_md });
+
+    const calls = vi.mocked(model.generate).mock.calls.map(([request]) => request);
+    expect(preparation.findReadyPacket).toHaveBeenCalledWith(
+      createHash('sha256')
+        .update('已知函数 $f(x)=x^3-3x$，求单调区间与极值。')
+        .digest('hex'),
+      'a'.repeat(64),
+    );
+    expect(calls[0]?.input).toMatchObject({
+      decisions: [decision],
+      private_reference_md: expect.stringContaining('原卷解析'),
+      routes: [route],
+    });
+    expect(calls[1]?.input).toMatchObject({
+      decisions: [decision],
+      private_reference_md: expect.stringContaining('原卷解析'),
+    });
   });
 
   it('does not expose a Guard-accepted message that exceeds Strategy disclosure', async () => {
@@ -192,6 +309,32 @@ describe('ProblemAnalysisService', () => {
     await expect(service.reply(chatInput({ assistanceMode: 'hint' }))).resolves.toEqual({
       reply: '这条提示可能泄露关键结论，暂不展示。先回到题目的已知条件，圈出与当前目标直接相关的一项。',
     });
+  });
+
+  it('rejects a diagnosis that cites a nonexistent submission before persisting it as a completed node', async () => {
+    const model = createRoleModel({
+      diagnosis: {
+        ...validDiagnosis,
+        evidence_refs: [{
+          quote: '我从未说过这句话',
+          revision: 1,
+          submission_id: 'missing-submission',
+        }],
+      },
+    });
+    const service = new ProblemAnalysisService(model);
+    const onNode = vi.fn().mockResolvedValue(undefined);
+
+    await expect(service.reply(chatInput(), undefined, undefined, onNode))
+      .rejects.toThrow('diagnosis cited invalid evidence');
+    expect(onNode).toHaveBeenCalledOnce();
+    expect(onNode).toHaveBeenCalledWith(expect.objectContaining({
+      nodeKey: 'diagnosis',
+      output: null,
+      status: 'failed',
+    }));
+    expect(vi.mocked(model.generate).mock.calls.map(([request]) => request.role))
+      .toEqual(['diagnosis']);
   });
 
   it('passes persisted exposures to Strategy and enforces the two-probe budget for the same goal', async () => {
@@ -383,6 +526,33 @@ describe('ProblemAnalysisService', () => {
     });
     expect(vi.mocked(model.generate).mock.calls.map(([request]) => request.role))
       .toEqual(['diagnosis', 'strategy']);
+  });
+
+  it('rejects an approved fact whose claimed source is not in the trusted Strategy context', async () => {
+    const model = createRoleModel({
+      strategy: {
+        ...validStrategy,
+        allowed_facts: [{
+          decision_ids: ['session-91:method'],
+          source_ref: 'deterministic_derivative_from_private_reference',
+          text_md: "$f'(x)=3x^2-3$。",
+        }],
+      },
+    });
+    const service = new ProblemAnalysisService(model);
+    const onNode = vi.fn().mockResolvedValue(undefined);
+
+    await expect(service.reply(chatInput({ assistanceMode: 'explain' }), undefined, undefined, onNode))
+      .resolves.toEqual({
+        reply: '这段解释暂时无法安全核对。请指出你卡住的是条件理解、公式选择还是计算。',
+      });
+    expect(vi.mocked(model.generate).mock.calls.map(([request]) => request.role))
+      .toEqual(['diagnosis', 'strategy']);
+    expect(onNode).toHaveBeenLastCalledWith(expect.objectContaining({
+      nodeKey: 'strategy',
+      output: null,
+      status: 'failed',
+    }));
   });
 
   it('maps a valid finished answer to a current-problem verdict without claiming mastery', async () => {

@@ -18,6 +18,7 @@ const environmentSchema = z
     DB_SSL: booleanValue.default(false),
     DB_SSL_CA_PATH: z.string().min(1).default('certs/ApsaraDB-CA-Chain.pem'),
     DB_CONNECTION_LIMIT: z.coerce.number().int().min(1).max(20).default(10),
+    MEDIA_STORAGE_ROOT: z.string().min(1).default('.data/private-media'),
     AI_BASE_URL: z.url().default('https://newapi.inner.youdao.com/v1'),
     AI_API_KEY: z.string().min(1).optional(),
     AI_MODEL: z.string().min(1).default('gpt-5.5'),
@@ -25,6 +26,10 @@ const environmentSchema = z
     YOUDAO_SPEECH_APP_KEY: z.string().min(1).optional(),
     YOUDAO_SPEECH_APP_SECRET: z.string().min(1).optional(),
     YOUDAO_SPEECH_TIMEOUT_MS: z.coerce.number().int().min(1000).max(60_000).default(25_000),
+    VOLC_TTS_API_KEY: z.string().min(1).optional(),
+    VOLC_TTS_RESOURCE_ID: z.string().min(1).default('seed-tts-2.0'),
+    VOLC_TTS_SPEAKER: z.string().min(1).default('zh_female_vv_uranus_bigtts'),
+    VOLC_TTS_TIMEOUT_MS: z.coerce.number().int().min(1000).max(60_000).default(30_000),
   })
   .superRefine((environment, context) => {
     if (environment.NODE_ENV === 'production' && environment.DB_PASSWORD.length === 0) {

@@ -48,11 +48,27 @@ export const submitAssessmentPlanSchema = z
     expectedVersion: z.number().int().positive(),
     noPlan: z.boolean(),
     planMarkdown: z.string().max(12_000),
+    transcriptId: z.string().regex(/^[1-9]\d*$/).optional(),
+    transcriptRevision: z.number().int().positive().optional(),
   })
   .strict()
   .superRefine((value, context) => {
     if (!value.noPlan && !value.planMarkdown.trim()) {
       context.addIssue({ code: 'custom', message: 'plan is required', path: ['planMarkdown'] });
+    }
+    if (Boolean(value.transcriptId) !== Boolean(value.transcriptRevision)) {
+      context.addIssue({
+        code: 'custom',
+        message: 'transcriptId and transcriptRevision must be provided together',
+        path: ['transcriptId'],
+      });
+    }
+    if (value.noPlan && value.transcriptId) {
+      context.addIssue({
+        code: 'custom',
+        message: 'an unanswered plan cannot have handwriting evidence',
+        path: ['transcriptId'],
+      });
     }
   });
 
@@ -60,8 +76,19 @@ export const finishAssessmentSchema = z
   .object({
     answerMarkdown: z.string().max(12_000),
     expectedVersion: z.number().int().positive(),
+    transcriptId: z.string().regex(/^[1-9]\d*$/).optional(),
+    transcriptRevision: z.number().int().positive().optional(),
   })
-  .strict();
+  .strict()
+  .superRefine((value, context) => {
+    if (Boolean(value.transcriptId) !== Boolean(value.transcriptRevision)) {
+      context.addIssue({
+        code: 'custom',
+        message: 'transcriptId and transcriptRevision must be provided together',
+        path: ['transcriptId'],
+      });
+    }
+  });
 
 export const requestAssessmentHelpSchema = z
   .object({

@@ -2,3 +2,4 @@
 /qisi-sdd-v3/** -text
 /research-evidence/** -text
 /qisi-sdd-v3.zip binary
+/server/src/prompts/*.md text eol=crlf

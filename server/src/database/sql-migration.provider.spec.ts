@@ -25,11 +25,36 @@ describe('SqlMigrationProvider', () => {
       'v3_008_seen_tasks',
       'v3_009_check_attempts',
       'v3_010_owner_privacy_state',
+      'v3_011_packets',
+      'v3_012_learning_drafts',
+      'v3_013_media',
+      'v3_014_transcripts',
     ]);
     for (const migration of Object.values(migrations)) {
       expect(migration).toHaveProperty('up');
       expect(migration).not.toHaveProperty('down');
     }
+  });
+
+  it('persists prepared packets by problem and runtime version', async () => {
+    const packets = await readFile(resolve(process.cwd(), 'db/packets.sql'), 'utf8');
+
+    expect(packets).toContain('PRIMARY KEY (`problem_hash`, `version`)');
+    expect(packets).toContain('`packet_json`');
+    expect(packets).toContain('`review_json`');
+    expect(packets).toContain('`status`');
+  });
+
+  it('keeps handwriting media private and confirmation revisioned', async () => {
+    const media = await readFile(resolve(process.cwd(), 'db/media.sql'), 'utf8');
+    const transcripts = await readFile(resolve(process.cwd(), 'db/transcripts.sql'), 'utf8');
+
+    expect(media).toContain('`private_path`');
+    expect(media).toContain('`expires_at`');
+    expect(media).toContain('ON DELETE CASCADE');
+    expect(transcripts).toContain('`lines_json`');
+    expect(transcripts).toContain('`revision`');
+    expect(transcripts).toContain('`confirmed`');
   });
 
   it('persists an owner-level incomplete-history boundary after private data deletion', async () => {
@@ -93,6 +118,12 @@ describe('SqlMigrationProvider', () => {
     const messages = await readFile(resolve(process.cwd(), 'db/learning_messages.sql'), 'utf8');
     expect(messages).toContain('`assistance_mode`');
     expect(messages).toContain('`content_markdown`');
+
+    const drafts = await readFile(resolve(process.cwd(), 'db/learning_drafts.sql'), 'utf8');
+    expect(drafts).toContain('`draft_markdown`');
+    expect(drafts).toContain('`expires_at`');
+    expect(drafts).toContain('PRIMARY KEY (`session_id`)');
+    expect(drafts).toContain('ON DELETE CASCADE');
   });
 
   it('rejects an empty table SQL file', async () => {

@@ -13,8 +13,26 @@ export function retentionCutoffs(now: Date) {
   };
 }
 
-export async function runRetentionCleanup(database: Kysely<Database>, now = new Date()) {
+interface PrivateMediaRemover {
+  remove(relativePath: string): Promise<void>;
+}
+
+export async function runRetentionCleanup(
+  database: Kysely<Database>,
+  now = new Date(),
+  mediaStorage?: PrivateMediaRemover,
+) {
   const cutoffs = retentionCutoffs(now);
+  const expiredMedia = await database
+    .selectFrom('media')
+    .select(['id', 'private_path'])
+    .where('expires_at', '<=', now)
+    .execute();
+  if (expiredMedia.length && !mediaStorage) {
+    throw new Error('private media storage is required to delete expired image bytes');
+  }
+  await Promise.all(expiredMedia.map((media) => mediaStorage!.remove(media.private_path)));
+
   return database.transaction().execute(async (transaction) => {
     const drafts = await transaction
       .updateTable('check_attempts')
@@ -25,6 +43,26 @@ export async function runRetentionCleanup(database: Kysely<Database>, now = new 
         expression('plan_draft_markdown', '!=', ''),
       ]))
       .executeTakeFirst();
+    const learningDrafts = await transaction
+      .deleteFrom('learning_drafts')
+      .where('expires_at', '<=', now)
+      .executeTakeFirst();
+    const clearedDraftCount = Number(drafts.numUpdatedRows)
+      + Number(learningDrafts.numDeletedRows);
+    const expiredTranscripts = await transaction
+      .deleteFrom('transcripts')
+      .where('confirmed', '=', 0)
+      .where('expires_at', '<=', now)
+      .executeTakeFirst();
+    const expiredMediaRows = expiredMedia.length
+      ? await transaction
+          .deleteFrom('media')
+          .where('id', 'in', expiredMedia.map((media) => media.id))
+          .where('expires_at', '<=', now)
+          .executeTakeFirst()
+      : null;
+    const deletedTranscriptCount = Number(expiredTranscripts.numDeletedRows);
+    const imageBytesDeleted = Number(expiredMediaRows?.numDeletedRows ?? 0);
 
     const expiredRows = await transaction
       .selectFrom('sessions')
@@ -33,11 +71,12 @@ export async function runRetentionCleanup(database: Kysely<Database>, now = new 
       .execute();
     if (!expiredRows.length) {
       return {
-        clearedDraftCount: Number(drafts.numUpdatedRows),
+        clearedDraftCount,
+        deletedTranscriptCount,
         deletedSessionCount: 0,
         historyIncompleteOwnerCount: 0,
-        imageBytesDeleted: 0,
-        imageRetention: 'not_persisted' as const,
+        imageBytesDeleted,
+        imageRetention: 'deleted' as const,
       };
     }
 
@@ -99,11 +138,12 @@ export async function runRetentionCleanup(database: Kysely<Database>, now = new 
       .executeTakeFirst();
 
     return {
-      clearedDraftCount: Number(drafts.numUpdatedRows),
+      clearedDraftCount,
+      deletedTranscriptCount,
       deletedSessionCount: Number(deleted.numDeletedRows),
       historyIncompleteOwnerCount: ownerIds.length,
-      imageBytesDeleted: 0,
-      imageRetention: 'not_persisted' as const,
+      imageBytesDeleted,
+      imageRetention: 'deleted' as const,
     };
   });
 }

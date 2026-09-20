@@ -12,6 +12,7 @@ import {
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import type { AppEnvironment } from '../../config/env.js';
+import { isAllowedWebOrigin } from '../../config/web-origin.js';
 import { DeleteService } from '../../shared/delete.js';
 import { AUTH_COOKIE_NAME, readCookie } from '../auth/auth.cookie.js';
 import { AuthService } from '../auth/auth.service.js';
@@ -41,7 +42,7 @@ export class HistoryController {
     @Headers('cookie') cookieHeader: string | undefined,
     @Headers('origin') origin: string | undefined,
   ) {
-    if (origin !== this.config.get('WEB_ORIGIN', { infer: true })) {
+    if (!isAllowedWebOrigin(origin, this.config.get('WEB_ORIGIN', { infer: true }))) {
       throw new ForbiddenException('origin is not allowed');
     }
     if (!body || typeof body !== 'object' || (body as { confirm?: unknown }).confirm !== true) {

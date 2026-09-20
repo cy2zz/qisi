@@ -50,6 +50,18 @@ describe('MathMarkdown', () => {
     expect(view.container).not.toHaveTextContent('(\\sqrt3)');
   });
 
+  it('repairs asymmetric bracket delimiters from a teaching reply', () => {
+    const view = render(
+      <MathMarkdown
+        content={String.raw`试着把 \[ \frac{\sqrt2}{\sqrt3} ] 的分子分母同时乘以 (\sqrt3)：[ \frac{\sqrt2}{\sqrt3}\times
+\frac{\sqrt3}{\sqrt3} \]`}
+      />,
+    );
+
+    expect(view.container.querySelectorAll('.katex')).toHaveLength(3);
+    expect(view.container.querySelector('.katex-error')).toBeNull();
+  });
+
   it('repairs JSON-style double-escaped model mathematics', () => {
     const view = render(
       <MathMarkdown

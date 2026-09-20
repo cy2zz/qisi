@@ -14,10 +14,22 @@ export const problemChatRequestSchema = z
     history: z.array(problemChatMessageSchema).max(16),
     message: z.string().trim().min(1).max(4_000),
     problemMd: z.string().trim().min(1).max(12_000),
+    remediationFocus: z.enum(['method', 'execution', 'evidence']).optional(),
     requestId: z.uuid(),
     sessionId: z.string().regex(/^[1-9]\d*$/),
+    transcriptId: z.string().regex(/^[1-9]\d*$/).optional(),
+    transcriptRevision: z.number().int().positive().optional(),
   })
-  .strict();
+  .strict()
+  .superRefine((request, context) => {
+    if (Boolean(request.transcriptId) !== Boolean(request.transcriptRevision)) {
+      context.addIssue({
+        code: 'custom',
+        message: 'transcriptId and transcriptRevision must be provided together',
+        path: ['transcriptId'],
+      });
+    }
+  });
 
 export const problemChatResponseSchema = z
   .object({

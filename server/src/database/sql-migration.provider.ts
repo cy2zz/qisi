@@ -19,6 +19,10 @@ const MIGRATION_REGISTRY = [
   { fileName: 'seen_tasks', migrationName: 'v3_008_seen_tasks' },
   { fileName: 'check_attempts', migrationName: 'v3_009_check_attempts' },
   { fileName: 'owner_privacy_state', migrationName: 'v3_010_owner_privacy_state' },
+  { fileName: 'packets', migrationName: 'v3_011_packets' },
+  { fileName: 'learning_drafts', migrationName: 'v3_012_learning_drafts' },
+  { fileName: 'media', migrationName: 'v3_013_media' },
+  { fileName: 'transcripts', migrationName: 'v3_014_transcripts' },
 ] as const;
 
 export class SqlMigrationProvider implements MigrationProvider {

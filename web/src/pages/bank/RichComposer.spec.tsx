@@ -72,6 +72,30 @@ describe('richTextToMarkdown', () => {
     expect(onChange).toHaveBeenLastCalledWith('$\\frac{\\sqrt{2}}{\\sqrt{3}}$ 等于多少？');
   });
 
+  it('lets narrow-screen students reveal low-frequency text formatting on demand', () => {
+    render(
+      <RichComposer
+        placeholder="输入题目"
+        onChange={vi.fn()}
+        onSubmit={vi.fn()}
+      />,
+    );
+
+    const toggle = screen.getByRole('button', { name: '更多文字格式' });
+    const toolbar = screen.getByRole('toolbar', { name: '文字格式' });
+
+    expect(toggle).toHaveAttribute('aria-expanded', 'false');
+    expect(toolbar).toHaveAttribute('data-open', 'false');
+
+    fireEvent.click(toggle);
+    expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    expect(toolbar).toHaveAttribute('data-open', 'true');
+
+    fireEvent.keyDown(toolbar, { key: 'Escape' });
+    expect(toggle).toHaveAttribute('aria-expanded', 'false');
+    expect(toggle).toHaveFocus();
+  });
+
   it('places the caret in formula slots and uses Tab to advance', () => {
     const ref = createRef<RichComposerHandle>();
     const onChange = vi.fn();

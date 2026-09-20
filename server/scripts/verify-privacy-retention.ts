@@ -1,12 +1,17 @@
 import 'reflect-metadata';
 import { NotFoundException } from '@nestjs/common';
+import type { ConfigService } from '@nestjs/config';
 import { createHash, randomBytes } from 'node:crypto';
+import { mkdtemp, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { config as loadEnvironmentFile } from 'dotenv';
 import { sql } from 'kysely';
-import { environmentFilePaths, parseEnvironment } from '../src/config/env.js';
+import { environmentFilePaths, parseEnvironment, type AppEnvironment } from '../src/config/env.js';
 import { createDatabase } from '../src/database/database.factory.js';
 import type { DatabaseService } from '../src/database/database.service.js';
 import { AssessmentRepository } from '../src/features/assessment/assessment.repository.js';
+import { PrivateMediaStorageService } from '../src/features/media/private-media-storage.service.js';
 import { LearningSessionService } from '../src/features/learning/learning-session.service.js';
 import { DeleteService } from '../src/shared/delete.js';
 import { runRetentionCleanup } from '../src/shared/retention.js';
@@ -22,7 +27,11 @@ async function main() {
   const database = createDatabase(parseEnvironment(process.env));
   const databaseService = { client: database } as DatabaseService;
   const assessment = new AssessmentRepository(databaseService);
-  const deletion = new DeleteService(databaseService);
+  const storageRoot = await mkdtemp(join(tmpdir(), 'qisi-privacy-retention-'));
+  const storage = new PrivateMediaStorageService({
+    get: () => storageRoot,
+  } as unknown as ConfigService<AppEnvironment, true>);
+  const deletion = new DeleteService(databaseService, storage);
   const learning = new LearningSessionService(databaseService);
   const suffix = `${Date.now().toString(36)}-${randomBytes(3).toString('hex')}`;
   let userId = '';
@@ -45,6 +54,29 @@ async function main() {
     title,
     topic: '二次函数',
   });
+  const markOriginalCorrect = async (sessionId: string) => {
+    await database.transaction().execute(async (transaction) => {
+      const session = await transaction.selectFrom('sessions')
+        .select('next_event_seq')
+        .where('id', '=', sessionId)
+        .where('user_id', '=', userId)
+        .forUpdate()
+        .executeTakeFirstOrThrow();
+      await transaction.insertInto('events').values({
+        dependency_ids_json: '[]',
+        event_type: 'current_answer_checked',
+        invalidated: 0,
+        payload_json: JSON.stringify({ independent: false, verdict: 'correct' }),
+        seq: session.next_event_seq,
+        session_id: sessionId,
+        subject_id: `privacy-check-${sessionId}`,
+      }).execute();
+      await transaction.updateTable('sessions').set({
+        next_event_seq: session.next_event_seq + 1,
+        phase: 'answer_checked',
+      }).where('id', '=', sessionId).where('user_id', '=', userId).executeTakeFirstOrThrow();
+    });
+  };
 
   try {
     const username = `privacy-owner-${suffix}`;
@@ -88,6 +120,12 @@ async function main() {
     paperQuestionId = String(paperQuestion.insertId);
 
     const draftSession = await createSession('临时稿保留验收');
+    await markOriginalCorrect(draftSession.id);
+    await learning.saveDraft(userId, draftSession.id, '学习页尚未发送的临时草稿');
+    await database.updateTable('learning_drafts')
+      .set({ expires_at: new Date('2026-09-18T11:59:59.000Z') })
+      .where('session_id', '=', draftSession.id)
+      .execute();
     const prompt = '求 $g(x)=x^2-6x+5$ 的最小值。';
     const started = await assessment.createAttempt(userId, draftSession.id, {
       candidate: {
@@ -132,13 +170,18 @@ async function main() {
       'locked_plan_markdown',
       'plan_draft_markdown',
     ]).where('id', '=', started.id).executeTakeFirstOrThrow();
+    const expiredLearningDraft = await database.selectFrom('learning_drafts')
+      .select('session_id')
+      .where('session_id', '=', draftSession.id)
+      .executeTakeFirst();
     if (
-      firstCleanup.clearedDraftCount !== 1
+      firstCleanup.clearedDraftCount !== 2
+      || expiredLearningDraft
       || retainedAttempt.plan_draft_markdown !== ''
       || retainedAttempt.answer_draft_markdown !== ''
       || retainedAttempt.locked_plan_markdown !== '先配方，再用平方项非负。'
       || retainedAttempt.final_answer_markdown !== '$g(x)=(x-3)^2-4$，所以最小值为 $-4$。'
-      || firstCleanup.imageRetention !== 'not_persisted'
+      || firstCleanup.imageRetention !== 'deleted'
     ) {
       throw new Error('24-hour cleanup did not clear only temporary drafts');
     }
@@ -163,6 +206,18 @@ async function main() {
     const root = await createSession('主动删除验收');
     const reassessment = await createSession('主动删除·重测');
     const help = await createSession('主动删除·检验求助');
+    const privatePath = await storage.write(Buffer.from([137, 80, 78, 71, 1, 2, 3]), 'image/png');
+    const privateMedia = await database.insertInto('media').values({
+      expires_at: new Date('2026-09-21T12:00:00.000Z'),
+      height: 800,
+      mime: 'image/png',
+      private_path: privatePath,
+      purpose: 'handwriting',
+      session_id: root.id,
+      user_id: userId,
+      width: 1200,
+    }).executeTakeFirstOrThrow();
+    const privateMediaId = String(privateMedia.insertId);
     await database.insertInto('events').values([
       {
         dependency_ids_json: '[]',
@@ -196,7 +251,20 @@ async function main() {
     const deleted = await deletion.deleteSession(userId, root.id);
     const remainingLinkedSessions = await database.selectFrom('sessions').select('id')
       .where('id', 'in', [root.id, reassessment.id, help.id]).execute();
-    if (deleted.deletedSessionCount !== 3 || remainingLinkedSessions.length) {
+    const remainingPrivateMedia = await database.selectFrom('media').select('id')
+      .where('id', '=', privateMediaId).executeTakeFirst();
+    const privateBytesRemoved = await storage.read(privatePath).then(
+      () => false,
+      () => true,
+    );
+    if (
+      deleted.deletedSessionCount !== 3
+      || deleted.deletedMediaCount !== 1
+      || deleted.pendingMediaDeletionCount !== 0
+      || remainingLinkedSessions.length
+      || remainingPrivateMedia
+      || !privateBytesRemoved
+    ) {
       throw new Error('active deletion did not remove root and linked private sessions');
     }
     await learning.commitTurn({
@@ -216,7 +284,65 @@ async function main() {
       },
     );
 
+    const deferredSession = await createSession('主动删除·媒体重试验收');
+    const deferredPath = await storage.write(Buffer.from([137, 80, 78, 71, 4, 5, 6]), 'image/png');
+    const deferredMedia = await database.insertInto('media').values({
+      expires_at: new Date('2026-09-21T12:00:00.000Z'),
+      height: 600,
+      mime: 'image/png',
+      private_path: deferredPath,
+      purpose: 'handwriting',
+      session_id: deferredSession.id,
+      user_id: userId,
+      width: 900,
+    }).executeTakeFirstOrThrow();
+    const deferredMediaId = String(deferredMedia.insertId);
+    const failedStorage = {
+      remove: async () => { throw new Error('simulated storage outage'); },
+    } as unknown as PrivateMediaStorageService;
+    const deferredDeletion = await new DeleteService(databaseService, failedStorage)
+      .deleteSession(userId, deferredSession.id);
+    const pendingMedia = await database.selectFrom('media')
+      .select(['expires_at', 'session_id'])
+      .where('id', '=', deferredMediaId)
+      .executeTakeFirstOrThrow();
+    const pendingBytesStillRecoverable = await storage.read(deferredPath).then(
+      () => true,
+      () => false,
+    );
+    if (
+      deferredDeletion.deletedMediaCount !== 0
+      || deferredDeletion.pendingMediaDeletionCount !== 1
+      || pendingMedia.session_id !== null
+      || pendingMedia.expires_at.getTime() > Date.now() + 1_000
+      || !pendingBytesStillRecoverable
+    ) {
+      throw new Error(`failed media deletion did not retain a retryable cleanup record: ${JSON.stringify({
+        deletedMediaCount: deferredDeletion.deletedMediaCount,
+        expiresAt: pendingMedia.expires_at,
+        now: new Date(),
+        pendingBytesStillRecoverable,
+        pendingMediaDeletionCount: deferredDeletion.pendingMediaDeletionCount,
+        sessionId: pendingMedia.session_id,
+      })}`);
+    }
+    const retryCleanup = await runRetentionCleanup(
+      database,
+      new Date(Date.now() + 2_000),
+      storage,
+    );
+    const retriedMedia = await database.selectFrom('media').select('id')
+      .where('id', '=', deferredMediaId).executeTakeFirst();
+    const retriedBytesRemoved = await storage.read(deferredPath).then(
+      () => false,
+      () => true,
+    );
+    if (retryCleanup.imageBytesDeleted !== 1 || retriedMedia || !retriedBytesRemoved) {
+      throw new Error('retention cleanup did not retry deferred private media deletion');
+    }
+
     const afterDeletionSession = await createSession('历史不完整后检验');
+    await markOriginalCorrect(afterDeletionSession.id);
     const afterDeletionPrompt = '求 $h(x)=x^2-8x+7$ 的最小值。';
     const afterDeletionAttempt = await assessment.createAttempt(userId, afterDeletionSession.id, {
       candidate: {
@@ -239,7 +365,7 @@ async function main() {
     }
 
     console.info(
-      'privacy retention passed: draftsCleared=1, lockedAndFinalPreserved=true, imagesNotPersisted=true, expiredCascade=true, linkedDeleteCount=3, lateCommitRejected=true, historyIncomplete=true, futureFirstSeenEligible=false, questionBankUnaffected=true',
+      'privacy retention passed: draftsCleared=2, lockedAndFinalPreserved=true, privateMediaRetentionActive=true, expiredCascade=true, linkedDeleteCount=3, linkedMediaDeleted=1, deferredMediaRetry=true, lateCommitRejected=true, historyIncomplete=true, futureFirstSeenEligible=false, questionBankUnaffected=true',
     );
   } finally {
     if (userId) await database.deleteFrom('users').where('id', '=', userId).execute();
@@ -247,6 +373,7 @@ async function main() {
     if (questionId) await database.deleteFrom('question').where('id', '=', questionId).execute();
     if (paperId) await database.deleteFrom('paper').where('id', '=', paperId).execute();
     await database.destroy();
+    await rm(storageRoot, { force: true, recursive: true });
   }
 }
 

@@ -9,19 +9,26 @@ import {
   Inject,
   Post,
   ServiceUnavailableException,
+  StreamableFile,
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { z } from 'zod';
 import type { AppEnvironment } from '../../config/env.js';
+import { isAllowedWebOrigin } from '../../config/web-origin.js';
 import { AUTH_COOKIE_NAME, readCookie } from '../auth/auth.cookie.js';
 import { AuthService } from '../auth/auth.service.js';
 import { SpeechMathFormatterService } from './speech-math-formatter.service.js';
 import { SPEECH_TO_TEXT_PORT, type SpeechToTextPort } from './speech-to-text.port.js';
+import { TEXT_TO_SPEECH_PORT, type TextToSpeechPort } from './text-to-speech.port.js';
 import { SpeechConfigurationError } from './youdao-speech.adapter.js';
+import { TextToSpeechConfigurationError } from './volcengine-tts.adapter.js';
 
 const MAX_WAV_BYTES = 2_000_044;
 const formatMathDraftSchema = z.object({
   text: z.string().trim().min(1).max(12_000),
+}).strict();
+const synthesizeSchema = z.object({
+  text: z.string().trim().min(1).max(4_000),
 }).strict();
 
 function isSupportedWav(body: unknown): body is Buffer {
@@ -44,8 +51,39 @@ export class SpeechController {
     @Inject(AuthService) private readonly auth: AuthService,
     @Inject(ConfigService) private readonly config: ConfigService<AppEnvironment, true>,
     @Inject(SPEECH_TO_TEXT_PORT) private readonly speech: SpeechToTextPort,
+    @Inject(TEXT_TO_SPEECH_PORT) private readonly textToSpeech: TextToSpeechPort,
     @Inject(SpeechMathFormatterService) private readonly formatter: SpeechMathFormatterService,
   ) {}
+
+  @Post('synthesize')
+  @Header('Cache-Control', 'private, no-store')
+  async synthesize(
+    @Body() body: unknown,
+    @Headers('cookie') cookieHeader: string | undefined,
+    @Headers('origin') origin: string | undefined,
+  ) {
+    if (!isAllowedWebOrigin(origin, this.config.get('WEB_ORIGIN', { infer: true }))) {
+      throw new ForbiddenException('origin is not allowed');
+    }
+    const parsed = synthesizeSchema.safeParse(body);
+    if (!parsed.success) {
+      throw new BadRequestException('text must be between 1 and 4000 characters');
+    }
+
+    await this.auth.authenticate(readCookie(cookieHeader, AUTH_COOKIE_NAME));
+    try {
+      const audio = await this.textToSpeech.synthesize(parsed.data.text);
+      return new StreamableFile(audio, {
+        disposition: 'inline',
+        type: 'audio/mpeg',
+      });
+    } catch (error) {
+      if (error instanceof TextToSpeechConfigurationError) {
+        throw new ServiceUnavailableException(error.message);
+      }
+      throw new BadGatewayException('朗读暂时不可用，请重试');
+    }
+  }
 
   @Post('format-math')
   @Header('Cache-Control', 'no-store')
@@ -54,7 +92,7 @@ export class SpeechController {
     @Headers('cookie') cookieHeader: string | undefined,
     @Headers('origin') origin: string | undefined,
   ) {
-    if (origin !== this.config.get('WEB_ORIGIN', { infer: true })) {
+    if (!isAllowedWebOrigin(origin, this.config.get('WEB_ORIGIN', { infer: true }))) {
       throw new ForbiddenException('origin is not allowed');
     }
     const parsed = formatMathDraftSchema.safeParse(body);
@@ -77,7 +115,7 @@ export class SpeechController {
     @Headers('cookie') cookieHeader: string | undefined,
     @Headers('origin') origin: string | undefined,
   ) {
-    if (origin !== this.config.get('WEB_ORIGIN', { infer: true })) {
+    if (!isAllowedWebOrigin(origin, this.config.get('WEB_ORIGIN', { infer: true }))) {
       throw new ForbiddenException('origin is not allowed');
     }
     if (!isSupportedWav(body)) {

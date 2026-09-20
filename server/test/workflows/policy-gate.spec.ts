@@ -19,6 +19,7 @@ const guardFixture = GuardResultSchema.parse(readFixture('guard.json'));
 const assessmentFixture = AssessmentOutputSchema.parse(readFixture('assessment-output.json'));
 
 const knownDecisionIds = new Set(packetFixture.decisions.map((decision) => decision.id));
+const knownGoalKeys = new Set(packetFixture.decisions.map((decision) => decision.goal_key));
 
 /** 构造一个带探针的策略副本，用于验证探针上限。 */
 function withProbe(strategy: Strategy): Strategy {
@@ -41,6 +42,7 @@ function turnInput(overrides: Partial<Parameters<typeof gateTurn>[0]> = {}) {
     strategy: strategyFixture,
     guard: guardFixture,
     knownDecisionIds,
+    knownGoalKeys,
     probesShownForFocusGoal: 0,
     ...overrides,
   };
@@ -102,6 +104,29 @@ describe('gateTurn：两探针上限', () => {
     const decision = gateTurn(turnInput({ strategy: { ...strategyFixture, probe: null }, probesShownForFocusGoal: 2 }));
     expect(decision.approved).toBe(true);
   });
+
+  it('不得通过换成路线外 goal_key 重置探针计数', () => {
+    const changedGoal = withProbe(strategyFixture);
+    changedGoal.focus_goal_key = 'invented-goal';
+    changedGoal.probe = changedGoal.probe
+      ? { ...changedGoal.probe, goal_key: 'invented-goal' }
+      : null;
+
+    expect(gateTurn(turnInput({ strategy: changedGoal }))).toMatchObject({
+      approved: false,
+      code: 'PROBE_GOAL_INVALID',
+    });
+  });
+
+  it('探针 goal_key 必须与本轮稳定焦点一致', () => {
+    const mismatched = withProbe(strategyFixture);
+    if (mismatched.probe) mismatched.probe = { ...mismatched.probe, goal_key: 'another-goal' };
+
+    expect(gateTurn(turnInput({ strategy: mismatched }))).toMatchObject({
+      approved: false,
+      code: 'PROBE_GOAL_INVALID',
+    });
+  });
 });
 
 describe('gateTurn：Guard 只是输入之一', () => {
@@ -146,23 +171,29 @@ describe('gateTurn：整题曝光记账', () => {
 });
 
 describe('gatePreparation', () => {
+  const context = {
+    expectedProblemHash: packetFixture.problem_hash,
+    guard: guardFixture,
+    trustedVerificationReferences: new Set(['自拟开发夹具']),
+  };
+
   it('ready 且无阻塞项时放行', () => {
-    expect(gatePreparation(packetFixture).approved).toBe(true);
+    expect(gatePreparation(packetFixture, context).approved).toBe(true);
   });
 
   it('ready 为假时否决——保持原题待核对，不换题', () => {
-    expect(gatePreparation({ ...packetFixture, ready: false })).toMatchObject({ approved: false, code: 'PACKET_NOT_READY' });
+    expect(gatePreparation({ ...packetFixture, ready: false }, context)).toMatchObject({ approved: false, code: 'PACKET_NOT_READY' });
   });
 
   it('存在 blocking_issues 时否决', () => {
-    expect(gatePreparation({ ...packetFixture, blocking_issues: ['数学矛盾'] })).toMatchObject({
+    expect(gatePreparation({ ...packetFixture, blocking_issues: ['数学矛盾'] }, context)).toMatchObject({
       approved: false,
       code: 'PACKET_NOT_READY',
     });
   });
 
   it('reference_source 为空时否决', () => {
-    expect(gatePreparation({ ...packetFixture, reference_source: '   ' })).toMatchObject({
+    expect(gatePreparation({ ...packetFixture, reference_source: '   ' }, context)).toMatchObject({
       approved: false,
       code: 'PACKET_NOT_READY',
     });

@@ -16,14 +16,22 @@ import type {
 import type { ProblemChatMessage, ProblemChatRequest } from '../analysis/problem-chat.schema.js';
 
 const SESSION_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+const DRAFT_TTL_MS = 24 * 60 * 60 * 1000;
 const RUN_DEADLINE_MS = 90_000;
 
 type AssistanceMode = ProblemChatRequest['assistanceMode'];
+type RemediationFocus = NonNullable<ProblemChatRequest['remediationFocus']>;
+
+function isRemediationFocus(value: unknown): value is RemediationFocus {
+  return value === 'method' || value === 'execution' || value === 'evidence';
+}
 
 export interface CreateLearningSessionInput {
   analysis: ProblemAnalysis;
   content: string;
   ownerId: string;
+  packetVersion?: string;
+  preparationStatus?: 'needs_review' | 'ready' | 'unavailable';
   problemMd: string;
   questionId?: string;
   recognitionUncertain?: string[];
@@ -38,12 +46,15 @@ export interface ReservedTurn {
   history: ProblemChatMessage[];
   kind: 'reserved';
   leaseToken: string;
+  packetVersion: string | null;
   problemMd: string;
+  questionId: string | null;
   runId: string;
   teachingState: TutorTeachingState;
 }
 
 export interface ReplayedTurn {
+  currentVerdict?: 'correct' | 'incorrect' | 'unknown';
   kind: 'replay';
   reply: string;
   version: number;
@@ -57,7 +68,10 @@ interface ReserveTurnInput {
   message: string;
   ownerId: string;
   requestId: string;
+  remediationFocus?: RemediationFocus;
   sessionId: string;
+  transcriptId?: string;
+  transcriptRevision?: number;
 }
 
 interface CommitTurnInput {
@@ -69,9 +83,12 @@ interface CommitTurnInput {
   ownerId: string;
   reply: string;
   requestId: string;
+  remediationFocus?: RemediationFocus;
   runId: string;
   sessionId: string;
   expectedVersion: number;
+  transcriptId?: string;
+  transcriptRevision?: number;
 }
 
 interface TeachingEventRow {
@@ -100,7 +117,10 @@ function payloadHash(input: ReserveTurnInput) {
       assistanceMode: input.assistanceMode,
       expectedVersion: input.expectedVersion,
       message: input.message,
+      remediationFocus: input.remediationFocus,
       sessionId: input.sessionId,
+      transcriptId: input.transcriptId,
+      transcriptRevision: input.transcriptRevision,
     }))
     .digest();
 }
@@ -157,6 +177,17 @@ export function restoreTutorTeachingState(
   return { exposures, probesShownByGoal };
 }
 
+export function remediationTrackAfterTurn(
+  focus: RemediationFocus | undefined,
+  assistanceMode: AssistanceMode,
+  currentVerdict: CommitTurnInput['currentVerdict'],
+): RemediationFocus | null | undefined {
+  if (!focus) return undefined;
+  return assistanceMode === 'finish_problem' && currentVerdict === 'correct'
+    ? null
+    : focus;
+}
+
 function defaultTitle(content: string, analysis: ProblemAnalysis) {
   if (/[$\\]/.test(content)) {
     const analysisTitle = analysis.overview
@@ -200,7 +231,7 @@ export class LearningSessionService {
           phase: 'learning',
           version: 1,
           next_message_seq: 2,
-          next_event_seq: 1,
+          next_event_seq: input.preparationStatus ? 2 : 1,
           active_run_id: null,
           expires_at: expiresAt,
         })
@@ -220,6 +251,25 @@ export class LearningSessionService {
           metadata_json: json({ analysis: input.analysis }),
         })
         .execute();
+
+      if (input.preparationStatus) {
+        await transaction
+          .insertInto('events')
+          .values({
+            dependency_ids_json: json([]),
+            event_type: 'preparation_bound',
+            invalidated: 0,
+            payload_json: json({
+              packetVersion: input.packetVersion,
+              problemHash: problemContentHash(input.problemMd),
+              status: input.preparationStatus,
+            }),
+            seq: 1,
+            session_id: sessionId,
+            subject_id: input.questionId ?? sessionId,
+          })
+          .execute();
+      }
 
       return { id: sessionId, title, version: 1 };
     });
@@ -279,9 +329,48 @@ export class LearningSessionService {
       .where('session_id', '=', sessionId)
       .orderBy('seq', 'asc')
       .execute();
+    const preparationEvent = await this.database.client
+      .selectFrom('events')
+      .select('payload_json')
+      .where('session_id', '=', sessionId)
+      .where('event_type', '=', 'preparation_bound')
+      .where('invalidated', '=', 0)
+      .orderBy('seq', 'desc')
+      .executeTakeFirst();
+    const preparationPayload = preparationEvent
+      ? parseJson<{ status?: unknown }>(preparationEvent.payload_json)
+      : null;
+    const preparationStatus = preparationPayload?.status === 'ready'
+      || preparationPayload?.status === 'needs_review'
+      || preparationPayload?.status === 'unavailable'
+      ? preparationPayload.status
+      : undefined;
+    const remediationEvent = await this.database.client
+      .selectFrom('events')
+      .select('payload_json')
+      .where('session_id', '=', sessionId)
+      .where('event_type', '=', 'remediation_track_updated')
+      .where('invalidated', '=', 0)
+      .orderBy('seq', 'desc')
+      .executeTakeFirst();
+    const remediationPayload = remediationEvent
+      ? parseJson<{ focus?: unknown }>(remediationEvent.payload_json)
+      : null;
+    const remediationFocus = isRemediationFocus(remediationPayload?.focus)
+      ? remediationPayload.focus
+      : null;
+    const draft = await this.database.client
+      .selectFrom('learning_drafts')
+      .select('draft_markdown')
+      .where('session_id', '=', sessionId)
+      .where('user_id', '=', ownerId)
+      .where('expires_at', '>', new Date())
+      .executeTakeFirst();
 
     return {
       analysis: parseJson<ProblemAnalysis>(session.analysis_json),
+      draftMarkdown: draft?.draft_markdown ?? '',
+      remediationFocus,
       messages: messages.map((message) => ({
         assistanceMode: message.assistance_mode ?? undefined,
         content: message.content_markdown,
@@ -294,6 +383,7 @@ export class LearningSessionService {
         content: session.problem_content_markdown,
         id: String(session.id),
         problemMd: session.problem_markdown,
+        ...(preparationStatus ? { preparationStatus } : {}),
         questionId: session.question_id ? String(session.question_id) : undefined,
         recognitionUncertain: session.recognition_uncertain_json
           ? parseJson<string[]>(session.recognition_uncertain_json)
@@ -303,6 +393,81 @@ export class LearningSessionService {
         version: session.version,
       },
     };
+  }
+
+  async saveDraft(ownerId: string, sessionId: string, markdown: string) {
+    const savedAt = new Date();
+    const session = await this.database.client
+      .selectFrom('sessions')
+      .select('id')
+      .where('id', '=', sessionId)
+      .where('user_id', '=', ownerId)
+      .where('expires_at', '>', savedAt)
+      .executeTakeFirst();
+    if (!session) throw new NotFoundException('learning session not found');
+
+    if (!markdown) {
+      await this.database.client
+        .deleteFrom('learning_drafts')
+        .where('session_id', '=', sessionId)
+        .where('user_id', '=', ownerId)
+        .execute();
+      return { savedAt: savedAt.toISOString() };
+    }
+
+    await this.database.client
+      .insertInto('learning_drafts')
+      .values({
+        draft_markdown: markdown,
+        expires_at: new Date(savedAt.getTime() + DRAFT_TTL_MS),
+        session_id: sessionId,
+        user_id: ownerId,
+      })
+      .onDuplicateKeyUpdate({
+        draft_markdown: markdown,
+        expires_at: new Date(savedAt.getTime() + DRAFT_TTL_MS),
+      })
+      .execute();
+    return { savedAt: savedAt.toISOString() };
+  }
+
+  async updateRemediationTrack(
+    ownerId: string,
+    sessionId: string,
+    focus: RemediationFocus | null,
+  ) {
+    return this.database.client.transaction().execute(async (transaction) => {
+      const session = await transaction
+        .selectFrom('sessions')
+        .select(['id', 'next_event_seq'])
+        .where('id', '=', sessionId)
+        .where('user_id', '=', ownerId)
+        .where('expires_at', '>', new Date())
+        .forUpdate()
+        .executeTakeFirst();
+      if (!session) throw new NotFoundException('learning session not found');
+
+      await transaction
+        .insertInto('events')
+        .values({
+          dependency_ids_json: json([]),
+          event_type: 'remediation_track_updated',
+          invalidated: 0,
+          payload_json: json({ focus }),
+          seq: session.next_event_seq,
+          session_id: sessionId,
+          subject_id: sessionId,
+        })
+        .execute();
+      await transaction
+        .updateTable('sessions')
+        .set({ next_event_seq: session.next_event_seq + 1 })
+        .where('id', '=', sessionId)
+        .where('user_id', '=', ownerId)
+        .executeTakeFirstOrThrow();
+
+      return { remediationFocus: focus };
+    });
   }
 
   async reserveTurn(input: ReserveTurnInput): Promise<TurnReservation> {
@@ -334,7 +499,11 @@ export class LearningSessionService {
           throw new ConflictException('request id was already used with different content');
         }
         if (existing.status === 'succeeded' && existing.safe_response_json) {
-          const response = parseJson<{ reply: string; version: number }>(
+          const response = parseJson<{
+            currentVerdict?: 'correct' | 'incorrect' | 'unknown';
+            reply: string;
+            version: number;
+          }>(
             existing.safe_response_json,
           );
           return { kind: 'replay', ...response };
@@ -372,6 +541,24 @@ export class LearningSessionService {
         .where('event_type', 'in', ['help_exposed', 'diagnostic_probe_shown'])
         .orderBy('seq', 'asc')
         .execute();
+      const preparationEvent = await transaction
+        .selectFrom('events')
+        .select('payload_json')
+        .where('session_id', '=', input.sessionId)
+        .where('event_type', '=', 'preparation_bound')
+        .where('invalidated', '=', 0)
+        .orderBy('seq', 'desc')
+        .executeTakeFirst();
+      const preparationPayload = preparationEvent
+        ? parseJson<{ packetVersion?: unknown; problemHash?: unknown; status?: unknown }>(
+            preparationEvent.payload_json,
+          )
+        : null;
+      const packetVersion = typeof preparationPayload?.packetVersion === 'string'
+        && preparationPayload.problemHash === problemContentHash(session.problem_markdown)
+        && preparationPayload.status === 'ready'
+        ? preparationPayload.packetVersion
+        : null;
       const teachingState = restoreTutorTeachingState(
         input.sessionId,
         session.problem_markdown,
@@ -416,7 +603,10 @@ export class LearningSessionService {
           reserved_version: input.expectedVersion,
           deadline_at: deadlineAt,
           status: 'active',
-          run_json: json({ assistanceMode: input.assistanceMode }),
+          run_json: json({
+            assistanceMode: input.assistanceMode,
+            ...(input.remediationFocus ? { remediationFocus: input.remediationFocus } : {}),
+          }),
         })
         .execute();
       await transaction
@@ -433,7 +623,9 @@ export class LearningSessionService {
         history,
         kind: 'reserved',
         leaseToken,
+        packetVersion,
         problemMd: session.problem_markdown,
+        questionId: session.question_id ? String(session.question_id) : null,
         runId,
         teachingState,
       };
@@ -514,6 +706,12 @@ export class LearningSessionService {
 
       const studentSeq = session.next_message_seq;
       const guideSeq = studentSeq + 1;
+      const guideMetadata = {
+        ...(input.assistanceMode === 'finish_problem'
+          ? { currentVerdict: input.currentVerdict ?? 'unknown' }
+          : {}),
+        ...(input.remediationFocus ? { remediationFocus: input.remediationFocus } : {}),
+      };
       const assessmentHelp = await transaction
         .selectFrom('events')
         .select('subject_id')
@@ -531,7 +729,13 @@ export class LearningSessionService {
             message_type: 'student_attempt',
             assistance_mode: null,
             content_markdown: input.message,
-            metadata_json: null,
+            metadata_json: input.transcriptId
+              ? json({
+                  source: 'handwriting',
+                  transcriptId: input.transcriptId,
+                  transcriptRevision: input.transcriptRevision,
+                })
+              : null,
           },
           {
             session_id: input.sessionId,
@@ -541,7 +745,7 @@ export class LearningSessionService {
             message_type: 'guide_reply',
             assistance_mode: input.assistanceMode,
             content_markdown: input.reply,
-            metadata_json: input.audit ? json({ tutorAudit: input.audit }) : null,
+            metadata_json: Object.keys(guideMetadata).length ? json(guideMetadata) : null,
           },
         ])
         .execute();
@@ -553,12 +757,25 @@ export class LearningSessionService {
       }> = [
         {
           eventType: 'student_submitted',
-          payload: { assistanceMode: input.assistanceMode },
+          payload: {
+            assistanceMode: input.assistanceMode,
+            ...(input.remediationFocus ? { remediationFocus: input.remediationFocus } : {}),
+            ...(input.transcriptId
+              ? {
+                  source: 'handwriting',
+                  transcriptId: input.transcriptId,
+                  transcriptRevision: input.transcriptRevision,
+                }
+              : {}),
+          },
           subjectId: input.requestId,
         },
         {
           eventType: 'guide_message_committed',
-          payload: { assistanceMode: input.assistanceMode },
+          payload: {
+            assistanceMode: input.assistanceMode,
+            ...(input.remediationFocus ? { remediationFocus: input.remediationFocus } : {}),
+          },
           subjectId: input.requestId,
         },
       ];
@@ -594,8 +811,10 @@ export class LearningSessionService {
         eventFacts.push({
           eventType: 'diagnostic_probe_shown',
           payload: {
+            branches: input.audit.probe?.branches ?? [],
             focusGoalKey: input.audit.focusGoalKey,
             goalKey: input.audit.probeGoalKey,
+            questionMd: input.audit.probe?.question_md ?? '',
           },
           subjectId: input.requestId,
         });
@@ -607,6 +826,18 @@ export class LearningSessionService {
             independent: false,
             verdict: input.currentVerdict ?? 'unknown',
           },
+          subjectId: input.requestId,
+        });
+      }
+      const nextRemediationFocus = remediationTrackAfterTurn(
+        input.remediationFocus,
+        input.assistanceMode,
+        input.currentVerdict,
+      );
+      if (nextRemediationFocus !== undefined) {
+        eventFacts.push({
+          eventType: 'remediation_track_updated',
+          payload: { focus: nextRemediationFocus },
           subjectId: input.requestId,
         });
       }
@@ -637,7 +868,13 @@ export class LearningSessionService {
       }
 
       const version = input.expectedVersion + 1;
-      const safeResponse = { reply: input.reply, version };
+      const safeResponse = {
+        ...(input.assistanceMode === 'finish_problem'
+          ? { currentVerdict: input.currentVerdict ?? 'unknown' }
+          : {}),
+        reply: input.reply,
+        version,
+      };
       await transaction
         .updateTable('sessions')
         .set({
@@ -662,6 +899,12 @@ export class LearningSessionService {
         .where('id', '=', input.runId)
         .where('lease_token', '=', input.leaseToken)
         .executeTakeFirstOrThrow();
+      await transaction
+        .deleteFrom('learning_drafts')
+        .where('session_id', '=', input.sessionId)
+        .where('user_id', '=', input.ownerId)
+        .where('draft_markdown', '=', input.message)
+        .execute();
 
       return safeResponse;
     });

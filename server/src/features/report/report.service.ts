@@ -46,6 +46,18 @@ function unique(values: string[]) {
   return [...new Set(values)];
 }
 
+export function projectFrozenAttemptWork(input: {
+  finalAnswerMarkdown: string | null;
+  lockedPlanMarkdown: string | null;
+  planUnanswered: boolean;
+}) {
+  return {
+    final_answer_markdown: input.finalAnswerMarkdown,
+    locked_plan_markdown: input.planUnanswered ? null : input.lockedPlanMarkdown,
+    plan_unanswered: input.planUnanswered,
+  };
+}
+
 export function buildAttemptReport(input: AttemptEvidence) {
   const eligible = input.firstSeenEligible
     && input.relation === 'near_transfer'
@@ -156,6 +168,7 @@ export class ReportService {
         'attempt.assistance_requested',
         'attempt.help_exposed',
         'attempt.invalidated',
+        'attempt.phase',
         'attempt.planning_result',
         'attempt.execution_result',
         'attempt.result_json',
@@ -227,12 +240,18 @@ export class ReportService {
         assistance_requested: row.assistance_requested === 1,
         attempt_id: String(row.id),
         execution,
+        ...projectFrozenAttemptWork({
+          finalAnswerMarkdown: row.final_answer_markdown,
+          lockedPlanMarkdown: row.locked_plan_markdown,
+          planUnanswered: row.plan_unanswered === 1,
+        }),
         help_exposed: helpExposed,
         independent_execution: computed.independentExecution,
         independent_planning: computed.independentPlanning,
         independent_task_pass: computed.independentTaskPass,
         invalidated: row.invalidated === 1,
         limitations: unique([...(stored?.limitations ?? []), ...computed.limitations]),
+        phase: row.phase,
         planning,
         relation: row.relation as 'near_duplicate' | 'near_transfer',
         task_id: String(row.task_id),

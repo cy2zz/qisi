@@ -73,6 +73,7 @@ export function buildHistoryEntry(input: HistoryEntryInput) {
           execution: input.attempt.execution,
           help_exposed: input.attempt.helpExposed,
           independent_task_pass: computed.independentTaskPass,
+          invalidated: input.attempt.invalidated,
           limitations: computed.limitations,
           phase: input.attempt.phase,
           planning: input.attempt.planning,
