@@ -64,7 +64,19 @@ export interface TurnCommand {
   readonly expectedVersion: number;
   readonly diagnosisInput: unknown;
   readonly routeReviewInput: unknown | null;
-  readonly strategyInput: unknown;
+  /**
+   * 策略输入由编排器在**本轮诊断产出之后**调用本函数构造。
+   *
+   * 不能让调用方预先构造好整份 StrategyInput：那会把一个旧诊断（或占位值）
+   * 塞给策略节点，而规格的链路是「确认输入 → Diagnosis → [route_review] → Strategy」
+   * （design-v6 §5.1）——策略必须基于本轮诊断。此前正是这个缺陷：turn() 把
+   * command.strategyInput 原样传给策略节点，诊断结果从未进入策略输入。
+   * 单测未暴露，是因为调用方两边都传夹具。
+   *
+   * 稳定上下文（exposures / decisions / remaining_probes / private_reference_md 等）
+   * 由调用方在闭包里捕获。
+   */
+  readonly buildStrategyInput: (diagnosis: Diagnosis) => unknown;
   readonly rendererInput: unknown;
   readonly guardInput: unknown;
   readonly knownDecisionIds: ReadonlySet<string>;
@@ -291,13 +303,15 @@ export class WorkflowOrchestrator {
     }
 
     const strategyModel = this.#config.models.strategy;
+    // 用本轮诊断构造策略输入——见 TurnCommand.buildStrategyInput 的说明。
+    const strategyInput = command.buildStrategyInput(diagnosis);
     const strategyNode = await this.#runNode({
       runId: run.runId,
       leaseToken: run.leaseToken,
       nodeKey: 'strategy',
       model: strategyModel,
-      input: command.strategyInput,
-      execute: () => this.strategy.run(command.strategyInput as never, port, this.#callOptions(strategyModel, budget)),
+      input: strategyInput,
+      execute: () => this.strategy.run(strategyInput as never, port, this.#callOptions(strategyModel, budget)),
     });
     const strategy = strategyNode.value;
 

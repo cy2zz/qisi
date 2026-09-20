@@ -151,7 +151,8 @@ describe('AT13：四角色经过各自的契约与提示节点', () => {
       expectedVersion: store.sessionVersion(SESSION_ID),
       diagnosisInput: projectDiagnosisInput(context),
       routeReviewInput: projectPreparationInput(context, 'route_review'),
-      strategyInput: projectStrategyInput(context),
+      // 策略输入必须由本轮诊断构造，不能用夹具里预先烘焙的诊断。
+      buildStrategyInput: (diagnosis) => ({ ...projectStrategyInput(context), diagnosis }),
       rendererInput: projectRendererInput(context, strategyFixture.allowed_facts),
       guardInput: projectGuardInput(context, 'message', { text_md: '' }, strategyFixture.allowed_disclosures, strategyFixture.reserved_decisions),
       knownDecisionIds: new Set(packet.decisions.map((decision) => decision.id)),
@@ -191,7 +192,8 @@ describe('AT13：四角色经过各自的契约与提示节点', () => {
       expectedVersion: store.sessionVersion(SESSION_ID),
       diagnosisInput: projectDiagnosisInput(context),
       routeReviewInput: null,
-      strategyInput: projectStrategyInput(context),
+      // 策略输入必须由本轮诊断构造，不能用夹具里预先烘焙的诊断。
+      buildStrategyInput: (diagnosis) => ({ ...projectStrategyInput(context), diagnosis }),
       rendererInput: projectRendererInput(context, strategyFixture.allowed_facts),
       guardInput: projectGuardInput(context, 'message', {}, [], []),
       knownDecisionIds: new Set(packet.decisions.map((decision) => decision.id)),
@@ -309,7 +311,8 @@ describe('AT13：单角色输出不合格不得被其他角色补成成功', () 
         expectedVersion: store.sessionVersion(SESSION_ID),
         diagnosisInput: projectDiagnosisInput(context),
         routeReviewInput: null,
-        strategyInput: projectStrategyInput(context),
+        // 策略输入必须由本轮诊断构造，不能用夹具里预先烘焙的诊断。
+      buildStrategyInput: (diagnosis) => ({ ...projectStrategyInput(context), diagnosis }),
         rendererInput: projectRendererInput(context, []),
         guardInput: projectGuardInput(context, 'message', {}, [], []),
         knownDecisionIds: new Set(packet.decisions.map((decision) => decision.id)),
@@ -342,7 +345,8 @@ describe('AT13：单角色输出不合格不得被其他角色补成成功', () 
       expectedVersion: store.sessionVersion(SESSION_ID),
       diagnosisInput: projectDiagnosisInput(context),
       routeReviewInput: null,
-      strategyInput: projectStrategyInput(context),
+      // 策略输入必须由本轮诊断构造，不能用夹具里预先烘焙的诊断。
+      buildStrategyInput: (diagnosis) => ({ ...projectStrategyInput(context), diagnosis }),
       rendererInput: projectRendererInput(context, []),
       guardInput: projectGuardInput(context, 'message', {}, [], []),
       knownDecisionIds: new Set(packet.decisions.map((decision) => decision.id)),
