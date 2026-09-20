@@ -28,4 +28,13 @@ Thumbs.db
 .env
 .env.*
 !.env.example
+
+# 主办方题库原始材料（本地保留，不入库）
 历年试题/
+
+# Raven generated machine-local skills/hooks (recreate via docs/raven-setup.md)
+/.codex/skills/
+/.agents/skills/
+/.claude/
+/.raven/logs/
+/.raven/cache/

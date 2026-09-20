@@ -29,6 +29,7 @@ describe('SqlMigrationProvider', () => {
       'v3_012_learning_drafts',
       'v3_013_media',
       'v3_014_transcripts',
+      'v3_015_probe_counters',
     ]);
     for (const migration of Object.values(migrations)) {
       expect(migration).toHaveProperty('up');

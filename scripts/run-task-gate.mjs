@@ -2,8 +2,14 @@ import { spawnSync } from 'node:child_process';
 
 const [gate, taskId] = process.argv.slice(2);
 
-if (taskId !== 'A01') {
-  console.error(`Unsupported task gate: ${taskId || '<missing>'}. Add an explicit mapping first.`);
+// 已登记的任务门禁。新增任务时在此登记。
+// 未登记的任务显式报错而非静默通过——空跑会被误读成验收通过（AGENTS.md §8）。
+const SUPPORTED_TASKS = new Set(['A01', 'B03']);
+
+if (!SUPPORTED_TASKS.has(taskId)) {
+  console.error(
+    `Unsupported task gate: ${taskId || '<missing>'}. Add it to SUPPORTED_TASKS in scripts/run-task-gate.mjs first.`,
+  );
   process.exitCode = 1;
 } else {
   const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm';

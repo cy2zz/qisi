@@ -7,8 +7,11 @@ import { ApiError, apiFetch } from './lib/api';
 const BankPage = lazy(async () => ({
   default: (await import('./pages/bank/BankFlow')).BankPage,
 }));
-const FixtureLearningPage = lazy(async () => ({
-  default: (await import('./pages/bank/BankFlow')).FixtureLearningPage,
+// B03 的教学页：走四角色受控链路（Diagnosis → Strategy → PolicyGate → Renderer → Guard），
+// 只渲染 StudentView 白名单投影。取代此前的占位组件 FixtureLearningPage
+// （其输入框与提交按钮均为 disabled，页面自述「提交功能尚未接入」）。
+const SessionPage = lazy(async () => ({
+  default: (await import('./pages/learn/SessionPage')).SessionPage,
 }));
 const PreparePage = lazy(async () => ({
   default: (await import('./pages/bank/BankFlow')).PreparePage,
@@ -126,7 +129,7 @@ export function App() {
         />
         <Route
           path="/learn/:sessionId"
-          element={<FixtureLearningPage username={auth.user.username} />}
+          element={<SessionPage />}
         />
         <Route
           path="/learn/:sessionId/check"

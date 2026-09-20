@@ -22,6 +22,8 @@ import {
 import { DiagnosisAgent } from '../agents/diagnosis/index.js';
 import { Guard } from '../agents/guard/index.js';
 import { PreparationAgent, type PreparationResult } from '../agents/preparation/index.js';
+import type { RouteGraph } from '../agents/preparation/route-graph.js';
+import type { PrepareWorkflow } from './prepare.js';
 import { Renderer } from '../agents/renderer/index.js';
 import { StrategyAgent } from '../agents/strategy/index.js';
 import type { AgentCallOptions } from '../agents/agent-runtime.js';
@@ -48,6 +50,11 @@ export interface OrchestratorConfig {
   readonly models: OrchestratorModels;
   /** 影响节点复用的配置哈希。配置变化必须使旧节点失效（contracts/README.md §5 第 3 条）。 */
   readonly configHash: string;
+  /**
+   * prepare 的后处理管线（缓存、检验候选池、包核对、补丁合并）。
+   * 可选：B01 的 AT13 用例不需要它；B02 的 prepare 场景装配后即生效。
+   */
+  readonly prepareWorkflow?: PrepareWorkflow;
 }
 
 export interface TurnCommand {
@@ -75,6 +82,7 @@ export class WorkflowOrchestrator {
   readonly #store: StorePort;
   readonly #provider: ModelPort;
   readonly #config: OrchestratorConfig;
+  readonly #prepareWorkflow: PrepareWorkflow | null;
 
   readonly preparation = new PreparationAgent();
   readonly diagnosis = new DiagnosisAgent();
@@ -86,6 +94,7 @@ export class WorkflowOrchestrator {
     this.#store = store;
     this.#provider = provider;
     this.#config = config;
+    this.#prepareWorkflow = config.prepareWorkflow ?? null;
   }
 
   // ---- 节点执行与复用 ----
@@ -150,6 +159,11 @@ export class WorkflowOrchestrator {
     readonly payloadHash: string;
     readonly expectedVersion: number;
     readonly preparationInput: unknown;
+    /** route_review 模式下的当前路线图；prepare 模式忽略。 */
+    readonly currentGraph?: RouteGraph;
+    /** prepare 模式的预期题目内容哈希；缺省时回退到输入自带的 problem.content_hash。 */
+    readonly expectedProblemHash?: string;
+    /** 服务端可信的核对引用白名单，决定 Packet 的 verification 记录能否采信。 */
     readonly trustedVerificationReferences: ReadonlySet<string>;
   }): Promise<WorkflowOutcome<Packet | RoutePatch>> {
     const run = await this.#reserve('prepare', command);
@@ -165,12 +179,25 @@ export class WorkflowOrchestrator {
     });
 
     if (prepared.value.mode === 'route_review') {
-      // route_review 的补丁是候选数据，需经 Guard 才可成为新版本。
+      // 补丁是候选数据：未核对或结构有问题时只记录待定，不可据此推进结论。
+      if (this.#prepareWorkflow !== null && command.currentGraph !== undefined) {
+        const patchOutcome = this.#prepareWorkflow.acceptRoutePatch(command.currentGraph, prepared.value.patch);
+        if (patchOutcome.status === 'route_patch_pending') {
+          // 仍提交该 run（记录已发生的备课尝试），但不标记补丁可用。
+          await this.#commitPrepare(run, command, { route_patch: 'pending' }, prepared.value.patch);
+          return { status: 'committed', value: prepared.value.patch };
+        }
+      }
+      await this.#commitPrepare(run, command, { route_patch: 'applied' }, prepared.value.patch);
       return { status: 'committed', value: prepared.value.patch };
     }
 
     const packet = prepared.value.packet;
     const preparationInput = PreparationInputSchema.parse(command.preparationInput);
+    const expectedProblemHash = command.expectedProblemHash ?? preparationInput.problem.content_hash;
+
+    // 包核对 Guard（B02 步骤 4「实现包核对Guard」）。模型核对是**输入之一**而非权威：
+    // 它 accept 不足以让包就绪，判定权柄在下面的 gatePreparation（代码）。
     const guardModel = this.#config.models.guard;
     const guardInput: GuardInput = {
       allowed_disclosures: [],
@@ -188,25 +215,50 @@ export class WorkflowOrchestrator {
       input: guardInput,
       execute: () => this.guard.run(guardInput, port, this.#callOptions(guardModel, budget)),
     });
+
     const decision = gatePreparation(packet, {
-      expectedProblemHash: preparationInput.problem.content_hash,
+      expectedProblemHash,
       guard: guardNode.value,
       trustedVerificationReferences: command.trustedVerificationReferences,
     });
+
     if (!decision.approved) {
+      // 未就绪不提交：会话保持 preparing，由调用方返回当前 StudentView 与 notice，
+      // 不另抽题（contracts/README.md §3）。原题与问题记录随 rejected 结果保留，
+      // 不静默换题也不丢弃——「拒绝并保留 needs_review」。
       return { status: 'rejected', value: null, decision };
     }
 
+    // 放行之后才登记缓存与检验候选池（B02）。顺序不可颠倒：先登记会让
+    // needs_review 的包污染缓存，被后续会话复用。
+    if (this.#prepareWorkflow !== null) {
+      this.#prepareWorkflow.acceptPacket({ packet, expectedProblemHash, guard: guardNode.value });
+    }
+
+    await this.#commitPrepare(
+      run,
+      command,
+      { problem_hash: packet.problem_hash, packet_version: packet.version },
+      packet,
+    );
+
+    return { status: 'committed', value: packet };
+  }
+
+  async #commitPrepare(
+    run: { runId: string; leaseToken: string; reservedVersion: number },
+    command: { readonly sessionId: string },
+    nextState: Record<string, unknown>,
+    safeResponse: unknown,
+  ): Promise<void> {
     await this.#store.commitChecked(run.runId, run.leaseToken, run.reservedVersion, {
       sessionId: command.sessionId,
       safeMessageMd: '',
       exposure: null,
-      events: [{ type: 'preparation_verified', problem_id: packet.problem_id }],
-      nextState: { packet_version: packet.version },
-      safeResponse: { problem_id: packet.problem_id, version: packet.version },
+      events: [{ type: 'preparation_committed', ...nextState }],
+      nextState,
+      safeResponse,
     } satisfies CheckedMutation);
-
-    return { status: 'committed', value: packet };
   }
 
   // ---- turn ----

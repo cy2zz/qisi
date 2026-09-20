@@ -23,6 +23,7 @@ const MIGRATION_REGISTRY = [
   { fileName: 'learning_drafts', migrationName: 'v3_012_learning_drafts' },
   { fileName: 'media', migrationName: 'v3_013_media' },
   { fileName: 'transcripts', migrationName: 'v3_014_transcripts' },
+  { fileName: 'probe_counters', migrationName: 'v3_015_probe_counters' },
 ] as const;
 
 export class SqlMigrationProvider implements MigrationProvider {
