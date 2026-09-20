@@ -1,0 +1,30 @@
+{
+  "baseline": "qisi-3.1",
+  "task_id": "B08",
+  "status": "in_progress",
+  "scope": "离线教学轨迹记账/盲化工具与强单Agent基线提示候选；保留缺失/失败/unknown/分歧/不可比轨迹。",
+  "changed_files": [
+    "scripts/evaluate-teaching.mjs",
+    "scripts/evaluate-teaching.md",
+    "server/test/eval/evaluate-teaching.node.mjs"
+  ],
+  "review": "self_review",
+  "acceptance": {
+    "AT19": "not_run_full_acceptance",
+    "AT20": "not_run_full_acceptance",
+    "AT24": "not_run_full_acceptance",
+    "AT51": "not_run_full_acceptance",
+    "AT52": "not_run_full_acceptance"
+  },
+  "evidence": [
+    "commands.json",
+    "recheck-commands.json",
+    "task-gates.json",
+    "failure-first.json",
+    "final-commands.json",
+    "closing-commands.json",
+    "closing-red-green.json",
+    "task-gate-diagnostic.json"
+  ],
+  "blocking_or_remaining": "尚未执行真实模型角色和全链路采集、≥12题/小库全量、BT01–16关键风险3次与两个真人盲评；不宣称强基线优势。未核实本轮可使用的授权模型/题库，不断言配置不存在。"
+}

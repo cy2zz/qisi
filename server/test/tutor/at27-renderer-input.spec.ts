@@ -77,13 +77,13 @@ function createContext(): SessionContext {
   };
 }
 
-async function runTurnAndCapture() {
+async function runTurnAndCapture(diagnosisOverride?: unknown) {
   const context = createContext();
   const store = new MemoryStore();
   store.seedSession(SESSION_ID, 1);
 
   const fixture = new FixtureProvider();
-  fixture.enqueue('diagnosis', { id: 'd1', parsed: diagnosisFixture });
+  fixture.enqueue('diagnosis', { id: 'd1', parsed: diagnosisOverride ?? diagnosisFixture });
   fixture.enqueue('strategy', { id: 's1', parsed: strategyFixture });
   fixture.enqueue('renderer', { id: 'r1', parsed: { text_md: '只看倒数项，你怎样说明它的求导依据？' } });
   fixture.enqueue('guard', { id: 'g1', parsed: guardFixture });
@@ -108,8 +108,9 @@ async function runTurnAndCapture() {
     expectedVersion: 1,
     diagnosisInput: { task_id: packet.problem_id, prompt_md: problem.statement_md, decisions: packet.decisions, routes: packet.routes, confirmed_evidence: sessionFixture.submissions, previous_hypotheses: [], previous_probes: [], private_reference_md: packet.reference_md },
     routeReviewInput: null,
-    strategyInput: {
-      diagnosis: diagnosisFixture,
+    // 策略输入由本轮诊断构造——诊断字段用产出的，不用夹具里那份。
+    buildStrategyInput: (diagnosis) => ({
+      diagnosis,
       user_action: context.userAction,
       exposures: [],
       remaining_probes: 2,
@@ -117,12 +118,13 @@ async function runTurnAndCapture() {
       route_patch: null,
       decisions: packet.decisions,
       private_reference_md: packet.reference_md,
-    },
-    rendererInput: projectRendererInput(context, strategyFixture.allowed_facts),
-    guardInput: projectGuardInput(context, 'message', {}, strategyFixture.allowed_disclosures, strategyFixture.reserved_decisions),
+    }),
+    buildRendererInput: (strategy) => projectRendererInput({ ...context, strategy }, strategyFixture.allowed_facts),
+    buildGuardInput: (strategy, candidate) =>
+      projectGuardInput(context, 'message', candidate, strategyFixture.allowed_disclosures, strategyFixture.reserved_decisions),
     knownDecisionIds: new Set(packet.decisions.map((decision) => decision.id)),
     knownGoalKeys: new Set(packet.decisions.map((decision) => decision.goal_key)),
-    probesShownForFocusGoal: 0,
+    shownProbesFor: () => 0,
   });
 
   return provider;
@@ -213,5 +215,24 @@ describe('AT27：发往 Renderer 的请求不含越界内容', () => {
     const serialised = JSON.stringify(provider.forRole('diagnosis'));
     expect(serialised).not.toContain('execution_rubric');
     expect(serialised).not.toContain('locked_plan_md');
+  });
+});
+
+describe('策略输入必须来自本轮诊断，而非调用方预先烘焙的那份', () => {
+  it('策略节点收到的是本轮产出的诊断', async () => {
+    // 让 provider 返回一份**与夹具不同**的诊断。若 turn() 仍把调用方预构造的
+    // StrategyInput 原样传给策略节点，这条断言就会失败——这正是修复前的缺陷。
+    const producedMarkdown = '本轮产出的诊断标记-7f3a';
+    const produced = { ...diagnosisFixture, summary: producedMarkdown };
+
+    const provider = await runTurnAndCapture(produced);
+
+    const strategyRequest = provider.forRole('strategy');
+    expect(strategyRequest, '未产生 strategy 调用').toBeDefined();
+    const serialised = JSON.stringify(strategyRequest?.input);
+    expect(serialised).toContain(producedMarkdown);
+
+    // 对照：夹具里那份诊断的 summary 不应被当成本轮诊断送进去。
+    expect(serialised).not.toContain(diagnosisFixture.summary);
   });
 });

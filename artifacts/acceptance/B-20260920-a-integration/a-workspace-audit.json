@@ -1,0 +1,244 @@
+{
+  "a_root": "D:\\math\\develop\\qisi-dashboard",
+  "a_head": "9451ee3c4aa42ac60f25a463361a42a9f6f14f2c",
+  "a_status": "## develop...origin/develop\n M README.md",
+  "b_head": "a0730a45bbed54640f2d60d466d6a9ccbb59b59d",
+  "comparisons": {
+    "server/db": [
+      {
+        "path": "server/db/assessment_tasks.sql",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/db/check_attempts.sql",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/db/events.sql",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/db/learning_drafts.sql",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/db/learning_messages.sql",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/db/media.sql",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/db/node_runs.sql",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/db/owner_privacy_state.sql",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/db/packets.sql",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/db/paper.sql",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/db/paper_question.sql",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/db/probe_counters.sql",
+        "identical": false,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/db/question.sql",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/db/requests.sql",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/db/runs.sql",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/db/seen_tasks.sql",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/db/sessions.sql",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/db/transcripts.sql",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/db/users.sql",
+        "identical": true,
+        "normalized_identical": true
+      }
+    ],
+    "server/src/database": [
+      {
+        "path": "server/src/database/database.factory.spec.ts",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/src/database/database.factory.ts",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/src/database/database.module.ts",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/src/database/database.service.ts",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/src/database/database.types.ts",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/src/database/migrate.ts",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/src/database/sql-migration.provider.spec.ts",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/src/database/sql-migration.provider.ts",
+        "identical": true,
+        "normalized_identical": true
+      }
+    ],
+    "server/src/features/learning": [
+      {
+        "path": "server/src/features/learning/learning-session.controller.spec.ts",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/src/features/learning/learning-session.controller.ts",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/src/features/learning/learning-session.module.ts",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/src/features/learning/learning-session.service.spec.ts",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/src/features/learning/learning-session.service.ts",
+        "identical": true,
+        "normalized_identical": true
+      }
+    ],
+    "server/src/features/assessment": [
+      {
+        "path": "server/src/features/assessment/assessment.controller.ts",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/src/features/assessment/assessment.module.ts",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/src/features/assessment/assessment.repository.ts",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/src/features/assessment/assessment.schema.spec.ts",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/src/features/assessment/assessment.schema.ts",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/src/features/assessment/assessment.service.spec.ts",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/src/features/assessment/assessment.service.ts",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/src/features/assessment/reassess.ts",
+        "identical": true,
+        "normalized_identical": true
+      }
+    ],
+    "server/src/features/history": [
+      {
+        "path": "server/src/features/history/history.controller.spec.ts",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/src/features/history/history.controller.ts",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/src/features/history/history.module.ts",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/src/features/history/history.service.spec.ts",
+        "identical": true,
+        "normalized_identical": true
+      },
+      {
+        "path": "server/src/features/history/history.service.ts",
+        "identical": true,
+        "normalized_identical": true
+      }
+    ]
+  },
+  "real_mysql_executed": false
+}

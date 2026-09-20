@@ -266,6 +266,7 @@ describe('LearningSessionService', () => {
         table === 'sessions'
           ? {
               active_run_id: 'run-1',
+              expires_at: new Date(Date.now() + 60_000),
               next_event_seq: 5,
               next_message_seq: 3,
               version: 1,
@@ -276,6 +277,7 @@ describe('LearningSessionService', () => {
                 lease_token: 'lease-token',
                 request_id: '11111111-1111-4111-8111-111111111111',
                 reserved_version: 1,
+                session_id: '91',
                 status: 'active',
               }
             : undefined,

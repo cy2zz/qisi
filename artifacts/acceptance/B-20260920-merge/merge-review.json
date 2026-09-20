@@ -1,0 +1,225 @@
+{
+  "date": "2026-09-20",
+  "baseline": "qisi-3.1",
+  "role": "B integration / user-authorized local merge",
+  "review": "self_review",
+  "status": "merged_candidate_with_known_validation_gaps",
+  "task_ids": [
+    "B01",
+    "B02",
+    "B03",
+    "B04",
+    "B05",
+    "B06",
+    "B07",
+    "B08",
+    "B09",
+    "B10"
+  ],
+  "merge_inputs": {
+    "develop": "efb10a3b3c2821ac74e5b815f1b233cc579138ef",
+    "develop-B-v0.1": "1ce544b04f8145322c732ca16567dafe360e311c"
+  },
+  "merge_scope": {
+    "conflict_resolutions": [
+      "qisi-sdd-v3/changes/B03.md",
+      "qisi-sdd-v3/changes/B05.md",
+      "qisi-sdd-v3/handoffs/B03.md",
+      "qisi-sdd-v3/handoffs/B05.md",
+      "server/src/features/learning/learning-session.service.ts"
+    ],
+    "additional_files": [
+      "server/src/features/learning/learning-session.service.spec.ts",
+      "docs/develop-b-v0.1-verification.md",
+      "artifacts/acceptance/B-20260920-merge/*"
+    ],
+    "resolution": "Keep A route_patch_approved and routeAttribution plus B checked_teaching_turn and session/lease/revision/deadline checks. Preserve both document histories with current checkpoint. Add session.expires_at and run.session_id to route-patch transaction fixture; no assertion, timeout or production validation relaxed."
+  },
+  "commands": [
+    {
+      "command": "npm --prefix server run typecheck",
+      "cwd": "D:\\math\\qisi-dashboard-develop-merge",
+      "exit_code": 0,
+      "log": "server-typecheck.log"
+    },
+    {
+      "command": "npm --prefix server run lint",
+      "cwd": "D:\\math\\qisi-dashboard-develop-merge",
+      "exit_code": 0,
+      "log": "server-lint.log"
+    },
+    {
+      "command": "npm --prefix server run test",
+      "cwd": "D:\\math\\qisi-dashboard-develop-merge",
+      "exit_code": 1,
+      "log": "server-test.log"
+    },
+    {
+      "command": "npm --prefix server run build",
+      "cwd": "D:\\math\\qisi-dashboard-develop-merge",
+      "exit_code": 0,
+      "log": "server-build.log"
+    },
+    {
+      "command": "npm --prefix web run typecheck",
+      "cwd": "D:\\math\\qisi-dashboard-develop-merge",
+      "exit_code": 0,
+      "log": "web-typecheck.log"
+    },
+    {
+      "command": "npm --prefix web run lint",
+      "cwd": "D:\\math\\qisi-dashboard-develop-merge",
+      "exit_code": 0,
+      "log": "web-lint.log"
+    },
+    {
+      "command": "npm --prefix web run test",
+      "cwd": "D:\\math\\qisi-dashboard-develop-merge",
+      "exit_code": 1,
+      "log": "web-test.log"
+    },
+    {
+      "command": "npm --prefix web run build",
+      "cwd": "D:\\math\\qisi-dashboard-develop-merge",
+      "exit_code": 0,
+      "log": "web-build.log"
+    },
+    {
+      "command": "npm --prefix server test -- --maxWorkers=2",
+      "cwd": "D:\\math\\qisi-dashboard-develop-merge",
+      "exit_code": 1,
+      "log": "server-test-bounded.log"
+    },
+    {
+      "command": "npm --prefix web test -- --maxWorkers=2",
+      "cwd": "D:\\math\\qisi-dashboard-develop-merge",
+      "exit_code": 1,
+      "log": "web-test-bounded.log"
+    },
+    {
+      "command": "npm --prefix web test -- --maxWorkers=1",
+      "cwd": "D:\\math\\qisi-dashboard-develop-merge",
+      "exit_code": 0,
+      "log": "web-test-serial.log"
+    },
+    {
+      "command": "git diff --name-only --diff-filter=U",
+      "cwd": "D:\\math\\qisi-dashboard-develop-merge",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git -c core.whitespace=cr-at-eol diff --cached --check -- server web scripts docs qisi-sdd-v3",
+      "cwd": "D:\\math\\qisi-dashboard-develop-merge",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "node --version",
+      "cwd": "D:\\math\\qisi-dashboard-develop-merge",
+      "exit_code": 0,
+      "stdout": "v24.21.0",
+      "stderr": ""
+    }
+  ],
+  "test_runs": [
+    {
+      "log": "server-test.log",
+      "exit_code": 1,
+      "passed": 589,
+      "failed": 3,
+      "skipped": 14,
+      "total": 606,
+      "files": 73,
+      "notes": [
+        "Windows-only path assertion mismatch",
+        "teacher HTTP beforeEach timeout",
+        "route-patch test fixture lacked session identity field required by B checks"
+      ]
+    },
+    {
+      "log": "web-test.log",
+      "exit_code": 1,
+      "passed": 54,
+      "failed": 0,
+      "worker_errors": 7,
+      "completed_files": 18,
+      "notes": [
+        "Not a complete test run; worker startup errors retained"
+      ]
+    },
+    {
+      "log": "server-test-bounded.log",
+      "exit_code": 1,
+      "passed": 591,
+      "failed": 1,
+      "skipped": 14,
+      "total": 606,
+      "files": 73,
+      "notes": [
+        "Remaining failure database.factory.spec.ts:36 expects slash instead of Windows backslash; unchanged in this merge"
+      ]
+    },
+    {
+      "log": "web-test-bounded.log",
+      "exit_code": 1,
+      "passed": 125,
+      "failed": 1,
+      "total": 126,
+      "files": 25,
+      "notes": [
+        "App cookie restore could not find heading within wait; no timeout or assertion changed"
+      ]
+    },
+    {
+      "log": "web-test-serial.log",
+      "exit_code": 0,
+      "passed": 126,
+      "failed": 0,
+      "total": 126,
+      "files": 25,
+      "notes": [
+        "Full web suite with one worker; preceding failures retained, not proof timing sensitivity is fixed"
+      ]
+    }
+  ],
+  "environment": {
+    "node": "v24.21.0",
+    "dependency_install": "Reused identical lockfile installed dependencies via junctions to original B worktree; not clean npm ci",
+    "NO_COLOR": "1",
+    "NODE_ENV": "test",
+    "QISI_MYSQL_SPEC_TEST": "0"
+  },
+  "validation_kind": "fixture/mock + static typecheck/lint/build; no live model or live database verification",
+  "not_run": [
+    "Full AT/ST acceptance",
+    "MySQL 8.4 integration and crash/race recovery",
+    "Real provider/key capability and quality calls",
+    "Browser E2E in merged worktree",
+    "Independent review/Raven gates",
+    "Human mathematical and teaching evaluation",
+    "Real student learning evaluation",
+    "Production deploy",
+    "Push",
+    "POPO publication"
+  ],
+  "known_gaps": [
+    "B /learn/:sessionId requests missing GET /api/session/:id; existing A learning-session GET has incompatible DTO",
+    "Teacher page lacks complete App/persistent authorization wiring",
+    "B routeReviewInput remains null; dynamic route and finish_problem to Assessment incomplete",
+    "Worker claim/fencing/crash recovery and all failed model-call persisted budgets incomplete",
+    "One remaining Windows server test assertion failure; web earlier concurrency/wait failures retained"
+  ],
+  "excluded_uncommitted": [
+    "Original B .raven and ravenspec initialization artifacts",
+    "Original B unrelated docs and skill-link scripts",
+    "Original and merge worktree tracked tsbuildinfo changes",
+    "Separate A clone README.md modification"
+  ],
+  "database_changes": "No DDL modifications, migrations or database cleanup in this merge",
+  "publication": "Local only; no push/deploy; historical publications unchanged",
+  "task_status": "B01-B10 in_progress; merge does not mark tasks done",
+  "guide": "docs/develop-b-v0.1-verification.md"
+}

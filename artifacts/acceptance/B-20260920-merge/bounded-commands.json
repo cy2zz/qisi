@@ -1,0 +1,14 @@
+﻿[
+    {
+        "command":  "npm --prefix server test -- --maxWorkers=2",
+        "cwd":  "D:\\math\\qisi-dashboard-develop-merge",
+        "exit_code":  1,
+        "log":  "server-test-bounded.log"
+    },
+    {
+        "command":  "npm --prefix web test -- --maxWorkers=2",
+        "cwd":  "D:\\math\\qisi-dashboard-develop-merge",
+        "exit_code":  1,
+        "log":  "web-test-bounded.log"
+    }
+]

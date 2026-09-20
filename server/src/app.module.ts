@@ -12,6 +12,7 @@ import { ReportModule } from './features/report/report.module.js';
 import { LearningSessionModule } from './features/learning/learning-session.module.js';
 import { AssessmentModule } from './features/assessment/assessment.module.js';
 import { HistoryModule } from './features/history/history.module.js';
+import { TutorModule } from './features/tutor/tutor.module.js';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { HistoryModule } from './features/history/history.module.js';
     ProblemAnalysisModule,
     SpeechModule,
     ReportModule,
+    TutorModule,
   ],
   controllers: [AppController],
 })

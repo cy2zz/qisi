@@ -1,0 +1,26 @@
+﻿[
+    {
+        "command":  "npm --prefix web run typecheck",
+        "cwd":  "D:\\math\\qisi-dashboard-develop-merge",
+        "exit_code":  0,
+        "log":  "web-typecheck.log"
+    },
+    {
+        "command":  "npm --prefix web run lint",
+        "cwd":  "D:\\math\\qisi-dashboard-develop-merge",
+        "exit_code":  0,
+        "log":  "web-lint.log"
+    },
+    {
+        "command":  "npm --prefix web run test",
+        "cwd":  "D:\\math\\qisi-dashboard-develop-merge",
+        "exit_code":  1,
+        "log":  "web-test.log"
+    },
+    {
+        "command":  "npm --prefix web run build",
+        "cwd":  "D:\\math\\qisi-dashboard-develop-merge",
+        "exit_code":  0,
+        "log":  "web-build.log"
+    }
+]

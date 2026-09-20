@@ -1,0 +1,17 @@
+
+> @qisi/server@0.1.0 test
+> vitest run --run test/diagnosis test/strategy test/corrections test/teacher test/tutor/b09-adversarial.spec.ts test/workflows/actual-exposure.spec.ts test/workflows/budget-safety.spec.ts test/workflows/admission-failure.spec.ts --reporter=dot
+
+
+ RUN  v5.0.1 D:/math/qisi-dashboard/server
+
+··························································································
+
+ Test Files  12 passed (12)
+      Tests  90 passed (90)
+   Start at  16:04:29
+   Duration  5.60s (import 77%, tests 12%, transform 9%, worker 1%)
+
+    Isolate  12 workers spawned · ~989ms startup each (spawn + environment, per file)
+             at least ~707ms faster with isolate: false — reuses workers across files instead of one per file
+

@@ -1,0 +1,67 @@
+
+> @qisi/server@0.1.0 test
+> vitest run --reporter=dot
+
+
+ RUN  v5.0.1 D:/math/qisi-dashboard/server
+
+x·······················x·······································································································································[Nest] 31736  - 2026/09/20 15:44:21    WARN [ProblemAnalysisController] Bank preparation unavailable for question 804: Error
+················································································································································································································································································································································································································
+
+ Test Files  2 failed | 64 passed (66)
+      Tests  2 failed | 558 passed (560)
+   Start at  15:44:00
+   Duration  41.56s (import 78%, tests 11%, transform 10%, worker 1%)
+
+    Isolate  66 workers spawned · ~1.32s startup each (spawn + environment, per file)
+             at least ~11.14s faster with isolate: false — reuses workers across files instead of one per file
+
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/database/database.factory.spec.ts > createDatabase > loads the configured CA certificate for TLS connections
+AssertionError: expected "vi.fn()" to be called with arguments: [ StringMatching{…}, 'utf8' ]
+
+Received:
+
+  1st vi.fn() call:
+
+  [
+-   StringMatching /certs\/ApsaraDB-CA-Chain\.pem$/,
++   "D:\\math\\qisi-dashboard\\server\\certs\\ApsaraDB-CA-Chain.pem",
+    "utf8",
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/database/database.factory.spec.ts:36:32
+     34|     const database = createDatabase(environment);
+     35|
+     36|     expect(mocks.readFileSync).toHaveBeenCalledWith(
+       |                                ^
+     37|       expect.stringMatching(/certs\/ApsaraDB-CA-Chain\.pem$/),
+     38|       'utf8',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/tutor/submit-turn-deps.spec.ts > turn 适配器：探针上限跨轮生效 > 同一目标显示两次后，第三轮探针被拒——上限不会因换轮次而重置
+StrategyAdmissionError: Strategy rejected: PROBE_LIMIT_REACHED
+ ❯ fail src/workflows/policy.ts:9:49
+      7| }
+      8| export function assertStrategyPolicy(strategy: Strategy, input: Strate…
+      9|   const fail = (code: string): never => { throw new StrategyAdmissionE…
+       |                                                 ^
+     10|   if (strategy.task_id !== input.diagnosis.task_id) fail('TASK_MISMATC…
+     11|   if (!input.decisions.some(d => d.goal_key === strategy.focus_goal_ke…
+ ❯ assertStrategyPolicy src/workflows/policy.ts:21:55
+ ❯ StrategyAgent.runChecked src/agents/strategy/index.ts:31:5
+ ❯ WorkflowOrchestrator.#runNode src/workflows/orchestrator.ts:152:23
+ ❯ WorkflowOrchestrator.turn src/workflows/orchestrator.ts:323:26
+ ❯ Object.runTurn src/features/tutor/submit-turn.deps.ts:254:21
+ ❯ submit test/tutor/submit-turn-deps.spec.ts:135:19
+ ❯ test/tutor/submit-turn-deps.spec.ts:254:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

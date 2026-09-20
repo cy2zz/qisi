@@ -1,0 +1,82 @@
+{
+  "baseline": "qisi-3.1",
+  "status": "not_ready",
+  "self_review": true,
+  "independent_review": "not_run",
+  "signed_by_A": null,
+  "signed_by_B": null,
+  "gates": {
+    "B_vertical_integration": "incomplete",
+    "full_unit_regression": "failed",
+    "teacher_mysql_transaction": "not_implemented",
+    "mysql_8_4_fault_matrix": "not_run",
+    "real_model_roles_and_branches": "not_run",
+    "paired_blind_review": "not_run",
+    "untuned_holdout": "not_run",
+    "live_random_demo": "not_run",
+    "production_deploy": "not_run",
+    "student_learning": "not_evaluated"
+  },
+  "evidence": "artifacts/acceptance/B-20260920-local/",
+  "next_actions": {
+    "B01": "需要 A 的真实 MySQL StorePort、可恢复调用审计/预算和正式8.4领取/重启/单次提交；当前协作适配器显式 MemoryStore 不满足此门禁。",
+    "B02": "核验 Packet 数学来源/独立检验题、实际持久缓存与真实模型/人工样本；保持所有题库失败分母，不冒充当前已完成。",
+    "B03": "已修复 strict admission 的受控 rejected 边界，保持探针拒绝、不渲染/不提交、未知异常不吞。当前协作者已接入 AppModule，但仍须 A/B 对齐统一真实 MySQL 事务和拒绝后 run/request 的持久终结/幂等/租约，不能把 MemoryStore 视为完成。",
+    "B04": "与 A 对齐 actual task_id、手写确认 revision 和诊断输入，迁移遗留 schema-only run；运行同错异教真实模型集和持久两探针/重启。",
+    "B05": "将 ladder/route admission 候选接进正式编排、提交及教学UI；不能丢弃 route_review 返回值或将模型自评当数学核验；待真实教学质量回归。",
+    "B06": "A 实现单一 MySQL TeacherStorePort 的授权/限流/CAS/幂等/曝光事务；装配 module/UI、纠错提交与真实8.4/浏览器负例。fake store 测试不替代授权事务。",
+    "B07": "持久恢复预算、节点输出重新校验、有效lease/fencing、崩溃窗口/删除竞态仍需实现或对接；真实8.4故障矩阵未跑，当前 MemoryStore 不可视为生产完成。",
+    "B08": "尚未执行真实模型角色和全链路采集、≥12题/小库全量、BT01–16关键风险3次与两个真人盲评；不宣称强基线优势。未核实本轮可使用的授权模型/题库，不断言配置不存在。",
+    "B09": "未调参真实模型保留集和全P0评测未运行；当前全量仍有失败，不能把合成规则回归称为 held-out 教学质量评估。",
+    "B10": "补齐前置、A/B共同真实复核、干净版本冻结、实时四分支演示和正式发布清单；本次没有发布/打包/部署。"
+  },
+  "updated_at": "2026-09-20T16:06:45.791477+08:00",
+  "latest_results": {
+    "B_rule_suite": {
+      "exit_code": 0,
+      "passed": 90,
+      "total": 90
+    },
+    "eval_tool": {
+      "exit_code": 0,
+      "passed": 6,
+      "total": 6
+    },
+    "teacher_ui": {
+      "exit_code": 0,
+      "passed": 2,
+      "total": 2
+    },
+    "server_full": {
+      "exit_code": 1,
+      "passed": 565,
+      "total": 566
+    },
+    "web_full_bounded_recheck": {
+      "exit_code": 1,
+      "passed": 100,
+      "total": 102
+    },
+    "web_app_isolated": {
+      "exit_code": 1,
+      "passed": 10,
+      "total": 11
+    },
+    "server_typecheck_lint_build": "passed",
+    "web_typecheck_lint_build": "passed (commands.json checkpoint; no subsequent web source edits by this rollout)",
+    "spec_static": {
+      "exit_code": 1,
+      "passed": 864,
+      "failed": 12
+    },
+    "stack_static": {
+      "passed": 136,
+      "failed": 0
+    },
+    "mysql_preflight_only": {
+      "exit_code": 0,
+      "passed": 5,
+      "total": 5
+    }
+  }
+}

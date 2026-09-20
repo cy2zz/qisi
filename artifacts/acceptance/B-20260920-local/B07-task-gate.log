@@ -1,0 +1,6 @@
+
+> qisi-ai@0.1.0 test:task
+> node scripts/run-task-gate.mjs unit B07
+
+
+Unsupported task gate: B07. Add it to SUPPORTED_TASKS in scripts/run-task-gate.mjs first.

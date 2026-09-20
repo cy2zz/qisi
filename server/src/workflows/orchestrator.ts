@@ -26,6 +26,8 @@ import type { RouteGraph } from '../agents/preparation/route-graph.js';
 import type { PrepareWorkflow } from './prepare.js';
 import { Renderer } from '../agents/renderer/index.js';
 import { StrategyAgent } from '../agents/strategy/index.js';
+import { EvidenceAdmissionError } from '../features/tutor/evidence.js';
+import { StrategyAdmissionError } from './policy.js';
 import type { AgentCallOptions } from '../agents/agent-runtime.js';
 import type { AssessmentAdapter } from '../agents/assessment-port.js';
 import { AssessmentNotConfiguredError } from '../agents/assessment-port.js';
@@ -64,12 +66,39 @@ export interface TurnCommand {
   readonly expectedVersion: number;
   readonly diagnosisInput: unknown;
   readonly routeReviewInput: unknown | null;
-  readonly strategyInput: unknown;
-  readonly rendererInput: unknown;
-  readonly guardInput: unknown;
+  /**
+   * 策略输入由编排器在**本轮诊断产出之后**调用本函数构造。
+   *
+   * 不能让调用方预先构造好整份 StrategyInput：那会把一个旧诊断（或占位值）
+   * 塞给策略节点，而规格的链路是「确认输入 → Diagnosis → [route_review] → Strategy」
+   * （design-v6 §5.1）——策略必须基于本轮诊断。此前正是这个缺陷：turn() 把
+   * command.strategyInput 原样传给策略节点，诊断结果从未进入策略输入。
+   * 单测未暴露，是因为调用方两边都传夹具。
+   *
+   * 稳定上下文（exposures / decisions / remaining_probes / private_reference_md 等）
+   * 由调用方在闭包里捕获。
+   */
+  readonly buildStrategyInput: (diagnosis: Diagnosis) => unknown;
+  /**
+   * 表达与守卫的输入同样依赖**上游节点的产出**，不能由调用方预烘焙：
+   * RendererInput 的 action / intervention / scaffold_level 全部来自 Strategy，
+   * GuardInput 的 allowed_disclosures / reserved_decisions 也是。
+   * 与 buildStrategyInput 属同一类缺陷，一并改为产出后构造。
+   */
+  readonly buildRendererInput: (strategy: Strategy) => unknown;
+  readonly buildGuardInput: (strategy: Strategy, candidate: unknown) => unknown;
   readonly knownDecisionIds: ReadonlySet<string>;
   readonly knownGoalKeys: ReadonlySet<string>;
-  readonly probesShownForFocusGoal: number;
+  /**
+   * 该目标**已真实显示**的探针次数，由本轮策略的目标解析得出。
+   *
+   * 为什么要函数而不是数值：canonical goal 是 `strategy.focus_goal_key` 的函数，
+   * 而策略是本轮的产出。调用方在 turn() **之前**无从知道模型会聚焦哪个目标，
+   * 只能填一个常数——那等于把「最多两次」的上限关掉。与 buildStrategyInput 同属
+   * 一类缺陷：值依赖上游产出，却由调用方在产出之前给。
+   * 见 test/workflows/probe-count-from-strategy.spec.ts。
+   */
+  readonly shownProbesFor: (strategy: Pick<Strategy, 'focus_goal_key' | 'probe'>) => number;
 }
 
 export interface WorkflowOutcome<T> {
@@ -122,8 +151,11 @@ export class WorkflowOrchestrator {
       // 复用已完成的私有节点结果，不重复调用、不重复扣预算。
       return { value: reusable as T, reused: true };
     }
-    const { value } = await params.execute();
-    await this.#store.saveNode(params.runId, params.leaseToken, params.nodeKey, inputHash, value);
+    const startedAt = new Date().toISOString();
+    const { value, response } = await params.execute();
+    await this.#store.saveNode(params.runId, params.leaseToken, params.nodeKey, inputHash, value, {
+      modelId: params.model, promptVersion: PROMPT_VERSION, startedAt, finishedAt: new Date().toISOString(), response,
+    });
     return { value, reused: false };
   }
 
@@ -264,6 +296,21 @@ export class WorkflowOrchestrator {
   // ---- turn ----
 
   async turn(command: TurnCommand): Promise<WorkflowOutcome<{ message: RenderedMessage; diagnosis: Diagnosis; strategy: Strategy }>> {
+    try {
+      return await this.#turnChecked(command);
+    } catch (error) {
+      // Only explicit domain admission failures become controlled rejections. Infrastructure
+      // failures still propagate; never render, commit, or repeat a rejected model candidate.
+      if (error instanceof EvidenceAdmissionError || error instanceof StrategyAdmissionError) {
+        const code = error instanceof EvidenceAdmissionError ? 'DIAGNOSIS_EVIDENCE_INVALID'
+          : error.code === 'PROBE_LIMIT_REACHED' ? 'PROBE_LIMIT_REACHED' : 'STRATEGY_POLICY_INVALID';
+        return { status: 'rejected', value: null, decision: { approved: false, code, reason: 'The proposed teaching action did not pass domain admission.' } };
+      }
+      throw error;
+    }
+  }
+
+  async #turnChecked(command: TurnCommand): Promise<WorkflowOutcome<{ message: RenderedMessage; diagnosis: Diagnosis; strategy: Strategy }>> {
     const run = await this.#reserve('turn', command);
     const budget = new BudgetLedger({ workflow: 'turn', deadlineAt: new Date(run.deadlineAt) });
     const port = new BudgetedModelPort(this.#provider, budget);
@@ -275,7 +322,7 @@ export class WorkflowOrchestrator {
       nodeKey: 'diagnosis',
       model: diagnosisModel,
       input: command.diagnosisInput,
-      execute: () => this.diagnosis.run(command.diagnosisInput as never, port, this.#callOptions(diagnosisModel, budget)),
+      execute: () => this.diagnosis.runChecked(command.diagnosisInput as never, port, this.#callOptions(diagnosisModel, budget)),
     });
     const diagnosis = diagnosisNode.value;
 
@@ -291,13 +338,15 @@ export class WorkflowOrchestrator {
     }
 
     const strategyModel = this.#config.models.strategy;
+    // 用本轮诊断构造策略输入——见 TurnCommand.buildStrategyInput 的说明。
+    const strategyInput = command.buildStrategyInput(diagnosis);
     const strategyNode = await this.#runNode({
       runId: run.runId,
       leaseToken: run.leaseToken,
       nodeKey: 'strategy',
       model: strategyModel,
-      input: command.strategyInput,
-      execute: () => this.strategy.run(command.strategyInput as never, port, this.#callOptions(strategyModel, budget)),
+      input: strategyInput,
+      execute: () => this.strategy.runChecked(strategyInput as never, port, this.#callOptions(strategyModel, budget)),
     });
     const strategy = strategyNode.value;
 
@@ -313,6 +362,7 @@ export class WorkflowOrchestrator {
       events: [{ type: 'turn_committed', focus_goal_key: strategy.focus_goal_key }],
       nextState: { current_goal: strategy.focus_goal_key },
       safeResponse: { text_md: rendered.message.text_md },
+      teaching: { diagnosis, strategy },
     } satisfies CheckedMutation);
 
     return { status: 'committed', value: { message: rendered.message, diagnosis, strategy } };
@@ -331,6 +381,12 @@ export class WorkflowOrchestrator {
   > {
     const rendererModel = this.#config.models.renderer;
     const guardModel = this.#config.models.guard;
+    // 表达输入依赖本轮策略（action / intervention / scaffold_level 全来自它），
+    // 因此在此构造而非由调用方预烘焙。
+    const rendererInput = command.buildRendererInput(strategy);
+    // 探针计数只依赖本轮策略（canonical goal 是 focus_goal_key 的函数），
+    // 而策略在本次调用中不再变化，故解析一次、两次 gateTurn 共用。
+    const probesShownForFocusGoal = command.shownProbesFor(strategy);
 
     const renderOnce = async (): Promise<RenderedMessage> => {
       const node = await this.#runNode<RenderedMessage>({
@@ -338,14 +394,15 @@ export class WorkflowOrchestrator {
         leaseToken: run.leaseToken,
         nodeKey: 'renderer',
         model: rendererModel,
-        input: command.rendererInput,
-        execute: () => this.renderer.run(command.rendererInput as never, port, this.#callOptions(rendererModel, budget)),
+        input: rendererInput,
+        execute: () => this.renderer.run(rendererInput as never, port, this.#callOptions(rendererModel, budget)),
       });
       return node.value;
     };
 
     const guardOnce = async (message: RenderedMessage): Promise<GuardResult> => {
-      const guardInput = { ...(command.guardInput as Record<string, unknown>), candidate_json: JSON.stringify(message) };
+      // 守卫输入同样依赖本轮策略（允许披露/保留决策），候选内容在提交前注入。
+      const guardInput = command.buildGuardInput(strategy, message);
       const node = await this.#runNode<GuardResult>({
         runId: run.runId,
         leaseToken: run.leaseToken,
@@ -364,7 +421,7 @@ export class WorkflowOrchestrator {
       guard: guardResult,
       knownDecisionIds: command.knownDecisionIds,
       knownGoalKeys: command.knownGoalKeys,
-      probesShownForFocusGoal: command.probesShownForFocusGoal,
+      probesShownForFocusGoal,
     });
 
     // 仅当被 Guard 退回（而非被代码边界否决）且仍有重写额度时才重写一次。
@@ -374,8 +431,8 @@ export class WorkflowOrchestrator {
         leaseToken: run.leaseToken,
         nodeKey: 'renderer_rewrite',
         model: rendererModel,
-        input: command.rendererInput,
-        execute: () => this.renderer.run(command.rendererInput as never, port, this.#callOptions(rendererModel, budget)),
+        input: rendererInput,
+        execute: () => this.renderer.run(rendererInput as never, port, this.#callOptions(rendererModel, budget)),
       });
       message = rewriteNode.value;
       guardResult = await guardOnce(message);
@@ -384,7 +441,7 @@ export class WorkflowOrchestrator {
         guard: guardResult,
         knownDecisionIds: command.knownDecisionIds,
         knownGoalKeys: command.knownGoalKeys,
-        probesShownForFocusGoal: command.probesShownForFocusGoal,
+        probesShownForFocusGoal,
       });
     }
 

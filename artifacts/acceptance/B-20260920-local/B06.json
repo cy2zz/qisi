@@ -1,0 +1,38 @@
+{
+  "baseline": "qisi-3.1",
+  "task_id": "B06",
+  "status": "in_progress",
+  "scope": "纠错保留旧 revision/曝光并递归失效；教师独立会话、显式曝光提交端口、白名单DTO、Nest HTTP 和响应式教师UI。",
+  "changed_files": [
+    "server/src/features/tutor/corrections.ts",
+    "server/src/features/teacher/teacher.port.ts",
+    "server/src/features/teacher/teacher.service.ts",
+    "server/src/features/teacher/teacher.controller.ts",
+    "server/src/features/teacher/teacher.projection.ts",
+    "server/src/features/teacher/teacher.module.ts",
+    "server/test/corrections/corrections.spec.ts",
+    "server/test/teacher/teacher.spec.ts",
+    "server/test/teacher/teacher-http.spec.ts",
+    "web/src/pages/teacher/TeacherPage.tsx",
+    "web/src/pages/teacher/TeacherPage.test.tsx"
+  ],
+  "review": "self_review",
+  "acceptance": {
+    "AT12": "not_run_full_acceptance",
+    "AT29": "not_run_full_acceptance",
+    "AT39": "not_run_full_acceptance",
+    "AT40": "not_run_full_acceptance",
+    "AT41": "not_run_full_acceptance"
+  },
+  "evidence": [
+    "commands.json",
+    "recheck-commands.json",
+    "task-gates.json",
+    "failure-first.json",
+    "final-commands.json",
+    "closing-commands.json",
+    "closing-red-green.json",
+    "task-gate-diagnostic.json"
+  ],
+  "blocking_or_remaining": "A 实现单一 MySQL TeacherStorePort 的授权/限流/CAS/幂等/曝光事务；装配 module/UI、纠错提交与真实8.4/浏览器负例。fake store 测试不替代授权事务。"
+}

@@ -1,0 +1,423 @@
+{
+  "baseline": "qisi-3.1",
+  "captured_at": "2026-09-20T16:08:38.812973+08:00",
+  "application_commit": "a0730a45bbed54640f2d60d466d6a9ccbb59b59d",
+  "branch": "develop-B-v1.0",
+  "dirty": true,
+  "node": "v24.21.0",
+  "real_model_version": null,
+  "provider_mode": "fixture",
+  "prompt_versions": {
+    "preparation": "prompt-v3.0",
+    "diagnosis": "prompt-v3.0",
+    "strategy": "prompt-v3.0",
+    "assessment": "prompt-v3.0",
+    "renderer": "prompt-v3.0",
+    "guard": "prompt-v3.0"
+  },
+  "packet_version": "self-packet-v3 (test fixture only; no production packet freeze)",
+  "release_status": "not_ready",
+  "files": [
+    {
+      "path": "artifacts/acceptance/B-20260920-local/closing-commands.json",
+      "bytes": 2716,
+      "sha256": "c5f471f881391e829694360b6bb7e542aae199aec9052f1bb0af4c8cefcf3b58"
+    },
+    {
+      "path": "artifacts/acceptance/B-20260920-local/closing-consistency.json",
+      "bytes": 499,
+      "sha256": "96c74d881703a517bdea25b20949201292bdb52c7846132464d30c2b0e53eea2"
+    },
+    {
+      "path": "artifacts/acceptance/B-20260920-local/closing-red-green.json",
+      "bytes": 2096,
+      "sha256": "fdac4cf5fab73c0ba450c4ebcd7d95d5ac5890f8cb08f2c0f21c703e7c8ebac2"
+    },
+    {
+      "path": "artifacts/acceptance/B-20260920-local/closing-spec-commands.json",
+      "bytes": 2057,
+      "sha256": "b797816858761814f0131eb62b4be3879994520ad248791a210fd3d15b352bdb"
+    },
+    {
+      "path": "artifacts/acceptance/B-20260920-local/run-summary.json",
+      "bytes": 8421,
+      "sha256": "c2cd8df41e8125a0f0438d83107fea1600c76595a5b8a17578d0e4c99cc82566"
+    },
+    {
+      "path": "artifacts/release/teaching/B-20260920-local/readiness.json",
+      "bytes": 3777,
+      "sha256": "f773412ae7b5222669c9b95f9bce6375503f3d50da2d36ccbb2a273b576f9a5a"
+    },
+    {
+      "path": "docs/model-card.md",
+      "bytes": 4029,
+      "sha256": "b45269758a188221aaf54a966c346228c4f726757f75e29a23b2a782a250a91a"
+    },
+    {
+      "path": "docs/teaching-demo.md",
+      "bytes": 3747,
+      "sha256": "b249a7b5c2ff7daf86a9a33163b1ab4d2a7c63ab48a21e3f03757168574337c9"
+    },
+    {
+      "path": "qisi-sdd-v3/changes/B01.md",
+      "bytes": 451,
+      "sha256": "21057778cad16a912d27f09388bf81869fea307bd7bd2c6b897ceeb179acba5c"
+    },
+    {
+      "path": "qisi-sdd-v3/changes/B02.md",
+      "bytes": 4431,
+      "sha256": "d68f1f746a6df0a45bd29f58106c6d14d250811ca5a571bf834495d804ed4e26"
+    },
+    {
+      "path": "qisi-sdd-v3/changes/B03.md",
+      "bytes": 29656,
+      "sha256": "1c4a8e03c6149294eceedb6f0800719c77ab26b7fd8cd45358dea62889cd7604"
+    },
+    {
+      "path": "qisi-sdd-v3/changes/B04.md",
+      "bytes": 4675,
+      "sha256": "85ac3d4019965edbf5b615164b5db0917dc34938168b7aade457e56d5a98b47c"
+    },
+    {
+      "path": "qisi-sdd-v3/changes/B05.md",
+      "bytes": 2125,
+      "sha256": "c8266c576205638d38ed6ef92aaafed60bbad785ed3a0debc32b3cf3cf06e828"
+    },
+    {
+      "path": "qisi-sdd-v3/changes/B06.md",
+      "bytes": 1558,
+      "sha256": "7f7e7455d965457cc3a3fd23bbc409d2af60fe467dbda0dee75f2c1a35c21a43"
+    },
+    {
+      "path": "qisi-sdd-v3/changes/B07.md",
+      "bytes": 1197,
+      "sha256": "fe9699d59ca33de089d383a9c2c9f6ad51ba009c47ced61aa5df5c3bb2e792b7"
+    },
+    {
+      "path": "qisi-sdd-v3/changes/B08.md",
+      "bytes": 1499,
+      "sha256": "7dfbdc1f7466523c9bed9121178615ab5e2b57b00f71cb1561c458ff28c5f8b7"
+    },
+    {
+      "path": "qisi-sdd-v3/changes/B09.md",
+      "bytes": 1162,
+      "sha256": "199c21ce7c4525e982fb1d1769acf785c8f53b9001f424d53169e035e4c953b6"
+    },
+    {
+      "path": "qisi-sdd-v3/changes/B10.md",
+      "bytes": 966,
+      "sha256": "73a6a677ed5b58f3b3f013feb12bf682955165768764098a785b9ea8091d6244"
+    },
+    {
+      "path": "qisi-sdd-v3/handoffs/B01.md",
+      "bytes": 10992,
+      "sha256": "8fcc046075a6e99a55de680807896d5f5bdc644ce5587663dba5b2ad2459f8b9"
+    },
+    {
+      "path": "qisi-sdd-v3/handoffs/B02.md",
+      "bytes": 9492,
+      "sha256": "bf8781175e8cca0e16df7a30002ac2ea452efd99ab0ed29396fa661ed820f3ef"
+    },
+    {
+      "path": "qisi-sdd-v3/handoffs/B03.md",
+      "bytes": 24361,
+      "sha256": "e3163b5612f3a0ee137129b2bbb690b811799645e2575a069c7f89614ce066bb"
+    },
+    {
+      "path": "qisi-sdd-v3/handoffs/B04.md",
+      "bytes": 6681,
+      "sha256": "9c45a5d34ceb2dfcbb4e29eec8910b9490d6cb52a9d56146e6c7cb20786bbc7f"
+    },
+    {
+      "path": "qisi-sdd-v3/handoffs/B05.md",
+      "bytes": 4515,
+      "sha256": "0e16cb52aae54101033c399c0d80a169d7b516a20dd9fe14caa05c4be972d622"
+    },
+    {
+      "path": "qisi-sdd-v3/handoffs/B06.md",
+      "bytes": 4788,
+      "sha256": "92169c5e8f4fb2f7831a39656d12a1e9fbf8b5fb1c22b5da1b23ebea4a018d7b"
+    },
+    {
+      "path": "qisi-sdd-v3/handoffs/B07.md",
+      "bytes": 4498,
+      "sha256": "9f48b5c2ae28ae5ff232b11558a9f83f0c4a29a7066feb894505611fc58d3b88"
+    },
+    {
+      "path": "qisi-sdd-v3/handoffs/B08.md",
+      "bytes": 4453,
+      "sha256": "95c455ed39460f166bfca445d2f5e0a887c73de25f4c5844773a58d9e8819296"
+    },
+    {
+      "path": "qisi-sdd-v3/handoffs/B09.md",
+      "bytes": 4321,
+      "sha256": "ec06ba4c9df1ed4e3bae32ca23f0e9e3a7493a2024c52490206847ee15a4e1bc"
+    },
+    {
+      "path": "qisi-sdd-v3/handoffs/B10.md",
+      "bytes": 4257,
+      "sha256": "627160f1e0d0989b0494bd8acc1a1ef76498d9c0f515899a9c164352510ffd26"
+    },
+    {
+      "path": "qisi-sdd-v3/manifest.json",
+      "bytes": 15300,
+      "sha256": "4b7530857d79ee05f2dca0507530c8813a4d7bbc93cbd2c9f19affc30ba99876"
+    },
+    {
+      "path": "qisi-sdd-v3/runtime.json",
+      "bytes": 2208,
+      "sha256": "b875385dbe688afbf67655f8463ae6d26a6884696494d89f6acb9616da51ee8d"
+    },
+    {
+      "path": "qisi-sdd-v3/stack.json",
+      "bytes": 1601,
+      "sha256": "24a7c034615f3271016247023379879b1ebc27c88e5cbb14343b694bfa3c8e65"
+    },
+    {
+      "path": "qisi-sdd-v3/tasks.json",
+      "bytes": 44791,
+      "sha256": "1ca0a12926b2acde807d748ab4cbc4071b446b425c93ee9fc5573a82fe5986ee"
+    },
+    {
+      "path": "scripts/evaluate-teaching.md",
+      "bytes": 4181,
+      "sha256": "8173d2bafada91e2fb0645b04b5f38b83ef4f3305e70aea575352b8cc9e82bfc"
+    },
+    {
+      "path": "scripts/evaluate-teaching.mjs",
+      "bytes": 9974,
+      "sha256": "15482b1ebd48e186074903111264bd2663d7198f21185b6b4e137e59f22ddd04"
+    },
+    {
+      "path": "server/package-lock.json",
+      "bytes": 168685,
+      "sha256": "ff633dad83f198b76997392209b95f01f4a8b91710dbebbd2b5056f76f6746d5"
+    },
+    {
+      "path": "server/package.json",
+      "bytes": 2735,
+      "sha256": "4fd21df4e433f6c86bb0cbea81c09827080d4b61b1afa30c7e0d784ea022112d"
+    },
+    {
+      "path": "server/src/agents/diagnosis/index.ts",
+      "bytes": 2173,
+      "sha256": "6fbe8ae0ae3ce36621921766174fe02c3bd1f6d40880cd0d5516737cc7a33c0f"
+    },
+    {
+      "path": "server/src/agents/strategy/index.ts",
+      "bytes": 1858,
+      "sha256": "49111ee5dd8ae0f85ba1d1d48846fb09fe86f20e34a4752c76b857d50525d6f1"
+    },
+    {
+      "path": "server/src/agents/strategy/route-admission.ts",
+      "bytes": 1627,
+      "sha256": "5b5328687c176d20c01c42fc9bd4bc0828f5d35a3dedc36adc07e2ff65270f97"
+    },
+    {
+      "path": "server/src/features/teacher/teacher.controller.ts",
+      "bytes": 1804,
+      "sha256": "b7a48f0693440c8c8873ec9ea8628ed089bf42f0c30751fc21738838c667bfb1"
+    },
+    {
+      "path": "server/src/features/teacher/teacher.module.ts",
+      "bytes": 720,
+      "sha256": "7d5cabc0f29eee0840f43f2cd3ad4f7ed9a467a12a4e9ee570e6520fbb2fafc2"
+    },
+    {
+      "path": "server/src/features/teacher/teacher.port.ts",
+      "bytes": 1791,
+      "sha256": "72178f1f9b81bb5562ef4cdd486d391fded1b46468a9bafe2e0d7d065c4fc593"
+    },
+    {
+      "path": "server/src/features/teacher/teacher.projection.ts",
+      "bytes": 2402,
+      "sha256": "ab3e657d2e4957361a5fc34e016d6caf29f51018978afbb043a5d6bb0173995a"
+    },
+    {
+      "path": "server/src/features/teacher/teacher.service.ts",
+      "bytes": 3667,
+      "sha256": "60e3389fb60356e12ba00508f9e54e1a6591c3194e5d58a7b85003a8ce94a1a4"
+    },
+    {
+      "path": "server/src/features/tutor/corrections.ts",
+      "bytes": 3161,
+      "sha256": "5cfd33f1aff6b7300c3e53f943ccaa1700b4db471a8d4e27c6c34ccfa4b9fe26"
+    },
+    {
+      "path": "server/src/features/tutor/evidence.ts",
+      "bytes": 4178,
+      "sha256": "b9678ccd40c02bd82a7645da35d6cbda826d9039a205ff0ef6b3870f18f4e441"
+    },
+    {
+      "path": "server/src/features/tutor/ladder.ts",
+      "bytes": 2306,
+      "sha256": "3818eaaf6caa88485fdbec427a7f200a45396fb5d69677e2fb44d756c89e7d54"
+    },
+    {
+      "path": "server/src/features/tutor/probe-counter.ts",
+      "bytes": 7950,
+      "sha256": "6ca724cfb8fe68d53a4ed03c164530d0f9d7012646d7450034cacd6021c81064"
+    },
+    {
+      "path": "server/src/model/budget.ts",
+      "bytes": 7194,
+      "sha256": "ba53e6a6d29551fdc42cb532c638a8fcea82ca23bf368c8b15fa1cf257e4aec0"
+    },
+    {
+      "path": "server/src/model/budgeted.provider.ts",
+      "bytes": 8394,
+      "sha256": "3f06aae7efe8212dfb0de1cee5989574864c3b742fb8b01f5512cb9fa0ee6858"
+    },
+    {
+      "path": "server/src/prompts/assessment.md",
+      "bytes": 785,
+      "sha256": "792c9be8531f4d62d6b493ec058a103a92d5d0330a7c91bf638707acc03da71b"
+    },
+    {
+      "path": "server/src/prompts/diagnosis.md",
+      "bytes": 922,
+      "sha256": "3cb4c4798b95e3a5b601d6e9d3382d581baae55c86f8955a6a9ac27b06b9015a"
+    },
+    {
+      "path": "server/src/prompts/guard.md",
+      "bytes": 806,
+      "sha256": "dcc6e866a93dc1dae90cc4fbca37e4cfad8678cc4b3604250e4409418f31385a"
+    },
+    {
+      "path": "server/src/prompts/index.ts",
+      "bytes": 6761,
+      "sha256": "c6f0897fe4d6bc51ff20285248e4be368fab1037df85fa1bf696a0c006bda9a8"
+    },
+    {
+      "path": "server/src/prompts/preparation.md",
+      "bytes": 1021,
+      "sha256": "f8a6686ff0dbc871eed2f552bef97544ee64b04e80feaba4df30129ab3a12121"
+    },
+    {
+      "path": "server/src/prompts/renderer.md",
+      "bytes": 734,
+      "sha256": "ae59cba740e4a6c7df432ce4153897fd8a2f1670cee304600a7601e97094d9f5"
+    },
+    {
+      "path": "server/src/prompts/strategy.md",
+      "bytes": 964,
+      "sha256": "e13f47ce6ce85d0e332db17223d536ee194d17102e25039e013e1e6b741e4d39"
+    },
+    {
+      "path": "server/src/workflows/orchestrator.ts",
+      "bytes": 22793,
+      "sha256": "10e25863f6ea89317c8296de25b781464c59cc80b4e01613636b06fdfd9bf225"
+    },
+    {
+      "path": "server/src/workflows/policy-gate.ts",
+      "bytes": 8980,
+      "sha256": "970513d7c989ba2dc02d0e68b5908cc6903d8dd736ea068a1814782dd457148f"
+    },
+    {
+      "path": "server/src/workflows/policy.ts",
+      "bytes": 2467,
+      "sha256": "c7c7d815749d6781c51931cd0584768fee89d388d9ec205645f128a14d3bb423"
+    },
+    {
+      "path": "server/src/workflows/turn.ts",
+      "bytes": 6853,
+      "sha256": "ebfcb698b840b09ff234ee86df2c7600039ddd4949c6af6eb6ceb922542bb82a"
+    },
+    {
+      "path": "server/test/corrections/corrections.spec.ts",
+      "bytes": 2180,
+      "sha256": "62c18cb1058c9275037ffb86404c9e18ff5a9fe8123db2e56bbf055554cdf766"
+    },
+    {
+      "path": "server/test/diagnosis/canonical-goal.spec.ts",
+      "bytes": 2192,
+      "sha256": "2bd7e417c97679b6d9614f1252f9e09ea4c929f094b7d2d658bf9a13493fb169"
+    },
+    {
+      "path": "server/test/diagnosis/evidence.spec.ts",
+      "bytes": 4111,
+      "sha256": "3a59b40ef8706be979715fad34f2fe6988dd9439b8d729fa5297b3fa5505c682"
+    },
+    {
+      "path": "server/test/eval/evaluate-teaching.node.mjs",
+      "bytes": 4484,
+      "sha256": "8df621569f3adc0858deac6d30040fc6d74118743fe66de762262a162915f08f"
+    },
+    {
+      "path": "server/test/strategy/admission.spec.ts",
+      "bytes": 2404,
+      "sha256": "ce77a15ffe3662082dc0d69eab307cdae2cd768f6511db8b111d8c80f6044562"
+    },
+    {
+      "path": "server/test/strategy/ladder.spec.ts",
+      "bytes": 2796,
+      "sha256": "a0898c091dfcb65c6de5b7e12bc310031fc9265ba7a1eecca8768af23cd87ada"
+    },
+    {
+      "path": "server/test/strategy/route-admission.spec.ts",
+      "bytes": 2407,
+      "sha256": "849a9264b74dd52ec9b1cf9fc86254f546d80a930a08c59e2b8d5ca2effc8e51"
+    },
+    {
+      "path": "server/test/teacher/teacher-http.spec.ts",
+      "bytes": 5033,
+      "sha256": "372bad1545b0c4d31ee83586be2d969431fc88ba840d23a619b49c26677edefa"
+    },
+    {
+      "path": "server/test/teacher/teacher.spec.ts",
+      "bytes": 4869,
+      "sha256": "f51451baf168441640c105be51007c8d6e809452c6c0b6c6cadf2d55582a7f97"
+    },
+    {
+      "path": "server/test/tutor/b09-adversarial.spec.ts",
+      "bytes": 3193,
+      "sha256": "3b9baba6bd3b225acdd2ce6ae988ef1e8e3706b02d77ccc2ca2f3d7ddb8ffc44"
+    },
+    {
+      "path": "server/test/tutor/probe-and-projection.spec.ts",
+      "bytes": 17263,
+      "sha256": "0046d19a33de71d6b76e009349b1893230d3b49551c242fc1ff3a90fd667e735"
+    },
+    {
+      "path": "server/test/workflows/actual-exposure.spec.ts",
+      "bytes": 1505,
+      "sha256": "34e839d3feb937de8131345cbeb414d101cd4e76439799746455b90a48020885"
+    },
+    {
+      "path": "server/test/workflows/admission-failure.spec.ts",
+      "bytes": 3754,
+      "sha256": "241b6cc8513925808f1d63f5cc68f240ae36052b3c351d016e61af5aaa8a672f"
+    },
+    {
+      "path": "server/test/workflows/budget-safety.spec.ts",
+      "bytes": 3041,
+      "sha256": "aff201f1553c77a6bf696e1f0b0413befe28d40bf1af49752c2a3e7787edcb64"
+    },
+    {
+      "path": "web/package-lock.json",
+      "bytes": 205598,
+      "sha256": "530a96c691b8251341ea3137d6bd3d7876f779c1b51622b8820964b238678bbe"
+    },
+    {
+      "path": "web/package.json",
+      "bytes": 1281,
+      "sha256": "bbab1df16ad41cd301c671317b2c16f4c09c6bdb526284bec45591a42a398215"
+    },
+    {
+      "path": "web/src/pages/teacher/TeacherPage.test.tsx",
+      "bytes": 1855,
+      "sha256": "16cce8c8d468a6ec71108a35f1d8e901a32d450367e30b185e97f33d55ceef89"
+    },
+    {
+      "path": "web/src/pages/teacher/TeacherPage.tsx",
+      "bytes": 7992,
+      "sha256": "0966a219877e5dc1beb09576a4f14fdbadd1778663039742d5564e9ae007f19e"
+    }
+  ],
+  "limitations": [
+    "Snapshot includes dirty source; not a release tag or clean build proof.",
+    "Concurrent integration edits may occur after this timestamp; match hashes and rerun before merge.",
+    "No real model, human review, MySQL8.4, deployment or student-learning evaluation is certified.",
+    "Historical manifest/ZIP/publication records were not rebuilt or synchronized."
+  ]
+}

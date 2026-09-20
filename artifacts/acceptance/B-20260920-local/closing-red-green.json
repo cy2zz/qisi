@@ -1,0 +1,54 @@
+[
+  {
+    "id": "eval-latency-red",
+    "command": "node --test server/test/eval/evaluate-teaching.node.mjs",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 1,
+    "tests": 6,
+    "passed": 5,
+    "failed": 1,
+    "result": "failed",
+    "evidence_file": "artifacts/acceptance/B-20260920-local/eval-latency-red.log",
+    "log_written_at": "2026-09-20T15:58:34.372266+08:00",
+    "timing_note": "Log file completion timestamp; start time was not captured."
+  },
+  {
+    "id": "eval-latency-green",
+    "command": "node --test server/test/eval/evaluate-teaching.node.mjs",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 0,
+    "tests": 6,
+    "passed": 6,
+    "failed": 0,
+    "result": "passed",
+    "evidence_file": "artifacts/acceptance/B-20260920-local/eval-latency-green.log",
+    "log_written_at": "2026-09-20T15:58:51.531933+08:00",
+    "timing_note": "Log file completion timestamp; start time was not captured."
+  },
+  {
+    "id": "admission-boundary-red",
+    "command": "npm --prefix server test -- --run test/workflows/admission-failure.spec.ts --reporter=dot",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 1,
+    "tests": 4,
+    "passed": 1,
+    "failed": 3,
+    "result": "failed",
+    "evidence_file": "artifacts/acceptance/B-20260920-local/admission-boundary-red.log",
+    "log_written_at": "2026-09-20T16:02:09.899779+08:00",
+    "timing_note": "Log file completion timestamp; start time was not captured."
+  },
+  {
+    "id": "admission-boundary-green",
+    "command": "npm --prefix server test -- --run test/workflows/admission-failure.spec.ts test/tutor/submit-turn-deps.spec.ts test/diagnosis test/strategy --reporter=dot",
+    "cwd": "D:\\math\\qisi-dashboard",
+    "exit_code": 0,
+    "tests": 59,
+    "passed": 59,
+    "failed": 0,
+    "result": "passed",
+    "evidence_file": "artifacts/acceptance/B-20260920-local/admission-boundary-green.log",
+    "log_written_at": "2026-09-20T16:02:33.412250+08:00",
+    "timing_note": "Log file completion timestamp; start time was not captured."
+  }
+]

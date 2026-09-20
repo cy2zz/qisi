@@ -1,0 +1,36 @@
+{
+  "baseline": "qisi-3.1",
+  "task_id": "B07",
+  "status": "in_progress",
+  "scope": "实际披露按 Guard 回执计账；非法探针计数拒绝；预算保留/一次结算/取消排队/截止/迟到输出与错误脱密。",
+  "changed_files": [
+    "server/src/workflows/policy-gate.ts",
+    "server/src/model/budget.ts",
+    "server/src/model/budgeted.provider.ts",
+    "server/test/workflows/actual-exposure.spec.ts",
+    "server/test/workflows/budget-safety.spec.ts"
+  ],
+  "review": "self_review",
+  "acceptance": {
+    "AT28": "not_run_full_acceptance",
+    "AT43": "not_run_full_acceptance",
+    "AT45": "not_run_full_acceptance",
+    "AT49": "not_run_full_acceptance",
+    "ST06": "not_run_full_acceptance",
+    "ST07": "not_run_full_acceptance",
+    "ST08": "not_run_full_acceptance",
+    "ST09": "not_run_full_acceptance",
+    "ST12": "not_run_full_acceptance"
+  },
+  "evidence": [
+    "commands.json",
+    "recheck-commands.json",
+    "task-gates.json",
+    "failure-first.json",
+    "final-commands.json",
+    "closing-commands.json",
+    "closing-red-green.json",
+    "task-gate-diagnostic.json"
+  ],
+  "blocking_or_remaining": "持久恢复预算、节点输出重新校验、有效lease/fencing、崩溃窗口/删除竞态仍需实现或对接；真实8.4故障矩阵未跑，当前 MemoryStore 不可视为生产完成。"
+}

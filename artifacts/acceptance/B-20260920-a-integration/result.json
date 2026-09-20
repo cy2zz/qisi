@@ -1,0 +1,114 @@
+{
+  "baseline": "qisi-3.1",
+  "owner": "B",
+  "task_ids": [
+    "B01",
+    "B03",
+    "B07"
+  ],
+  "date": "2026-09-20",
+  "task_status": "in_progress",
+  "review": "self_review; A-owned facade changes awaiting A review",
+  "a_capability_audit": "a-workspace-audit.json",
+  "a_original_facade_available": true,
+  "external_a_workspace_modified": false,
+  "ddl_modified": false,
+  "new_pool_or_database_engine": false,
+  "production_tutor_uses_memory_store": false,
+  "latest": {
+    "targeted": {
+      "passed": 39,
+      "failed": 0,
+      "files": 6
+    },
+    "mysql": {
+      "version": "8.0.26",
+      "passed": 14,
+      "failed": 0,
+      "files": 1,
+      "migrations_applied": 19,
+      "model": "FixtureProvider",
+      "http_browser_e2e": false,
+      "business_database_used": false,
+      "shutdown": "sql_shutdown",
+      "log": "mysql-prior-evidence-green.log"
+    },
+    "server_full": {
+      "passed": 580,
+      "failed": 1,
+      "skipped": 14,
+      "files": 72,
+      "exit_code": 1,
+      "log": "server-full-closing.log"
+    },
+    "server_typecheck": 0,
+    "server_lint": 0,
+    "server_build": 0,
+    "root_typecheck": 0
+  },
+  "failure_first": [
+    {
+      "log": "boundary-red.log",
+      "behavior": "owner forwarding, atomic stored response, stale-version replay",
+      "failed": 3
+    },
+    {
+      "log": "transaction-red.log",
+      "behavior": "expiry, cross-session run, stale lease cleanup",
+      "failed": 3
+    },
+    {
+      "log": "lock-order-red.log",
+      "behavior": "session-first failure lock order",
+      "passed": 3,
+      "failed": 1
+    },
+    {
+      "log": "mysql-prior-evidence-red.log",
+      "behavior": "historical handwriting changed during a new typed turn must reject final commit",
+      "passed": 13,
+      "failed": 1
+    }
+  ],
+  "known_failures": [
+    {
+      "path": "server/src/database/database.factory.spec.ts:36",
+      "reason": "existing Unix-only certs/ path regex rejects Windows certs\\ path; not changed in this turn"
+    },
+    {
+      "path": "scripts/run-task-gate.mjs",
+      "reason": "B01/B07 not registered; B03 gate child launch exits1 on Windows; no tests ran via these gates"
+    }
+  ],
+  "acceptance": {
+    "B01": {
+      "AT13": "partial fixture role-call evidence; full acceptance not_run",
+      "ST05/ST06/ST07": "incomplete; no true model/MySQL8.4/worker recovery conformance"
+    },
+    "B03": {
+      "AT14": "not_run: requires true model",
+      "AT15/AT27": "partial projection/fixture regression; no current browser evidence"
+    },
+    "B07": {
+      "AT28/AT43/AT45/AT49": "partial rule/transaction regression only",
+      "ST06/ST07/ST08/ST09/ST12": "incomplete: 8.0 transaction subset is not formal8.4/crash/fencing acceptance"
+    }
+  },
+  "not_run": [
+    "MySQL 8.4 formal integration",
+    "true model on current integration",
+    "human pedagogical or real-student evaluation",
+    "browser HTTP/MySQL end-to-end on current integration",
+    "process crash/worker job recovery and fencing matrix",
+    "all failed/repair attempts durable budget restoration",
+    "full dynamic route/finish/check transition"
+  ],
+  "next_dependencies": [
+    "A review and integrate local learning service/database.types compatibility patch",
+    "A/B durable model-attempt audit/reservation and worker claim/fencing/recovery extension of existing facade",
+    "B canonical mapping of A legacy probe goals; route/finish/Assessment transition integration",
+    "A fix task gate registration/Windows launcher and certificate-path assertion"
+  ],
+  "git": "uncommitted; no stage/commit/push/merge; no publish/deploy",
+  "historical_evidence": "B-20260920-local records and release snapshot are historical; do not use old hashes/results to attest current changes"
+}

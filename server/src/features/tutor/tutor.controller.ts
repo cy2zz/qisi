@@ -62,7 +62,7 @@ export class TutorController {
     }
 
     try {
-      const view = await this.tutor.submitTurn(parsed.data);
+      const view = await this.tutor.submitTurn(parsed.data, owner.id);
       // 投影结果再次过一遍契约：投影是白名单构造，此处防的是实现改动引入的字段漂移。
       return StudentViewSchema.parse(view);
     } catch (error) {

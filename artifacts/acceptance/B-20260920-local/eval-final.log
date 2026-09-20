@@ -1,0 +1,14 @@
+✔ keeps planned missing and failed trajectories in denominators (6.9523ms)
+✔ flags unequal models/budgets as incomparable instead of claiming advantage (0.9827ms)
+✔ retains human disagreement, does not use a synthetic tiebreak (2.8459ms)
+✔ blind packets exclude system/model/reviewer identifiers and keep display order (32.876ms)
+✔ rejects duplicates, invalid counters and empty planned populations (2.0199ms)
+✔ includes failures in observed latency and reports missing coverage without imputing zero (3.4526ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 322.9565

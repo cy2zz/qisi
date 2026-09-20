@@ -6,11 +6,18 @@ import {
 } from '@nestjs/common';
 import { createHash, randomBytes, randomUUID } from 'node:crypto';
 import { DatabaseService } from '../../database/database.service.js';
+import type { Transaction } from 'kysely';
+import type { Database } from '../../database/database.types.js';
 import {
   ExposureSchema,
   RoutePatchSchema,
+  StudentViewSchema,
+  TranscriptLineSchema,
+  type Diagnosis,
   type Exposure,
   type RoutePatch,
+  type Strategy,
+  type StudentView,
 } from '../../contracts/domain.schema.js';
 import type { ProblemAnalysis } from '../analysis/problem-analysis.schema.js';
 import type {
@@ -59,6 +66,7 @@ export interface ReservedTurn {
 }
 
 export interface ReplayedTurn {
+  studentView?: StudentView;
   currentVerdict?: 'correct' | 'incorrect' | 'unknown';
   kind: 'replay';
   reply: string;
@@ -69,6 +77,8 @@ export interface ReplayedTurn {
 export type TurnReservation = ReservedTurn | ReplayedTurn;
 
 interface ReserveTurnInput {
+  /** Namespaces the B endpoint from the legacy analysis endpoint; part of the payload hash. */
+  protocol?: 'tutor-v1';
   assistanceMode: AssistanceMode;
   expectedVersion: number;
   message: string;
@@ -81,6 +91,17 @@ interface ReserveTurnInput {
 }
 
 interface CommitTurnInput {
+  /** Safe DTO and private audit are deliberately separate; only the DTO is replayed. */
+  checkedTeaching?: {
+    studentView: StudentView;
+    taskId: string;
+    contentHash: string;
+    diagnosis: Diagnosis;
+    strategy: Strategy;
+    canonicalProbeGoalKey: string | null;
+    previousProbeCount: number;
+    evidenceTranscripts: ReadonlyArray<{ transcriptId: string; transcriptRevision: number; message: string }>;
+  };
   assistanceMode: AssistanceMode;
   audit?: TutorTurnAudit;
   currentVerdict?: 'correct' | 'incorrect' | 'unknown';
@@ -123,6 +144,7 @@ function payloadHash(input: ReserveTurnInput) {
   return createHash('sha256')
     .update(json({
       assistanceMode: input.assistanceMode,
+      protocol: input.protocol,
       expectedVersion: input.expectedVersion,
       message: input.message,
       remediationFocus: input.remediationFocus,
@@ -131,6 +153,25 @@ function payloadHash(input: ReserveTurnInput) {
       transcriptRevision: input.transcriptRevision,
     }))
     .digest();
+}
+
+/** Rechecked inside the same short transaction that reserves/commits the turn. */
+async function assertTurnTranscript(transaction: Transaction<Database>, input: Pick<CommitTurnInput, 'ownerId' | 'sessionId' | 'transcriptId' | 'transcriptRevision' | 'message'>) {
+  if (Boolean(input.transcriptId) !== Boolean(input.transcriptRevision)) {
+    throw new ConflictException('transcript id and revision must be supplied together');
+  }
+  if (!input.transcriptId) return;
+  const transcript = await transaction.selectFrom('transcripts').selectAll()
+    .where('id', '=', input.transcriptId).where('user_id', '=', input.ownerId).forUpdate().executeTakeFirst();
+  if (!transcript || transcript.confirmed !== 1 || transcript.revision !== input.transcriptRevision
+    || new Date(transcript.expires_at).getTime() <= Date.now()
+    || (transcript.session_id !== null && String(transcript.session_id) !== input.sessionId)) {
+    throw new ConflictException('confirmed transcript is no longer current');
+  }
+  const lines = TranscriptLineSchema.array().parse(parseJson<unknown>(transcript.lines_json));
+  if (lines.map(line => line.text.trim()).filter(Boolean).join('\n\n') !== input.message.trim()) {
+    throw new ConflictException('confirmed transcript text changed');
+  }
 }
 
 function problemContentHash(problemMd: string) {
@@ -515,6 +556,7 @@ export class LearningSessionService {
         if (existing.status === 'succeeded' && existing.safe_response_json) {
           const response = parseJson<{
             currentVerdict?: 'correct' | 'incorrect' | 'unknown';
+            studentView?: StudentView;
             reply: string;
             routeAttribution?: 'student' | 'coauthored';
             version: number;
@@ -526,6 +568,7 @@ export class LearningSessionService {
         if (existing.status === 'in_progress') {
           throw new ConflictException('request is already in progress');
         }
+        if (input.protocol === 'tutor-v1') throw new ConflictException('request already failed; use a new request id');
         retryFailedRequest = true;
       }
       if (session.active_run_id) {
@@ -534,6 +577,11 @@ export class LearningSessionService {
       if (session.version !== input.expectedVersion) {
         throw new ConflictException('learning session version changed; refresh before retrying');
       }
+
+      if (input.protocol === 'tutor-v1' && !['learning', 'study'].includes(session.phase)) {
+        throw new ConflictException('teaching is not allowed in this phase');
+      }
+      await assertTurnTranscript(transaction, input);
 
       const historyRows = await transaction
         .selectFrom('learning_messages')
@@ -624,6 +672,7 @@ export class LearningSessionService {
           status: 'active',
           run_json: json({
             assistanceMode: input.assistanceMode,
+            ...(input.protocol ? { protocol: input.protocol } : {}),
             ...(input.remediationFocus ? { remediationFocus: input.remediationFocus } : {}),
           }),
         })
@@ -652,7 +701,8 @@ export class LearningSessionService {
   }
 
   async recordTurnNode(
-    input: TutorNodeRecord & {
+    input: Omit<TutorNodeRecord, 'nodeKey'> & {
+      nodeKey: string;
       leaseToken: string;
       ownerId: string;
       runId: string;
@@ -712,7 +762,9 @@ export class LearningSessionService {
         .executeTakeFirst();
       if (!session || !run) throw new NotFoundException('active learning run not found');
       if (
-        session.active_run_id !== input.runId
+        new Date(session.expires_at).getTime() <= Date.now()
+        || String(run.session_id) !== input.sessionId
+        || session.active_run_id !== input.runId
         || run.status !== 'active'
         || run.lease_token !== input.leaseToken
         || run.request_id !== input.requestId
@@ -721,6 +773,32 @@ export class LearningSessionService {
         || new Date(run.deadline_at).getTime() <= Date.now()
       ) {
         throw new ConflictException('learning run lease or version is no longer valid');
+      }
+
+      // Recheck the complete handwritten context, not just the new turn. A previous
+      // revision can change during an unrelated typed reply without changing session.version.
+      const transcriptInputs = [input, ...(input.checkedTeaching?.evidenceTranscripts ?? []).map(reference => ({
+        ownerId: input.ownerId, sessionId: input.sessionId, ...reference,
+      }))].sort((a, b) => (a.transcriptId ?? '').localeCompare(b.transcriptId ?? ''));
+      for (const reference of transcriptInputs) await assertTurnTranscript(transaction, reference);
+      if (input.checkedTeaching) {
+        const checked = input.checkedTeaching;
+        const view = StudentViewSchema.parse(checked.studentView);
+        if (parseJson<{protocol?:string}>(run.run_json).protocol !== 'tutor-v1'
+          || !['learning', 'study'].includes(session.phase)
+          || view.session_id !== input.sessionId || view.version !== input.expectedVersion + 1) {
+          throw new ConflictException('checked response does not match the active turn');
+        }
+        if (checked.canonicalProbeGoalKey) {
+          const counter = await transaction.selectFrom('probe_counters').select('shown_count')
+            .where('session_id', '=', input.sessionId).where('task_id', '=', checked.taskId)
+            .where('canonical_goal_key', '=', checked.canonicalProbeGoalKey).forUpdate().executeTakeFirst();
+          const previousCount = Math.max(counter?.shown_count ?? 0, checked.previousProbeCount);
+          if (!Number.isInteger(previousCount) || previousCount < 0 || previousCount >= 2) throw new ConflictException('diagnostic probe limit reached');
+          await transaction.insertInto('probe_counters').values({session_id: input.sessionId, task_id: checked.taskId,
+            canonical_goal_key: checked.canonicalProbeGoalKey, shown_count: previousCount + 1})
+            .onDuplicateKeyUpdate({shown_count: previousCount + 1}).execute();
+        }
       }
 
       const studentSeq = session.next_message_seq;
@@ -802,7 +880,7 @@ export class LearningSessionService {
       ];
       const actualHelpExposed = Boolean(
         assessmentHelp
-        || ['hint', 'explain', 'worked_solution'].includes(input.assistanceMode)
+        || (!input.checkedTeaching && ['hint', 'explain', 'worked_solution'].includes(input.assistanceMode))
         || input.audit?.wholeTaskDisclosed
         || input.audit?.decisionIds.length,
       );
@@ -811,6 +889,7 @@ export class LearningSessionService {
           eventType: 'help_exposed',
           payload: {
             assistanceMode: input.assistanceMode,
+            ...(input.checkedTeaching ? { taskId: input.checkedTeaching.taskId, contentHash: input.checkedTeaching.contentHash } : {}),
             ...(input.audit
               ? {
                   decisionIds: input.audit.decisionIds,
@@ -835,6 +914,7 @@ export class LearningSessionService {
             branches: input.audit.probe?.branches ?? [],
             focusGoalKey: input.audit.focusGoalKey,
             goalKey: input.audit.probeGoalKey,
+            ...(input.checkedTeaching ? { taskId: input.checkedTeaching.taskId, canonicalGoalKey: input.checkedTeaching.canonicalProbeGoalKey } : {}),
             questionMd: input.audit.probe?.question_md ?? '',
           },
           subjectId: input.requestId,
@@ -846,6 +926,11 @@ export class LearningSessionService {
           payload: { routePatch: input.routePatch },
           subjectId: input.requestId,
         });
+      }
+      if (input.checkedTeaching) {
+        eventFacts.push({ eventType: 'checked_teaching_turn', subjectId: input.requestId, payload: {
+          taskId: input.checkedTeaching.taskId, diagnosis: input.checkedTeaching.diagnosis, strategy: input.checkedTeaching.strategy,
+        } });
       }
       if (input.assistanceMode === 'finish_problem') {
         eventFacts.push({
@@ -897,6 +982,7 @@ export class LearningSessionService {
 
       const version = input.expectedVersion + 1;
       const safeResponse = {
+        ...(input.checkedTeaching ? { studentView: StudentViewSchema.parse(input.checkedTeaching.studentView) } : {}),
         ...(input.assistanceMode === 'finish_problem'
           ? { currentVerdict: input.currentVerdict ?? 'unknown' }
           : {}),
@@ -910,7 +996,7 @@ export class LearningSessionService {
           active_run_id: null,
           next_event_seq: session.next_event_seq + eventFacts.length,
           next_message_seq: guideSeq + 1,
-          phase: input.assistanceMode === 'finish_problem' ? 'answer_checked' : 'learning',
+          phase: input.checkedTeaching ? 'learning' : input.assistanceMode === 'finish_problem' ? 'answer_checked' : 'learning',
           version,
         })
         .where('id', '=', input.sessionId)
@@ -945,14 +1031,23 @@ export class LearningSessionService {
     },
   ) {
     await this.database.client.transaction().execute(async (transaction) => {
-      await transaction
+      // Match reserve/commit lock order: session -> run -> request. A late worker may not
+      // deadlock a valid commit or clear the active run belonging to another lease.
+      const session = await transaction.selectFrom('sessions').select('active_run_id')
+        .where('id', '=', input.sessionId).where('user_id', '=', input.ownerId)
+        .forUpdate().executeTakeFirst();
+      if (!session || session.active_run_id !== input.runId) return;
+      const failed = await transaction
         .updateTable('runs')
         .set({ status: 'failed' })
         .where('id', '=', input.runId)
         .where('user_id', '=', input.ownerId)
+        .where('session_id', '=', input.sessionId)
+        .where('request_id', '=', input.requestId)
         .where('lease_token', '=', input.leaseToken)
         .where('status', '=', 'active')
-        .execute();
+        .executeTakeFirst();
+      if (Number(failed.numUpdatedRows) !== 1) return;
       await transaction
         .updateTable('requests')
         .set({

@@ -1,0 +1,5 @@
+
+> qisi-ai@0.1.0 test:task
+> node scripts/run-task-gate.mjs unit B03
+
+

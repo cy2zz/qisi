@@ -1,0 +1,8 @@
+{
+  "server/src/features/learning/learning-session.service.ts": "972f4ed9d9e2736d18bb2bc48de1976c46608cc4856614a2859634eedaaf9edb",
+  "server/src/features/tutor/tutor.service.ts": "ec62f4b23fafdca843075ed337d062d0e8cb82a646655edace98078221634009",
+  "server/src/features/tutor/tutor.controller.ts": "0af7e77a81a107966d62b51563b0821001f08633f0dfcd64bdeedd994334400b",
+  "server/src/features/tutor/submit-turn.deps.ts": "76b7c71d4cbeb0419bbdb4e51320d188078a1c97ea0a7a90cb02d49a36648a4e",
+  "server/src/features/tutor/database-session.port.ts": "f1fbd2ca82ef83b67ccab862768b2d0957e36c2648acf1cb64691a607c201460",
+  "server/src/workflows/orchestrator.ts": "10e25863f6ea89317c8296de25b781464c59cc80b4e01613636b06fdfd9bf225"
+}

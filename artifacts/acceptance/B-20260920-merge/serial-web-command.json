@@ -1,0 +1,6 @@
+﻿{
+    "command":  "npm --prefix web test -- --maxWorkers=1",
+    "cwd":  "D:\\math\\qisi-dashboard-develop-merge",
+    "exit_code":  0,
+    "log":  "web-test-serial.log"
+}

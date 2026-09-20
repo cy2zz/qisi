@@ -1,0 +1,26 @@
+﻿[
+    {
+        "command":  "npm --prefix server run typecheck",
+        "cwd":  "D:\\math\\qisi-dashboard-develop-merge",
+        "exit_code":  0,
+        "log":  "server-typecheck.log"
+    },
+    {
+        "command":  "npm --prefix server run lint",
+        "cwd":  "D:\\math\\qisi-dashboard-develop-merge",
+        "exit_code":  0,
+        "log":  "server-lint.log"
+    },
+    {
+        "command":  "npm --prefix server run test",
+        "cwd":  "D:\\math\\qisi-dashboard-develop-merge",
+        "exit_code":  1,
+        "log":  "server-test.log"
+    },
+    {
+        "command":  "npm --prefix server run build",
+        "cwd":  "D:\\math\\qisi-dashboard-develop-merge",
+        "exit_code":  0,
+        "log":  "server-build.log"
+    }
+]

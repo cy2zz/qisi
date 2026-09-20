@@ -151,12 +151,15 @@ describe('AT13：四角色经过各自的契约与提示节点', () => {
       expectedVersion: store.sessionVersion(SESSION_ID),
       diagnosisInput: projectDiagnosisInput(context),
       routeReviewInput: projectPreparationInput(context, 'route_review'),
-      strategyInput: projectStrategyInput(context),
-      rendererInput: projectRendererInput(context, strategyFixture.allowed_facts),
-      guardInput: projectGuardInput(context, 'message', { text_md: '' }, strategyFixture.allowed_disclosures, strategyFixture.reserved_decisions),
+      // 策略输入必须由本轮诊断构造，不能用夹具里预先烘焙的诊断。
+      buildStrategyInput: (diagnosis) => ({ ...projectStrategyInput(context), diagnosis }),
+      // 表达/守卫输入依赖本轮策略，由编排器在策略产出后构造。
+      buildRendererInput: (strategy) => projectRendererInput({ ...context, strategy }, strategyFixture.allowed_facts),
+      buildGuardInput: (strategy, candidate) =>
+        projectGuardInput(context, 'message', candidate, strategyFixture.allowed_disclosures, strategyFixture.reserved_decisions),
       knownDecisionIds: new Set(packet.decisions.map((decision) => decision.id)),
       knownGoalKeys: new Set(packet.decisions.map((decision) => decision.goal_key)),
-      probesShownForFocusGoal: 0,
+      shownProbesFor: () => 0,
     });
     expect(turn.status).toBe('committed');
     expect(turn.value?.diagnosis.task_id).toBe(diagnosisFixture.task_id);
@@ -191,12 +194,13 @@ describe('AT13：四角色经过各自的契约与提示节点', () => {
       expectedVersion: store.sessionVersion(SESSION_ID),
       diagnosisInput: projectDiagnosisInput(context),
       routeReviewInput: null,
-      strategyInput: projectStrategyInput(context),
-      rendererInput: projectRendererInput(context, strategyFixture.allowed_facts),
-      guardInput: projectGuardInput(context, 'message', {}, [], []),
+      // 策略输入必须由本轮诊断构造，不能用夹具里预先烘焙的诊断。
+      buildStrategyInput: (diagnosis) => ({ ...projectStrategyInput(context), diagnosis }),
+      buildRendererInput: (strategy) => projectRendererInput({ ...context, strategy }, strategyFixture.allowed_facts),
+      buildGuardInput: (strategy, candidate) => projectGuardInput(context, 'message', candidate, [], []),
       knownDecisionIds: new Set(packet.decisions.map((decision) => decision.id)),
       knownGoalKeys: new Set(packet.decisions.map((decision) => decision.goal_key)),
-      probesShownForFocusGoal: 0,
+      shownProbesFor: () => 0,
     });
     await orchestrator.grade({
       sessionId: SESSION_ID,
@@ -309,12 +313,13 @@ describe('AT13：单角色输出不合格不得被其他角色补成成功', () 
         expectedVersion: store.sessionVersion(SESSION_ID),
         diagnosisInput: projectDiagnosisInput(context),
         routeReviewInput: null,
-        strategyInput: projectStrategyInput(context),
-        rendererInput: projectRendererInput(context, []),
-        guardInput: projectGuardInput(context, 'message', {}, [], []),
+        // 策略输入必须由本轮诊断构造，不能用夹具里预先烘焙的诊断。
+      buildStrategyInput: (diagnosis) => ({ ...projectStrategyInput(context), diagnosis }),
+        buildRendererInput: (strategy) => projectRendererInput({ ...context, strategy }, []),
+        buildGuardInput: (strategy, candidate) => projectGuardInput(context, 'message', candidate, [], []),
         knownDecisionIds: new Set(packet.decisions.map((decision) => decision.id)),
         knownGoalKeys: new Set(packet.decisions.map((decision) => decision.goal_key)),
-        probesShownForFocusGoal: 0,
+        shownProbesFor: () => 0,
       }),
     ).rejects.toThrowError(/diagnosis/);
 
@@ -342,12 +347,13 @@ describe('AT13：单角色输出不合格不得被其他角色补成成功', () 
       expectedVersion: store.sessionVersion(SESSION_ID),
       diagnosisInput: projectDiagnosisInput(context),
       routeReviewInput: null,
-      strategyInput: projectStrategyInput(context),
-      rendererInput: projectRendererInput(context, []),
-      guardInput: projectGuardInput(context, 'message', {}, [], []),
+      // 策略输入必须由本轮诊断构造，不能用夹具里预先烘焙的诊断。
+      buildStrategyInput: (diagnosis) => ({ ...projectStrategyInput(context), diagnosis }),
+      buildRendererInput: (strategy) => projectRendererInput({ ...context, strategy }, []),
+      buildGuardInput: (strategy, candidate) => projectGuardInput(context, 'message', candidate, [], []),
       knownDecisionIds: new Set(packet.decisions.map((decision) => decision.id)),
       knownGoalKeys: new Set(packet.decisions.map((decision) => decision.goal_key)),
-      probesShownForFocusGoal: 0,
+      shownProbesFor: () => 0,
     });
 
     expect(outcome.status).toBe('rejected');

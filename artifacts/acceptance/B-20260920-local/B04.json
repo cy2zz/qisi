@@ -1,0 +1,32 @@
+{
+  "baseline": "qisi-3.1",
+  "task_id": "B04",
+  "status": "in_progress",
+  "scope": "当前 confirmed revision/精确引文/嵌套证据/unknown/探针区分度规则及 checked 入口。",
+  "changed_files": [
+    "server/src/features/tutor/evidence.ts",
+    "server/src/agents/diagnosis/index.ts",
+    "server/test/diagnosis/evidence.spec.ts",
+    "server/test/diagnosis/canonical-goal.spec.ts",
+    "server/test/workflows/admission-failure.spec.ts"
+  ],
+  "review": "self_review",
+  "acceptance": {
+    "AT19": "not_run_full_acceptance",
+    "AT20": "not_run_full_acceptance",
+    "AT21": "not_run_full_acceptance",
+    "AT22": "not_run_full_acceptance",
+    "AT23": "not_run_full_acceptance"
+  },
+  "evidence": [
+    "commands.json",
+    "recheck-commands.json",
+    "task-gates.json",
+    "failure-first.json",
+    "final-commands.json",
+    "closing-commands.json",
+    "closing-red-green.json",
+    "task-gate-diagnostic.json"
+  ],
+  "blocking_or_remaining": "与 A 对齐 actual task_id、手写确认 revision 和诊断输入，迁移遗留 schema-only run；运行同错异教真实模型集和持久两探针/重启。"
+}

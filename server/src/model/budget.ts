@@ -47,6 +47,7 @@ export class BudgetLedger {
   readonly #now: () => number;
   readonly #controller = new AbortController();
 
+  readonly #pending = new Set<BudgetReservation>();
   #calls = 0;
   #inputTokens = 0;
   #outputTokens = 0;
@@ -57,6 +58,7 @@ export class BudgetLedger {
   constructor(options: BudgetLedgerOptions) {
     this.#budget = workflowBudget(options.workflow);
     this.#deadlineMs = options.deadlineAt.getTime();
+    if (!Number.isFinite(this.#deadlineMs)) throw new Error('INVALID_DEADLINE');
     this.#now = options.now ?? (() => Date.now());
   }
 
@@ -85,6 +87,8 @@ export class BudgetLedger {
     return this.#budget.output_tokens_cap - this.#outputTokens;
   }
 
+  get remainingTimeMs(): number { return Math.max(0, this.#deadlineMs - this.#now()); }
+
   get deadlineAt(): Date {
     return new Date(this.#deadlineMs);
   }
@@ -100,6 +104,8 @@ export class BudgetLedger {
    * 队列等待也计入 deadline（contracts/README.md §6），故此处一并检查时钟。
    */
   authorizeCall(accounting: BudgetCallAccounting): BudgetReservation {
+    this.#controller.signal.throwIfAborted();
+    this.#validateAccounting(accounting);
     if (this.#now() >= this.#deadlineMs) {
       throw new BudgetExceededError('DEADLINE_EXCEEDED', '工作流已超过 deadline');
     }
@@ -117,7 +123,9 @@ export class BudgetLedger {
     this.#inputTokens += accounting.inputTokens;
     this.#outputTokens += accounting.outputTokens;
 
-    return accounting;
+    const reservation = Object.freeze({ ...accounting });
+    this.#pending.add(reservation);
+    return reservation;
   }
 
   /**
@@ -127,8 +135,19 @@ export class BudgetLedger {
    * 修复、重写、网络重试全部计入同一预算，不因失败而退还。
    */
   settle(reservation: BudgetReservation, actual: BudgetCallAccounting): void {
+    if (!this.#pending.has(reservation)) throw new Error('INVALID_OR_SETTLED_RESERVATION');
+    this.#validateAccounting(actual);
+    this.#pending.delete(reservation);
     this.#inputTokens += actual.inputTokens - reservation.inputTokens;
     this.#outputTokens += actual.outputTokens - reservation.outputTokens;
+    if (this.#inputTokens > this.#budget.input_tokens_cap || this.#outputTokens > this.#budget.output_tokens_cap) {
+      this.cancel();
+      throw new BudgetExceededError(this.#inputTokens > this.#budget.input_tokens_cap ? 'INPUT_TOKENS_EXCEEDED' : 'OUTPUT_TOKENS_EXCEEDED', '实际 token 用量超出预算');
+    }
+  }
+
+  #validateAccounting(value: BudgetCallAccounting): void {
+    if (![value.inputTokens, value.outputTokens].every(n => Number.isSafeInteger(n) && n >= 0)) throw new Error('INVALID_TOKEN_ACCOUNTING');
   }
 
   /** schema 修复：每 run 共 1 次，共享而非每角色一份。返回是否成功消费。 */

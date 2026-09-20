@@ -1,0 +1,29 @@
+{
+  "baseline": "qisi-3.1",
+  "task_id": "B03",
+  "status": "in_progress",
+  "scope": "审计并修复探针准入：规范目标父链校验和第三探针拒绝；保留协作者接线。",
+  "changed_files": [
+    "server/src/features/tutor/probe-counter.ts",
+    "server/src/workflows/turn.ts",
+    "server/test/tutor/probe-and-projection.spec.ts",
+    "server/test/workflows/admission-failure.spec.ts"
+  ],
+  "review": "self_review",
+  "acceptance": {
+    "AT14": "not_run_full_acceptance",
+    "AT15": "not_run_full_acceptance",
+    "AT27": "not_run_full_acceptance"
+  },
+  "evidence": [
+    "commands.json",
+    "recheck-commands.json",
+    "task-gates.json",
+    "failure-first.json",
+    "final-commands.json",
+    "closing-commands.json",
+    "closing-red-green.json",
+    "task-gate-diagnostic.json"
+  ],
+  "blocking_or_remaining": "已修复 strict admission 的受控 rejected 边界，保持探针拒绝、不渲染/不提交、未知异常不吞。当前协作者已接入 AppModule，但仍须 A/B 对齐统一真实 MySQL 事务和拒绝后 run/request 的持久终结/幂等/租约，不能把 MemoryStore 视为完成。"
+}

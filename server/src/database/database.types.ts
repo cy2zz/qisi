@@ -257,7 +257,18 @@ export interface PacketsTable {
   db_create_time: ColumnType<Date, Date | string | undefined, never>;
 }
 
+/** Existing server/db/probe_counters.sql; no new DDL. */
+export interface ProbeCountersTable {
+  session_id: string;
+  task_id: string;
+  canonical_goal_key: string;
+  shown_count: number;
+  db_update_time: ColumnType<Date, Date | string | undefined, Date | string | undefined>;
+  db_create_time: ColumnType<Date, Date | string | undefined, never>;
+}
+
 export interface Database {
+  probe_counters: ProbeCountersTable;
   assessment_tasks: AssessmentTasksTable;
   check_attempts: CheckAttemptsTable;
   events: EventsTable;

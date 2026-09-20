@@ -1,0 +1,58 @@
+[
+  {
+    "id": "spec-static-closing",
+    "command": "python qisi-sdd-v3/scripts/validate_spec.py",
+    "cwd": "C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-B-final-spec-20260920-5iafuiqv",
+    "source_copy": "D:\\math\\qisi-dashboard\\qisi-sdd-v3",
+    "started_at": "2026-09-20T16:07:50.471754+08:00",
+    "exit_code": 1,
+    "result": "failed",
+    "scope": "static_only_no_database",
+    "evidence_file": "artifacts/acceptance/B-20260920-local/spec-static-closing.log",
+    "checks": {
+      "passed": 864,
+      "failed": 12
+    },
+    "failures": [
+      "B01:card complete",
+      "B02:card complete",
+      "B03:card complete",
+      "B04:card complete",
+      "B05:card complete",
+      "A06:card complete",
+      "B06:card complete",
+      "B07:card complete",
+      "B08:card complete",
+      "B09:card complete",
+      "B10:card complete",
+      "reuse not pretended installed"
+    ]
+  },
+  {
+    "id": "stack-static-closing",
+    "command": "python qisi-sdd-v3/scripts/validate_stack.py",
+    "cwd": "C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-B-final-spec-20260920-5iafuiqv",
+    "source_copy": "D:\\math\\qisi-dashboard\\qisi-sdd-v3",
+    "started_at": "2026-09-20T16:07:52.182141+08:00",
+    "exit_code": 0,
+    "result": "passed",
+    "scope": "static_only_no_database",
+    "evidence_file": "artifacts/acceptance/B-20260920-local/stack-static-closing.log",
+    "checks": {
+      "passed": 136,
+      "failed": 0
+    }
+  },
+  {
+    "id": "mysql-preflight-closing",
+    "command": "python -m unittest discover -s qisi-sdd-v3/scripts -p test_validate_mysql.py",
+    "cwd": "C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-B-final-spec-20260920-5iafuiqv",
+    "source_copy": "D:\\math\\qisi-dashboard\\qisi-sdd-v3",
+    "started_at": "2026-09-20T16:07:52.316007+08:00",
+    "exit_code": 0,
+    "result": "passed",
+    "scope": "static_only_no_database",
+    "evidence_file": "artifacts/acceptance/B-20260920-local/mysql-preflight-closing.log",
+    "test_count": 5
+  }
+]

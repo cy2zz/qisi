@@ -1,0 +1,82 @@
+﻿[
+    {
+        "command":  "npm run test:task -- B01",
+        "cwd":  "D:\\math\\qisi-dashboard",
+        "started_at":  "2026-09-20T17:05:04.6476612+08:00",
+        "ended_at":  "2026-09-20T17:05:06.7855489+08:00",
+        "exit_code":  1,
+        "tests_run":  0,
+        "status":  "failed",
+        "log":  "gate-B01-test-task.log"
+    },
+    {
+        "command":  "npm run test:e2e:task -- B01",
+        "cwd":  "D:\\math\\qisi-dashboard",
+        "started_at":  "2026-09-20T17:05:06.7992378+08:00",
+        "ended_at":  "2026-09-20T17:05:08.2525561+08:00",
+        "exit_code":  1,
+        "tests_run":  0,
+        "status":  "failed",
+        "log":  "gate-B01-test-e2e-task.log"
+    },
+    {
+        "command":  "npm run test:stack -- B01",
+        "cwd":  "D:\\math\\qisi-dashboard",
+        "started_at":  "2026-09-20T17:05:08.2535547+08:00",
+        "ended_at":  "2026-09-20T17:05:09.8560029+08:00",
+        "exit_code":  1,
+        "tests_run":  0,
+        "status":  "failed",
+        "log":  "gate-B01-test-stack.log"
+    },
+    {
+        "command":  "npm run test:task -- B03",
+        "cwd":  "D:\\math\\qisi-dashboard",
+        "started_at":  "2026-09-20T17:05:09.8585469+08:00",
+        "ended_at":  "2026-09-20T17:05:11.4317036+08:00",
+        "exit_code":  1,
+        "tests_run":  0,
+        "status":  "failed",
+        "log":  "gate-B03-test-task.log"
+    },
+    {
+        "command":  "npm run test:e2e:task -- B03",
+        "cwd":  "D:\\math\\qisi-dashboard",
+        "started_at":  "2026-09-20T17:05:11.4326996+08:00",
+        "ended_at":  "2026-09-20T17:05:12.8167989+08:00",
+        "exit_code":  1,
+        "tests_run":  0,
+        "status":  "failed",
+        "log":  "gate-B03-test-e2e-task.log"
+    },
+    {
+        "command":  "npm run test:task -- B07",
+        "cwd":  "D:\\math\\qisi-dashboard",
+        "started_at":  "2026-09-20T17:05:12.8183102+08:00",
+        "ended_at":  "2026-09-20T17:05:14.4572212+08:00",
+        "exit_code":  1,
+        "tests_run":  0,
+        "status":  "failed",
+        "log":  "gate-B07-test-task.log"
+    },
+    {
+        "command":  "npm run test:e2e:task -- B07",
+        "cwd":  "D:\\math\\qisi-dashboard",
+        "started_at":  "2026-09-20T17:05:14.4582243+08:00",
+        "ended_at":  "2026-09-20T17:05:15.9547972+08:00",
+        "exit_code":  1,
+        "tests_run":  0,
+        "status":  "failed",
+        "log":  "gate-B07-test-e2e-task.log"
+    },
+    {
+        "command":  "npm run test:stack -- B07",
+        "cwd":  "D:\\math\\qisi-dashboard",
+        "started_at":  "2026-09-20T17:05:15.9567931+08:00",
+        "ended_at":  "2026-09-20T17:05:17.7945867+08:00",
+        "exit_code":  1,
+        "tests_run":  0,
+        "status":  "failed",
+        "log":  "gate-B07-test-stack.log"
+    }
+]
