@@ -1,0 +1,417 @@
+artifacts/acceptance/B-20260920-a-integration/a-workspace-audit.json
+  s_142b4668ab2d27::t_fb9703a760b7f6 1-244
+artifacts/acceptance/B-20260920-a-integration/before-hashes.json
+  s_142b4668ab2d27::t_3ed419cd828f6a 1-8
+artifacts/acceptance/B-20260920-a-integration/closing-workspace-check.json
+  s_142b4668ab2d27::t_da19292494194d 1-105
+artifacts/acceptance/B-20260920-a-integration/commands.json
+  s_142b4668ab2d27::t_49283a0851c323 1-434
+artifacts/acceptance/B-20260920-a-integration/files.json
+  s_142b4668ab2d27::t_2d5cbc72b4ee9a 1-198
+artifacts/acceptance/B-20260920-a-integration/result.json
+  s_142b4668ab2d27::t_75e2b91176910e 1-114
+artifacts/acceptance/B-20260920-a-integration/self-review.json
+  s_142b4668ab2d27::t_32f932582982a8 1-24
+artifacts/acceptance/B-20260920-a-integration/task-gates.json
+  s_142b4668ab2d27::t_a4be7f3b2da44e 1-82
+artifacts/acceptance/B-20260920-local/AT05.json
+  s_142b4668ab2d27::t_2a8584f16c0473 1-31
+artifacts/acceptance/B-20260920-local/AT06.json
+  s_142b4668ab2d27::t_f1a1c3c4ac95c0 1-31
+artifacts/acceptance/B-20260920-local/AT07.json
+  s_142b4668ab2d27::t_6a439b9e50e9dd 1-31
+artifacts/acceptance/B-20260920-local/AT12.json
+  s_142b4668ab2d27::t_595d48250da027 1-31
+artifacts/acceptance/B-20260920-local/AT13.json
+  s_142b4668ab2d27::t_2acdaf963b0ece 1-31
+artifacts/acceptance/B-20260920-local/AT14.json
+  s_142b4668ab2d27::t_c92b0fa62b0153 1-31
+artifacts/acceptance/B-20260920-local/AT15.json
+  s_142b4668ab2d27::t_fcc16db625e5fa 1-31
+artifacts/acceptance/B-20260920-local/AT16.json
+  s_142b4668ab2d27::t_0156abc6030b17 1-31
+artifacts/acceptance/B-20260920-local/AT17.json
+  s_142b4668ab2d27::t_6c580ce308d601 1-31
+artifacts/acceptance/B-20260920-local/AT18.json
+  s_142b4668ab2d27::t_62cba913f55117 1-31
+artifacts/acceptance/B-20260920-local/AT19.json
+  s_142b4668ab2d27::t_822902e58bca38 1-31
+artifacts/acceptance/B-20260920-local/AT20.json
+  s_142b4668ab2d27::t_3069391864ce3a 1-31
+artifacts/acceptance/B-20260920-local/AT21.json
+  s_142b4668ab2d27::t_a2cf5060362f23 1-31
+artifacts/acceptance/B-20260920-local/AT22.json
+  s_142b4668ab2d27::t_2c7ccdd726e697 1-31
+artifacts/acceptance/B-20260920-local/AT23.json
+  s_142b4668ab2d27::t_be4e07c79904fb 1-31
+artifacts/acceptance/B-20260920-local/AT24.json
+  s_142b4668ab2d27::t_8db841dc9baec8 1-31
+artifacts/acceptance/B-20260920-local/AT25.json
+  s_142b4668ab2d27::t_9ea17bedcc1c07 1-31
+artifacts/acceptance/B-20260920-local/AT26.json
+  s_142b4668ab2d27::t_0cd3a6069c97b0 1-31
+artifacts/acceptance/B-20260920-local/AT27.json
+  s_142b4668ab2d27::t_6517dc75ab92a2 1-31
+artifacts/acceptance/B-20260920-local/AT28.json
+  s_142b4668ab2d27::t_70b57a91d284b7 1-31
+artifacts/acceptance/B-20260920-local/AT29.json
+  s_142b4668ab2d27::t_e25f372326971b 1-31
+artifacts/acceptance/B-20260920-local/AT39.json
+  s_142b4668ab2d27::t_72540a9053233c 1-31
+artifacts/acceptance/B-20260920-local/AT40.json
+  s_142b4668ab2d27::t_877acd3a15338b 1-31
+artifacts/acceptance/B-20260920-local/AT41.json
+  s_142b4668ab2d27::t_7a28d4170cf239 1-31
+artifacts/acceptance/B-20260920-local/AT43.json
+  s_142b4668ab2d27::t_2e68bb876030dd 1-31
+artifacts/acceptance/B-20260920-local/AT45.json
+  s_142b4668ab2d27::t_e29caa9d597e72 1-31
+artifacts/acceptance/B-20260920-local/AT49.json
+  s_142b4668ab2d27::t_82ef30008b17b5 1-31
+artifacts/acceptance/B-20260920-local/AT51.json
+  s_142b4668ab2d27::t_7925848ffe4300 1-31
+artifacts/acceptance/B-20260920-local/AT52.json
+  s_142b4668ab2d27::t_7b98176d16f6b6 1-31
+artifacts/acceptance/B-20260920-local/AT55.json
+  s_142b4668ab2d27::t_3a6c9993108950 1-31
+artifacts/acceptance/B-20260920-local/AT57.json
+  s_142b4668ab2d27::t_478ae8f37ec96f 1-31
+artifacts/acceptance/B-20260920-local/AT60.json
+  s_142b4668ab2d27::t_cf624409768566 1-31
+artifacts/acceptance/B-20260920-local/B01-task-gate.log
+  s_142b4668ab2d27::t_35b4ed6c205f8c 1-6
+artifacts/acceptance/B-20260920-local/B01.json
+  s_142b4668ab2d27::t_7db349f9789742 1-29
+artifacts/acceptance/B-20260920-local/B02-task-gate.log
+  s_142b4668ab2d27::t_3fc6d836b7c6c2 1-6
+artifacts/acceptance/B-20260920-local/B02.json
+  s_142b4668ab2d27::t_0d9620d9b4c00b 1-24
+artifacts/acceptance/B-20260920-local/B03-task-gate.log
+  s_142b4668ab2d27::t_2d2b71c8bc496f 1-5
+artifacts/acceptance/B-20260920-local/B03.json
+  s_142b4668ab2d27::t_f61124ec58fd3d 1-29
+artifacts/acceptance/B-20260920-local/B04-task-gate.log
+  s_142b4668ab2d27::t_4c227c806a8488 1-6
+artifacts/acceptance/B-20260920-local/B04.json
+  s_142b4668ab2d27::t_da59f49e73f3e3 1-32
+artifacts/acceptance/B-20260920-local/B05-task-gate.log
+  s_142b4668ab2d27::t_74ad8855973abd 1-6
+artifacts/acceptance/B-20260920-local/B05.json
+  s_142b4668ab2d27::t_4b25bcb9d8a1e6 1-37
+artifacts/acceptance/B-20260920-local/B06-task-gate.log
+  s_142b4668ab2d27::t_f150485c50da14 1-6
+artifacts/acceptance/B-20260920-local/B06.json
+  s_142b4668ab2d27::t_6257addd8e22ce 1-38
+artifacts/acceptance/B-20260920-local/B07-task-gate.log
+  s_142b4668ab2d27::t_bde355a65d85e9 1-6
+artifacts/acceptance/B-20260920-local/B07.json
+  s_142b4668ab2d27::t_d3600a07287993 1-36
+artifacts/acceptance/B-20260920-local/B08-task-gate.log
+  s_142b4668ab2d27::t_c606ee36fd3344 1-6
+artifacts/acceptance/B-20260920-local/B08.json
+  s_142b4668ab2d27::t_b1c598e05c761a 1-30
+artifacts/acceptance/B-20260920-local/B09-task-gate.log
+  s_142b4668ab2d27::t_bee4bfd8dd3819 1-6
+artifacts/acceptance/B-20260920-local/B09.json
+  s_142b4668ab2d27::t_6f3ecd4fbc732d 1-31
+artifacts/acceptance/B-20260920-local/B10-task-gate.log
+  s_142b4668ab2d27::t_669bc6e56e3e6c 1-6
+artifacts/acceptance/B-20260920-local/B10.json
+  s_142b4668ab2d27::t_b015e6904a1769 1-31
+artifacts/acceptance/B-20260920-local/ST05.json
+  s_142b4668ab2d27::t_39ae9ae2fb2b63 1-31
+artifacts/acceptance/B-20260920-local/ST06.json
+  s_142b4668ab2d27::t_983dfe0ebe1324 1-31
+artifacts/acceptance/B-20260920-local/ST07.json
+  s_142b4668ab2d27::t_7875943230975d 1-31
+artifacts/acceptance/B-20260920-local/ST08.json
+  s_142b4668ab2d27::t_8ce67780f9823a 1-31
+artifacts/acceptance/B-20260920-local/ST09.json
+  s_142b4668ab2d27::t_f7a7b0fce08978 1-31
+artifacts/acceptance/B-20260920-local/ST12.json
+  s_142b4668ab2d27::t_9e76ce2a7327bb 1-31
+artifacts/acceptance/B-20260920-local/b-rules-closing.log
+  s_142b4668ab2d27::t_f17070f2c5dbc6 1-17
+artifacts/acceptance/B-20260920-local/closing-commands.json
+  s_142b4668ab2d27::t_4a5091fa11add5 1-69
+artifacts/acceptance/B-20260920-local/closing-consistency.json
+  s_142b4668ab2d27::t_7c03075094f85b 1-23
+artifacts/acceptance/B-20260920-local/closing-red-green.json
+  s_142b4668ab2d27::t_bd212b95220af7 1-54
+artifacts/acceptance/B-20260920-local/closing-spec-commands.json
+  s_142b4668ab2d27::t_83b5d4033549a9 1-58
+artifacts/acceptance/B-20260920-local/commands.json
+  s_142b4668ab2d27::t_45beeabaac8607 1-104
+artifacts/acceptance/B-20260920-local/eval-final.log
+  s_142b4668ab2d27::t_b4b5068c96eb0c 1-14
+artifacts/acceptance/B-20260920-local/eval-unit.log
+  s_142b4668ab2d27::t_614c49f516d378 1-14
+artifacts/acceptance/B-20260920-local/failure-first.json
+  s_142b4668ab2d27::t_00f85a2566c9b0 1-109
+artifacts/acceptance/B-20260920-local/final-commands.json
+  s_142b4668ab2d27::t_fae76b4687869e 1-101
+artifacts/acceptance/B-20260920-local/mysql-preflight-closing.log
+  s_142b4668ab2d27::t_e6371561e8ad7f 1-5
+artifacts/acceptance/B-20260920-local/mysql-preflight-unit.log
+  s_142b4668ab2d27::t_309584e0fddcf4 1-6
+artifacts/acceptance/B-20260920-local/recheck-commands.json
+  s_142b4668ab2d27::t_b14111286d0eb1 1-41
+artifacts/acceptance/B-20260920-local/run-summary.json
+  s_142b4668ab2d27::t_ce1d695f1cdc42 1-156
+artifacts/acceptance/B-20260920-local/server-B-rules.log
+  s_142b4668ab2d27::t_6726caa8a1223f 1-20
+artifacts/acceptance/B-20260920-local/server-build-closing.log
+  s_142b4668ab2d27::t_772bd0f14bc85f 1-4
+artifacts/acceptance/B-20260920-local/server-build-final.log
+  s_142b4668ab2d27::t_7ec1ae5bdc99b7 1-4
+artifacts/acceptance/B-20260920-local/server-build.log
+  s_142b4668ab2d27::t_9e529fa760a60c 1-5
+artifacts/acceptance/B-20260920-local/server-lint-closing.log
+  s_142b4668ab2d27::t_efce9ca75ff348 1-4
+artifacts/acceptance/B-20260920-local/server-lint-final.log
+  s_142b4668ab2d27::t_5e963072fda234 1-4
+artifacts/acceptance/B-20260920-local/server-lint-recheck.log
+  s_142b4668ab2d27::t_e4b9bffc26e7ae 1-11
+artifacts/acceptance/B-20260920-local/server-lint.log
+  s_142b4668ab2d27::t_8191ad9c2095f7 1-11
+artifacts/acceptance/B-20260920-local/server-typecheck-closing.log
+  s_142b4668ab2d27::t_9eaa53526e0260 1-4
+artifacts/acceptance/B-20260920-local/server-typecheck-final.log
+  s_142b4668ab2d27::t_4194b09e6a3cc4 1-4
+artifacts/acceptance/B-20260920-local/server-typecheck.log
+  s_142b4668ab2d27::t_6b0abff26a26f5 1-5
+artifacts/acceptance/B-20260920-local/server-unit-closing.log
+  s_142b4668ab2d27::t_b69b4dc29fc423 1-47
+artifacts/acceptance/B-20260920-local/server-unit-final.log
+  s_142b4668ab2d27::t_3e3d1bf6d5a6c6 1-66
+artifacts/acceptance/B-20260920-local/server-unit.log
+  s_142b4668ab2d27::t_65982879993a27 1-67
+artifacts/acceptance/B-20260920-local/spec-commands.json
+  s_142b4668ab2d27::t_80636972ea8f13 1-58
+artifacts/acceptance/B-20260920-local/spec-static-closing.log
+  s_142b4668ab2d27::t_99bb6dc49c637c 1-29
+artifacts/acceptance/B-20260920-local/spec-static.log
+  s_142b4668ab2d27::t_2f557beb3597be 1-30
+artifacts/acceptance/B-20260920-local/stack-static-closing.log
+  s_142b4668ab2d27::t_b2710a044322b6 1-551
+artifacts/acceptance/B-20260920-local/stack-static.log
+  s_142b4668ab2d27::t_38ee7f8f30c5e6 1-552
+artifacts/acceptance/B-20260920-local/task-gate-diagnostic.json
+  s_142b4668ab2d27::t_657b5fae42c4a7 1-12
+artifacts/acceptance/B-20260920-local/task-gate-diagnostic.log
+  s_142b4668ab2d27::t_ab2b234e36bd0d 1
+artifacts/acceptance/B-20260920-local/task-gates.json
+  s_142b4668ab2d27::t_28d40b60b179d4 1-92
+artifacts/acceptance/B-20260920-local/teacher-ui-final.log
+  s_142b4668ab2d27::t_b61e57f2bc6e47 1-14
+artifacts/acceptance/B-20260920-local/web-app-isolated.log
+  s_142b4668ab2d27::t_fdad6e6fd355d2 1-43
+artifacts/acceptance/B-20260920-local/web-build.log
+  s_142b4668ab2d27::t_b785c06de0030c 1-94
+artifacts/acceptance/B-20260920-local/web-lint.log
+  s_142b4668ab2d27::t_91d1e8a1589ca0 1-5
+artifacts/acceptance/B-20260920-local/web-typecheck.log
+  s_142b4668ab2d27::t_d2b675701d600f 1-5
+artifacts/acceptance/B-20260920-local/web-unit-bounded-workers.log
+  s_142b4668ab2d27::t_7841cb44691e83 1-1112
+artifacts/acceptance/B-20260920-local/web-unit.log
+  s_142b4668ab2d27::t_1d6dc220a93f7e 1-173
+artifacts/acceptance/B-20260920-merge/bounded-commands.json
+  s_142b4668ab2d27::t_5cf46f02573876 1-14
+artifacts/acceptance/B-20260920-merge/merge-review.json
+  s_142b4668ab2d27::t_65b56f456a9ddb 1-225
+artifacts/acceptance/B-20260920-merge/serial-web-command.json
+  s_142b4668ab2d27::t_dc70856bf82bdb 1-6
+artifacts/eval/baseline/B-20260920-local/README.md
+  s_142b4668ab2d27::t_9174d3f2745eef 1-6
+artifacts/eval/final/B-20260920-local/README.md
+  s_142b4668ab2d27::t_b0f2d2b4fe3f37 1-6
+artifacts/eval/roles/B-20260920-local/README.md
+  s_142b4668ab2d27::t_43f83ced0d0538 1-6
+artifacts/release/teaching/B-20260920-local/readiness.json
+  s_142b4668ab2d27::t_db0b177d619be9 1-82
+artifacts/release/teaching/B-20260920-local/snapshot.json
+  s_142b4668ab2d27::t_8e371bdbfe7b26 1-423
+docs/develop-b-v0.1-verification.md
+  s_142b4668ab2d27::t_b6db2f5e39ddba 1-97
+docs/model-card.md
+  s_142b4668ab2d27::t_855993ba7cdbe2 1-41
+docs/teaching-demo.md
+  s_142b4668ab2d27::t_35a11e46e0df5a 1-36
+qisi-sdd-v3/changes/B01.md
+  s_142b4668ab2d27::t_1f109cc1bee4f2 1-44
+qisi-sdd-v3/changes/B02.md
+  s_142b4668ab2d27::t_96aa5265530303 26-31
+qisi-sdd-v3/changes/B03.md
+  s_142b4668ab2d27::t_31c2f2425ae5ee 1-188
+qisi-sdd-v3/changes/B04.md
+  s_142b4668ab2d27::t_221ade1d9f8373 20-33
+qisi-sdd-v3/changes/B05.md
+  s_142b4668ab2d27::t_7b7e75f4ac1cd2 1-34
+qisi-sdd-v3/changes/B06.md
+  s_142b4668ab2d27::t_541729bd778797 1-14
+qisi-sdd-v3/changes/B07.md
+  s_142b4668ab2d27::t_e47e380e880d8c 1-24
+qisi-sdd-v3/changes/B08.md
+  s_142b4668ab2d27::t_f7681569572a7f 1-13
+qisi-sdd-v3/changes/B09.md
+  s_142b4668ab2d27::t_bbd82db29c511a 1-10
+qisi-sdd-v3/changes/B10.md
+  s_142b4668ab2d27::t_5a623967fcdbc6 1-8
+qisi-sdd-v3/handoffs/B01.md
+  s_142b4668ab2d27::t_a3fe2c2f70d347 1-125
+qisi-sdd-v3/handoffs/B02.md
+  s_142b4668ab2d27::t_35e09042ab9afc 44-77
+qisi-sdd-v3/handoffs/B03.md
+  s_142b4668ab2d27::t_79e5ba731a7bf8 1-297
+qisi-sdd-v3/handoffs/B04.md
+  s_142b4668ab2d27::t_c8978e678c936d 27-60
+qisi-sdd-v3/handoffs/B05.md
+  s_142b4668ab2d27::t_d5b87477e4d8a1 1-53
+qisi-sdd-v3/handoffs/B06.md
+  s_142b4668ab2d27::t_0a54080ce4edfa 1-35
+qisi-sdd-v3/handoffs/B07.md
+  s_142b4668ab2d27::t_1f5bc7bb35b8eb 1-75
+qisi-sdd-v3/handoffs/B08.md
+  s_142b4668ab2d27::t_603359968795fb 1-35
+qisi-sdd-v3/handoffs/B09.md
+  s_142b4668ab2d27::t_22f6e7cff834c1 1-35
+qisi-sdd-v3/handoffs/B10.md
+  s_142b4668ab2d27::t_68d38fbb02d019 1-35
+qisi-sdd-v3/tasks.json
+  s_142b4668ab2d27::t_f88ad43f06ed44 151,285,420,549,689,831,984,1131,1275,1421
+scripts/evaluate-teaching.md
+  s_142b4668ab2d27::t_fdced81b3da8f1 1-40
+scripts/evaluate-teaching.mjs
+  s_142b4668ab2d27::t_e769f25bbab3cb 1-98
+server/src/agents/context.ts
+  s_142b4668ab2d27::t_15b85260fe1a26 74-79,87-109,120,137,151,164-171,178-179,181-182,191,212
+server/src/agents/diagnosis/index.ts
+  s_142b4668ab2d27::t_106bf6f0ead8f2 9,11,21-25,29,33-38,40
+server/src/agents/strategy/index.ts
+  s_142b4668ab2d27::t_72a57f070ebf63 9,11,21-23,27,31-36,38
+server/src/agents/strategy/route-admission.ts
+  s_142b4668ab2d27::t_76062fd8efe8e7 1-22
+server/src/app.module.ts
+  s_142b4668ab2d27::t_f248c22f6e3830 15,35
+server/src/database/database.types.ts
+  s_142b4668ab2d27::t_af8b18738e36fb 260-269,271
+server/src/features/learning/learning-session.service.spec.ts
+  s_142b4668ab2d27::t_68384e6d2aecf0 269,280
+server/src/features/learning/learning-session.service.ts
+  s_142b4668ab2d27::t_195280bc2c7851 9-10,14-16,19-20,69,80-81,94-104,147,158-176,559,571,581-585,675,704-705,765-767,778-803,883,892,917,930-934,985,999,1034-1040,1045-1046,1049-1050
+server/src/features/teacher/teacher.controller.ts
+  s_142b4668ab2d27::t_af414348cbb45e 1-24
+server/src/features/teacher/teacher.module.ts
+  s_142b4668ab2d27::t_2067af445af57f 1-11
+server/src/features/teacher/teacher.port.ts
+  s_142b4668ab2d27::t_a0cee71573b42e 1-27
+server/src/features/teacher/teacher.projection.ts
+  s_142b4668ab2d27::t_f38a1bb35043ed 1-26
+server/src/features/teacher/teacher.service.ts
+  s_142b4668ab2d27::t_3c05eace772f91 1-46
+server/src/features/tutor/corrections.ts
+  s_142b4668ab2d27::t_d085a13bf8dfab 1-40
+server/src/features/tutor/database-session.port.ts
+  s_142b4668ab2d27::t_8bb06064e5963e 1-212
+server/src/features/tutor/evidence.ts
+  s_142b4668ab2d27::t_24079c5b089abd 1-66
+server/src/features/tutor/ladder.ts
+  s_142b4668ab2d27::t_6b60137bc66a8d 1-33
+server/src/features/tutor/learning-turn.store.ts
+  s_142b4668ab2d27::t_47d24676815698 1-103
+server/src/features/tutor/persisted-teaching.ts
+  s_142b4668ab2d27::t_c5774f826b1d3f 1-69
+server/src/features/tutor/submit-turn.deps.ts
+  s_142b4668ab2d27::t_3a1443ca697428 1-378
+server/src/features/tutor/tutor.controller.ts
+  s_142b4668ab2d27::t_fa552f8d79b324 65
+server/src/features/tutor/tutor.module.ts
+  s_142b4668ab2d27::t_4e16a83836d05a 3-4,6-8,10-17,20-21,23-24,26,29,32-33,39-42
+server/src/model/budget.ts
+  s_142b4668ab2d27::t_72b7b51c1438fa 50,61,90-91,107-108,126-128,138-140,143-150
+server/src/model/budgeted.provider.ts
+  s_142b4668ab2d27::t_8d6ec784188a00 40-41,50,52,55-65,68,70-71,76-85,122-126,128-134,149-151
+server/src/workflows/orchestrator.ts
+  s_142b4668ab2d27::t_811f4869be2072 29-30,69-89,92-101,154-158,299-313,325,341-342,348-349,365,384-389,397-398,404-405,424,434-435,444
+server/src/workflows/policy-gate.ts
+  s_142b4668ab2d27::t_dd48428436ce94 22-24,63-66,129
+server/src/workflows/policy.ts
+  s_142b4668ab2d27::t_1320d5711bb5ef 1-30
+server/src/workflows/store.port.ts
+  s_142b4668ab2d27::t_18775e4ba34375 12-13,59-60,75-83,95
+server/src/workflows/turn.ts
+  s_142b4668ab2d27::t_f2733cf6d44821 115-118
+server/test/agents/at13-role-isolation.spec.ts
+  s_142b4668ab2d27::t_32ab3a58d367a5 154-159,162,197-200,203,316-319,322,350-353,356
+server/test/agents/context.spec.ts
+  s_142b4668ab2d27::t_8fc8e27f0fae07 1-61
+server/test/corrections/corrections.spec.ts
+  s_142b4668ab2d27::t_eecc1ec2b30528 1-29
+server/test/diagnosis/canonical-goal.spec.ts
+  s_142b4668ab2d27::t_d3937e690f4f96 1-33
+server/test/diagnosis/evidence.spec.ts
+  s_142b4668ab2d27::t_719fb7ae1febad 1-76
+server/test/eval/evaluate-teaching.node.mjs
+  s_142b4668ab2d27::t_dd4e95d3ad5b5e 1-45
+server/test/strategy/admission.spec.ts
+  s_142b4668ab2d27::t_e1020fd826ba01 1-35
+server/test/strategy/ladder.spec.ts
+  s_142b4668ab2d27::t_77b5e7d45d3847 1-37
+server/test/strategy/route-admission.spec.ts
+  s_142b4668ab2d27::t_aa8fb7ffc4fcfc 1-25
+server/test/teacher/teacher-http.spec.ts
+  s_142b4668ab2d27::t_e237165b9294b7 1-62
+server/test/teacher/teacher.spec.ts
+  s_142b4668ab2d27::t_97ab25c9084366 1-62
+server/test/tutor/app-wiring.spec.ts
+  s_142b4668ab2d27::t_ab3d854b546b12 1-46
+server/test/tutor/at27-renderer-input.spec.ts
+  s_142b4668ab2d27::t_154f9225c56eaa 80,86,111-113,121-124,127,220-238
+server/test/tutor/b09-adversarial.spec.ts
+  s_142b4668ab2d27::t_84d151858e2dcd 1-34
+server/test/tutor/learning-persistence.mysql.spec.ts
+  s_142b4668ab2d27::t_1d0d8c109700ac 1-213
+server/test/tutor/learning-transaction.spec.ts
+  s_142b4668ab2d27::t_44ee94e0c164ea 1-49
+server/test/tutor/persistence-boundary.spec.ts
+  s_142b4668ab2d27::t_a2e054e304bd84 1-52
+server/test/tutor/persistent-runner.spec.ts
+  s_142b4668ab2d27::t_51dbefe2da647d 1-88
+server/test/tutor/probe-and-projection.spec.ts
+  s_142b4668ab2d27::t_3aea992ed72a45 200,208-209
+server/test/tutor/run-isolated-mysql.py
+  s_142b4668ab2d27::t_0a4fb89f2df5e3 1-90
+server/test/tutor/submit-turn-deps.spec.ts
+  s_142b4668ab2d27::t_c164288536e5cd 1-260
+server/test/tutor/submit-turn.spec.ts
+  s_142b4668ab2d27::t_722fa3f1164556 33-35
+server/test/workflows/actual-exposure.spec.ts
+  s_142b4668ab2d27::t_debe4267ea7686 1-21
+server/test/workflows/admission-failure.spec.ts
+  s_142b4668ab2d27::t_4bfdc0650f36c1 1-57
+server/test/workflows/budget-safety.spec.ts
+  s_142b4668ab2d27::t_d7a1344ed775f0 1-37
+server/test/workflows/probe-count-from-strategy.spec.ts
+  s_142b4668ab2d27::t_1607784c3eecdc 1-162
+web/src/pages/teacher/TeacherPage.test.tsx
+  s_142b4668ab2d27::t_3af492a580f88f 1-26
+web/src/pages/teacher/TeacherPage.tsx
+  s_142b4668ab2d27::t_92e070046d465c 1-80
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "31bdf15fdcee4a4efbea14b8f457a4c0dacd749b",
+  "prompts": {},
+  "sessions": {
+    "s_142b4668ab2d27": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0bd99-a08c-7de0-918a-b07ee54ef41c",
+        "model": "gpt-6-astra-ga"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    }
+  }
+}
