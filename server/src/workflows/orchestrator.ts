@@ -77,8 +77,14 @@ export interface TurnCommand {
    * 由调用方在闭包里捕获。
    */
   readonly buildStrategyInput: (diagnosis: Diagnosis) => unknown;
-  readonly rendererInput: unknown;
-  readonly guardInput: unknown;
+  /**
+   * 表达与守卫的输入同样依赖**上游节点的产出**，不能由调用方预烘焙：
+   * RendererInput 的 action / intervention / scaffold_level 全部来自 Strategy，
+   * GuardInput 的 allowed_disclosures / reserved_decisions 也是。
+   * 与 buildStrategyInput 属同一类缺陷，一并改为产出后构造。
+   */
+  readonly buildRendererInput: (strategy: Strategy) => unknown;
+  readonly buildGuardInput: (strategy: Strategy, candidate: unknown) => unknown;
   readonly knownDecisionIds: ReadonlySet<string>;
   readonly knownGoalKeys: ReadonlySet<string>;
   readonly probesShownForFocusGoal: number;
@@ -345,6 +351,9 @@ export class WorkflowOrchestrator {
   > {
     const rendererModel = this.#config.models.renderer;
     const guardModel = this.#config.models.guard;
+    // 表达输入依赖本轮策略（action / intervention / scaffold_level 全来自它），
+    // 因此在此构造而非由调用方预烘焙。
+    const rendererInput = command.buildRendererInput(strategy);
 
     const renderOnce = async (): Promise<RenderedMessage> => {
       const node = await this.#runNode<RenderedMessage>({
@@ -352,14 +361,15 @@ export class WorkflowOrchestrator {
         leaseToken: run.leaseToken,
         nodeKey: 'renderer',
         model: rendererModel,
-        input: command.rendererInput,
-        execute: () => this.renderer.run(command.rendererInput as never, port, this.#callOptions(rendererModel, budget)),
+        input: rendererInput,
+        execute: () => this.renderer.run(rendererInput as never, port, this.#callOptions(rendererModel, budget)),
       });
       return node.value;
     };
 
     const guardOnce = async (message: RenderedMessage): Promise<GuardResult> => {
-      const guardInput = { ...(command.guardInput as Record<string, unknown>), candidate_json: JSON.stringify(message) };
+      // 守卫输入同样依赖本轮策略（允许披露/保留决策），候选内容在提交前注入。
+      const guardInput = command.buildGuardInput(strategy, message);
       const node = await this.#runNode<GuardResult>({
         runId: run.runId,
         leaseToken: run.leaseToken,
@@ -388,8 +398,8 @@ export class WorkflowOrchestrator {
         leaseToken: run.leaseToken,
         nodeKey: 'renderer_rewrite',
         model: rendererModel,
-        input: command.rendererInput,
-        execute: () => this.renderer.run(command.rendererInput as never, port, this.#callOptions(rendererModel, budget)),
+        input: rendererInput,
+        execute: () => this.renderer.run(rendererInput as never, port, this.#callOptions(rendererModel, budget)),
       });
       message = rewriteNode.value;
       guardResult = await guardOnce(message);

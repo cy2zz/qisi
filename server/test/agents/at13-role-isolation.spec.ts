@@ -153,8 +153,10 @@ describe('AT13：四角色经过各自的契约与提示节点', () => {
       routeReviewInput: projectPreparationInput(context, 'route_review'),
       // 策略输入必须由本轮诊断构造，不能用夹具里预先烘焙的诊断。
       buildStrategyInput: (diagnosis) => ({ ...projectStrategyInput(context), diagnosis }),
-      rendererInput: projectRendererInput(context, strategyFixture.allowed_facts),
-      guardInput: projectGuardInput(context, 'message', { text_md: '' }, strategyFixture.allowed_disclosures, strategyFixture.reserved_decisions),
+      // 表达/守卫输入依赖本轮策略，由编排器在策略产出后构造。
+      buildRendererInput: (strategy) => projectRendererInput({ ...context, strategy }, strategyFixture.allowed_facts),
+      buildGuardInput: (strategy, candidate) =>
+        projectGuardInput({ ...context, strategy }, 'message', candidate, strategyFixture.allowed_disclosures, strategyFixture.reserved_decisions),
       knownDecisionIds: new Set(packet.decisions.map((decision) => decision.id)),
       knownGoalKeys: new Set(packet.decisions.map((decision) => decision.goal_key)),
       probesShownForFocusGoal: 0,
@@ -194,8 +196,8 @@ describe('AT13：四角色经过各自的契约与提示节点', () => {
       routeReviewInput: null,
       // 策略输入必须由本轮诊断构造，不能用夹具里预先烘焙的诊断。
       buildStrategyInput: (diagnosis) => ({ ...projectStrategyInput(context), diagnosis }),
-      rendererInput: projectRendererInput(context, strategyFixture.allowed_facts),
-      guardInput: projectGuardInput(context, 'message', {}, [], []),
+      buildRendererInput: (strategy) => projectRendererInput({ ...context, strategy }, strategyFixture.allowed_facts),
+      buildGuardInput: (strategy, candidate) => projectGuardInput({ ...context, strategy }, 'message', candidate, [], []),
       knownDecisionIds: new Set(packet.decisions.map((decision) => decision.id)),
       knownGoalKeys: new Set(packet.decisions.map((decision) => decision.goal_key)),
       probesShownForFocusGoal: 0,
@@ -313,8 +315,8 @@ describe('AT13：单角色输出不合格不得被其他角色补成成功', () 
         routeReviewInput: null,
         // 策略输入必须由本轮诊断构造，不能用夹具里预先烘焙的诊断。
       buildStrategyInput: (diagnosis) => ({ ...projectStrategyInput(context), diagnosis }),
-        rendererInput: projectRendererInput(context, []),
-        guardInput: projectGuardInput(context, 'message', {}, [], []),
+        buildRendererInput: (strategy) => projectRendererInput({ ...context, strategy }, []),
+        buildGuardInput: (strategy, candidate) => projectGuardInput({ ...context, strategy }, 'message', candidate, [], []),
         knownDecisionIds: new Set(packet.decisions.map((decision) => decision.id)),
         knownGoalKeys: new Set(packet.decisions.map((decision) => decision.goal_key)),
         probesShownForFocusGoal: 0,
@@ -347,8 +349,8 @@ describe('AT13：单角色输出不合格不得被其他角色补成成功', () 
       routeReviewInput: null,
       // 策略输入必须由本轮诊断构造，不能用夹具里预先烘焙的诊断。
       buildStrategyInput: (diagnosis) => ({ ...projectStrategyInput(context), diagnosis }),
-      rendererInput: projectRendererInput(context, []),
-      guardInput: projectGuardInput(context, 'message', {}, [], []),
+      buildRendererInput: (strategy) => projectRendererInput({ ...context, strategy }, []),
+      buildGuardInput: (strategy, candidate) => projectGuardInput({ ...context, strategy }, 'message', candidate, [], []),
       knownDecisionIds: new Set(packet.decisions.map((decision) => decision.id)),
       knownGoalKeys: new Set(packet.decisions.map((decision) => decision.goal_key)),
       probesShownForFocusGoal: 0,
