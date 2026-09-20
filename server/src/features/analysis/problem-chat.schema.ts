@@ -35,6 +35,7 @@ export const problemChatResponseSchema = z
   .object({
     currentVerdict: z.enum(['correct', 'incorrect', 'unknown']).optional(),
     reply: z.string().trim().min(1).max(2_000),
+    routeAttribution: z.enum(['student', 'coauthored']).optional(),
   })
   .strict();
 

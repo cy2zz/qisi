@@ -6,7 +6,12 @@ import {
 } from '@nestjs/common';
 import { createHash, randomBytes, randomUUID } from 'node:crypto';
 import { DatabaseService } from '../../database/database.service.js';
-import { ExposureSchema, type Exposure } from '../../contracts/domain.schema.js';
+import {
+  ExposureSchema,
+  RoutePatchSchema,
+  type Exposure,
+  type RoutePatch,
+} from '../../contracts/domain.schema.js';
 import type { ProblemAnalysis } from '../analysis/problem-analysis.schema.js';
 import type {
   TutorNodeRecord,
@@ -57,6 +62,7 @@ export interface ReplayedTurn {
   currentVerdict?: 'correct' | 'incorrect' | 'unknown';
   kind: 'replay';
   reply: string;
+  routeAttribution?: 'student' | 'coauthored';
   version: number;
 }
 
@@ -84,6 +90,8 @@ interface CommitTurnInput {
   reply: string;
   requestId: string;
   remediationFocus?: RemediationFocus;
+  routeAttribution?: 'student' | 'coauthored';
+  routePatch?: RoutePatch;
   runId: string;
   sessionId: string;
   expectedVersion: number;
@@ -146,6 +154,7 @@ export function restoreTutorTeachingState(
 ): TutorTeachingState {
   const exposures: Exposure[] = [];
   const probesShownByGoal: Record<string, number> = {};
+  const routePatches: RoutePatch[] = [];
   const taskId = `session-${sessionId}`;
   const contentHash = problemContentHash(problemMd);
 
@@ -154,6 +163,11 @@ export function restoreTutorTeachingState(
     if (row.event_type === 'diagnostic_probe_shown') {
       const goalKey = typeof payload.goalKey === 'string' ? payload.goalKey : '';
       if (goalKey) probesShownByGoal[goalKey] = (probesShownByGoal[goalKey] ?? 0) + 1;
+      continue;
+    }
+    if (row.event_type === 'route_patch_approved') {
+      const parsed = RoutePatchSchema.safeParse(payload.routePatch);
+      if (parsed.success && parsed.data.task_id === taskId) routePatches.push(parsed.data);
       continue;
     }
     if (row.event_type !== 'help_exposed') continue;
@@ -174,7 +188,7 @@ export function restoreTutorTeachingState(
     if (exposure.success) exposures.push(exposure.data);
   }
 
-  return { exposures, probesShownByGoal };
+  return { exposures, probesShownByGoal, routePatches };
 }
 
 export function remediationTrackAfterTurn(
@@ -502,6 +516,7 @@ export class LearningSessionService {
           const response = parseJson<{
             currentVerdict?: 'correct' | 'incorrect' | 'unknown';
             reply: string;
+            routeAttribution?: 'student' | 'coauthored';
             version: number;
           }>(
             existing.safe_response_json,
@@ -538,7 +553,11 @@ export class LearningSessionService {
         .select(['id', 'subject_id', 'event_type', 'payload_json', 'db_create_time'])
         .where('session_id', '=', input.sessionId)
         .where('invalidated', '=', 0)
-        .where('event_type', 'in', ['help_exposed', 'diagnostic_probe_shown'])
+        .where('event_type', 'in', [
+          'help_exposed',
+          'diagnostic_probe_shown',
+          'route_patch_approved',
+        ])
         .orderBy('seq', 'asc')
         .execute();
       const preparationEvent = await transaction
@@ -711,6 +730,7 @@ export class LearningSessionService {
           ? { currentVerdict: input.currentVerdict ?? 'unknown' }
           : {}),
         ...(input.remediationFocus ? { remediationFocus: input.remediationFocus } : {}),
+        ...(input.routeAttribution ? { routeAttribution: input.routeAttribution } : {}),
       };
       const assessmentHelp = await transaction
         .selectFrom('events')
@@ -775,6 +795,7 @@ export class LearningSessionService {
           payload: {
             assistanceMode: input.assistanceMode,
             ...(input.remediationFocus ? { remediationFocus: input.remediationFocus } : {}),
+            ...(input.routeAttribution ? { routeAttribution: input.routeAttribution } : {}),
           },
           subjectId: input.requestId,
         },
@@ -816,6 +837,13 @@ export class LearningSessionService {
             goalKey: input.audit.probeGoalKey,
             questionMd: input.audit.probe?.question_md ?? '',
           },
+          subjectId: input.requestId,
+        });
+      }
+      if (input.routePatch) {
+        eventFacts.push({
+          eventType: 'route_patch_approved',
+          payload: { routePatch: input.routePatch },
           subjectId: input.requestId,
         });
       }
@@ -873,6 +901,7 @@ export class LearningSessionService {
           ? { currentVerdict: input.currentVerdict ?? 'unknown' }
           : {}),
         reply: input.reply,
+        ...(input.routeAttribution ? { routeAttribution: input.routeAttribution } : {}),
         version,
       };
       await transaction

@@ -24,6 +24,7 @@
     "test:media-persistence": "tsx scripts/verify-media-persistence.ts",
     "test:tutor-live": "tsx scripts/verify-tutor-live.ts",
     "test:tutor-live-ui": "tsx scripts/verify-tutor-live-ui.ts",
+    "eval:alternative-route-live": "tsx scripts/evaluate-alternative-route-live.ts",
     "eval:diagnosis-live": "tsx scripts/evaluate-diagnosis-live.ts",
     "test:privacy-retention": "tsx scripts/verify-privacy-retention.ts",
     "test:persistence": "tsx scripts/verify-learning-persistence.ts",

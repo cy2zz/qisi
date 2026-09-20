@@ -30,6 +30,7 @@ export type ApiStreamEvent =
   | { text: string; type: 'chunk' }
   | {
       currentVerdict?: 'correct' | 'incorrect' | 'unknown';
+      routeAttribution?: 'student' | 'coauthored';
       type: 'done';
       version?: number;
     }
@@ -55,6 +56,9 @@ function parseStreamEvent(block: string): ApiStreamEvent | null {
         || parsed.currentVerdict === 'incorrect'
         || parsed.currentVerdict === 'unknown'
         ? { currentVerdict: parsed.currentVerdict }
+        : {}),
+      ...(parsed.routeAttribution === 'student' || parsed.routeAttribution === 'coauthored'
+        ? { routeAttribution: parsed.routeAttribution }
         : {}),
       ...(typeof parsed.version === 'number' ? { version: parsed.version } : {}),
     };

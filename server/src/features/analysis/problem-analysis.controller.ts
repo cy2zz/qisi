@@ -38,8 +38,6 @@ const requestSchema = z
     topic: z.string().trim().max(255).optional(),
   })
   .strict();
-const STREAM_CHUNK_SIZE = 8;
-const STREAM_CHUNK_DELAY_MS = 18;
 const LIVE_BANK_PREPARATION_CONFIG = 'qisi-3.1-live-bank-solution-image-v1';
 
 function problemContentHash(problemMd: string) {
@@ -48,19 +46,6 @@ function problemContentHash(problemMd: string) {
 
 function writeStreamEvent(response: Response, event: string, data: object) {
   response.write(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`);
-}
-
-function splitReply(reply: string) {
-  const characters = Array.from(reply);
-  const chunks: string[] = [];
-  for (let index = 0; index < characters.length; index += STREAM_CHUNK_SIZE) {
-    chunks.push(characters.slice(index, index + STREAM_CHUNK_SIZE).join(''));
-  }
-  return chunks;
-}
-
-function waitForStreamFrame() {
-  return new Promise<void>((resolve) => setTimeout(resolve, STREAM_CHUNK_DELAY_MS));
 }
 
 @Controller('problems')
@@ -238,12 +223,13 @@ export class ProblemAnalysisController {
     response.flushHeaders();
 
     if (reservation.kind === 'replay') {
-      for (const text of splitReply(reservation.reply)) {
-        writeStreamEvent(response, 'chunk', { text });
-      }
+      writeStreamEvent(response, 'chunk', { text: reservation.reply });
       writeStreamEvent(response, 'done', {
         ...(reservation.currentVerdict
           ? { currentVerdict: reservation.currentVerdict }
+          : {}),
+        ...(reservation.routeAttribution
+          ? { routeAttribution: reservation.routeAttribution }
           : {}),
         version: reservation.version,
       });
@@ -309,19 +295,19 @@ export class ProblemAnalysisController {
         ownerId: user.id,
         remediationFocus: parsed.data.remediationFocus,
         reply: result.reply,
+        routeAttribution: result.routeAttribution,
+        routePatch: result.routePatch,
         requestId: parsed.data.requestId,
         runId: reservation.runId,
         sessionId: parsed.data.sessionId,
         transcriptId: parsed.data.transcriptId,
         transcriptRevision: parsed.data.transcriptRevision,
       });
-      for (const text of splitReply(result.reply)) {
-        if (response.destroyed || response.writableEnded) return;
-        writeStreamEvent(response, 'chunk', { text });
-        await waitForStreamFrame();
-      }
+      if (response.destroyed || response.writableEnded) return;
+      writeStreamEvent(response, 'chunk', { text: result.reply });
       writeStreamEvent(response, 'done', {
         ...(result.currentVerdict ? { currentVerdict: result.currentVerdict } : {}),
+        ...(result.routeAttribution ? { routeAttribution: result.routeAttribution } : {}),
         version: committed.version,
       });
     } catch (error) {

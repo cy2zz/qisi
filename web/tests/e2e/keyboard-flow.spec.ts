@@ -259,10 +259,12 @@ test('@A09 @AT56 keyboard and narrow-screen users can finish the learning eviden
   const assessmentEditor = page.getByRole('textbox', { name: '独立检验作答' });
   await expect(assessmentEditor).toBeFocused();
   await page.keyboard.insertText('先将分子分母同乘根式，再约分。');
-  await expect(page.getByRole('alert')).toContainText('当前输入仍保留在页面中');
+  await expect(page.getByRole('status', { name: '草稿保存状态' }))
+    .toHaveText('已保存在本机，等待网络恢复');
+  await expect(page.getByRole('alert')).toHaveCount(0);
   await expect(assessmentEditor).toHaveValue('先将分子分母同乘根式，再约分。');
 
-  const retrySave = page.getByRole('button', { name: '重试保存' });
+  const retrySave = page.getByRole('button', { name: '立即同步' });
   await tabTo(page, retrySave);
   await page.keyboard.press('Enter');
   await expect(page.getByRole('status', { name: '草稿保存状态' })).toHaveText('已自动保存');
@@ -289,6 +291,14 @@ test('@A09 @AT56 keyboard and narrow-screen users can finish the learning eviden
     'href',
     '/learn/12/check?intent=reassess',
   );
+  const reportShortcut = page.getByRole('navigation', { name: '报告下一步快捷入口' });
+  if (testInfo.project.name.startsWith('h5-')) {
+    await expect(reportShortcut).toBeVisible();
+    await expect(reportShortcut.getByRole('link', { name: '快捷继续下一步' }))
+      .toHaveAttribute('href', '/history');
+  } else {
+    await expect(reportShortcut).toBeHidden();
+  }
   await expect(page.getByText(/\d+%/)).toHaveCount(0);
   await expect.poll(async () => page.evaluate(
     () => document.documentElement.scrollWidth <= document.documentElement.clientWidth,

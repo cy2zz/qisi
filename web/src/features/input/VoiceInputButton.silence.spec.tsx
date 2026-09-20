@@ -77,4 +77,55 @@ describe('VoiceInputButton realtime silence', () => {
     expect(onTranscript).toHaveBeenLastCalledWith('$\\frac{\\sqrt{2}}{\\sqrt{3}}$');
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
+
+  it('recovers when the realtime connection never becomes ready', async () => {
+    vi.useFakeTimers();
+    mocks.captureStop.mockResolvedValue(new Blob([], { type: 'audio/wav' }));
+    render(<VoiceInputButton onTranscript={vi.fn()} />);
+
+    fireEvent.click(screen.getByRole('button', { name: '实时语音' }));
+    await act(async () => Promise.resolve());
+    expect(screen.getByText('正在连接实时识别…')).toBeInTheDocument();
+
+    await act(async () => {
+      vi.advanceTimersByTime(10_000);
+      await Promise.resolve();
+    });
+
+    expect(screen.getByText('实时语音连接超时，已结束录音，请重试。')).toBeInTheDocument();
+    expect(mocks.captureStop).toHaveBeenCalledTimes(1);
+    expect(mocks.sessionClose).toHaveBeenCalledTimes(1);
+    expect(screen.getByRole('button', { name: '实时语音' })).toBeEnabled();
+  });
+
+  it('keeps the recognized text when formula formatting never completes', async () => {
+    vi.useFakeTimers();
+    mocks.captureStop.mockResolvedValue(new Blob([], { type: 'audio/wav' }));
+    const onInterimTranscript = vi.fn();
+    const onTranscript = vi.fn();
+    render(
+      <VoiceInputButton
+        onInterimTranscript={onInterimTranscript}
+        onTranscript={onTranscript}
+      />,
+    );
+
+    fireEvent.click(screen.getByRole('button', { name: '实时语音' }));
+    await act(async () => Promise.resolve());
+    act(() => mocks.callbacks?.onReady());
+    act(() => mocks.callbacks?.onTranscript('根号2除以根号3', false));
+    fireEvent.click(screen.getByRole('button', { name: '停止实时语音录音' }));
+    await act(async () => Promise.resolve());
+    expect(mocks.sessionFinish).toHaveBeenCalledTimes(1);
+
+    await act(async () => {
+      vi.advanceTimersByTime(30_000);
+      await Promise.resolve();
+    });
+
+    expect(onTranscript).toHaveBeenLastCalledWith('根号2除以根号3');
+    expect(screen.getByText('公式整理超时，已保留实时识别原文，请检查后重试。'))
+      .toBeInTheDocument();
+    expect(screen.getByRole('button', { name: '实时语音' })).toBeEnabled();
+  });
 });

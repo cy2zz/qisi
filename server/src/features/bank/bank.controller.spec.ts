@@ -8,6 +8,7 @@ import type { BankService } from './bank.service.js';
 function createController() {
   const auth = { authenticate: vi.fn() };
   const bank = {
+    drawRandomQuestion: vi.fn(),
     getPaper: vi.fn(),
     listFilterOptions: vi.fn(),
     listPapers: vi.fn(),
@@ -88,5 +89,42 @@ describe('BankController', () => {
     await expect(
       controller.getPaper('999', `${AUTH_COOKIE_NAME}=${'a'.repeat(43)}`),
     ).rejects.toBeInstanceOf(NotFoundException);
+  });
+
+  it('draws once from the explicit scope without accepting a client candidate list', async () => {
+    const { auth, bank, controller } = createController();
+    auth.authenticate.mockResolvedValue({ id: '7', username: '小林' });
+    bank.drawRandomQuestion.mockResolvedValue({
+      requestId: '018f15b8-0b48-7f8a-9db6-4415b775a001',
+      scope: { bankVersion: 'exam-bank@2026-09-20T00:00:00.000Z', selectableCount: 12 },
+      selection: { paper: { id: '41' }, question: { id: '801' } },
+    });
+
+    await expect(controller.drawRandomQuestion(
+      {
+        filters: { region: '北京', track: '综合', year: 2024 },
+        requestId: '018f15b8-0b48-7f8a-9db6-4415b775a001',
+      },
+      `${AUTH_COOKIE_NAME}=${'a'.repeat(43)}`,
+    )).resolves.toMatchObject({
+      requestId: '018f15b8-0b48-7f8a-9db6-4415b775a001',
+      selection: { question: { id: '801' } },
+    });
+
+    expect(bank.drawRandomQuestion).toHaveBeenCalledWith('7', {
+      filters: { region: '北京', track: '综合', year: 2024 },
+      requestId: '018f15b8-0b48-7f8a-9db6-4415b775a001',
+    });
+  });
+
+  it('rejects a client-supplied random candidate list', async () => {
+    const { bank, controller } = createController();
+
+    await expect(controller.drawRandomQuestion({
+      candidates: ['801'],
+      filters: {},
+      requestId: '018f15b8-0b48-7f8a-9db6-4415b775a001',
+    }, undefined)).rejects.toBeInstanceOf(BadRequestException);
+    expect(bank.drawRandomQuestion).not.toHaveBeenCalled();
   });
 });

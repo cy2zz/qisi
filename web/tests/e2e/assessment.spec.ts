@@ -42,7 +42,6 @@ test('@A04 independent assessment direct URL preserves the original-answer gate'
       status: 409,
     });
   });
-
   await page.goto('/learn/12/check');
   await page.getByRole('button', { name: '开始独立检验' }).click();
   await expect(page.getByRole('alert')).toContainText('先回到原题完成核对');
@@ -231,12 +230,42 @@ test('@A04 @AT30 locks the first plan and withholds feedback until final submiss
       status: 200,
     });
   });
+  await page.route('**/api/speech/format-math', async (route) => {
+    await route.fulfill({
+      body: JSON.stringify({
+        formatted: true,
+        markdown: '$\\frac{\\sqrt{2}}{\\sqrt{3}}$ 等于多少？',
+      }),
+      contentType: 'application/json',
+      status: 200,
+    });
+  });
 
   await page.goto('/learn/12/check');
   await page.getByRole('button', { name: '开始独立检验' }).click();
   await expect(page.getByRole('heading', { name: '先写你准备怎么做' })).toBeVisible();
   await expect(page.locator('.assessment-paper .katex')).toBeVisible();
   await expect(page.getByText('有依据')).toHaveCount(0);
+  const planVoice = page.getByRole('group', { name: '语音输入' });
+  await expect(planVoice.getByRole('button', { name: '长语音' })).toBeVisible();
+  await expect(planVoice.getByRole('button', { name: '实时语音' })).toBeVisible();
+
+  const formulaToolbar = page.getByRole('toolbar', { name: '公式快捷输入' });
+  await expect(formulaToolbar.getByRole('button')).toHaveCount(12);
+  if (isMobile) {
+    const formulaToolbarLayout = await formulaToolbar.evaluate((element) => {
+      const style = window.getComputedStyle(element);
+      return {
+        clientWidth: element.clientWidth,
+        flexWrap: style.flexWrap,
+        scrollWidth: element.scrollWidth,
+      };
+    });
+    expect(formulaToolbarLayout.flexWrap).toBe('wrap');
+    expect(formulaToolbarLayout.scrollWidth).toBeLessThanOrEqual(
+      formulaToolbarLayout.clientWidth + 1,
+    );
+  }
 
   const editor = page.getByRole('textbox', { name: '独立检验作答' });
   if (isMobile) {
@@ -247,6 +276,9 @@ test('@A04 @AT30 locks the first plan and withholds feedback until final submiss
     await expect(expandTask).toBeVisible();
     await expect(page.locator('.assessment-paper-compact')).toBeInViewport();
     await expect(editor).toBeInViewport();
+    await expect(formulaToolbar).toBeInViewport();
+    await expect(page.getByRole('button', { name: '添加手写作答' })).toBeInViewport();
+    await expect(page.getByRole('button', { name: '公式转换' })).toBeInViewport();
     const compactPaper = await page.locator('.assessment-paper').boundingBox();
     const expandTaskBox = await expandTask.boundingBox();
     expect(compactPaper).not.toBeNull();
@@ -256,6 +288,11 @@ test('@A04 @AT30 locks the first plan and withholds feedback until final submiss
     expect(expandTaskBox!.x + expandTaskBox!.width).toBeLessThanOrEqual(
       compactPaper!.x + compactPaper!.width,
     );
+    for (const voiceButton of await planVoice.getByRole('button').all()) {
+      const voiceButtonBox = await voiceButton.boundingBox();
+      expect(voiceButtonBox?.width).toBeGreaterThanOrEqual(44);
+      expect(voiceButtonBox?.height).toBeGreaterThanOrEqual(44);
+    }
     if (testInfo.project.name === 'h5-390') {
       await page.screenshot({
         path: 'artifacts/acceptance/A04-writing-keyboard-h5-390.png',
@@ -263,6 +300,14 @@ test('@A04 @AT30 locks the first plan and withholds feedback until final submiss
     }
     await page.setViewportSize(initialViewport!);
   }
+  await editor.fill('根号2除以根号3等于多少？');
+  await page.getByRole('button', { name: '公式转换' }).click();
+  await expect(editor).toHaveValue('$\\frac{\\sqrt{2}}{\\sqrt{3}}$ 等于多少？');
+  await expect(editor).toBeFocused();
+  expect(await editor.evaluate((element) => (element as HTMLTextAreaElement).selectionStart))
+    .toBe(await editor.inputValue().then((value) => value.length));
+  await editor.fill('');
+
   await page.getByRole('button', { name: '插入分式' }).click();
   await editor.press('2');
   await page.getByRole('button', { name: '移动到下一个公式输入格' }).click();
@@ -296,11 +341,42 @@ test('@A04 @AT30 locks the first plan and withholds feedback until final submiss
   await expect(page.getByRole('heading', { name: '现在独立完成答案' })).toBeVisible();
   await expect(page.getByRole('note', { name: '已锁定的首次计划' })).toContainText('先配方');
   await expect(page.getByRole('textbox', { name: '独立检验作答' })).toHaveValue('');
+  const answerVoice = page.getByRole('group', { name: '语音输入' });
+  await expect(answerVoice.getByRole('button', { name: '长语音' })).toBeVisible();
+  await expect(answerVoice.getByRole('button', { name: '实时语音' })).toBeVisible();
+
+  const submitFinalAnswer = page.getByRole('button', { name: '提交最终答案' });
+  const skipFinalAnswer = page.getByRole('button', { name: '暂时不作答' });
+  await expect(submitFinalAnswer).toBeDisabled();
+  await expect(skipFinalAnswer).toBeVisible();
+  if (isMobile) {
+    const skipFinalAnswerBox = await skipFinalAnswer.boundingBox();
+    expect(skipFinalAnswerBox?.height).toBeGreaterThanOrEqual(44);
+  }
+  await skipFinalAnswer.click();
+  const blankAnswerConfirmation = page.getByRole('alertdialog', {
+    name: '以空白答案结束本次检验？',
+  });
+  await expect(blankAnswerConfirmation).toContainText('提交后答案会冻结');
+  await expect(blankAnswerConfirmation.getByRole('button', { name: '继续作答' })).toBeFocused();
+  if (testInfo.project.name === 'pc-1440' || testInfo.project.name === 'h5-390') {
+    await page.screenshot({
+      fullPage: true,
+      path: `artifacts/acceptance/A04-empty-answer-confirm-${testInfo.project.name}.png`,
+    });
+  }
+  await page.keyboard.press('Shift+Tab');
+  await expect(blankAnswerConfirmation.getByRole('button', { name: '确认未作答并结束' }))
+    .toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(blankAnswerConfirmation).toBeHidden();
+  await expect(page.getByRole('textbox', { name: '独立检验作答' })).toBeFocused();
 
   await page.getByRole('textbox', { name: '独立检验作答' }).fill(
     String.raw`$g(x)=(x-3)^2-4$，所以最小值为 $-4$。`,
   );
-  await page.getByRole('button', { name: '提交最终答案' }).click();
+  await expect(submitFinalAnswer).toBeEnabled();
+  await submitFinalAnswer.click();
   await expect(page.getByRole('heading', { name: '这次新题独立完成' })).toBeVisible();
   await expect(page.getByText('独立证据成立')).toHaveCount(2);
   const submittedEvidence = page.getByRole('region', { name: '你的独立作答证据' });
@@ -333,6 +409,145 @@ test('@A04 @AT30 locks the first plan and withholds feedback until final submiss
       path: `artifacts/acceptance/A04-check-${testInfo.project.name}.png`,
     });
   }
+});
+
+test('@A04 an unsynced assessment plan survives refresh and syncs after reconnect', async ({
+  page,
+}, testInfo) => {
+  let allowDraftSync = false;
+  let draftRequests = 0;
+  let ownerScopedReads = 0;
+  let current = {
+    ...baseAttempt,
+    planDraftMarkdown: '云端旧计划：先配方。',
+  };
+  const localPlan = '先配方得到 $g(x)=(x-3)^2-4$，再判断平方项非负。';
+  const localAnswer = '$g(x)=(x-3)^2-4$，因为平方项非负，所以最小值为 $-4$。';
+
+  await page.route('**/api/assessment/**', async (route) => {
+    const pathname = new URL(route.request().url()).pathname;
+    if (route.request().method() === 'GET') {
+      ownerScopedReads += 1;
+      await route.fulfill({
+        body: JSON.stringify({ attempt: current }),
+        contentType: 'application/json',
+        status: 200,
+      });
+      return;
+    }
+    if (pathname.endsWith('/draft')) {
+      draftRequests += 1;
+      if (!allowDraftSync) {
+        await route.fulfill({
+          body: JSON.stringify({ message: 'offline' }),
+          contentType: 'application/json',
+          status: 503,
+        });
+        return;
+      }
+      const body = route.request().postDataJSON() as {
+        kind: 'answer' | 'plan';
+        markdown: string;
+      };
+      current = {
+        ...current,
+        ...(body.kind === 'plan'
+          ? { planDraftMarkdown: body.markdown }
+          : { answerDraftMarkdown: body.markdown }),
+        version: current.version + 1,
+      };
+      await route.fulfill({
+        body: JSON.stringify({ attempt: current }),
+        contentType: 'application/json',
+        status: 200,
+      });
+      return;
+    }
+    if (pathname.endsWith('/plan')) {
+      const body = route.request().postDataJSON() as { planMarkdown: string };
+      current = {
+        ...current,
+        lockedPlanMarkdown: body.planMarkdown,
+        phase: 'check_answer',
+        planDraftMarkdown: body.planMarkdown,
+        version: current.version + 1,
+      };
+      await route.fulfill({
+        body: JSON.stringify({ attempt: current }),
+        contentType: 'application/json',
+        status: 200,
+      });
+      return;
+    }
+    await route.fulfill({ body: '{}', contentType: 'application/json', status: 500 });
+  });
+
+  await page.goto('/learn/12/check');
+  const editor = page.getByRole('textbox', { name: '独立检验作答' });
+  await expect(editor).toHaveValue('云端旧计划：先配方。');
+  await editor.fill(localPlan);
+  await expect(page.getByRole('status', { name: '草稿保存状态' }))
+    .toHaveText('已保存在本机，等待网络恢复');
+  expect(draftRequests).toBe(1);
+  expect(current.planDraftMarkdown).toBe('云端旧计划：先配方。');
+  expect(await page.evaluate(() => Object.keys(localStorage)
+    .some((key) => key.startsWith('qisi:assessment-draft:')))).toBe(true);
+
+  await page.reload();
+  await expect(page.getByRole('textbox', { name: '独立检验作答' })).toHaveValue(localPlan);
+  await expect(page.getByRole('status', { name: '草稿保存状态' }))
+    .toHaveText('已恢复本机草稿，尚未同步');
+  expect(ownerScopedReads).toBeGreaterThanOrEqual(2);
+  expect(draftRequests).toBe(1);
+  await expect(page.getByText('有依据')).toHaveCount(0);
+
+  const syncButton = page.getByRole('button', { name: '立即同步' });
+  await expect(syncButton).toBeVisible();
+  if ((page.viewportSize()?.width ?? 0) <= 720) {
+    expect((await syncButton.boundingBox())?.height).toBeGreaterThanOrEqual(44);
+  }
+  if (testInfo.project.name === 'pc-1440' || testInfo.project.name === 'h5-390') {
+    await page.screenshot({
+      fullPage: true,
+      path: `artifacts/acceptance/A04-offline-draft-${testInfo.project.name}.png`,
+    });
+  }
+
+  allowDraftSync = true;
+  await page.evaluate(() => window.dispatchEvent(new Event('online')));
+  await expect(page.getByRole('status', { name: '草稿保存状态' })).toHaveText('已自动保存');
+  expect(draftRequests).toBe(2);
+  expect(current.planDraftMarkdown).toBe(localPlan);
+  expect(await page.evaluate(() => Object.keys(localStorage)
+    .some((key) => key.startsWith('qisi:assessment-draft:')))).toBe(false);
+
+  await page.getByRole('button', { name: '锁定计划，开始作答' }).click();
+  await expect(page.getByRole('heading', { name: '现在独立完成答案' })).toBeVisible();
+  await expect(page.getByRole('note', { name: '已锁定的首次计划' })).toContainText('先配方得到');
+  allowDraftSync = false;
+  await page.getByRole('textbox', { name: '独立检验作答' }).fill(localAnswer);
+  await expect(page.getByRole('status', { name: '草稿保存状态' }))
+    .toHaveText('已保存在本机，等待网络恢复');
+  expect(draftRequests).toBe(3);
+
+  await page.reload();
+  await expect(page.getByRole('heading', { name: '现在独立完成答案' })).toBeVisible();
+  await expect(page.getByRole('textbox', { name: '独立检验作答' })).toHaveValue(localAnswer);
+  const lockedPlan = page.getByRole('note', { name: '已锁定的首次计划' });
+  await expect(lockedPlan).toContainText('先配方得到');
+  await expect(lockedPlan).toContainText('再判断平方项非负');
+  await expect(lockedPlan.locator('.katex')).toBeVisible();
+  await expect(page.getByRole('status', { name: '草稿保存状态' }))
+    .toHaveText('已恢复本机草稿，尚未同步');
+  await expect(page.getByText('有依据')).toHaveCount(0);
+
+  allowDraftSync = true;
+  await page.evaluate(() => window.dispatchEvent(new Event('online')));
+  await expect(page.getByRole('status', { name: '草稿保存状态' })).toHaveText('已自动保存');
+  expect(draftRequests).toBe(4);
+  expect(current.answerDraftMarkdown).toBe(localAnswer);
+  expect(await page.evaluate(() => Object.keys(localStorage)
+    .some((key) => key.startsWith('qisi:assessment-draft:')))).toBe(false);
 });
 
 test('@A04 @AT32 requesting help records disqualification before any help is exposed', async ({ page }, testInfo) => {
@@ -800,24 +1015,44 @@ test('@A05 @AT33 evidence report keeps planning and execution separate', async (
   await page.route('**/api/reports/sessions/12', async (route) => {
     await route.fulfill({
       body: JSON.stringify({
-        attempts: [{
-          assistance_requested: false,
-          attempt_id: '81',
-          execution: 'incorrect',
-          help_exposed: false,
-          independent_execution: false,
-          independent_planning: true,
-          independent_task_pass: false,
-          invalidated: false,
-          limitations: ['任务由模型生成并独立复核，尚未经过人工审题。'],
-          locked_plan_markdown: '先配方，再利用平方项非负。',
-          plan_unanswered: false,
-          final_answer_markdown: '$g(x)=(x-3)^2-4$，所以最小值为 $-4$。',
-          phase: 'summary',
-          planning: 'correct',
-          relation: 'near_transfer',
-          task_id: '61',
-        }],
+        attempts: [
+          {
+            assistance_requested: false,
+            attempt_id: '80',
+            execution: 'incorrect',
+            help_exposed: false,
+            independent_execution: false,
+            independent_planning: false,
+            independent_task_pass: false,
+            invalidated: false,
+            limitations: ['第一次检验的方法选择需要修正。'],
+            locked_plan_markdown: '先代入几个数试试。',
+            plan_unanswered: false,
+            final_answer_markdown: '$g(3)=4$。',
+            phase: 'summary',
+            planning: 'incorrect',
+            relation: 'near_transfer',
+            task_id: '60',
+          },
+          {
+            assistance_requested: false,
+            attempt_id: '81',
+            execution: 'incorrect',
+            help_exposed: false,
+            independent_execution: false,
+            independent_planning: true,
+            independent_task_pass: false,
+            invalidated: false,
+            limitations: ['任务由模型生成并独立复核，尚未经过人工审题。'],
+            locked_plan_markdown: '先配方，再利用平方项非负。',
+            plan_unanswered: false,
+            final_answer_markdown: '$g(x)=(x-3)^2-4$，所以最小值为 $-4$。',
+            phase: 'summary',
+            planning: 'correct',
+            relation: 'near_transfer',
+            task_id: '61',
+          },
+        ],
         delayed_evidence: 'not_evaluated',
         limitations: [
           '报告只反映当前账号和保存期限内的记录，无法识别外部搜题或其他设备上的帮助。',
@@ -852,6 +1087,22 @@ test('@A05 @AT33 evidence report keeps planning and execution separate', async (
   await expect(frozenWork.locator('.katex')).not.toHaveCount(0);
   await expect(page.getByText('整题不记为独立通过；计划和执行继续分开保留。')).toBeVisible();
   await expect(page.getByRole('heading', { name: '方法不用推倒重来，只修执行卡点' })).toBeVisible();
+  const attemptSwitch = page.getByRole('group', { name: '切换独立检验记录' });
+  const firstAttempt = attemptSwitch.getByRole('button', { name: /查看第 1 次独立检验/ });
+  const latestAttempt = attemptSwitch.getByRole('button', { name: /查看第 2 次独立检验/ });
+  await expect(latestAttempt).toHaveAttribute('aria-pressed', 'true');
+  await expect(firstAttempt).toHaveAttribute('aria-pressed', 'false');
+  await firstAttempt.click();
+  await expect(firstAttempt).toHaveAttribute('aria-pressed', 'true');
+  await expect(frozenWork).toContainText('先代入几个数试试');
+  await expect(frozenWork).not.toContainText('先配方，再利用平方项非负');
+  await expect(page.getByText('正在查看第 1 次独立检验')).toBeVisible();
+  await expect(page.getByRole('heading', { name: '方法不用推倒重来，只修执行卡点' })).toBeVisible();
+  await expect(page.getByText('下一步始终依据最近一次检验，切换记录只用于对照。')).toBeVisible();
+  await latestAttempt.focus();
+  await page.keyboard.press('Enter');
+  await expect(latestAttempt).toHaveAttribute('aria-pressed', 'true');
+  await expect(frozenWork).toContainText('先配方，再利用平方项非负');
   await expect(page.getByRole('link', { name: '回学习页处理执行卡点' })).toHaveAttribute(
     'href',
     '/study?session=12&remediate=execution',
@@ -861,6 +1112,17 @@ test('@A05 @AT33 evidence report keeps planning and execution separate', async (
   const viewport = page.viewportSize();
   if ((viewport?.width ?? 0) <= 720) {
     await expect(page.locator('.report-evidence-grid')).toHaveCSS('display', 'block');
+    const attemptSwitchBox = await attemptSwitch.boundingBox();
+    const firstAttemptBox = await firstAttempt.boundingBox();
+    const latestAttemptBox = await latestAttempt.boundingBox();
+    expect(firstAttemptBox?.height).toBeGreaterThanOrEqual(44);
+    expect(latestAttemptBox?.height).toBeGreaterThanOrEqual(44);
+    expect(await attemptSwitch.evaluate((element) => element.scrollWidth <= element.clientWidth)).toBe(true);
+    expect(firstAttemptBox?.x).toBeGreaterThanOrEqual(attemptSwitchBox?.x ?? 0);
+    expect((firstAttemptBox?.x ?? 0) + (firstAttemptBox?.width ?? 0)).toBeLessThanOrEqual(
+      (attemptSwitchBox?.x ?? 0) + (attemptSwitchBox?.width ?? 0),
+    );
+    expect(latestAttemptBox?.y).toBeGreaterThan(firstAttemptBox?.y ?? 0);
     for (const link of await page.locator('.report-actions a').all()) {
       const size = await link.boundingBox();
       expect(size?.height).toBeGreaterThanOrEqual(44);

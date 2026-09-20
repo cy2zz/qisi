@@ -1,7 +1,17 @@
 import { type ReactNode, useEffect, useMemo, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { apiFetch } from '../../lib/api';
-import { QuestionCard, type BankQuestion } from './QuestionCard';
+import { bankStatusLabel, QuestionCard, type BankQuestion } from './QuestionCard';
+import {
+  focusQuestionAnchor,
+  QuestionNavigator,
+  questionAnchorId,
+} from './QuestionNavigator';
+import {
+  type BankScope,
+  RandomQuestionControl,
+  type RandomQuestionSelection,
+} from './RandomQuestionControl';
 import { StudySidebar } from './StudySidebar';
 
 interface StudentPageProps {
@@ -36,6 +46,7 @@ interface PaperDetail extends PaperSummary {
 
 interface PaperListResponse {
   papers: PaperSummary[];
+  scope?: BankScope;
   total: number;
 }
 
@@ -46,7 +57,34 @@ interface PaperFilters {
   year: string;
 }
 
-const EMPTY_FILTERS: PaperFilters = { keyword: '', region: '', track: '', year: '' };
+function filtersFromSearch(search: string): PaperFilters {
+  const query = new URLSearchParams(search);
+  return {
+    keyword: query.get('keyword') ?? '',
+    region: query.get('region') ?? '',
+    track: query.get('track') ?? '',
+    year: query.get('year') ?? '',
+  };
+}
+
+function filterQuery(filters: PaperFilters, mode?: 'random') {
+  const query = new URLSearchParams();
+  if (mode) query.set('mode', mode);
+  if (filters.year) query.set('year', filters.year);
+  if (filters.region) query.set('region', filters.region);
+  if (filters.track) query.set('track', filters.track);
+  if (filters.keyword.trim()) query.set('keyword', filters.keyword.trim());
+  return query;
+}
+
+function filterSearch(filters: PaperFilters, mode?: 'random') {
+  const query = filterQuery(filters, mode).toString();
+  return query ? `?${query}` : '';
+}
+
+function randomSelectionPath(selection: RandomQuestionSelection, filters: PaperFilters) {
+  return `/bank/papers/${selection.paper.id}/questions/${selection.question.id}${filterSearch(filters, 'random')}`;
+}
 
 function shouldUseCompactPaperBank() {
   return typeof window !== 'undefined' && window.innerWidth <= 720;
@@ -89,11 +127,22 @@ function PaperBankShell({ children, username }: StudentPageProps & { children: R
 }
 
 export function PaperBankPage({ username }: StudentPageProps) {
+  const location = useLocation();
   const navigate = useNavigate();
   const routeParams = useParams<{ paperId?: string; questionId?: string }>();
-  const [filters, setFilters] = useState<PaperFilters>(EMPTY_FILTERS);
+  const routeRandomTarget = useMemo(() => {
+    const isRandom = new URLSearchParams(location.search).get('mode') === 'random';
+    return isRandom && routeParams.paperId && routeParams.questionId
+      ? { paperId: routeParams.paperId, questionId: routeParams.questionId }
+      : null;
+  }, [location.search, routeParams.paperId, routeParams.questionId]);
+  const [filters, setFilters] = useState<PaperFilters>(() => filtersFromSearch(location.search));
   const [options, setOptions] = useState<FilterOptions>({ regions: [], tracks: [], years: [] });
   const [papers, setPapers] = useState<PaperSummary[]>([]);
+  const [scope, setScope] = useState<BankScope | null>(null);
+  const [randomTarget, setRandomTarget] = useState<{ paperId: string; questionId: string } | null>(
+    routeRandomTarget,
+  );
   const [selectedPaperId, setSelectedPaperId] = useState(routeParams.paperId ?? '');
   const [paper, setPaper] = useState<PaperDetail | null>(null);
   const [filterPanelOpen, setFilterPanelOpen] = useState(() => !shouldUseCompactPaperBank());
@@ -130,6 +179,8 @@ export function PaperBankPage({ username }: StudentPageProps) {
     apiFetch<PaperListResponse>(`/api/bank/papers${queryString}`, { signal: controller.signal })
       .then((result) => {
         setPapers(result.papers);
+        setScope(result.scope ?? null);
+        setRandomTarget(routeRandomTarget);
         setSelectedPaperId((current) => {
           if (routeParams.paperId && result.papers.some((item) => item.id === routeParams.paperId)) {
             return routeParams.paperId;
@@ -143,7 +194,7 @@ export function PaperBankPage({ username }: StudentPageProps) {
       })
       .finally(() => setIsListLoading(false));
     return () => controller.abort();
-  }, [queryString, reloadKey, routeParams.paperId]);
+  }, [queryString, reloadKey, routeParams.paperId, routeRandomTarget]);
 
   useEffect(() => {
     if (!selectedPaperId) {
@@ -161,20 +212,43 @@ export function PaperBankPage({ username }: StudentPageProps) {
     return () => controller.abort();
   }, [selectedPaperId, reloadKey]);
 
+  useEffect(() => {
+    if (!paper) return;
+    const questionId = randomTarget?.paperId === paper.id
+      ? randomTarget.questionId
+      : routeParams.paperId === paper.id
+        ? routeParams.questionId
+        : undefined;
+    if (!questionId) return;
+    const frame = requestAnimationFrame(() => focusQuestionAnchor('paper-bank', questionId));
+    return () => cancelAnimationFrame(frame);
+  }, [paper, randomTarget, routeParams.paperId, routeParams.questionId]);
+
   function updateFilter(name: keyof PaperFilters, value: string) {
-    setFilters((current) => ({ ...current, [name]: value }));
-    if (routeParams.paperId) navigate('/bank', { replace: true });
+    const nextFilters = { ...filters, [name]: value };
+    setFilters(nextFilters);
+    setRandomTarget(null);
+    navigate(`/bank${filterSearch(nextFilters)}`, { replace: true });
+  }
+
+  function revealRandomQuestion(selection: RandomQuestionSelection) {
+    setSelectedPaperId(selection.paper.id);
+    setRandomTarget({ paperId: selection.paper.id, questionId: selection.question.id });
+    if (shouldUseCompactPaperBank()) setPaperPanelOpen(false);
+    navigate(randomSelectionPath(selection, filters), { replace: true });
   }
 
   function choosePaper(paperId: string) {
     setSelectedPaperId(paperId);
+    setRandomTarget(null);
     if (shouldUseCompactPaperBank()) setPaperPanelOpen(false);
-    if (routeParams.paperId) navigate('/bank', { replace: true });
+    if (routeParams.paperId) navigate(`/bank${filterSearch(filters)}`, { replace: true });
   }
 
   function confirmQuestion(question: BankQuestion) {
     if (!paper) return;
-    navigate(`/bank/papers/${paper.id}/questions/${question.id}`);
+    setRandomTarget(null);
+    navigate(`/bank/papers/${paper.id}/questions/${question.id}${filterSearch(filters)}`);
   }
 
   if (hasError) {
@@ -241,6 +315,8 @@ export function PaperBankPage({ username }: StudentPageProps) {
           </div>
         </details>
 
+        <RandomQuestionControl filters={filters} scope={scope} onDraw={revealRandomQuestion} />
+
         <div className="paper-picker-body paper-bank-picker-body">
           <details
             className="paper-bank-paper-panel"
@@ -273,7 +349,9 @@ export function PaperBankPage({ username }: StudentPageProps) {
                       <span>{item.examYear}</span>
                       <strong>{item.title}</strong>
                       <small>
-                        {[item.region, item.track, `${item.questionCount} 题`].filter(Boolean).join(' · ')}
+                        {[item.region, item.track, `${item.questionCount} 题`, bankStatusLabel(item.status)]
+                          .filter(Boolean)
+                          .join(' · ')}
                       </small>
                     </button>
                   </li>
@@ -297,22 +375,44 @@ export function PaperBankPage({ username }: StudentPageProps) {
               paper.questions.length === 0 ? (
                 <p className="paper-picker-empty">这份试卷还没有可选题目。</p>
               ) : (
-                <ol>
-                  {paper.questions.map((question) => {
-                    const isSelected =
-                      routeParams.paperId === paper.id && routeParams.questionId === question.id;
+                <>
+                  <QuestionNavigator
+                    questions={paper.questions}
+                    targetPrefix="paper-bank"
+                    highlightedQuestionId={
+                      randomTarget?.paperId === paper.id
+                        ? randomTarget.questionId
+                        : routeParams.paperId === paper.id
+                          ? routeParams.questionId
+                          : null
+                    }
+                  />
+                  <ol>
+                    {paper.questions.map((question) => {
+                      const isSelected =
+                        routeParams.paperId === paper.id
+                        && routeParams.questionId === question.id
+                        && routeRandomTarget === null;
+                      const isRandomTarget =
+                        randomTarget?.paperId === paper.id && randomTarget.questionId === question.id;
 
-                    return (
-                      <li key={question.id}>
-                        <QuestionCard
-                          question={question}
-                          selected={isSelected}
-                          onSelect={confirmQuestion}
-                        />
-                      </li>
-                    );
-                  })}
-                </ol>
+                      return (
+                        <li key={question.id}>
+                          <QuestionCard
+                            anchorId={questionAnchorId('paper-bank', question.id)}
+                            question={question}
+                            highlighted={isRandomTarget}
+                            footerNote={isRandomTarget
+                              ? '从当前范围随机抽中，核对题面后再选择'
+                              : undefined}
+                            selected={isSelected}
+                            onSelect={confirmQuestion}
+                          />
+                        </li>
+                      );
+                    })}
+                  </ol>
+                </>
               )
             ) : (
               <p className="paper-picker-empty">选择左侧试卷后，这里会显示题目。</p>

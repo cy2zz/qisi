@@ -330,6 +330,50 @@ describe('ProblemAnalysisController', () => {
     expect(analysis.analyze).not.toHaveBeenCalled();
   });
 
+  it('replays the checked route attribution without running the model again', async () => {
+    const { analysis, auth, controller, sessions } = createController();
+    auth.authenticate.mockResolvedValue({ id: '7', username: '小林' });
+    sessions.reserveTurn.mockResolvedValue({
+      kind: 'replay',
+      reply: '你的均值不等式路线成立；继续补充单调性。',
+      routeAttribution: 'student',
+      version: 2,
+    });
+    const response = {
+      end: vi.fn(function (this: { writableEnded: boolean }) {
+        this.writableEnded = true;
+      }),
+      flushHeaders: vi.fn(),
+      setHeader: vi.fn(),
+      status: vi.fn(),
+      writableEnded: false,
+      write: vi.fn(),
+    };
+    response.status.mockReturnValue(response);
+
+    await controller.chatProblem(
+      {
+        assistanceMode: 'attempt',
+        expectedVersion: 1,
+        history: [],
+        message: '我用均值不等式求最小值。',
+        problemMd: '讨论函数单调性并求最小值。',
+        requestId: '11111111-1111-4111-8111-111111111111',
+        sessionId: '91',
+      },
+      `${AUTH_COOKIE_NAME}=${'a'.repeat(43)}`,
+      'http://localhost:5173',
+      response as unknown as Response,
+    );
+
+    expect(analysis.reply).not.toHaveBeenCalled();
+    const stream = response.write.mock.calls.flat().join('');
+    expect(stream).toContain('你的均值不等式路线成立；继续补充单调性。');
+    expect(stream).toContain('"routeAttribution":"student"');
+    expect(stream).toContain('"version":2');
+    expect(response.end).toHaveBeenCalledOnce();
+  });
+
   it('streams only the checked reply after authenticating the student', async () => {
     const { analysis, auth, controller, media, sessions } = createController();
     auth.authenticate.mockResolvedValue({ id: '7', username: '小林' });
@@ -381,6 +425,16 @@ describe('ProblemAnalysisController', () => {
         },
         currentVerdict: 'incorrect',
         reply: '先求导，再根据导函数的正负判断单调区间。',
+        routeAttribution: 'student',
+        routePatch: {
+          blocking_issues: [],
+          evidence_refs: [],
+          math_status: 'valid',
+          new_decisions: [],
+          new_routes: [],
+          task_id: 'session-91',
+          verification: [],
+        },
       };
     });
     sessions.reserveTurn.mockResolvedValue({
@@ -476,6 +530,8 @@ describe('ProblemAnalysisController', () => {
         audit: expect.objectContaining({ probeGoalKey: 'session-91:method' }),
         ownerId: '7',
         remediationFocus: 'execution',
+        routeAttribution: 'student',
+        routePatch: expect.objectContaining({ task_id: 'session-91' }),
         runId: 'run-id',
         sessionId: '91',
         transcriptId: '41',
@@ -497,7 +553,15 @@ describe('ProblemAnalysisController', () => {
     expect(stream).toContain('event: chunk');
     expect(stream).toContain('event: done');
     expect(stream).toContain('"currentVerdict":"incorrect"');
+    expect(stream).toContain('"routeAttribution":"student"');
+    expect(stream).not.toContain('routePatch');
+    expect(stream).not.toContain('new_routes');
     expect(stream.indexOf('event: chunk')).toBeGreaterThan(stream.indexOf('event: status'));
+    const publicChunks = response.write.mock.calls
+      .map(([chunk]) => chunk)
+      .filter((chunk) => chunk.includes('event: chunk'));
+    expect(publicChunks).toHaveLength(1);
+    expect(publicChunks[0]).toContain('先求导，再根据导函数的正负判断单调区间。');
     expect(response.end).toHaveBeenCalledOnce();
   });
 });

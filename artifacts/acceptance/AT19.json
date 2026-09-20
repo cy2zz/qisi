@@ -1,0 +1,56 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT19",
+  "result": "passed_self_review",
+  "executed_at": "2026-09-20T14:10:00+08:00",
+  "executed_by": "Codex self_review",
+  "application_commit": null,
+  "layer": "live_model_review",
+  "environment": "local direct DiagnosisAgent -> StrategyAgent evaluation",
+  "bank_version": null,
+  "scope_hash": null,
+  "model_version": "gpt-5.5-2026-04-24",
+  "prompt_version": "prompt-v3.0",
+  "provider_mode": "real_openai_compatible_provider",
+  "commands": [
+    "DIAGNOSIS_CASE=concept-rule-reversed npm --prefix server run eval:diagnosis-live",
+    "npm --prefix server run eval:diagnosis-live"
+  ],
+  "expected": "For the same visible sign/monotonicity error, an explicitly wrong rule supports a concept hypothesis while an explicit copy slip supports execution; the following teaching actions must differ.",
+  "actual": {
+    "concept_case": {
+      "hypotheses": [
+        "concept:supported",
+        "execution:undetermined",
+        "representation:candidate"
+      ],
+      "intervention": "representation_bridge",
+      "action": "ask",
+      "scaffold_level": 1
+    },
+    "execution_case": {
+      "hypotheses": [
+        "execution:supported",
+        "concept:refuted",
+        "undetermined:undetermined"
+      ],
+      "intervention": "condition_check",
+      "action": "ask",
+      "scaffold_level": 1
+    },
+    "teaching_actions_differed": true,
+    "evidence_quotes_validated_against_confirmed_submission": true,
+    "usage_kind": "reported"
+  },
+  "evidence_files": [
+    "server/scripts/evaluate-diagnosis-live.ts",
+    "server/src/prompts/diagnosis.md",
+    "server/src/prompts/strategy.md"
+  ],
+  "limitations": [
+    "This is one live-provider contrast set on a derivative problem, not a broad subject-wide benchmark.",
+    "The current configured business database lacks workflow tables, so this run evaluated the real two-agent model chain directly; persistence and pre-display commit are covered separately by AT21-AT23.",
+    "No independent reviewer or real student observation was performed.",
+    "real_student_observation: not_run"
+  ]
+}

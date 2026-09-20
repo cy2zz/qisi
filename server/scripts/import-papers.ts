@@ -6,14 +6,28 @@ import { createDatabase } from '../src/database/database.factory.js';
 import { importPaperManifests } from '../src/features/bank/paper-import.js';
 import { loadPaperManifests } from '../src/features/bank/paper-manifest.js';
 
+const LOCAL_DATABASE_HOSTS = new Set(['localhost', '127.0.0.1', '::1']);
+
+function assertPaperImportTargetAllowed(environment: ReturnType<typeof parseEnvironment>) {
+  if (LOCAL_DATABASE_HOSTS.has(environment.DB_HOST.toLowerCase())) {
+    return;
+  }
+  if (process.env.QISI_ALLOW_REMOTE_PAPER_IMPORT !== '1') {
+    throw new Error(
+      'Remote paper import requires the explicit QISI_ALLOW_REMOTE_PAPER_IMPORT=1 confirmation',
+    );
+  }
+  if (!environment.DB_SSL) {
+    throw new Error('Remote paper import requires DB_SSL=true');
+  }
+}
+
 async function main() {
   for (const environmentFile of environmentFilePaths('development')) {
     loadEnvironmentFile({ path: environmentFile, override: false, quiet: true });
   }
   const environment = parseEnvironment({ ...process.env, NODE_ENV: 'development' });
-  if (!['localhost', '127.0.0.1', '::1'].includes(environment.DB_HOST.toLowerCase())) {
-    throw new Error('The development paper importer only accepts a local MySQL host');
-  }
+  assertPaperImportTargetAllowed(environment);
 
   const database = createDatabase(environment);
   try {

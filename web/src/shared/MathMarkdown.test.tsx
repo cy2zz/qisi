@@ -1,4 +1,4 @@
-import { cleanup, render } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
 import { MathMarkdown } from './MathMarkdown';
 
@@ -110,5 +110,29 @@ describe('MathMarkdown', () => {
     expect(view.container).toHaveTextContent('安全正文');
     expect(view.container.querySelector('script')).toBeNull();
     expect(view.container.querySelector('b')).toBeNull();
+  });
+
+  it('opens an opt-in question image reader, zooms, and restores focus on close', async () => {
+    render(
+      <MathMarkdown
+        content={'![函数图像](https://example.test/problem.png)'}
+        interactiveImages
+      />,
+    );
+
+    const openButton = screen.getByRole('button', { name: '放大查看函数图像' });
+    fireEvent.click(openButton);
+
+    expect(screen.getByRole('dialog', { name: '题图阅读：函数图像' })).toBeInTheDocument();
+    expect(screen.getByText('适合窗口 · 100%')).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: '放大题图' }));
+    expect(screen.getByText('放大阅读 · 125%')).toBeInTheDocument();
+
+    fireEvent.keyDown(window, { key: 'Escape' });
+    expect(screen.queryByRole('dialog', { name: '题图阅读：函数图像' })).not.toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByRole('button', { name: '放大查看函数图像' })).toHaveFocus();
+    });
   });
 });

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { apiFetch } from '../../lib/api';
 import { StudySidebar } from '../bank/StudySidebar';
@@ -12,6 +12,7 @@ import {
 type Verdict = AssessmentVerdict;
 type OriginalStatus = OriginalLearningStatus;
 type HelpMode = 'hint' | 'explain' | 'worked_solution';
+type HistoryFilter = 'all' | 'pending' | 'reassess';
 
 interface HistoryEntry {
   assessment: {
@@ -65,9 +66,11 @@ function assessmentLabel(entry: HistoryEntry) {
   const attempt = entry.assessment;
   if (!attempt) return '尚未用新题检验';
   if (attempt.phase !== 'summary') return '独立检验进行中';
+  if (attempt.invalidated) return '本次独立资格已失效';
   if (attempt.independent_task_pass) return '新题独立完成';
   if (attempt.relation === 'near_duplicate') return '完成近重复练习，不算迁移证据';
-  if (attempt.assistance_requested || attempt.help_exposed) return '本次检验使用过帮助';
+  if (attempt.help_exposed) return '本次检验使用过帮助';
+  if (attempt.assistance_requested) return '本次检验请求过帮助，尚未记录实际展示';
   if (attempt.planning === 'correct' && attempt.execution === 'incorrect') {
     return '计划有依据，执行需要修正';
   }
@@ -90,6 +93,25 @@ function formatDate(value: string) {
       }).format(date);
 }
 
+function getHistoryEntryAction(entry: HistoryEntry) {
+  return getAssessmentNextAction(
+    entry.session_id,
+    entry.original_status,
+    entry.assessment
+      ? {
+          assistanceRequested: entry.assessment.assistance_requested,
+          execution: entry.assessment.execution,
+          helpExposed: entry.assessment.help_exposed,
+          independentTaskPass: entry.assessment.independent_task_pass,
+          invalidated: entry.assessment.invalidated,
+          phase: entry.assessment.phase,
+          planning: entry.assessment.planning,
+          relation: entry.assessment.relation,
+        }
+      : null,
+  );
+}
+
 export function HistoryPage({ username }: { username: string }) {
   const navigate = useNavigate();
   const [history, setHistory] = useState<HistoryResponse | null>(null);
@@ -98,8 +120,11 @@ export function HistoryPage({ username }: { username: string }) {
   const [deleteTarget, setDeleteTarget] = useState<string | null>(null);
   const [deletingSessionId, setDeletingSessionId] = useState<string | null>(null);
   const [expandedEntryIds, setExpandedEntryIds] = useState<Set<string>>(() => new Set());
+  const [historyFilter, setHistoryFilter] = useState<HistoryFilter>('all');
   const [reloadKey, setReloadKey] = useState(0);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const deleteKeepRef = useRef<HTMLButtonElement>(null);
+  const deleteTriggerRefs = useRef(new Map<string, HTMLButtonElement>());
 
   useEffect(() => {
     const controller = new AbortController();
@@ -121,6 +146,17 @@ export function HistoryPage({ username }: { username: string }) {
       });
     return () => controller.abort();
   }, [reloadKey]);
+
+  useEffect(() => {
+    if (!deleteTarget) return;
+    deleteKeepRef.current?.focus();
+  }, [deleteTarget]);
+
+  function closeDeleteConfirmation(sessionId: string) {
+    const trigger = deleteTriggerRefs.current.get(sessionId);
+    setDeleteTarget(null);
+    requestAnimationFrame(() => trigger?.focus());
+  }
 
   async function deleteEntry(sessionId: string) {
     setDeleteError('');
@@ -149,6 +185,19 @@ export function HistoryPage({ username }: { username: string }) {
       setDeletingSessionId(null);
     }
   }
+
+  const entryViews = (history?.entries ?? []).map((entry, index) => ({
+    entry,
+    index,
+    nextAction: getHistoryEntryAction(entry),
+  }));
+  const pendingCount = entryViews.filter(({ nextAction }) => nextAction.kind !== 'reassess').length;
+  const reassessCount = entryViews.length - pendingCount;
+  const filteredEntryViews = entryViews.filter(({ nextAction }) => (
+    historyFilter === 'all'
+    || (historyFilter === 'pending' && nextAction.kind !== 'reassess')
+    || (historyFilter === 'reassess' && nextAction.kind === 'reassess')
+  ));
 
   return (
     <main className="study-chat-page history-shell">
@@ -184,6 +233,41 @@ export function HistoryPage({ username }: { username: string }) {
             <p>回看你当时怎么想、实际看过什么帮助，以及后来能否在新题里独立完成。</p>
           </section>
 
+          {entryViews.length > 1 ? (
+            <div className="history-filters" role="group" aria-label="筛选学习记录">
+              <span>按下一步看</span>
+              <button
+                type="button"
+                aria-label={`全部记录，${entryViews.length} 条`}
+                aria-pressed={historyFilter === 'all'}
+                data-selected={historyFilter === 'all'}
+                onClick={() => setHistoryFilter('all')}
+              >
+                全部 <strong>{entryViews.length}</strong>
+              </button>
+              <button
+                type="button"
+                aria-label={`待继续，${pendingCount} 条`}
+                aria-pressed={historyFilter === 'pending'}
+                data-selected={historyFilter === 'pending'}
+                disabled={pendingCount === 0}
+                onClick={() => setHistoryFilter('pending')}
+              >
+                待继续 <strong>{pendingCount}</strong>
+              </button>
+              <button
+                type="button"
+                aria-label={`可复测，${reassessCount} 条`}
+                aria-pressed={historyFilter === 'reassess'}
+                data-selected={historyFilter === 'reassess'}
+                disabled={reassessCount === 0}
+                onClick={() => setHistoryFilter('reassess')}
+              >
+                可复测 <strong>{reassessCount}</strong>
+              </button>
+            </div>
+          ) : null}
+
           {!history && !error ? (
             <div className="history-state" role="status">
               <span aria-hidden="true" />
@@ -204,25 +288,16 @@ export function HistoryPage({ username }: { username: string }) {
               <p>完成第一次题目分析后，这里会按“思路—帮助—独立检验”保存证据。</p>
               <Link to="/study">开始一道题</Link>
             </div>
+          ) : filteredEntryViews.length === 0 ? (
+            <div className="history-empty history-filter-empty">
+              <span>NO MATCHING TRACE</span>
+              <h2>当前筛选下没有记录</h2>
+              <p>记录没有被删除，切回全部即可继续查看。</p>
+              <button type="button" onClick={() => setHistoryFilter('all')}>查看全部记录</button>
+            </div>
           ) : (
             <ol className="history-list" aria-label="学习记录">
-              {history?.entries.map((entry, index) => {
-                const nextAction = getAssessmentNextAction(
-                  entry.session_id,
-                  entry.original_status,
-                  entry.assessment
-                    ? {
-                        assistanceRequested: entry.assessment.assistance_requested,
-                        execution: entry.assessment.execution,
-                        helpExposed: entry.assessment.help_exposed,
-                        independentTaskPass: entry.assessment.independent_task_pass,
-                        invalidated: entry.assessment.invalidated,
-                        phase: entry.assessment.phase,
-                        planning: entry.assessment.planning,
-                        relation: entry.assessment.relation,
-                      }
-                    : null,
-                );
+              {filteredEntryViews.map(({ entry, index, nextAction }) => {
                 const isExpanded = expandedEntryIds.has(entry.session_id);
 
                 return (
@@ -271,6 +346,23 @@ export function HistoryPage({ username }: { username: string }) {
                     </summary>
 
                     <article className="history-entry-body">
+
+                    <nav
+                      className="history-entry-shortcut"
+                      data-action={nextAction.kind}
+                      aria-label={`${entry.title}快捷继续`}
+                    >
+                      <div>
+                        <span>{nextAction.eyebrow}</span>
+                        <strong>{nextAction.title}</strong>
+                      </div>
+                      <Link
+                        to={nextAction.href}
+                        aria-label={`快捷继续：${nextAction.label}`}
+                      >
+                        {nextAction.label}<span aria-hidden="true">→</span>
+                      </Link>
+                    </nav>
 
                     <div className="history-evidence-track">
                       <section>
@@ -321,6 +413,10 @@ export function HistoryPage({ username }: { username: string }) {
                         className="history-delete-trigger"
                         type="button"
                         aria-expanded={deleteTarget === entry.session_id}
+                        ref={(node) => {
+                          if (node) deleteTriggerRefs.current.set(entry.session_id, node);
+                          else deleteTriggerRefs.current.delete(entry.session_id);
+                        }}
                         onClick={() => {
                           setDeleteError('');
                           setDeleteTarget(entry.session_id);
@@ -339,17 +435,25 @@ export function HistoryPage({ username }: { username: string }) {
                         className="history-delete-confirm"
                         role="alertdialog"
                         aria-labelledby={`delete-history-${entry.session_id}`}
+                        aria-describedby={`delete-history-description-${entry.session_id}`}
+                        onKeyDown={(event) => {
+                          if (event.key !== 'Escape' || deletingSessionId === entry.session_id) return;
+                          event.preventDefault();
+                          event.stopPropagation();
+                          closeDeleteConfirmation(entry.session_id);
+                        }}
                       >
                         <div>
                           <strong id={`delete-history-${entry.session_id}`}>删除这条学习记录？</strong>
-                          <p>题目记录、作答、帮助和检验数据会一起删除，不能撤销；公开题库不受影响。</p>
+                          <p id={`delete-history-description-${entry.session_id}`}>题目记录、作答、帮助和检验数据会一起删除，不能撤销；公开题库不受影响。</p>
                           {deleteError ? <small role="alert">{deleteError}</small> : null}
                         </div>
                         <div>
                           <button
                             type="button"
+                            ref={deleteKeepRef}
                             disabled={deletingSessionId === entry.session_id}
-                            onClick={() => setDeleteTarget(null)}
+                            onClick={() => closeDeleteConfirmation(entry.session_id)}
                           >
                             保留记录
                           </button>

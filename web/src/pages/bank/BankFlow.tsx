@@ -34,6 +34,11 @@ import {
   getFixtureProblem,
   problemIdFromFixtureSession,
 } from './fixture-bank';
+import {
+  clearCachedLearningDraft,
+  readCachedLearningDraft,
+  writeCachedLearningDraft,
+} from './learning-draft-cache';
 
 interface StudentPageProps {
   username: string;
@@ -53,7 +58,18 @@ interface ConversationMessage {
   recognitionUncertain?: string[];
   remediationFocus?: RemediationFocus;
   role: 'guide' | 'student';
-  state?: 'analysis' | 'error' | 'loading' | 'reply' | 'reply-loading' | 'reply-streaming' | 'text';
+  routeAttribution?: 'student' | 'coauthored';
+  state?: 'analysis' | 'error' | 'loading' | 'reply' | 'reply-loading' | 'text';
+}
+
+interface ActiveStudentWork {
+  content: string;
+  lineCount: number;
+}
+
+interface StudentWorkSegment {
+  content: string;
+  lineNumber: number;
 }
 
 interface ProblemChatMessage {
@@ -118,13 +134,80 @@ function isRemediationFocus(value: unknown): value is RemediationFocus {
   return value === 'method' || value === 'execution' || value === 'evidence';
 }
 
+function isRouteAttribution(value: unknown): value is 'student' | 'coauthored' {
+  return value === 'student' || value === 'coauthored';
+}
+
+function countStudentWorkLines(content: string) {
+  return content.split(/\r?\n/).filter((line) => line.trim()).length;
+}
+
+function splitStudentWorkSegments(content: string): StudentWorkSegment[] {
+  const lines = content.split(/\r?\n/);
+  const segments: StudentWorkSegment[] = [];
+  let blockEnd: string | null = null;
+  let blockLines: string[] = [];
+  let blockStartLine = 0;
+
+  function commitBlock() {
+    const block = blockLines.join('\n').trim();
+    if (block) segments.push({ content: block, lineNumber: blockStartLine });
+    blockEnd = null;
+    blockLines = [];
+    blockStartLine = 0;
+  }
+
+  lines.forEach((line, index) => {
+    const trimmed = line.trim();
+    const lineNumber = index + 1;
+    if (blockEnd) {
+      blockLines.push(line);
+      if (trimmed.endsWith(blockEnd)) commitBlock();
+      return;
+    }
+    if (!trimmed) return;
+
+    const blockBoundary = trimmed.startsWith('$$')
+      ? '$$'
+      : trimmed.startsWith('\\[')
+        ? '\\]'
+        : trimmed.startsWith('```')
+          ? '```'
+          : trimmed.startsWith('~~~')
+            ? '~~~'
+            : null;
+    const closesOnSameLine = blockBoundary
+      ? trimmed.length > blockBoundary.length && trimmed.endsWith(blockBoundary)
+      : false;
+
+    if (blockBoundary && !closesOnSameLine) {
+      blockEnd = blockBoundary;
+      blockLines = [line];
+      blockStartLine = lineNumber;
+      return;
+    }
+    segments.push({ content: line, lineNumber });
+  });
+
+  if (blockLines.length) commitBlock();
+  return segments;
+}
+
 function getRemediationFocus(search: string): RemediationFocus | null {
   const focus = new URLSearchParams(search).get('remediate');
   return isRemediationFocus(focus) ? focus : null;
 }
 
 type SessionRecord = StudyRecord;
-type DraftSaveState = 'dirty' | 'error' | 'saved' | 'saving';
+type DraftSaveState = 'dirty' | 'error' | 'local' | 'recovered' | 'saved' | 'saving';
+
+function getDraftStorage() {
+  try {
+    return window.localStorage;
+  } catch {
+    return null;
+  }
+}
 
 function shouldUseCompactQuestionContext() {
   return typeof window !== 'undefined' && window.innerWidth <= 720;
@@ -239,6 +322,7 @@ export function BankPage({ username }: StudentPageProps) {
   const requestedSessionId = new URLSearchParams(location.search).get('session');
   const remediationFocus = getRemediationFocus(location.search);
   const remediation = remediationFocus ? remediationFocusDetails[remediationFocus] : null;
+  const activeReplyMessageIdRef = useRef<string | null>(null);
   const analysisRequestRef = useRef(0);
   const chatAbortRef = useRef<AbortController | null>(null);
   const chatRequestRef = useRef(0);
@@ -255,6 +339,9 @@ export function BankPage({ username }: StudentPageProps) {
   const handwritingInputRef = useRef<HandwritingInputHandle>(null);
   const imageInputRef = useRef<ImageQuestionInputHandle>(null);
   const restoreRequestRef = useRef(0);
+  const studentWorkCloseRef = useRef<HTMLButtonElement>(null);
+  const studentWorkDialogRef = useRef<HTMLDivElement>(null);
+  const studentWorkTriggerRef = useRef<HTMLButtonElement | null>(null);
   const suppressNextDraftChangeRef = useRef(false);
   const [activeRecord, setActiveRecord] = useState<SessionRecord | null>(null);
   const [bankOpen, setBankOpen] = useState(false);
@@ -275,6 +362,23 @@ export function BankPage({ username }: StudentPageProps) {
   const [pendingRemediationFocus, setPendingRemediationFocus] = useState<RemediationFocus | null>(null);
   const [remediationTrackError, setRemediationTrackError] = useState<string | null>(null);
   const [replyToRevealId, setReplyToRevealId] = useState<string | null>(null);
+  const [reviewedStudentWork, setReviewedStudentWork] = useState<ActiveStudentWork | null>(null);
+
+  function closeStudentWorkReader() {
+    setReviewedStudentWork(null);
+    requestAnimationFrame(() => studentWorkTriggerRef.current?.focus());
+  }
+
+  function quoteStudentWorkSegment(segment: StudentWorkSegment) {
+    const quotedContent = segment.content.replace(/\s*\n\s*/g, ' ').trim();
+    const prefix = draft.trim() ? '\n\n' : '';
+    setReviewedStudentWork(null);
+    requestAnimationFrame(() => {
+      composerRef.current?.insertText(
+        `${prefix}我想核对第 ${segment.lineNumber} 行：“${quotedContent}”\n我的疑问：`,
+      );
+    });
+  }
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -298,6 +402,19 @@ export function BankPage({ username }: StudentPageProps) {
       void persistDraft(activeRecord.id, draft, draftRevisionRef.current);
     }, 800);
     return () => window.clearTimeout(timeout);
+  }, [activeRecord?.id, activeRecord?.version, draft, draftSaveState]);
+
+  useEffect(() => {
+    function syncRecoveredDraft() {
+      if (
+        !activeRecord?.version
+        || !['error', 'local', 'recovered'].includes(draftSaveState)
+      ) return;
+      void persistDraft(activeRecord.id, draft, draftRevisionRef.current);
+    }
+
+    window.addEventListener('online', syncRecoveredDraft);
+    return () => window.removeEventListener('online', syncRecoveredDraft);
   }, [activeRecord?.id, activeRecord?.version, draft, draftSaveState]);
 
   useLayoutEffect(() => {
@@ -368,6 +485,44 @@ export function BankPage({ username }: StudentPageProps) {
     return () => window.removeEventListener('keydown', leaveQuestionFocus);
   }, [questionFocusMode]);
 
+  useEffect(() => {
+    if (!reviewedStudentWork) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const focusFrame = requestAnimationFrame(() => studentWorkCloseRef.current?.focus());
+
+    function handleStudentWorkReaderKeyDown(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeStudentWorkReader();
+        return;
+      }
+      if (event.key !== 'Tab' || !studentWorkDialogRef.current) return;
+
+      const actions = Array.from(
+        studentWorkDialogRef.current.querySelectorAll<HTMLButtonElement>('button:not(:disabled)'),
+      );
+      const first = actions[0];
+      const last = actions.at(-1);
+      if (!first || !last) return;
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+
+    window.addEventListener('keydown', handleStudentWorkReaderKeyDown);
+    return () => {
+      cancelAnimationFrame(focusFrame);
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleStudentWorkReaderKeyDown);
+    };
+  }, [reviewedStudentWork]);
+
   function rememberRecord(record: SessionRecord) {
     setRecords((current) => [record, ...current.filter((item) => item.id !== record.id)]);
   }
@@ -387,6 +542,7 @@ export function BankPage({ username }: StudentPageProps) {
           metadata?: {
             currentVerdict?: 'correct' | 'incorrect' | 'unknown';
             remediationFocus?: unknown;
+            routeAttribution?: unknown;
           };
           messageType: string;
           role: 'guide' | 'student';
@@ -415,11 +571,19 @@ export function BankPage({ username }: StudentPageProps) {
                 ? message.metadata.remediationFocus
                 : undefined,
               role: message.role,
+              routeAttribution: isRouteAttribution(message.metadata?.routeAttribution)
+                ? message.metadata.routeAttribution
+                : undefined,
               state: 'reply',
             },
       );
+      const latestRestoredMessage = restoredMessages.at(-1);
+      const restoredMultistepWorkId = latestRestoredMessage?.role === 'student'
+        && countStudentWorkLines(latestRestoredMessage.content) > 1
+        ? latestRestoredMessage.id
+        : null;
       setActiveRecord(detail.record);
-      setReplyToRevealId(null);
+      setReplyToRevealId(restoredMultistepWorkId);
       setMessages(restoredMessages);
       rememberRecord(detail.record);
       setHasProblem(true);
@@ -438,7 +602,18 @@ export function BankPage({ username }: StudentPageProps) {
       setSidebarOpen(false);
       requestAnimationFrame(() => {
         if (draftRevisionRef.current === draftRevision) {
-          replaceComposerDraft(detail.draftMarkdown ?? '', !remediation);
+          const serverDraft = detail.draftMarkdown ?? '';
+          const storage = getDraftStorage();
+          const localDraft = storage
+            ? readCachedLearningDraft(storage, detail.record.id)
+            : null;
+          if (storage && localDraft?.markdown === serverDraft) {
+            clearCachedLearningDraft(storage, detail.record.id);
+          }
+          replaceComposerDraft(localDraft?.markdown ?? serverDraft, !remediation);
+          if (localDraft && localDraft.markdown !== serverDraft) {
+            setDraftSaveState('recovered');
+          }
         }
         if (!remediation) composerRef.current?.focus();
       });
@@ -653,10 +828,13 @@ export function BankPage({ username }: StudentPageProps) {
   ) {
     if (!activeRecord) return;
 
+    let checkedReply = '';
+
     chatAbortRef.current?.abort();
     const abortController = new AbortController();
     chatAbortRef.current = abortController;
     const requestNumber = ++chatRequestRef.current;
+    activeReplyMessageIdRef.current = guideMessageId;
     setReplyToRevealId(null);
     setIsReplying(true);
     setMessages((current) =>
@@ -693,6 +871,7 @@ export function BankPage({ username }: StudentPageProps) {
         },
         (event) => {
           if (chatRequestRef.current !== requestNumber) return;
+          if (event.type === 'chunk') checkedReply += event.text;
           if (event.type === 'done') setReplyToRevealId(guideMessageId);
           setMessages((current) =>
             current.map((message) => {
@@ -701,8 +880,7 @@ export function BankPage({ username }: StudentPageProps) {
                 return { ...message, content: event.message, state: 'reply-loading' };
               }
               if (event.type === 'chunk') {
-                const previous = message.state === 'reply-streaming' ? message.content : '';
-                return { ...message, content: previous + event.text, state: 'reply-streaming' };
+                return message;
               }
               if (event.type === 'done') {
                 committedVersion = event.version;
@@ -716,7 +894,9 @@ export function BankPage({ username }: StudentPageProps) {
                 }
                 return {
                   ...message,
+                  content: checkedReply,
                   ...(event.currentVerdict ? { currentVerdict: event.currentVerdict } : {}),
+                  ...(event.routeAttribution ? { routeAttribution: event.routeAttribution } : {}),
                   state: 'reply',
                 };
               }
@@ -752,10 +932,35 @@ export function BankPage({ username }: StudentPageProps) {
       );
     } finally {
       if (chatRequestRef.current === requestNumber) {
+        activeReplyMessageIdRef.current = null;
+        chatAbortRef.current = null;
         setReplyToRevealId(guideMessageId);
         setIsReplying(false);
       }
     }
+  }
+
+  function stopCurrentReply(guideMessageId: string) {
+    if (!isReplying || activeReplyMessageIdRef.current !== guideMessageId) return;
+
+    chatRequestRef.current += 1;
+    chatAbortRef.current?.abort();
+    chatAbortRef.current = null;
+    activeReplyMessageIdRef.current = null;
+    setIsReplying(false);
+    setReplyToRevealId(guideMessageId);
+    setMessages((current) =>
+      current.map((message) =>
+        message.id === guideMessageId
+          ? {
+              ...message,
+              content: '已停止本轮回复。你的作答已保留，可以重新回答。',
+              state: 'error',
+            }
+          : message,
+      ),
+    );
+    requestAnimationFrame(() => composerRef.current?.focus({ preventScroll: true }));
   }
 
   function submitContent(
@@ -804,7 +1009,7 @@ export function BankPage({ username }: StudentPageProps) {
         state: 'reply-loading',
       },
     ]);
-    clearComposerWithoutSaving();
+    clearComposerWithoutSaving(true);
     setFormulaOpen(false);
     setStuckPointOpen(false);
     if (assistanceMode === 'finish_problem') setFinishIntent(false);
@@ -837,10 +1042,18 @@ export function BankPage({ username }: StudentPageProps) {
     }
     setConfirmedHandwriting(null);
     draftRevisionRef.current += 1;
+    const storage = getDraftStorage();
+    if (storage && activeRecord?.id) {
+      writeCachedLearningDraft(storage, activeRecord.id, markdown);
+    }
     setDraftSaveState('dirty');
   }
 
-  function clearComposerWithoutSaving() {
+  function clearComposerWithoutSaving(clearLocalDraft = false) {
+    if (clearLocalDraft) {
+      const storage = getDraftStorage();
+      if (storage && activeRecord?.id) clearCachedLearningDraft(storage, activeRecord.id);
+    }
     setConfirmedHandwriting(null);
     suppressNextDraftChangeRef.current = true;
     composerRef.current?.clear();
@@ -864,6 +1077,8 @@ export function BankPage({ username }: StudentPageProps) {
         draftSaveRequestRef.current === requestNumber
         && draftRevisionRef.current === revision
       ) {
+        const storage = getDraftStorage();
+        if (storage) clearCachedLearningDraft(storage, sessionId);
         setDraftSaveState('saved');
       }
     } catch {
@@ -871,7 +1086,11 @@ export function BankPage({ username }: StudentPageProps) {
         draftSaveRequestRef.current === requestNumber
         && draftRevisionRef.current === revision
       ) {
-        setDraftSaveState('error');
+        const storage = getDraftStorage();
+        const cached = storage
+          ? writeCachedLearningDraft(storage, sessionId, markdown)
+          : false;
+        setDraftSaveState(cached ? 'local' : 'error');
       }
     }
   }
@@ -1024,9 +1243,14 @@ export function BankPage({ username }: StudentPageProps) {
         ? '已自动保存'
         : draftSaveState === 'saving'
           ? '正在自动保存'
+          : draftSaveState === 'local'
+            ? '已保存在本机，等待网络恢复'
+            : draftSaveState === 'recovered'
+              ? '已恢复本机草稿，尚未同步'
           : draftSaveState === 'error'
             ? '自动保存失败，输入仍在本页'
             : '尚未保存';
+  const hasMultistepDraft = draft.includes('\n');
 
   useLayoutEffect(() => {
     if (!readyForIndependentAssessment || !latestFinishMessageId) return;
@@ -1178,7 +1402,7 @@ export function BankPage({ username }: StudentPageProps) {
               {!questionCollapsed && (
                 <div className="problem-sheet-body">
                   <section aria-label="题目正文">
-                    <MathMarkdown content={activeRecord.content} />
+                    <MathMarkdown content={activeRecord.content} interactiveImages />
                   </section>
                   {currentAnalysis && (
                     <section className="problem-sheet-target" aria-label="当前目标">
@@ -1265,9 +1489,19 @@ export function BankPage({ username }: StudentPageProps) {
                   </section>
                 ) : (
                   <section className="conversation" aria-label="当前对话" aria-live="polite">
-                    {messages.filter((message) => !message.id.startsWith('student-')).map((message) => (
+                    {messages.filter((message) => !message.id.startsWith('student-')).map((message) => {
+                      const studentWorkLineCount = message.role === 'student'
+                        ? countStudentWorkLines(message.content)
+                        : 0;
+                      const isMultistepStudentWork = studentWorkLineCount > 1;
+
+                      return (
                   <article
+                    aria-label={isMultistepStudentWork
+                      ? `你的多步演算，共 ${studentWorkLineCount} 行`
+                      : undefined}
                     className={`chat-message chat-message-${message.role}`}
+                    data-multistep={isMultistepStudentWork || undefined}
                     id={message.id}
                     key={message.id}
                   >
@@ -1276,9 +1510,30 @@ export function BankPage({ username }: StudentPageProps) {
                     </span>
                     <div>
                       <strong>{message.role === 'student' ? '你' : '启思'}</strong>
+                      {isMultistepStudentWork ? (
+                        <div className="student-work-meta">
+                          <div>
+                            <span>YOUR WORK / 多步演算</span>
+                            <small>{studentWorkLineCount} 行 · 已提交，不代表已核对</small>
+                          </div>
+                          <button
+                            type="button"
+                            aria-label="完整回看多步演算"
+                            onClick={(event) => {
+                              studentWorkTriggerRef.current = event.currentTarget;
+                              setReviewedStudentWork({
+                                content: message.content,
+                                lineCount: studentWorkLineCount,
+                              });
+                            }}
+                          >
+                            完整回看 <span aria-hidden="true">↗</span>
+                          </button>
+                        </div>
+                      ) : null}
                       {message.role === 'guide'
                         && message.assistanceMode
-                        && (message.state === 'reply' || message.state === 'reply-streaming') && (
+                        && message.state === 'reply' && (
                           <span
                             className="chat-message-mode"
                             data-mode={message.assistanceMode}
@@ -1291,12 +1546,24 @@ export function BankPage({ username }: StudentPageProps) {
                         )}
                       {message.role === 'guide'
                         && message.remediationFocus
-                        && (message.state === 'reply' || message.state === 'reply-streaming') && (
+                        && message.state === 'reply' && (
                           <span
                             className="chat-message-mode chat-message-remediation"
                             aria-label={`修正类型：${remediationFocusDetails[message.remediationFocus].activeLabel}`}
                           >
                             {remediationFocusDetails[message.remediationFocus].activeLabel}
+                          </span>
+                        )}
+                      {message.role === 'guide'
+                        && message.routeAttribution
+                        && message.state === 'reply' && (
+                          <span
+                            className="chat-message-mode chat-message-route"
+                            aria-label={message.routeAttribution === 'student'
+                              ? '路线归属：沿用你的解法'
+                              : '路线归属：共同补全'}
+                          >
+                            {message.routeAttribution === 'student' ? '沿你的路线' : '共同补全'}
                           </span>
                         )}
                       {message.role === 'guide'
@@ -1470,14 +1737,18 @@ export function BankPage({ username }: StudentPageProps) {
                           )}
                         </section>
                       ) : message.state === 'reply-loading' ? (
-                        <span className="analysis-loading" role="status">
-                          <i aria-hidden="true" />
-                          {message.content}
-                        </span>
-                      ) : message.state === 'reply-streaming' ? (
-                        <div className="streaming-reply">
-                          <MathMarkdown content={message.content} />
-                          <span aria-hidden="true" />
+                        <div className="reply-progress">
+                          <span className="analysis-loading" role="status">
+                            <i aria-hidden="true" />
+                            {message.content}
+                          </span>
+                          <button
+                            type="button"
+                            aria-label="停止本轮回复"
+                            onClick={() => stopCurrentReply(message.id)}
+                          >
+                            停止
+                          </button>
                         </div>
                       ) : message.role === 'guide' && message.state === 'reply' ? (
                         <div className="speech-content-row guide-reply-row">
@@ -1602,14 +1873,19 @@ export function BankPage({ username }: StudentPageProps) {
                       )}
                     </div>
                   </article>
-                    ))}
+                      );
+                    })}
                   </section>
                 )}
               </div>
             </div>
 
             <div ref={composerDockRef} className="composer-dock">
-              <div className="composer-wrap" data-formula-open={formulaOpen}>
+              <div
+                className="composer-wrap"
+                data-formula-open={formulaOpen}
+                data-multistep={hasMultistepDraft}
+              >
                 {hasProblem && hasStudentAttempt && pendingHelpAction && (
                   <section
                     ref={highImpactHelpDialogRef}
@@ -1973,7 +2249,8 @@ export function BankPage({ username }: StudentPageProps) {
                     aria-label="草稿保存状态"
                   >
                     {draftSaveLabel}
-                    {draftSaveState === 'error' && activeRecord?.version ? (
+                    {['error', 'local', 'recovered'].includes(draftSaveState)
+                    && activeRecord?.version ? (
                       <button
                         type="button"
                         onClick={() => void persistDraft(
@@ -1982,13 +2259,15 @@ export function BankPage({ username }: StudentPageProps) {
                           draftRevisionRef.current,
                         )}
                       >
-                        重试
+                        立即同步
                       </button>
                     ) : null}
                   </span>
                   <span className="composer-guidance composer-note-desktop">
                     {confirmedHandwriting
                       ? '手写转写已确认；如果继续修改，将按普通文字提交。'
+                      : hasMultistepDraft
+                      ? '多步演算：Enter 换行，Ctrl/⌘ + Enter 发送。'
                       : readyForIndependentAssessment
                       ? '本题仍可继续讨论；是否掌握，以新题独立检验为准。'
                       : finishIntent
@@ -1998,6 +2277,8 @@ export function BankPage({ username }: StudentPageProps) {
                   <span className="composer-guidance composer-note-mobile">
                     {confirmedHandwriting
                       ? '手写转写已确认；修改后按普通文字提交。'
+                      : hasMultistepDraft
+                      ? '多步演算：回车换行，点箭头发送。'
                       : readyForIndependentAssessment
                       ? '可继续讨论；掌握情况要用新题验证。'
                       : finishIntent
@@ -2011,6 +2292,59 @@ export function BankPage({ username }: StudentPageProps) {
         </div>
       </section>
       </main>
+      {reviewedStudentWork ? (
+        <div
+          className="student-work-reader-backdrop"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) closeStudentWorkReader();
+          }}
+        >
+          <div
+            ref={studentWorkDialogRef}
+            className="student-work-reader"
+            role="dialog"
+            aria-modal="true"
+            aria-label="回看你的多步演算"
+          >
+            <header>
+              <div>
+                <span>YOUR WORK / 作答回看</span>
+                <strong>你的多步演算</strong>
+                <small>
+                  {reviewedStudentWork.lineCount} 行 · 已提交，不代表已核对 · 选择一行只填入草稿
+                </small>
+              </div>
+              <button
+                ref={studentWorkCloseRef}
+                type="button"
+                aria-label="关闭多步演算回看"
+                onClick={closeStudentWorkReader}
+              >
+                关闭
+              </button>
+            </header>
+            <div className="student-work-reader-body">
+              <ol className="student-work-reader-lines" aria-label="多步演算逐行回看">
+                {splitStudentWorkSegments(reviewedStudentWork.content).map((segment, index) => (
+                  <li key={`${segment.lineNumber}-${index}`}>
+                    <span className="student-work-line-number" aria-hidden="true">
+                      {segment.lineNumber}
+                    </span>
+                    <MathMarkdown content={segment.content} />
+                    <button
+                      type="button"
+                      aria-label={`引用第 ${segment.lineNumber} 行到草稿`}
+                      onClick={() => quoteStudentWorkSegment(segment)}
+                    >
+                      引用这行
+                    </button>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </ReadAloudProvider>
   );
 }

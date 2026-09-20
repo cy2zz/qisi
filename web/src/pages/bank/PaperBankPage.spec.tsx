@@ -1,5 +1,5 @@
 import { cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
-import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { PaperBankPage } from './PaperBankPage';
 
@@ -22,6 +22,17 @@ const papers = {
       variant: '题目与解析',
     },
   ],
+  scope: {
+    bankVersion: 'exam-bank@2026-09-20T00:00:00.000Z',
+    invalidCount: 0,
+    needsReviewCount: 2,
+    paperCount: 1,
+    readyCount: 12,
+    selectableCount: 12,
+    totalCount: 14,
+    unreadableCount: 0,
+    updatedAt: '2026-09-20T00:00:00.000Z',
+  },
   total: 1,
 };
 const paper = {
@@ -41,8 +52,14 @@ const paper = {
 };
 
 function renderPage(initialEntry = '/bank') {
+  function LocationProbe() {
+    const location = useLocation();
+    return <output data-testid="bank-location">{`${location.pathname}${location.search}`}</output>;
+  }
+
   return render(
     <MemoryRouter initialEntries={[initialEntry]}>
+      <LocationProbe />
       <Routes>
         <Route path="/bank" element={<PaperBankPage username="小林" />} />
         <Route
@@ -59,6 +76,12 @@ function mockBankApi(paperDetail = paper) {
     const url = String(input);
     const body = url.includes('/api/bank/filters')
       ? filters
+      : url.includes('/api/bank/questions/random')
+        ? {
+            requestId: '018f15b8-0b48-7f8a-9db6-4415b775a001',
+            scope: papers.scope,
+            selection: { paper: papers.papers[0], question: paperDetail.questions[0] },
+          }
       : url.includes('/api/bank/papers/41')
         ? paperDetail
         : papers;
@@ -116,16 +139,95 @@ describe('PaperBankPage', () => {
         expect.objectContaining({ credentials: 'include' }),
       );
     });
+    expect(screen.getByTestId('bank-location')).toHaveTextContent('/bank?year=2024');
   });
 
   it('keeps the selected paper and question in the URL-backed page state', async () => {
     mockBankApi();
-    renderPage();
+    renderPage('/bank?year=2024');
 
     fireEvent.load(await screen.findByRole('img', { name: '第 1 题题目' }));
     fireEvent.click(screen.getByRole('button', { name: '选择第 1 题' }));
 
+    expect(screen.getByTestId('bank-location')).toHaveTextContent(
+      '/bank/papers/41/questions/801?year=2024',
+    );
     expect(await screen.findByRole('button', { name: '已选择第 1 题' })).toBeDisabled();
+  });
+
+  it('draws from the visible scope and waits for the student to confirm the question', async () => {
+    const fetchMock = mockBankApi();
+    renderPage();
+
+    const scope = await screen.findByRole('region', { name: '当前抽题范围' });
+    expect(scope).toHaveTextContent('全部试卷');
+    expect(scope).toHaveTextContent('12 道可练习题');
+
+    fireEvent.click(screen.getByRole('button', { name: '随机抽一道' }));
+
+    await waitFor(() => {
+      expect(fetchMock).toHaveBeenCalledWith(
+        '/api/bank/questions/random',
+        expect.objectContaining({
+          body: expect.stringContaining('"filters":{}'),
+          credentials: 'include',
+          method: 'POST',
+        }),
+      );
+    });
+    const question = await screen.findByRole('article', { name: '第 1 题' });
+    expect(question).toHaveAttribute('data-random-target', 'true');
+    expect(question).toHaveTextContent('随机抽中');
+    await waitFor(() => expect(question).toHaveFocus());
+    expect(screen.getByRole('button', { name: '选择第 1 题' })).not.toHaveTextContent('已选择');
+    expect(screen.getByTestId('bank-location')).toHaveTextContent(
+      '/bank/papers/41/questions/801?mode=random',
+    );
+  });
+
+  it('restores a URL-backed random result and its filter scope after refresh', async () => {
+    const fetchMock = mockBankApi();
+    renderPage('/bank/papers/41/questions/801?mode=random&year=2024');
+
+    await waitFor(() => {
+      expect(fetchMock).toHaveBeenCalledWith(
+        '/api/bank/papers?year=2024',
+        expect.objectContaining({ credentials: 'include' }),
+      );
+    });
+    const question = await screen.findByRole('article', { name: '第 1 题' });
+    expect(question).toHaveAttribute('data-random-target', 'true');
+    expect(question).not.toHaveAttribute('data-selected', 'true');
+    expect(question).toHaveTextContent('从当前范围随机抽中');
+    await waitFor(() => expect(question).toHaveFocus());
+    fireEvent.load(screen.getByRole('img', { name: '第 1 题题目' }));
+    expect(screen.getByRole('button', { name: '选择第 1 题' })).toBeEnabled();
+  });
+
+  it('jumps directly to a question from the paper number navigator', async () => {
+    mockBankApi({
+      ...paper,
+      questions: [
+        paper.questions[0],
+        {
+          ...paper.questions[0],
+          id: '802',
+          number: 2,
+          questionCode: '2024年高考数学试卷（北京）#02',
+          questionImageUrl: null,
+          statementMarkdown: '第二题题干',
+        },
+      ],
+    });
+    renderPage();
+
+    const navigator = await screen.findByRole('navigation', { name: '题号导航' });
+    expect(within(navigator).getAllByRole('button')).toHaveLength(2);
+    const secondQuestionButton = within(navigator).getByRole('button', { name: '跳到第 2 题' });
+    fireEvent.click(secondQuestionButton);
+
+    expect(await screen.findByRole('article', { name: '第 2 题' })).toHaveFocus();
+    expect(secondQuestionButton).toHaveAttribute('aria-current', 'location');
   });
 
   it('renders a text-only question as mathematical Markdown', async () => {
