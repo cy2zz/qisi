@@ -9,6 +9,7 @@
 import { Injectable } from '@nestjs/common';
 import { RenderedMessageSchema, type RenderedMessage, type RendererInput } from '../../contracts/domain.schema.js';
 import { ROLE_PROMPTS } from '../../prompts/index.js';
+import { normalizeRenderedMathMarkdown } from '../../shared/math-markdown.js';
 import { callRoleModel, type AgentCallOptions, type AgentCallResult } from '../agent-runtime.js';
 import type { ModelPort } from '../../model/ports.js';
 
@@ -18,7 +19,7 @@ export class Renderer {
   readonly promptVersion = ROLE_PROMPTS.renderer.version;
 
   async run(input: RendererInput, port: ModelPort, options: AgentCallOptions): Promise<AgentCallResult<RenderedMessage>> {
-    return callRoleModel({
+    const result = await callRoleModel({
       role: this.role,
       prompt: ROLE_PROMPTS.renderer,
       schema: RenderedMessageSchema,
@@ -26,5 +27,12 @@ export class Renderer {
       port,
       options,
     });
+
+    return {
+      ...result,
+      value: RenderedMessageSchema.parse({
+        text_md: normalizeRenderedMathMarkdown(result.value.text_md),
+      }),
+    };
   }
 }

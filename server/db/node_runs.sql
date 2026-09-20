@@ -1,26 +1,19 @@
--- 节点级执行记录：StorePort.getReusableNode / saveNode 的落点。
--- DDL 源自 qisi-sdd-v3/contracts/database.sql 的 node_runs。
---
--- 【无外键】原规格定义了 FOREIGN KEY (run_id) REFERENCES runs(id) ON DELETE CASCADE，
--- 本次移除。原因见 runs.sql 头部：AGENTS.md:53 的命名规范与 Kysely 的字母序执行
--- 互斥，而 node_runs(n) 恰好排在 runs(r) 之前。代价是删除 run 不再自动清理本表，
--- 由应用层按 run_id 显式清理。
---
--- 复用条件由 PRIMARY KEY(run_id,node_key,attempt) 与 input_hash 共同约束：
--- 只有输入、模型、提示、配置的哈希全部一致才可复用（contracts/README.md §5 第 3 条）。
--- usage_json 承载 ModelCallRecord 的 token / 耗时 / usage_kind —— 这正是不需要
--- 独立 model_calls 表的依据之一（另一依据是 RunRecord.calls 已内嵌调用记录）。
-CREATE TABLE node_runs (
-  run_id VARCHAR(191) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
-  node_key VARCHAR(191) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
-  attempt INT NOT NULL,
-  input_hash CHAR(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
-  model_id VARCHAR(191) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
-  prompt_version VARCHAR(191) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
-  status VARCHAR(32) NOT NULL,
-  output_json JSON,
-  usage_json JSON,
-  started_at DATETIME(3) NOT NULL,
-  finished_at DATETIME(3),
-  PRIMARY KEY(run_id,node_key,attempt)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_bin;
+CREATE TABLE `node_runs` (
+`id`               BIGINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '节点执行记录ID',
+`run_id`           CHAR(36) CHARACTER SET ascii COLLATE ascii_bin NOT NULL COMMENT '所属工作流运行ID',
+`node_key`         VARCHAR(191) CHARACTER SET ascii COLLATE ascii_bin NOT NULL COMMENT '工作流节点标识',
+`attempt`          INT UNSIGNED    NOT NULL DEFAULT 1 COMMENT '节点尝试序号',
+`input_hash`       BINARY(32)      NOT NULL COMMENT '节点输入与配置哈希',
+`model_id`         VARCHAR(191)    NOT NULL DEFAULT '' COMMENT '实际调用的模型标识',
+`prompt_version`   VARCHAR(191)    NOT NULL DEFAULT '' COMMENT '提示词版本',
+`status`           VARCHAR(32)     NOT NULL COMMENT '节点执行状态',
+`output_json`      JSON            NULL COMMENT '严格校验后的私有节点结果',
+`usage_json`       JSON            NULL COMMENT '模型调用量与耗时',
+`started_at`       TIMESTAMP       NOT NULL COMMENT '节点开始时间',
+`finished_at`      TIMESTAMP       NULL COMMENT '节点完成时间',
+`db_update_time`   TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+`db_create_time`   TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+PRIMARY KEY (`id`),
+UNIQUE KEY `uq_node_runs_run_node_attempt` (`run_id`, `node_key`, `attempt`),
+CONSTRAINT `fk_node_runs_run` FOREIGN KEY (`run_id`) REFERENCES `runs` (`id`) ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = '工作流节点执行记录表';

@@ -25,6 +25,12 @@ import type { GuardResult } from '../contracts/domain.schema.js';
 export interface TurnStrategyContext {
   /** 规范化后的当前目标键，取代模型给的 focus_goal_key 用于记账。 */
   readonly canonicalGoalKey: string | null;
+  /**
+   * 已登记决策的 goal_key 全集。gateTurn 用它拒绝模型凭空造出的 focus_goal_key
+   * ——与 canonical key 是两道互补的检查：这里管"目标存不存在"，
+   * canonicalGoalKey 管"额度记在谁头上"。
+   */
+  readonly knownGoalKeys: ReadonlySet<string>;
   /** 该目标**已真实显示**的探针次数。 */
   readonly shownCount: number;
   /** 该目标还剩几次可显示的探针。 */
@@ -73,6 +79,7 @@ export class TurnWorkflow {
     readonly strategy: Pick<Strategy, 'focus_goal_key' | 'probe'>;
   }): TurnStrategyContext {
     const { sessionId, taskId, decisions, strategy } = params;
+    const knownGoalKeys = new Set(decisions.map((item) => item.goal_key));
     const decision =
       decisions.find((item) => item.goal_key === strategy.focus_goal_key) ??
       decisions.find((item) => item.id === strategy.focus_goal_key) ??
@@ -83,14 +90,14 @@ export class TurnWorkflow {
     if (canonicalGoalKey === null) {
       // 模型给的 focus_goal_key 无法映射到已登记决策：不授予任何探针额度。
       // 宁可记为"无目标"，也不让凭空出现的 key 换来追问机会。
-      return { canonicalGoalKey: null, shownCount: 0, remainingProbes: 0, probeAdmission: null };
+      return { canonicalGoalKey: null, knownGoalKeys, shownCount: 0, remainingProbes: 0, probeAdmission: null };
     }
 
     const shownCount = this.#probes.shownCount(sessionId, taskId, canonicalGoalKey);
     const remainingProbes = PROBE_LIMIT_PER_CANONICAL_GOAL - shownCount;
     const probeAdmission = strategy.probe === null ? null : this.#probes.admit(sessionId, taskId, canonicalGoalKey);
 
-    return { canonicalGoalKey, shownCount, remainingProbes, probeAdmission };
+    return { canonicalGoalKey, knownGoalKeys, shownCount, remainingProbes, probeAdmission };
   }
 
   /**
@@ -115,6 +122,7 @@ export class TurnWorkflow {
       strategy: effectiveStrategy,
       guard: params.guard,
       knownDecisionIds: params.knownDecisionIds,
+      knownGoalKeys: params.context.knownGoalKeys,
       // 传真实已显示次数而非 0：探针已被摘掉时 gateTurn 的探针分支本就不会触发，
       // 而未摘掉时这个值必须真实，否则等于谎报额度用量。
       probesShownForFocusGoal: params.context.shownCount,

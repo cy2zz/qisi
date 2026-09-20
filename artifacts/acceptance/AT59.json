@@ -1,0 +1,26 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT59",
+  "result": "passed_self_review",
+  "executed_at": "2026-09-19T19:04:00+08:00",
+  "executed_by": "Codex self_review",
+  "application_commit": null,
+  "layer": "unit",
+  "environment": "Vitest",
+  "provider_mode": "malicious fixture output",
+  "commands": ["npm --prefix server test -- --run src/features/assessment/assessment.service.spec.ts"],
+  "expected": "Reject model-supplied independence fields and compute independence only in application code without old-profile context.",
+  "actual": {
+    "extra_independence_field_rejected": true,
+    "fallback_planning": "unknown",
+    "fallback_execution": "unknown",
+    "independent_task_pass": false,
+    "old_profile_in_grade_input": false
+  },
+  "evidence_files": [
+    "server/src/features/assessment/assessment.schema.ts",
+    "server/src/features/assessment/assessment.service.ts",
+    "server/src/features/assessment/assessment.service.spec.ts"
+  ],
+  "limitations": ["Assessment model calls are not yet persisted in the unified node-run budget ledger."]
+}

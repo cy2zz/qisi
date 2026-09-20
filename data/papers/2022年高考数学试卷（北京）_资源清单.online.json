@@ -1,0 +1,1917 @@
+{
+  "title": "2022年高考数学试卷（北京）",
+  "variant": "题目与解析",
+  "prefix": "2022年高考数学试卷（北京）",
+  "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+  "sourcePages": 19,
+  "questionCount": 21,
+  "notes": [],
+  "resources": [
+    {
+      "label": "卷首说明",
+      "number": null,
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E5%85%B6%E4%BB%96%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%8D%B7%E9%A6%96%E8%AF%B4%E6%98%8E.png",
+      "width": 1600,
+      "height": 383,
+      "safeBreaks": [
+        68,
+        155,
+        245,
+        316
+      ],
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            83.147,
+            72.827,
+            519.564,
+            174.021
+          ]
+        }
+      ],
+      "kind": "intro"
+    },
+    {
+      "label": "第01题题目",
+      "number": 1,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 461,
+      "safeBreaks": [
+        66,
+        134,
+        203,
+        292,
+        377
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            83.147,
+            177.84,
+            519.564,
+            441.327
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          461
+        ]
+      ]
+    },
+    {
+      "label": "第01题解析",
+      "number": 1,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 517,
+      "safeBreaks": [
+        74,
+        149,
+        229,
+        337,
+        443
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            83.147,
+            177.84,
+            519.564,
+            441.327
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          461,
+          978
+        ]
+      ]
+    },
+    {
+      "label": "第02题题目",
+      "number": 2,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 162,
+      "safeBreaks": [
+        90
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            83.147,
+            449.783,
+            519.564,
+            614.258
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          162
+        ]
+      ]
+    },
+    {
+      "label": "第02题解析",
+      "number": 2,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 453,
+      "safeBreaks": [
+        76,
+        151,
+        227,
+        386
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            83.147,
+            449.783,
+            519.564,
+            614.258
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          162,
+          615
+        ]
+      ]
+    },
+    {
+      "label": "第03题题目",
+      "number": 3,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 216,
+      "safeBreaks": [
+        80
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            83.147,
+            623.259,
+            519.564,
+            764.549
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            83.147,
+            73.918,
+            519.564,
+            122.742
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          216
+        ]
+      ]
+    },
+    {
+      "label": "第03题解析",
+      "number": 3,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 517,
+      "safeBreaks": [
+        76,
+        151,
+        228,
+        320,
+        449
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            83.147,
+            623.259,
+            519.564,
+            764.549
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            83.147,
+            73.918,
+            519.564,
+            122.742
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          216,
+          733
+        ]
+      ]
+    },
+    {
+      "label": "第04题题目",
+      "number": 4,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 336,
+      "safeBreaks": [
+        112,
+        199
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            83.147,
+            131.744,
+            519.564,
+            400.413
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          336
+        ]
+      ]
+    },
+    {
+      "label": "第04题解析",
+      "number": 4,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 661,
+      "safeBreaks": [
+        76,
+        151,
+        231,
+        377,
+        519,
+        595
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            83.147,
+            131.744,
+            519.564,
+            400.413
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          336,
+          997
+        ]
+      ]
+    },
+    {
+      "label": "第05题题目",
+      "number": 5,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 378,
+      "safeBreaks": [
+        78,
+        229
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            83.147,
+            409.414,
+            519.564,
+            762.094
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            83.147,
+            72.827,
+            519.564,
+            125.743
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          378
+        ]
+      ]
+    },
+    {
+      "label": "第05题解析",
+      "number": 5,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1145,
+      "safeBreaks": [
+        75,
+        152,
+        248,
+        346,
+        498,
+        575,
+        724,
+        800,
+        933,
+        1078
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            83.147,
+            409.414,
+            519.564,
+            762.094
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            83.147,
+            72.827,
+            519.564,
+            125.743
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          378,
+          1523
+        ]
+      ]
+    },
+    {
+      "label": "第06题题目",
+      "number": 6,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 328,
+      "safeBreaks": [
+        89,
+        177,
+        253
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            83.147,
+            134.471,
+            519.564,
+            654.081
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          328
+        ]
+      ]
+    },
+    {
+      "label": "第06题解析",
+      "number": 6,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1589,
+      "safeBreaks": [
+        75,
+        152,
+        248,
+        326,
+        423,
+        522,
+        620,
+        772,
+        872,
+        968,
+        1099,
+        1249,
+        1326,
+        1423,
+        1521
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            83.147,
+            134.471,
+            519.564,
+            654.081
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          328,
+          1917
+        ]
+      ]
+    },
+    {
+      "label": "第07题题目",
+      "number": 7,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 1189,
+      "safeBreaks": [
+        68,
+        151,
+        225,
+        850,
+        962,
+        1038,
+        1114
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            83.147,
+            661.991,
+            519.564,
+            718.452
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            83.147,
+            74.464,
+            519.564,
+            527.52
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          1189
+        ]
+      ]
+    },
+    {
+      "label": "第07题解析",
+      "number": 7,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 715,
+      "safeBreaks": [
+        75,
+        152,
+        237,
+        320,
+        403,
+        488,
+        566,
+        648
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            83.147,
+            661.991,
+            519.564,
+            718.452
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            83.147,
+            74.464,
+            519.564,
+            527.52
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          1189,
+          1904
+        ]
+      ]
+    },
+    {
+      "label": "第08题题目",
+      "number": 8,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 158,
+      "safeBreaks": [
+        84
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            83.147,
+            536.248,
+            519.564,
+            750.911
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          158
+        ]
+      ]
+    },
+    {
+      "label": "第08题解析",
+      "number": 8,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 641,
+      "safeBreaks": [
+        75,
+        154,
+        243,
+        333,
+        437,
+        573
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            83.147,
+            536.248,
+            519.564,
+            750.911
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          158,
+          799
+        ]
+      ]
+    },
+    {
+      "label": "第09题题目",
+      "number": 9,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 308,
+      "safeBreaks": [
+        68,
+        173
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            83.147,
+            73.1,
+            519.564,
+            664.991
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          308
+        ]
+      ]
+    },
+    {
+      "label": "第09题解析",
+      "number": 9,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1874,
+      "safeBreaks": [
+        74,
+        150,
+        246,
+        1077,
+        1141,
+        1226,
+        1375,
+        1457,
+        1534,
+        1730,
+        1807
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            83.147,
+            73.1,
+            519.564,
+            664.991
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          308,
+          2182
+        ]
+      ]
+    },
+    {
+      "label": "第10题题目",
+      "number": 10,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 235,
+      "safeBreaks": [
+        70,
+        155
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            83.147,
+            673.719,
+            519.564,
+            752.82
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            83.147,
+            72.554,
+            519.564,
+            648.08
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          235
+        ]
+      ]
+    },
+    {
+      "label": "第10题解析",
+      "number": 10,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2201,
+      "safeBreaks": [
+        73,
+        147,
+        243,
+        321,
+        423,
+        1377,
+        1449,
+        1547,
+        1649,
+        1752,
+        1833,
+        1908,
+        2032,
+        2133
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            83.147,
+            673.719,
+            519.564,
+            752.82
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            83.147,
+            72.554,
+            519.564,
+            648.08
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          235,
+          2436
+        ]
+      ]
+    },
+    {
+      "label": "第11题题目",
+      "number": 11,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 267,
+      "safeBreaks": [
+        66,
+        136,
+        221
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            83.147,
+            655.99,
+            519.564,
+            749.547
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            83.147,
+            72.554,
+            519.564,
+            201.57
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          267
+        ]
+      ]
+    },
+    {
+      "label": "第11题解析",
+      "number": 11,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 585,
+      "safeBreaks": [
+        94,
+        166,
+        241,
+        400,
+        497
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            83.147,
+            655.99,
+            519.564,
+            749.547
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            83.147,
+            72.554,
+            519.564,
+            201.57
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          267,
+          852
+        ]
+      ]
+    },
+    {
+      "label": "第12题题目",
+      "number": 12,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 138,
+      "safeBreaks": [],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            83.147,
+            210.844,
+            519.564,
+            509.79
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          138
+        ]
+      ]
+    },
+    {
+      "label": "第12题解析",
+      "number": 12,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 970,
+      "safeBreaks": [
+        77,
+        153,
+        230,
+        308,
+        406,
+        452,
+        552,
+        596,
+        745,
+        902
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            83.147,
+            210.844,
+            519.564,
+            509.79
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          138,
+          1108
+        ]
+      ]
+    },
+    {
+      "label": "第13题题目",
+      "number": 13,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 219,
+      "safeBreaks": [
+        155,
+        196
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            83.147,
+            518.246,
+            519.564,
+            731.818
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            83.147,
+            76.646,
+            519.564,
+            163.111
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          219
+        ]
+      ]
+    },
+    {
+      "label": "第13题解析",
+      "number": 13,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 917,
+      "safeBreaks": [
+        87,
+        169,
+        306,
+        437,
+        582,
+        708,
+        838
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            83.147,
+            518.246,
+            519.564,
+            731.818
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            83.147,
+            76.646,
+            519.564,
+            163.111
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          219,
+          1136
+        ]
+      ]
+    },
+    {
+      "label": "第14题题目",
+      "number": 14,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 243,
+      "safeBreaks": [
+        167
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            83.147,
+            171.567,
+            519.564,
+            620.531
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          243
+        ]
+      ]
+    },
+    {
+      "label": "第14题解析",
+      "number": 14,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1415,
+      "safeBreaks": [
+        78,
+        151,
+        230,
+        310,
+        414,
+        490,
+        638,
+        720,
+        796,
+        873,
+        964,
+        1112,
+        1194,
+        1271,
+        1348
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            83.147,
+            171.567,
+            519.564,
+            620.531
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          243,
+          1658
+        ]
+      ]
+    },
+    {
+      "label": "第15题题目",
+      "number": 15,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 478,
+      "safeBreaks": [
+        86,
+        164,
+        262,
+        399
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            83.147,
+            629.259,
+            519.564,
+            754.729
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            83.147,
+            72.554,
+            519.564,
+            645.352
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          478
+        ]
+      ]
+    },
+    {
+      "label": "第15题解析",
+      "number": 15,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2118,
+      "safeBreaks": [
+        72,
+        149,
+        296,
+        375,
+        462,
+        556,
+        706,
+        854,
+        1003,
+        1175,
+        1284,
+        1382,
+        1539,
+        1617,
+        1754,
+        1901,
+        1977,
+        2052
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            83.147,
+            629.259,
+            519.564,
+            754.729
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            83.147,
+            72.554,
+            519.564,
+            645.352
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          478,
+          2596
+        ]
+      ]
+    },
+    {
+      "label": "第16题题目",
+      "number": 16,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 378,
+      "safeBreaks": [
+        67,
+        133,
+        216,
+        292
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            83.147,
+            653.535,
+            519.564,
+            751.729
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            83.147,
+            76.373,
+            519.564,
+            467.512
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          378
+        ]
+      ]
+    },
+    {
+      "label": "第16题解析",
+      "number": 16,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1452,
+      "safeBreaks": [
+        109,
+        200,
+        277,
+        354,
+        431,
+        508,
+        583,
+        660,
+        757,
+        904,
+        983,
+        1118,
+        1267,
+        1369
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            83.147,
+            653.535,
+            519.564,
+            751.729
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            83.147,
+            76.373,
+            519.564,
+            467.512
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          378,
+          1830
+        ]
+      ]
+    },
+    {
+      "label": "第17题题目",
+      "number": 17,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 1210,
+      "safeBreaks": [
+        77,
+        181,
+        735,
+        836,
+        913,
+        988,
+        1062,
+        1135
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            83.147,
+            478.15,
+            519.564,
+            762.912
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            83.147,
+            72.554,
+            519.564,
+            723.907
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            83.147,
+            73.1,
+            519.564,
+            703.996
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          1210
+        ]
+      ]
+    },
+    {
+      "label": "第17题解析",
+      "number": 17,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 4595,
+      "safeBreaks": [
+        74,
+        153,
+        242,
+        333,
+        420,
+        497,
+        572,
+        651,
+        740,
+        832,
+        923,
+        1010,
+        1096,
+        1184,
+        1264,
+        1354,
+        1446,
+        1537,
+        1624,
+        1715,
+        1797,
+        1877,
+        1966,
+        2065,
+        2167,
+        2264,
+        2438,
+        2517,
+        2653,
+        2742,
+        2833,
+        2924,
+        3014,
+        3105,
+        3204,
+        3305,
+        3407,
+        3586,
+        3665,
+        3866,
+        4562
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            83.147,
+            478.15,
+            519.564,
+            762.912
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            83.147,
+            72.554,
+            519.564,
+            723.907
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            83.147,
+            73.1,
+            519.564,
+            703.996
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          1210,
+          5805
+        ]
+      ]
+    },
+    {
+      "label": "第18题题目",
+      "number": 18,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 886,
+      "safeBreaks": [
+        66,
+        141,
+        214,
+        286,
+        360,
+        434,
+        509,
+        584,
+        660,
+        733,
+        809
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 12,
+          "bbox": [
+            83.147,
+            715.179,
+            519.564,
+            768.64
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            83.147,
+            73.1,
+            519.564,
+            753.638
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            83.147,
+            70.645,
+            519.564,
+            316.13
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          886
+        ]
+      ]
+    },
+    {
+      "label": "第18题解析",
+      "number": 18,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2765,
+      "safeBreaks": [
+        135,
+        210,
+        285,
+        361,
+        436,
+        511,
+        584,
+        659,
+        734,
+        809,
+        884,
+        959,
+        1037,
+        1171,
+        1200,
+        1270,
+        1405,
+        1434,
+        1504,
+        1641,
+        1775,
+        1847,
+        2154,
+        2272,
+        2348,
+        2425,
+        2562,
+        2698
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 12,
+          "bbox": [
+            83.147,
+            715.179,
+            519.564,
+            768.64
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            83.147,
+            73.1,
+            519.564,
+            753.638
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            83.147,
+            70.645,
+            519.564,
+            316.13
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          886,
+          3651
+        ]
+      ]
+    },
+    {
+      "label": "第19题题目",
+      "number": 19,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 370,
+      "safeBreaks": [
+        130,
+        207,
+        286
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 14,
+          "bbox": [
+            83.147,
+            325.677,
+            519.564,
+            745.728
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            83.147,
+            73.645,
+            519.564,
+            755.82
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          370
+        ]
+      ]
+    },
+    {
+      "label": "第19题解析",
+      "number": 19,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3707,
+      "safeBreaks": [
+        145,
+        220,
+        296,
+        542,
+        637,
+        736,
+        812,
+        888,
+        972,
+        1114,
+        1187,
+        1282,
+        1371,
+        1594,
+        1709,
+        1855,
+        2005,
+        2153,
+        2318,
+        2496,
+        2664,
+        2831,
+        2991,
+        3089,
+        3211,
+        3397,
+        3472,
+        3616
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 14,
+          "bbox": [
+            83.147,
+            325.677,
+            519.564,
+            745.728
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            83.147,
+            73.645,
+            519.564,
+            755.82
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          370,
+          4077
+        ]
+      ]
+    },
+    {
+      "label": "第20题题目",
+      "number": 20,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 324,
+      "safeBreaks": [
+        75,
+        158,
+        242
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 16,
+          "bbox": [
+            83.147,
+            74.736,
+            519.564,
+            750.911
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            83.147,
+            72.827,
+            519.564,
+            352.134
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          324
+        ]
+      ]
+    },
+    {
+      "label": "第20题解析",
+      "number": 20,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3215,
+      "safeBreaks": [
+        77,
+        159,
+        234,
+        309,
+        384,
+        461,
+        543,
+        619,
+        695,
+        792,
+        889,
+        1025,
+        1109,
+        1184,
+        1261,
+        1398,
+        1545,
+        1691,
+        1844,
+        1927,
+        2010,
+        2094,
+        2173,
+        2246,
+        2328,
+        2410,
+        2496,
+        2588,
+        2732,
+        2869,
+        2953,
+        3043,
+        3140
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 16,
+          "bbox": [
+            83.147,
+            74.736,
+            519.564,
+            750.911
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            83.147,
+            72.827,
+            519.564,
+            352.134
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          324,
+          3539
+        ]
+      ]
+    },
+    {
+      "label": "第21题题目",
+      "number": 21,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC21%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 511,
+      "safeBreaks": [
+        79,
+        171,
+        247,
+        331,
+        422
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 17,
+          "bbox": [
+            83.147,
+            361.954,
+            519.564,
+            758.548
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            83.147,
+            74.191,
+            519.564,
+            743.819
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第21题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          511
+        ]
+      ]
+    },
+    {
+      "label": "第21题解析",
+      "number": 21,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC21%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3434,
+      "safeBreaks": [
+        78,
+        153,
+        228,
+        303,
+        382,
+        469,
+        545,
+        624,
+        713,
+        805,
+        883,
+        961,
+        1045,
+        1133,
+        1211,
+        1303,
+        1450,
+        1596,
+        1723,
+        1806,
+        1886,
+        1966,
+        2043,
+        2121,
+        2197,
+        2275,
+        2358,
+        2441,
+        2525,
+        2605,
+        2680,
+        2757,
+        2830,
+        2905,
+        2980,
+        3057,
+        3129,
+        3206,
+        3282,
+        3359
+      ],
+      "sourcePDF": "2022年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 17,
+          "bbox": [
+            83.147,
+            361.954,
+            519.564,
+            758.548
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            83.147,
+            74.191,
+            519.564,
+            743.819
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（北京）（解析卷）_第21题.png",
+      "originalImageIntervals": [
+        [
+          511,
+          3945
+        ]
+      ]
+    }
+  ],
+  "layout": "question-analysis-pairs"
+}

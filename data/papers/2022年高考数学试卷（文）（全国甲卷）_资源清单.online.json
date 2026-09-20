@@ -1,0 +1,2030 @@
+{
+  "title": "2022年高考数学试卷（文）（全国甲卷）",
+  "variant": "题目与解析",
+  "prefix": "2022年高考数学试卷（文）（全国甲卷）",
+  "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+  "sourcePages": 21,
+  "questionCount": 23,
+  "notes": [],
+  "resources": [
+    {
+      "label": "卷首说明",
+      "number": null,
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E5%85%B6%E4%BB%96%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%8D%B7%E9%A6%96%E8%AF%B4%E6%98%8E.png",
+      "width": 1600,
+      "height": 763,
+      "safeBreaks": [
+        77,
+        182,
+        276,
+        343,
+        403,
+        463,
+        523,
+        583,
+        643,
+        703
+      ],
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.428,
+            53.733,
+            544.522,
+            285.648
+          ]
+        }
+      ],
+      "kind": "intro"
+    },
+    {
+      "label": "第01题题目",
+      "number": 1,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 369,
+      "safeBreaks": [
+        60,
+        128,
+        270
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.428,
+            289.354,
+            544.522,
+            537.327
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          369
+        ]
+      ]
+    },
+    {
+      "label": "第01题解析",
+      "number": 1,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 446,
+      "safeBreaks": [
+        78,
+        154,
+        233,
+        378
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.428,
+            289.354,
+            544.522,
+            537.327
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          369,
+          815
+        ]
+      ]
+    },
+    {
+      "label": "第02题题目",
+      "number": 2,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 1317,
+      "safeBreaks": [
+        65,
+        140,
+        211,
+        796,
+        898,
+        1013,
+        1090,
+        1166,
+        1241
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.428,
+            548.135,
+            544.522,
+            607.735
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            50.428,
+            50.953,
+            544.522,
+            671.967
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          1317
+        ]
+      ]
+    },
+    {
+      "label": "第02题解析",
+      "number": 2,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 923,
+      "safeBreaks": [
+        75,
+        151,
+        234,
+        378,
+        474,
+        557,
+        632,
+        707,
+        783,
+        860
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.428,
+            548.135,
+            544.522,
+            607.735
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            50.428,
+            50.953,
+            544.522,
+            671.967
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          1317,
+          2240
+        ]
+      ]
+    },
+    {
+      "label": "第03题题目",
+      "number": 3,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 169,
+      "safeBreaks": [
+        77
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            50.428,
+            709.333,
+            544.522,
+            755.963
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            50.428,
+            50.953,
+            544.522,
+            164.904
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          169
+        ]
+      ]
+    },
+    {
+      "label": "第03题解析",
+      "number": 3,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 387,
+      "safeBreaks": [
+        70,
+        145,
+        222,
+        321
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            50.428,
+            709.333,
+            544.522,
+            755.963
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            50.428,
+            50.953,
+            544.522,
+            164.904
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          169,
+          556
+        ]
+      ]
+    },
+    {
+      "label": "第04题题目",
+      "number": 4,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 896,
+      "safeBreaks": [
+        66,
+        133,
+        161,
+        170,
+        178,
+        195,
+        203,
+        212,
+        363,
+        371,
+        388,
+        396,
+        413,
+        443,
+        479,
+        487,
+        496,
+        504,
+        521,
+        529,
+        680,
+        689,
+        697,
+        714,
+        722,
+        793
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            50.428,
+            175.712,
+            544.522,
+            726.626
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          896
+        ]
+      ]
+    },
+    {
+      "label": "第04题解析",
+      "number": 4,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 900,
+      "safeBreaks": [
+        77,
+        153,
+        229,
+        308,
+        648,
+        830
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            50.428,
+            175.712,
+            544.522,
+            726.626
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          896,
+          1796
+        ]
+      ]
+    },
+    {
+      "label": "第05题题目",
+      "number": 5,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 357,
+      "safeBreaks": [
+        132,
+        217
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            50.428,
+            52.497,
+            544.522,
+            391.26
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          357
+        ]
+      ]
+    },
+    {
+      "label": "第05题解析",
+      "number": 5,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 752,
+      "safeBreaks": [
+        81,
+        155,
+        265,
+        335,
+        482,
+        588,
+        694
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            50.428,
+            52.497,
+            544.522,
+            391.26
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          357,
+          1109
+        ]
+      ]
+    },
+    {
+      "label": "第06题题目",
+      "number": 6,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 287,
+      "safeBreaks": [
+        65,
+        147
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            50.428,
+            401.76,
+            544.522,
+            687.408
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          287
+        ]
+      ]
+    },
+    {
+      "label": "第06题解析",
+      "number": 6,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 650,
+      "safeBreaks": [
+        80,
+        156,
+        233,
+        311,
+        408,
+        479,
+        593
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            50.428,
+            401.76,
+            544.522,
+            687.408
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          287,
+          937
+        ]
+      ]
+    },
+    {
+      "label": "第07题题目",
+      "number": 7,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 915,
+      "safeBreaks": [
+        126,
+        515
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            50.428,
+            699.76,
+            544.522,
+            733.111
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            50.428,
+            55.894,
+            544.522,
+            539.18
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          915
+        ]
+      ]
+    },
+    {
+      "label": "第07题解析",
+      "number": 7,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 794,
+      "safeBreaks": [
+        73,
+        149,
+        228,
+        374,
+        480,
+        579,
+        726
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            50.428,
+            699.76,
+            544.522,
+            733.111
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            50.428,
+            55.894,
+            544.522,
+            539.18
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          915,
+          1709
+        ]
+      ]
+    },
+    {
+      "label": "第08题题目",
+      "number": 8,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 248,
+      "safeBreaks": [
+        74,
+        115
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            50.428,
+            546.282,
+            544.522,
+            727.553
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            50.428,
+            54.968,
+            544.522,
+            157.184
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          248
+        ]
+      ]
+    },
+    {
+      "label": "第08题解析",
+      "number": 8,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 706,
+      "safeBreaks": [
+        81,
+        160,
+        262,
+        357,
+        491,
+        636
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            50.428,
+            546.282,
+            544.522,
+            727.553
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            50.428,
+            54.968,
+            544.522,
+            157.184
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          248,
+          954
+        ]
+      ]
+    },
+    {
+      "label": "第09题题目",
+      "number": 9,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 276,
+      "safeBreaks": [
+        80,
+        181
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            50.428,
+            171.389,
+            544.522,
+            764.919
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            50.428,
+            51.571,
+            544.522,
+            141.434
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          276
+        ]
+      ]
+    },
+    {
+      "label": "第09题解析",
+      "number": 9,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1973,
+      "safeBreaks": [
+        80,
+        155,
+        232,
+        321,
+        853,
+        964,
+        1112,
+        1219,
+        1320,
+        1418,
+        1567,
+        1664,
+        1812,
+        1905
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            50.428,
+            171.389,
+            544.522,
+            764.919
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            50.428,
+            51.571,
+            544.522,
+            141.434
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          276,
+          2249
+        ]
+      ]
+    },
+    {
+      "label": "第10题题目",
+      "number": 10,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 378,
+      "safeBreaks": [
+        79,
+        232
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            50.428,
+            155.639,
+            544.522,
+            740.523
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            50.428,
+            52.806,
+            544.522,
+            141.434
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          378
+        ]
+      ]
+    },
+    {
+      "label": "第10题解析",
+      "number": 10,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1839,
+      "safeBreaks": [
+        79,
+        161,
+        258,
+        353,
+        440,
+        535,
+        689,
+        789,
+        943,
+        1091,
+        1239,
+        1393,
+        1534,
+        1771
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            50.428,
+            155.639,
+            544.522,
+            740.523
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            50.428,
+            52.806,
+            544.522,
+            141.434
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          378,
+          2217
+        ]
+      ]
+    },
+    {
+      "label": "第11题题目",
+      "number": 11,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 378,
+      "safeBreaks": [
+        127,
+        233
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            50.428,
+            155.639,
+            544.522,
+            586.119
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          378
+        ]
+      ]
+    },
+    {
+      "label": "第11题解析",
+      "number": 11,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1028,
+      "safeBreaks": [
+        79,
+        157,
+        254,
+        409,
+        512,
+        606,
+        715,
+        852,
+        969
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            50.428,
+            155.639,
+            544.522,
+            586.119
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          378,
+          1406
+        ]
+      ]
+    },
+    {
+      "label": "第12题题目",
+      "number": 12,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 153,
+      "safeBreaks": [
+        73
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            50.428,
+            600.633,
+            544.522,
+            747.934
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            50.428,
+            54.041,
+            544.522,
+            266.193
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          153
+        ]
+      ]
+    },
+    {
+      "label": "第12题解析",
+      "number": 12,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1047,
+      "safeBreaks": [
+        76,
+        156,
+        254,
+        342,
+        478,
+        634,
+        727,
+        886,
+        977
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            50.428,
+            600.633,
+            544.522,
+            747.934
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            50.428,
+            54.041,
+            544.522,
+            266.193
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          153,
+          1200
+        ]
+      ]
+    },
+    {
+      "label": "第13题题目",
+      "number": 13,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 152,
+      "safeBreaks": [
+        68
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            50.428,
+            273.604,
+            544.522,
+            460.433
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          152
+        ]
+      ]
+    },
+    {
+      "label": "第13题解析",
+      "number": 13,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 465,
+      "safeBreaks": [
+        116,
+        185,
+        256,
+        363
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            50.428,
+            273.604,
+            544.522,
+            460.433
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          152,
+          617
+        ]
+      ]
+    },
+    {
+      "label": "第14题题目",
+      "number": 14,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 79,
+      "safeBreaks": [],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            50.428,
+            470.624,
+            544.522,
+            750.713
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            50.428,
+            53.424,
+            544.522,
+            100.054
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          79
+        ]
+      ]
+    },
+    {
+      "label": "第14题解析",
+      "number": 14,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1015,
+      "safeBreaks": [
+        96,
+        182,
+        280,
+        379,
+        476,
+        556,
+        662,
+        754,
+        846,
+        933
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            50.428,
+            470.624,
+            544.522,
+            750.713
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            50.428,
+            53.424,
+            544.522,
+            100.054
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          79,
+          1094
+        ]
+      ]
+    },
+    {
+      "label": "第15题题目",
+      "number": 15,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 182,
+      "safeBreaks": [
+        107
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            50.428,
+            109.627,
+            544.522,
+            459.198
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          182
+        ]
+      ]
+    },
+    {
+      "label": "第15题解析",
+      "number": 15,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 962,
+      "safeBreaks": [
+        93,
+        166,
+        245,
+        274,
+        386,
+        527,
+        623,
+        780,
+        878
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            50.428,
+            109.627,
+            544.522,
+            459.198
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          182,
+          1144
+        ]
+      ]
+    },
+    {
+      "label": "第16题题目",
+      "number": 16,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 181,
+      "safeBreaks": [
+        109
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            50.428,
+            468.771,
+            544.522,
+            764.301
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            50.428,
+            53.424,
+            544.522,
+            332.278
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          181
+        ]
+      ]
+    },
+    {
+      "label": "第16题解析",
+      "number": 16,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1715,
+      "safeBreaks": [
+        93,
+        177,
+        319,
+        405,
+        500,
+        597,
+        794,
+        987,
+        1123,
+        1244,
+        1338,
+        1403
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            50.428,
+            468.771,
+            544.522,
+            764.301
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            50.428,
+            53.424,
+            544.522,
+            332.278
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          181,
+          1896
+        ]
+      ]
+    },
+    {
+      "label": "第17题题目",
+      "number": 17,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 1229,
+      "safeBreaks": [
+        60,
+        121,
+        183,
+        256,
+        320,
+        690,
+        793,
+        870,
+        1027,
+        1128,
+        1165
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 11,
+          "bbox": [
+            50.428,
+            367.173,
+            544.522,
+            741.14
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            50.428,
+            47.557,
+            544.522,
+            737.126
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          1229
+        ]
+      ]
+    },
+    {
+      "label": "第17题解析",
+      "number": 17,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2251,
+      "safeBreaks": [
+        113,
+        182,
+        258,
+        340,
+        430,
+        510,
+        587,
+        669,
+        808,
+        890,
+        972,
+        1106,
+        1219,
+        1325,
+        1394,
+        1459,
+        1895,
+        2040,
+        2182
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 11,
+          "bbox": [
+            50.428,
+            367.173,
+            544.522,
+            741.14
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            50.428,
+            47.557,
+            544.522,
+            737.126
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          1229,
+          3480
+        ]
+      ]
+    },
+    {
+      "label": "第18题题目",
+      "number": 18,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 326,
+      "safeBreaks": [
+        125,
+        232
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 13,
+          "bbox": [
+            50.428,
+            54.659,
+            544.522,
+            764.301
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          326
+        ]
+      ]
+    },
+    {
+      "label": "第18题解析",
+      "number": 18,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1984,
+      "safeBreaks": [
+        81,
+        154,
+        231,
+        382,
+        461,
+        557,
+        636,
+        717,
+        859,
+        964,
+        1067,
+        1166,
+        1267,
+        1365,
+        1449,
+        1544,
+        1644,
+        1748,
+        1900
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 13,
+          "bbox": [
+            50.428,
+            54.659,
+            544.522,
+            764.301
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          326,
+          2310
+        ]
+      ]
+    },
+    {
+      "label": "第19题题目",
+      "number": 19,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 1075,
+      "safeBreaks": [
+        70,
+        159,
+        242,
+        302,
+        780,
+        882,
+        999
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 14,
+          "bbox": [
+            50.428,
+            50.953,
+            544.522,
+            648.498
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            50.428,
+            56.821,
+            544.522,
+            755.963
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            50.428,
+            54.968,
+            544.522,
+            83.687
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          1075
+        ]
+      ]
+    },
+    {
+      "label": "第19题解析",
+      "number": 19,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3277,
+      "safeBreaks": [
+        82,
+        221,
+        308,
+        398,
+        480,
+        556,
+        636,
+        726,
+        808,
+        878,
+        925,
+        1454,
+        1560,
+        1656,
+        1738,
+        1814,
+        1889,
+        1976,
+        2043,
+        2614,
+        2722,
+        2818,
+        2900,
+        2978,
+        3076,
+        3166
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 14,
+          "bbox": [
+            50.428,
+            50.953,
+            544.522,
+            648.498
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            50.428,
+            56.821,
+            544.522,
+            755.963
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            50.428,
+            54.968,
+            544.522,
+            83.687
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          1075,
+          4352
+        ]
+      ]
+    },
+    {
+      "label": "第20题题目",
+      "number": 20,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 340,
+      "safeBreaks": [
+        82,
+        166,
+        257
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 16,
+          "bbox": [
+            50.428,
+            99.128,
+            544.522,
+            730.95
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            50.428,
+            54.968,
+            544.522,
+            298.309
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          340
+        ]
+      ]
+    },
+    {
+      "label": "第20题解析",
+      "number": 20,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2530,
+      "safeBreaks": [
+        96,
+        174,
+        250,
+        326,
+        402,
+        478,
+        556,
+        657,
+        753,
+        859,
+        953,
+        1033,
+        1133,
+        1237,
+        1333,
+        1436,
+        1596,
+        1724,
+        1848,
+        1951,
+        2458
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 16,
+          "bbox": [
+            50.428,
+            99.128,
+            544.522,
+            730.95
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            50.428,
+            54.968,
+            544.522,
+            298.309
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          340,
+          2870
+        ]
+      ]
+    },
+    {
+      "label": "第21题题目",
+      "number": 21,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC21%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 443,
+      "safeBreaks": [
+        85,
+        184,
+        268,
+        359
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 17,
+          "bbox": [
+            50.428,
+            311.588,
+            544.522,
+            748.552
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            50.428,
+            53.115,
+            544.522,
+            758.125
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            50.428,
+            50.953,
+            544.522,
+            123.215
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第21题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          443
+        ]
+      ]
+    },
+    {
+      "label": "第21题解析",
+      "number": 21,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC21%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3549,
+      "safeBreaks": [
+        96,
+        196,
+        285,
+        425,
+        525,
+        675,
+        753,
+        873,
+        990,
+        1075,
+        1154,
+        1304,
+        1452,
+        1569,
+        1618,
+        1764,
+        1861,
+        2016,
+        2115,
+        2262,
+        2415,
+        2622,
+        2770,
+        2921,
+        3026,
+        3123,
+        3223,
+        3297,
+        3361,
+        3427,
+        3487
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 17,
+          "bbox": [
+            50.428,
+            311.588,
+            544.522,
+            748.552
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            50.428,
+            53.115,
+            544.522,
+            758.125
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            50.428,
+            50.953,
+            544.522,
+            123.215
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第21题.png",
+      "originalImageIntervals": [
+        [
+          443,
+          3992
+        ]
+      ]
+    },
+    {
+      "label": "第22题题目",
+      "number": 22,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC22%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 696,
+      "safeBreaks": [
+        192,
+        401,
+        496,
+        597
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 19,
+          "bbox": [
+            50.428,
+            129.391,
+            544.522,
+            734.038
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            50.428,
+            51.88,
+            544.522,
+            125.067
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第22题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          696
+        ]
+      ]
+    },
+    {
+      "label": "第22题解析",
+      "number": 22,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC22%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1535,
+      "safeBreaks": [
+        102,
+        250,
+        336,
+        432,
+        528,
+        613,
+        755,
+        841,
+        986,
+        1085,
+        1280,
+        1466
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 19,
+          "bbox": [
+            50.428,
+            129.391,
+            544.522,
+            734.038
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            50.428,
+            51.88,
+            544.522,
+            125.067
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第22题.png",
+      "originalImageIntervals": [
+        [
+          696,
+          2231
+        ]
+      ]
+    },
+    {
+      "label": "第23题题目",
+      "number": 23,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC23%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 287,
+      "safeBreaks": [
+        66,
+        147,
+        236
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 20,
+          "bbox": [
+            50.428,
+            131.552,
+            544.522,
+            648.189
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第23题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          287
+        ]
+      ]
+    },
+    {
+      "label": "第23题解析",
+      "number": 23,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2022%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2022%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E7%94%B2%E5%8D%B7%EF%BC%89_%E7%AC%AC23%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1398,
+      "safeBreaks": [
+        82,
+        158,
+        253,
+        366,
+        432,
+        539,
+        611,
+        688,
+        763,
+        839,
+        909,
+        1026,
+        1160,
+        1282,
+        1364
+      ],
+      "sourcePDF": "2022年高考数学试卷（文）（全国甲卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 20,
+          "bbox": [
+            50.428,
+            131.552,
+            544.522,
+            648.189
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2022年高考数学试卷（文）（全国甲卷）（解析卷）_第23题.png",
+      "originalImageIntervals": [
+        [
+          287,
+          1685
+        ]
+      ]
+    }
+  ],
+  "layout": "question-analysis-pairs"
+}

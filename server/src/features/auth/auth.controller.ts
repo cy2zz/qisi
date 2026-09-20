@@ -12,6 +12,7 @@ import {
 import { ConfigService } from '@nestjs/config';
 import type { Response } from 'express';
 import type { AppEnvironment } from '../../config/env.js';
+import { isAllowedWebOrigin } from '../../config/web-origin.js';
 import { AUTH_COOKIE_NAME, authCookieOptions, readCookie } from './auth.cookie.js';
 import { AuthService } from './auth.service.js';
 
@@ -48,7 +49,7 @@ export class AuthController {
   }
 
   private assertAllowedOrigin(origin: string | undefined) {
-    if (origin !== this.config.get('WEB_ORIGIN', { infer: true })) {
+    if (!isAllowedWebOrigin(origin, this.config.get('WEB_ORIGIN', { infer: true }))) {
       throw new ForbiddenException('origin is not allowed');
     }
   }

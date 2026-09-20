@@ -8,6 +8,7 @@ describe('parseEnvironment', () => {
     expect(env.NODE_ENV).toBe('development');
     expect(env.DB_HOST).toBe('127.0.0.1');
     expect(env.DB_SSL).toBe(false);
+    expect(env.MEDIA_STORAGE_ROOT).toBe('.data/private-media');
   });
 
   it('requires explicit production database credentials', () => {
@@ -44,5 +45,36 @@ describe('parseEnvironment', () => {
     expect(env.AI_MODEL).toBe('test-model');
     expect(env.AI_API_KEY).toBe('test-only-key');
     expect(parseEnvironment({}).AI_API_KEY).toBeUndefined();
+  });
+
+  it('requires the Youdao speech key and secret to be configured together', () => {
+    expect(() => parseEnvironment({ YOUDAO_SPEECH_APP_KEY: 'test-app-key' })).toThrow(
+      'YOUDAO_SPEECH_APP_KEY and YOUDAO_SPEECH_APP_SECRET must be configured together',
+    );
+    expect(() => parseEnvironment({ YOUDAO_SPEECH_APP_SECRET: 'test-app-secret' })).toThrow(
+      'YOUDAO_SPEECH_APP_KEY and YOUDAO_SPEECH_APP_SECRET must be configured together',
+    );
+  });
+
+  it('accepts a complete Youdao speech configuration', () => {
+    const env = parseEnvironment({
+      YOUDAO_SPEECH_APP_KEY: 'test-app-key',
+      YOUDAO_SPEECH_APP_SECRET: 'test-app-secret',
+    });
+
+    expect(env.YOUDAO_SPEECH_APP_KEY).toBe('test-app-key');
+    expect(env.YOUDAO_SPEECH_APP_SECRET).toBe('test-app-secret');
+    expect(env.YOUDAO_SPEECH_TIMEOUT_MS).toBe(25_000);
+  });
+
+  it('keeps the Volcengine TTS key optional and uses the TTS 2.0 Vivi defaults', () => {
+    const defaults = parseEnvironment({});
+    const configured = parseEnvironment({ VOLC_TTS_API_KEY: 'test-volc-key' });
+
+    expect(defaults.VOLC_TTS_API_KEY).toBeUndefined();
+    expect(configured.VOLC_TTS_API_KEY).toBe('test-volc-key');
+    expect(configured.VOLC_TTS_RESOURCE_ID).toBe('seed-tts-2.0');
+    expect(configured.VOLC_TTS_SPEAKER).toBe('zh_female_vv_uranus_bigtts');
+    expect(configured.VOLC_TTS_TIMEOUT_MS).toBe(30_000);
   });
 });

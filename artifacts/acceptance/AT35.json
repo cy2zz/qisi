@@ -1,0 +1,44 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT35",
+  "result": "passed_self_review",
+  "executed_at": "2026-09-19T20:05:00+08:00",
+  "executed_by": "Codex model_review_and_human_math_self_review",
+  "application_commit": null,
+  "layer": "real_provider_model_review",
+  "environment": "local NestJS API with configured OpenAI-compatible provider; model gpt-5.5-2026-04-24; local MySQL 8.0.45",
+  "provider_mode": "real_generation_real_independent_guard_and_human_math_review",
+  "commands": [
+    "npm --prefix server test -- --run src/features/assessment/assessment.service.spec.ts src/model/openai-compatible-model.port.spec.ts",
+    "npm --prefix server run test:assessment-live"
+  ],
+  "expected": "A task that only renames variables or changes numbers is rejected as near-duplicate; accepted first and reassessment tasks change a meaningful representation or prerequisite decision, remain mathematically correct, and do not expose private answers or rubric to the client.",
+  "actual": {
+    "provider_model": "gpt-5.5-2026-04-24",
+    "near_duplicate_candidate": "求函数 g(x)=x^2-6x+5 的最小值，并说明关键一步。",
+    "near_duplicate_guard_verdict": "reject",
+    "near_duplicate_guard_reason": "与原题同为首一二次函数配方求最小值，仅更换数字并加常数，属于同题改写。",
+    "accepted_initial_task": "已知 u+v=4，求 u^2+v^2 的最小值及取等条件。",
+    "accepted_initial_equivalence_group": "quadratic_min_complete_square",
+    "accepted_initial_human_review": "正确：代入 v=4-u 后得到 2(u-2)^2+8，最小值 8 在 u=v=2 取得；相对原题增加了约束消元这一必要决策。",
+    "accepted_reassessment_task": "若方程 (x-1)(x-5)=m 有实数解，求 m 的取值范围。",
+    "accepted_reassessment_equivalence_group": "quadratic_range_parameter_factor",
+    "accepted_reassessment_human_review": "正确：(x-1)(x-5)=(x-3)^2-4 的值域为 [-4,+infinity)，故 m>=-4；目标从直接最值变为参数存在性与值域判断。",
+    "rubrics_separate_planning_and_execution": true,
+    "private_material_leaked_to_client": false,
+    "reassessment_distinct": true,
+    "candidate_cycles_bounded": 2
+  },
+  "evidence_files": [
+    "server/src/features/assessment/assessment.service.ts",
+    "server/src/features/assessment/assessment.service.spec.ts",
+    "server/scripts/verify-assessment-live.ts",
+    "server/src/model/openai-compatible-model.port.ts",
+    "server/src/model/openai-compatible-model.port.spec.ts"
+  ],
+  "limitations": [
+    "This is one retained real-provider validation chain, not a statistically representative curriculum evaluation.",
+    "Human mathematical review was performed by the same Codex agent, not an independent reviewer.",
+    "Real student observation was not performed."
+  ]
+}

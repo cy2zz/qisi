@@ -1,0 +1,2059 @@
+{
+  "title": "2023年高考数学试卷（文）（全国乙卷）",
+  "variant": "题目与解析",
+  "prefix": "2023年高考数学试卷（文）（全国乙卷）",
+  "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+  "sourcePages": 22,
+  "questionCount": 23,
+  "notes": [],
+  "resources": [
+    {
+      "label": "卷首说明",
+      "number": null,
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E5%85%B6%E4%BB%96%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%8D%B7%E9%A6%96%E8%AF%B4%E6%98%8E.png",
+      "width": 1600,
+      "height": 171,
+      "safeBreaks": [
+        85
+      ],
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.179,
+            51.782,
+            555.366,
+            101.985
+          ]
+        }
+      ],
+      "kind": "intro"
+    },
+    {
+      "label": "第01题题目",
+      "number": 1,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 340,
+      "safeBreaks": [
+        86,
+        199,
+        243
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.179,
+            112.404,
+            555.366,
+            361.84
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          340
+        ]
+      ]
+    },
+    {
+      "label": "第01题解析",
+      "number": 1,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 462,
+      "safeBreaks": [
+        78,
+        151,
+        227,
+        298,
+        403
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.179,
+            112.404,
+            555.366,
+            361.84
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          340,
+          802
+        ]
+      ]
+    },
+    {
+      "label": "第02题题目",
+      "number": 2,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 180,
+      "safeBreaks": [
+        83
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.179,
+            374.154,
+            555.366,
+            556.968
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          180
+        ]
+      ]
+    },
+    {
+      "label": "第02题解析",
+      "number": 2,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 411,
+      "safeBreaks": [
+        76,
+        154,
+        248,
+        346
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.179,
+            374.154,
+            555.366,
+            556.968
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          180,
+          591
+        ]
+      ]
+    },
+    {
+      "label": "第03题题目",
+      "number": 3,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 624,
+      "safeBreaks": [
+        64,
+        269,
+        309,
+        350,
+        464,
+        479,
+        508,
+        557
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.179,
+            567.704,
+            555.366,
+            759.043
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            50.179,
+            50.834,
+            555.366,
+            453.721
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          624
+        ]
+      ]
+    },
+    {
+      "label": "第03题解析",
+      "number": 3,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1294,
+      "safeBreaks": [
+        69,
+        143,
+        223,
+        318,
+        416,
+        508,
+        1058,
+        1134,
+        1228
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.179,
+            567.704,
+            555.366,
+            759.043
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            50.179,
+            50.834,
+            555.366,
+            453.721
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          624,
+          1918
+        ]
+      ]
+    },
+    {
+      "label": "第04题题目",
+      "number": 4,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 196,
+      "safeBreaks": [
+        91
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            50.179,
+            463.509,
+            555.366,
+            762.201
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            50.179,
+            50.834,
+            555.366,
+            63.464
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          196
+        ]
+      ]
+    },
+    {
+      "label": "第04题解析",
+      "number": 4,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 826,
+      "safeBreaks": [
+        67,
+        141,
+        216,
+        290,
+        366,
+        462,
+        558,
+        661,
+        768
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            50.179,
+            463.509,
+            555.366,
+            762.201
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            50.179,
+            50.834,
+            555.366,
+            63.464
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          196,
+          1022
+        ]
+      ]
+    },
+    {
+      "label": "第05题题目",
+      "number": 5,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 195,
+      "safeBreaks": [
+        119
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            50.179,
+            79.251,
+            555.366,
+            336.581
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          195
+        ]
+      ]
+    },
+    {
+      "label": "第05题解析",
+      "number": 5,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 632,
+      "safeBreaks": [
+        75,
+        148,
+        222,
+        375,
+        468,
+        567
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            50.179,
+            79.251,
+            555.366,
+            336.581
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          195,
+          827
+        ]
+      ]
+    },
+    {
+      "label": "第06题题目",
+      "number": 6,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 175,
+      "safeBreaks": [
+        78
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            50.179,
+            349.842,
+            555.366,
+            724.312
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            50.179,
+            53.045,
+            555.366,
+            310.69
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          175
+        ]
+      ]
+    },
+    {
+      "label": "第06题解析",
+      "number": 6,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1863,
+      "safeBreaks": [
+        78,
+        149,
+        251,
+        318,
+        418,
+        531,
+        667,
+        741,
+        842,
+        940,
+        1029,
+        1154,
+        1271,
+        1342
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            50.179,
+            349.842,
+            555.366,
+            724.312
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            50.179,
+            53.045,
+            555.366,
+            310.69
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          175,
+          2038
+        ]
+      ]
+    },
+    {
+      "label": "第07题题目",
+      "number": 7,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 294,
+      "safeBreaks": [
+        89,
+        189
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            50.179,
+            323.32,
+            555.366,
+            767.252
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          294
+        ]
+      ]
+    },
+    {
+      "label": "第07题解析",
+      "number": 7,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1124,
+      "safeBreaks": [
+        67,
+        142,
+        216,
+        313,
+        421,
+        567,
+        632
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            50.179,
+            323.32,
+            555.366,
+            767.252
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          294,
+          1418
+        ]
+      ]
+    },
+    {
+      "label": "第08题题目",
+      "number": 8,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 180,
+      "safeBreaks": [
+        82
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            50.179,
+            52.413,
+            555.366,
+            547.18
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          180
+        ]
+      ]
+    },
+    {
+      "label": "第08题解析",
+      "number": 8,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1399,
+      "safeBreaks": [
+        76,
+        154,
+        250,
+        346,
+        446,
+        591,
+        742,
+        891,
+        1042,
+        1334
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            50.179,
+            52.413,
+            555.366,
+            547.18
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          180,
+          1579
+        ]
+      ]
+    },
+    {
+      "label": "第09题题目",
+      "number": 9,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 244,
+      "safeBreaks": [
+        64,
+        133
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            50.179,
+            557.6,
+            555.366,
+            748.308
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            50.179,
+            47.361,
+            555.366,
+            94.723
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          244
+        ]
+      ]
+    },
+    {
+      "label": "第09题解析",
+      "number": 9,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 546,
+      "safeBreaks": [
+        67,
+        140,
+        215,
+        293,
+        378,
+        490
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            50.179,
+            557.6,
+            555.366,
+            748.308
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            50.179,
+            47.361,
+            555.366,
+            94.723
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          244,
+          790
+        ]
+      ]
+    },
+    {
+      "label": "第10题题目",
+      "number": 10,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 424,
+      "safeBreaks": [
+        131,
+        279
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            50.179,
+            107.352,
+            555.366,
+            539.287
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          424
+        ]
+      ]
+    },
+    {
+      "label": "第10题解析",
+      "number": 10,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 956,
+      "safeBreaks": [
+        78,
+        147,
+        260,
+        391,
+        503,
+        606,
+        743,
+        892
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            50.179,
+            107.352,
+            555.366,
+            539.287
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          424,
+          1380
+        ]
+      ]
+    },
+    {
+      "label": "第11题题目",
+      "number": 11,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 224,
+      "safeBreaks": [
+        80
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            50.179,
+            552.548,
+            555.366,
+            754.623
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            50.179,
+            52.413,
+            555.366,
+            453.721
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          224
+        ]
+      ]
+    },
+    {
+      "label": "第11题解析",
+      "number": 11,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1723,
+      "safeBreaks": [
+        78,
+        155,
+        254,
+        350,
+        434,
+        521,
+        626,
+        720,
+        819,
+        918,
+        1018,
+        1165,
+        1314,
+        1413,
+        1560,
+        1656
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            50.179,
+            552.548,
+            555.366,
+            754.623
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            50.179,
+            52.413,
+            555.366,
+            453.721
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          224,
+          1947
+        ]
+      ]
+    },
+    {
+      "label": "第12题题目",
+      "number": 12,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 199,
+      "safeBreaks": [
+        105
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            50.179,
+            460.983,
+            555.366,
+            729.679
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            50.179,
+            50.834,
+            555.366,
+            726.522
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          199
+        ]
+      ]
+    },
+    {
+      "label": "第12题解析",
+      "number": 12,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2828,
+      "safeBreaks": [
+        72,
+        151,
+        241,
+        322,
+        464,
+        528,
+        621,
+        669,
+        915,
+        1063,
+        1155,
+        1357,
+        1455,
+        1524,
+        1637,
+        1875,
+        1974,
+        2053,
+        2148,
+        2241,
+        2314,
+        2427,
+        2670,
+        2759
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            50.179,
+            460.983,
+            555.366,
+            729.679
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            50.179,
+            50.834,
+            555.366,
+            726.522
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          199,
+          3027
+        ]
+      ]
+    },
+    {
+      "label": "第13题题目",
+      "number": 13,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 151,
+      "safeBreaks": [
+        64
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            50.179,
+            736.31,
+            555.366,
+            750.834
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            50.179,
+            51.466,
+            555.366,
+            293.956
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          151
+        ]
+      ]
+    },
+    {
+      "label": "第13题解析",
+      "number": 13,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 699,
+      "safeBreaks": [
+        110,
+        172,
+        283,
+        349,
+        457,
+        589
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            50.179,
+            736.31,
+            555.366,
+            750.834
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            50.179,
+            51.466,
+            555.366,
+            293.956
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          151,
+          850
+        ]
+      ]
+    },
+    {
+      "label": "第14题题目",
+      "number": 14,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 133,
+      "safeBreaks": [],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            50.179,
+            301.849,
+            555.366,
+            646.639
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          133
+        ]
+      ]
+    },
+    {
+      "label": "第14题解析",
+      "number": 14,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 971,
+      "safeBreaks": [
+        91,
+        145,
+        222,
+        297,
+        440,
+        550,
+        636,
+        692,
+        840,
+        931
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            50.179,
+            301.849,
+            555.366,
+            646.639
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          133,
+          1104
+        ]
+      ]
+    },
+    {
+      "label": "第15题题目",
+      "number": 15,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 192,
+      "safeBreaks": [],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            50.179,
+            658.006,
+            555.366,
+            757.78
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            50.179,
+            50.834,
+            555.366,
+            384.889
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          192
+        ]
+      ]
+    },
+    {
+      "label": "第15题解析",
+      "number": 15,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1218,
+      "safeBreaks": [
+        73,
+        141,
+        210,
+        290,
+        380,
+        534,
+        629,
+        706,
+        775
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            50.179,
+            658.006,
+            555.366,
+            757.78
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            50.179,
+            50.834,
+            555.366,
+            384.889
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          192,
+          1410
+        ]
+      ]
+    },
+    {
+      "label": "第16题题目",
+      "number": 16,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 153,
+      "safeBreaks": [
+        72,
+        129
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            50.179,
+            397.519,
+            555.366,
+            711.05
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            50.179,
+            54.623,
+            555.366,
+            423.41
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          153
+        ]
+      ]
+    },
+    {
+      "label": "第16题解析",
+      "number": 16,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2044,
+      "safeBreaks": [
+        72,
+        145,
+        220,
+        301,
+        393,
+        517,
+        529,
+        581,
+        690,
+        795,
+        857,
+        1326,
+        1377,
+        1459,
+        1534,
+        1606,
+        1681,
+        1755,
+        1830,
+        1904,
+        1978
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            50.179,
+            397.519,
+            555.366,
+            711.05
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            50.179,
+            54.623,
+            555.366,
+            423.41
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          153,
+          2197
+        ]
+      ]
+    },
+    {
+      "label": "第17题题目",
+      "number": 17,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 1154,
+      "safeBreaks": [
+        67,
+        140,
+        217,
+        299,
+        679,
+        766,
+        858,
+        938,
+        1078
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 11,
+          "bbox": [
+            50.179,
+            432.25,
+            555.366,
+            766.937
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            50.179,
+            50.519,
+            555.366,
+            492.873
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          1154
+        ]
+      ]
+    },
+    {
+      "label": "第17题解析",
+      "number": 17,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1343,
+      "safeBreaks": [
+        87,
+        167,
+        244,
+        273,
+        338,
+        488,
+        557,
+        663,
+        773,
+        859,
+        949,
+        1062,
+        1131,
+        1277
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 11,
+          "bbox": [
+            50.179,
+            432.25,
+            555.366,
+            766.937
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            50.179,
+            50.519,
+            555.366,
+            492.873
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          1154,
+          2497
+        ]
+      ]
+    },
+    {
+      "label": "第18题题目",
+      "number": 18,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 284,
+      "safeBreaks": [
+        83,
+        180
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 12,
+          "bbox": [
+            50.179,
+            504.871,
+            555.366,
+            747.676
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            50.179,
+            50.834,
+            555.366,
+            422.778
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          284
+        ]
+      ]
+    },
+    {
+      "label": "第18题解析",
+      "number": 18,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1699,
+      "safeBreaks": [
+        90,
+        244,
+        322,
+        417,
+        503,
+        572,
+        648,
+        845,
+        941,
+        1020,
+        1155,
+        1272,
+        1363,
+        1459,
+        1559
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 12,
+          "bbox": [
+            50.179,
+            504.871,
+            555.366,
+            747.676
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            50.179,
+            50.834,
+            555.366,
+            422.778
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          284,
+          1983
+        ]
+      ]
+    },
+    {
+      "label": "第19题题目",
+      "number": 19,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 750,
+      "safeBreaks": [
+        79,
+        150,
+        608,
+        675
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 13,
+          "bbox": [
+            50.179,
+            434.776,
+            555.366,
+            757.78
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            50.179,
+            50.519,
+            555.366,
+            763.779
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            50.179,
+            46.73,
+            555.366,
+            184.709
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          750
+        ]
+      ]
+    },
+    {
+      "label": "第19题解析",
+      "number": 19,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3029,
+      "safeBreaks": [
+        77,
+        164,
+        219,
+        291,
+        361,
+        436,
+        504,
+        609,
+        708,
+        807,
+        911,
+        984,
+        1072,
+        1152,
+        1225,
+        1305,
+        1387,
+        1506,
+        1599,
+        1694,
+        1788,
+        1872,
+        1961,
+        2041,
+        2115,
+        2192,
+        2328,
+        2446,
+        2574
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 13,
+          "bbox": [
+            50.179,
+            434.776,
+            555.366,
+            757.78
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            50.179,
+            50.519,
+            555.366,
+            763.779
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            50.179,
+            46.73,
+            555.366,
+            184.709
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          750,
+          3779
+        ]
+      ]
+    },
+    {
+      "label": "第20题题目",
+      "number": 20,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 329,
+      "safeBreaks": [
+        130,
+        232
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 15,
+          "bbox": [
+            50.179,
+            192.918,
+            555.366,
+            747.992
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            50.179,
+            52.413,
+            555.366,
+            740.73
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          329
+        ]
+      ]
+    },
+    {
+      "label": "第20题解析",
+      "number": 20,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3645,
+      "safeBreaks": [
+        100,
+        245,
+        321,
+        396,
+        472,
+        561,
+        674,
+        744,
+        889,
+        1038,
+        1136,
+        1235,
+        1313,
+        1447,
+        1537,
+        1683,
+        1783,
+        1881,
+        1982,
+        2071,
+        2179,
+        2286,
+        2376,
+        2467,
+        2583,
+        2721,
+        2870,
+        3018,
+        3163,
+        3241,
+        3315,
+        3389,
+        3466,
+        3562
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 15,
+          "bbox": [
+            50.179,
+            192.918,
+            555.366,
+            747.992
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            50.179,
+            52.413,
+            555.366,
+            740.73
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          329,
+          3974
+        ]
+      ]
+    },
+    {
+      "label": "第21题题目",
+      "number": 21,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC21%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 383,
+      "safeBreaks": [
+        128,
+        206,
+        302
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 17,
+          "bbox": [
+            50.179,
+            53.045,
+            555.366,
+            724.627
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            50.179,
+            52.729,
+            555.366,
+            749.887
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            50.179,
+            49.887,
+            555.366,
+            64.727
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第21题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          383
+        ]
+      ]
+    },
+    {
+      "label": "第21题解析",
+      "number": 21,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC21%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 4059,
+      "safeBreaks": [
+        139,
+        217,
+        296,
+        383,
+        492,
+        560,
+        867,
+        1003,
+        1084,
+        1177,
+        1378,
+        1478,
+        1632,
+        1761,
+        1901,
+        2048,
+        2247,
+        2386,
+        2597,
+        2682,
+        3633,
+        3703,
+        3777,
+        3853,
+        3925,
+        3994
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 17,
+          "bbox": [
+            50.179,
+            53.045,
+            555.366,
+            724.627
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            50.179,
+            52.729,
+            555.366,
+            749.887
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            50.179,
+            49.887,
+            555.366,
+            64.727
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第21题.png",
+      "originalImageIntervals": [
+        [
+          383,
+          4442
+        ]
+      ]
+    },
+    {
+      "label": "第22题题目",
+      "number": 22,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC22%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 420,
+      "safeBreaks": [
+        73,
+        230,
+        324
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 19,
+          "bbox": [
+            50.179,
+            77.672,
+            555.366,
+            742.94
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            50.179,
+            53.045,
+            555.366,
+            251.962
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第22题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          420
+        ]
+      ]
+    },
+    {
+      "label": "第22题解析",
+      "number": 22,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC22%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2353,
+      "safeBreaks": [
+        100,
+        203,
+        274,
+        355,
+        443,
+        522,
+        601,
+        692,
+        795,
+        888,
+        999,
+        1089,
+        1164,
+        1314,
+        1411,
+        1506,
+        1705,
+        1787,
+        1884,
+        2293
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 19,
+          "bbox": [
+            50.179,
+            77.672,
+            555.366,
+            742.94
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            50.179,
+            53.045,
+            555.366,
+            251.962
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第22题.png",
+      "originalImageIntervals": [
+        [
+          420,
+          2773
+        ]
+      ]
+    },
+    {
+      "label": "第23题题目",
+      "number": 23,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC23%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 337,
+      "safeBreaks": [
+        84,
+        179
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 20,
+          "bbox": [
+            50.179,
+            262.697,
+            555.366,
+            742.309
+          ]
+        },
+        {
+          "page": 21,
+          "bbox": [
+            50.179,
+            51.466,
+            555.366,
+            325.214
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第23题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          337
+        ]
+      ]
+    },
+    {
+      "label": "第23题解析",
+      "number": 23,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E6%96%87%EF%BC%89%EF%BC%88%E5%85%A8%E5%9B%BD%E4%B9%99%E5%8D%B7%EF%BC%89_%E7%AC%AC23%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2085,
+      "safeBreaks": [
+        89,
+        166,
+        240,
+        315,
+        389,
+        461,
+        663,
+        809,
+        957,
+        1036,
+        1125,
+        1200,
+        1338,
+        1838,
+        1977
+      ],
+      "sourcePDF": "2023年高考数学试卷（文）（全国乙卷）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 20,
+          "bbox": [
+            50.179,
+            262.697,
+            555.366,
+            742.309
+          ]
+        },
+        {
+          "page": 21,
+          "bbox": [
+            50.179,
+            51.466,
+            555.366,
+            325.214
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（文）（全国乙卷）（解析卷）_第23题.png",
+      "originalImageIntervals": [
+        [
+          337,
+          2422
+        ]
+      ]
+    }
+  ],
+  "layout": "question-analysis-pairs"
+}

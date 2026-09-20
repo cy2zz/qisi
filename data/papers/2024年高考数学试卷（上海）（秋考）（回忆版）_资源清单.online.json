@@ -1,0 +1,1799 @@
+{
+  "title": "2024年高考数学试卷（上海）（秋考）（回忆版）",
+  "variant": "题目与解析",
+  "prefix": "2024年高考数学试卷（上海）（秋考）（回忆版）",
+  "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+  "sourcePages": 17,
+  "questionCount": 21,
+  "notes": [],
+  "resources": [
+    {
+      "label": "卷首说明",
+      "number": null,
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E5%85%B6%E4%BB%96%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%8D%B7%E9%A6%96%E8%AF%B4%E6%98%8E.png",
+      "width": 1600,
+      "height": 147,
+      "safeBreaks": [
+        84
+      ],
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            47.147,
+            51.774,
+            555.357,
+            94.654
+          ]
+        }
+      ],
+      "kind": "intro"
+    },
+    {
+      "label": "第01题题目",
+      "number": 1,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 243,
+      "safeBreaks": [
+        68,
+        141
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            47.147,
+            104.501,
+            555.357,
+            319.537
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          243
+        ]
+      ]
+    },
+    {
+      "label": "第01题解析",
+      "number": 1,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 446,
+      "safeBreaks": [
+        91,
+        171,
+        262,
+        364
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            47.147,
+            104.501,
+            555.357,
+            319.537
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          243,
+          689
+        ]
+      ]
+    },
+    {
+      "label": "第02题题目",
+      "number": 2,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 146,
+      "safeBreaks": [],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            47.147,
+            330.654,
+            555.357,
+            528.856
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          146
+        ]
+      ]
+    },
+    {
+      "label": "第02题解析",
+      "number": 2,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 490,
+      "safeBreaks": [
+        88,
+        168,
+        260,
+        417
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            47.147,
+            330.654,
+            555.357,
+            528.856
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          146,
+          636
+        ]
+      ]
+    },
+    {
+      "label": "第03题题目",
+      "number": 3,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 75,
+      "safeBreaks": [],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            47.147,
+            545.69,
+            555.357,
+            741.034
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          75
+        ]
+      ]
+    },
+    {
+      "label": "第03题解析",
+      "number": 3,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 552,
+      "safeBreaks": [
+        98,
+        179,
+        272,
+        367,
+        468
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            47.147,
+            545.69,
+            555.357,
+            741.034
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          75,
+          627
+        ]
+      ]
+    },
+    {
+      "label": "第04题题目",
+      "number": 4,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 80,
+      "safeBreaks": [],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            52.409,
+            555.357,
+            219.483
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          80
+        ]
+      ]
+    },
+    {
+      "label": "第04题解析",
+      "number": 4,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 458,
+      "safeBreaks": [
+        76,
+        150,
+        225,
+        321,
+        395
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            52.409,
+            555.357,
+            219.483
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          80,
+          538
+        ]
+      ]
+    },
+    {
+      "label": "第05题题目",
+      "number": 5,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 84,
+      "safeBreaks": [],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            230.918,
+            555.357,
+            375.44
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          84
+        ]
+      ]
+    },
+    {
+      "label": "第05题解析",
+      "number": 5,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 383,
+      "safeBreaks": [
+        75,
+        149,
+        226,
+        316
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            230.918,
+            555.357,
+            375.44
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          84,
+          467
+        ]
+      ]
+    },
+    {
+      "label": "第06题题目",
+      "number": 6,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 73,
+      "safeBreaks": [],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            389.733,
+            555.357,
+            593.97
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          73
+        ]
+      ]
+    },
+    {
+      "label": "第06题解析",
+      "number": 6,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 582,
+      "safeBreaks": [
+        77,
+        151,
+        231,
+        322,
+        421,
+        516
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            389.733,
+            555.357,
+            593.97
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          73,
+          655
+        ]
+      ]
+    },
+    {
+      "label": "第07题题目",
+      "number": 7,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 79,
+      "safeBreaks": [],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            607.311,
+            555.357,
+            741.034
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            51.456,
+            555.357,
+            131.817
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          79
+        ]
+      ]
+    },
+    {
+      "label": "第07题解析",
+      "number": 7,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 631,
+      "safeBreaks": [
+        95,
+        177,
+        268,
+        360,
+        453,
+        550
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            47.147,
+            607.311,
+            555.357,
+            741.034
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            51.456,
+            555.357,
+            131.817
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          79,
+          710
+        ]
+      ]
+    },
+    {
+      "label": "第08题题目",
+      "number": 8,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 212,
+      "safeBreaks": [
+        63,
+        137
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            144.522,
+            555.357,
+            422.449
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          212
+        ]
+      ]
+    },
+    {
+      "label": "第08题解析",
+      "number": 8,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 675,
+      "safeBreaks": [
+        72,
+        145,
+        224,
+        317,
+        465,
+        606
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            144.522,
+            555.357,
+            422.449
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          212,
+          887
+        ]
+      ]
+    },
+    {
+      "label": "第09题题目",
+      "number": 9,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 118,
+      "safeBreaks": [],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            437.061,
+            555.357,
+            710.859
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          118
+        ]
+      ]
+    },
+    {
+      "label": "第09题解析",
+      "number": 9,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 756,
+      "safeBreaks": [
+        80,
+        153,
+        227,
+        301,
+        448,
+        693
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            437.061,
+            555.357,
+            710.859
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          118,
+          874
+        ]
+      ]
+    },
+    {
+      "label": "第10题题目",
+      "number": 10,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 135,
+      "safeBreaks": [
+        63
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            721.658,
+            555.357,
+            758.821
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            47.147,
+            50.821,
+            555.357,
+            297.62
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          135
+        ]
+      ]
+    },
+    {
+      "label": "第10题解析",
+      "number": 10,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 795,
+      "safeBreaks": [
+        69,
+        143,
+        217,
+        290,
+        367,
+        462,
+        560,
+        655,
+        732
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            47.147,
+            721.658,
+            555.357,
+            758.821
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            47.147,
+            50.821,
+            555.357,
+            297.62
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          135,
+          930
+        ]
+      ]
+    },
+    {
+      "label": "第11题题目",
+      "number": 11,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 607,
+      "safeBreaks": [
+        69,
+        157,
+        210
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            47.147,
+            308.42,
+            555.357,
+            734.999
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            47.147,
+            51.456,
+            555.357,
+            270.622
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          607
+        ]
+      ]
+    },
+    {
+      "label": "第11题解析",
+      "number": 11,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1462,
+      "safeBreaks": [
+        88,
+        162,
+        274,
+        320,
+        418,
+        501,
+        616,
+        661,
+        754,
+        801,
+        888,
+        999,
+        1046,
+        1137,
+        1298,
+        1386
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            47.147,
+            308.42,
+            555.357,
+            734.999
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            47.147,
+            51.456,
+            555.357,
+            270.622
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          607,
+          2069
+        ]
+      ]
+    },
+    {
+      "label": "第12题题目",
+      "number": 12,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 189,
+      "safeBreaks": [
+        96
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            47.147,
+            284.28,
+            555.357,
+            748.657
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            47.147,
+            53.997,
+            555.357,
+            211.86
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          189
+        ]
+      ]
+    },
+    {
+      "label": "第12题解析",
+      "number": 12,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1806,
+      "safeBreaks": [
+        92,
+        173,
+        271,
+        413,
+        516,
+        613,
+        711,
+        809,
+        908,
+        1005,
+        1108,
+        1200,
+        1291,
+        1425,
+        1573,
+        1664,
+        1743
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            47.147,
+            284.28,
+            555.357,
+            748.657
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            47.147,
+            53.997,
+            555.357,
+            211.86
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          189,
+          1995
+        ]
+      ]
+    },
+    {
+      "label": "第13题题目",
+      "number": 13,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 607,
+      "safeBreaks": [
+        66,
+        142,
+        215,
+        287,
+        347,
+        383,
+        459,
+        533
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            47.147,
+            221.389,
+            555.357,
+            570.466
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          607
+        ]
+      ]
+    },
+    {
+      "label": "第13题解析",
+      "number": 13,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 504,
+      "safeBreaks": [
+        73,
+        147,
+        220,
+        294,
+        368,
+        441
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            47.147,
+            221.389,
+            555.357,
+            570.466
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          607,
+          1111
+        ]
+      ]
+    },
+    {
+      "label": "第14题题目",
+      "number": 14,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 250,
+      "safeBreaks": [
+        81,
+        161
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            47.147,
+            582.536,
+            555.357,
+            727.058
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            47.147,
+            52.092,
+            555.357,
+            219.483
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          250
+        ]
+      ]
+    },
+    {
+      "label": "第14题解析",
+      "number": 14,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 768,
+      "safeBreaks": [
+        79,
+        153,
+        223,
+        365,
+        509,
+        598,
+        709
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            47.147,
+            582.536,
+            555.357,
+            727.058
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            47.147,
+            52.092,
+            555.357,
+            219.483
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          250,
+          1018
+        ]
+      ]
+    },
+    {
+      "label": "第15题题目",
+      "number": 15,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 370,
+      "safeBreaks": [
+        75,
+        176,
+        274
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            47.147,
+            233.459,
+            555.357,
+            749.927
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          370
+        ]
+      ]
+    },
+    {
+      "label": "第15题解析",
+      "number": 15,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1268,
+      "safeBreaks": [
+        76,
+        152,
+        245,
+        323,
+        420,
+        521,
+        614,
+        717,
+        810,
+        911,
+        1008,
+        1107,
+        1203
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            47.147,
+            233.459,
+            555.357,
+            749.927
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          370,
+          1638
+        ]
+      ]
+    },
+    {
+      "label": "第16题题目",
+      "number": 16,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 378,
+      "safeBreaks": [
+        87,
+        184,
+        282
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            47.147,
+            51.456,
+            555.357,
+            601.911
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          378
+        ]
+      ]
+    },
+    {
+      "label": "第16题解析",
+      "number": 16,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1367,
+      "safeBreaks": [
+        76,
+        149,
+        222,
+        426,
+        519,
+        610,
+        816,
+        911,
+        1009,
+        1108,
+        1206,
+        1302
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            47.147,
+            51.456,
+            555.357,
+            601.911
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          378,
+          1745
+        ]
+      ]
+    },
+    {
+      "label": "第17题题目",
+      "number": 17,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 738,
+      "safeBreaks": [
+        66,
+        142,
+        211,
+        575,
+        660
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            47.147,
+            611.44,
+            555.357,
+            672.743
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            47.147,
+            46.057,
+            555.357,
+            765.491
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            47.147,
+            50.821,
+            555.357,
+            192.484
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          738
+        ]
+      ]
+    },
+    {
+      "label": "第17题解析",
+      "number": 17,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2226,
+      "safeBreaks": [
+        71,
+        177,
+        244,
+        324,
+        410,
+        490,
+        564,
+        641,
+        734,
+        832,
+        908,
+        976,
+        1086,
+        1158,
+        1238,
+        1607,
+        1686,
+        1762,
+        1833,
+        1979,
+        2121
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            47.147,
+            611.44,
+            555.357,
+            672.743
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            47.147,
+            46.057,
+            555.357,
+            765.491
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            47.147,
+            50.821,
+            555.357,
+            192.484
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          738,
+          2964
+        ]
+      ]
+    },
+    {
+      "label": "第18题题目",
+      "number": 18,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 278,
+      "safeBreaks": [
+        82,
+        181
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            47.147,
+            200.743,
+            555.357,
+            757.55
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            47.147,
+            52.409,
+            555.357,
+            110.536
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          278
+        ]
+      ]
+    },
+    {
+      "label": "第18题解析",
+      "number": 18,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1694,
+      "safeBreaks": [
+        97,
+        171,
+        246,
+        322,
+        466,
+        541,
+        617,
+        713,
+        809,
+        887,
+        981,
+        1059,
+        1155,
+        1253,
+        1351,
+        1493,
+        1630
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            47.147,
+            200.743,
+            555.357,
+            757.55
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            47.147,
+            52.409,
+            555.357,
+            110.536
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          278,
+          1972
+        ]
+      ]
+    },
+    {
+      "label": "第19题题目",
+      "number": 19,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 954,
+      "safeBreaks": [
+        63,
+        126,
+        559,
+        659,
+        733,
+        809
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 11,
+          "bbox": [
+            47.147,
+            121.017,
+            555.357,
+            728.964
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            47.147,
+            52.092,
+            555.357,
+            440.554
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          954
+        ]
+      ]
+    },
+    {
+      "label": "第19题解析",
+      "number": 19,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2219,
+      "safeBreaks": [
+        74,
+        146,
+        221,
+        294,
+        368,
+        442,
+        516,
+        583,
+        701,
+        829,
+        908,
+        978,
+        1114,
+        1191,
+        1264,
+        1326,
+        1779,
+        1858,
+        1940,
+        2078,
+        2156
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 11,
+          "bbox": [
+            47.147,
+            121.017,
+            555.357,
+            728.964
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            47.147,
+            52.092,
+            555.357,
+            440.554
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          954,
+          3173
+        ]
+      ]
+    },
+    {
+      "label": "第20题题目",
+      "number": 20,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 518,
+      "safeBreaks": [
+        122,
+        200,
+        277,
+        420
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 12,
+          "bbox": [
+            47.147,
+            454.53,
+            555.357,
+            768.35
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            47.147,
+            50.821,
+            555.357,
+            748.657
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            47.147,
+            52.409,
+            555.357,
+            750.245
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          518
+        ]
+      ]
+    },
+    {
+      "label": "第20题解析",
+      "number": 20,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 4924,
+      "safeBreaks": [
+        94,
+        198,
+        346,
+        418,
+        488,
+        562,
+        650,
+        727,
+        834,
+        906,
+        1097,
+        1185,
+        1302,
+        1390,
+        1636,
+        1713,
+        1808,
+        1905,
+        2153,
+        2253,
+        2327,
+        2423,
+        2524,
+        2617,
+        2709,
+        2796,
+        2998,
+        3086,
+        3198,
+        3329,
+        3686,
+        3779,
+        3881,
+        3974,
+        4080,
+        4218,
+        4325,
+        4407,
+        4518,
+        4620,
+        4768,
+        4855
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 12,
+          "bbox": [
+            47.147,
+            454.53,
+            555.357,
+            768.35
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            47.147,
+            50.821,
+            555.357,
+            748.657
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            47.147,
+            52.409,
+            555.357,
+            750.245
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          518,
+          5442
+        ]
+      ]
+    },
+    {
+      "label": "第21题题目",
+      "number": 21,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC21%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 746,
+      "safeBreaks": [
+        87,
+        176,
+        291,
+        377,
+        458,
+        549,
+        652
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 15,
+          "bbox": [
+            47.147,
+            51.456,
+            555.357,
+            741.034
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            47.147,
+            52.409,
+            555.357,
+            740.716
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            47.147,
+            50.503,
+            555.357,
+            334.466
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第21题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          746
+        ]
+      ]
+    },
+    {
+      "label": "第21题解析",
+      "number": 21,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2024%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2024%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89%EF%BC%88%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89_%E7%AC%AC21%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 4546,
+      "safeBreaks": [
+        79,
+        172,
+        248,
+        327,
+        417,
+        521,
+        669,
+        760,
+        840,
+        979,
+        1092,
+        1179,
+        1253,
+        1358,
+        1443,
+        1532,
+        1630,
+        1729,
+        1818,
+        1931,
+        2000,
+        2096,
+        2194,
+        2292,
+        2390,
+        2487,
+        2586,
+        2666,
+        2762,
+        2860,
+        2959,
+        3057,
+        3203,
+        3352,
+        3446,
+        3545,
+        3634,
+        3728,
+        3826,
+        3925,
+        4023,
+        4176,
+        4320,
+        4468
+      ],
+      "sourcePDF": "2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 15,
+          "bbox": [
+            47.147,
+            51.456,
+            555.357,
+            741.034
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            47.147,
+            52.409,
+            555.357,
+            740.716
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            47.147,
+            50.503,
+            555.357,
+            334.466
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2024年高考数学试卷（上海）（秋考）（回忆版）（解析卷）_第21题.png",
+      "originalImageIntervals": [
+        [
+          746,
+          5292
+        ]
+      ]
+    }
+  ],
+  "layout": "question-analysis-pairs"
+}

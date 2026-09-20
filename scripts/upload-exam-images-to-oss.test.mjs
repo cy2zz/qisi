@@ -8,6 +8,7 @@ import {
   buildManifestPlan,
   encodeObjectKey,
   getOnlineManifestPath,
+  getOutputManifestPath,
 } from './upload-exam-images-to-oss.mjs';
 
 test('encodeObjectKey keeps slashes and percent-encodes each path segment', () => {
@@ -21,6 +22,16 @@ test('getOnlineManifestPath inserts .online before .json', () => {
   assert.equal(
     getOnlineManifestPath('/tmp/2020年高考数学试卷（北京）_资源清单.json'),
     '/tmp/2020年高考数学试卷（北京）_资源清单.online.json',
+  );
+});
+
+test('getOutputManifestPath flattens online manifests into the requested directory', () => {
+  assert.equal(
+    getOutputManifestPath(
+      '/repo/历年试题/2020/北京卷_切题/北京卷_资源清单.json',
+      '/repo/data/papers',
+    ),
+    '/repo/data/papers/北京卷_资源清单.online.json',
   );
 });
 

@@ -1,0 +1,59 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT38",
+  "result": "passed_self_review",
+  "executed_at": "2026-09-20T08:16:52+08:00",
+  "executed_by": "Codex self_review",
+  "application_commit": null,
+  "layer": "real_mysql_integration_and_mock_e2e",
+  "environment": "local MySQL 8.0.45; Playwright PC 1440/1280 and H5 390/360",
+  "provider_mode": "not_applicable_read_only_history",
+  "commands": [
+    "npm run test:db",
+    "npx playwright test web/tests/e2e/privacy.spec.ts",
+    "npm --prefix web test -- --run src/pages/history/HistoryPage.spec.tsx src/pages/learn/report/assessment-next-action.spec.ts",
+    "npx playwright test web/tests/e2e/privacy.spec.ts --project=pc-1440 --project=pc-1280 --project=h5-390 --project=h5-360",
+    "npm --prefix web test",
+    "npm --prefix web run typecheck",
+    "npm --prefix web run lint",
+    "npm --prefix web run build",
+    "npx playwright test --workers=4",
+    "git diff --check"
+  ],
+  "expected": "Only the current owner sees their sessions; recorded help remains visible and internal assessment-help sessions are not duplicated.",
+  "actual": {
+    "owner_sessions": 1,
+    "cross_owner_sessions_visible": 0,
+    "internal_help_session_folded": true,
+    "help_exposure_preserved": true,
+    "student_work_preserved": true,
+    "report_link_available": true,
+    "evidence_driven_next_action": true,
+    "unfinished_attempt_resumed_without_recreation": true,
+    "method_execution_and_evidence_routes_distinct": true,
+    "passed_attempt_reassessment_href": "/learn/:sessionId/check?intent=reassess",
+    "latest_entry_default_open": true,
+    "older_entries_default_collapsed": true,
+    "collapsed_summary_fields": ["date", "title", "topic", "original_status", "assessment_status", "next_action"],
+    "older_entry_keyboard_expandable": true,
+    "expanded_evidence_and_actions_preserved": true,
+    "mobile_summary_touch_target_min_px": 44,
+    "web_unit_tests": "22 files / 100 tests passed",
+    "full_playwright": "84/84 passed with 4 workers",
+    "responsive_projects": ["pc-1440", "pc-1280", "h5-390", "h5-360"],
+    "horizontal_overflow": false
+  },
+  "evidence_files": [
+    "server/src/features/history/history.service.ts",
+    "server/scripts/verify-history-persistence.ts",
+    "web/src/pages/history/HistoryPage.tsx",
+    "web/src/pages/learn/report/assessment-next-action.ts",
+    "web/tests/e2e/privacy.spec.ts",
+    "artifacts/acceptance/A06-history-pc-1440.png",
+    "artifacts/acceptance/A06-history-h5-390.png"
+  ],
+  "limitations": [
+    "No independent reviewer or real student observation was performed.",
+    "Active deletion and retention cleanup are not part of this evidence."
+  ]
+}

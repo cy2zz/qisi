@@ -20,9 +20,10 @@ const completionSchema = z.object({
   model: z.string().min(1).optional(),
   usage: z
     .object({
-      completion_tokens: z.number().int().nonnegative(),
-      prompt_tokens: z.number().int().nonnegative(),
+      completion_tokens: z.number().int().nonnegative().nullish(),
+      prompt_tokens: z.number().int().nonnegative().nullish(),
     })
+    .passthrough()
     .optional(),
 });
 
@@ -43,6 +44,23 @@ export class OpenAiCompatibleModelPort implements ModelPort {
     const timeoutMs = this.config.get('AI_TIMEOUT_MS', { infer: true });
     const startedAt = performance.now();
     const signal = AbortSignal.any([request.signal, AbortSignal.timeout(timeoutMs)]);
+    const inputText = typeof request.input === 'string'
+      ? request.input
+      : JSON.stringify(request.input);
+    const systemContent = request.outputSchema
+      ? `${request.system}\n只返回符合以下 JSON Schema 的对象，不得增加字段：\n${JSON.stringify(z.toJSONSchema(request.outputSchema))}`
+      : request.system;
+    const userContent = request.images?.length
+      ? [
+          { text: inputText, type: 'text' },
+          ...request.images.map((image) => ({
+            image_url: {
+              url: `data:${image.mime};base64,${Buffer.from(image.bytes).toString('base64')}`,
+            },
+            type: 'image_url',
+          })),
+        ]
+      : inputText;
 
     let response: Response;
     try {
@@ -50,8 +68,8 @@ export class OpenAiCompatibleModelPort implements ModelPort {
         body: JSON.stringify({
           max_completion_tokens: request.maxOutputTokens,
           messages: [
-            { content: request.system, role: 'system' },
-            { content: request.input, role: 'user' },
+            { content: systemContent, role: 'system' },
+            { content: userContent, role: 'user' },
           ],
           model: configuredModel,
           response_format: { type: 'json_object' },
@@ -91,7 +109,8 @@ export class OpenAiCompatibleModelPort implements ModelPort {
       parsed,
       provider: 'openai-compatible',
       providerRequestId: response.headers.get('x-request-id') ?? undefined,
-      usage: completion.usage
+      usage: typeof completion.usage?.prompt_tokens === 'number'
+        && typeof completion.usage.completion_tokens === 'number'
         ? {
             input: completion.usage.prompt_tokens,
             kind: 'reported',

@@ -1,0 +1,38 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT22",
+  "result": "partial",
+  "executed_at": "2026-09-19T21:10:14+08:00",
+  "executed_by": "Codex self_review",
+  "application_commit": null,
+  "layer": "unit_policy_gate_plus_real_mysql_state_restore",
+  "environment": "local Vitest; local MySQL 8.0.45 development database",
+  "provider_mode": "fixture_model_plus_real_database",
+  "commands": [
+    "npm --prefix server test -- --run test/workflows/policy-gate.spec.ts src/features/analysis/problem-analysis.service.spec.ts",
+    "npm --prefix server run test:persistence"
+  ],
+  "expected": "Probe counts survive refresh and are enforced by canonical goal; changing a node or goal identifier cannot reset the two-probe limit.",
+  "actual": {
+    "probe_count_persisted_in_mysql": true,
+    "probe_count_restored_for_next_turn": true,
+    "third_probe_for_same_goal_rejected": true,
+    "unknown_goal_rejected": true,
+    "probe_goal_must_equal_focus_goal": true,
+    "strategy_receives_remaining_probe_budget": true,
+    "model_guard_accept_cannot_bypass_limit": true
+  },
+  "evidence_files": [
+    "server/src/workflows/policy-gate.ts",
+    "server/test/workflows/policy-gate.spec.ts",
+    "server/src/features/analysis/problem-analysis.service.ts",
+    "server/src/features/learning/learning-session.service.ts",
+    "server/scripts/verify-learning-persistence.ts"
+  ],
+  "limitations": [
+    "The real-database verifier restores one committed probe; the two-used-then-third-attempt case is covered deterministically at the service and PolicyGate layers rather than by three billable provider calls.",
+    "Formal B04 model-review cases for concept versus execution diagnosis remain outstanding.",
+    "No independent reviewer or real student observation was performed.",
+    "real_student_observation: not_run"
+  ]
+}

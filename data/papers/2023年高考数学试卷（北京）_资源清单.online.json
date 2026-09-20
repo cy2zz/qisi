@@ -1,0 +1,2280 @@
+{
+  "title": "2023年高考数学试卷（北京）",
+  "variant": "题目与解析",
+  "prefix": "2023年高考数学试卷（北京）",
+  "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+  "sourcePages": 28,
+  "questionCount": 21,
+  "notes": [],
+  "resources": [
+    {
+      "label": "卷首说明",
+      "number": null,
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E5%85%B6%E4%BB%96%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%8D%B7%E9%A6%96%E8%AF%B4%E6%98%8E.png",
+      "width": 1600,
+      "height": 325,
+      "safeBreaks": [
+        85,
+        181,
+        258
+      ],
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.428,
+            51.756,
+            555.362,
+            150.533
+          ]
+        }
+      ],
+      "kind": "intro"
+    },
+    {
+      "label": "第01题题目",
+      "number": 1,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 433,
+      "safeBreaks": [
+        66,
+        143,
+        242,
+        338
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.428,
+            159.054,
+            555.362,
+            453.494
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          433
+        ]
+      ]
+    },
+    {
+      "label": "第01题解析",
+      "number": 1,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 512,
+      "safeBreaks": [
+        78,
+        158,
+        249,
+        350,
+        444
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.428,
+            159.054,
+            555.362,
+            453.494
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          433,
+          945
+        ]
+      ]
+    },
+    {
+      "label": "第02题题目",
+      "number": 2,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 278,
+      "safeBreaks": [
+        84,
+        181
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.428,
+            465.486,
+            555.362,
+            703.12
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          278
+        ]
+      ]
+    },
+    {
+      "label": "第02题解析",
+      "number": 2,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 487,
+      "safeBreaks": [
+        78,
+        151,
+        228,
+        325,
+        420
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.428,
+            465.486,
+            555.362,
+            703.12
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          278,
+          765
+        ]
+      ]
+    },
+    {
+      "label": "第03题题目",
+      "number": 3,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 150,
+      "safeBreaks": [
+        81
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.428,
+            715.743,
+            555.362,
+            757.4
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            50.428,
+            50.809,
+            555.362,
+            196.293
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          150
+        ]
+      ]
+    },
+    {
+      "label": "第03题解析",
+      "number": 3,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 479,
+      "safeBreaks": [
+        69,
+        143,
+        221,
+        316,
+        413
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            50.428,
+            715.743,
+            555.362,
+            757.4
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            50.428,
+            50.809,
+            555.362,
+            196.293
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          150,
+          629
+        ]
+      ]
+    },
+    {
+      "label": "第04题题目",
+      "number": 4,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 282,
+      "safeBreaks": [
+        66,
+        177
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            50.428,
+            210.179,
+            555.362,
+            648.524
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          282
+        ]
+      ]
+    },
+    {
+      "label": "第04题解析",
+      "number": 4,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1119,
+      "safeBreaks": [
+        67,
+        141,
+        218,
+        314,
+        407,
+        511,
+        614,
+        709,
+        816,
+        956,
+        1054
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            50.428,
+            210.179,
+            555.362,
+            648.524
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          282,
+          1401
+        ]
+      ]
+    },
+    {
+      "label": "第05题题目",
+      "number": 5,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 206,
+      "safeBreaks": [
+        132
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            50.428,
+            660.832,
+            555.362,
+            765.606
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            50.428,
+            52.387,
+            555.362,
+            251.204
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          206
+        ]
+      ]
+    },
+    {
+      "label": "第05题解析",
+      "number": 5,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 792,
+      "safeBreaks": [
+        75,
+        144,
+        284,
+        430,
+        508,
+        653,
+        727
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            50.428,
+            660.832,
+            555.362,
+            765.606
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            50.428,
+            52.387,
+            555.362,
+            251.204
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          206,
+          998
+        ]
+      ]
+    },
+    {
+      "label": "第06题题目",
+      "number": 6,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 227,
+      "safeBreaks": [
+        77,
+        155
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            50.428,
+            264.143,
+            555.362,
+            539.332
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          227
+        ]
+      ]
+    },
+    {
+      "label": "第06题解析",
+      "number": 6,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 657,
+      "safeBreaks": [
+        75,
+        149,
+        225,
+        322,
+        418,
+        497,
+        592
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            50.428,
+            264.143,
+            555.362,
+            539.332
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          227,
+          884
+        ]
+      ]
+    },
+    {
+      "label": "第07题题目",
+      "number": 7,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 184,
+      "safeBreaks": [
+        67
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            50.428,
+            553.218,
+            555.362,
+            731.207
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            50.428,
+            54.28,
+            555.362,
+            141.697
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          184
+        ]
+      ]
+    },
+    {
+      "label": "第07题解析",
+      "number": 7,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 693,
+      "safeBreaks": [
+        67,
+        140,
+        220,
+        314,
+        398,
+        525,
+        636
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            50.428,
+            553.218,
+            555.362,
+            731.207
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            50.428,
+            54.28,
+            555.362,
+            141.697
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          184,
+          877
+        ]
+      ]
+    },
+    {
+      "label": "第08题题目",
+      "number": 8,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 266,
+      "safeBreaks": [
+        113,
+        192
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            50.428,
+            158.423,
+            555.362,
+            749.826
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            50.428,
+            50.178,
+            555.362,
+            398.898
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          266
+        ]
+      ]
+    },
+    {
+      "label": "第08题解析",
+      "number": 8,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2749,
+      "safeBreaks": [
+        74,
+        147,
+        263,
+        402,
+        546,
+        637,
+        715,
+        823,
+        912,
+        1020,
+        1093,
+        1181,
+        1292,
+        1358,
+        1466,
+        1556,
+        1626,
+        1728,
+        1801,
+        1893,
+        1989,
+        2041,
+        2116,
+        2227,
+        2310,
+        2366,
+        2510,
+        2586,
+        2693
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 4,
+          "bbox": [
+            50.428,
+            158.423,
+            555.362,
+            749.826
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            50.428,
+            50.178,
+            555.362,
+            398.898
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          266,
+          3015
+        ]
+      ]
+    },
+    {
+      "label": "第09题题目",
+      "number": 9,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 705,
+      "safeBreaks": [
+        63,
+        138,
+        215,
+        303,
+        350,
+        566,
+        632
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            50.428,
+            409.627,
+            555.362,
+            749.826
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            50.428,
+            54.28,
+            555.362,
+            461.383
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          705
+        ]
+      ]
+    },
+    {
+      "label": "第09题解析",
+      "number": 9,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1699,
+      "safeBreaks": [
+        75,
+        141,
+        254,
+        322,
+        391,
+        469,
+        720,
+        788,
+        901,
+        969,
+        1043,
+        1117,
+        1196,
+        1281,
+        1389,
+        1492,
+        1562,
+        1636
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            50.428,
+            409.627,
+            555.362,
+            749.826
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            50.428,
+            54.28,
+            555.362,
+            461.383
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          705,
+          2404
+        ]
+      ]
+    },
+    {
+      "label": "第10题题目",
+      "number": 10,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 518,
+      "safeBreaks": [
+        121,
+        223,
+        322,
+        421
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            50.428,
+            476.216,
+            555.362,
+            746.671
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            50.428,
+            54.912,
+            555.362,
+            763.081
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            50.428,
+            54.28,
+            555.362,
+            755.191
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            50.428,
+            47.338,
+            555.362,
+            761.819
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            50.428,
+            54.912,
+            555.362,
+            739.728
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            50.428,
+            51.44,
+            555.362,
+            767.499
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            50.428,
+            52.071,
+            555.362,
+            740.043
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            50.428,
+            52.387,
+            555.362,
+            235.425
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          518
+        ]
+      ]
+    },
+    {
+      "label": "第10题解析",
+      "number": 10,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 14447,
+      "safeBreaks": [
+        76,
+        149,
+        231,
+        357,
+        484,
+        583,
+        729,
+        834,
+        944,
+        1033,
+        1132,
+        1228,
+        1379,
+        1475,
+        1616,
+        1732,
+        1814,
+        1930,
+        2071,
+        2219,
+        2365,
+        2445,
+        2541,
+        2625,
+        2707,
+        2858,
+        2954,
+        3095,
+        3214,
+        3303,
+        3401,
+        3500,
+        3597,
+        3748,
+        3844,
+        3995,
+        4146,
+        4294,
+        4442,
+        4591,
+        4687,
+        4785,
+        4870,
+        4987,
+        5073,
+        5213,
+        5330,
+        5471,
+        5619,
+        5765,
+        5846,
+        5989,
+        6134,
+        6285,
+        6429,
+        6589,
+        6725,
+        6807,
+        6951,
+        7043,
+        7158,
+        7288,
+        7389,
+        7532,
+        7634,
+        7737,
+        7883,
+        8019,
+        8190,
+        8328,
+        8475,
+        8576,
+        8670,
+        8773,
+        8869,
+        8972,
+        9072,
+        9157,
+        9278,
+        9352,
+        9438,
+        9556,
+        9691,
+        9787,
+        9895,
+        10037,
+        10134,
+        10233,
+        10303,
+        10417,
+        10553,
+        10708,
+        10854,
+        11002,
+        11154,
+        11344,
+        11496,
+        11645,
+        11735,
+        11838,
+        11927,
+        12078,
+        12149,
+        12184,
+        12337,
+        12427,
+        12528,
+        12674,
+        12775,
+        12921,
+        13018,
+        13111,
+        13219,
+        13318,
+        13465,
+        13565,
+        13675,
+        13764,
+        13849,
+        13939,
+        14036,
+        14138,
+        14233,
+        14308,
+        14383
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            50.428,
+            476.216,
+            555.362,
+            746.671
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            50.428,
+            54.912,
+            555.362,
+            763.081
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            50.428,
+            54.28,
+            555.362,
+            755.191
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            50.428,
+            47.338,
+            555.362,
+            761.819
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            50.428,
+            54.912,
+            555.362,
+            739.728
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            50.428,
+            51.44,
+            555.362,
+            767.499
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            50.428,
+            52.071,
+            555.362,
+            740.043
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            50.428,
+            52.387,
+            555.362,
+            235.425
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          518,
+          14965
+        ]
+      ]
+    },
+    {
+      "label": "第11题题目",
+      "number": 11,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 212,
+      "safeBreaks": [
+        71
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 13,
+          "bbox": [
+            50.428,
+            244.893,
+            555.362,
+            453.494
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          212
+        ]
+      ]
+    },
+    {
+      "label": "第11题解析",
+      "number": 11,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 461,
+      "safeBreaks": [
+        77,
+        145,
+        261,
+        394
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 13,
+          "bbox": [
+            50.428,
+            244.893,
+            555.362,
+            453.494
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          212,
+          673
+        ]
+      ]
+    },
+    {
+      "label": "第12题题目",
+      "number": 12,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 83,
+      "safeBreaks": [],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 13,
+          "bbox": [
+            50.428,
+            466.432,
+            555.362,
+            755.191
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          83
+        ]
+      ]
+    },
+    {
+      "label": "第12题解析",
+      "number": 12,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 844,
+      "safeBreaks": [
+        142,
+        220,
+        300,
+        388,
+        466,
+        578,
+        716
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 13,
+          "bbox": [
+            50.428,
+            466.432,
+            555.362,
+            755.191
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          83,
+          927
+        ]
+      ]
+    },
+    {
+      "label": "第13题题目",
+      "number": 13,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 167,
+      "safeBreaks": [
+        79
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 14,
+          "bbox": [
+            50.428,
+            53.965,
+            555.362,
+            433.927
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          167
+        ]
+      ]
+    },
+    {
+      "label": "第13题解析",
+      "number": 13,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1049,
+      "safeBreaks": [
+        116,
+        183,
+        250,
+        366,
+        455,
+        554,
+        647,
+        761,
+        840,
+        952
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 14,
+          "bbox": [
+            50.428,
+            53.965,
+            555.362,
+            433.927
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          167,
+          1216
+        ]
+      ]
+    },
+    {
+      "label": "第14题题目",
+      "number": 14,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 337,
+      "safeBreaks": [
+        67,
+        163,
+        271,
+        313
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 14,
+          "bbox": [
+            50.428,
+            440.555,
+            555.362,
+            764.974
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            50.428,
+            52.071,
+            555.362,
+            375.544
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          337
+        ]
+      ]
+    },
+    {
+      "label": "第14题解析",
+      "number": 14,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1752,
+      "safeBreaks": [
+        75,
+        147,
+        228,
+        320,
+        417,
+        574,
+        709,
+        799,
+        948,
+        1049,
+        1144,
+        1301,
+        1441,
+        1592,
+        1685
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 14,
+          "bbox": [
+            50.428,
+            440.555,
+            555.362,
+            764.974
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            50.428,
+            52.071,
+            555.362,
+            375.544
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          337,
+          2089
+        ]
+      ]
+    },
+    {
+      "label": "第15题题目",
+      "number": 15,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 822,
+      "safeBreaks": [
+        228,
+        320,
+        401,
+        499,
+        600,
+        743
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 15,
+          "bbox": [
+            50.428,
+            389.114,
+            555.362,
+            754.245
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            50.428,
+            52.071,
+            555.362,
+            753.613
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            50.428,
+            51.125,
+            555.362,
+            695.546
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          822
+        ]
+      ]
+    },
+    {
+      "label": "第15题解析",
+      "number": 15,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 4660,
+      "safeBreaks": [
+        73,
+        141,
+        246,
+        353,
+        441,
+        520,
+        613,
+        715,
+        789,
+        881,
+        987,
+        1390,
+        1527,
+        1608,
+        1701,
+        1803,
+        1902,
+        2004,
+        2096,
+        2191,
+        2600,
+        2691,
+        2786,
+        2890,
+        3293,
+        3387,
+        3532,
+        3683,
+        3830,
+        3976,
+        4128,
+        4275,
+        4419,
+        4497,
+        4596
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 15,
+          "bbox": [
+            50.428,
+            389.114,
+            555.362,
+            754.245
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            50.428,
+            52.071,
+            555.362,
+            753.613
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            50.428,
+            51.125,
+            555.362,
+            695.546
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          822,
+          5482
+        ]
+      ]
+    },
+    {
+      "label": "第16题题目",
+      "number": 16,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 757,
+      "safeBreaks": [
+        71,
+        153,
+        564,
+        611,
+        682
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 17,
+          "bbox": [
+            50.428,
+            705.014,
+            555.362,
+            747.617
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            50.428,
+            46.075,
+            555.362,
+            680.082
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            50.428,
+            53.334,
+            555.362,
+            535.861
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          757
+        ]
+      ]
+    },
+    {
+      "label": "第16题解析",
+      "number": 16,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2976,
+      "safeBreaks": [
+        73,
+        179,
+        247,
+        321,
+        395,
+        469,
+        543,
+        622,
+        710,
+        790,
+        867,
+        967,
+        1055,
+        1136,
+        1211,
+        1285,
+        1359,
+        1428,
+        1913,
+        1963,
+        2056,
+        2151,
+        2311,
+        2399,
+        2558,
+        2646,
+        2675,
+        2805,
+        2874
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 17,
+          "bbox": [
+            50.428,
+            705.014,
+            555.362,
+            747.617
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            50.428,
+            46.075,
+            555.362,
+            680.082
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            50.428,
+            53.334,
+            555.362,
+            535.861
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          757,
+          3733
+        ]
+      ]
+    },
+    {
+      "label": "第17题题目",
+      "number": 17,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 1077,
+      "safeBreaks": [
+        131,
+        280,
+        424,
+        505,
+        640,
+        781,
+        925,
+        1003
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 19,
+          "bbox": [
+            50.428,
+            544.066,
+            555.362,
+            740.359
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            50.428,
+            51.756,
+            555.362,
+            755.823
+          ]
+        },
+        {
+          "page": 21,
+          "bbox": [
+            50.428,
+            50.809,
+            555.362,
+            446.235
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          1077
+        ]
+      ]
+    },
+    {
+      "label": "第17题解析",
+      "number": 17,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3089,
+      "safeBreaks": [
+        102,
+        205,
+        272,
+        378,
+        517,
+        666,
+        772,
+        841,
+        925,
+        1060,
+        1208,
+        1314,
+        1394,
+        1538,
+        1678,
+        1818,
+        1889,
+        2036,
+        2184,
+        2282,
+        2428,
+        2536,
+        2635,
+        2737,
+        2874,
+        3022
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 19,
+          "bbox": [
+            50.428,
+            544.066,
+            555.362,
+            740.359
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            50.428,
+            51.756,
+            555.362,
+            755.823
+          ]
+        },
+        {
+          "page": 21,
+          "bbox": [
+            50.428,
+            50.809,
+            555.362,
+            446.235
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          1077,
+          4166
+        ]
+      ]
+    },
+    {
+      "label": "第18题题目",
+      "number": 18,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 956,
+      "safeBreaks": [
+        64,
+        138,
+        201,
+        526,
+        589,
+        664,
+        738,
+        812,
+        886
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 21,
+          "bbox": [
+            50.428,
+            456.334,
+            555.362,
+            752.351
+          ]
+        },
+        {
+          "page": 22,
+          "bbox": [
+            50.428,
+            50.809,
+            555.362,
+            477.162
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          956
+        ]
+      ]
+    },
+    {
+      "label": "第18题解析",
+      "number": 18,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1369,
+      "safeBreaks": [
+        70,
+        142,
+        218,
+        291,
+        366,
+        440,
+        515,
+        588,
+        657,
+        768,
+        834,
+        911,
+        986,
+        1079,
+        1156,
+        1231,
+        1305
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 21,
+          "bbox": [
+            50.428,
+            456.334,
+            555.362,
+            752.351
+          ]
+        },
+        {
+          "page": 22,
+          "bbox": [
+            50.428,
+            50.809,
+            555.362,
+            477.162
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          956,
+          2325
+        ]
+      ]
+    },
+    {
+      "label": "第19题题目",
+      "number": 19,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 457,
+      "safeBreaks": [
+        133,
+        224,
+        303,
+        378
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 22,
+          "bbox": [
+            50.428,
+            489.786,
+            555.362,
+            763.712
+          ]
+        },
+        {
+          "page": 23,
+          "bbox": [
+            50.428,
+            53.965,
+            555.362,
+            740.359
+          ]
+        },
+        {
+          "page": 24,
+          "bbox": [
+            50.428,
+            53.965,
+            555.362,
+            297.595
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          457
+        ]
+      ]
+    },
+    {
+      "label": "第19题解析",
+      "number": 19,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3418,
+      "safeBreaks": [
+        139,
+        218,
+        295,
+        429,
+        514,
+        608,
+        689,
+        833,
+        926,
+        1044,
+        1177,
+        1260,
+        1404,
+        1546,
+        1942,
+        2047,
+        2152,
+        2385,
+        2500,
+        2628,
+        2753,
+        2917,
+        2970,
+        3029,
+        3100,
+        3253,
+        3362
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 22,
+          "bbox": [
+            50.428,
+            489.786,
+            555.362,
+            763.712
+          ]
+        },
+        {
+          "page": 23,
+          "bbox": [
+            50.428,
+            53.965,
+            555.362,
+            740.359
+          ]
+        },
+        {
+          "page": 24,
+          "bbox": [
+            50.428,
+            53.965,
+            555.362,
+            297.595
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          457,
+          3875
+        ]
+      ]
+    },
+    {
+      "label": "第20题题目",
+      "number": 20,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 357,
+      "safeBreaks": [
+        81,
+        177,
+        272
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 24,
+          "bbox": [
+            50.428,
+            310.85,
+            555.362,
+            756.454
+          ]
+        },
+        {
+          "page": 25,
+          "bbox": [
+            50.428,
+            53.649,
+            555.362,
+            749.826
+          ]
+        },
+        {
+          "page": 26,
+          "bbox": [
+            50.428,
+            52.387,
+            555.362,
+            430.14
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          357
+        ]
+      ]
+    },
+    {
+      "label": "第20题解析",
+      "number": 20,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 4518,
+      "safeBreaks": [
+        88,
+        168,
+        244,
+        338,
+        416,
+        515,
+        612,
+        711,
+        808,
+        884,
+        986,
+        1073,
+        1151,
+        1312,
+        1399,
+        1479,
+        1579,
+        1678,
+        1779,
+        1871,
+        1975,
+        2069,
+        2174,
+        2246,
+        2347,
+        2443,
+        2542,
+        2641,
+        2742,
+        2839,
+        2934,
+        3040,
+        3135,
+        3234,
+        3303,
+        3392,
+        3487,
+        3593,
+        3688,
+        3785,
+        3864,
+        3959,
+        4057,
+        4161,
+        4257,
+        4356,
+        4452
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 24,
+          "bbox": [
+            50.428,
+            310.85,
+            555.362,
+            756.454
+          ]
+        },
+        {
+          "page": 25,
+          "bbox": [
+            50.428,
+            53.649,
+            555.362,
+            749.826
+          ]
+        },
+        {
+          "page": 26,
+          "bbox": [
+            50.428,
+            52.387,
+            555.362,
+            430.14
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          357,
+          4875
+        ]
+      ]
+    },
+    {
+      "label": "第21题题目",
+      "number": 21,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC21%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 629,
+      "safeBreaks": [
+        82,
+        181,
+        298,
+        430,
+        528
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 26,
+          "bbox": [
+            50.428,
+            442.448,
+            555.362,
+            757.716
+          ]
+        },
+        {
+          "page": 27,
+          "bbox": [
+            50.428,
+            50.493,
+            555.362,
+            750.458
+          ]
+        },
+        {
+          "page": 28,
+          "bbox": [
+            50.428,
+            53.018,
+            555.362,
+            640.95
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第21题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          629
+        ]
+      ]
+    },
+    {
+      "label": "第21题解析",
+      "number": 21,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2023%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2023%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E5%8C%97%E4%BA%AC%EF%BC%89_%E7%AC%AC21%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 4511,
+      "safeBreaks": [
+        94,
+        171,
+        245,
+        319,
+        388,
+        459,
+        533,
+        612,
+        707,
+        806,
+        904,
+        1004,
+        1102,
+        1196,
+        1274,
+        1347,
+        1422,
+        1497,
+        1571,
+        1645,
+        1719,
+        1795,
+        1893,
+        1990,
+        2068,
+        2162,
+        2241,
+        2342,
+        2431,
+        2533,
+        2604,
+        2630,
+        2720,
+        2814,
+        2894,
+        2993,
+        3088,
+        3188,
+        3288,
+        3389,
+        3479,
+        3585,
+        3682,
+        3782,
+        3878,
+        3955,
+        4056,
+        4151,
+        4251,
+        4351,
+        4446
+      ],
+      "sourcePDF": "2023年高考数学试卷（北京）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 26,
+          "bbox": [
+            50.428,
+            442.448,
+            555.362,
+            757.716
+          ]
+        },
+        {
+          "page": 27,
+          "bbox": [
+            50.428,
+            50.493,
+            555.362,
+            750.458
+          ]
+        },
+        {
+          "page": 28,
+          "bbox": [
+            50.428,
+            53.018,
+            555.362,
+            640.95
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2023年高考数学试卷（北京）（解析卷）_第21题.png",
+      "originalImageIntervals": [
+        [
+          629,
+          5140
+        ]
+      ]
+    }
+  ],
+  "layout": "question-analysis-pairs"
+}

@@ -1,0 +1,26 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT37",
+  "result": "passed_self_review",
+  "executed_at": "2026-09-19T19:04:00+08:00",
+  "executed_by": "Codex self_review",
+  "application_commit": null,
+  "layer": "unit",
+  "environment": "Vitest",
+  "provider_mode": "pure code rules",
+  "commands": ["npm --prefix server test -- --run src/features/report/report.service.spec.ts"],
+  "expected": "Unknown, unanswered, helped, invalidated, unfinished, or untested work never becomes an independent pass and keeps its reason.",
+  "actual": {
+    "unknown_pass": false,
+    "unanswered_pass": false,
+    "help_requested_pass": false,
+    "invalidated_pass": false,
+    "unfinished_pass": false,
+    "mastery_percentage_emitted": false
+  },
+  "evidence_files": [
+    "server/src/features/report/report.service.ts",
+    "server/src/features/report/report.service.spec.ts"
+  ],
+  "limitations": ["Pure rule coverage does not replace human review or real student observation."]
+}

@@ -1,0 +1,34 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT17",
+  "result": "partial",
+  "executed_at": "2026-09-19T21:10:14+08:00",
+  "executed_by": "Codex self_review",
+  "application_commit": null,
+  "layer": "unit_route_review_workflow",
+  "environment": "local Vitest with strict role schemas and code PolicyGate",
+  "provider_mode": "fixture_model",
+  "commands": [
+    "npm --prefix server test -- --run src/features/analysis/problem-analysis.service.spec.ts"
+  ],
+  "expected": "A student route with an error, missing condition or unresolved verification is neither rejected merely for differing from the teacher route nor accepted as mathematically valid.",
+  "actual": {
+    "route_review_triggered_from_diagnosis": true,
+    "preparation_and_route_guard_are_separate_nodes": true,
+    "valid_student_route_preserves_student_source": true,
+    "unknown_route_excluded_from_strategy": true,
+    "blocking_issue_excluded_from_strategy": true,
+    "guard_accept_alone_cannot_approve_unknown_route": true,
+    "cycle_and_reference_checks_are_code_enforced": true
+  },
+  "evidence_files": [
+    "server/src/features/analysis/problem-analysis.service.ts",
+    "server/src/features/analysis/problem-analysis.service.spec.ts"
+  ],
+  "limitations": [
+    "The retained case is a deterministic fixture, not a real-provider AM-GM or geometry alternative-solution review.",
+    "The initial teaching route still comes from the conservative public analysis projection rather than a verified B02 preparation packet.",
+    "No independent reviewer or real student observation was performed.",
+    "real_student_observation: not_run"
+  ]
+}

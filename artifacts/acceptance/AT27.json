@@ -1,0 +1,52 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT27",
+  "result": "passed_self_review",
+  "executed_at": "2026-09-19T21:10:14+08:00",
+  "executed_by": "Codex self_review with real-provider smoke",
+  "application_commit": null,
+  "layer": "unit_projection_real_provider_and_mysql_audit",
+  "environment": "local NestJS API; configured OpenAI-compatible provider; model gpt-5.5-2026-04-24; local MySQL 8.0.45",
+  "bank_version": null,
+  "scope_hash": null,
+  "model_version": "gpt-5.5-2026-04-24",
+  "prompt_version": "prompt-v3.0",
+  "provider_mode": "real_provider_plus_deterministic_projection_tests",
+  "commands": [
+    "npm --prefix server test -- --run src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/problem-analysis.controller.spec.ts test/workflows/policy-gate.spec.ts",
+    "npm --prefix server run test:persistence",
+    "npm --prefix server run test:tutor-live",
+    "npm --prefix server run test:tutor-live-ui"
+  ],
+  "expected": "Renderer receives only the public prompt/history, approved facts and current action; it never receives raw diagnosis, private reference, reserved decisions or future rubrics. Unchecked content is never streamed.",
+  "actual": {
+    "renderer_is_separate_model_role": true,
+    "renderer_received_raw_diagnosis": false,
+    "renderer_received_private_reference": false,
+    "renderer_received_reserved_decisions": false,
+    "renderer_received_future_rubric": false,
+    "guard_is_separate_model_role": true,
+    "unchecked_candidate_streamed_before_guard": false,
+    "checked_commit_completed_before_public_chunk": true,
+    "guard_accept_cannot_bypass_disclosure_set": true,
+    "actual_disclosures_persisted": true,
+    "failed_help_request_marked_unexposed": true,
+    "finish_problem_guard_rejects_mastery_overclaim": true,
+    "real_minimum_hint_revealed_final_answer": false
+  },
+  "evidence_files": [
+    "server/src/features/analysis/problem-analysis.service.ts",
+    "server/src/features/analysis/problem-analysis.service.spec.ts",
+    "server/src/features/analysis/problem-analysis.controller.ts",
+    "server/src/features/analysis/problem-analysis.controller.spec.ts",
+    "server/src/features/learning/learning-session.service.ts",
+    "server/src/workflows/policy-gate.ts",
+    "server/scripts/verify-learning-persistence.ts",
+    "server/scripts/verify-tutor-live.ts"
+  ],
+  "limitations": [
+    "The review was performed by the same Codex agent; no independent reviewer or real student observation was performed.",
+    "The current initial route remains a conservative analysis projection until the formal verified B02 preparation packet is connected.",
+    "real_student_observation: not_run"
+  ]
+}

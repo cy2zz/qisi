@@ -1,0 +1,1819 @@
+{
+  "title": "2021年高考数学试卷（上海）（秋考）",
+  "variant": "题目与解析",
+  "prefix": "2021年高考数学试卷（上海）（秋考）",
+  "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+  "sourcePages": 12,
+  "questionCount": 21,
+  "notes": [],
+  "resources": [
+    {
+      "label": "卷首说明",
+      "number": null,
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E5%85%B6%E4%BB%96%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%8D%B7%E9%A6%96%E8%AF%B4%E6%98%8E.png",
+      "width": 1600,
+      "height": 119,
+      "safeBreaks": [
+        70
+      ],
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            67.076,
+            61.801,
+            571.572,
+            95.539
+          ]
+        }
+      ],
+      "kind": "intro"
+    },
+    {
+      "label": "第01题题目",
+      "number": 1,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 116,
+      "safeBreaks": [
+        56
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            67.076,
+            99.323,
+            571.572,
+            185.402
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          116
+        ]
+      ]
+    },
+    {
+      "label": "第01题解析",
+      "number": 1,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC01%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 169,
+      "safeBreaks": [
+        54,
+        113
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            67.076,
+            99.323,
+            571.572,
+            185.402
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第01题.png",
+      "originalImageIntervals": [
+        [
+          116,
+          285
+        ]
+      ]
+    },
+    {
+      "label": "第02题题目",
+      "number": 2,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 70,
+      "safeBreaks": [],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            67.076,
+            187.925,
+            571.572,
+            279.68
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          70
+        ]
+      ]
+    },
+    {
+      "label": "第02题解析",
+      "number": 2,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC02%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 233,
+      "safeBreaks": [
+        61,
+        177
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            67.076,
+            187.925,
+            571.572,
+            279.68
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第02题.png",
+      "originalImageIntervals": [
+        [
+          70,
+          303
+        ]
+      ]
+    },
+    {
+      "label": "第03题题目",
+      "number": 3,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 61,
+      "safeBreaks": [],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            67.076,
+            283.148,
+            571.572,
+            352.516
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          61
+        ]
+      ]
+    },
+    {
+      "label": "第03题解析",
+      "number": 3,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC03%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 171,
+      "safeBreaks": [
+        54,
+        115
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            67.076,
+            283.148,
+            571.572,
+            352.516
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第03题.png",
+      "originalImageIntervals": [
+        [
+          61,
+          232
+        ]
+      ]
+    },
+    {
+      "label": "第04题题目",
+      "number": 4,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 439,
+      "safeBreaks": [
+        48,
+        67,
+        127
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            67.076,
+            356.615,
+            571.572,
+            517.738
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            448.9,
+            231.19,
+            542.45,
+            327.19
+          ],
+          "role": "侧置图形归入对应题目"
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          116
+        ],
+        [
+          529,
+          852
+        ]
+      ]
+    },
+    {
+      "label": "第04题解析",
+      "number": 4,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC04%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 413,
+      "safeBreaks": [
+        50,
+        140,
+        240,
+        351
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            67.076,
+            356.615,
+            571.572,
+            517.738
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            448.9,
+            231.19,
+            542.45,
+            327.19
+          ],
+          "role": "侧置图形归入对应题目"
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第04题.png",
+      "originalImageIntervals": [
+        [
+          116,
+          529
+        ]
+      ]
+    },
+    {
+      "label": "第05题题目",
+      "number": 5,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 100,
+      "safeBreaks": [
+        69
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            67.076,
+            521.207,
+            571.572,
+            634.403
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          100
+        ]
+      ]
+    },
+    {
+      "label": "第05题解析",
+      "number": 5,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC05%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 271,
+      "safeBreaks": [
+        56,
+        125,
+        155,
+        215
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            67.076,
+            521.207,
+            571.572,
+            634.403
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第05题.png",
+      "originalImageIntervals": [
+        [
+          100,
+          371
+        ]
+      ]
+    },
+    {
+      "label": "第06题题目",
+      "number": 6,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 695,
+      "safeBreaks": [
+        82,
+        131
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            67.076,
+            636.925,
+            571.572,
+            746.338
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            394.9,
+            621.37,
+            559.3,
+            795.47
+          ],
+          "role": "侧置图形归入对应题目"
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          124
+        ],
+        [
+          365,
+          936
+        ]
+      ]
+    },
+    {
+      "label": "第06题解析",
+      "number": 6,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC06%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 241,
+      "safeBreaks": [
+        57,
+        122,
+        179
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 1,
+          "bbox": [
+            67.076,
+            636.925,
+            571.572,
+            746.338
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            394.9,
+            621.37,
+            559.3,
+            795.47
+          ],
+          "role": "侧置图形归入对应题目"
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第06题.png",
+      "originalImageIntervals": [
+        [
+          124,
+          365
+        ]
+      ]
+    },
+    {
+      "label": "第07题题目",
+      "number": 7,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 182,
+      "safeBreaks": [],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            67.076,
+            57.702,
+            571.572,
+            223.554
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          182
+        ]
+      ]
+    },
+    {
+      "label": "第07题解析",
+      "number": 7,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC07%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 356,
+      "safeBreaks": [
+        57,
+        116,
+        181,
+        243,
+        300
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            67.076,
+            57.702,
+            571.572,
+            223.554
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第07题.png",
+      "originalImageIntervals": [
+        [
+          182,
+          538
+        ]
+      ]
+    },
+    {
+      "label": "第08题题目",
+      "number": 8,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 67,
+      "safeBreaks": [],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            67.076,
+            227.338,
+            571.572,
+            395.714
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          67
+        ]
+      ]
+    },
+    {
+      "label": "第08题解析",
+      "number": 8,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC08%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 479,
+      "safeBreaks": [
+        62,
+        117,
+        222,
+        367,
+        423
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            67.076,
+            227.338,
+            571.572,
+            395.714
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第08题.png",
+      "originalImageIntervals": [
+        [
+          67,
+          546
+        ]
+      ]
+    },
+    {
+      "label": "第09题题目",
+      "number": 9,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 114,
+      "safeBreaks": [
+        56
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            67.076,
+            400.443,
+            571.572,
+            644.493
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          114
+        ]
+      ],
+      "spatialPartition": {
+        "cut": 114,
+        "diagramRectangle": [
+          1134,
+          85,
+          1518,
+          433
+        ],
+        "diagramBelongsTo": "analysis"
+      }
+    },
+    {
+      "label": "第09题解析",
+      "number": 9,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC09%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 701,
+      "safeBreaks": [
+        330,
+        427,
+        523,
+        588,
+        645
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            67.076,
+            400.443,
+            571.572,
+            644.493
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第09题.png",
+      "originalImageIntervals": [
+        [
+          85,
+          786
+        ]
+      ],
+      "spatialPartition": {
+        "cut": 114,
+        "diagramRectangle": [
+          1134,
+          85,
+          1518,
+          433
+        ],
+        "diagramBelongsTo": "analysis"
+      }
+    },
+    {
+      "label": "第10题题目",
+      "number": 10,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 115,
+      "safeBreaks": [
+        56
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            67.076,
+            648.907,
+            571.572,
+            777.238
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            67.076,
+            58.648,
+            571.572,
+            184.141
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          115
+        ]
+      ]
+    },
+    {
+      "label": "第10题解析",
+      "number": 10,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC10%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 726,
+      "safeBreaks": [
+        53,
+        115,
+        177,
+        240,
+        310,
+        379,
+        441,
+        502,
+        614,
+        670
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 2,
+          "bbox": [
+            67.076,
+            648.907,
+            571.572,
+            777.238
+          ]
+        },
+        {
+          "page": 3,
+          "bbox": [
+            67.076,
+            58.648,
+            571.572,
+            184.141
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第10题.png",
+      "originalImageIntervals": [
+        [
+          115,
+          841
+        ]
+      ]
+    },
+    {
+      "label": "第11题题目",
+      "number": 11,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 125,
+      "safeBreaks": [
+        59
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            67.076,
+            187.609,
+            571.572,
+            608.232
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          125
+        ]
+      ],
+      "spatialPartition": {
+        "cut": 125,
+        "diagramRectangle": [
+          1172,
+          76,
+          1581,
+          497
+        ],
+        "diagramBelongsTo": "analysis"
+      }
+    },
+    {
+      "label": "第11题解析",
+      "number": 11,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC11%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1270,
+      "safeBreaks": [
+        582,
+        632,
+        696,
+        808,
+        861,
+        930,
+        1042,
+        1099,
+        1157,
+        1214
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            67.076,
+            187.609,
+            571.572,
+            608.232
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第11题.png",
+      "originalImageIntervals": [
+        [
+          76,
+          1346
+        ]
+      ],
+      "spatialPartition": {
+        "cut": 125,
+        "diagramRectangle": [
+          1172,
+          76,
+          1581,
+          497
+        ],
+        "diagramBelongsTo": "analysis"
+      }
+    },
+    {
+      "label": "第12题题目",
+      "number": 12,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 130,
+      "safeBreaks": [
+        68
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            67.076,
+            611.385,
+            571.572,
+            781.022
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            67.076,
+            60.224,
+            571.572,
+            773.139
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            67.076,
+            59.278,
+            571.572,
+            164.907
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          130
+        ]
+      ]
+    },
+    {
+      "label": "第12题解析",
+      "number": 12,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC12%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3064,
+      "safeBreaks": [
+        57,
+        114,
+        176,
+        239,
+        313,
+        356,
+        426,
+        492,
+        555,
+        612,
+        673,
+        736,
+        792,
+        855,
+        917,
+        974,
+        1048,
+        1091,
+        1155,
+        1217,
+        1274,
+        1337,
+        1400,
+        1460,
+        1517,
+        1576,
+        1636,
+        1693,
+        1751,
+        1818,
+        1878,
+        1935,
+        1993,
+        2052,
+        2110,
+        2168,
+        2227,
+        2285,
+        2344,
+        2405,
+        2466,
+        2524,
+        2586,
+        2648,
+        2711,
+        2775,
+        2837,
+        2894,
+        2951,
+        3008
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 3,
+          "bbox": [
+            67.076,
+            611.385,
+            571.572,
+            781.022
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            67.076,
+            60.224,
+            571.572,
+            773.139
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            67.076,
+            59.278,
+            571.572,
+            164.907
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第12题.png",
+      "originalImageIntervals": [
+        [
+          130,
+          3194
+        ]
+      ]
+    },
+    {
+      "label": "第13题题目",
+      "number": 13,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 175,
+      "safeBreaks": [
+        56,
+        111
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            67.076,
+            169.637,
+            571.572,
+            274.635
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          175
+        ]
+      ]
+    },
+    {
+      "label": "第13题解析",
+      "number": 13,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC13%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 170,
+      "safeBreaks": [
+        57,
+        114
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            67.076,
+            169.637,
+            571.572,
+            274.635
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第13题.png",
+      "originalImageIntervals": [
+        [
+          175,
+          345
+        ]
+      ]
+    },
+    {
+      "label": "第14题题目",
+      "number": 14,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 495,
+      "safeBreaks": [
+        145,
+        414
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            67.076,
+            276.211,
+            571.572,
+            758.32
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            67.076,
+            57.702,
+            571.572,
+            261.076
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          495
+        ]
+      ]
+    },
+    {
+      "label": "第14题解析",
+      "number": 14,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC14%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1715,
+      "safeBreaks": [
+        84,
+        155,
+        212,
+        272,
+        330,
+        471,
+        613,
+        675,
+        728,
+        837,
+        946,
+        1052,
+        1168,
+        1280,
+        1334,
+        1432,
+        1543,
+        1603,
+        1659
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 5,
+          "bbox": [
+            67.076,
+            276.211,
+            571.572,
+            758.32
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            67.076,
+            57.702,
+            571.572,
+            261.076
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第14题.png",
+      "originalImageIntervals": [
+        [
+          495,
+          2210
+        ]
+      ]
+    },
+    {
+      "label": "第15题题目",
+      "number": 15,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 272,
+      "safeBreaks": [
+        111,
+        174,
+        234
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            67.076,
+            262.653,
+            571.572,
+            774.4
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            67.076,
+            59.909,
+            571.572,
+            220.086
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          272
+        ]
+      ]
+    },
+    {
+      "label": "第15题解析",
+      "number": 15,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC15%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1895,
+      "safeBreaks": [
+        57,
+        122,
+        216,
+        274,
+        370,
+        461,
+        559,
+        658,
+        754,
+        852,
+        951,
+        1052,
+        1109,
+        1163,
+        1263,
+        1369,
+        1432,
+        1528,
+        1625,
+        1725,
+        1782,
+        1839
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 6,
+          "bbox": [
+            67.076,
+            262.653,
+            571.572,
+            774.4
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            67.076,
+            59.909,
+            571.572,
+            220.086
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第15题.png",
+      "originalImageIntervals": [
+        [
+          272,
+          2167
+        ]
+      ]
+    },
+    {
+      "label": "第16题题目",
+      "number": 16,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 173,
+      "safeBreaks": [
+        54,
+        111
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            67.076,
+            224.5,
+            571.572,
+            529.72
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          173
+        ]
+      ]
+    },
+    {
+      "label": "第16题解析",
+      "number": 16,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC16%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 807,
+      "safeBreaks": [
+        53,
+        230,
+        289,
+        347,
+        409,
+        471,
+        694,
+        751
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            67.076,
+            224.5,
+            571.572,
+            529.72
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第16题.png",
+      "originalImageIntervals": [
+        [
+          173,
+          980
+        ]
+      ]
+    },
+    {
+      "label": "第17题题目",
+      "number": 17,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 229,
+      "safeBreaks": [
+        56,
+        116,
+        175
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            67.076,
+            534.134,
+            571.572,
+            743.5
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            67.076,
+            64.954,
+            571.572,
+            253.509
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          229
+        ]
+      ]
+    },
+    {
+      "label": "第17题解析",
+      "number": 17,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC17%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 1069,
+      "safeBreaks": [
+        62,
+        116,
+        215,
+        276,
+        332,
+        453,
+        857,
+        956,
+        1013
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 7,
+          "bbox": [
+            67.076,
+            534.134,
+            571.572,
+            743.5
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            67.076,
+            64.954,
+            571.572,
+            253.509
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第17题.png",
+      "originalImageIntervals": [
+        [
+          229,
+          1298
+        ]
+      ]
+    },
+    {
+      "label": "第18题题目",
+      "number": 18,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 155,
+      "safeBreaks": [
+        55
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            67.076,
+            257.923,
+            571.572,
+            557.467
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          155
+        ]
+      ]
+    },
+    {
+      "label": "第18题解析",
+      "number": 18,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC18%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 807,
+      "safeBreaks": [
+        57,
+        114,
+        167,
+        278,
+        385,
+        481,
+        586,
+        694,
+        751
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            67.076,
+            257.923,
+            571.572,
+            557.467
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第18题.png",
+      "originalImageIntervals": [
+        [
+          155,
+          962
+        ]
+      ]
+    },
+    {
+      "label": "第19题题目",
+      "number": 19,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 284,
+      "safeBreaks": [
+        56,
+        113,
+        170,
+        227
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            67.076,
+            562.197,
+            571.572,
+            773.139
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            67.076,
+            59.909,
+            571.572,
+            169.637
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          284
+        ]
+      ]
+    },
+    {
+      "label": "第19题解析",
+      "number": 19,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC19%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 769,
+      "safeBreaks": [
+        57,
+        114,
+        171,
+        234,
+        298,
+        403,
+        468,
+        537,
+        599,
+        656,
+        713
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 8,
+          "bbox": [
+            67.076,
+            562.197,
+            571.572,
+            773.139
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            67.076,
+            59.909,
+            571.572,
+            169.637
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第19题.png",
+      "originalImageIntervals": [
+        [
+          284,
+          1053
+        ]
+      ]
+    },
+    {
+      "label": "第20题题目",
+      "number": 20,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 911,
+      "safeBreaks": [
+        97,
+        451
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            67.076,
+            172.159,
+            571.572,
+            734.041
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            67.076,
+            57.386,
+            571.572,
+            277.472
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            371.95,
+            659.928,
+            556.2,
+            803.478
+          ],
+          "role": "侧置图形归入对应题目"
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          436
+        ],
+        [
+          2522,
+          2997
+        ]
+      ],
+      "spatialPartition": {
+        "cut": 398,
+        "diagramRectangle": [
+          1134,
+          91,
+          1590,
+          436
+        ],
+        "diagramBelongsTo": "question"
+      }
+    },
+    {
+      "label": "第20题解析",
+      "number": 20,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC20%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 2124,
+      "safeBreaks": [
+        86,
+        135,
+        201,
+        295,
+        373,
+        827,
+        880,
+        892,
+        932,
+        1107,
+        1170,
+        1236,
+        1340,
+        1402,
+        1578,
+        1690,
+        1821,
+        1893,
+        2000,
+        2063
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 9,
+          "bbox": [
+            67.076,
+            172.159,
+            571.572,
+            734.041
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            67.076,
+            57.386,
+            571.572,
+            277.472
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            371.95,
+            659.928,
+            556.2,
+            803.478
+          ],
+          "role": "侧置图形归入对应题目"
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第20题.png",
+      "originalImageIntervals": [
+        [
+          398,
+          2522
+        ]
+      ],
+      "spatialPartition": {
+        "cut": 398,
+        "diagramRectangle": [
+          1134,
+          91,
+          1590,
+          436
+        ],
+        "diagramBelongsTo": "question"
+      }
+    },
+    {
+      "label": "第21题题目",
+      "number": 21,
+      "kind": "question",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E9%A2%98%E7%9B%AE%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC21%E9%A2%98_%E9%A2%98%E7%9B%AE.png",
+      "width": 1600,
+      "height": 253,
+      "safeBreaks": [
+        59,
+        116,
+        189
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            67.076,
+            281.887,
+            571.572,
+            780.391
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            67.076,
+            59.909,
+            571.572,
+            779.761
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第21题.png",
+      "originalImageIntervals": [
+        [
+          0,
+          253
+        ]
+      ]
+    },
+    {
+      "label": "第21题解析",
+      "number": 21,
+      "kind": "analysis",
+      "image": "https://qisi-main.oss-cn-hangzhou.aliyuncs.com/%E5%8E%86%E5%B9%B4%E8%AF%95%E9%A2%98/2021%C2%B7%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E5%88%87%E9%A2%98/%E8%A7%A3%E6%9E%90%E5%9B%BE%E7%89%87/2021%E5%B9%B4%E9%AB%98%E8%80%83%E6%95%B0%E5%AD%A6%E8%AF%95%E5%8D%B7%EF%BC%88%E4%B8%8A%E6%B5%B7%EF%BC%89%EF%BC%88%E7%A7%8B%E8%80%83%EF%BC%89_%E7%AC%AC21%E9%A2%98_%E8%A7%A3%E6%9E%90.png",
+      "width": 1600,
+      "height": 3647,
+      "safeBreaks": [
+        55,
+        119,
+        175,
+        233,
+        293,
+        351,
+        415,
+        441,
+        467,
+        523,
+        605,
+        1124,
+        1222,
+        1281,
+        1346,
+        1410,
+        1469,
+        1528,
+        1585,
+        1650,
+        1713,
+        1777,
+        1843,
+        1908,
+        2435,
+        2513,
+        2636,
+        2709,
+        2769,
+        2825,
+        2890,
+        2955,
+        3021,
+        3088,
+        3146,
+        3212,
+        3270,
+        3343,
+        3402,
+        3466,
+        3533,
+        3590
+      ],
+      "sourcePDF": "2021年高考数学试卷（上海）（秋考）（解析卷）.pdf",
+      "sourceRegions": [
+        {
+          "page": 10,
+          "bbox": [
+            67.076,
+            281.887,
+            571.572,
+            780.391
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            67.076,
+            59.909,
+            571.572,
+            779.761
+          ]
+        }
+      ],
+      "originalImage": "题目图片/2021年高考数学试卷（上海）（秋考）（解析卷）_第21题.png",
+      "originalImageIntervals": [
+        [
+          253,
+          3900
+        ]
+      ]
+    }
+  ],
+  "layout": "question-analysis-pairs"
+}

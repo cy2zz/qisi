@@ -8,7 +8,17 @@
 // 接入 app.module.ts 属 A 的写集，作为交接项（B01 写集不含装配入口）。
 
 import { createHash } from 'node:crypto';
-import type { AssessmentOutput, Diagnosis, GuardResult, Packet, RenderedMessage, RoutePatch, Strategy } from '../contracts/domain.schema.js';
+import {
+  PreparationInputSchema,
+  type AssessmentOutput,
+  type Diagnosis,
+  type GuardInput,
+  type GuardResult,
+  type Packet,
+  type RenderedMessage,
+  type RoutePatch,
+  type Strategy,
+} from '../contracts/domain.schema.js';
 import { DiagnosisAgent } from '../agents/diagnosis/index.js';
 import { Guard } from '../agents/guard/index.js';
 import { PreparationAgent, type PreparationResult } from '../agents/preparation/index.js';
@@ -58,6 +68,7 @@ export interface TurnCommand {
   readonly rendererInput: unknown;
   readonly guardInput: unknown;
   readonly knownDecisionIds: ReadonlySet<string>;
+  readonly knownGoalKeys: ReadonlySet<string>;
   readonly probesShownForFocusGoal: number;
 }
 
@@ -150,8 +161,10 @@ export class WorkflowOrchestrator {
     readonly preparationInput: unknown;
     /** route_review 模式下的当前路线图；prepare 模式忽略。 */
     readonly currentGraph?: RouteGraph;
-    /** prepare 模式的预期题目内容哈希，用于包绑定与核对。 */
+    /** prepare 模式的预期题目内容哈希；缺省时回退到输入自带的 problem.content_hash。 */
     readonly expectedProblemHash?: string;
+    /** 服务端可信的核对引用白名单，决定 Packet 的 verification 记录能否采信。 */
+    readonly trustedVerificationReferences: ReadonlySet<string>;
   }): Promise<WorkflowOutcome<Packet | RoutePatch>> {
     const run = await this.#reserve('prepare', command);
     const budget = new BudgetLedger({ workflow: 'prepare', deadlineAt: new Date(run.deadlineAt) });
@@ -180,34 +193,55 @@ export class WorkflowOrchestrator {
     }
 
     const packet = prepared.value.packet;
-    // 代码 PolicyGate 判定；PrepareWorkflow 提供更细的问题清单（供问题记录与报告）。
-    const decision = gatePreparation(packet);
-    const review =
-      this.#prepareWorkflow !== null && command.expectedProblemHash !== undefined
-        ? this.#prepareWorkflow.acceptPacket({
-            packet,
-            expectedProblemHash: command.expectedProblemHash,
-            guard: null,
-          })
-        : null;
+    const preparationInput = PreparationInputSchema.parse(command.preparationInput);
+    const expectedProblemHash = command.expectedProblemHash ?? preparationInput.problem.content_hash;
 
-    // 无论就绪与否都提交——规格要求「拒绝并保留needs_review」，即保留该题与问题记录，
-    // 不得静默换题或丢弃。状态由上层读取 nextState 决定如何呈现。
+    // 包核对 Guard（B02 步骤 4「实现包核对Guard」）。模型核对是**输入之一**而非权威：
+    // 它 accept 不足以让包就绪，判定权柄在下面的 gatePreparation（代码）。
+    const guardModel = this.#config.models.guard;
+    const guardInput: GuardInput = {
+      allowed_disclosures: [],
+      candidate_json: JSON.stringify(packet),
+      mode: 'packet',
+      reference_md: preparationInput.reference_material_md,
+      reserved_decisions: [],
+      task_id: packet.problem_id,
+    };
+    const guardNode = await this.#runNode<GuardResult>({
+      runId: run.runId,
+      leaseToken: run.leaseToken,
+      nodeKey: 'packet_guard',
+      model: guardModel,
+      input: guardInput,
+      execute: () => this.guard.run(guardInput, port, this.#callOptions(guardModel, budget)),
+    });
+
+    const decision = gatePreparation(packet, {
+      expectedProblemHash,
+      guard: guardNode.value,
+      trustedVerificationReferences: command.trustedVerificationReferences,
+    });
+
+    if (!decision.approved) {
+      // 未就绪不提交：会话保持 preparing，由调用方返回当前 StudentView 与 notice，
+      // 不另抽题（contracts/README.md §3）。原题与问题记录随 rejected 结果保留，
+      // 不静默换题也不丢弃——「拒绝并保留 needs_review」。
+      return { status: 'rejected', value: null, decision };
+    }
+
+    // 放行之后才登记缓存与检验候选池（B02）。顺序不可颠倒：先登记会让
+    // needs_review 的包污染缓存，被后续会话复用。
+    if (this.#prepareWorkflow !== null) {
+      this.#prepareWorkflow.acceptPacket({ packet, expectedProblemHash, guard: guardNode.value });
+    }
+
     await this.#commitPrepare(
       run,
       command,
-      {
-        problem_hash: packet.problem_hash,
-        packet_version: packet.version,
-        preparation_status: decision.approved ? 'ready' : 'needs_review',
-        ...(review === null ? {} : { review_issues: review.review.issues.map((item) => item.message) }),
-      },
+      { problem_hash: packet.problem_hash, packet_version: packet.version },
       packet,
     );
 
-    if (!decision.approved) {
-      return { status: 'rejected', value: null, decision };
-    }
     return { status: 'committed', value: packet };
   }
 
@@ -329,6 +363,7 @@ export class WorkflowOrchestrator {
       strategy,
       guard: guardResult,
       knownDecisionIds: command.knownDecisionIds,
+      knownGoalKeys: command.knownGoalKeys,
       probesShownForFocusGoal: command.probesShownForFocusGoal,
     });
 
@@ -348,6 +383,7 @@ export class WorkflowOrchestrator {
         strategy,
         guard: guardResult,
         knownDecisionIds: command.knownDecisionIds,
+        knownGoalKeys: command.knownGoalKeys,
         probesShownForFocusGoal: command.probesShownForFocusGoal,
       });
     }

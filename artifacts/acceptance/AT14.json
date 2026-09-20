@@ -1,0 +1,66 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT14",
+  "result": "passed_self_review",
+  "executed_at": "2026-09-19T21:10:14+08:00",
+  "executed_by": "Codex real_provider_model_review_and_mysql_integration",
+  "application_commit": null,
+  "layer": "real_provider_model_review",
+  "environment": "local NestJS API; Vite development origin; configured OpenAI-compatible provider; model gpt-5.5-2026-04-24; local MySQL 8.0.45",
+  "provider_mode": "real_provider_no_fixture",
+  "commands": [
+    "npm --prefix server test -- src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/problem-analysis.controller.spec.ts src/model/openai-compatible-model.port.spec.ts test/workflows/policy-gate.spec.ts --reporter=verbose",
+    "npm --prefix server run test:persistence",
+    "npm --prefix server run test:tutor-live",
+    "npm run test:e2e -- --grep @B03"
+  ],
+  "expected": "A real student turn executes separate Diagnosis, Strategy, Renderer and Guard contracts and prompts; each actual provider call records model, prompt version and usage in MySQL before only the checked response is streamed.",
+  "actual": {
+    "provider_model": "gpt-5.5-2026-04-24",
+    "prompt_version": "prompt-v3.0",
+    "persisted_node_order": [
+      "diagnosis",
+      "strategy",
+      "renderer",
+      "guard"
+    ],
+    "all_nodes_completed": true,
+    "all_usage_kinds": [
+      "reported",
+      "reported",
+      "reported",
+      "reported"
+    ],
+    "total_input_tokens": 6569,
+    "total_output_tokens": 3172,
+    "provider_calls_mocked": false,
+    "safe_status_events": 5,
+    "checked_reply_chars": 116,
+    "renderer_received_raw_diagnosis": false,
+    "renderer_received_private_reference": false,
+    "guard_accepted_unapproved_disclosure_exposed": false,
+    "mysql_refresh_and_idempotent_replay_verified": true,
+    "actual_disclosure_state_restored": true,
+    "probe_state_restored": true,
+    "probe_branches_persisted_before_display": true,
+    "responsive_browser_regression": "8/8 passed across PC 1440/1280 and H5 390/360"
+  },
+  "evidence_files": [
+    "server/src/features/analysis/problem-analysis.service.ts",
+    "server/src/features/analysis/problem-analysis.service.spec.ts",
+    "server/src/features/analysis/problem-analysis.controller.ts",
+    "server/src/features/learning/learning-session.service.ts",
+    "server/src/model/openai-compatible-model.port.ts",
+    "server/src/workflows/policy-gate.ts",
+    "server/scripts/verify-tutor-live.ts",
+    "server/scripts/verify-learning-persistence.ts",
+    "web/tests/e2e/tutor.spec.ts"
+  ],
+  "limitations": [
+    "The retained model-review case uses a deterministic development problem, not a statistically representative set of Chinese high-school or competition problems.",
+    "The current teaching route is a conservative route projected from the initial analysis and remains math_status=unknown until the formal B02 verified preparation packet is connected.",
+    "Provider-reported token usage is persisted, but currency cost is not calculated because the configured gateway pricing contract is unavailable.",
+    "The review was performed by the same Codex agent; no independent reviewer or real student observation was performed.",
+    "real_student_observation: not_run"
+  ]
+}

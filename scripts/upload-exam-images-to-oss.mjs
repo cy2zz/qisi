@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import { createReadStream, existsSync } from 'node:fs';
 import {
   access,
+  mkdir,
   readdir,
   readFile,
   rename,
@@ -28,6 +29,13 @@ export function getOnlineManifestPath(manifestPath) {
   }
 
   return `${manifestPath.slice(0, -'.json'.length)}.online.json`;
+}
+
+export function getOutputManifestPath(manifestPath, outputDirectory) {
+  return path.join(
+    path.resolve(outputDirectory),
+    path.basename(getOnlineManifestPath(manifestPath)),
+  );
 }
 
 function assertInsideRoot(rootPath, candidatePath, label) {
@@ -150,6 +158,7 @@ function parseArguments(argv) {
     concurrency: DEFAULT_CONCURRENCY,
     inputPath: DEFAULT_PREFIX,
     objectPrefix: DEFAULT_PREFIX,
+    outputDirectory: null,
     overwrite: false,
     rootPath: null,
     upload: false,
@@ -163,7 +172,9 @@ function parseArguments(argv) {
       options.overwrite = true;
     } else if (argument === '--help' || argument === '-h') {
       options.help = true;
-    } else if (['--input', '--root', '--prefix', '--concurrency'].includes(argument)) {
+    } else if (
+      ['--input', '--root', '--prefix', '--output-dir', '--concurrency'].includes(argument)
+    ) {
       const value = argv[index + 1];
       if (!value || value.startsWith('--')) {
         throw new Error(`${argument} 缺少参数值`);
@@ -172,6 +183,7 @@ function parseArguments(argv) {
       if (argument === '--input') options.inputPath = value;
       if (argument === '--root') options.rootPath = value;
       if (argument === '--prefix') options.objectPrefix = value;
+      if (argument === '--output-dir') options.outputDirectory = value;
       if (argument === '--concurrency') options.concurrency = Number(value);
     } else {
       throw new Error(`未知参数：${argument}`);
@@ -195,12 +207,13 @@ function printHelp() {
   --input <路径>        单个资源清单或包含资源清单的目录（默认：历年试题）
   --root <路径>         题库根目录（默认：目录输入本身，文件输入时为 ./历年试题）
   --prefix <对象前缀>  OSS 对象前缀（默认：历年试题）
+  --output-dir <目录>   将所有 .online.json 平铺写入指定目录
   --concurrency <数量>  并发上传数 1-20（默认：5）
   --upload              执行上传并生成 .online.json
   --overwrite           允许覆盖 OSS 中同名但内容不同的对象
   --help                显示帮助
 
-凭据从 .env.oss.local 或当前环境读取：
+凭据优先从本机忽略的 .env.oss.private 读取，其次从 .env.oss.local 或当前环境读取：
   ALIYUN_OSS_ACCESS_KEY_ID
   ALIYUN_OSS_ACCESS_KEY_SECRET
   ALIYUN_OSS_STS_TOKEN（使用临时凭据时可选）
@@ -275,6 +288,7 @@ async function mapWithConcurrency(items, concurrency, worker) {
 }
 
 async function writeManifest(plan) {
+  await mkdir(path.dirname(plan.outputPath), { recursive: true });
   const temporaryPath = `${plan.outputPath}.${process.pid}.tmp`;
   await writeFile(temporaryPath, `${JSON.stringify(plan.onlineManifest, null, 2)}\n`, {
     encoding: 'utf8',
@@ -284,8 +298,13 @@ async function writeManifest(plan) {
 }
 
 function loadLocalEnvironment() {
-  const envPath = path.resolve('.env.oss.local');
-  if (existsSync(envPath)) process.loadEnvFile(envPath);
+  const envPaths = [path.resolve('.env.oss.private'), path.resolve('.env.oss.local')];
+  for (const envPath of envPaths) {
+    if (existsSync(envPath)) {
+      process.loadEnvFile(envPath);
+      return;
+    }
+  }
 }
 
 function getCredential(name, fallbackName) {
@@ -339,14 +358,27 @@ async function main() {
 
   const plans = [];
   for (const manifestPath of manifestPaths) {
-    plans.push(
-      await buildManifestPlan({
-        manifestPath,
-        objectPrefix: options.objectPrefix,
-        publicBaseUrl,
-        rootPath,
-      }),
-    );
+    const plan = await buildManifestPlan({
+      manifestPath,
+      objectPrefix: options.objectPrefix,
+      publicBaseUrl,
+      rootPath,
+    });
+    if (options.outputDirectory) {
+      plan.outputPath = getOutputManifestPath(manifestPath, options.outputDirectory);
+    }
+    plans.push(plan);
+  }
+
+  const manifestByOutputPath = new Map();
+  for (const plan of plans) {
+    const existingManifest = manifestByOutputPath.get(plan.outputPath);
+    if (existingManifest) {
+      throw new Error(
+        `两个资源清单会写入同一个输出文件：${existingManifest}；${plan.manifestPath}`,
+      );
+    }
+    manifestByOutputPath.set(plan.outputPath, plan.manifestPath);
   }
 
   const uploadsByObjectKey = new Map();

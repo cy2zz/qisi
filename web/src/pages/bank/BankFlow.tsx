@@ -1,12 +1,35 @@
-import { type FormEvent, type ReactNode, useEffect, useRef, useState } from 'react';
-import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
+import {
+  type FormEvent,
+  type ReactNode,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
+import { Link, Navigate, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
+import { MathFormatButton } from '../../features/input/MathFormatButton';
+import {
+  HandwritingInput,
+  type ConfirmedHandwriting,
+  type HandwritingInputHandle,
+} from '../../features/input/HandwritingInput';
+import {
+  ImageQuestionInput,
+  type ImageQuestionInputHandle,
+} from '../../features/input/ImageQuestionInput';
+import { VoiceInputButton } from '../../features/input/VoiceInputButton';
+import { ReadAloudButton, ReadAloudProvider } from '../../features/speech/ReadAloud';
 import { apiFetch, apiStream } from '../../lib/api';
 import { MathMarkdown } from '../../shared/MathMarkdown';
-import { RichComposer, type RichComposerHandle } from './RichComposer';
+import { MATH_FORMULA_SHORTCUTS } from '../../shared/math-input';
 import {
-  FIXTURE_BANK_VERSION,
-  fixtureProblems,
+  PaperPickerDialog,
+  type PaperSelection,
+} from './PaperPickerDialog';
+import { RichComposer, type RichComposerHandle } from './RichComposer';
+import { StudySidebar, type StudyRecord } from './StudySidebar';
+import {
   fixtureSessionId,
   getFixtureProblem,
   problemIdFromFixtureSession,
@@ -17,11 +40,18 @@ interface StudentPageProps {
 }
 
 interface ConversationMessage {
+  assistanceMode?: AssistanceMode;
   analysis?: ProblemAnalysis;
   content: string;
+  currentVerdict?: 'correct' | 'incorrect' | 'unknown';
   history?: ProblemChatMessage[];
+  handwriting?: Pick<ConfirmedHandwriting, 'revision' | 'transcriptId'>;
   id: string;
+  preparationStatus?: 'needs_review' | 'ready' | 'unavailable';
   request?: string;
+  requestId?: string;
+  recognitionUncertain?: string[];
+  remediationFocus?: RemediationFocus;
   role: 'guide' | 'student';
   state?: 'analysis' | 'error' | 'loading' | 'reply' | 'reply-loading' | 'reply-streaming' | 'text';
 }
@@ -39,21 +69,105 @@ interface ProblemAnalysis {
   target: string;
 }
 
-interface SessionRecord {
-  content: string;
-  id: string;
+type AssistanceMode = 'attempt' | 'hint' | 'explain' | 'worked_solution' | 'finish_problem';
+type RemediationFocus = 'evidence' | 'execution' | 'method';
+
+const assistanceModeLabels: Record<AssistanceMode, string> = {
+  attempt: '思路反馈',
+  hint: '最小提示',
+  explain: '局部解释',
+  worked_solution: '直接讲解',
+  finish_problem: '本题核对',
+};
+
+const remediationFocusDetails: Record<RemediationFocus, {
+  action: string;
+  activeLabel: string;
+  detail: string;
+  label: string;
+  prompt: string;
   title: string;
-  topic: string;
+}> = {
+  evidence: {
+    action: '询问证据边界',
+    activeLabel: '只核对证据边界',
+    detail: '核对帮助记录和独立资格，不把答案正确直接等同于已经掌握。',
+    label: 'EVIDENCE / 证据边界',
+    prompt: '请解释这次为什么还不能记为独立通过。',
+    title: '先看清这次为什么不能记为独立通过',
+  },
+  execution: {
+    action: '写下执行卡点',
+    activeLabel: '只处理执行卡点',
+    detail: '对照刚才的步骤，只找计算、变形或表达中需要修正的一行。',
+    label: 'EXECUTION / 执行修正',
+    prompt: '我的方法是对的，但执行中有一步需要修正。我卡在：',
+    title: '方法已经成立，只定位执行卡点',
+  },
+  method: {
+    action: '写下方法卡点',
+    activeLabel: '只梳理方法依据',
+    detail: '回到原题，只梳理准备怎么做；暂时不急着重算整题。',
+    label: 'METHOD / 方法修正',
+    prompt: '我想先把方法想清楚。我的原计划是：',
+    title: '先把方法依据补完整',
+  },
+};
+
+function isRemediationFocus(value: unknown): value is RemediationFocus {
+  return value === 'method' || value === 'execution' || value === 'evidence';
 }
 
-const formulaShortcuts = [
-  { label: '分式', name: '插入分式', syntax: '$\\frac{}{}$' },
-  { label: '根式', name: '插入根式', syntax: '$\\sqrt{}$' },
-  { label: '上标', name: '插入上标', syntax: '$x^{}$' },
-  { label: '下标', name: '插入下标', syntax: '$x_{}$' },
-  { label: '积分', name: '插入积分', syntax: '$\\int_{}^{}$' },
-  { label: '极限', name: '插入极限', syntax: '$\\lim_{x\\to }$' },
-];
+function getRemediationFocus(search: string): RemediationFocus | null {
+  const focus = new URLSearchParams(search).get('remediate');
+  return isRemediationFocus(focus) ? focus : null;
+}
+
+type SessionRecord = StudyRecord;
+type DraftSaveState = 'dirty' | 'error' | 'saved' | 'saving';
+
+function shouldUseCompactQuestionContext() {
+  return typeof window !== 'undefined' && window.innerWidth <= 720;
+}
+
+const quickReplies: ReadonlyArray<{
+  intent: string;
+  label: string;
+  message: string | null;
+  mode: AssistanceMode;
+}> = [
+  { intent: 'try', label: '我来写', message: null, mode: 'attempt' },
+  { intent: 'unsure', label: '我还不确定', message: '我还不确定', mode: 'hint' },
+  { intent: 'hint', label: '提示一点', message: '请只指出下一步要关注什么，不要替我计算或给出答案。', mode: 'hint' },
+  { intent: 'explain', label: '讲清这一步', message: '请直接讲清楚这一步', mode: 'explain' },
+] as const;
+
+const learningStages = [
+  { label: '读懂题目', title: '先读懂题目', detail: '确认条件、目标和题目真正问什么。' },
+  { label: '自己尝试', title: '先做一步', detail: '不用写完整答案，先留下一个判断或关键式子。' },
+  { label: '定位卡点', title: '只处理当前卡点', detail: '根据你刚才的产物，选择最小必要帮助。' },
+  { label: '核对结论', title: '核对这次答案', detail: '只核对本题作答；是否掌握还要看之后的独立检验。' },
+] as const;
+
+const learningHelpActions: ReadonlyArray<{
+  compactLabel: string;
+  label: string;
+  message: string;
+  mode: AssistanceMode;
+}> = [
+  { compactLabel: '不会开始', label: '我不知道从哪开始', message: '我不知道从哪开始。请只帮我确认第一步要做什么。', mode: 'hint' },
+  { compactLabel: '提示一点', label: '给一点提示', message: '请只给我一个最小提示，不要直接给答案。', mode: 'hint' },
+  { compactLabel: '解释卡点', label: '解释当前卡点', message: '请解释我当前最可能卡住的这个地方。', mode: 'explain' },
+  { compactLabel: '直接讲解', label: '直接讲清楚', message: '请直接讲清楚当前关键步骤。', mode: 'worked_solution' },
+] as const;
+
+const stuckPointOptions = [
+  { label: '条件没看懂', prompt: '我卡在题目条件：我还没看懂这些条件之间的关系。' },
+  { label: '方法想不到', prompt: '我卡在方法选择：我不知道应该先用哪个知识点。' },
+  { label: '公式不会列', prompt: '我卡在列式：思路大概知道，但不知道公式怎么写。' },
+  { label: '计算卡住', prompt: '我卡在计算：方法已经确定，但这一步算不下去。' },
+  { label: '答案不确定', prompt: '我卡在核对：已经算完，但不确定哪一步可能有问题。' },
+] as const;
 
 type JourneyStep = 'choose' | 'prepare' | 'learn';
 
@@ -120,12 +234,28 @@ function StudyFrame({
 }
 
 export function BankPage({ username }: StudentPageProps) {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const requestedSessionId = new URLSearchParams(location.search).get('session');
+  const remediationFocus = getRemediationFocus(location.search);
+  const remediation = remediationFocus ? remediationFocusDetails[remediationFocus] : null;
   const analysisRequestRef = useRef(0);
   const chatAbortRef = useRef<AbortController | null>(null);
   const chatRequestRef = useRef(0);
   const chatScrollRef = useRef<HTMLDivElement>(null);
+  const composerDockRef = useRef<HTMLDivElement>(null);
   const composerFormRef = useRef<HTMLFormElement>(null);
   const composerRef = useRef<RichComposerHandle>(null);
+  const draftRevisionRef = useRef(0);
+  const draftSaveRequestRef = useRef(0);
+  const formulaToolsRef = useRef<HTMLDivElement>(null);
+  const formulaTriggerRef = useRef<HTMLButtonElement>(null);
+  const highImpactHelpConfirmRef = useRef<HTMLButtonElement>(null);
+  const highImpactHelpDialogRef = useRef<HTMLElement>(null);
+  const handwritingInputRef = useRef<HandwritingInputHandle>(null);
+  const imageInputRef = useRef<ImageQuestionInputHandle>(null);
+  const restoreRequestRef = useRef(0);
+  const suppressNextDraftChangeRef = useRef(false);
   const [activeRecord, setActiveRecord] = useState<SessionRecord | null>(null);
   const [bankOpen, setBankOpen] = useState(false);
   const [formulaOpen, setFormulaOpen] = useState(false);
@@ -133,27 +263,233 @@ export function BankPage({ username }: StudentPageProps) {
   const [messages, setMessages] = useState<ConversationMessage[]>([]);
   const [records, setRecords] = useState<SessionRecord[]>([]);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [questionCollapsed, setQuestionCollapsed] = useState(false);
+  const [questionFocusMode, setQuestionFocusMode] = useState(false);
   const [draft, setDraft] = useState('');
+  const [confirmedHandwriting, setConfirmedHandwriting] = useState<ConfirmedHandwriting | null>(null);
+  const [draftSaveState, setDraftSaveState] = useState<DraftSaveState>('saved');
   const [isReplying, setIsReplying] = useState(false);
+  const [finishIntent, setFinishIntent] = useState(false);
+  const [stuckPointOpen, setStuckPointOpen] = useState(false);
+  const [pendingHelpAction, setPendingHelpAction] = useState<(typeof learningHelpActions)[number] | null>(null);
+  const [pendingRemediationFocus, setPendingRemediationFocus] = useState<RemediationFocus | null>(null);
+  const [remediationTrackError, setRemediationTrackError] = useState<string | null>(null);
+  const [replyToRevealId, setReplyToRevealId] = useState<string | null>(null);
 
   useEffect(() => {
+    const abortController = new AbortController();
+    apiFetch<{ sessions?: SessionRecord[] }>('/api/learning/sessions', {
+      signal: abortController.signal,
+    })
+      .then((result) => {
+        if (!Array.isArray(result.sessions)) return;
+        setRecords(result.sessions);
+        const targetSessionId = requestedSessionId ?? result.sessions[0]?.id;
+        if (targetSessionId) void restoreSession(targetSessionId);
+      })
+      .catch(() => undefined);
+
+    return () => abortController.abort();
+  }, [requestedSessionId]);
+
+  useEffect(() => {
+    if (!activeRecord?.version || draftSaveState !== 'dirty') return;
+    const timeout = window.setTimeout(() => {
+      void persistDraft(activeRecord.id, draft, draftRevisionRef.current);
+    }, 800);
+    return () => window.clearTimeout(timeout);
+  }, [activeRecord?.id, activeRecord?.version, draft, draftSaveState]);
+
+  useLayoutEffect(() => {
     const scrollArea = chatScrollRef.current;
-    if (scrollArea) scrollArea.scrollTop = scrollArea.scrollHeight;
-  }, [messages]);
+    if (!scrollArea) return;
+
+    if (!replyToRevealId) {
+      scrollArea.scrollTop = scrollArea.scrollHeight;
+      return;
+    }
+
+    const reply = document.getElementById(replyToRevealId);
+    if (reply) {
+      const scrollAreaTop = scrollArea.getBoundingClientRect().top;
+      const replyTop = reply.getBoundingClientRect().top;
+      scrollArea.scrollTop = Math.max(
+        0,
+        scrollArea.scrollTop + replyTop - scrollAreaTop - 12,
+      );
+    }
+    if (!isReplying) composerRef.current?.focus({ preventScroll: true });
+  }, [isReplying, messages, replyToRevealId]);
+
+  useEffect(() => {
+    if (pendingHelpAction) {
+      requestAnimationFrame(() => highImpactHelpConfirmRef.current?.focus());
+    }
+  }, [pendingHelpAction]);
+
+  useEffect(() => {
+    if (!pendingHelpAction) return;
+
+    const cancelHelpDisclosure = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setPendingHelpAction(null);
+        requestAnimationFrame(() => composerRef.current?.focus());
+        return;
+      }
+      if (event.key !== 'Tab' || !highImpactHelpDialogRef.current) return;
+
+      const actions = Array.from(
+        highImpactHelpDialogRef.current.querySelectorAll<HTMLButtonElement>('button:not(:disabled)'),
+      );
+      const first = actions[0];
+      const last = actions.at(-1);
+      if (!first || !last) return;
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    window.addEventListener('keydown', cancelHelpDisclosure);
+    return () => window.removeEventListener('keydown', cancelHelpDisclosure);
+  }, [pendingHelpAction]);
+
+  useEffect(() => {
+    if (!questionFocusMode) return;
+    const leaveQuestionFocus = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+      setQuestionFocusMode(false);
+      requestAnimationFrame(() => composerRef.current?.focus());
+    };
+    window.addEventListener('keydown', leaveQuestionFocus);
+    return () => window.removeEventListener('keydown', leaveQuestionFocus);
+  }, [questionFocusMode]);
 
   function rememberRecord(record: SessionRecord) {
     setRecords((current) => [record, ...current.filter((item) => item.id !== record.id)]);
+  }
+
+  async function restoreSession(sessionId: string) {
+    const requestNumber = ++restoreRequestRef.current;
+    const draftRevision = draftRevisionRef.current;
+    try {
+      const detail = await apiFetch<{
+        analysis: ProblemAnalysis;
+        draftMarkdown?: string;
+        remediationFocus?: unknown;
+        messages: Array<{
+          assistanceMode?: AssistanceMode;
+          content: string;
+          id: string;
+          metadata?: {
+            currentVerdict?: 'correct' | 'incorrect' | 'unknown';
+            remediationFocus?: unknown;
+          };
+          messageType: string;
+          role: 'guide' | 'student';
+        }>;
+        record: SessionRecord;
+      }>(`/api/learning/sessions/${sessionId}`);
+      if (restoreRequestRef.current !== requestNumber) return;
+
+      const restoredMessages: ConversationMessage[] = detail.messages.map((message) =>
+        message.messageType === 'analysis'
+          ? {
+              analysis: detail.analysis,
+              content: message.content,
+              id: `analysis-${detail.record.id}`,
+              preparationStatus: detail.record.preparationStatus,
+              recognitionUncertain: detail.record.recognitionUncertain,
+              role: 'guide',
+              state: 'analysis',
+            }
+          : {
+              assistanceMode: message.assistanceMode,
+              content: message.content,
+              currentVerdict: message.metadata?.currentVerdict,
+              id: `persisted-${message.id}`,
+              remediationFocus: isRemediationFocus(message.metadata?.remediationFocus)
+                ? message.metadata.remediationFocus
+                : undefined,
+              role: message.role,
+              state: 'reply',
+            },
+      );
+      setActiveRecord(detail.record);
+      setReplyToRevealId(null);
+      setMessages(restoredMessages);
+      rememberRecord(detail.record);
+      setHasProblem(true);
+      handwritingInputRef.current?.clear();
+      imageInputRef.current?.clear();
+      setFormulaOpen(false);
+      setFinishIntent(false);
+      setStuckPointOpen(false);
+      setPendingHelpAction(null);
+      setPendingRemediationFocus(
+        isRemediationFocus(detail.remediationFocus) ? detail.remediationFocus : null,
+      );
+      setRemediationTrackError(null);
+      setQuestionCollapsed(shouldUseCompactQuestionContext());
+      setQuestionFocusMode(false);
+      setSidebarOpen(false);
+      requestAnimationFrame(() => {
+        if (draftRevisionRef.current === draftRevision) {
+          replaceComposerDraft(detail.draftMarkdown ?? '', !remediation);
+        }
+        if (!remediation) composerRef.current?.focus();
+      });
+    } catch {
+      if (restoreRequestRef.current === requestNumber) {
+        setRecords((current) => current.filter((record) => record.id !== sessionId));
+      }
+    }
   }
 
   async function analyzeProblem(record: SessionRecord, requestNumber: number) {
     const analysisMessageId = `analysis-${record.id}`;
 
     try {
-      const result = await apiFetch<{ analysis: ProblemAnalysis }>('/api/problems/analyze', {
-        body: JSON.stringify({ problemMd: record.content }),
+      const result = await apiFetch<{
+        analysis: ProblemAnalysis;
+        preparation?: { cached: boolean; status: 'needs_review' | 'ready' | 'unavailable' };
+        problemMd?: string;
+        recognitionUncertain?: string[];
+        session?: { id: string; title: string; version: number };
+      }>('/api/problems/analyze', {
+        body: JSON.stringify({
+          content: record.content,
+          problemMd: record.problemMd ?? record.content,
+          ...(record.questionId ? { questionId: record.questionId } : {}),
+          ...(record.questionId ? { title: record.title } : {}),
+          topic: record.topic,
+        }),
         method: 'POST',
       });
       if (analysisRequestRef.current !== requestNumber) return;
+
+      const analyzedRecord = {
+        ...record,
+        ...(result.session
+          ? {
+              id: result.session.id,
+              title: result.session.title,
+              version: result.session.version,
+            }
+          : {}),
+        ...(result.problemMd ? { problemMd: result.problemMd } : {}),
+        ...(result.preparation ? { preparationStatus: result.preparation.status } : {}),
+        ...(result.recognitionUncertain
+          ? { recognitionUncertain: result.recognitionUncertain }
+          : {}),
+      };
+      setActiveRecord((current) => (current?.id === record.id ? analyzedRecord : current));
+      setRecords((current) =>
+        current.map((item) => (item.id === record.id ? analyzedRecord : item)),
+      );
 
       setMessages((current) =>
         current.map((message) =>
@@ -162,12 +498,15 @@ export function BankPage({ username }: StudentPageProps) {
                 analysis: result.analysis,
                 content: result.analysis.overview,
                 id: analysisMessageId,
+                preparationStatus: result.preparation?.status,
+                recognitionUncertain: result.recognitionUncertain,
                 role: 'guide',
                 state: 'analysis',
               }
             : message,
         ),
       );
+      if (shouldUseCompactQuestionContext()) setQuestionCollapsed(true);
     } catch {
       if (analysisRequestRef.current !== requestNumber) return;
 
@@ -181,8 +520,12 @@ export function BankPage({ username }: StudentPageProps) {
                 state: 'error',
               }
             : message,
-        ),
+          ),
       );
+    } finally {
+      if (analysisRequestRef.current === requestNumber) {
+        requestAnimationFrame(() => composerRef.current?.focus());
+      }
     }
   }
 
@@ -205,8 +548,10 @@ export function BankPage({ username }: StudentPageProps) {
   }
 
   function beginConversation(record: SessionRecord) {
+    restoreRequestRef.current += 1;
     chatAbortRef.current?.abort();
     chatRequestRef.current += 1;
+    setReplyToRevealId(null);
     setIsReplying(false);
     const requestNumber = ++analysisRequestRef.current;
     setMessages([
@@ -221,42 +566,67 @@ export function BankPage({ username }: StudentPageProps) {
     setActiveRecord(record);
     rememberRecord(record);
     setHasProblem(true);
-    composerRef.current?.clear();
+    clearComposerWithoutSaving();
+    handwritingInputRef.current?.clear();
+    imageInputRef.current?.clear();
     setBankOpen(false);
     setFormulaOpen(false);
+    setFinishIntent(false);
+    setStuckPointOpen(false);
+    setPendingHelpAction(null);
+    setPendingRemediationFocus(null);
+    setRemediationTrackError(null);
+    setQuestionCollapsed(false);
+    setQuestionFocusMode(false);
     setSidebarOpen(false);
     void analyzeProblem(record, requestNumber);
     requestAnimationFrame(() => composerRef.current?.focus());
   }
 
-  function chooseProblem(problemId: string) {
-    const problem = getFixtureProblem(problemId);
-    if (!problem) return;
-
+  function chooseBankQuestion({ paper, question }: PaperSelection) {
+    const label = question.number === null ? '未编号题目' : `第 ${question.number} 题`;
+    const content = question.statementMarkdown
+      ?? (question.questionImageUrl
+        ? `![${paper.title}${label}](${question.questionImageUrl})`
+        : `${paper.title}${label}`);
     beginConversation({
-      content: problem.statementMd,
-      id: problem.id,
-      title: `${problem.number} · ${problem.topic}`,
-      topic: '本地演示题',
+      content,
+      id: `paper-${paper.id}-question-${question.id}`,
+      ...(question.statementMarkdown ? { problemMd: question.statementMarkdown } : {}),
+      questionId: question.id,
+      title: `${paper.title} · ${label}`,
+      topic: [paper.examYear, paper.region, paper.track].filter(Boolean).join(' · '),
     });
   }
 
   function openLocalBank() {
     setBankOpen(true);
     setFormulaOpen(false);
+    setStuckPointOpen(false);
     setSidebarOpen(false);
   }
 
   function startNewProblem() {
+    restoreRequestRef.current += 1;
     chatAbortRef.current?.abort();
     chatRequestRef.current += 1;
     analysisRequestRef.current += 1;
+    setReplyToRevealId(null);
     setActiveRecord(null);
     setMessages([]);
     setHasProblem(false);
-    composerRef.current?.clear();
+    clearComposerWithoutSaving();
+    handwritingInputRef.current?.clear();
+    imageInputRef.current?.clear();
     setBankOpen(false);
     setFormulaOpen(false);
+    setFinishIntent(false);
+    setStuckPointOpen(false);
+    setPendingHelpAction(null);
+    setPendingRemediationFocus(null);
+    setRemediationTrackError(null);
+    setQuestionCollapsed(false);
+    setQuestionFocusMode(false);
     setSidebarOpen(false);
     requestAnimationFrame(() => composerRef.current?.focus());
   }
@@ -276,6 +646,10 @@ export function BankPage({ username }: StudentPageProps) {
     guideMessageId: string,
     studentMessage: string,
     history: ProblemChatMessage[],
+    assistanceMode: AssistanceMode,
+    requestId: string,
+    handwriting?: Pick<ConfirmedHandwriting, 'revision' | 'transcriptId'>,
+    remediationFocus?: RemediationFocus,
   ) {
     if (!activeRecord) return;
 
@@ -283,6 +657,7 @@ export function BankPage({ username }: StudentPageProps) {
     const abortController = new AbortController();
     chatAbortRef.current = abortController;
     const requestNumber = ++chatRequestRef.current;
+    setReplyToRevealId(null);
     setIsReplying(true);
     setMessages((current) =>
       current.map((message) =>
@@ -293,11 +668,32 @@ export function BankPage({ username }: StudentPageProps) {
     );
 
     try {
+      let committedVersion: number | undefined;
       await apiStream(
         '/api/problems/chat',
-        { history, message: studentMessage, problemMd: activeRecord.content },
+        {
+          assistanceMode,
+          ...(activeRecord.version
+            ? {
+                expectedVersion: activeRecord.version,
+                requestId,
+                sessionId: activeRecord.id,
+              }
+            : {}),
+          history,
+          message: studentMessage,
+          problemMd: activeRecord.problemMd ?? activeRecord.content,
+          ...(remediationFocus ? { remediationFocus } : {}),
+          ...(handwriting
+            ? {
+                transcriptId: handwriting.transcriptId,
+                transcriptRevision: handwriting.revision,
+              }
+            : {}),
+        },
         (event) => {
           if (chatRequestRef.current !== requestNumber) return;
+          if (event.type === 'done') setReplyToRevealId(guideMessageId);
           setMessages((current) =>
             current.map((message) => {
               if (message.id !== guideMessageId) return message;
@@ -308,15 +704,41 @@ export function BankPage({ username }: StudentPageProps) {
                 const previous = message.state === 'reply-streaming' ? message.content : '';
                 return { ...message, content: previous + event.text, state: 'reply-streaming' };
               }
-              if (event.type === 'done') return { ...message, state: 'reply' };
+              if (event.type === 'done') {
+                committedVersion = event.version;
+                if (
+                  remediationFocus
+                  && assistanceMode === 'finish_problem'
+                  && event.currentVerdict === 'correct'
+                ) {
+                  setPendingRemediationFocus(null);
+                  setRemediationTrackError(null);
+                }
+                return {
+                  ...message,
+                  ...(event.currentVerdict ? { currentVerdict: event.currentVerdict } : {}),
+                  state: 'reply',
+                };
+              }
               return { ...message, content: event.message, state: 'error' };
             }),
           );
         },
         abortController.signal,
       );
+      if (typeof committedVersion === 'number') {
+        setActiveRecord((current) =>
+          current ? { ...current, version: committedVersion } : current,
+        );
+        setRecords((current) =>
+          current.map((record) =>
+            record.id === activeRecord.id ? { ...record, version: committedVersion } : record,
+          ),
+        );
+      }
     } catch {
       if (abortController.signal.aborted || chatRequestRef.current !== requestNumber) return;
+      setReplyToRevealId(guideMessageId);
       setMessages((current) =>
         current.map((message) =>
           message.id === guideMessageId
@@ -330,16 +752,25 @@ export function BankPage({ username }: StudentPageProps) {
       );
     } finally {
       if (chatRequestRef.current === requestNumber) {
+        setReplyToRevealId(guideMessageId);
         setIsReplying(false);
-        requestAnimationFrame(() => composerRef.current?.focus());
       }
     }
   }
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const content = draft.trim();
+  function submitContent(
+    rawContent: string,
+    assistanceMode: AssistanceMode = 'attempt',
+    handwriting: ConfirmedHandwriting | null = null,
+  ) {
+    const content = rawContent.trim();
     if (!content || isReplying) return;
+    const handwritingBinding = handwriting?.markdown.trim() === content
+      ? {
+          revision: handwriting.revision,
+          transcriptId: handwriting.transcriptId,
+        }
+      : undefined;
 
     if (!hasProblem) {
       const recordId = `custom-${Date.now()}`;
@@ -354,100 +785,311 @@ export function BankPage({ username }: StudentPageProps) {
 
     const messageId = `message-${Date.now()}`;
     const guideMessageId = `guide-${messageId}`;
+    const requestId = crypto.randomUUID();
     const history = visibleChatHistory();
+    const remediationFocus = pendingRemediationFocus ?? undefined;
     setMessages((current) => [
       ...current,
       { content, id: messageId, role: 'student' },
       {
         content: '正在核对你的这一步',
+        assistanceMode,
         history,
+        handwriting: handwritingBinding,
         id: guideMessageId,
         request: content,
+        requestId,
+        remediationFocus,
         role: 'guide',
         state: 'reply-loading',
       },
     ]);
+    clearComposerWithoutSaving();
+    setFormulaOpen(false);
+    setStuckPointOpen(false);
+    if (assistanceMode === 'finish_problem') setFinishIntent(false);
+    void requestReply(
+      guideMessageId,
+      content,
+      history,
+      assistanceMode,
+      requestId,
+      handwritingBinding,
+      remediationFocus,
+    );
+  }
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    submitContent(
+      draft,
+      finishIntent ? 'finish_problem' : 'attempt',
+      confirmedHandwriting,
+    );
+  }
+
+  function updateDraft(markdown: string) {
+    setDraft(markdown);
+    if (suppressNextDraftChangeRef.current) {
+      suppressNextDraftChangeRef.current = false;
+      setDraftSaveState('saved');
+      return;
+    }
+    setConfirmedHandwriting(null);
+    draftRevisionRef.current += 1;
+    setDraftSaveState('dirty');
+  }
+
+  function clearComposerWithoutSaving() {
+    setConfirmedHandwriting(null);
+    suppressNextDraftChangeRef.current = true;
     composerRef.current?.clear();
-    void requestReply(guideMessageId, content, history);
+  }
+
+  function replaceComposerDraft(markdown: string, focus = true) {
+    setConfirmedHandwriting(null);
+    suppressNextDraftChangeRef.current = true;
+    composerRef.current?.replaceText(markdown, { focus });
+  }
+
+  async function persistDraft(sessionId: string, markdown: string, revision: number) {
+    const requestNumber = ++draftSaveRequestRef.current;
+    setDraftSaveState('saving');
+    try {
+      await apiFetch<{ savedAt: string }>(`/api/learning/sessions/${sessionId}/draft`, {
+        body: JSON.stringify({ markdown }),
+        method: 'PATCH',
+      });
+      if (
+        draftSaveRequestRef.current === requestNumber
+        && draftRevisionRef.current === revision
+      ) {
+        setDraftSaveState('saved');
+      }
+    } catch {
+      if (
+        draftSaveRequestRef.current === requestNumber
+        && draftRevisionRef.current === revision
+      ) {
+        setDraftSaveState('error');
+      }
+    }
   }
 
   function insertFormula(syntax: string) {
-    composerRef.current?.insertText(syntax);
+    composerRef.current?.insertFormulaTemplate(syntax);
   }
 
+  function insertStuckPoint(prompt: string) {
+    setFinishIntent(false);
+    composerRef.current?.insertText(`${draft.trim() ? '\n' : ''}${prompt}`);
+    setStuckPointOpen(false);
+    requestAnimationFrame(() => composerRef.current?.focus());
+  }
+
+  function startFinishCheck() {
+    setStuckPointOpen(false);
+    if (draft.trim()) {
+      submitContent(draft, 'finish_problem', confirmedHandwriting);
+      return;
+    }
+    setFinishIntent(true);
+    requestAnimationFrame(() => composerRef.current?.focus());
+  }
+
+  function clearRemediationHandoff() {
+    const searchParams = new URLSearchParams(location.search);
+    searchParams.delete('remediate');
+    const search = searchParams.toString();
+    void navigate(
+      { pathname: location.pathname, search: search ? `?${search}` : '' },
+      { replace: true },
+    );
+  }
+
+  async function persistRemediationTrack(focus: RemediationFocus | null) {
+    if (!activeRecord) return false;
+    setRemediationTrackError(null);
+    try {
+      await apiFetch<{ remediationFocus: RemediationFocus | null }>(
+        `/api/learning/sessions/${activeRecord.id}/remediation`,
+        {
+          body: JSON.stringify({ focus }),
+          method: 'PATCH',
+        },
+      );
+      return true;
+    } catch {
+      setRemediationTrackError(
+        focus ? '修正轨道暂未保存；发送成功后会再次保存。' : '暂时无法退出修正轨道，请重试。',
+      );
+      return false;
+    }
+  }
+
+  async function exitRemediationTrack() {
+    if (await persistRemediationTrack(null)) {
+      setPendingRemediationFocus(null);
+      requestAnimationFrame(() => composerRef.current?.focus());
+    }
+  }
+
+  function insertRemediationStarter() {
+    if (!remediation || !remediationFocus) return;
+    setFinishIntent(false);
+    setStuckPointOpen(false);
+    setPendingRemediationFocus(remediationFocus);
+    void persistRemediationTrack(remediationFocus);
+    composerRef.current?.insertText(`${draft.trim() ? '\n' : ''}${remediation.prompt}`);
+    clearRemediationHandoff();
+    requestAnimationFrame(() => composerRef.current?.focus());
+  }
+
+  function handleRecognizedImage(markdown: string, autoSubmit: boolean) {
+    if (autoSubmit) {
+      submitContent(markdown, finishIntent ? 'finish_problem' : 'attempt');
+      return;
+    }
+    composerRef.current?.replaceText(markdown);
+  }
+
+  function handleConfirmedHandwriting(result: ConfirmedHandwriting) {
+    setConfirmedHandwriting(result);
+    suppressNextDraftChangeRef.current = true;
+    composerRef.current?.replaceText(result.markdown);
+    requestAnimationFrame(() => composerRef.current?.focus());
+  }
+
+  const currentAnalysis = messages.find((message) => message.analysis)?.analysis;
+  const hasStudentAttempt = messages.some(
+    (message) => message.role === 'student' && !message.id.startsWith('student-'),
+  );
+  const isAnalyzing = messages.some((message) => message.state === 'loading');
+  const hasFinishTurn = messages.some((message) => message.assistanceMode === 'finish_problem');
+  const latestFinishMessageId = messages.reduce<string | null>(
+    (latestId, message) => (
+      message.role === 'guide' && message.assistanceMode === 'finish_problem'
+        ? message.id
+        : latestId
+    ),
+    null,
+  );
+  const latestFinishMessage = latestFinishMessageId
+    ? messages.find((message) => message.id === latestFinishMessageId)
+    : undefined;
+  const readyForIndependentAssessment = latestFinishMessage?.currentVerdict === 'correct'
+    && messages[messages.length - 1]?.id === latestFinishMessageId;
+  const exposedHelpSummaryByMessage = new Map<string, string>();
+  let cumulativeHelpLabels: string[] = [];
+  for (const message of messages) {
+    const mode = message.assistanceMode;
+    if (
+      message.role === 'guide'
+      && message.state === 'reply'
+      && (mode === 'hint' || mode === 'explain' || mode === 'worked_solution')
+    ) {
+      const label = assistanceModeLabels[mode];
+      if (!cumulativeHelpLabels.includes(label)) {
+        cumulativeHelpLabels = [...cumulativeHelpLabels, label];
+      }
+    }
+    exposedHelpSummaryByMessage.set(
+      message.id,
+      cumulativeHelpLabels.length
+        ? `已使用：${cumulativeHelpLabels.join('、')}`
+        : '本页未记录帮助',
+    );
+  }
+  const learningStageIndex = readyForIndependentAssessment
+    ? learningStages.length
+    : isAnalyzing ? 0 : hasFinishTurn ? 3 : hasStudentAttempt ? 2 : 1;
+  const learningStage = readyForIndependentAssessment
+    ? {
+        detail: '撤去本题帮助，换一道新题确认能否独立完成。',
+        label: '独立验证',
+        title: '本题已核对，去独立验证',
+      }
+    : isAnalyzing
+      ? learningStages[0]
+      : hasFinishTurn
+        ? learningStages[3]
+        : hasStudentAttempt
+          ? learningStages[2]
+          : learningStages[1];
+  const draftSaveLabel = !hasProblem
+    ? '发送后建立学习记录'
+    : !activeRecord?.version
+      ? '正在建立草稿记录'
+      : draftSaveState === 'saved'
+        ? '已自动保存'
+        : draftSaveState === 'saving'
+          ? '正在自动保存'
+          : draftSaveState === 'error'
+            ? '自动保存失败，输入仍在本页'
+            : '尚未保存';
+
+  useLayoutEffect(() => {
+    if (!readyForIndependentAssessment || !latestFinishMessageId) return;
+
+    const scrollArea = chatScrollRef.current;
+    const composerDock = composerDockRef.current;
+    const finishMessage = document.getElementById(latestFinishMessageId);
+    const action = finishMessage?.querySelector<HTMLElement>('.learning-checkpoint-action');
+    if (!scrollArea || !action) return;
+
+    let frameId = 0;
+    const alignActionAboveComposer = () => {
+      const scrollAreaBottom = scrollArea.getBoundingClientRect().bottom;
+      const composerTop = composerDock?.getBoundingClientRect().top ?? scrollAreaBottom;
+      const visibleBottom = Math.min(scrollAreaBottom, composerTop) - 12;
+      const actionBottom = action.getBoundingClientRect().bottom;
+      if (actionBottom > visibleBottom) {
+        scrollArea.scrollTop += actionBottom - visibleBottom;
+      }
+    };
+    const scheduleAlignment = () => {
+      cancelAnimationFrame(frameId);
+      frameId = requestAnimationFrame(alignActionAboveComposer);
+    };
+
+    alignActionAboveComposer();
+    scheduleAlignment();
+    window.addEventListener('resize', scheduleAlignment);
+    window.visualViewport?.addEventListener('resize', scheduleAlignment);
+
+    const resizeObserver = typeof ResizeObserver === 'undefined'
+      ? null
+      : new ResizeObserver(scheduleAlignment);
+    resizeObserver?.observe(scrollArea);
+    resizeObserver?.observe(action);
+    if (composerDock) resizeObserver?.observe(composerDock);
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      resizeObserver?.disconnect();
+      window.removeEventListener('resize', scheduleAlignment);
+      window.visualViewport?.removeEventListener('resize', scheduleAlignment);
+    };
+  }, [latestFinishMessageId, readyForIndependentAssessment]);
+
   return (
-    <main className="study-chat-page">
-      <button
-        className="chat-sidebar-backdrop"
-        type="button"
-        aria-label="关闭导航遮罩"
-        data-open={sidebarOpen}
-        onClick={() => setSidebarOpen(false)}
+    <ReadAloudProvider>
+      <main className="study-chat-page">
+      <PaperPickerDialog
+        open={bankOpen}
+        onClose={() => setBankOpen(false)}
+        onSelect={chooseBankQuestion}
       />
 
-      <aside className="chat-sidebar" data-open={sidebarOpen}>
-        <div className="chat-sidebar-top">
-          <div className="chat-brand-row">
-            <Link className="chat-brand" to="/bank" aria-label="启思 AI 学习空间">
-              <span aria-hidden="true">Q</span>
-              <strong>启思 AI</strong>
-            </Link>
-            <button
-              className="chat-sidebar-close"
-              type="button"
-              aria-label="关闭导航"
-              onClick={() => setSidebarOpen(false)}
-            >
-              ×
-            </button>
-          </div>
-
-          <button className="new-problem-button" type="button" onClick={startNewProblem}>
-            <span aria-hidden="true">＋</span>
-            开始新题
-          </button>
-
-          <nav className="chat-nav" aria-label="学习导航">
-            <button className="chat-nav-item is-active" type="button" onClick={() => setSidebarOpen(false)}>
-              <span aria-hidden="true">◫</span>
-              当前对话
-            </button>
-            <button className="chat-nav-item" type="button" onClick={openLocalBank}>
-              <span aria-hidden="true">▤</span>
-              本地题库
-            </button>
-          </nav>
-        </div>
-
-        <section className="chat-history" aria-labelledby="history-title">
-          <div className="chat-history-heading">
-            <h2 id="history-title">做题记录</h2>
-            <span>当前页面</span>
-          </div>
-          {records.length === 0 ? (
-            <p className="chat-history-empty">还没有记录。输入或选择一道题后会显示在这里。</p>
-          ) : (
-            <ul>
-              {records.map((record) => (
-                <li key={record.id}>
-                  <button type="button" onClick={() => beginConversation(record)}>
-                    <span>{record.title}</span>
-                    <small>{record.topic} · 刚刚</small>
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
-        </section>
-
-        <div className="chat-profile" aria-label={`当前用户：${username}`}>
-          <span aria-hidden="true">{username.slice(0, 1).toUpperCase()}</span>
-          <div>
-            <strong>{username}</strong>
-            <small>高三数学</small>
-          </div>
-        </div>
-      </aside>
+      <StudySidebar
+        active="chat"
+        open={sidebarOpen}
+        records={records}
+        username={username}
+        onClose={() => setSidebarOpen(false)}
+        onSelectRecord={(record) => void restoreSession(record.id)}
+        onStartNew={startNewProblem}
+      />
 
       <section className="chat-main" aria-label="数学答题区">
         <header className="chat-topbar">
@@ -461,55 +1103,371 @@ export function BankPage({ username }: StudentPageProps) {
           </button>
           <div>
             <strong>{hasProblem ? '当前题目' : '数学学习'}</strong>
-            <span>{hasProblem ? '本次记录仅保存在当前页面' : '输入题目，或从本地题库选择'}</span>
+            <span>
+              {hasProblem
+                ? activeRecord?.version ? '已保存，可刷新继续' : '正在建立学习记录'
+                : '输入题目，或去题库选择'}
+            </span>
           </div>
-          <span className="fixture-chip">开发夹具</span>
+          <span className="fixture-chip">历年真题</span>
         </header>
 
-        <div className="chat-scroll" ref={chatScrollRef}>
-          <div className="chat-content">
-            {messages.length === 0 ? (
-              <section className="chat-empty" aria-labelledby="chat-empty-title">
-                <span className="chat-empty-mark" aria-hidden="true">∑</span>
-                <h1 id="chat-empty-title">今天想解决哪道题？</h1>
-                <p>直接输入题目，支持 Markdown 和 LaTeX；也可以从本地演示题库里选择。</p>
-                <button type="button" onClick={openLocalBank}>
-                  从本地题库选择
-                  <span aria-hidden="true">→</span>
-                </button>
+        <div
+          className="study-workbench"
+          data-has-problem={hasProblem}
+          data-question-collapsed={hasProblem && questionCollapsed}
+          data-question-focus={hasProblem && questionFocusMode}
+        >
+          {hasProblem && activeRecord && (
+            <aside className="problem-sheet" role="complementary" aria-label="题目原文">
+              <header className="problem-sheet-header">
+                <div>
+                  <span>PROBLEM / 题目原文</span>
+                  <h1 id="problem-sheet-title">{activeRecord.title}</h1>
+                  {activeRecord.topic && <p>{activeRecord.topic}</p>}
+                </div>
+                <div className="problem-sheet-actions" role="group" aria-label="题目显示方式">
+                  {questionFocusMode ? (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setQuestionFocusMode(false);
+                        requestAnimationFrame(() => composerRef.current?.focus());
+                      }}
+                    >
+                      返回作答
+                    </button>
+                  ) : (
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setQuestionCollapsed(false);
+                          setQuestionFocusMode(true);
+                        }}
+                      >
+                        专注读题
+                      </button>
+                      <button
+                        type="button"
+                        aria-expanded={!questionCollapsed}
+                        onClick={() => setQuestionCollapsed((current) => !current)}
+                      >
+                        {questionCollapsed ? '展开题目' : '收起题目'}
+                      </button>
+                    </>
+                  )}
+                </div>
+              </header>
+              {questionCollapsed && currentAnalysis && (
+                <section
+                  className="problem-sheet-collapsed-context"
+                  aria-label="折叠题目摘要"
+                >
+                  <span>CURRENT / 当前目标</span>
+                  <div
+                    className="problem-sheet-collapsed-target"
+                    role="region"
+                    aria-label="当前目标"
+                  >
+                    <MathMarkdown content={currentAnalysis.target} />
+                  </div>
+                  <p>题干仍保留，随时展开核对。</p>
+                </section>
+              )}
+              {!questionCollapsed && (
+                <div className="problem-sheet-body">
+                  <section aria-label="题目正文">
+                    <MathMarkdown content={activeRecord.content} />
+                  </section>
+                  {currentAnalysis && (
+                    <section className="problem-sheet-target" aria-label="当前目标">
+                      <span>当前目标</span>
+                      <MathMarkdown content={currentAnalysis.target} />
+                    </section>
+                  )}
+                  <p className="problem-sheet-note">题目始终保留在这里；右侧只推进当前一步。</p>
+                </div>
+              )}
+            </aside>
+          )}
+
+          <section className="study-dialogue" aria-label="思路训练区">
+            {hasProblem && (
+              <header className="learning-focus">
+                <div className="learning-focus-copy">
+                  <span>当前学习焦点</span>
+                  <h2>{learningStage.title}</h2>
+                  <p>{learningStage.detail}</p>
+                </div>
+                <ol aria-label="学习阶段">
+                  {learningStages.map((stage, index) => (
+                    <li
+                      key={stage.label}
+                      data-state={index < learningStageIndex ? 'done' : index === learningStageIndex ? 'current' : 'next'}
+                      aria-current={index === learningStageIndex ? 'step' : undefined}
+                    >
+                      <span>{index < learningStageIndex ? '✓' : index + 1}</span>
+                      {stage.label}
+                    </li>
+                  ))}
+                </ol>
+              </header>
+            )}
+
+            {hasProblem
+              && activeRecord?.id === requestedSessionId
+              && remediation ? (
+              <section className="remediation-handoff" aria-label="独立检验修正衔接">
+                <span>{remediation.label}</span>
+                <div>
+                  <strong>{remediation.title}</strong>
+                  <p>
+                    {remediation.detail}
+                    <small>只会追加到输入框，不会自动发送，也不会覆盖已有草稿。</small>
+                  </p>
+                </div>
+                <div className="remediation-handoff-actions">
+                  <button type="button" onClick={insertRemediationStarter}>
+                    {remediation.action}
+                  </button>
+                  <button
+                    className="secondary"
+                    type="button"
+                    onClick={() => {
+                      setPendingRemediationFocus(null);
+                      clearRemediationHandoff();
+                    }}
+                  >
+                    暂不处理
+                  </button>
+                </div>
               </section>
-            ) : (
-              <section className="conversation" aria-label="当前对话" aria-live="polite">
-                {messages.map((message) => (
-                  <article className={`chat-message chat-message-${message.role}`} key={message.id}>
+            ) : null}
+
+            <div className="chat-scroll" ref={chatScrollRef}>
+              <div className="chat-content">
+                {messages.length === 0 ? (
+                  <section className="chat-empty" aria-labelledby="chat-empty-title">
+                    <span className="chat-empty-eyebrow">START WITH YOUR WORK</span>
+                    <span className="chat-empty-mark" aria-hidden="true">∑</span>
+                    <h1 id="chat-empty-title">今天想解决哪道题？</h1>
+                    <p>把题干放进输入框，或从历年真题中选择。启思先读条件，再围绕你的第一步定位卡点。</p>
+                    <div className="chat-empty-principles" aria-label="学习方式">
+                      <span>题目常驻</span>
+                      <span>一次一步</span>
+                      <span>提示可控</span>
+                    </div>
+                    <button type="button" onClick={openLocalBank}>
+                      去题库选择
+                      <span aria-hidden="true">→</span>
+                    </button>
+                  </section>
+                ) : (
+                  <section className="conversation" aria-label="当前对话" aria-live="polite">
+                    {messages.filter((message) => !message.id.startsWith('student-')).map((message) => (
+                  <article
+                    className={`chat-message chat-message-${message.role}`}
+                    id={message.id}
+                    key={message.id}
+                  >
                     <span className="chat-message-avatar" aria-hidden="true">
                       {message.role === 'student' ? username.slice(0, 1).toUpperCase() : 'Q'}
                     </span>
                     <div>
                       <strong>{message.role === 'student' ? '你' : '启思'}</strong>
+                      {message.role === 'guide'
+                        && message.assistanceMode
+                        && (message.state === 'reply' || message.state === 'reply-streaming') && (
+                          <span
+                            className="chat-message-mode"
+                            data-mode={message.assistanceMode}
+                            aria-label={message.assistanceMode === 'finish_problem'
+                              ? '核对状态：本题结论'
+                              : `帮助深度：${assistanceModeLabels[message.assistanceMode]}`}
+                          >
+                            {assistanceModeLabels[message.assistanceMode]}
+                          </span>
+                        )}
+                      {message.role === 'guide'
+                        && message.remediationFocus
+                        && (message.state === 'reply' || message.state === 'reply-streaming') && (
+                          <span
+                            className="chat-message-mode chat-message-remediation"
+                            aria-label={`修正类型：${remediationFocusDetails[message.remediationFocus].activeLabel}`}
+                          >
+                            {remediationFocusDetails[message.remediationFocus].activeLabel}
+                          </span>
+                        )}
+                      {message.role === 'guide'
+                        && message.assistanceMode
+                        && message.state === 'error' && (
+                          <span
+                            className="chat-message-mode"
+                            data-mode="requested-not-exposed"
+                            aria-label="帮助状态：已请求，尚未发出"
+                          >
+                            已请求 · 尚未发出
+                          </span>
+                        )}
                       {message.analysis ? (
                         <section className="problem-analysis" aria-labelledby={`${message.id}-title`}>
                           <h2 id={`${message.id}-title`}>题目分析</h2>
-                          <p>{message.analysis.overview}</p>
-                          <div className="analysis-tags" aria-label="相关知识点">
-                            {message.analysis.knowledgePoints.map((point) => (
-                              <span key={point}>{point}</span>
-                            ))}
-                          </div>
-                          <dl>
-                            <div>
-                              <dt>关键条件</dt>
-                              <dd>{message.analysis.keyConditions.join('；')}</dd>
+                          {message.recognitionUncertain?.length ? (
+                            <div className="analysis-source-note" role="status">
+                              <strong>题面识别有待核对</strong>
+                              <span>{message.recognitionUncertain.join('；')}</span>
                             </div>
-                            <div>
-                              <dt>目标</dt>
-                              <dd>{message.analysis.target}</dd>
+                          ) : null}
+                          {message.preparationStatus ? (
+                            <div
+                              className="analysis-preparation-note"
+                              data-status={message.preparationStatus}
+                              role="status"
+                            >
+                              <span aria-hidden="true">
+                                {message.preparationStatus === 'ready'
+                                  ? '✓'
+                                  : message.preparationStatus === 'unavailable'
+                                    ? '!'
+                                    : '…'}
+                              </span>
+                              <div>
+                                <strong>
+                                  {message.preparationStatus === 'ready'
+                                    ? '原卷解析已核对'
+                                    : message.preparationStatus === 'unavailable'
+                                      ? '原卷解析暂时不可用'
+                                      : '题解依据仍在核对'}
+                                </strong>
+                                <small>
+                                  {message.preparationStatus === 'ready'
+                                    ? '后续提示会依据这道题的条件与路线生成，但不会提前显示答案。'
+                                    : message.preparationStatus === 'unavailable'
+                                      ? '先保留题目并从题面起步；不会用未经检查的答案继续教学。'
+                                      : '先从题面帮助你起步，不把未经核对的内容当作结论。'}
+                                </small>
+                              </div>
                             </div>
-                          </dl>
+                          ) : null}
+                          {message.analysis.keyConditions.length > 0
+                            || message.analysis.knowledgePoints.length > 0 ? (
+                            <details
+                              className="analysis-brief"
+                              aria-label="题面提要"
+                              onToggle={(event) => {
+                                if (event.currentTarget.open || !shouldUseCompactQuestionContext()) return;
+                                requestAnimationFrame(() => {
+                                  const scrollArea = chatScrollRef.current;
+                                  if (scrollArea) scrollArea.scrollTop = scrollArea.scrollHeight;
+                                });
+                              }}
+                            >
+                              <summary>
+                                <span>题面提要</span>
+                                <strong>
+                                  {message.analysis.keyConditions.length} 个条件
+                                  <i aria-hidden="true">·</i>
+                                  {message.analysis.knowledgePoints.length} 个知识点
+                                </strong>
+                                <small>
+                                  <span className="analysis-brief-label-closed">展开核对</span>
+                                  <span className="analysis-brief-label-open">收起提要</span>
+                                  <i aria-hidden="true">↓</i>
+                                </small>
+                              </summary>
+                              <div className="analysis-brief-body">
+                                <div className="speech-content-row analysis-overview-row">
+                                  <MathMarkdown
+                                    className="analysis-overview"
+                                    content={message.analysis.overview}
+                                  />
+                                  <ReadAloudButton
+                                    id={`${message.id}-overview`}
+                                    label="朗读题目分析"
+                                    text={message.analysis.overview}
+                                  />
+                                </div>
+                                <div className="analysis-tags" aria-label="相关知识点">
+                                  {message.analysis.knowledgePoints.map((point) => (
+                                    <span key={point}>{point}</span>
+                                  ))}
+                                </div>
+                                <dl>
+                                  <div>
+                                    <dt>关键条件</dt>
+                                    <dd>
+                                      <div className="speech-content-row">
+                                        <MathMarkdown content={message.analysis.keyConditions.join('；')} />
+                                        <ReadAloudButton
+                                          id={`${message.id}-conditions`}
+                                          label="朗读关键条件"
+                                          text={message.analysis.keyConditions.join('；')}
+                                        />
+                                      </div>
+                                    </dd>
+                                  </div>
+                                  <div>
+                                    <dt>目标</dt>
+                                    <dd>
+                                      <div className="speech-content-row">
+                                        <MathMarkdown content={message.analysis.target} />
+                                        <ReadAloudButton
+                                          id={`${message.id}-target`}
+                                          label="朗读目标"
+                                          text={message.analysis.target}
+                                        />
+                                      </div>
+                                    </dd>
+                                  </div>
+                                </dl>
+                              </div>
+                            </details>
+                          ) : (
+                            <div className="speech-content-row analysis-overview-row">
+                              <MathMarkdown
+                                className="analysis-overview"
+                                content={message.analysis.overview}
+                              />
+                              <ReadAloudButton
+                                id={`${message.id}-overview`}
+                                label="朗读题目分析"
+                                text={message.analysis.overview}
+                              />
+                            </div>
+                          )}
                           <div className="analysis-first-question">
                             <span>先想一步</span>
-                            <p>{message.analysis.firstQuestion}</p>
+                            <div className="speech-content-row">
+                              <MathMarkdown content={message.analysis.firstQuestion} />
+                              <ReadAloudButton
+                                id={`${message.id}-first-question`}
+                                label="朗读当前问题"
+                                text={message.analysis.firstQuestion}
+                              />
+                            </div>
                           </div>
+                          {!messages.some(
+                            (item) => item.role === 'student' && !item.id.startsWith('student-'),
+                          ) && (
+                            <div className="analysis-quick-replies" role="group" aria-label="快捷回应">
+                              <span>快速回应</span>
+                              {quickReplies.map((reply) => (
+                                <button
+                                  type="button"
+                                  key={reply.label}
+                                  data-intent={reply.intent}
+                                  disabled={isReplying}
+                                  onClick={() => {
+                                    if (reply.message) submitContent(reply.message, reply.mode);
+                                    else composerRef.current?.focus();
+                                  }}
+                                >
+                                  {reply.label}
+                                </button>
+                              ))}
+                            </div>
+                          )}
                         </section>
                       ) : message.state === 'reply-loading' ? (
                         <span className="analysis-loading" role="status">
@@ -517,13 +1475,97 @@ export function BankPage({ username }: StudentPageProps) {
                           {message.content}
                         </span>
                       ) : message.state === 'reply-streaming' ? (
-                        <p className="streaming-reply">
-                          {message.content}
+                        <div className="streaming-reply">
+                          <MathMarkdown content={message.content} />
                           <span aria-hidden="true" />
-                        </p>
+                        </div>
+                      ) : message.role === 'guide' && message.state === 'reply' ? (
+                        <div className="speech-content-row guide-reply-row">
+                          <MathMarkdown content={message.content} />
+                          <ReadAloudButton
+                            id={`${message.id}-reply`}
+                            label="朗读启思回复"
+                            text={message.content}
+                          />
+                        </div>
                       ) : (
                         <MathMarkdown content={message.content} />
                       )}
+                      {message.role === 'guide'
+                        && message.assistanceMode === 'finish_problem'
+                        && message.state === 'reply' && (
+                          <aside
+                            className="learning-checkpoint-note"
+                            data-verdict={message.currentVerdict ?? 'unknown'}
+                            role="note"
+                            aria-label="本题核对说明"
+                          >
+                            <span aria-hidden="true">
+                              {message.currentVerdict === 'correct'
+                                ? 'CHECKED / CURRENT PROBLEM'
+                                : message.currentVerdict === 'incorrect'
+                                  ? 'REVISE / CURRENT PROBLEM'
+                                  : 'MORE EVIDENCE / CURRENT PROBLEM'}
+                            </span>
+                            <strong>
+                              {message.currentVerdict === 'correct'
+                                ? '这次结论已经核对'
+                                : message.currentVerdict === 'incorrect'
+                                  ? '这次结论还需要修正'
+                                  : '目前证据还不足'}
+                            </strong>
+                            <p>
+                              {message.currentVerdict === 'correct'
+                                ? '掌握情况尚未独立验证，之后需要用新题检验。'
+                                : message.currentVerdict === 'incorrect'
+                                  ? '先修改本题结论或关键步骤，暂不进入独立检验。'
+                                  : '再补一行关键依据，暂不把这次作答记为正确。'}
+                            </p>
+                            <dl className="learning-evidence-strip">
+                              <div>
+                                <dt>本题作答</dt>
+                                <dd>
+                                  {message.currentVerdict === 'correct'
+                                    ? '结论正确'
+                                    : message.currentVerdict === 'incorrect'
+                                      ? '需要修正'
+                                      : '证据不足'}
+                                </dd>
+                              </div>
+                              <div>
+                                <dt>帮助记录</dt>
+                                <dd>{exposedHelpSummaryByMessage.get(message.id)}</dd>
+                              </div>
+                              <div>
+                                <dt>独立检验</dt>
+                                <dd>{message.currentVerdict === 'correct' ? '尚未进行' : '暂不开始'}</dd>
+                              </div>
+                            </dl>
+                            {message.id !== latestFinishMessageId ? (
+                              <small className="learning-checkpoint-superseded">
+                                已由后续作答更新
+                              </small>
+                            ) : activeRecord && message.currentVerdict === 'correct' ? (
+                              <Link
+                                className="learning-checkpoint-action"
+                                to={`/learn/${activeRecord.id}/check?intent=reassess`}
+                              >
+                                换一道题独立检验 <span aria-hidden="true">→</span>
+                              </Link>
+                            ) : (
+                              <button
+                                className="learning-checkpoint-action learning-checkpoint-revise"
+                                type="button"
+                                onClick={() => composerRef.current?.focus()}
+                              >
+                                {message.currentVerdict === 'incorrect'
+                                  ? '继续修改这次答案'
+                                  : '补充一行关键依据'}
+                                <span aria-hidden="true">↓</span>
+                              </button>
+                            )}
+                          </aside>
+                        )}
                       {message.state === 'loading' && (
                         <span className="analysis-loading" role="status">
                           <i aria-hidden="true" />
@@ -544,7 +1586,15 @@ export function BankPage({ username }: StudentPageProps) {
                           className="analysis-retry"
                           type="button"
                           onClick={() =>
-                            requestReply(message.id, message.request!, message.history!)
+                            requestReply(
+                              message.id,
+                              message.request!,
+                              message.history!,
+                              message.assistanceMode ?? 'attempt',
+                              message.requestId ?? crypto.randomUUID(),
+                              message.handwriting,
+                              message.remediationFocus,
+                            )
                           }
                         >
                           重新回答
@@ -552,114 +1602,416 @@ export function BankPage({ username }: StudentPageProps) {
                       )}
                     </div>
                   </article>
-                ))}
-              </section>
-            )}
-          </div>
-        </div>
+                    ))}
+                  </section>
+                )}
+              </div>
+            </div>
 
-        <div className="composer-dock">
-          <div className="composer-wrap">
-            {bankOpen && (
-              <section className="local-bank-panel" role="dialog" aria-label="本地题库">
-                <header>
-                  <div>
-                    <strong>选择一道题</strong>
-                    <span>{FIXTURE_BANK_VERSION} · 自拟演示夹具</span>
+            <div ref={composerDockRef} className="composer-dock">
+              <div className="composer-wrap" data-formula-open={formulaOpen}>
+                {hasProblem && hasStudentAttempt && pendingHelpAction && (
+                  <section
+                    ref={highImpactHelpDialogRef}
+                    className="help-disclosure-confirmation"
+                    role="alertdialog"
+                    aria-modal="true"
+                    aria-labelledby="help-disclosure-title"
+                    aria-describedby="help-disclosure-description"
+                  >
+                    <div>
+                      <strong id="help-disclosure-title">要直接讲解这一步吗？</strong>
+                      <p id="help-disclosure-description">
+                        这会展示关键方法，并把本轮标记为“直接讲解”。想保留独立尝试，可以先看一点提示。
+                      </p>
+                    </div>
+                    <div>
+                      <button
+                        ref={highImpactHelpConfirmRef}
+                        type="button"
+                        onClick={() => {
+                          const action = pendingHelpAction;
+                          setPendingHelpAction(null);
+                          submitContent(action.message, action.mode);
+                        }}
+                      >
+                        继续直接讲解
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setPendingHelpAction(null);
+                          requestAnimationFrame(() => composerRef.current?.focus());
+                        }}
+                      >
+                        先自己做
+                      </button>
+                    </div>
+                  </section>
+                )}
+
+                {hasProblem
+                  && hasStudentAttempt
+                  && !pendingHelpAction
+                  && !finishIntent
+                  && !pendingRemediationFocus
+                  && !readyForIndependentAssessment && (
+                  <>
+                  <div className="learning-helpbar" role="group" aria-label="学习帮助">
+                    <div>
+                      <strong>卡住了？先标卡点或选帮助</strong>
+                      <span>标记不发送；帮助会标明深度</span>
+                    </div>
+                    <div>
+                      <button
+                        className="stuck-point-trigger"
+                        type="button"
+                        aria-controls="stuck-point-options"
+                        aria-expanded={stuckPointOpen}
+                        aria-label="先标记卡点，仅填入输入框"
+                        onClick={() => setStuckPointOpen((current) => !current)}
+                      >
+                        <span className="help-action-long">先标记卡点</span>
+                        <span className="help-action-short" aria-hidden="true">标卡点</span>
+                      </button>
+                      {learningHelpActions.map((action, index) => (
+                        <button
+                          type="button"
+                          key={action.label}
+                          aria-label={action.label}
+                          data-level={index}
+                          disabled={!currentAnalysis || isReplying}
+                          onClick={() => {
+                            if (action.mode === 'worked_solution') {
+                              setStuckPointOpen(false);
+                              setPendingHelpAction(action);
+                              return;
+                            }
+                            submitContent(action.message, action.mode);
+                          }}
+                        >
+                          <span className="help-action-long">{action.label}</span>
+                          <span className="help-action-short" aria-hidden="true">
+                            {action.compactLabel}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
                   </div>
-                  <button type="button" aria-label="关闭本地题库" onClick={() => setBankOpen(false)}>
-                    ×
-                  </button>
-                </header>
-                <div className="local-bank-list">
-                  {fixtureProblems.map((problem) => (
+                  {stuckPointOpen && (
+                    <section
+                      className="stuck-point-panel"
+                      id="stuck-point-options"
+                      role="group"
+                      aria-label="卡点类型"
+                    >
+                      <div>
+                        <strong>先选最接近的一类</strong>
+                        <span>只放进输入框，你还能继续补充或修改。</span>
+                      </div>
+                      <div>
+                        {stuckPointOptions.map((option) => (
+                          <button
+                            type="button"
+                            key={option.label}
+                            onClick={() => insertStuckPoint(option.prompt)}
+                          >
+                            {option.label}
+                          </button>
+                        ))}
+                      </div>
+                    </section>
+                  )}
+                  <div className="learning-finishbar">
+                    <div>
+                      <span>FINISH / 本题结论</span>
+                      <strong>答案和关键依据都写完了？</strong>
+                    </div>
                     <button
                       type="button"
-                      key={problem.id}
-                      aria-label={`选择 ${problem.number} ${problem.topic}`}
-                      onClick={() => chooseProblem(problem.id)}
+                      disabled={!currentAnalysis || isReplying}
+                      onClick={startFinishCheck}
                     >
-                      <span>{problem.number}</span>
-                      <div>
-                        <strong>{problem.topic}</strong>
-                        <MathMarkdown content={problem.statementMd} />
-                      </div>
-                      <span aria-hidden="true">→</span>
+                      核对本题结论 <span aria-hidden="true">→</span>
                     </button>
-                  ))}
-                </div>
-                <p>当前仅有三道自拟夹具，不代表正式题库，也不会在浏览器内随机冒充服务端选题。</p>
-              </section>
-            )}
+                  </div>
+                  </>
+                )}
 
-            {formulaOpen && (
-              <div className="formula-toolbar" aria-label="公式快捷输入">
-                {formulaShortcuts.map((shortcut) => (
-                  <button
-                    type="button"
-                    key={shortcut.name}
-                    aria-label={shortcut.name}
-                    onClick={() => insertFormula(shortcut.syntax)}
+                {hasProblem
+                  && hasStudentAttempt
+                  && !pendingHelpAction
+                  && finishIntent
+                  && !readyForIndependentAssessment && (
+                  <section
+                    className="finish-composer-intent"
+                    role="status"
+                    aria-label="本题结论提交方式"
                   >
-                    {shortcut.label}
-                  </button>
-                ))}
-              </div>
-            )}
+                    <div>
+                      <span>FINAL ANSWER / 待提交</span>
+                      <strong>写下最终结论和关键一步</strong>
+                      <p>这里只核对本题作答，不会直接记为“已掌握”。</p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setFinishIntent(false);
+                        requestAnimationFrame(() => composerRef.current?.focus());
+                      }}
+                    >
+                      改为普通作答
+                    </button>
+                  </section>
+                )}
 
-            {draft.includes('$') && (
-              <div className="composer-preview" aria-label="公式预览">
-                <span>预览</span>
-                <MathMarkdown content={draft} />
-              </div>
-            )}
+                {pendingRemediationFocus && !finishIntent && (
+                  <section
+                    className="remediation-composer-focus"
+                    role="status"
+                    aria-label="本轮修正目标"
+                  >
+                    <span aria-hidden="true">FIX / 修正</span>
+                    <div>
+                      <strong>{remediationFocusDetails[pendingRemediationFocus].activeLabel}</strong>
+                      <small>后续作答会继续按这个范围诊断；核对修正完成后再换新题独立检验。</small>
+                      {remediationTrackError && <small role="alert">{remediationTrackError}</small>}
+                    </div>
+                    <div className="remediation-composer-actions">
+                      <button
+                        className="secondary"
+                        type="button"
+                        disabled={isReplying}
+                        onClick={() => void exitRemediationTrack()}
+                      >
+                        退出修正模式
+                      </button>
+                      <button
+                        className="primary"
+                        type="button"
+                        disabled={!currentAnalysis || isReplying}
+                        onClick={startFinishCheck}
+                      >
+                        核对修正结果
+                      </button>
+                    </div>
+                  </section>
+                )}
 
-            <form ref={composerFormRef} className="chat-composer" onSubmit={handleSubmit}>
-              <RichComposer
-                ref={composerRef}
-                placeholder={hasProblem ? '写下你的想法、步骤或公式…' : '输入一道数学题…'}
-                onChange={setDraft}
-                onSubmit={() => composerFormRef.current?.requestSubmit()}
-              />
-              <div className="composer-actions">
-                <div>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setBankOpen((current) => !current);
+                {formulaOpen && (
+                  <div
+                    ref={formulaToolsRef}
+                    className="formula-tools"
+                    id="formula-tools"
+                    role="group"
+                    aria-label="公式快捷输入"
+                    onKeyDown={(event) => {
+                      if (event.key !== 'Escape') return;
+                      event.preventDefault();
                       setFormulaOpen(false);
+                      requestAnimationFrame(() => formulaTriggerRef.current?.focus());
                     }}
                   >
-                    <span aria-hidden="true">▤</span>
-                    题库
-                  </button>
-                  <button
-                    type="button"
-                    aria-expanded={formulaOpen}
-                    onClick={() => {
-                      setFormulaOpen((current) => !current);
-                      setBankOpen(false);
+                    <div className="formula-toolbar">
+                      {MATH_FORMULA_SHORTCUTS.map((shortcut) => (
+                        <button
+                          type="button"
+                          key={shortcut.name}
+                          aria-label={shortcut.name}
+                          onClick={() => insertFormula(shortcut.syntax)}
+                        >
+                          {shortcut.label}
+                        </button>
+                      ))}
+                    </div>
+                    <div className="formula-toolbar-footer">
+                      <p className="formula-toolbar-note">
+                        <span className="formula-note-desktop">直接输入，按 <kbd>Tab</kbd> 或点“下一格”</span>
+                        <span className="formula-note-mobile">直接输入，填完点“下一格”</span>
+                      </p>
+                      <button
+                        className="formula-next-slot"
+                        type="button"
+                        aria-label="移动到下一个公式输入格"
+                        disabled={!draft.includes('$')}
+                        onClick={() => composerRef.current?.advanceFormulaSlot()}
+                      >
+                        下一格 <span aria-hidden="true">→</span>
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {draft.includes('$') && (
+                  <div className="composer-preview" aria-label="公式预览">
+                    <span>预览</span>
+                    <MathMarkdown content={draft} />
+                  </div>
+                )}
+
+                <form ref={composerFormRef} className="chat-composer" onSubmit={handleSubmit}>
+                  {hasProblem && activeRecord?.version ? (
+                    <HandwritingInput
+                      ref={handwritingInputRef}
+                      disabled={isReplying}
+                      onConfirmed={handleConfirmedHandwriting}
+                      sessionId={activeRecord.id}
+                    />
+                  ) : !hasProblem ? (
+                    <ImageQuestionInput
+                      ref={imageInputRef}
+                      disabled={isReplying}
+                      onRecognized={handleRecognizedImage}
+                    />
+                  ) : null}
+                  <RichComposer
+                    ref={composerRef}
+                    placeholder={readyForIndependentAssessment
+                      ? '想比较其他解法？可在这里继续补充…'
+                      : finishIntent
+                      ? '写最终结论，并补上最关键的一步依据…'
+                      : hasProblem ? '写下你的判断、步骤或公式…' : '输入或粘贴一道数学题…'}
+                    onChange={updateDraft}
+                    onImagePaste={(file) => {
+                      if (hasProblem) handwritingInputRef.current?.selectFile(file);
+                      else imageInputRef.current?.selectFile(file);
                     }}
+                    onSubmit={() => composerFormRef.current?.requestSubmit()}
+                  />
+                  <div className="composer-actions">
+                    <div>
+                      <button
+                        type="button"
+                        aria-label={hasProblem ? '添加手写作答' : '添加题目图片'}
+                        data-tooltip={hasProblem ? '添加手写作答' : '添加题目图片'}
+                        title={hasProblem ? '添加手写作答' : '添加题目图片'}
+                        disabled={isReplying || (hasProblem && !activeRecord?.version)}
+                        onClick={() => {
+                          setFormulaOpen(false);
+                          setBankOpen(false);
+                          if (hasProblem) handwritingInputRef.current?.openFilePicker();
+                          else imageInputRef.current?.openFilePicker();
+                        }}
+                      >
+                        <svg className="composer-tool-icon" aria-hidden="true" viewBox="0 0 24 24">
+                          <rect x="3.5" y="4" width="17" height="16" rx="2" />
+                          <circle cx="9" cy="9" r="1.6" />
+                          <path d="m5.5 17 4.2-4.3 3.1 3 2.1-2.1 3.6 3.4" />
+                        </svg>
+                        <span className="composer-action-label">图片</span>
+                      </button>
+                      <button
+                        type="button"
+                        aria-label="题库"
+                        data-tooltip="题库"
+                        title="题库"
+                        onClick={() => {
+                          setBankOpen((current) => !current);
+                          setFormulaOpen(false);
+                        }}
+                      >
+                        <svg className="composer-tool-icon" aria-hidden="true" viewBox="0 0 24 24">
+                          <path d="M5 5.5h14M5 12h14M5 18.5h14" />
+                          <path d="M8 3.5v4M8 10v4M8 16.5v4" />
+                        </svg>
+                        <span className="composer-action-label">题库</span>
+                      </button>
+                      <button
+                        ref={formulaTriggerRef}
+                        type="button"
+                        aria-label="公式"
+                        aria-controls="formula-tools"
+                        aria-expanded={formulaOpen}
+                        data-tooltip="公式快捷输入"
+                        title="公式快捷输入"
+                        onClick={(event) => {
+                          const opening = !formulaOpen;
+                          setFormulaOpen(opening);
+                          setBankOpen(false);
+                          if (opening && event.detail === 0) {
+                            requestAnimationFrame(() => {
+                              formulaToolsRef.current
+                                ?.querySelector<HTMLButtonElement>('button:not(:disabled)')
+                                ?.focus();
+                            });
+                          }
+                        }}
+                      >
+                        <span className="composer-formula-symbol" aria-hidden="true">∑</span>
+                        <span className="composer-action-label">公式</span>
+                      </button>
+                      <MathFormatButton
+                        disabled={isReplying}
+                        text={draft}
+                        onFormatted={(markdown) => composerRef.current?.replaceText(markdown)}
+                      />
+                    </div>
+                    <div className="composer-primary-actions">
+                      <VoiceInputButton
+                        disabled={isReplying}
+                        onInterimTranscript={(text) => composerRef.current?.updateVoiceDraft(text)}
+                        onTranscript={(text) => composerRef.current?.commitVoiceDraft(text)}
+                      />
+                      <button
+                        className="composer-send"
+                        type="submit"
+                        disabled={!draft.trim() || isReplying}
+                        aria-label={isReplying ? '等待回复' : finishIntent ? '核对本题结论' : '发送'}
+                        data-tooltip={isReplying ? '等待回复' : finishIntent ? '核对本题结论' : '发送'}
+                        title={isReplying ? '等待回复' : finishIntent ? '核对本题结论' : '发送'}
+                      >
+                        ↑
+                      </button>
+                    </div>
+                  </div>
+                </form>
+                <div className="composer-note">
+                  <span
+                    className="composer-draft-status"
+                    data-state={draftSaveState}
+                    role="status"
+                    aria-label="草稿保存状态"
                   >
-                    <span aria-hidden="true">∑</span>
-                    公式
-                  </button>
+                    {draftSaveLabel}
+                    {draftSaveState === 'error' && activeRecord?.version ? (
+                      <button
+                        type="button"
+                        onClick={() => void persistDraft(
+                          activeRecord.id,
+                          draft,
+                          draftRevisionRef.current,
+                        )}
+                      >
+                        重试
+                      </button>
+                    ) : null}
+                  </span>
+                  <span className="composer-guidance composer-note-desktop">
+                    {confirmedHandwriting
+                      ? '手写转写已确认；如果继续修改，将按普通文字提交。'
+                      : readyForIndependentAssessment
+                      ? '本题仍可继续讨论；是否掌握，以新题独立检验为准。'
+                      : finishIntent
+                        ? 'Enter 提交本题结论，Shift + Enter 换行。'
+                        : 'Enter 发送，Shift + Enter 换行。一次只推进一个关键判断。'}
+                  </span>
+                  <span className="composer-guidance composer-note-mobile">
+                    {confirmedHandwriting
+                      ? '手写转写已确认；修改后按普通文字提交。'
+                      : readyForIndependentAssessment
+                      ? '可继续讨论；掌握情况要用新题验证。'
+                      : finishIntent
+                        ? '提交前确认最终答案和关键依据都写清楚。'
+                        : '公式可预览，发送前还能继续修改。'}
+                  </span>
                 </div>
-                <button
-                  className="composer-send"
-                  type="submit"
-                  disabled={!draft.trim() || isReplying}
-                  aria-label={isReplying ? '等待回复' : '发送'}
-                >
-                  ↑
-                </button>
               </div>
-            </form>
-            <p className="composer-note">Enter 发送，Shift + Enter 换行。回复校验通过后才会流式显示；当前对话尚未保存。</p>
-          </div>
+            </div>
+          </section>
         </div>
       </section>
-    </main>
+      </main>
+    </ReadAloudProvider>
   );
 }
 
