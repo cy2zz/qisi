@@ -1,0 +1,25 @@
+server/test/tutor/at27-renderer-input.spec.ts
+  s_2bda1447c404e4::t_91119f82e0d542 80,86,219-235
+  s_2bda1447c404e4::t_11fdf1d01cda9b 111-113,121,236-237
+server/test/agents/at13-role-isolation.spec.ts
+  s_2bda1447c404e4::t_11fdf1d01cda9b 154-155,195-196,314-315,348-349
+server/src/workflows/orchestrator.ts
+  s_2bda1447c404e4::t_4be5e1b0f5dd9c 306-307,313-314
+  s_2bda1447c404e4::t_976acabd0309ed 67-79
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "2ab65bd95f0d0db4e648b6f27b68c28e116ecd4f",
+  "prompts": {},
+  "sessions": {
+    "s_2bda1447c404e4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7cd1e4f4-057e-45f3-bb37-6489bbffbcc7",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    }
+  }
+}
