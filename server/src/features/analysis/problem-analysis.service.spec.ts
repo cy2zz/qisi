@@ -450,7 +450,10 @@ describe('ProblemAnalysisService', () => {
     };
     const service = new ProblemAnalysisService(model);
 
-    await expect(service.reply(chatInput())).resolves.toMatchObject({ reply: validRendered.text_md });
+    await expect(service.reply(chatInput())).resolves.toMatchObject({
+      reply: validRendered.text_md,
+      routeAttribution: 'student',
+    });
 
     const calls = vi.mocked(model.generate).mock.calls.map(([request]) => request);
     expect(calls.map((request) => request.role)).toEqual([
@@ -464,6 +467,151 @@ describe('ProblemAnalysisService', () => {
     expect(calls[3]?.input).toMatchObject({
       decisions: expect.arrayContaining([expect.objectContaining({ id: reviewedDecision.id })]),
       route_patch: routePatch,
+    });
+  });
+
+  it('keeps a previously approved student route in the next turn context', async () => {
+    const restoredDecision = {
+      acceptance_rule: '均值不等式与取等条件正确。',
+      common_gaps: ['尚未讨论单调性'],
+      entry_condition: '学生已给出均值不等式路线。',
+      expected_artifact: '保留最值结论并继续讨论单调性。',
+      goal: '沿学生路线保留最值结论',
+      goal_key: 'session-91:student-route:am-gm',
+      id: 'session-91:student-route:am-gm',
+      parent_goal_key: 'session-91:target',
+      part_id: 'session-91',
+      prerequisite_ids: ['session-91:conditions'],
+      source: 'student' as const,
+    };
+    const restoredPatch = {
+      blocking_issues: [],
+      evidence_refs: [{ quote: '我准备先求导。', revision: 1, submission_id: requestId }],
+      math_status: 'valid' as const,
+      new_decisions: [restoredDecision],
+      new_routes: [{
+        decision_ids: ['session-91:conditions', restoredDecision.id],
+        evidence_refs: [{ quote: '我准备先求导。', revision: 1, submission_id: requestId }],
+        id: 'session-91:student-am-gm-route',
+        math_status: 'valid' as const,
+        note: '上一轮已核对的学生路线。',
+        source: 'student' as const,
+        terminal_ids: [restoredDecision.id],
+      }],
+      task_id: 'session-91',
+      verification: [{
+        checked_at: '2026-09-20T00:00:00.000Z',
+        kind: 'model_checked' as const,
+        reference: '上一轮已确认输入',
+        reviewer_or_model: 'fixture-model',
+        status: 'pass' as const,
+        summary: '均值不等式路线成立。',
+      }],
+    };
+    const model = createRoleModel({
+      strategy: { ...validStrategy, route_patch: restoredPatch },
+    });
+    const service = new ProblemAnalysisService(model);
+
+    await expect(service.reply(chatInput({
+      teachingState: {
+        exposures: [],
+        probesShownByGoal: {},
+        routePatches: [restoredPatch],
+      },
+    }))).resolves.toEqual({
+      audit: expect.any(Object),
+      reply: validRendered.text_md,
+    });
+
+    const calls = vi.mocked(model.generate).mock.calls.map(([request]) => request);
+    expect(calls.map((request) => request.role)).toEqual([
+      'diagnosis',
+      'strategy',
+      'renderer',
+      'guard',
+    ]);
+    expect(calls[1]?.input).toMatchObject({
+      decisions: expect.arrayContaining([expect.objectContaining({ id: restoredDecision.id })]),
+      route_patch: restoredPatch,
+    });
+  });
+
+  it('keeps a valid student subroute when the full answer still has an unfinished goal', async () => {
+    const reviewedDecision = {
+      acceptance_rule: '均值不等式条件与取等条件正确。',
+      common_gaps: ['尚未讨论单调性'],
+      entry_condition: '学生提出均值不等式路线。',
+      expected_artifact: '得到最小值并说明取等条件。',
+      goal: '用均值不等式求最小值',
+      goal_key: 'session-91:student-route:am-gm',
+      id: 'session-91:student-route:am-gm',
+      parent_goal_key: 'session-91:target',
+      part_id: 'session-91',
+      prerequisite_ids: ['session-91:conditions'],
+      source: 'student' as const,
+    };
+    const partialRoutePatch = {
+      blocking_issues: [],
+      evidence_refs: [{ quote: '我准备先求导。', revision: 1, submission_id: requestId }],
+      // The student's local route is mathematically valid, while the full
+      // answer remains incomplete because another requested goal is missing.
+      math_status: 'invalid' as const,
+      new_decisions: [reviewedDecision],
+      new_routes: [{
+        decision_ids: [reviewedDecision.id],
+        evidence_refs: [{ quote: '我准备先求导。', revision: 1, submission_id: requestId }],
+        id: 'session-91:student-am-gm-subroute',
+        math_status: 'valid' as const,
+        note: '学生路线正确完成最值，单调性仍需另行补充。',
+        source: 'student' as const,
+        terminal_ids: [reviewedDecision.id],
+      }],
+      task_id: 'session-91',
+      verification: [{
+        checked_at: '2026-09-20T00:00:00.000Z',
+        kind: 'model_checked' as const,
+        reference: '当前题干与学生已确认输入',
+        reviewer_or_model: 'fixture-model',
+        status: 'pass' as const,
+        summary: '学生子路线数学成立；完整作答仍缺单调性。',
+      }],
+    };
+    let guardCall = 0;
+    const model: ModelPort = {
+      generate: vi.fn((request: ModelRequest) => {
+        if (request.role === 'diagnosis') {
+          return Promise.resolve(response({
+            ...validDiagnosis,
+            route_review_needed: true,
+            route_review_reason: '学生提出了局部有效、但未覆盖全部题目目标的异解。',
+          }));
+        }
+        if (request.role === 'preparation') return Promise.resolve(response(partialRoutePatch));
+        if (request.role === 'strategy') return Promise.resolve(response({
+          ...validStrategy,
+          route_patch: partialRoutePatch,
+        }));
+        if (request.role === 'renderer') return Promise.resolve(response(validRendered));
+        guardCall += 1;
+        return Promise.resolve(response(guardCall === 1
+          ? { ...validGuard, actual_disclosed_ids: [] }
+          : validGuard));
+      }),
+    };
+    const service = new ProblemAnalysisService(model);
+
+    await expect(service.reply(chatInput())).resolves.toMatchObject({
+      reply: validRendered.text_md,
+      routeAttribution: 'student',
+    });
+
+    const strategyRequest = vi.mocked(model.generate).mock.calls
+      .map(([request]) => request)
+      .find((request) => request.role === 'strategy');
+    expect(strategyRequest?.input).toMatchObject({
+      decisions: expect.arrayContaining([expect.objectContaining({ id: reviewedDecision.id })]),
+      route_patch: partialRoutePatch,
     });
   });
 

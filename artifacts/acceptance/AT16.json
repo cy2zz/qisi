@@ -1,0 +1,101 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT16",
+  "result": "passed_self_review",
+  "executed_at": "2026-09-20T14:44:00+08:00",
+  "executed_by": "Codex self_review",
+  "application_commit": null,
+  "layer": "live_model_review_and_fixture_e2e",
+  "environment": "local direct DiagnosisAgent -> PreparationAgent route_review -> StrategyAgent evaluation; mocked SSE/session recovery in Chromium",
+  "bank_version": null,
+  "scope_hash": null,
+  "model_version": "gpt-5.5-2026-04-24",
+  "prompt_version": "prompt-v3.0",
+  "provider_mode": "real_openai_compatible_provider_plus_fixture_ui",
+  "commands": [
+    "npm --prefix server run eval:alternative-route-live",
+    "npm --prefix server test -- --run src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/problem-analysis.controller.spec.ts src/features/learning/learning-session.service.spec.ts",
+    "npm --prefix web test -- --run src/App.test.tsx",
+    "npx playwright test web/tests/e2e/tutor.spec.ts --grep 'checked student route' --project=pc-1440 --project=pc-1280 --project=h5-390 --project=h5-360",
+    "npm --prefix server test",
+    "npm --prefix server run typecheck",
+    "npm --prefix server run lint",
+    "npm --prefix server run build",
+    "npm --prefix web test",
+    "npm --prefix web run typecheck",
+    "npm --prefix web run lint",
+    "npm --prefix web run build",
+    "git diff --check"
+  ],
+  "expected": "Accept a mathematically valid student AM-GM route for the minimum without forcing it to match the teacher's derivative route, preserve student authorship, and keep the still-unanswered monotonicity goal separate.",
+  "actual": {
+    "diagnosis": {
+      "overall_judgment": "invalid_as_complete_answer",
+      "locally_satisfied_decision_ids": [
+        "minimum"
+      ],
+      "focus_goal": "monotonicity",
+      "route_review_needed": true
+    },
+    "route_patch": {
+      "student_route_math_status": "valid",
+      "student_authorship_preserved": true,
+      "coauthored_completion_route_created": true,
+      "overall_patch_status": "invalid_as_complete_answer"
+    },
+    "strategy": {
+      "action": "advance",
+      "scaffold_level": 1,
+      "minimum_not_retreated_as_error": true,
+      "separate_monotonicity_gap_retained": true
+    },
+    "application_gate": {
+      "locally_valid_student_subroute_reaches_strategy": true,
+      "unknown_or_unverified_patch_remains_blocked": true,
+      "route_guard_accept_still_required": true,
+      "approved_route_patch_committed_as_private_event": true,
+      "approved_route_patch_restored_into_next_turn": true,
+      "cross_session_route_patch_rejected": true,
+      "public_stream_and_replay_exclude_private_route_patch": true
+    },
+    "student_ui": {
+      "checked_student_route_label": "沿你的路线",
+      "coauthored_route_label": "共同补全",
+      "sse_done_attribution_preserved": true,
+      "idempotent_replay_attribution_preserved": true,
+      "session_refresh_attribution_preserved": true,
+      "composer_focus_preserved": true,
+      "verified_viewports": [
+        "1440x900",
+        "1280x800",
+        "390x844",
+        "360x800"
+      ]
+    },
+    "usage_kind": "reported"
+  },
+  "evidence_files": [
+    "server/scripts/evaluate-alternative-route-live.ts",
+    "server/src/features/analysis/problem-analysis.service.ts",
+    "server/src/features/analysis/problem-analysis.service.spec.ts",
+    "server/src/features/analysis/problem-analysis.controller.ts",
+    "server/src/features/analysis/problem-analysis.controller.spec.ts",
+    "server/src/features/learning/learning-session.service.ts",
+    "server/src/features/learning/learning-session.service.spec.ts",
+    "web/src/App.test.tsx",
+    "web/src/lib/api.ts",
+    "web/src/pages/bank/BankFlow.tsx",
+    "web/src/styles.css",
+    "web/tests/e2e/tutor.spec.ts",
+    "server/src/prompts/diagnosis.md",
+    "server/src/prompts/preparation.md",
+    "server/src/prompts/strategy.md"
+  ],
+  "limitations": [
+    "This is one live-provider AM-GM alternative-route case, not a broad competition-problem benchmark.",
+    "The route patch correctly marks the student subroute valid while keeping the incomplete full answer invalid; private event persistence, next-turn restoration, SSE, idempotent replay, UI presentation and refresh recovery are covered with transaction/UI fixtures, but the same persistence path was not exercised against a real MySQL database.",
+    "The current configured business database lacks workflow tables, so this evaluation intentionally avoided mutating it.",
+    "No independent reviewer or real student observation was performed.",
+    "real_student_observation: not_run"
+  ]
+}

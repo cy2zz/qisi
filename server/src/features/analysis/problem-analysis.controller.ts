@@ -228,6 +228,9 @@ export class ProblemAnalysisController {
         ...(reservation.currentVerdict
           ? { currentVerdict: reservation.currentVerdict }
           : {}),
+        ...(reservation.routeAttribution
+          ? { routeAttribution: reservation.routeAttribution }
+          : {}),
         version: reservation.version,
       });
       response.end();
@@ -292,6 +295,8 @@ export class ProblemAnalysisController {
         ownerId: user.id,
         remediationFocus: parsed.data.remediationFocus,
         reply: result.reply,
+        routeAttribution: result.routeAttribution,
+        routePatch: result.routePatch,
         requestId: parsed.data.requestId,
         runId: reservation.runId,
         sessionId: parsed.data.sessionId,
@@ -302,6 +307,7 @@ export class ProblemAnalysisController {
       writeStreamEvent(response, 'chunk', { text: result.reply });
       writeStreamEvent(response, 'done', {
         ...(result.currentVerdict ? { currentVerdict: result.currentVerdict } : {}),
+        ...(result.routeAttribution ? { routeAttribution: result.routeAttribution } : {}),
         version: committed.version,
       });
     } catch (error) {

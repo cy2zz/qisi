@@ -42,7 +42,6 @@ test('@A04 independent assessment direct URL preserves the original-answer gate'
       status: 409,
     });
   });
-
   await page.goto('/learn/12/check');
   await page.getByRole('button', { name: '开始独立检验' }).click();
   await expect(page.getByRole('alert')).toContainText('先回到原题完成核对');
@@ -231,12 +230,42 @@ test('@A04 @AT30 locks the first plan and withholds feedback until final submiss
       status: 200,
     });
   });
+  await page.route('**/api/speech/format-math', async (route) => {
+    await route.fulfill({
+      body: JSON.stringify({
+        formatted: true,
+        markdown: '$\\frac{\\sqrt{2}}{\\sqrt{3}}$ 等于多少？',
+      }),
+      contentType: 'application/json',
+      status: 200,
+    });
+  });
 
   await page.goto('/learn/12/check');
   await page.getByRole('button', { name: '开始独立检验' }).click();
   await expect(page.getByRole('heading', { name: '先写你准备怎么做' })).toBeVisible();
   await expect(page.locator('.assessment-paper .katex')).toBeVisible();
   await expect(page.getByText('有依据')).toHaveCount(0);
+  const planVoice = page.getByRole('group', { name: '语音输入' });
+  await expect(planVoice.getByRole('button', { name: '长语音' })).toBeVisible();
+  await expect(planVoice.getByRole('button', { name: '实时语音' })).toBeVisible();
+
+  const formulaToolbar = page.getByRole('toolbar', { name: '公式快捷输入' });
+  await expect(formulaToolbar.getByRole('button')).toHaveCount(12);
+  if (isMobile) {
+    const formulaToolbarLayout = await formulaToolbar.evaluate((element) => {
+      const style = window.getComputedStyle(element);
+      return {
+        clientWidth: element.clientWidth,
+        flexWrap: style.flexWrap,
+        scrollWidth: element.scrollWidth,
+      };
+    });
+    expect(formulaToolbarLayout.flexWrap).toBe('wrap');
+    expect(formulaToolbarLayout.scrollWidth).toBeLessThanOrEqual(
+      formulaToolbarLayout.clientWidth + 1,
+    );
+  }
 
   const editor = page.getByRole('textbox', { name: '独立检验作答' });
   if (isMobile) {
@@ -247,6 +276,9 @@ test('@A04 @AT30 locks the first plan and withholds feedback until final submiss
     await expect(expandTask).toBeVisible();
     await expect(page.locator('.assessment-paper-compact')).toBeInViewport();
     await expect(editor).toBeInViewport();
+    await expect(formulaToolbar).toBeInViewport();
+    await expect(page.getByRole('button', { name: '添加手写作答' })).toBeInViewport();
+    await expect(page.getByRole('button', { name: '公式转换' })).toBeInViewport();
     const compactPaper = await page.locator('.assessment-paper').boundingBox();
     const expandTaskBox = await expandTask.boundingBox();
     expect(compactPaper).not.toBeNull();
@@ -256,6 +288,11 @@ test('@A04 @AT30 locks the first plan and withholds feedback until final submiss
     expect(expandTaskBox!.x + expandTaskBox!.width).toBeLessThanOrEqual(
       compactPaper!.x + compactPaper!.width,
     );
+    for (const voiceButton of await planVoice.getByRole('button').all()) {
+      const voiceButtonBox = await voiceButton.boundingBox();
+      expect(voiceButtonBox?.width).toBeGreaterThanOrEqual(44);
+      expect(voiceButtonBox?.height).toBeGreaterThanOrEqual(44);
+    }
     if (testInfo.project.name === 'h5-390') {
       await page.screenshot({
         path: 'artifacts/acceptance/A04-writing-keyboard-h5-390.png',
@@ -263,6 +300,14 @@ test('@A04 @AT30 locks the first plan and withholds feedback until final submiss
     }
     await page.setViewportSize(initialViewport!);
   }
+  await editor.fill('根号2除以根号3等于多少？');
+  await page.getByRole('button', { name: '公式转换' }).click();
+  await expect(editor).toHaveValue('$\\frac{\\sqrt{2}}{\\sqrt{3}}$ 等于多少？');
+  await expect(editor).toBeFocused();
+  expect(await editor.evaluate((element) => (element as HTMLTextAreaElement).selectionStart))
+    .toBe(await editor.inputValue().then((value) => value.length));
+  await editor.fill('');
+
   await page.getByRole('button', { name: '插入分式' }).click();
   await editor.press('2');
   await page.getByRole('button', { name: '移动到下一个公式输入格' }).click();
@@ -296,11 +341,42 @@ test('@A04 @AT30 locks the first plan and withholds feedback until final submiss
   await expect(page.getByRole('heading', { name: '现在独立完成答案' })).toBeVisible();
   await expect(page.getByRole('note', { name: '已锁定的首次计划' })).toContainText('先配方');
   await expect(page.getByRole('textbox', { name: '独立检验作答' })).toHaveValue('');
+  const answerVoice = page.getByRole('group', { name: '语音输入' });
+  await expect(answerVoice.getByRole('button', { name: '长语音' })).toBeVisible();
+  await expect(answerVoice.getByRole('button', { name: '实时语音' })).toBeVisible();
+
+  const submitFinalAnswer = page.getByRole('button', { name: '提交最终答案' });
+  const skipFinalAnswer = page.getByRole('button', { name: '暂时不作答' });
+  await expect(submitFinalAnswer).toBeDisabled();
+  await expect(skipFinalAnswer).toBeVisible();
+  if (isMobile) {
+    const skipFinalAnswerBox = await skipFinalAnswer.boundingBox();
+    expect(skipFinalAnswerBox?.height).toBeGreaterThanOrEqual(44);
+  }
+  await skipFinalAnswer.click();
+  const blankAnswerConfirmation = page.getByRole('alertdialog', {
+    name: '以空白答案结束本次检验？',
+  });
+  await expect(blankAnswerConfirmation).toContainText('提交后答案会冻结');
+  await expect(blankAnswerConfirmation.getByRole('button', { name: '继续作答' })).toBeFocused();
+  if (testInfo.project.name === 'pc-1440' || testInfo.project.name === 'h5-390') {
+    await page.screenshot({
+      fullPage: true,
+      path: `artifacts/acceptance/A04-empty-answer-confirm-${testInfo.project.name}.png`,
+    });
+  }
+  await page.keyboard.press('Shift+Tab');
+  await expect(blankAnswerConfirmation.getByRole('button', { name: '确认未作答并结束' }))
+    .toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(blankAnswerConfirmation).toBeHidden();
+  await expect(page.getByRole('textbox', { name: '独立检验作答' })).toBeFocused();
 
   await page.getByRole('textbox', { name: '独立检验作答' }).fill(
     String.raw`$g(x)=(x-3)^2-4$，所以最小值为 $-4$。`,
   );
-  await page.getByRole('button', { name: '提交最终答案' }).click();
+  await expect(submitFinalAnswer).toBeEnabled();
+  await submitFinalAnswer.click();
   await expect(page.getByRole('heading', { name: '这次新题独立完成' })).toBeVisible();
   await expect(page.getByText('独立证据成立')).toHaveCount(2);
   const submittedEvidence = page.getByRole('region', { name: '你的独立作答证据' });
@@ -1036,9 +1112,17 @@ test('@A05 @AT33 evidence report keeps planning and execution separate', async (
   const viewport = page.viewportSize();
   if ((viewport?.width ?? 0) <= 720) {
     await expect(page.locator('.report-evidence-grid')).toHaveCSS('display', 'block');
-    const attemptSize = await firstAttempt.boundingBox();
-    expect(attemptSize?.height).toBeGreaterThanOrEqual(44);
-    expect(await attemptSwitch.evaluate((element) => element.scrollWidth > element.clientWidth)).toBe(true);
+    const attemptSwitchBox = await attemptSwitch.boundingBox();
+    const firstAttemptBox = await firstAttempt.boundingBox();
+    const latestAttemptBox = await latestAttempt.boundingBox();
+    expect(firstAttemptBox?.height).toBeGreaterThanOrEqual(44);
+    expect(latestAttemptBox?.height).toBeGreaterThanOrEqual(44);
+    expect(await attemptSwitch.evaluate((element) => element.scrollWidth <= element.clientWidth)).toBe(true);
+    expect(firstAttemptBox?.x).toBeGreaterThanOrEqual(attemptSwitchBox?.x ?? 0);
+    expect((firstAttemptBox?.x ?? 0) + (firstAttemptBox?.width ?? 0)).toBeLessThanOrEqual(
+      (attemptSwitchBox?.x ?? 0) + (attemptSwitchBox?.width ?? 0),
+    );
+    expect(latestAttemptBox?.y).toBeGreaterThan(firstAttemptBox?.y ?? 0);
     for (const link of await page.locator('.report-actions a').all()) {
       const size = await link.boundingBox();
       expect(size?.height).toBeGreaterThanOrEqual(44);

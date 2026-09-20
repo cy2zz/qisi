@@ -14,6 +14,7 @@ import {
   type HandwritingInputHandle,
 } from '../../../features/input/HandwritingInput';
 import { MathFormatButton } from '../../../features/input/MathFormatButton';
+import { VoiceInputButton } from '../../../features/input/VoiceInputButton';
 import { ApiError, apiFetch } from '../../../lib/api';
 import { MathMarkdown } from '../../../shared/MathMarkdown';
 import { MATH_FORMULA_SHORTCUTS } from '../../../shared/math-input';
@@ -105,12 +106,15 @@ export function AssessmentCheckPage({ username }: { username: string }) {
   const assessmentEditorRef = useRef<HTMLTextAreaElement>(null);
   const draftRevisionRef = useRef(0);
   const focusEditorAfterTransitionRef = useRef(false);
+  const blankAnswerCancelRef = useRef<HTMLButtonElement>(null);
+  const blankAnswerDialogRef = useRef<HTMLElement>(null);
   const helpCancelRef = useRef<HTMLButtonElement>(null);
   const helpDialogRef = useRef<HTMLElement>(null);
   const requestRef = useRef(0);
   const saveRequestRef = useRef(0);
   const skipNextCleanUrlLoadRef = useRef(false);
   const [attempt, setAttempt] = useState<AssessmentAttempt | null>(null);
+  const [blankAnswerConfirmation, setBlankAnswerConfirmation] = useState(false);
   const [confirmedHandwriting, setConfirmedHandwriting] = useState<ConfirmedHandwriting | null>(null);
   const [draft, setDraft] = useState('');
   const [draftSaveState, setDraftSaveState] = useState<DraftSaveState>('saved');
@@ -239,6 +243,37 @@ export function AssessmentCheckPage({ username }: { username: string }) {
   }, [helpConfirmation]);
 
   useEffect(() => {
+    if (!blankAnswerConfirmation) return;
+    blankAnswerCancelRef.current?.focus();
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeBlankAnswerConfirmation();
+        return;
+      }
+      if (event.key !== 'Tab' || !blankAnswerDialogRef.current) return;
+
+      const focusable = Array.from(
+        blankAnswerDialogRef.current.querySelectorAll<HTMLButtonElement>('button:not(:disabled)'),
+      );
+      const first = focusable[0];
+      const last = focusable.at(-1);
+      if (!first || !last) return;
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [blankAnswerConfirmation]);
+
+  useEffect(() => {
     if (
       !attempt
       || draftSaveState !== 'dirty'
@@ -296,6 +331,7 @@ export function AssessmentCheckPage({ username }: { username: string }) {
       }
     }
     setAttempt(next);
+    setBlankAnswerConfirmation(false);
     setConfirmedHandwriting(null);
     setDraft(nextDraft);
     setDraftSaveState(nextSaveState);
@@ -514,6 +550,7 @@ export function AssessmentCheckPage({ username }: { username: string }) {
 
   function updateDraft(value: string) {
     draftRevisionRef.current += 1;
+    setBlankAnswerConfirmation(false);
     setConfirmedHandwriting(null);
     setDraft(value);
     const storage = getAssessmentDraftStorage();
@@ -539,12 +576,25 @@ export function AssessmentCheckPage({ username }: { username: string }) {
     requestAnimationFrame(() => assessmentEditorRef.current?.focus());
   }
 
+  function closeBlankAnswerConfirmation() {
+    setBlankAnswerConfirmation(false);
+    requestAnimationFrame(() => assessmentEditorRef.current?.focus());
+  }
+
   function compactTaskForMobileWriting() {
     if (
       typeof window.matchMedia === 'function'
       && window.matchMedia('(max-width: 720px)').matches
     ) {
       setTaskCollapsed(true);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          assessmentEditorRef.current
+            ?.closest<HTMLElement>('.assessment-workbench')
+            ?.querySelector<HTMLElement>('.assessment-paper')
+            ?.scrollIntoView?.({ behavior: 'auto', block: 'start' });
+        });
+      });
     }
   }
 
@@ -727,7 +777,18 @@ export function AssessmentCheckPage({ username }: { username: string }) {
                         : '立即保存'}
                   </button>
                 )}
-                <button type="button" disabled={Boolean(pendingAction) || saveInProgress || reviewingHandwriting} onClick={() => void finishCheck()}>
+                <button
+                  type="button"
+                  className="quiet"
+                  disabled={Boolean(pendingAction) || saveInProgress || reviewingHandwriting}
+                  onClick={() => {
+                    setHelpConfirmation(false);
+                    setBlankAnswerConfirmation(true);
+                  }}
+                >
+                  暂时不作答
+                </button>
+                <button type="button" disabled={Boolean(pendingAction) || saveInProgress || reviewingHandwriting || !draft.trim()} onClick={() => void finishCheck()}>
                   {pendingAction === 'finish' ? '正在冻结并核对…' : '提交最终答案'}
                 </button>
               </div>
@@ -759,10 +820,19 @@ export function AssessmentCheckPage({ username }: { username: string }) {
             />
           )}
 
-          {isEditing ? (
+          {isEditing && !blankAnswerConfirmation ? (
             <aside className="assessment-help-boundary">
               <div><strong>真的卡住了？</strong><span>可以求助，但会结束本次独立资格。</span></div>
-              <button type="button" disabled={Boolean(pendingAction) || saveInProgress || reviewingHandwriting} onClick={() => setHelpConfirmation(true)}>我需要帮助</button>
+              <button
+                type="button"
+                disabled={Boolean(pendingAction) || saveInProgress || reviewingHandwriting}
+                onClick={() => {
+                  setBlankAnswerConfirmation(false);
+                  setHelpConfirmation(true);
+                }}
+              >
+                我需要帮助
+              </button>
             </aside>
           ) : null}
           {helpConfirmation ? (
@@ -780,6 +850,38 @@ export function AssessmentCheckPage({ username }: { username: string }) {
                 <button ref={helpCancelRef} type="button" className="secondary" onClick={closeHelpConfirmation}>继续独立完成</button>
                 <button type="button" disabled={pendingAction === 'help'} onClick={() => void requestHelp()}>
                   {pendingAction === 'help' ? '正在保存状态…' : '确认求助'}
+                </button>
+              </div>
+            </section>
+          ) : null}
+          {blankAnswerConfirmation ? (
+            <section
+              ref={blankAnswerDialogRef}
+              className="assessment-help-confirm assessment-final-confirm"
+              role="alertdialog"
+              aria-modal="true"
+              aria-labelledby="assessment-final-title"
+              aria-describedby="assessment-final-description"
+            >
+              <h2 id="assessment-final-title">以空白答案结束本次检验？</h2>
+              <p id="assessment-final-description">
+                提交后答案会冻结，系统会记录“未作答”；如果只是暂时没写完，请继续独立完成。
+              </p>
+              <div>
+                <button
+                  ref={blankAnswerCancelRef}
+                  type="button"
+                  className="secondary"
+                  onClick={closeBlankAnswerConfirmation}
+                >
+                  继续作答
+                </button>
+                <button
+                  type="button"
+                  disabled={pendingAction === 'finish'}
+                  onClick={() => void finishCheck()}
+                >
+                  {pendingAction === 'finish' ? '正在冻结…' : '确认未作答并结束'}
                 </button>
               </div>
             </section>
@@ -820,7 +922,14 @@ function AssessmentEditor({
 }) {
   const handwritingRef = useRef<HandwritingInputHandle>(null);
   const handledFocusRequestRef = useRef(0);
+  const liveDraftRef = useRef(draft);
   const pendingCaretRef = useRef<number | null>(null);
+  const voiceDraftRangeRef = useRef<{ end: number; start: number } | null>(null);
+  liveDraftRef.current = draft;
+
+  useEffect(() => {
+    voiceDraftRangeRef.current = null;
+  }, [focusRequest, sessionId]);
 
   useLayoutEffect(() => {
     if (
@@ -846,6 +955,7 @@ function AssessmentEditor({
   }
 
   function insertFormulaTemplate(syntax: string) {
+    voiceDraftRangeRef.current = null;
     const editor = editorRef.current;
     const selectionStart = editor?.selectionStart ?? draft.length;
     const selectionEnd = editor?.selectionEnd ?? selectionStart;
@@ -855,6 +965,31 @@ function AssessmentEditor({
     onChange(`${before}${insertion}${draft.slice(selectionEnd)}`);
     const firstSlot = syntax.indexOf('{}');
     placeCaret(selectionStart + spacer.length + (firstSlot >= 0 ? firstSlot + 1 : syntax.length));
+  }
+
+  function updateVoiceDraft(text: string) {
+    const editor = editorRef.current;
+    const currentDraft = liveDraftRef.current;
+    const currentRange = voiceDraftRangeRef.current;
+    const selectionStart = currentRange?.start ?? editor?.selectionStart ?? currentDraft.length;
+    const selectionEnd = currentRange?.end ?? editor?.selectionEnd ?? selectionStart;
+    const before = currentDraft.slice(0, selectionStart);
+    const spacer = currentRange === null && before && !/\s$/.test(before) ? ' ' : '';
+    const insertion = `${spacer}${text}`;
+    const nextDraft = `${before}${insertion}${currentDraft.slice(selectionEnd)}`;
+    const range = {
+      start: selectionStart + spacer.length,
+      end: selectionStart + insertion.length,
+    };
+    voiceDraftRangeRef.current = range;
+    liveDraftRef.current = nextDraft;
+    onChange(nextDraft);
+    placeCaret(range.end);
+  }
+
+  function commitVoiceDraft(text: string) {
+    updateVoiceDraft(text);
+    voiceDraftRangeRef.current = null;
   }
 
   function moveToNextFormulaSlot() {
@@ -891,6 +1026,7 @@ function AssessmentEditor({
         ref={handwritingRef}
         disabled={disabled}
         onConfirmed={(result) => {
+          voiceDraftRangeRef.current = null;
           onHandwritingConfirmed(result);
           requestAnimationFrame(() => editorRef.current?.focus());
         }}
@@ -903,7 +1039,10 @@ function AssessmentEditor({
         disabled={disabled}
         placeholder={placeholder}
         value={draft}
-        onChange={(event) => onChange(event.target.value)}
+        onChange={(event) => {
+          voiceDraftRangeRef.current = null;
+          onChange(event.target.value);
+        }}
         onFocus={onFocus}
         onKeyDown={handleKeyDown}
         onPaste={handlePaste}
@@ -943,7 +1082,20 @@ function AssessmentEditor({
           >
             下一格 <span aria-hidden="true">→</span>
           </button>
-          <MathFormatButton disabled={disabled} text={draft} onFormatted={onFormat} />
+          <VoiceInputButton
+            disabled={disabled}
+            onInterimTranscript={updateVoiceDraft}
+            onTranscript={commitVoiceDraft}
+          />
+          <MathFormatButton
+            disabled={disabled}
+            text={draft}
+            onFormatted={(markdown) => {
+              voiceDraftRangeRef.current = null;
+              placeCaret(markdown.length);
+              onFormat(markdown);
+            }}
+          />
         </div>
       </div>
       {draft.includes('$') ? (

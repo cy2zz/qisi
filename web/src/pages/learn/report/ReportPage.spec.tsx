@@ -62,6 +62,10 @@ describe('ReportPage', () => {
       'href',
       '/study?session=12&remediate=execution',
     );
+    const mobileShortcut = screen.getByRole('navigation', { name: '报告下一步快捷入口' });
+    expect(within(mobileShortcut).getByRole('link', {
+      name: '快捷继续下一步',
+    })).toHaveAttribute('href', '/study?session=12&remediate=execution');
     expect(screen.queryByText(/\d+%/)).not.toBeInTheDocument();
   });
 

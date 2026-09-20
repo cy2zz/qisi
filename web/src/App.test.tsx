@@ -158,6 +158,7 @@ describe('App', () => {
               content: '平方根不是可以直接约掉的公因式。',
               id: '7',
               messageType: 'guide_reply',
+              metadata: { routeAttribution: 'student' },
               role: 'guide',
             },
             {
@@ -194,6 +195,7 @@ describe('App', () => {
     expect(await screen.findByRole('heading', { name: '根式化简' })).toBeInTheDocument();
     expect(screen.getByText('我还不确定')).toBeInTheDocument();
     expect(screen.getByLabelText('帮助深度：最小提示')).toBeInTheDocument();
+    expect(screen.getByLabelText('路线归属：沿用你的解法')).toHaveTextContent('沿你的路线');
     expect(screen.getByText('已保存，可刷新继续')).toBeInTheDocument();
     expect(screen.getByText('原卷解析已核对')).toBeInTheDocument();
     const incorrectCheckpoint = screen

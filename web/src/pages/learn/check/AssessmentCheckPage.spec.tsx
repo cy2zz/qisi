@@ -1,11 +1,37 @@
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import type { RealtimeSpeechCallbacks } from '../../../features/input/speech-client';
 import { AssessmentCheckPage } from './AssessmentCheckPage';
 import {
   assessmentDraftCacheKey,
   writeCachedAssessmentDraft,
 } from './assessment-draft-cache';
+
+const voiceMocks = vi.hoisted(() => ({
+  callbacks: undefined as RealtimeSpeechCallbacks | undefined,
+  captureStop: vi.fn(),
+  sessionClose: vi.fn(),
+  sessionFinish: vi.fn(),
+}));
+
+vi.mock('../../../features/input/audio-capture', () => ({
+  createWavHeader: vi.fn(() => new ArrayBuffer(44)),
+  pcmToArrayBuffer: vi.fn(() => new ArrayBuffer(8)),
+  startAudioCapture: vi.fn().mockImplementation(async () => ({ stop: voiceMocks.captureStop })),
+}));
+
+vi.mock('../../../features/input/speech-client', () => ({
+  createRealtimeSpeechSession: vi.fn().mockImplementation((callbacks: RealtimeSpeechCallbacks) => {
+    voiceMocks.callbacks = callbacks;
+    return {
+      close: voiceMocks.sessionClose,
+      finish: voiceMocks.sessionFinish,
+      sendAudio: vi.fn(),
+    };
+  }),
+  transcribeShortSpeech: vi.fn(),
+}));
 
 const baseAttempt = {
   answerDraftMarkdown: '',
@@ -53,7 +79,9 @@ describe('AssessmentCheckPage', () => {
   afterEach(() => {
     cleanup();
     localStorage.clear();
+    vi.clearAllMocks();
     vi.restoreAllMocks();
+    voiceMocks.callbacks = undefined;
   });
 
   it('restores an unsynced local plan after refresh and syncs it when the network returns', async () => {
@@ -151,6 +179,68 @@ describe('AssessmentCheckPage', () => {
       .toHaveTextContent('已恢复本机草稿，尚未同步');
     expect(localStorage.getItem(assessmentDraftCacheKey('81', 'check_plan'))).toBeNull();
     expect(localStorage.getItem(assessmentDraftCacheKey('81', 'check_answer'))).not.toBeNull();
+  });
+
+  it('requires an explicit confirmation before freezing an empty final answer', async () => {
+    const answerAttempt = {
+      ...baseAttempt,
+      lockedPlanMarkdown: '先配方。',
+      phase: 'check_answer' as const,
+      planDraftMarkdown: '先配方。',
+      version: 2,
+    };
+    const finishBodies: Array<{ answerMarkdown: string }> = [];
+    vi.spyOn(globalThis, 'fetch').mockImplementation((input, init) => {
+      const url = String(input);
+      if (url === '/api/assessment/sessions/12' && !init?.method) {
+        return jsonResponse({ attempt: answerAttempt });
+      }
+      if (url.endsWith('/finish')) {
+        finishBodies.push(JSON.parse(String(init?.body)) as { answerMarkdown: string });
+        return jsonResponse({
+          attempt: {
+            ...answerAttempt,
+            finalAnswerMarkdown: '',
+            phase: 'summary',
+            result: {
+              evidence: ['首次计划已锁定，最终答案为空白。'],
+              execution: 'unanswered',
+              independentExecution: false,
+              independentPlanning: true,
+              independentTaskPass: false,
+              limitations: ['没有最终答案，无法核对执行。'],
+              planning: 'correct',
+              summary: '计划有依据，但没有留下最终答案。',
+            },
+            version: 4,
+          },
+        });
+      }
+      return jsonResponse({});
+    });
+
+    renderPage();
+    await screen.findByRole('heading', { name: '现在独立完成答案' });
+    expect(screen.getByRole('button', { name: '提交最终答案' })).toBeDisabled();
+
+    fireEvent.click(screen.getByRole('button', { name: '暂时不作答' }));
+    const confirmation = screen.getByRole('alertdialog', {
+      name: '以空白答案结束本次检验？',
+    });
+    expect(confirmation).toHaveTextContent('提交后答案会冻结');
+    expect(screen.getByRole('button', { name: '继续作答' })).toHaveFocus();
+    fireEvent.click(screen.getByRole('button', { name: '继续作答' }));
+    expect(confirmation).not.toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByRole('textbox', { name: '独立检验作答' })).toHaveFocus();
+    });
+    expect(finishBodies).toHaveLength(0);
+
+    fireEvent.click(screen.getByRole('button', { name: '暂时不作答' }));
+    fireEvent.click(screen.getByRole('button', { name: '确认未作答并结束' }));
+    expect(await screen.findByRole('heading', { name: '这次还没有留下执行证据' }))
+      .toBeInTheDocument();
+    expect(finishBodies).toEqual([expect.objectContaining({ answerMarkdown: '' })]);
   });
 
   it('autosaves an unfinished plan and restores it after refresh without grading', async () => {
@@ -251,6 +341,66 @@ describe('AssessmentCheckPage', () => {
     expect(editor.selectionStart).toBe(editor.value.indexOf('{}') + 1);
 
     expect(screen.getByRole('button', { name: '移动到下一个公式输入格' })).toBeInTheDocument();
+  });
+
+  it('returns focus to the answer after formatting a spoken-style formula', async () => {
+    vi.spyOn(globalThis, 'fetch').mockImplementation((input, init) => {
+      const url = String(input);
+      if (url === '/api/assessment/sessions/12' && !init?.method) {
+        return jsonResponse({ attempt: baseAttempt });
+      }
+      if (url === '/api/speech/format-math' && init?.method === 'POST') {
+        return jsonResponse({
+          formatted: true,
+          markdown: '$\\frac{\\sqrt{2}}{\\sqrt{3}}$ 等于多少？',
+        });
+      }
+      return jsonResponse({ attempt: baseAttempt });
+    });
+
+    renderPage();
+    const editor = await screen.findByRole('textbox', {
+      name: '独立检验作答',
+    }) as HTMLTextAreaElement;
+    fireEvent.change(editor, { target: { value: '根号2除以根号3等于多少？' } });
+    editor.focus();
+
+    fireEvent.click(screen.getByRole('button', { name: '公式转换' }));
+
+    await waitFor(() => {
+      expect(editor).toHaveValue('$\\frac{\\sqrt{2}}{\\sqrt{3}}$ 等于多少？');
+    });
+    expect(editor).toHaveFocus();
+    expect(editor.selectionStart).toBe(editor.value.length);
+    expect(editor.selectionEnd).toBe(editor.value.length);
+  });
+
+  it('replaces realtime voice draft with formatted mathematics inside the independent plan', async () => {
+    voiceMocks.captureStop.mockResolvedValue(new Blob([], { type: 'audio/wav' }));
+    vi.spyOn(globalThis, 'fetch').mockImplementation((input, init) => {
+      if (String(input) === '/api/assessment/sessions/12' && !init?.method) {
+        return jsonResponse({
+          attempt: { ...baseAttempt, planDraftMarkdown: '先看定义域。' },
+        });
+      }
+      return jsonResponse({});
+    });
+
+    renderPage();
+    const editor = await screen.findByRole('textbox', {
+      name: '独立检验作答',
+    }) as HTMLTextAreaElement;
+    editor.setSelectionRange(editor.value.length, editor.value.length);
+
+    fireEvent.click(screen.getByRole('button', { name: '实时语音' }));
+    await act(async () => Promise.resolve());
+    act(() => voiceMocks.callbacks?.onReady());
+    act(() => voiceMocks.callbacks?.onTranscript('根号2除以根号3', false));
+    expect(editor).toHaveValue('先看定义域。 根号2除以根号3');
+
+    act(() => voiceMocks.callbacks?.onDone('$\\frac{\\sqrt{2}}{\\sqrt{3}}$', true));
+    expect(editor).toHaveValue('先看定义域。 $\\frac{\\sqrt{2}}{\\sqrt{3}}$');
+    expect(screen.getByText('公式已整理，请检查后发送。')).toBeInTheDocument();
   });
 
   it('binds a confirmed handwriting revision to the locked assessment plan', async () => {

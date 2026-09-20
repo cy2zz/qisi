@@ -2,7 +2,7 @@
   "case_id": "AT02",
   "task_id": "A02",
   "result": "partial",
-  "executed_at": "2026-09-20T05:51:00.000Z",
+  "executed_at": "2026-09-20T08:25:16.000Z",
   "environment": {
     "database": "local MySQL 8.0.45",
     "frontend": "React/Vite fixture browser plus real local API smoke",
@@ -31,14 +31,17 @@
       "server bank controller/service: 2 files, 10 tests passed",
       "web bank components: 3 files, 18 tests passed",
       "A02 Playwright: 8/8 passed across four viewports",
-      "full Playwright: 100/100 passed",
+      "A-owner Playwright: 84/84 passed",
+      "full Playwright historical baseline before the question navigator change: 100/100 passed; not rerun for this change",
       "server full unit: 47 files, 352 tests passed",
-      "web full unit: 24 files, 115 tests passed",
+      "web full unit: 24 files, 123 tests passed",
       "server/web typecheck, lint and build passed"
     ],
     "screenshots": [
       "artifacts/acceptance/A02-bank-pc-1440.png",
-      "artifacts/acceptance/A02-bank-h5-390.png"
+      "artifacts/acceptance/A02-bank-h5-390.png",
+      "artifacts/acceptance/A02-question-navigator-pc-1440.png",
+      "artifacts/acceptance/A02-question-navigator-h5-390.png"
     ]
   },
   "verified_behavior": [
@@ -47,7 +50,14 @@
     "An empty scope returns no selection and does not broaden or reset filters.",
     "The selected question is highlighted but is not started until the student explicitly confirms Select.",
     "needs_review and invalid items remain visible in the repository UI; invalid items cannot enter study.",
-    "Question analysis and answer fields are not returned by the random endpoint."
+    "Question analysis and answer fields are not returned by the random endpoint.",
+    "The standalone bank page and chat picker share a question-number navigator for multi-question papers.",
+    "Selecting a question number scrolls to and focuses the target card, while aria-current=location identifies the active target.",
+    "A random result is automatically located and focused without starting the question.",
+    "The H5 navigator is sticky and uses 44px touch targets; the PC navigator remains compact.",
+    "The standalone bank stores a random target and its non-empty filters in the URL, then restores the same random highlight and focus after refresh.",
+    "A restored random result remains unconfirmed and keeps the Select action available; it is not mislabeled as an already selected question.",
+    "Normal filter changes and confirmed question links also retain the non-empty filter scope in the URL."
   ],
   "limitations": [
     "The imported real bank currently contains only ready items, so needs_review and invalid visibility is proven with component/service fixtures rather than real imported records.",

@@ -208,6 +208,9 @@ export function ReportPage({ username }: { username: string }) {
         }
       : null,
   );
+  const primaryAction = nextAction.kind === 'reassess'
+    ? { href: '/history', label: '回到学习历史' }
+    : { href: nextAction.href, label: nextAction.label };
 
   return (
     <main className="report-page">
@@ -224,6 +227,23 @@ export function ReportPage({ username }: { username: string }) {
           <small>已保留 {report.attempts.length} 次独立检验记录；可逐次对照首次计划、最终答案和当次判定。</small>
         ) : null}
       </section>
+
+      <nav
+        className="report-next-shortcut"
+        data-action={nextAction.kind}
+        aria-label="报告下一步快捷入口"
+      >
+        <div>
+          <span>NEXT / 下一步</span>
+          <strong>{nextAction.title}</strong>
+        </div>
+        <Link
+          to={primaryAction.href}
+          aria-label="快捷继续下一步"
+        >
+          现在继续 <span aria-hidden="true">→</span>
+        </Link>
+      </nav>
 
       {hasAttemptHistory ? (
         <section className="report-attempt-history" aria-labelledby="report-attempt-history-title">
@@ -360,11 +380,7 @@ export function ReportPage({ username }: { username: string }) {
             <p className="report-next-action-basis">下一步始终依据最近一次检验，切换记录只用于对照。</p>
           ) : null}
           <div className="report-actions">
-            {nextAction.kind === 'reassess' ? (
-              <Link className="primary" to="/history">回到学习历史</Link>
-            ) : (
-              <Link className="primary" to={nextAction.href}>{nextAction.label}</Link>
-            )}
+            <Link className="primary" to={primaryAction.href}>{primaryAction.label}</Link>
             {nextAction.kind === 'reassess' ? (
               <Link to={nextAction.href}>{nextAction.label}</Link>
             ) : (

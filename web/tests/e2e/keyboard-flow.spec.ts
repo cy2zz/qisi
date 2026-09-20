@@ -291,6 +291,14 @@ test('@A09 @AT56 keyboard and narrow-screen users can finish the learning eviden
     'href',
     '/learn/12/check?intent=reassess',
   );
+  const reportShortcut = page.getByRole('navigation', { name: '报告下一步快捷入口' });
+  if (testInfo.project.name.startsWith('h5-')) {
+    await expect(reportShortcut).toBeVisible();
+    await expect(reportShortcut.getByRole('link', { name: '快捷继续下一步' }))
+      .toHaveAttribute('href', '/history');
+  } else {
+    await expect(reportShortcut).toBeHidden();
+  }
   await expect(page.getByText(/\d+%/)).toHaveCount(0);
   await expect.poll(async () => page.evaluate(
     () => document.documentElement.scrollWidth <= document.documentElement.clientWidth,

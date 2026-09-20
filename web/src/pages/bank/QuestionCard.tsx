@@ -15,6 +15,7 @@ export interface BankQuestion {
 type StemState = 'error' | 'fallback' | 'loading' | 'missing' | 'ready';
 
 interface QuestionCardProps {
+  anchorId?: string;
   footerNote?: string;
   highlighted?: boolean;
   onSelect: (question: BankQuestion) => void;
@@ -66,6 +67,7 @@ const stateLabels: Record<StemState, string> = {
 };
 
 export function QuestionCard({
+  anchorId,
   footerNote,
   highlighted = false,
   onSelect,
@@ -95,11 +97,13 @@ export function QuestionCard({
 
   return (
     <article
+      id={anchorId}
       aria-label={label}
       data-bank-status={question.status}
       data-random-target={highlighted || undefined}
       data-selected={selected || undefined}
       data-stem-state={stemState}
+      tabIndex={anchorId ? -1 : undefined}
     >
       <header>
         <span className="paper-picker-question-number">{question.number ?? '—'}</span>

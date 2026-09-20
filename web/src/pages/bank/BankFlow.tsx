@@ -58,6 +58,7 @@ interface ConversationMessage {
   recognitionUncertain?: string[];
   remediationFocus?: RemediationFocus;
   role: 'guide' | 'student';
+  routeAttribution?: 'student' | 'coauthored';
   state?: 'analysis' | 'error' | 'loading' | 'reply' | 'reply-loading' | 'text';
 }
 
@@ -131,6 +132,10 @@ const remediationFocusDetails: Record<RemediationFocus, {
 
 function isRemediationFocus(value: unknown): value is RemediationFocus {
   return value === 'method' || value === 'execution' || value === 'evidence';
+}
+
+function isRouteAttribution(value: unknown): value is 'student' | 'coauthored' {
+  return value === 'student' || value === 'coauthored';
 }
 
 function countStudentWorkLines(content: string) {
@@ -537,6 +542,7 @@ export function BankPage({ username }: StudentPageProps) {
           metadata?: {
             currentVerdict?: 'correct' | 'incorrect' | 'unknown';
             remediationFocus?: unknown;
+            routeAttribution?: unknown;
           };
           messageType: string;
           role: 'guide' | 'student';
@@ -565,6 +571,9 @@ export function BankPage({ username }: StudentPageProps) {
                 ? message.metadata.remediationFocus
                 : undefined,
               role: message.role,
+              routeAttribution: isRouteAttribution(message.metadata?.routeAttribution)
+                ? message.metadata.routeAttribution
+                : undefined,
               state: 'reply',
             },
       );
@@ -887,6 +896,7 @@ export function BankPage({ username }: StudentPageProps) {
                   ...message,
                   content: checkedReply,
                   ...(event.currentVerdict ? { currentVerdict: event.currentVerdict } : {}),
+                  ...(event.routeAttribution ? { routeAttribution: event.routeAttribution } : {}),
                   state: 'reply',
                 };
               }
@@ -1542,6 +1552,18 @@ export function BankPage({ username }: StudentPageProps) {
                             aria-label={`修正类型：${remediationFocusDetails[message.remediationFocus].activeLabel}`}
                           >
                             {remediationFocusDetails[message.remediationFocus].activeLabel}
+                          </span>
+                        )}
+                      {message.role === 'guide'
+                        && message.routeAttribution
+                        && message.state === 'reply' && (
+                          <span
+                            className="chat-message-mode chat-message-route"
+                            aria-label={message.routeAttribution === 'student'
+                              ? '路线归属：沿用你的解法'
+                              : '路线归属：共同补全'}
+                          >
+                            {message.routeAttribution === 'student' ? '沿你的路线' : '共同补全'}
                           </span>
                         )}
                       {message.role === 'guide'

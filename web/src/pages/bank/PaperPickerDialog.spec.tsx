@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { PaperPickerDialog } from './PaperPickerDialog';
 
@@ -139,7 +139,40 @@ describe('PaperPickerDialog', () => {
     const question = await screen.findByRole('article', { name: '第 1 题' });
     expect(question).toHaveAttribute('data-random-target', 'true');
     expect(question).toHaveTextContent('随机抽中');
+    await waitFor(() => expect(question).toHaveFocus());
     expect(onSelect).not.toHaveBeenCalled();
+  });
+
+  it('jumps directly to a question from the dialog number navigator', async () => {
+    const secondQuestion = {
+      ...paperDetail.questions[0],
+      id: '802',
+      number: 2,
+      questionCode: '2024北京#02',
+      questionImageUrl: null,
+      statementMarkdown: '第二题题干',
+    };
+    vi.spyOn(globalThis, 'fetch').mockImplementation((input) => {
+      const url = String(input);
+      const body = url === '/api/bank/filters'
+        ? filters
+        : url === '/api/bank/papers/41'
+          ? { ...paperDetail, questions: [...paperDetail.questions, secondQuestion] }
+          : { papers: [paperSummary], scope, total: 1 };
+      return Promise.resolve(new Response(JSON.stringify(body), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      }));
+    });
+    render(<PaperPickerDialog open onClose={vi.fn()} onSelect={vi.fn()} />);
+
+    const navigator = await screen.findByRole('navigation', { name: '题号导航' });
+    expect(within(navigator).getAllByRole('button')).toHaveLength(2);
+    const secondQuestionButton = within(navigator).getByRole('button', { name: '跳到第 2 题' });
+    fireEvent.click(secondQuestionButton);
+
+    expect(await screen.findByRole('article', { name: '第 2 题' })).toHaveFocus();
+    expect(secondQuestionButton).toHaveAttribute('aria-current', 'location');
   });
 
   it('keeps keyboard focus inside the dialog and restores the opener', async () => {

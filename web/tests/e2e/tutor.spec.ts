@@ -497,6 +497,94 @@ test('@B03 guarded learning flow keeps every core action reachable', async ({ pa
   }
 });
 
+test('@B05 keeps a checked student route attributed after refresh', async ({ page }) => {
+  let committed = false;
+  const record = {
+    content: String.raw`已知 $f(x)=x+\frac1x$，$x>0$，讨论单调性并求最小值。`,
+    id: '12',
+    problemMd: String.raw`已知 $f(x)=x+\frac1x$，$x>0$，讨论单调性并求最小值。`,
+    title: '函数单调性与最值',
+    topic: '函数 · 基本不等式',
+    updatedAt: '2026-09-20T06:30:00.000Z',
+    version: 2,
+  };
+
+  await page.route('**/api/learning/sessions', async (route) => {
+    await route.fulfill({
+      body: JSON.stringify({ sessions: committed ? [record] : [] }),
+      contentType: 'application/json',
+      status: 200,
+    });
+  });
+  await page.route('**/api/learning/sessions/12', async (route) => {
+    await route.fulfill({
+      body: JSON.stringify({
+        analysis: {
+          firstQuestion: '你准备怎样分别处理最值和单调性？',
+          keyConditions: ['$x>0$'],
+          knowledgePoints: ['基本不等式', '导数'],
+          overview: '这道题包含最值与单调性两个目标。',
+          target: '讨论单调性并求最小值。',
+        },
+        messages: [
+          {
+            content: '这道题包含最值与单调性两个目标。',
+            id: '1',
+            messageType: 'analysis',
+            role: 'guide',
+          },
+          {
+            content: '我用均值不等式得到最小值为 2，$x=1$ 时取等。',
+            id: '2',
+            messageType: 'student_attempt',
+            role: 'student',
+          },
+          {
+            assistanceMode: 'attempt',
+            content: '你的最值路线成立；单调性还需要单独补充。',
+            id: '3',
+            messageType: 'guide_reply',
+            metadata: { routeAttribution: 'student' },
+            role: 'guide',
+          },
+        ],
+        record,
+      }),
+      contentType: 'application/json',
+      status: 200,
+    });
+  });
+  await page.route('**/api/problems/chat', async (route) => {
+    committed = true;
+    await route.fulfill({
+      body: [
+        'event: status\ndata: {"message":"正在核对你提出的不同解法"}',
+        'event: chunk\ndata: {"text":"你的最值路线成立；单调性还需要单独补充。"}',
+        'event: done\ndata: {"routeAttribution":"student","version":2}',
+        '',
+      ].join('\n\n'),
+      contentType: 'text/event-stream',
+      status: 200,
+    });
+  });
+
+  await page.goto('/study');
+  const editor = page.getByRole('textbox', { name: '输入题目或想法' });
+  await editor.fill(record.content);
+  await page.getByRole('button', { name: '发送' }).click();
+  await expect(page.getByRole('heading', { name: '题目分析' })).toBeVisible();
+
+  await editor.fill('我用均值不等式得到最小值为 2，x=1 时取等。');
+  await page.getByRole('button', { name: '发送' }).click();
+  await expect(page.getByLabel('路线归属：沿用你的解法')).toHaveText('沿你的路线');
+  await expect(editor).toBeFocused();
+
+  await page.reload();
+  await expect(page.getByLabel('路线归属：沿用你的解法')).toHaveText('沿你的路线');
+  await expect(page.getByText('你的最值路线成立；单调性还需要单独补充。')).toBeVisible();
+  await expect(editor).toBeFocused();
+});
+
 test('@B03 a long checked reply can be stopped without losing the student turn', async ({ page }, testInfo) => {
   let releaseRequest: (() => void) | undefined;
   let markRequestStarted: (() => void) | undefined;

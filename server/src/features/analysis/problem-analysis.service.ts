@@ -50,6 +50,7 @@ type ProblemChatInput = Pick<
 export interface TutorTeachingState {
   exposures: Exposure[];
   probesShownByGoal: Record<string, number>;
+  routePatches?: RoutePatch[];
 }
 
 export interface TutorTurnAudit {
@@ -62,7 +63,10 @@ export interface TutorTurnAudit {
   wholeTaskDisclosed: boolean;
 }
 
-export type TutorTurnResult = ProblemChatResponse & { audit?: TutorTurnAudit };
+export type TutorTurnResult = ProblemChatResponse & {
+  audit?: TutorTurnAudit;
+  routePatch?: RoutePatch;
+};
 
 export type TutorTurnPhase = 'diagnosing' | 'reviewing-route' | 'planning' | 'rendering' | 'guarding';
 export type TutorNodeKey =
@@ -283,16 +287,25 @@ function problemForRouteReview(
   };
 }
 
-function routePatchIsUsable(
+function routePatchStructureIsUsable(
   patch: RoutePatch,
-  guard: GuardResult,
   taskId: string,
   existingDecisions: Decision[],
 ) {
+  const hasValidStudentSubroute = patch.new_routes.some((route) => (
+    route.source === 'student' && route.math_status === 'valid'
+  ));
+  // RoutePatch.math_status may describe the completeness of the student's
+  // whole answer. A competition-style alternative can be locally valid (for
+  // example AM-GM proves the minimum) while another requested goal remains
+  // unanswered (for example monotonicity). Preserve that checked student
+  // subroute instead of discarding it merely because the full answer is still
+  // incomplete. Unknown or mathematically invalid subroutes remain blocked.
+  const hasUsableMathStatus = patch.math_status === 'valid'
+    || (patch.math_status === 'invalid' && hasValidStudentSubroute);
   if (
-    guard.verdict !== 'accept'
-    || patch.task_id !== taskId
-    || patch.math_status !== 'valid'
+    patch.task_id !== taskId
+    || !hasUsableMathStatus
     || patch.blocking_issues.length > 0
     || patch.new_routes.length === 0
     || !patch.verification.some((item) => item.status === 'pass')
@@ -326,6 +339,16 @@ function routePatchIsUsable(
     return false;
   }
   return ![...newIds].some(hasCycle);
+}
+
+function routePatchIsUsable(
+  patch: RoutePatch,
+  guard: GuardResult,
+  taskId: string,
+  existingDecisions: Decision[],
+) {
+  return guard.verdict === 'accept'
+    && routePatchStructureIsUsable(patch, taskId, existingDecisions);
 }
 
 function strategyMatchesRequestedDepth(mode: AssistanceMode, strategy: Strategy) {
@@ -416,8 +439,15 @@ export class ProblemAnalysisService {
         )
       : null;
     const fallbackRoute = buildTeachingRoute(taskId, input.analysis);
-    const decisions = preparedPacket?.decisions ?? fallbackRoute.decisions;
-    const routes = preparedPacket?.routes ?? fallbackRoute.routes;
+    let decisions = preparedPacket?.decisions ?? fallbackRoute.decisions;
+    let routes = preparedPacket?.routes ?? fallbackRoute.routes;
+    const restoredRoutePatches: RoutePatch[] = [];
+    for (const patch of input.teachingState.routePatches ?? []) {
+      if (!routePatchStructureIsUsable(patch, taskId, decisions)) continue;
+      decisions = [...decisions, ...patch.new_decisions];
+      routes = [...routes, ...patch.new_routes];
+      restoredRoutePatches.push(patch);
+    }
     const privateReference = preparedPacket?.reference_md.trim() || [
       `题目：${input.problemMd}`,
       `初步分析（未替代正式参考答案）：${input.analysis.overview}`,
@@ -520,7 +550,7 @@ export class ProblemAnalysisService {
       private_reference_md: privateReference,
       remaining_calls: diagnosis.route_review_needed ? 1 : 3,
       remaining_probes: Math.max(0, 2 - diagnosisFocusProbeCount),
-      route_patch: reviewedRoutePatch,
+      route_patch: reviewedRoutePatch ?? restoredRoutePatches.at(-1) ?? null,
       user_action: [
         ASSISTANCE_MODE_POLICIES[input.assistanceMode],
         ...(input.remediationFocus
@@ -645,6 +675,14 @@ export class ProblemAnalysisService {
           }
         : {}),
       reply: rendered.text_md,
+      ...(reviewedRoutePatch
+        ? {
+            routePatch: reviewedRoutePatch,
+            routeAttribution: reviewedRoutePatch.new_routes.some((route) => route.source === 'student')
+              ? 'student' as const
+              : 'coauthored' as const,
+          }
+        : {}),
     };
   }
 

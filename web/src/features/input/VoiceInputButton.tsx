@@ -34,6 +34,8 @@ interface VoiceInputButtonProps {
 }
 
 const MAX_RECORDING_MS = 60_000;
+const REALTIME_CONNECT_TIMEOUT_MS = 10_000;
+const REALTIME_RESULT_TIMEOUT_MS = 30_000;
 const STREAMING_WAV_LENGTH = 0x7ffff000;
 
 function microphoneIcon(recording: boolean) {
@@ -66,8 +68,10 @@ export function VoiceInputButton({
   const captureRef = useRef<AudioCapture | null>(null);
   const lastVoiceActivityAtRef = useRef(0);
   const modeRef = useRef<VoiceMode | null>(null);
+  const realtimeConnectTimeoutRef = useRef<number | null>(null);
   const realtimeReadyRef = useRef(false);
   const realtimeRef = useRef<RealtimeSpeechSession | null>(null);
+  const realtimeResultTimeoutRef = useRef<number | null>(null);
   const queuedChunksRef = useRef<ArrayBuffer[]>([]);
   const transcriptRef = useRef('');
   const startedAtRef = useRef(0);
@@ -98,6 +102,7 @@ export function VoiceInputButton({
 
   useEffect(
     () => () => {
+      clearRealtimeTimeouts();
       void captureRef.current?.stop();
       realtimeRef.current?.close();
     },
@@ -113,7 +118,19 @@ export function VoiceInputButton({
     return () => window.clearTimeout(timer);
   }, [state]);
 
+  function clearRealtimeTimeouts() {
+    if (realtimeConnectTimeoutRef.current !== null) {
+      window.clearTimeout(realtimeConnectTimeoutRef.current);
+      realtimeConnectTimeoutRef.current = null;
+    }
+    if (realtimeResultTimeoutRef.current !== null) {
+      window.clearTimeout(realtimeResultTimeoutRef.current);
+      realtimeResultTimeoutRef.current = null;
+    }
+  }
+
   function resetResources() {
+    clearRealtimeTimeouts();
     captureRef.current = null;
     realtimeRef.current = null;
     realtimeReadyRef.current = false;
@@ -152,6 +169,8 @@ export function VoiceInputButton({
     stoppedForSilenceRef.current = false;
     const fallback = error instanceof DOMException && error.name === 'NotAllowedError'
       ? '没有麦克风权限，请在浏览器设置中允许后重试。'
+      : error instanceof DOMException && error.name === 'AbortError'
+        ? '语音识别超时，已结束录音，请重试。'
       : error instanceof Error && error.message
         ? error.message
         : '语音识别失败，请重试。';
@@ -187,14 +206,21 @@ export function VoiceInputButton({
 
       setMessage('正在连接实时识别…');
       setState('connecting');
-      realtimeRef.current = createRealtimeSpeechSession({
+      const realtimeSession = createRealtimeSpeechSession({
         onDone(text, formulaFormatted) {
+          if (modeRef.current !== 'realtime') return;
           finishWithTranscript(text || transcriptRef.current, formulaFormatted);
         },
         onError(errorMessage) {
+          if (modeRef.current !== 'realtime') return;
           fail(new Error(errorMessage));
         },
         onReady() {
+          if (modeRef.current !== 'realtime') return;
+          if (realtimeConnectTimeoutRef.current !== null) {
+            window.clearTimeout(realtimeConnectTimeoutRef.current);
+            realtimeConnectTimeoutRef.current = null;
+          }
           realtimeReadyRef.current = true;
           lastVoiceActivityAtRef.current = Date.now();
           realtimeRef.current?.sendAudio(createWavHeader(STREAMING_WAV_LENGTH));
@@ -206,10 +232,18 @@ export function VoiceInputButton({
           startedAtRef.current = Date.now();
         },
         onTranscript(text) {
+          if (modeRef.current !== 'realtime') return;
           transcriptRef.current = text;
           onInterimTranscript?.(text);
         },
       });
+      realtimeRef.current = realtimeSession;
+      if (!realtimeReadyRef.current) {
+        realtimeConnectTimeoutRef.current = window.setTimeout(() => {
+          if (modeRef.current !== 'realtime' || realtimeReadyRef.current) return;
+          fail(new Error('实时语音连接超时，已结束录音，请重试。'));
+        }, REALTIME_CONNECT_TIMEOUT_MS);
+      }
     } catch (error) {
       fail(error);
     }
@@ -242,6 +276,18 @@ export function VoiceInputButton({
         }
       } else {
         realtimeRef.current?.finish();
+        if (modeRef.current === 'realtime' && realtimeRef.current) {
+          realtimeResultTimeoutRef.current = window.setTimeout(() => {
+            if (modeRef.current !== 'realtime') return;
+            const transcript = transcriptRef.current.trim();
+            if (transcript) onTranscript(transcript);
+            fail(new Error(
+              transcript
+                ? '公式整理超时，已保留实时识别原文，请检查后重试。'
+                : '公式整理超时，没有识别到清晰语音，请重试。',
+            ));
+          }, REALTIME_RESULT_TIMEOUT_MS);
+        }
       }
     } catch (error) {
       fail(error);

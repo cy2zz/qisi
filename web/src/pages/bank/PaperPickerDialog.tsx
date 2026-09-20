@@ -2,6 +2,11 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { apiFetch } from '../../lib/api';
 import { bankStatusLabel, QuestionCard, type BankQuestion } from './QuestionCard';
 import {
+  focusQuestionAnchor,
+  QuestionNavigator,
+  questionAnchorId,
+} from './QuestionNavigator';
+import {
   type BankScope,
   RandomQuestionControl,
   type RandomQuestionSelection,
@@ -179,6 +184,14 @@ export function PaperPickerDialog({ onClose, onSelect, open }: PaperPickerDialog
     return () => controller.abort();
   }, [open, selectedPaperId, reloadKey]);
 
+  useEffect(() => {
+    if (!open || !paper || randomTarget?.paperId !== paper.id) return;
+    const frame = requestAnimationFrame(() => {
+      focusQuestionAnchor('paper-picker', randomTarget.questionId);
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [open, paper, randomTarget]);
+
   if (!open) return null;
 
   const selectedSummary = papers.find((item) => item.id === selectedPaperId);
@@ -303,29 +316,39 @@ export function PaperPickerDialog({ onClose, onSelect, open }: PaperPickerDialog
               {isPaperLoading ? (
                 <p className="paper-picker-loading" role="status">正在展开题目…</p>
               ) : paper && selectedSummary ? (
-                <ol>
-                  {paper.questions.map((question) => (
-                    <li key={question.id}>
-                      <QuestionCard
-                        question={question}
-                        highlighted={
-                          randomTarget?.paperId === paper.id
-                          && randomTarget.questionId === question.id
-                        }
-                        footerNote={
-                          randomTarget?.paperId === paper.id
-                          && randomTarget.questionId === question.id
-                            ? '从当前范围随机抽中，核对题面后再选择'
-                            : undefined
-                        }
-                        onSelect={(selectedQuestion) => onSelect({
-                          paper: selectedSummary,
-                          question: selectedQuestion,
-                        })}
-                      />
-                    </li>
-                  ))}
-                </ol>
+                <>
+                  <QuestionNavigator
+                    questions={paper.questions}
+                    targetPrefix="paper-picker"
+                    highlightedQuestionId={
+                      randomTarget?.paperId === paper.id ? randomTarget.questionId : null
+                    }
+                  />
+                  <ol>
+                    {paper.questions.map((question) => (
+                      <li key={question.id}>
+                        <QuestionCard
+                          anchorId={questionAnchorId('paper-picker', question.id)}
+                          question={question}
+                          highlighted={
+                            randomTarget?.paperId === paper.id
+                            && randomTarget.questionId === question.id
+                          }
+                          footerNote={
+                            randomTarget?.paperId === paper.id
+                            && randomTarget.questionId === question.id
+                              ? '从当前范围随机抽中，核对题面后再选择'
+                              : undefined
+                          }
+                          onSelect={(selectedQuestion) => onSelect({
+                            paper: selectedSummary,
+                            question: selectedQuestion,
+                          })}
+                        />
+                      </li>
+                    ))}
+                  </ol>
+                </>
               ) : (
                 <p className="paper-picker-empty">选择左侧试卷后，这里会显示题目。</p>
               )}
