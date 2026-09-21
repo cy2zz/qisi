@@ -2,6 +2,7 @@ import { lazy, Suspense, type FormEvent, useEffect, useState } from 'react';
 import { Link, Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { Button } from './components/ui/button';
 import { Input } from './components/ui/input';
+import { InteractiveClassroom } from './features/login/InteractiveClassroom';
 import { ApiError, apiFetch } from './lib/api';
 
 const BankPage = lazy(async () => ({
@@ -196,64 +197,7 @@ function LoginPage({
             启思记录的不只是答案对错，还有你如何开始、哪一步遇到困难，以及没有提示时能否独立完成。
           </p>
 
-          <div className="thought-track" aria-hidden="true">
-            <span className="track-line" />
-            <div className="track-item track-item-active">
-              <span>01</span>
-              <p>先写自己的想法</p>
-            </div>
-            <div className="track-item">
-              <span>02</span>
-              <p>只处理真正的卡点</p>
-            </div>
-            <div className="track-item">
-              <span>03</span>
-              <p>换一道题独立验证</p>
-            </div>
-          </div>
-
-          <figure className="math-field">
-            <figcaption className="math-field-copy">
-              <span className="math-field-index">今日数学坐标</span>
-              <strong>先观察，再推导</strong>
-              <p>从图像、变化与关键点开始，让每一笔都有依据。</p>
-              <div className="math-equation" role="img" aria-label="f 撇 x 零等于零">
-                <span aria-hidden="true">f′(x₀) = 0</span>
-              </div>
-            </figcaption>
-
-            <svg
-              className="function-sketch"
-              viewBox="0 0 300 160"
-              role="img"
-              aria-label="函数图像与切线示意"
-            >
-              <g className="graph-grid" aria-hidden="true">
-                <path d="M30 12V148M70 12V148M110 12V148M150 12V148M190 12V148M230 12V148M270 12V148" />
-                <path d="M12 28H288M12 62H288M12 96H288M12 130H288" />
-              </g>
-              <g className="graph-axis" aria-hidden="true">
-                <path d="M18 124H288" />
-                <path d="M43 148V14" />
-                <path d="m283 120 5 4-5 4M39 19l4-5 4 5" />
-              </g>
-              <path
-                className="graph-curve"
-                d="M22 116C46 112 59 98 76 70C96 37 119 30 141 55C159 76 168 102 190 106C215 111 235 86 249 58C259 38 271 29 286 28"
-                aria-hidden="true"
-              />
-              <path className="graph-tangent" d="M70 42H151" aria-hidden="true" />
-              <g className="graph-focus" aria-hidden="true">
-                <circle cx="110" cy="42" r="5" />
-                <path d="M110 42V124" />
-              </g>
-              <g className="graph-labels" aria-hidden="true">
-                <text x="253" y="47">f(x)</text>
-                <text x="116" y="142">x₀</text>
-                <text x="126" y="35">切线</text>
-              </g>
-            </svg>
-          </figure>
+          <InteractiveClassroom />
         </section>
 
         <section className="login-paper" aria-label="学生登录">

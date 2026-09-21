@@ -1,0 +1,64 @@
+{
+  "baseline": "qisi-3.1",
+  "task_id": "A01",
+  "result": "passed_self_review",
+  "executed_at": "2026-09-21T12:02:00+08:00",
+  "scope": "登录页互动数学课堂与响应式视觉体验",
+  "implementation": {
+    "renderer": "React + inline SVG + CSS",
+    "new_runtime_dependencies": [],
+    "moments": [
+      "我没跟上",
+      "我有思路",
+      "继续下一步"
+    ],
+    "auto_cycle_ms": 5200,
+    "pause_control": true,
+    "pointer_parallax": true,
+    "reduced_motion_static_mode": true,
+    "authentication_contract_changed": false,
+    "b_owner_files_changed": false
+  },
+  "commands": [
+    {
+      "command": "npm --prefix web test -- --run src/App.test.tsx -t 'meaningful mathematics context'",
+      "result": "failure_first_then_passed"
+    },
+    {
+      "command": "npx playwright test web/tests/e2e/a01.spec.ts",
+      "result": "4/4 passed"
+    },
+    {
+      "command": "npm --prefix web test",
+      "result": "24 files / 124 tests passed"
+    },
+    {
+      "command": "npm --prefix web run typecheck && npm --prefix web run lint && npm --prefix web run build",
+      "result": "passed; Vite 252 modules"
+    },
+    {
+      "command": "npx playwright test web/tests/e2e/a01.spec.ts web/tests/e2e/a02-fixture-flow.spec.ts web/tests/e2e/assessment.spec.ts web/tests/e2e/media.spec.ts web/tests/e2e/privacy.spec.ts web/tests/e2e/keyboard-flow.spec.ts",
+      "result": "84/84 passed"
+    }
+  ],
+  "responsive_projects": [
+    "pc-1440",
+    "pc-1280",
+    "h5-390",
+    "h5-360"
+  ],
+  "evidence_files": [
+    "web/src/features/login/InteractiveClassroom.tsx",
+    "web/src/App.tsx",
+    "web/src/App.test.tsx",
+    "web/src/styles.css",
+    "web/tests/e2e/a01.spec.ts",
+    "artifacts/acceptance/A01-login-classroom-pc-1440.png",
+    "artifacts/acceptance/A01-login-classroom-h5-390.png"
+  ],
+  "limitations": [
+    "The classroom is an illustrative fixture, not a real teaching session or model response.",
+    "No real student usability observation was performed.",
+    "real_student_observation: not_run"
+  ]
+}
