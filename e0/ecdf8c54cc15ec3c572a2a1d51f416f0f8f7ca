@@ -1,0 +1,69 @@
+artifacts/acceptance/A01-login-classroom.json
+  s_142b4668ab2d27::t_d4dce7a23ac8cf 1-64
+artifacts/acceptance/A01-session-expiry-fix.json
+  s_142b4668ab2d27::t_89de1a43eb8a38 1-604
+qisi-sdd-v3/changes/A01.md
+  s_142b4668ab2d27::t_6f02033a2a8ec5 114-202
+qisi-sdd-v3/handoffs/A01.md
+  s_142b4668ab2d27::t_8f18483bd09635 88-99,110-129
+server/db/assessment_tasks.sql
+  s_142b4668ab2d27::t_03b1aba6a202d4 23-30
+server/db/check_attempts.sql
+  s_142b4668ab2d27::t_40a685354d02ea 32-39
+server/db/learning_drafts.sql
+  s_142b4668ab2d27::t_b1f3c9451599f1 13-20
+server/db/media.sql
+  s_142b4668ab2d27::t_5097006d19506c 19-26
+server/db/node_runs.sql
+  s_142b4668ab2d27::t_f11174d48b2849 20-27
+server/db/requests.sql
+  s_142b4668ab2d27::t_f96c5ab08da319 19-26
+server/db/runs.sql
+  s_142b4668ab2d27::t_efca2275b4db48 23-30
+server/db/seen_tasks.sql
+  s_142b4668ab2d27::t_397b5cb7fab8dd 18-25
+server/db/sessions.sql
+  s_142b4668ab2d27::t_9ed0d58fef83ed 23-30
+server/db/transcripts.sql
+  s_142b4668ab2d27::t_2d3f6dee5c8bdb 19-26
+server/src/database/database.factory.spec.ts
+  s_142b4668ab2d27::t_3a9a287c83e9a5 1,38
+server/src/database/sql-migration.provider.spec.ts
+  s_142b4668ab2d27::t_7b7443ac423633 4-5,8-21,48,200-287
+server/src/database/sql-migration.provider.ts
+  s_142b4668ab2d27::t_11a4a7c30f0f96 7,27-37,63-79,81,83-86,89-101
+server/test/database/timestamp-migrations.e2e-spec.ts
+  s_142b4668ab2d27::t_6e37707216bcfb 1-180
+web/package-lock.json
+  s_142b4668ab2d27::t_6a74ac45ad9593 21-22,4987-4992
+web/package.json
+  s_142b4668ab2d27::t_7e87deacae8798 29-30
+web/src/App.test.tsx
+  s_142b4668ab2d27::t_076c8d39eea0c7 1,485-499
+web/src/App.tsx
+  s_142b4668ab2d27::t_f56510fe3d2bce 5,200
+web/src/features/login/InteractiveClassroom.tsx
+  s_142b4668ab2d27::t_e6b23e1474bc66 1-219
+web/src/features/login/OneToOneClassroom3D.tsx
+  s_142b4668ab2d27::t_8d28fd96b8b657 1-518
+web/src/styles.css
+  s_142b4668ab2d27::t_acdd252f30c9b8 118-119,122,127,142,162,168-170,172-173,175,177-178,181,183,186-188,190,193,195,197-203,206-209,212,216,218-319,321-334,336-352,354-355,357-358,360-363,365-372,375-395,4387-4389,4772-4773,4779-4793,4795
+web/tests/e2e/a01.spec.ts
+  s_142b4668ab2d27::t_5f0b78ae39aaa0 14-40,46-55
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "e0ecdf8c54cc15ec3c572a2a1d51f416f0f8f7ca",
+  "prompts": {},
+  "sessions": {
+    "s_142b4668ab2d27": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0bd99-a08c-7de0-918a-b07ee54ef41c",
+        "model": "gpt-6-astra-ga"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    }
+  }
+}
