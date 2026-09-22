@@ -1,0 +1,604 @@
+{
+  "task": "A01",
+  "baseline": "qisi-3.1",
+  "date": "2026-09-22",
+  "workspace": "D:/math/develop/qisi-dashboard",
+  "status": "applied_verified",
+  "runtimeProcessEnvironmentVerified": false,
+  "scope": "10 same-cause business timestamp columns; column attributes only; all SQL in server/db; no business-row updates",
+  "sqlSha256": "4d19dfab369c8e6418053a7dfad1a9b63c496e8de5c8492cd0b8845233ecf524",
+  "runtimeBefore": {
+    "version": "8.4.7",
+    "timestampDefaults": 0,
+    "lockWaitTimeout": 31536000
+  },
+  "preflightAttempt": {
+    "status": "failed",
+    "errorCode": "UNEXPECTED_PENDING_MIGRATIONS",
+    "pending": [
+      "users",
+      "v2_001_paper",
+      "v2_002_question",
+      "v2_003_paper_question",
+      "v3_001_sessions",
+      "v3_002_requests",
+      "v3_003_runs",
+      "v3_004_node_runs",
+      "v3_005_learning_messages",
+      "v3_006_events",
+      "v3_007_assessment_tasks",
+      "v3_008_seen_tasks",
+      "v3_009_check_attempts",
+      "v3_010_owner_privacy_state",
+      "v3_011_packets",
+      "v3_012_learning_drafts",
+      "v3_013_media",
+      "v3_014_transcripts",
+      "v3_015_probe_counters",
+      "v3_016_sessions_expiry"
+    ]
+  },
+  "executionMode": "targeted provider.up only; migration baseline absent, no CREATE and no fabricated migration history",
+  "columnsBefore": [
+    {
+      "name": "db_create_time",
+      "dataType": "timestamp",
+      "nullable": "NO",
+      "defaultValue": "CURRENT_TIMESTAMP",
+      "extra": "DEFAULT_GENERATED"
+    },
+    {
+      "name": "db_update_time",
+      "dataType": "timestamp",
+      "nullable": "NO",
+      "defaultValue": "CURRENT_TIMESTAMP",
+      "extra": "DEFAULT_GENERATED on update CURRENT_TIMESTAMP"
+    },
+    {
+      "name": "expires_at",
+      "dataType": "timestamp",
+      "nullable": "NO",
+      "defaultValue": "CURRENT_TIMESTAMP",
+      "extra": "DEFAULT_GENERATED on update CURRENT_TIMESTAMP"
+    }
+  ],
+  "sessionsBefore": {
+    "representation": "raw session identifiers/timestamps omitted from Git evidence",
+    "rowCount": 2,
+    "sha256": "818f0268ed3e2a5181ed4eb27bb80223c48b8402237ffe7294a668d840ae4882"
+  },
+  "columnsAfter": [
+    {
+      "name": "db_create_time",
+      "dataType": "timestamp",
+      "nullable": "NO",
+      "defaultValue": "CURRENT_TIMESTAMP",
+      "extra": "DEFAULT_GENERATED"
+    },
+    {
+      "name": "db_update_time",
+      "dataType": "timestamp",
+      "nullable": "NO",
+      "defaultValue": "CURRENT_TIMESTAMP",
+      "extra": "DEFAULT_GENERATED on update CURRENT_TIMESTAMP"
+    },
+    {
+      "name": "expires_at",
+      "dataType": "timestamp",
+      "nullable": "NO",
+      "defaultValue": null,
+      "extra": ""
+    }
+  ],
+  "sessionsAfter": {
+    "representation": "raw session identifiers/timestamps omitted from Git evidence",
+    "rowCount": 2,
+    "sha256": "818f0268ed3e2a5181ed4eb27bb80223c48b8402237ffe7294a668d840ae4882"
+  },
+  "targetSessionsUnchanged": true,
+  "remainingAutomaticBusinessTimestamps": [],
+  "runtimeAfter": {
+    "timestampDefaults": 0
+  },
+  "relatedColumnRepair": {
+    "status": "applied_verified",
+    "startedAt": "2026-09-22T04:01:53.698Z",
+    "scope": "nine same-cause business timestamp attributes; no business DML and no migration-history backfill",
+    "results": [
+      {
+        "migrationName": "v3_017_requests_expiry",
+        "tableName": "requests",
+        "columnName": "expires_at",
+        "before": {
+          "type": "timestamp",
+          "nullable": "NO",
+          "defaultValue": "CURRENT_TIMESTAMP",
+          "extra": "DEFAULT_GENERATED on update CURRENT_TIMESTAMP",
+          "comment": "请求记录到期时间"
+        },
+        "sqlSha256": "88f471c481f041e234c7ab8278de247a51bedde268682ad4caa9e7ad67c86171",
+        "valuesBefore": {
+          "rowCount": 5,
+          "sha256": "02e72b991db5fafb87b81acaf93385a3d484282a6b127911ca3ce6d238eab4d4"
+        },
+        "status": "applied_verified",
+        "after": {
+          "type": "timestamp",
+          "nullable": "NO",
+          "defaultValue": null,
+          "extra": "",
+          "comment": "请求记录到期时间"
+        },
+        "valuesAfter": {
+          "rowCount": 5,
+          "sha256": "02e72b991db5fafb87b81acaf93385a3d484282a6b127911ca3ce6d238eab4d4"
+        },
+        "valuesUnchanged": true
+      },
+      {
+        "migrationName": "v3_018_runs_deadline",
+        "tableName": "runs",
+        "columnName": "deadline_at",
+        "before": {
+          "type": "timestamp",
+          "nullable": "NO",
+          "defaultValue": "CURRENT_TIMESTAMP",
+          "extra": "DEFAULT_GENERATED on update CURRENT_TIMESTAMP",
+          "comment": "运行提交截止时间"
+        },
+        "sqlSha256": "e378a73921b4230365f9a086acd66f38713737356c660b2b37eaf6835e129b2a",
+        "valuesBefore": {
+          "rowCount": 5,
+          "sha256": "3a77521074eae104d804edcba522c27cd8de612ba5524a48961d634c03a26687"
+        },
+        "status": "applied_verified",
+        "after": {
+          "type": "timestamp",
+          "nullable": "NO",
+          "defaultValue": null,
+          "extra": "",
+          "comment": "运行提交截止时间"
+        },
+        "valuesAfter": {
+          "rowCount": 5,
+          "sha256": "3a77521074eae104d804edcba522c27cd8de612ba5524a48961d634c03a26687"
+        },
+        "valuesUnchanged": true
+      },
+      {
+        "migrationName": "v3_019_node_runs_started",
+        "tableName": "node_runs",
+        "columnName": "started_at",
+        "before": {
+          "type": "timestamp",
+          "nullable": "NO",
+          "defaultValue": "CURRENT_TIMESTAMP",
+          "extra": "DEFAULT_GENERATED on update CURRENT_TIMESTAMP",
+          "comment": "节点开始时间"
+        },
+        "sqlSha256": "07356b837dee403d44b0745d408c98bb602e2ba2b68d5b75bfde59ce225cb4d3",
+        "valuesBefore": {
+          "rowCount": 14,
+          "sha256": "3614796bcd1c4fa78170b2584c6bad3badc7097f58c1f69b6d9c615e9a1b2fc9"
+        },
+        "status": "applied_verified",
+        "after": {
+          "type": "timestamp",
+          "nullable": "NO",
+          "defaultValue": null,
+          "extra": "",
+          "comment": "节点开始时间"
+        },
+        "valuesAfter": {
+          "rowCount": 14,
+          "sha256": "3614796bcd1c4fa78170b2584c6bad3badc7097f58c1f69b6d9c615e9a1b2fc9"
+        },
+        "valuesUnchanged": true
+      },
+      {
+        "migrationName": "v3_020_assessment_tasks_expiry",
+        "tableName": "assessment_tasks",
+        "columnName": "expires_at",
+        "before": {
+          "type": "timestamp",
+          "nullable": "NO",
+          "defaultValue": "CURRENT_TIMESTAMP",
+          "extra": "DEFAULT_GENERATED on update CURRENT_TIMESTAMP",
+          "comment": "任务数据到期时间"
+        },
+        "sqlSha256": "1364177b8f1721a924d7d1fdebb7b1eb4d4890f779c2b4374e1e1c04218e5efb",
+        "valuesBefore": {
+          "rowCount": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "status": "applied_verified",
+        "after": {
+          "type": "timestamp",
+          "nullable": "NO",
+          "defaultValue": null,
+          "extra": "",
+          "comment": "任务数据到期时间"
+        },
+        "valuesAfter": {
+          "rowCount": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "valuesUnchanged": true
+      },
+      {
+        "migrationName": "v3_021_seen_tasks_first_seen",
+        "tableName": "seen_tasks",
+        "columnName": "first_seen_at",
+        "before": {
+          "type": "timestamp",
+          "nullable": "NO",
+          "defaultValue": "CURRENT_TIMESTAMP",
+          "extra": "DEFAULT_GENERATED on update CURRENT_TIMESTAMP",
+          "comment": "首次向该学生展示时间"
+        },
+        "sqlSha256": "1a974db91b3de8941b13f6e5fa7e119c808f2e1790693335fcd123b4bacbf111",
+        "valuesBefore": {
+          "rowCount": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "status": "applied_verified",
+        "after": {
+          "type": "timestamp",
+          "nullable": "NO",
+          "defaultValue": null,
+          "extra": "",
+          "comment": "首次向该学生展示时间"
+        },
+        "valuesAfter": {
+          "rowCount": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "valuesUnchanged": true
+      },
+      {
+        "migrationName": "v3_022_check_attempts_started",
+        "tableName": "check_attempts",
+        "columnName": "started_at",
+        "before": {
+          "type": "timestamp",
+          "nullable": "NO",
+          "defaultValue": "CURRENT_TIMESTAMP",
+          "extra": "DEFAULT_GENERATED on update CURRENT_TIMESTAMP",
+          "comment": "检验开始时间"
+        },
+        "sqlSha256": "ab1e6c3315c1f043e8a9bb14cf32f65c94d57c01d45a08799635742e4b894835",
+        "valuesBefore": {
+          "rowCount": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "status": "applied_verified",
+        "after": {
+          "type": "timestamp",
+          "nullable": "NO",
+          "defaultValue": null,
+          "extra": "",
+          "comment": "检验开始时间"
+        },
+        "valuesAfter": {
+          "rowCount": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "valuesUnchanged": true
+      },
+      {
+        "migrationName": "v3_023_learning_drafts_expiry",
+        "tableName": "learning_drafts",
+        "columnName": "expires_at",
+        "before": {
+          "type": "timestamp",
+          "nullable": "NO",
+          "defaultValue": "CURRENT_TIMESTAMP",
+          "extra": "DEFAULT_GENERATED on update CURRENT_TIMESTAMP",
+          "comment": "草稿清理时间"
+        },
+        "sqlSha256": "38bc0192c83dd020ab1315472198fb6162a41f6b9110c65d7427f7304085caf2",
+        "valuesBefore": {
+          "rowCount": 2,
+          "sha256": "d0bc1a7809169b72f56bff87a58a84ad1d32564108983b2f4a55c3c0ee17931a"
+        },
+        "status": "applied_verified",
+        "after": {
+          "type": "timestamp",
+          "nullable": "NO",
+          "defaultValue": null,
+          "extra": "",
+          "comment": "草稿清理时间"
+        },
+        "valuesAfter": {
+          "rowCount": 2,
+          "sha256": "d0bc1a7809169b72f56bff87a58a84ad1d32564108983b2f4a55c3c0ee17931a"
+        },
+        "valuesUnchanged": true
+      },
+      {
+        "migrationName": "v3_024_media_expiry",
+        "tableName": "media",
+        "columnName": "expires_at",
+        "before": {
+          "type": "timestamp",
+          "nullable": "NO",
+          "defaultValue": "CURRENT_TIMESTAMP",
+          "extra": "DEFAULT_GENERATED on update CURRENT_TIMESTAMP",
+          "comment": "原图清理时间"
+        },
+        "sqlSha256": "51acb9222efb2e0a10486f10ab297ec0958509a348aa77d58f219ce22a9f91aa",
+        "valuesBefore": {
+          "rowCount": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "status": "applied_verified",
+        "after": {
+          "type": "timestamp",
+          "nullable": "NO",
+          "defaultValue": null,
+          "extra": "",
+          "comment": "原图清理时间"
+        },
+        "valuesAfter": {
+          "rowCount": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "valuesUnchanged": true
+      },
+      {
+        "migrationName": "v3_025_transcripts_expiry",
+        "tableName": "transcripts",
+        "columnName": "expires_at",
+        "before": {
+          "type": "timestamp",
+          "nullable": "NO",
+          "defaultValue": "CURRENT_TIMESTAMP",
+          "extra": "DEFAULT_GENERATED on update CURRENT_TIMESTAMP",
+          "comment": "未确认转写清理时间"
+        },
+        "sqlSha256": "b11e4540c00563c8e291150e5ef698f72473667e7d020618eef1f6e07fc7efa9",
+        "valuesBefore": {
+          "rowCount": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "status": "applied_verified",
+        "after": {
+          "type": "timestamp",
+          "nullable": "NO",
+          "defaultValue": null,
+          "extra": "",
+          "comment": "未确认转写清理时间"
+        },
+        "valuesAfter": {
+          "rowCount": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "valuesUnchanged": true
+      }
+    ],
+    "runtimeBefore": {
+      "version": "8.4.7",
+      "lockWaitTimeout": 31536000,
+      "timestampDefaults": 0
+    },
+    "remainingAutomaticBusinessTimestamps": [],
+    "targetSessionsAfter": {
+      "representation": "raw session identifiers/timestamps omitted from Git evidence",
+      "rowCount": 2,
+      "sha256": "818f0268ed3e2a5181ed4eb27bb80223c48b8402237ffe7294a668d840ae4882"
+    },
+    "targetSessionsUnchanged": true,
+    "runtimeAfter": {
+      "timestampDefaults": 0
+    },
+    "finishedAt": "2026-09-22T04:01:54.936Z"
+  },
+  "verification": {
+    "fullServer": {
+      "command": "node node_modules/vitest/vitest.mjs run (cwd server; QISI_MYSQL_SPEC_TEST=1, isolated MySQL 8.4.7)",
+      "exitCode": 0,
+      "summary": "Test Files  54 passed (54)\n      Tests  489 passed (489)\n   Start at  12:02:39\n   Duration  26.75s (import 76%, tests 17%, transform 7%, worker 1%)",
+      "databaseVersion": "8.4.7",
+      "authentication": "caching_sha2_password with non-empty ephemeral test credential",
+      "modelMode": "synthetic checked reply; no provider/API key call"
+    },
+    "node": "v24.21.0",
+    "checks": [
+      {
+        "command": "npm --prefix server run typecheck",
+        "exitCode": 0
+      },
+      {
+        "command": "npm --prefix server run lint",
+        "exitCode": 0
+      },
+      {
+        "command": "npm --prefix server run build",
+        "exitCode": 0
+      },
+      {
+        "command": "git diff --check",
+        "exitCode": 0
+      }
+    ],
+    "failureFirst": [
+      {
+        "scope": "initial session repair",
+        "command": "npm --prefix server test -- src/database/sql-migration.provider.spec.ts",
+        "exitCode": 1,
+        "passed": 9,
+        "failed": 5,
+        "total": 14
+      },
+      {
+        "scope": "same-cause columns and Windows path",
+        "command": "npm --prefix server test -- src/database/sql-migration.provider.spec.ts src/database/database.factory.spec.ts",
+        "exitCode": 1,
+        "passed": 14,
+        "failed": 11,
+        "skipped": 2,
+        "total": 27
+      }
+    ],
+    "targetedMysql84": {
+      "exitCode": 0,
+      "files": 3,
+      "passed": 27,
+      "failed": 0,
+      "skipped": 0
+    },
+    "earlierMysql80": {
+      "version": "8.0.26",
+      "exitCode": 0,
+      "passed": 16,
+      "scope": "initial session-only repair"
+    },
+    "acceptance": {
+      "AT01": "partial: session API persistence/reload slice",
+      "ST02": "partial: fresh/upgrade/repeat/real authentication slice; full checksum/fault matrix not run",
+      "webUI": "not_run",
+      "realModel": "not_run",
+      "humanTeachingEvaluation": "not_run"
+    }
+  },
+  "sessionRepairScope": "sessions.expires_at column-only forward migration; no model calls or business-row updates",
+  "remainingAutomaticBusinessTimestampsAfterSessionOnly": [
+    {
+      "tableName": "assessment_tasks",
+      "columnName": "expires_at"
+    },
+    {
+      "tableName": "check_attempts",
+      "columnName": "started_at"
+    },
+    {
+      "tableName": "learning_drafts",
+      "columnName": "expires_at"
+    },
+    {
+      "tableName": "media",
+      "columnName": "expires_at"
+    },
+    {
+      "tableName": "node_runs",
+      "columnName": "started_at"
+    },
+    {
+      "tableName": "requests",
+      "columnName": "expires_at"
+    },
+    {
+      "tableName": "runs",
+      "columnName": "deadline_at"
+    },
+    {
+      "tableName": "seen_tasks",
+      "columnName": "first_seen_at"
+    },
+    {
+      "tableName": "transcripts",
+      "columnName": "expires_at"
+    }
+  ],
+  "migrationHistory": {
+    "state": "uninitialized_existing_schema",
+    "action": "not_backfilled",
+    "execution": "targeted provider.up only",
+    "normalMigrateToLatestSafe": false
+  },
+  "sourceFiles": [
+    "server/db/sessions.sql",
+    "server/db/requests.sql",
+    "server/db/runs.sql",
+    "server/db/node_runs.sql",
+    "server/db/assessment_tasks.sql",
+    "server/db/seen_tasks.sql",
+    "server/db/check_attempts.sql",
+    "server/db/learning_drafts.sql",
+    "server/db/media.sql",
+    "server/db/transcripts.sql",
+    "server/src/database/sql-migration.provider.ts",
+    "server/src/database/sql-migration.provider.spec.ts",
+    "server/src/database/database.factory.spec.ts",
+    "server/test/database/timestamp-migrations.e2e-spec.ts",
+    "qisi-sdd-v3/changes/A01.md",
+    "qisi-sdd-v3/handoffs/A01.md",
+    "artifacts/acceptance/A01-session-expiry-fix.json"
+  ],
+  "sourceSha256": {
+    "server/db/sessions.sql": "88d1a6939880f434e5522c032f174d1970d9c81cc9544312107bff57be1c3182",
+    "server/db/requests.sql": "258bddd458118a622f917a66f55677d50fc8e2b39e2d9e14e727ecfe25f87755",
+    "server/db/runs.sql": "71ca86a4caecf6bb6e544d8b903236a4deb8205e968e871c3a6b599b784396db",
+    "server/db/node_runs.sql": "77b40bdc7f7c6bfe2bdc556727ba4619ffea42b559263e70370da3b165c8131c",
+    "server/db/assessment_tasks.sql": "33657e201bc6723e8f860559cd41480c89e12da83971fcfac24cccd38aac13f9",
+    "server/db/seen_tasks.sql": "737662f3748ac7440425db45b66e9cd01f23321c8eb1874ec144cd417969caf6",
+    "server/db/check_attempts.sql": "19da26ad628faceaff5bd570c8be20b22196b6d0fc998330d9ae5a6d31f08c44",
+    "server/db/learning_drafts.sql": "4367f122b3ac82c96c7146f009ed87f77a2d8b45c8e363807acc4ee63e9e787e",
+    "server/db/media.sql": "295fc6c3e06b333ce8a92c8ac6e6154a147560620d10386a3704ae14429b2393",
+    "server/db/transcripts.sql": "3761f829012573532e71700a99ef1dd32bd949c7edba935f25def7254b919edb",
+    "server/src/database/sql-migration.provider.ts": "078b1e90581369958132596516451d8d2d16ee6ede90c98b86902395f1e6ec31",
+    "server/src/database/sql-migration.provider.spec.ts": "179acdfb44ba8e3d14c5313c57f5863b0610193dac8749143af47b7efd8b0f4c",
+    "server/src/database/database.factory.spec.ts": "2d25d1ad9291ab554a712b61f72e7e821471bf631eef8178011f1dfa7aa6d149",
+    "server/test/database/timestamp-migrations.e2e-spec.ts": "7a1a365664bee08fc0e49bd1449f090670b425893a2ce57bee36b897644c8ba6"
+  },
+  "review": {
+    "type": "self_review",
+    "independentReview": "not_run",
+    "taskStateUpdated": false
+  },
+  "git": {
+    "workspace": "D:/math/develop/qisi-dashboard",
+    "branch": "develop",
+    "committed": false,
+    "pushed": false,
+    "merged": false,
+    "otherChangesPreserved": [
+      "README.md",
+      "package-lock.json",
+      "D:/math/qisi-dashboard worktree"
+    ],
+    "recordPhase": "pre_commit_snapshot",
+    "asOf": "2026-09-22",
+    "pushAuthorized": true,
+    "pushTarget": "origin/develop",
+    "note": "Commit/push results must be read from Git history and delivery report; not predeclared successful in this evidence snapshot"
+  },
+  "testRuntime": {
+    "mysql": "8.4.7",
+    "source": "Oracle official CDN archive",
+    "authenticode": "Valid: Oracle America, Inc.",
+    "archiveSha256": "FD9BDBD4B5A878D31C8E4067078BD60665B1B3C4677FA1F099416D194B458AFF",
+    "listening": false,
+    "appProcessesUntouched": [
+      19980,
+      21276
+    ],
+    "temporaryDirectory": "C:/Users/wangchaoya/AppData/Local/Temp/qisi-expiry-mysql84-20260922",
+    "temporaryDirectoryCleanup": "blocked_by_tool_policy; files retained; no alternative deletion attempted"
+  },
+  "redaction": {
+    "date": "2026-09-22",
+    "scope": "Only row counts, comparison results and fingerprints retained for actual session records; no raw session timestamp snapshots committed"
+  },
+  "testedWorktreeSourceSha256": {
+    "server/db/sessions.sql": "4d19dfab369c8e6418053a7dfad1a9b63c496e8de5c8492cd0b8845233ecf524",
+    "server/db/requests.sql": "88f471c481f041e234c7ab8278de247a51bedde268682ad4caa9e7ad67c86171",
+    "server/db/runs.sql": "e378a73921b4230365f9a086acd66f38713737356c660b2b37eaf6835e129b2a",
+    "server/db/node_runs.sql": "07356b837dee403d44b0745d408c98bb602e2ba2b68d5b75bfde59ce225cb4d3",
+    "server/db/assessment_tasks.sql": "1364177b8f1721a924d7d1fdebb7b1eb4d4890f779c2b4374e1e1c04218e5efb",
+    "server/db/seen_tasks.sql": "1a974db91b3de8941b13f6e5fa7e119c808f2e1790693335fcd123b4bacbf111",
+    "server/db/check_attempts.sql": "ab1e6c3315c1f043e8a9bb14cf32f65c94d57c01d45a08799635742e4b894835",
+    "server/db/learning_drafts.sql": "38bc0192c83dd020ab1315472198fb6162a41f6b9110c65d7427f7304085caf2",
+    "server/db/media.sql": "51acb9222efb2e0a10486f10ab297ec0958509a348aa77d58f219ce22a9f91aa",
+    "server/db/transcripts.sql": "b11e4540c00563c8e291150e5ef698f72473667e7d020618eef1f6e07fc7efa9",
+    "server/src/database/sql-migration.provider.ts": "2ceec995f799094deee3b760788ceea95450821e45c0c78e7739dc503a8e988d",
+    "server/src/database/sql-migration.provider.spec.ts": "e5f492073607ffa482777e5c9bbbba9e2829db0cb5192b210ab0c136fb474cdf",
+    "server/src/database/database.factory.spec.ts": "8215d82f72b8e5b188a372144e7c59ea06b27d911e1480c180b072669d78705b",
+    "server/test/database/timestamp-migrations.e2e-spec.ts": "cb22954f1b832b78ed284affaa21bcaa7362e2829a64f9a743da5323f09e315a"
+  },
+  "sourceSha256Normalization": "LF newline normalization for portable Git checkout verification",
+  "preCommitChecks": {
+    "whitespaceOnlyAdjustment": "Removed an extra blank line at EOF of the previously untracked real-MySQL test; test behavior unchanged",
+    "originalTestSourceSha256": "cb22954f1b832b78ed284affaa21bcaa7362e2829a64f9a743da5323f09e315a"
+  }
+}

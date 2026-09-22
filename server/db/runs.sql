@@ -20,3 +20,11 @@ CONSTRAINT `fk_runs_session` FOREIGN KEY (`session_id`) REFERENCES `sessions` (`
 CONSTRAINT `fk_runs_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
 CONSTRAINT `fk_runs_request` FOREIGN KEY (`user_id`, `request_id`) REFERENCES `requests` (`user_id`, `request_id`) ON DELETE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = '教学工作流运行表';
+
+-- migration: v3_018_runs_deadline
+-- 由 SqlMigrationProvider 在同一连接启用 explicit_defaults_for_timestamp 后执行。
+-- 仅去除隐式自动时间属性，保留所有历史业务时间值。
+ALTER TABLE `runs`
+  MODIFY COLUMN `deadline_at`      TIMESTAMP       NOT NULL COMMENT '运行提交截止时间',
+  ALGORITHM = INPLACE,
+  LOCK = NONE;

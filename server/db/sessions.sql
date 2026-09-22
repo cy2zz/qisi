@@ -20,3 +20,11 @@ PRIMARY KEY (`id`),
 KEY `idx_sessions_user_update` (`user_id`, `db_update_time`),
 CONSTRAINT `fk_sessions_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = '学生学习会话表';
+
+-- migration: v3_016_sessions_expiry
+-- 由 SqlMigrationProvider 在同一连接启用 explicit_defaults_for_timestamp 后执行。
+-- 仅修正列属性；不续期、不恢复已经过期的会话；保持历史 CREATE 迁移名称不变。
+ALTER TABLE `sessions`
+  MODIFY COLUMN `expires_at` TIMESTAMP NOT NULL COMMENT '会话数据到期时间',
+  ALGORITHM = INPLACE,
+  LOCK = NONE;

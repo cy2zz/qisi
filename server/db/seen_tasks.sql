@@ -15,3 +15,11 @@ KEY `idx_seen_tasks_user_equivalence` (`user_id`, `equivalence_group`),
 CONSTRAINT `fk_seen_tasks_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
 CONSTRAINT `fk_seen_tasks_task` FOREIGN KEY (`task_id`) REFERENCES `assessment_tasks` (`id`) ON DELETE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = '学生已见独立检验任务表';
+
+-- migration: v3_021_seen_tasks_first_seen
+-- 由 SqlMigrationProvider 在同一连接启用 explicit_defaults_for_timestamp 后执行。
+-- 仅去除隐式自动时间属性，保留所有历史业务时间值。
+ALTER TABLE `seen_tasks`
+  MODIFY COLUMN `first_seen_at`              TIMESTAMP       NOT NULL COMMENT '首次向该学生展示时间',
+  ALGORITHM = INPLACE,
+  LOCK = NONE;

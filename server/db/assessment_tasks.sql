@@ -20,3 +20,11 @@ KEY `idx_assessment_tasks_source` (`source_session_id`, `status`),
 CONSTRAINT `fk_assessment_tasks_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
 CONSTRAINT `fk_assessment_tasks_session` FOREIGN KEY (`source_session_id`) REFERENCES `sessions` (`id`) ON DELETE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = '独立检验任务表';
+
+-- migration: v3_020_assessment_tasks_expiry
+-- 由 SqlMigrationProvider 在同一连接启用 explicit_defaults_for_timestamp 后执行。
+-- 仅去除隐式自动时间属性，保留所有历史业务时间值。
+ALTER TABLE `assessment_tasks`
+  MODIFY COLUMN `expires_at`                 TIMESTAMP       NOT NULL COMMENT '任务数据到期时间',
+  ALGORITHM = INPLACE,
+  LOCK = NONE;
