@@ -29,3 +29,11 @@ CONSTRAINT `fk_check_attempts_session` FOREIGN KEY (`session_id`) REFERENCES `se
 CONSTRAINT `fk_check_attempts_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
 CONSTRAINT `fk_check_attempts_task` FOREIGN KEY (`task_id`) REFERENCES `assessment_tasks` (`id`) ON DELETE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = '独立检验首次作答表';
+
+-- migration: v3_022_check_attempts_started
+-- 由 SqlMigrationProvider 在同一连接启用 explicit_defaults_for_timestamp 后执行。
+-- 仅去除隐式自动时间属性，保留所有历史业务时间值。
+ALTER TABLE `check_attempts`
+  MODIFY COLUMN `started_at`                 TIMESTAMP       NOT NULL COMMENT '检验开始时间',
+  ALGORITHM = INPLACE,
+  LOCK = NONE;

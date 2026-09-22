@@ -17,3 +17,11 @@ PRIMARY KEY (`id`),
 UNIQUE KEY `uq_node_runs_run_node_attempt` (`run_id`, `node_key`, `attempt`),
 CONSTRAINT `fk_node_runs_run` FOREIGN KEY (`run_id`) REFERENCES `runs` (`id`) ON DELETE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = '工作流节点执行记录表';
+
+-- migration: v3_019_node_runs_started
+-- 由 SqlMigrationProvider 在同一连接启用 explicit_defaults_for_timestamp 后执行。
+-- 仅去除隐式自动时间属性，保留所有历史业务时间值。
+ALTER TABLE `node_runs`
+  MODIFY COLUMN `started_at`       TIMESTAMP       NOT NULL COMMENT '节点开始时间',
+  ALGORITHM = INPLACE,
+  LOCK = NONE;

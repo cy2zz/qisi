@@ -1,4 +1,4 @@
-import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { App } from './App';
@@ -482,9 +482,21 @@ describe('App', () => {
 
     const view = renderApp();
 
-    expect(view.getByText('今日数学坐标')).toBeInTheDocument();
-    expect(view.getByRole('img', { name: '函数图像与切线示意' })).toBeInTheDocument();
-    expect(view.getByText('先观察，再推导')).toBeInTheDocument();
+    const classroom = view.getByRole('region', { name: '互动数学课堂' });
+    expect(within(classroom).getByRole('img', {
+      name: '一对一老师在黑板辅导学生完成二次函数挑战',
+    })).toBeInTheDocument();
+    expect(within(classroom).getByRole('heading', { name: '一对一数学作战室' }))
+      .toBeInTheDocument();
+
+    const needsHelp = within(classroom).getByRole('button', { name: '我卡在这里' });
+    fireEvent.click(needsHelp);
+    expect(needsHelp).toHaveAttribute('aria-pressed', 'true');
+    expect(within(classroom).getByRole('status')).toHaveTextContent('先看为什么要配方');
+
+    fireEvent.click(within(classroom).getByRole('button', { name: '暂停课堂演示' }));
+    expect(within(classroom).getByRole('button', { name: '继续课堂演示' }))
+      .toBeInTheDocument();
   });
 
   it('starts a mathematics conversation from the paper picker and inserts formula syntax', async () => {

@@ -1,3 +1,4 @@
+import { resolve } from 'node:path';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import type { DatabaseEnvironment } from './database.factory.js';
 
@@ -34,7 +35,7 @@ describe('createDatabase', () => {
     const database = createDatabase(environment);
 
     expect(mocks.readFileSync).toHaveBeenCalledWith(
-      expect.stringMatching(/certs\/ApsaraDB-CA-Chain\.pem$/),
+      resolve(process.cwd(), 'certs/ApsaraDB-CA-Chain.pem'),
       'utf8',
     );
     expect(mocks.createPool).toHaveBeenCalledWith(
