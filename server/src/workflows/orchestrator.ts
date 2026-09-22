@@ -64,9 +64,27 @@ export interface TurnCommand {
   readonly expectedVersion: number;
   readonly diagnosisInput: unknown;
   readonly routeReviewInput: unknown | null;
-  readonly strategyInput: unknown;
-  readonly rendererInput: unknown;
-  readonly guardInput: unknown;
+  /**
+   * 策略输入由编排器在**本轮诊断产出之后**调用本函数构造。
+   *
+   * 不能让调用方预先构造好整份 StrategyInput：那会把一个旧诊断（或占位值）
+   * 塞给策略节点，而规格的链路是「确认输入 → Diagnosis → [route_review] → Strategy」
+   * （design-v6 §5.1）——策略必须基于本轮诊断。此前正是这个缺陷：turn() 把
+   * command.strategyInput 原样传给策略节点，诊断结果从未进入策略输入。
+   * 单测未暴露，是因为调用方两边都传夹具。
+   *
+   * 稳定上下文（exposures / decisions / remaining_probes / private_reference_md 等）
+   * 由调用方在闭包里捕获。
+   */
+  readonly buildStrategyInput: (diagnosis: Diagnosis) => unknown;
+  /**
+   * 表达与守卫的输入同样依赖**上游节点的产出**，不能由调用方预烘焙：
+   * RendererInput 的 action / intervention / scaffold_level 全部来自 Strategy，
+   * GuardInput 的 allowed_disclosures / reserved_decisions 也是。
+   * 与 buildStrategyInput 属同一类缺陷，一并改为产出后构造。
+   */
+  readonly buildRendererInput: (strategy: Strategy) => unknown;
+  readonly buildGuardInput: (strategy: Strategy, candidate: unknown) => unknown;
   readonly knownDecisionIds: ReadonlySet<string>;
   readonly knownGoalKeys: ReadonlySet<string>;
   readonly probesShownForFocusGoal: number;
@@ -291,13 +309,15 @@ export class WorkflowOrchestrator {
     }
 
     const strategyModel = this.#config.models.strategy;
+    // 用本轮诊断构造策略输入——见 TurnCommand.buildStrategyInput 的说明。
+    const strategyInput = command.buildStrategyInput(diagnosis);
     const strategyNode = await this.#runNode({
       runId: run.runId,
       leaseToken: run.leaseToken,
       nodeKey: 'strategy',
       model: strategyModel,
-      input: command.strategyInput,
-      execute: () => this.strategy.run(command.strategyInput as never, port, this.#callOptions(strategyModel, budget)),
+      input: strategyInput,
+      execute: () => this.strategy.run(strategyInput as never, port, this.#callOptions(strategyModel, budget)),
     });
     const strategy = strategyNode.value;
 
@@ -331,6 +351,9 @@ export class WorkflowOrchestrator {
   > {
     const rendererModel = this.#config.models.renderer;
     const guardModel = this.#config.models.guard;
+    // 表达输入依赖本轮策略（action / intervention / scaffold_level 全来自它），
+    // 因此在此构造而非由调用方预烘焙。
+    const rendererInput = command.buildRendererInput(strategy);
 
     const renderOnce = async (): Promise<RenderedMessage> => {
       const node = await this.#runNode<RenderedMessage>({
@@ -338,14 +361,15 @@ export class WorkflowOrchestrator {
         leaseToken: run.leaseToken,
         nodeKey: 'renderer',
         model: rendererModel,
-        input: command.rendererInput,
-        execute: () => this.renderer.run(command.rendererInput as never, port, this.#callOptions(rendererModel, budget)),
+        input: rendererInput,
+        execute: () => this.renderer.run(rendererInput as never, port, this.#callOptions(rendererModel, budget)),
       });
       return node.value;
     };
 
     const guardOnce = async (message: RenderedMessage): Promise<GuardResult> => {
-      const guardInput = { ...(command.guardInput as Record<string, unknown>), candidate_json: JSON.stringify(message) };
+      // 守卫输入同样依赖本轮策略（允许披露/保留决策），候选内容在提交前注入。
+      const guardInput = command.buildGuardInput(strategy, message);
       const node = await this.#runNode<GuardResult>({
         runId: run.runId,
         leaseToken: run.leaseToken,
@@ -374,8 +398,8 @@ export class WorkflowOrchestrator {
         leaseToken: run.leaseToken,
         nodeKey: 'renderer_rewrite',
         model: rendererModel,
-        input: command.rendererInput,
-        execute: () => this.renderer.run(command.rendererInput as never, port, this.#callOptions(rendererModel, budget)),
+        input: rendererInput,
+        execute: () => this.renderer.run(rendererInput as never, port, this.#callOptions(rendererModel, budget)),
       });
       message = rewriteNode.value;
       guardResult = await guardOnce(message);
