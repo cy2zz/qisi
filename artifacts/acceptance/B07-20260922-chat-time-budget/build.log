@@ -1,0 +1,4 @@
+
+> @qisi/server@0.1.0 build
+> tsc -p tsconfig.build.json --tsBuildInfoFile C:\Users\wangchaoya\AppData\Local\Temp\qisi-chat-time-budget-build-bd36fa577cbd4ebea7d3edd9c609f8bc.tsbuildinfo
+

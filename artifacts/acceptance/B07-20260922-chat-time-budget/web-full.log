@@ -1,0 +1,336 @@
+
+> @qisi/web@0.1.0 test
+> vitest run --reporter=default
+
+
+ RUN  v5.0.1 D:/math/qisi-dashboard/web
+
+ ✓ src/shared/MathMarkdown.test.tsx (10 tests) 5316ms
+   ✓ MathMarkdown (10)
+     ✓ renders Chinese Markdown with inline and block mathematics 728ms
+     ✓ renders model-style parenthesis and bracket mathematics 400ms
+     ✓ repairs bracketed LaTeX when a model drops the math delimiter backslashes 888ms
+     ✓ repairs the bare parenthesized formula variant shown in a teaching reply 1121ms
+     ✓ repairs asymmetric bracket delimiters from a teaching reply 403ms
+     ✓ does not reinterpret ordinary brackets or Markdown links as mathematics 1265ms
+ ✓ src/pages/bank/PaperPickerDialog.spec.tsx (4 tests) 5352ms
+   ✓ PaperPickerDialog (4)
+     ✓ loads the real paper bank and returns a question without exposing analysis 3714ms
+     ✓ keeps keyboard focus inside the dialog and restores the opener 557ms
+     ✓ renders a text-only question as mathematical Markdown 845ms
+ ✓ src/pages/learn/report/ReportPage.spec.tsx (8 tests) 6541ms
+   ✓ ReportPage (8)
+     ✓ shows original work, planning, execution, and remaining verification separately 3373ms
+     ✓ distinguishes an explicitly skipped plan from an unfinished final answer 309ms
+     ✓ shows an evidence-driven next action: 回学习页梳理方法 477ms
+     ✓ shows an evidence-driven next action: 回学习页处理执行卡点 440ms
+     ✓ shows an evidence-driven next action: 再测一道不同新题 360ms
+     ✓ recovers from a temporary report failure without trapping the student 887ms
+     ✓ offers safe navigation when the report no longer exists 442ms
+ ✓ src/pages/bank/PaperBankPage.spec.tsx (4 tests) 6024ms
+   ✓ PaperBankPage (4)
+     ✓ filters papers and previews question images without exposing analysis 3827ms
+     ✓ keeps the selected paper and question in the URL-backed page state 1213ms
+     ✓ renders a text-only question as mathematical Markdown 855ms
+ ✓ src/pages/history/HistoryPage.spec.tsx (5 tests) 7989ms
+   ✓ HistoryPage (5)
+     ✓ shows the student thought, disclosed help, and later independent evidence as one timeline 3283ms
+     ✓ keeps the latest record open and makes older evidence scannable before expansion 1587ms
+     ✓ uses the same next-action rule for unfinished, method, evidence, and passed attempts 1746ms
+     ✓ keeps an unchecked original problem out of independent assessment 488ms
+     ✓ recovers from a load failure without leaving the page stuck 880ms
+ ❯ src/App.test.tsx (11 tests | 5 failed) 20177ms
+   ❯ App (11)
+     × restores an existing student from the cookie 2425ms
+     × restores structured checked verdicts and keeps incorrect work out of independent assessment 1120ms
+     × restores and automatically saves the current learning draft 1676ms
+     × keeps handwriting out of teaching until its confirmed revision is submitted 1177ms
+     ✓ logs in with only a username 1491ms
+     ✓ sets the login moment in a meaningful mathematics context 152ms
+     × starts a mathematics conversation from the paper picker and inserts formula syntax 5374ms
+     ✓ returns focus to the composer after the initial analysis finishes 1649ms
+     ✓ replaces a temporary LaTeX-derived title with the persisted analysis title 912ms
+     ✓ recognizes an attached question image and starts the same analysis flow 745ms
+     ✓ streams a checked reply for each student turn 3452ms
+ ✓ src/pages/learn/check/AssessmentCheckPage.spec.tsx (16 tests) 18229ms
+   ✓ AssessmentCheckPage (16)
+     ✓ autosaves an unfinished plan and restores it after refresh without grading 3968ms
+     ✓ does not replace newer typing when an older autosave response arrives 1651ms
+     ✓ puts the caret inside formula slots and advances without making students hunt for braces 837ms
+     ✓ binds a confirmed handwriting revision to the locked assessment plan 4242ms
+     ✓ locks the first plan, withholds correctness during work, and grades only after finish 2244ms
+     ✓ shows the irreversible help boundary and saves the current draft first 1603ms
+     ✓ starts a genuinely different reassessment from the completed summary 784ms
+     ✓ routes an execution failure back to remediation before offering another test 363ms
+     ✓ routes a planning failure back to method work first 395ms
+     ✓ explains the evidence boundary when both verdicts are correct but the task is not independently passed 424ms
+     ✓ keeps the completed summary when no distinct reassessment is ready 548ms
+ ✓ src/features/speech/ReadAloud.spec.tsx (2 tests) 2876ms
+   ✓ ReadAloud (2)
+     ✓ starts only after a click and exposes working volume and mute controls 2570ms
+     ✓ moves playback to the newly selected AI reply 301ms
+ ✓ src/features/input/ImageQuestionInput.spec.tsx (2 tests) 2266ms
+   ✓ ImageQuestionInput (2)
+     ✓ recognizes a selected image and auto-submits a certain extraction 1980ms
+ ✓ src/pages/teacher/TeacherPage.test.tsx (2 tests) 2592ms
+   ✓ B06 teacher UI explicit exposure (2)
+     ✓ requires independent login plus exposure confirmation; does not put credential in trace request 2455ms
+ ✓ src/pages/bank/QuestionCard.spec.tsx (6 tests) 4097ms
+   ✓ QuestionCard (6)
+     ✓ keeps selection unavailable until the OSS question image is readable 2258ms
+     ✓ shows a compact retryable state when the question image fails 351ms
+     ✓ renders mathematical Markdown without waiting for an image 724ms
+     ✓ offers an explicit zoom mode for wide question images 451ms
+ ✓ src/features/input/HandwritingInput.spec.tsx (1 test) 3195ms
+   ✓ HandwritingInput (1)
+     ✓ keeps uncertain handwriting out of the composer until every line is reviewed 3191ms
+ ✓ src/features/input/VoiceInputButton.silence.spec.tsx (2 tests) 1255ms
+   ✓ VoiceInputButton realtime silence (2)
+     ✓ stops realtime recognition and explains prolonged silence 1194ms
+ ✓ src/pages/bank/StudySidebar.spec.tsx (1 test) 4219ms
+   ✓ StudySidebar (1)
+     ✓ moves focus inside on open and restores the trigger after Escape 4215ms
+ ✓ src/pages/bank/RichComposer.spec.tsx (7 tests) 3074ms
+   ✓ richTextToMarkdown (7)
+     ✓ updates realtime speech in place and replaces it with the final LaTeX draft 1940ms
+     ✓ replaces a manually entered draft with formatted Markdown and LaTeX 324ms
+     ✓ lets narrow-screen students reveal low-frequency text formatting on demand 397ms
+ ✓ src/features/input/MathFormatButton.spec.tsx (3 tests) 2494ms
+   ✓ MathFormatButton (3)
+     ✓ formats the current manual draft and returns Markdown with LaTeX 2052ms
+     ✓ keeps the draft and offers retry when conversion fails 310ms
+ ✓ src/pages/learn/report/assessment-next-action.spec.ts (7 tests) 16ms
+ ✓ src/features/input/image-question-client.spec.ts (2 tests) 73ms
+ ✓ src/features/input/VoiceInputButton.spec.tsx (2 tests) 1682ms
+   ✓ VoiceInputButton (2)
+     ✓ shows separate long-form and realtime voice buttons without a mode dialog 1556ms
+ ✓ src/features/input/audio-capture.spec.ts (3 tests) 90ms
+ ✓ src/features/input/voice-activity.spec.ts (2 tests) 13ms
+ ✓ src/features/input/speech-client.spec.ts (1 test) 25ms
+ ✓ src/shared/MathMarkdown.spec.tsx (1 test) 9ms
+node.exe : 
+At line:1 char:1
++ & "C:\nvm4w\nodejs/node.exe" "C:\nvm4w\nodejs/node_modules/npm/bin/np ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/App.test.tsx > App > restores an existing student from the cookie
+TestingLibraryElementError: Unable to find role="heading" and name "今天想解决哪道题？"
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+
+Ignored nodes: comments, script, style
+<html>
+  <head />
+  <body>
+    <div />
+  </body>
+</html>
+ ❯ waitForWrapper ../node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ src/App.test.tsx:77:11
+     75|     renderApp();
+     76|
+     77|     await waitFor(() => {
+       |           ^
+     78|       expect(screen.getByRole('heading', { name: '今天想解决哪道题？' })).toBeI…
+     79|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  src/App.test.tsx > App > restores structured checked verdicts and keeps incorrect work out of independent assessment
+TestingLibraryElementError: Unable to find role="heading" and name "根式化简"
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <main
+      aria-busy="true"
+      class="route-loading"
+    >
+      <div
+        class="auth-loading"
+        role="status"
+      >
+        <span
+          aria-hidden="true"
+          class="loading-mark"
+        />
+        正在打开学习空间…
+      </div>
+    </main>
+  </div>
+</body>
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <main
+      aria-busy="true"
+      class="route-loading"
+    >
+      <div
+        class="auth-loading"
+        role="status"
+      >
+        <span
+          aria-hidden="true"
+          class="loading-mark"
+        />
+        正在打开学习空间…
+      </div>
+    </main>
+  </div>
+</body>
+ ❯ waitForWrapper ../node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ ../node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/App.test.tsx:194:25
+    192|     renderApp('/study');
+    193|
+    194|     expect(await screen.findByRole('heading', { name: '根式化简' })).toBeI…
+       |                         ^
+    195|     expect(screen.getByText('我还不确定')).toBeInTheDocument();
+    196|     expect(screen.getByLabelText('帮助深度：最小提示')).toBeInTheDocument();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  src/App.test.tsx > App > restores and automatically saves the current learning draft
+TestingLibraryElementError: Unable to find role="textbox" and name "输入题目或想法"
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <main
+      aria-busy="true"
+      class="route-loading"
+    >
+      <div
+        class="auth-loading"
+        role="status"
+      >
+        <span
+          aria-hidden="true"
+          class="loading-mark"
+        />
+        正在打开学习空间…
+      </div>
+    </main>
+  </div>
+</body>
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <main
+      aria-busy="true"
+      class="route-loading"
+    >
+      <div
+        class="auth-loading"
+        role="status"
+      >
+        <span
+          aria-hidden="true"
+          class="loading-mark"
+        />
+        正在打开学习空间…
+      </div>
+    </main>
+  </div>
+</body>
+ ❯ waitForWrapper ../node_modules/@testing-library/dom/dist/wait-for.js:163:27
+
+ Test Files  1 failed | 22 passed (23)
+      Tests  5 failed | 97 passed (102)
+   Start at  15:30:31
+   Duration  70.89s (environment 54%, tests 25%, import 7%, setup 7%, transform 6%)
+
+Environment  jsdom was created 23 times · 206.68s total, 54% of tracked time
+             create it once per worker with pool: 'vmThreads' (keeps per-file isolation) or isolate: false (shares it across files)
+             learn more: https://vitest.dev/guide/improving-performance#test-environments
+
+ ❯ ../node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/App.test.tsx:269:33
+    267|     renderApp('/study?session=91');
+    268|
+    269|     const editor = await screen.findByRole('textbox', { name: '输入题目或想法…
+       |                                 ^
+    270|     await waitFor(() => {
+    271|       expect(editor).toHaveTextContent('我准备先移项，再配成 $(a-b)^2$。');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  src/App.test.tsx > App > keeps handwriting out of teaching until its confirmed revision is submitted
+TestingLibraryElementError: Unable to find role="heading" and name "基本不等式证明"
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <main
+      aria-busy="true"
+      class="route-loading"
+    >
+      <div
+        class="auth-loading"
+        role="status"
+      >
+        <span
+          aria-hidden="true"
+          class="loading-mark"
+        />
+        正在打开学习空间…
+      </div>
+    </main>
+  </div>
+</body>
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <main
+      aria-busy="true"
+      class="route-loading"
+    >
+      <div
+        class="auth-loading"
+        role="status"
+      >
+        <span
+          aria-hidden="true"
+          class="loading-mark"
+        />
+        正在打开学习空间…
+      </div>
+    </main>
+  </div>
+</body>
+ ❯ waitForWrapper ../node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ ../node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/App.test.tsx:385:18
+    383|     renderApp('/study?session=91');
+    384|
+    385|     await screen.findByRole('heading', { name: '基本不等式证明' });
+       |                  ^
+    386|     expect(screen.getByRole('button', { name: '添加手写作答' })).toBeInTheDo…
+    387|     expect(screen.queryByRole('button', { name: '添加题目图片' })).not.toBeI…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  src/App.test.tsx > App > starts a mathematics conversation from the paper picker and inserts formula syntax
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/App.test.tsx:488:3
+    486|   });
+    487|
+    488|   it('starts a mathematics conversation from the paper picker and inse…
+       |   ^
+    489|     const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation…
+    490|       const url = String(input);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+

@@ -1,0 +1,95 @@
+[
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix web test -- src/pages/bank/BankFlow.chat-version.spec.tsx --reporter=verbose",
+    "exit_code": 1,
+    "passed": 1,
+    "failed": 2,
+    "total": 3,
+    "evidence": "red.log",
+    "note": "Expected second request version2, actual1, reproduced for single-frame and fragmented SSE/StrictMode."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix web test -- src/pages/bank/BankFlow.chat-version.spec.tsx --reporter=verbose",
+    "exit_code": 0,
+    "passed": 3,
+    "failed": 0,
+    "total": 3,
+    "evidence": "green.log"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix web test -- src/pages/bank/BankFlow.chat-version.spec.tsx --reporter=verbose",
+    "exit_code": 0,
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "evidence": "green-final.log"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm run test:e2e -- web/tests/e2e/chat-version.spec.ts --workers=1 --retries=0 --output=artifacts/acceptance/B07-20260922-chat-version/playwright-results",
+    "exit_code": 0,
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "evidence": "e2e.log",
+    "note": "Chromium pc1440/1280 and mobile390/360; 3 turns plus reload and fourth turn, all API routes mocked; no business DB/model calls."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard\\web",
+    "command": "npm exec -- tsc -p tsconfig.app.json --noEmit --incremental false",
+    "exit_code": 0,
+    "total": 0,
+    "evidence": "typecheck-app.log"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard\\web",
+    "command": "npm exec -- tsc -p tsconfig.node.json --tsBuildInfoFile C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-b07-chat-version-0f452b5f-61de-47aa-a23a-0134f542e7bb.tsbuildinfo",
+    "exit_code": 0,
+    "total": 0,
+    "evidence": "typecheck-node.log"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard\\web",
+    "command": "npm run lint",
+    "exit_code": 0,
+    "total": 0,
+    "evidence": "lint.log"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard\\web",
+    "command": "npm exec -- vite build",
+    "exit_code": 0,
+    "total": 0,
+    "evidence": "build.log",
+    "note": "App/node TS checks and Vite production build executed separately to preserve existing tsbuildinfo."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix web test -- --reporter=default",
+    "exit_code": 1,
+    "passed": 104,
+    "failed": 2,
+    "total": 106,
+    "evidence": "web-full.log",
+    "note": "Cookie restoration waitFor assertion and handwriting test 5000ms timeout; retained full-suite failure."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix web test -- src/App.test.tsx --reporter=verbose",
+    "exit_code": 0,
+    "passed": 11,
+    "failed": 0,
+    "total": 11,
+    "evidence": "app-isolated.log",
+    "note": "Diagnostic isolated run of the full failing file, no code/test timeout change. Does not overwrite failed full-suite result."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "git diff --check",
+    "exit_code": 0,
+    "total": 0
+  }
+]

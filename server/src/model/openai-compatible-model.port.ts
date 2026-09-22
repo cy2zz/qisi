@@ -9,6 +9,9 @@ import { z } from 'zod';
 import type { AppEnvironment } from '../config/env.js';
 import type { ModelPort, ModelRequest, ModelResponse } from './model.port.js';
 
+const INTERACTIVE_PROFILE_VERSION = 'interactive-v1' as const;
+const COMPACT_JSON_INSTRUCTION = '输出使用紧凑JSON，不使用缩进或排版换行；说明字段用简短的必要依据，避免重复叙述。必须完整保留Schema要求的字段、准确的证据引用、不确定性与必要反证，不得为了简短省略诊断或安全检查。';
+
 const completionSchema = z.object({
   choices: z
     .array(
@@ -41,15 +44,22 @@ export class OpenAiCompatibleModelPort implements ModelPort {
 
     const baseUrl = this.config.get('AI_BASE_URL', { infer: true }).replace(/\/$/, '');
     const configuredModel = this.config.get('AI_MODEL', { infer: true });
+    // 同一项目网关已验证的在线配置：避免推理token耗尽25秒节点时间。
+    // 仅显式interactive请求启用；不改离线备课/Assessment默认行为，也不猜其他模型的能力。
+    const reasoningEffort = request.latencyProfile === 'interactive'
+      && /^gpt-5\.5(?:-\d{4}-\d{2}-\d{2})?$/.test(configuredModel)
+      ? 'none' as const : undefined;
+    const outputVerbosity = reasoningEffort ? 'low' as const : undefined;
     const timeoutMs = this.config.get('AI_TIMEOUT_MS', { infer: true });
     const startedAt = performance.now();
     const signal = AbortSignal.any([request.signal, AbortSignal.timeout(timeoutMs)]);
     const inputText = typeof request.input === 'string'
       ? request.input
       : JSON.stringify(request.input);
+    const system = reasoningEffort ? `${request.system}\n${COMPACT_JSON_INSTRUCTION}` : request.system;
     const systemContent = request.outputSchema
-      ? `${request.system}\n只返回符合以下 JSON Schema 的对象，不得增加字段：\n${JSON.stringify(z.toJSONSchema(request.outputSchema))}`
-      : request.system;
+      ? `${system}\n只返回符合以下 JSON Schema 的对象，不得增加字段：\n${JSON.stringify(z.toJSONSchema(request.outputSchema))}`
+      : system;
     const userContent = request.images?.length
       ? [
           { text: inputText, type: 'text' },
@@ -72,6 +82,7 @@ export class OpenAiCompatibleModelPort implements ModelPort {
             { content: userContent, role: 'user' },
           ],
           model: configuredModel,
+          ...(reasoningEffort ? { reasoning_effort: reasoningEffort, verbosity: outputVerbosity } : {}),
           response_format: { type: 'json_object' },
         }),
         headers: {
@@ -104,6 +115,7 @@ export class OpenAiCompatibleModelPort implements ModelPort {
     }
 
     return {
+      ...(reasoningEffort ? { reasoningEffort, outputVerbosity, latencyProfileVersion: INTERACTIVE_PROFILE_VERSION } : {}),
       elapsedMs: Math.round(performance.now() - startedAt),
       model: completion.model ?? configuredModel,
       parsed,

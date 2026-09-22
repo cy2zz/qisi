@@ -1,0 +1,6 @@
+{
+  "web/tsconfig.app.tsbuildinfo": true,
+  "web/tsconfig.node.tsbuildinfo": true,
+  "server/tsconfig.build.tsbuildinfo": true,
+  "server/.env.development.local": true
+}

@@ -668,7 +668,6 @@ export function BankPage({ username }: StudentPageProps) {
     );
 
     try {
-      let committedVersion: number | undefined;
       await apiStream(
         '/api/problems/chat',
         {
@@ -693,7 +692,27 @@ export function BankPage({ username }: StudentPageProps) {
         },
         (event) => {
           if (chatRequestRef.current !== requestNumber) return;
-          if (event.type === 'done') setReplyToRevealId(guideMessageId);
+          if (event.type === 'done') {
+            // SSE完成回执是版本事实；不要依赖稍后才运行的React updater产生副作用。
+            const committedVersion = event.version;
+            if (typeof committedVersion === 'number') {
+              setActiveRecord((current) =>
+                current?.id === activeRecord.id ? { ...current, version: committedVersion } : current,
+              );
+              setRecords((current) => current.map((record) =>
+                record.id === activeRecord.id ? { ...record, version: committedVersion } : record,
+              ));
+            }
+            setReplyToRevealId(guideMessageId);
+            if (
+              remediationFocus
+              && assistanceMode === 'finish_problem'
+              && event.currentVerdict === 'correct'
+            ) {
+              setPendingRemediationFocus(null);
+              setRemediationTrackError(null);
+            }
+          }
           setMessages((current) =>
             current.map((message) => {
               if (message.id !== guideMessageId) return message;
@@ -705,15 +724,6 @@ export function BankPage({ username }: StudentPageProps) {
                 return { ...message, content: previous + event.text, state: 'reply-streaming' };
               }
               if (event.type === 'done') {
-                committedVersion = event.version;
-                if (
-                  remediationFocus
-                  && assistanceMode === 'finish_problem'
-                  && event.currentVerdict === 'correct'
-                ) {
-                  setPendingRemediationFocus(null);
-                  setRemediationTrackError(null);
-                }
                 return {
                   ...message,
                   ...(event.currentVerdict ? { currentVerdict: event.currentVerdict } : {}),
@@ -726,16 +736,6 @@ export function BankPage({ username }: StudentPageProps) {
         },
         abortController.signal,
       );
-      if (typeof committedVersion === 'number') {
-        setActiveRecord((current) =>
-          current ? { ...current, version: committedVersion } : current,
-        );
-        setRecords((current) =>
-          current.map((record) =>
-            record.id === activeRecord.id ? { ...record, version: committedVersion } : record,
-          ),
-        );
-      }
     } catch {
       if (abortController.signal.aborted || chatRequestRef.current !== requestNumber) return;
       setReplyToRevealId(guideMessageId);

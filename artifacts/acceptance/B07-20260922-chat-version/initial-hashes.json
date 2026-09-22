@@ -1,0 +1,7 @@
+{
+  "web/src/pages/bank/BankFlow.tsx": "506f4b7bccf6176e49666a8881e7acbda3f548e920fd3b401f241c150f1f78dc",
+  "web/tsconfig.app.tsbuildinfo": "9080953bd4500a7323a37271cf99bbae17b9d5732966c05eda764ac73d4a5f43",
+  "web/tsconfig.node.tsbuildinfo": "8456c68622aba56ca14b09a36470464404fd844c21f133b4a4818e14c9bf2f82",
+  "server/tsconfig.build.tsbuildinfo": "76e6898d85fb68b26ffa84229eedbaf8f072335e8be9533abb284442d59b0728",
+  "server/.env.development.local": "b2139100f302f48ee0fd0fc77e1a9811fdf854bc9b0b09c1c8669f02e7d5bdda"
+}

@@ -1,0 +1,6 @@
+schema: sdd
+created: 2026-09-16
+change: b01-agent-workflow-foundation
+baseCommit: e54ec4ac6710f94a32af449212b30227aeadb36d
+specId: raven-spec-1325b5d8-1787-45c2-a2e3-0a704223557c
+status: spec

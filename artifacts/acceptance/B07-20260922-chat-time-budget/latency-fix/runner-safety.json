@@ -1,0 +1,16 @@
+[
+  {
+    "file": "test/not-allowed.spec.ts",
+    "live_opt_in": "1",
+    "exit_code": 1,
+    "message": "refusing an unregistered isolated MySQL test file",
+    "expected_refusal": true
+  },
+  {
+    "file": "test/model/chat-latency.live.spec.ts",
+    "live_opt_in": null,
+    "exit_code": 1,
+    "message": "live model tests require explicit QISI_LIVE_MODEL_TEST=1",
+    "expected_refusal": true
+  }
+]

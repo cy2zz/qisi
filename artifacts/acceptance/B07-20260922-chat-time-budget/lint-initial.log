@@ -1,0 +1,4 @@
+
+> @qisi/server@0.1.0 lint
+> eslint src test --max-warnings=0
+

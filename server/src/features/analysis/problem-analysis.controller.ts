@@ -28,6 +28,7 @@ import { LearningSessionService } from '../learning/learning-session.service.js'
 import { PreparationService } from '../preparation/preparation.service.js';
 import { ProblemAnalysisService } from './problem-analysis.service.js';
 import { problemChatRequestSchema } from './problem-chat.schema.js';
+import { assertTurnCanCommit, TurnTimeoutError } from './turn-time-budget.js';
 
 const requestSchema = z
   .object({
@@ -272,6 +273,7 @@ export class ProblemAnalysisController {
         {
           ...safeModelRequest,
           analysis: reservation.analysis,
+          deadlineAt: reservation.deadlineAt,
           history: reservation.history,
           packetVersion: reservation.packetVersion,
           problemMd: reservation.problemMd,
@@ -299,6 +301,7 @@ export class ProblemAnalysisController {
           runId: reservation.runId,
         }),
       );
+      assertTurnCanCommit(reservation.deadlineAt, abortController.signal);
       const committed = await this.sessions.commitTurn({
         assistanceMode: parsed.data.assistanceMode,
         audit: result.audit,
@@ -325,18 +328,27 @@ export class ProblemAnalysisController {
         version: committed.version,
       });
     } catch (error) {
+      const code = error instanceof TurnTimeoutError
+        ? error.code
+        : abortController.signal.aborted ? 'TURN_CANCELLED' : 'TURN_FAILED';
+      this.logger.warn({ event: 'teaching_turn_failed', code, runId: reservation.runId });
       await this.sessions.failTurn({
-        errorCode: error instanceof Error ? error.name : 'UnknownError',
+        errorCode: code === 'TURN_FAILED' ? error instanceof Error ? error.name : 'UnknownError' : code,
         leaseToken: reservation.leaseToken,
         ownerId: user.id,
         requestId: parsed.data.requestId,
         runId: reservation.runId,
         sessionId: parsed.data.sessionId,
-      }).catch(() => undefined);
+      }).catch(() => {
+        this.logger.warn({ event: 'teaching_turn_failure_persistence_failed', code, runId: reservation.runId });
+      });
       if (!response.destroyed && !response.writableEnded) {
-        writeStreamEvent(response, 'error', {
-          message: '暂时无法回应这一步。你的内容已经保留，可以重试。',
-        });
+        const message = code === 'MODEL_NODE_TIMEOUT'
+          ? '本轮核对超时，尚未生成可用反馈。你的内容已经保留，可以重试。'
+          : code === 'TURN_DEADLINE_EXCEEDED'
+            ? '本轮处理已达到时间上限，尚未生成可用反馈。你的内容已经保留，可以重试。'
+            : '暂时无法回应这一步。你的内容已经保留，可以重试。';
+        writeStreamEvent(response, 'error', { code, message });
       }
     } finally {
       if (!response.writableEnded) response.end();

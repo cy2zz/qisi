@@ -1,0 +1,54 @@
+[
+  {
+    "path": "qisi-sdd-v3/changes/B07.md",
+    "sha256": "9d180e7ed100a0336dd5138a3f6a6689a0fa01f41c1ec5531dceda4ad6860e3e"
+  },
+  {
+    "path": "qisi-sdd-v3/handoffs/B07.md",
+    "sha256": "d0a8b38b1359f65659ea8b57422371842ebf17b0fae7de1297212e9cb46a832a"
+  },
+  {
+    "path": "server/src/features/analysis/problem-analysis.controller.spec.ts",
+    "sha256": "1a5d8918ea925bf83d92d3af3e513d60b39d4af8b433de278a4516a95452e9d3"
+  },
+  {
+    "path": "server/src/features/analysis/problem-analysis.controller.ts",
+    "sha256": "03951c66abfc7ca16ed01831cd3796fd2aa898afb613fba1a5e9402714b099f3"
+  },
+  {
+    "path": "server/src/features/analysis/problem-analysis.service.spec.ts",
+    "sha256": "587b8eb9830635bdd27ff3d20b285e1529b9d7a4f123af81524289c73df55477"
+  },
+  {
+    "path": "server/src/features/analysis/problem-analysis.service.ts",
+    "sha256": "fa9f9eaca5b9feae9f08266bf4e14b8b0f5a074183760331d2e28ca2f962e9cd"
+  },
+  {
+    "path": "server/src/features/analysis/problem-analysis.timeout.integration.spec.ts",
+    "sha256": "acb7e6c10a6e6f2dcf4e1af50880bf350460e92527ba7ac8df65ad6b35f86bc9"
+  },
+  {
+    "path": "server/src/features/analysis/turn-time-budget.ts",
+    "sha256": "a768522dd189215619e449966330e68ffcd3edbd2f1bceb880f529ef2b5a59f6"
+  },
+  {
+    "path": "server/src/model/model.port.ts",
+    "sha256": "367714741455ade24634bbe49c38680b8a39016bd070de42e76fd07f13f506dd"
+  },
+  {
+    "path": "server/src/model/openai-compatible-model.port.spec.ts",
+    "sha256": "0a61b1b441052cfad88e31ca6592958b3ec0352ccbe84364dd216b700c3c10a6"
+  },
+  {
+    "path": "server/src/model/openai-compatible-model.port.ts",
+    "sha256": "2b2641fc32db6f52c25e3192eab8500027d57b2cad34925e50f875c5e8ea9c69"
+  },
+  {
+    "path": "server/test/model/chat-latency.live.spec.ts",
+    "sha256": "59b594643bf0b1a95e69ff1d6d1c75e54f6dc7d2a9a50acc53a0ca56c435dd5a"
+  },
+  {
+    "path": "server/test/tutor/run-isolated-mysql.py",
+    "sha256": "bf968d98504ca5a623c662b8d84a1d28278516e7901a4e5bca6b8340dc14de46"
+  }
+]

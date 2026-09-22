@@ -1,0 +1,12 @@
+{
+  "httpStatus": 200,
+  "finishReason": "stop",
+  "reasoningTokens": 0,
+  "outputTokens": 820,
+  "contentChars": 1795,
+  "formattingWhitespace": 0,
+  "elapsedMs": 20346,
+  "schemaValid": true,
+  "judgment": "invalid",
+  "errorCode": null
+}

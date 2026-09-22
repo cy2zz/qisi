@@ -1,5 +1,6 @@
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { createHash } from 'node:crypto';
+import type { PreparationService } from '../preparation/preparation.service.js';
 import type { ModelPort, ModelRequest, ModelResponse } from '../../model/model.port.js';
 import { ProblemAnalysisService } from './problem-analysis.service.js';
 
@@ -181,6 +182,25 @@ describe('ProblemAnalysisService', () => {
     expect(calls[1]?.input).toMatchObject({
       user_action: expect.stringContaining('allowed_facts.source_ref 仅可使用'),
     });
+  });
+
+  it('requests interactive model settings for every teaching role and audits the applied settings', async () => {
+    const fixture = createRoleModel();
+    const model: ModelPort = { generate: vi.fn(async (request) => Object.assign(await fixture.generate(request), { reasoningEffort: 'none', outputVerbosity: 'low', latencyProfileVersion: 'interactive-v1' })) };
+    const onNode = vi.fn().mockResolvedValue(undefined);
+    await new ProblemAnalysisService(model).reply(chatInput(), new AbortController().signal, undefined, onNode);
+    expect(model.generate).toHaveBeenCalledTimes(4);
+    for (const [request] of vi.mocked(model.generate).mock.calls) expect(request).toMatchObject({ latencyProfile: 'interactive' });
+    for (const [node] of onNode.mock.calls) expect(node.usage).toMatchObject({ reasoningEffort: 'none', outputVerbosity: 'low', latencyProfileVersion: 'interactive-v1' });
+  });
+
+  it('tells Strategy the same L1 ceiling that the attempt policy gate enforces', async () => {
+    const model = createRoleModel();
+    await new ProblemAnalysisService(model).reply(chatInput());
+    const input = vi.mocked(model.generate).mock.calls.find(([request]) => request.role === 'strategy')![0].input as { user_action: string };
+    expect(input.user_action).toContain('最多 L1');
+    expect(input.user_action).toContain('scaffold_level');
+    expect(input.user_action).toContain('禁止 worked_solution');
   });
 
   it.each([
@@ -555,6 +575,38 @@ describe('ProblemAnalysisService', () => {
     }));
   });
 
+  it('tells Strategy the finish action contract without treating a completed check as a correct answer', async () => {
+    const model = createRoleModel();
+    await new ProblemAnalysisService(model).reply(chatInput({ assistanceMode: 'finish_problem' }));
+    const input = vi.mocked(model.generate).mock.calls.find(([request]) => request.role === 'strategy')![0].input as { user_action: string };
+    expect(input.user_action).toContain('action 只能为 complete 或 uncertain');
+    expect(input.user_action).toContain('并不表示答案正确');
+    expect(input.user_action).toContain('有依据的错误必须明确指出');
+  });
+
+  it.each([
+    ['invalid', 'complete', 'incorrect'],
+    ['unknown', 'uncertain', 'unknown'],
+  ] as const)('keeps the %s diagnosis verdict when finishing the current check', async (judgment, action, verdict) => {
+    const model = createRoleModel({
+      diagnosis: { ...validDiagnosis, judgment },
+      strategy: { ...validStrategy, action },
+    });
+    const result = await new ProblemAnalysisService(model).reply(chatInput({ assistanceMode: 'finish_problem' }));
+    expect(result.currentVerdict).toBe(verdict);
+    expect(result.audit).toBeDefined();
+    expect(vi.mocked(model.generate).mock.calls.map(([request]) => request.role))
+      .toEqual(['diagnosis', 'strategy', 'renderer', 'guard']);
+  });
+
+  it('still rejects a teaching action outside the finish contract before rendering', async () => {
+    const model = createRoleModel({ strategy: { ...validStrategy, action: 'ask' } });
+    const result = await new ProblemAnalysisService(model).reply(chatInput({ assistanceMode: 'finish_problem' }));
+    expect(result.currentVerdict).toBe('unknown');
+    expect(result.audit).toBeUndefined();
+    expect(vi.mocked(model.generate).mock.calls.map(([request]) => request.role)).toEqual(['diagnosis', 'strategy']);
+  });
+
   it('maps a valid finished answer to a current-problem verdict without claiming mastery', async () => {
     const model = createRoleModel({
       diagnosis: { ...validDiagnosis, judgment: 'valid' },
@@ -598,5 +650,124 @@ describe('ProblemAnalysisService', () => {
       output: null,
       status: 'failed',
     }));
+  });
+});
+
+
+describe('ProblemAnalysisService turn time budget', () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date('2026-09-22T06:25:23.000Z'));
+  });
+  afterEach(() => vi.useRealTimers());
+
+  it('cancels a stalled node at 25 seconds and discards non-cooperative late output', async () => {
+    const model = createRoleModel();
+    let finish!: (value: ModelResponse) => void;
+    vi.mocked(model.generate).mockImplementationOnce(() => new Promise((resolve) => { finish = resolve; }));
+    const onNode = vi.fn().mockResolvedValue(undefined);
+    const pending = new ProblemAnalysisService(model).reply(chatInput(), new AbortController().signal, undefined, onNode);
+    const result = pending.catch((error: unknown) => error);
+    await vi.advanceTimersByTimeAsync(25_000);
+    expect(await result).toMatchObject({ name: 'TurnTimeoutError', code: 'MODEL_NODE_TIMEOUT' });
+    expect(vi.mocked(model.generate).mock.calls[0]![0].signal.aborted).toBe(true);
+    expect(onNode).toHaveBeenCalledWith(expect.objectContaining({ nodeKey: 'diagnosis', status: 'failed' }));
+    finish(response(validDiagnosis));
+    await vi.advanceTimersByTimeAsync(0);
+    expect(model.generate).toHaveBeenCalledTimes(1);
+    expect(onNode).toHaveBeenCalledTimes(1);
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
+  it('uses the reserved absolute deadline across four individually valid 24-second calls', async () => {
+    const model = createRoleModel();
+    const immediate = model.generate;
+    const delayed: ModelPort = { generate: vi.fn(async (request) => {
+      await new Promise<void>((resolve) => setTimeout(resolve, 24_000));
+      return immediate(request);
+    }) };
+    const onNode = vi.fn().mockResolvedValue(undefined);
+    const input = chatInput({ deadlineAt: new Date(Date.now() + 90_000).toISOString() });
+    const result = new ProblemAnalysisService(delayed).reply(input, new AbortController().signal, undefined, onNode)
+      .catch((error: unknown) => error);
+    await vi.advanceTimersByTimeAsync(89_000);
+    expect(await result).toMatchObject({ code: 'TURN_DEADLINE_EXCEEDED' });
+    expect(vi.mocked(delayed.generate).mock.calls.map(([request]) => request.role))
+      .toEqual(['diagnosis', 'strategy', 'renderer', 'guard']);
+    await vi.advanceTimersByTimeAsync(10_000);
+    expect(onNode.mock.calls.filter(([record]) => record.status === 'completed')).toHaveLength(3);
+    expect(onNode).toHaveBeenCalledWith(expect.objectContaining({ nodeKey: 'guard', status: 'failed' }));
+  });
+
+  it.each(['2026-09-22T06:25:22.000Z', 'not-a-date'])('rejects unusable server deadline %s before model I/O', async (deadlineAt) => {
+    const model = createRoleModel();
+    await expect(new ProblemAnalysisService(model).reply(chatInput({ deadlineAt })))
+      .rejects.toMatchObject({ code: 'TURN_DEADLINE_EXCEEDED' });
+    expect(model.generate).not.toHaveBeenCalled();
+  });
+
+  it('shortens the first node to the remaining reserved time, keeping a finalization margin', async () => {
+    const model = { generate: vi.fn(() => new Promise<ModelResponse>(() => undefined)) };
+    const result = new ProblemAnalysisService(model).reply(chatInput({
+      deadlineAt: new Date(Date.now() + 10_000).toISOString(),
+    })).catch((error: unknown) => error);
+    await vi.advanceTimersByTimeAsync(9_000);
+    expect(await result).toMatchObject({ code: 'TURN_DEADLINE_EXCEEDED' });
+    expect(model.generate).toHaveBeenCalledTimes(1);
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
+  it('interrupts a non-cooperative provider when the client cancels', async () => {
+    const model = { generate: vi.fn(() => new Promise<ModelResponse>(() => undefined)) };
+    const abort = new AbortController();
+    const result = new ProblemAnalysisService(model).reply(chatInput(), abort.signal).catch((error: unknown) => error);
+    await vi.advanceTimersByTimeAsync(1);
+    abort.abort();
+    await vi.advanceTimersByTimeAsync(0);
+    expect(await result).toMatchObject({ name: 'AbortError' });
+    expect(model.generate).toHaveBeenCalledTimes(1);
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
+  it('keeps the original timeout when failure-audit persistence also rejects', async () => {
+    const model = { generate: vi.fn(() => new Promise<ModelResponse>(() => undefined)) };
+    const onNode = vi.fn().mockRejectedValue(new Error('fixture audit rejected'));
+    const result = new ProblemAnalysisService(model).reply(chatInput(), new AbortController().signal, undefined, onNode)
+      .catch((error: unknown) => error);
+    await vi.advanceTimersByTimeAsync(25_000);
+    expect(await result).toMatchObject({ code: 'MODEL_NODE_TIMEOUT' });
+    expect(onNode).toHaveBeenCalledOnce();
+  });
+
+  it('rejects a node that crosses its wall-clock limit before its timer callback runs', async () => {
+    const model = createRoleModel();
+    vi.mocked(model.generate).mockImplementationOnce(async () => {
+      vi.setSystemTime(Date.now() + 26_000);
+      return response(validDiagnosis);
+    });
+    await expect(new ProblemAnalysisService(model).reply(chatInput()))
+      .rejects.toMatchObject({ code: 'MODEL_NODE_TIMEOUT' });
+    expect(model.generate).toHaveBeenCalledTimes(1);
+  });
+
+  it('also bounds preparation lookup and never starts models after its late result', async () => {
+    const model = createRoleModel();
+    let finish!: (value: null) => void;
+    const preparation = { findReadyPacket: vi.fn(() => new Promise<null>((resolve) => { finish = resolve; })) };
+    const service = new ProblemAnalysisService(model, preparation as unknown as PreparationService);
+    const result = service.reply(chatInput({ packetVersion: 'fixture-v1', deadlineAt: new Date(Date.now() + 5_000).toISOString() }))
+      .catch((error: unknown) => error);
+    await vi.advanceTimersByTimeAsync(4_000);
+    expect(await result).toMatchObject({ code: 'TURN_DEADLINE_EXCEEDED' });
+    finish(null);
+    await vi.advanceTimersByTimeAsync(0);
+    expect(model.generate).not.toHaveBeenCalled();
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
+  it('cleans up timeouts when all four roles finish successfully', async () => {
+    const model = createRoleModel();
+    await expect(new ProblemAnalysisService(model).reply(chatInput())).resolves.toMatchObject({ reply: validRendered.text_md });
+    expect(vi.getTimerCount()).toBe(0);
   });
 });

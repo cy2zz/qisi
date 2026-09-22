@@ -1,0 +1,12 @@
+{
+  "at": "2026-09-22T17:19:34.972366+08:00",
+  "preexisting_cache_hashes_unchanged": {
+    "server/tsconfig.build.tsbuildinfo": true,
+    "web/tsconfig.app.tsbuildinfo": true
+  },
+  "expected_runtime_roots": {
+    "5173": "D:/math/qisi-dashboard/node_modules/vite",
+    "3000": "D:/math/qisi-dashboard/node_modules/tsx -> src/main.ts"
+  },
+  "secrets_or_database_ddl_changed": false
+}

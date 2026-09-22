@@ -1,0 +1,215 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "AT45",
+  "result": "not_run",
+  "executed_at": "2026-09-22T15:46:27+08:00",
+  "executed_by": "single coding agent / self_review",
+  "application_commit": "1ce544b04f8145322c732ca16567dafe360e311c + uncommitted working-tree patch",
+  "layer": "partial unit / HTTP integration / existing isolated persistence regression",
+  "environment": {
+    "os": "Windows",
+    "mysql": "8.0.26 isolated test instance; no business DB used"
+  },
+  "bank_version": "synthetic fixtures",
+  "scope_hash": "11885b7f8863cea7f27fe65a54bd6a92a770dbf75de441ba7ad33d509d9924bc",
+  "model_version": "fixture only",
+  "prompt_version": "unchanged repository prompts",
+  "provider_mode": "fixture",
+  "commands": [
+    {
+      "cwd": "D:\\math\\qisi-dashboard",
+      "command": "npm --prefix server test -- src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/problem-analysis.controller.spec.ts --reporter=verbose",
+      "exit_code": 1,
+      "evidence": "red.log",
+      "passed": 26,
+      "failed": 11,
+      "skipped": 0,
+      "total": 37,
+      "note": "Failure-first: missing deadline forwarding/cancellation allowed expired work; some tests intentionally reached Vitest timeout because the old implementation never settled."
+    },
+    {
+      "cwd": "D:\\math\\qisi-dashboard",
+      "command": "npm --prefix server test -- src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/problem-analysis.controller.spec.ts --reporter=verbose",
+      "exit_code": 0,
+      "evidence": "green-initial.log",
+      "passed": 37,
+      "failed": 0,
+      "skipped": 0,
+      "total": 37
+    },
+    {
+      "cwd": "D:\\math\\qisi-dashboard",
+      "command": "npm --prefix server run typecheck -- --incremental false",
+      "exit_code": 2,
+      "evidence": "typecheck-initial.log",
+      "note": "Test fixture Promise<unknown> typing corrected to Promise<never>; not a product red test."
+    },
+    {
+      "cwd": "D:\\math\\qisi-dashboard",
+      "command": "npm --prefix server test -- src/features/analysis/problem-analysis.service.spec.ts -t 'wall-clock limit'",
+      "exit_code": 1,
+      "evidence": "red-wall-clock.log",
+      "passed": 0,
+      "failed": 1,
+      "skipped": 25,
+      "total": 26,
+      "note": "Additional red case: timer callback not dispatched yet, but wall clock already exceeds node limit."
+    },
+    {
+      "cwd": "D:\\math\\qisi-dashboard",
+      "command": "npm --prefix server run lint",
+      "exit_code": 0,
+      "evidence": "lint-initial.log"
+    },
+    {
+      "cwd": "D:\\math\\qisi-dashboard",
+      "command": "npm --prefix server test -- src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/problem-analysis.controller.spec.ts src/features/analysis/problem-analysis.timeout.integration.spec.ts --reporter=verbose",
+      "exit_code": 0,
+      "evidence": "green.log",
+      "passed": 42,
+      "failed": 0,
+      "skipped": 0,
+      "total": 42,
+      "note": "Final targeted suite: 26 service, 13 controller, 3 real Nest/Supertest HTTP tests; all model/persistence dependencies are fixtures in this suite."
+    },
+    {
+      "cwd": "D:\\math\\qisi-dashboard",
+      "command": "python server/test/tutor/run-isolated-mysql.py",
+      "exit_code": 0,
+      "evidence": "mysql-isolated.log",
+      "passed": 14,
+      "failed": 0,
+      "skipped": 0,
+      "total": 14,
+      "note": "Existing A/B persistence regression, real isolated MySQL 8.0.26 + FixtureProvider. Not a real model or complete /problems/chat MySQL E2E test; server was SQL SHUTDOWN afterward."
+    },
+    {
+      "cwd": "D:\\math\\qisi-dashboard",
+      "command": "npm --prefix server test -- --reporter=default",
+      "exit_code": 1,
+      "evidence": "server-full.log",
+      "passed": 598,
+      "failed": 1,
+      "skipped": 14,
+      "total": 613,
+      "note": "Only failure: unchanged database.factory.spec.ts expects slash instead of Windows backslash in CA path. 14 opt-in MySQL tests separately passed above."
+    },
+    {
+      "cwd": "D:\\math\\qisi-dashboard",
+      "command": "npm --prefix server run typecheck -- --incremental false",
+      "exit_code": 0,
+      "evidence": "typecheck.log"
+    },
+    {
+      "cwd": "D:\\math\\qisi-dashboard",
+      "command": "npm --prefix server run lint",
+      "exit_code": 0,
+      "evidence": "lint.log"
+    },
+    {
+      "cwd": "D:\\math\\qisi-dashboard",
+      "command": "npm --prefix server run build -- --tsBuildInfoFile C:/Users/wangchaoya/AppData/Local/Temp/qisi-chat-time-budget-build-bd36fa577cbd4ebea7d3edd9c609f8bc.tsbuildinfo",
+      "exit_code": 0,
+      "evidence": "build.log",
+      "note": "Only the generated incremental metadata was redirected; pre-existing tracked tsbuildinfo contents stayed unchanged."
+    },
+    {
+      "cwd": "D:\\math\\qisi-dashboard",
+      "command": "npm --prefix web test -- --reporter=default",
+      "exit_code": 1,
+      "evidence": "web-full.log",
+      "passed": 97,
+      "failed": 5,
+      "skipped": 0,
+      "total": 102,
+      "note": "First run overlapped server validation; no web code changed and no test threshold changed."
+    },
+    {
+      "cwd": "D:\\math\\qisi-dashboard",
+      "command": "npm --prefix web test -- --reporter=default",
+      "exit_code": 1,
+      "evidence": "web-full-recheck.log",
+      "passed": 100,
+      "failed": 2,
+      "skipped": 0,
+      "total": 102,
+      "note": "Separate rerun still fails existing App cookie restore and structured checked verdict restore tests. Full frontend suite is NOT passed."
+    },
+    {
+      "cwd": "D:\\math\\qisi-dashboard",
+      "command": "npm run test:task -- B07",
+      "exit_code": 1,
+      "evidence": "gate-unit.log",
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0,
+      "note": "Task runner has not registered B07; no acceptance tests executed. Not a product test failure or passing gate."
+    },
+    {
+      "cwd": "D:\\math\\qisi-dashboard",
+      "command": "npm run test:e2e:task -- B07",
+      "exit_code": 1,
+      "evidence": "gate-e2e.log",
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0,
+      "note": "Task runner has not registered B07; no acceptance tests executed. Not a product test failure or passing gate."
+    },
+    {
+      "cwd": "D:\\math\\qisi-dashboard",
+      "command": "npm run test:stack -- B07",
+      "exit_code": 1,
+      "evidence": "gate-stack.log",
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0,
+      "note": "Task runner has not registered B07; no acceptance tests executed. Not a product test failure or passing gate."
+    }
+  ],
+  "expected": "Enforce the existing 25-second node and absolute 90-second turn ceilings, stop cancelled/late work, retain guarded/committed-only SSE answers.",
+  "actual": {
+    "targeted": {
+      "passed": 42,
+      "failed": 0
+    },
+    "mysql_regression": {
+      "passed": 14,
+      "failed": 0
+    },
+    "server_full": {
+      "passed": 598,
+      "failed": 1,
+      "skipped": 14
+    },
+    "web_recheck": {
+      "passed": 100,
+      "failed": 2
+    },
+    "fix_status": "implemented_waiting_review",
+    "whole_acceptance_status": "incomplete; not_run here does not erase the executed partial checks"
+  },
+  "evidence_files": [
+    "commands.json",
+    "files.json",
+    "red.log",
+    "red-wall-clock.log",
+    "green.log",
+    "mysql-isolated.log",
+    "server-full.log",
+    "web-full-recheck.log",
+    "typecheck.log",
+    "lint.log",
+    "build.log"
+  ],
+  "limitations": [
+    "No real-model performance/quality or student evaluation was executed. A provider taking over 25 seconds still receives an explicit timeout; this patch does not make the provider faster.",
+    "The existing MySQL regression ran on 8.0.26, NOT the formal 8.4 target, and is not a complete chat endpoint + real database end-to-end test.",
+    "Whole AT45/ST07 remain incomplete: this fixes time control, not the already outstanding durable shared call/token/retry/recovery work.",
+    "A slow/unavailable DB may reject timeout audit or cleanup despite the 1-second finalization margin; sanitized warnings are emitted and late replies cannot commit.",
+    "B07 task gates are unregistered; no Raven gate, independent review, browser E2E or deployment claim.",
+    "Current checked-out branch is old develop-B-v0.1. The running localhost service uses a separate develop clone, which was not modified/restarted."
+  ]
+}

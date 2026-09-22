@@ -1,0 +1,36 @@
+{
+  "purpose": "Synthetic full tutor turn through real configured ModelPort; no database writes; temporary request option only",
+  "status": "fallback_only",
+  "elapsedMs": 28736,
+  "calls": 2,
+  "nodes": [
+    {
+      "node": "diagnosis",
+      "status": "completed",
+      "elapsedMs": 16423,
+      "model": "gpt-5.5-2026-04-24",
+      "inputTokens": 1593,
+      "outputTokens": 1047,
+      "judgment": "invalid"
+    },
+    {
+      "node": "strategy",
+      "status": "completed",
+      "elapsedMs": 12294,
+      "model": "gpt-5.5-2026-04-24",
+      "inputTokens": 3489,
+      "outputTokens": 400
+    }
+  ],
+  "phases": [
+    {
+      "phase": "diagnosing",
+      "elapsedMs": 4
+    },
+    {
+      "phase": "planning",
+      "elapsedMs": 16437
+    }
+  ],
+  "checkedPublicReply": "这条反馈暂时无法安全核对，先不下结论。请把你使用的依据再写一行。"
+}

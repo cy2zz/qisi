@@ -1,6 +1,6 @@
 import type { ConfigService } from '@nestjs/config';
 import type { Response } from 'express';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { AppEnvironment } from '../../config/env.js';
 import { AUTH_COOKIE_NAME } from '../auth/auth.cookie.js';
 import type { AuthService } from '../auth/auth.service.js';
@@ -11,7 +11,7 @@ import type { MediaService } from '../media/media.service.js';
 import type { LearningSessionService } from '../learning/learning-session.service.js';
 import type { PreparationService } from '../preparation/preparation.service.js';
 import { ProblemAnalysisController } from './problem-analysis.controller.js';
-import type { ProblemAnalysisService } from './problem-analysis.service.js';
+import { ProblemAnalysisService } from './problem-analysis.service.js';
 
 function createController() {
   const auth = { authenticate: vi.fn() };
@@ -499,5 +499,115 @@ describe('ProblemAnalysisController', () => {
     expect(stream).toContain('"currentVerdict":"incorrect"');
     expect(stream.indexOf('event: chunk')).toBeGreaterThan(stream.indexOf('event: status'));
     expect(response.end).toHaveBeenCalledOnce();
+  });
+});
+
+
+function createChatHarness(deadlineMs = 90_000) {
+  const harness = createController();
+  harness.auth.authenticate.mockResolvedValue({ id: '7' });
+  const analysis = {
+    firstQuestion: 'fixture question', keyConditions: ['fixture condition'],
+    knowledgePoints: ['fixture topic'], overview: 'fixture overview', target: 'fixture target',
+  };
+  const deadlineAt = new Date(Date.now() + deadlineMs).toISOString();
+  harness.sessions.reserveTurn.mockResolvedValue({
+    analysis, deadlineAt, expectedVersion: 1, history: [], kind: 'reserved',
+    leaseToken: 'fixture-lease', packetVersion: null, problemMd: 'fixture problem',
+    runId: 'fixture-run', teachingState: { exposures: [], probesShownByGoal: {} },
+  });
+  harness.sessions.failTurn.mockResolvedValue(undefined);
+  harness.sessions.recordTurnNode.mockResolvedValue(undefined);
+  harness.sessions.commitTurn.mockResolvedValue({ version: 2 });
+  let close: (() => void) | undefined;
+  const response = {
+    destroyed: false, writableEnded: false,
+    end: vi.fn(function (this: { writableEnded: boolean }) { this.writableEnded = true; }),
+    flushHeaders: vi.fn(),
+    on: vi.fn((_event: string, callback: () => void) => { close = callback; }),
+    setHeader: vi.fn(), status: vi.fn(), write: vi.fn(),
+  };
+  const invoke = () => harness.controller.chatProblem({
+    assistanceMode: 'attempt', expectedVersion: 1, history: [], message: 'fixture attempt',
+    problemMd: 'fixture problem', requestId: '11111111-1111-4111-8111-111111111111', sessionId: '91',
+  }, `${AUTH_COOKIE_NAME}=${'a'.repeat(43)}`, 'http://localhost:5173', response as unknown as Response);
+  return { ...harness, deadlineAt, response, invoke, disconnect: () => { response.destroyed = true; close?.(); } };
+}
+
+describe('ProblemAnalysisController time budget boundary', () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date('2026-09-22T06:25:23.000Z'));
+  });
+  afterEach(() => vi.useRealTimers());
+
+  it('passes only the server reservation deadline to the teaching service', async () => {
+    const h = createChatHarness();
+    h.analysis.reply.mockResolvedValue({ reply: 'checked' });
+    const pending = h.invoke();
+    await vi.advanceTimersByTimeAsync(1_000);
+    await pending;
+    expect(h.analysis.reply.mock.calls[0]![0]).toMatchObject({ deadlineAt: h.deadlineAt });
+    expect(h.sessions.commitTurn).toHaveBeenCalledOnce();
+  });
+
+  it('sends a safe timeout error on SSE 200 without committing or publishing a candidate', async () => {
+    const h = createChatHarness();
+    const service = new ProblemAnalysisService({ generate: vi.fn(() => new Promise<never>(() => undefined)) });
+    h.analysis.reply.mockImplementation((...args: Parameters<ProblemAnalysisService['reply']>) => service.reply(...args));
+    const pending = h.invoke();
+    await vi.advanceTimersByTimeAsync(25_000);
+    await pending;
+    expect(h.response.status).toHaveBeenCalledWith(200);
+    expect(h.sessions.failTurn).toHaveBeenCalledWith(expect.objectContaining({ errorCode: 'MODEL_NODE_TIMEOUT' }));
+    const stream = h.response.write.mock.calls.flat().join('');
+    expect(stream).toContain('event: error');
+    expect(stream).toContain('"code":"MODEL_NODE_TIMEOUT"');
+    expect(stream).toContain('超时');
+    expect(stream).not.toContain('event: chunk');
+    expect(stream).not.toContain('event: done');
+    expect(h.sessions.commitTurn).not.toHaveBeenCalled();
+    expect(h.response.end).toHaveBeenCalledOnce();
+  });
+
+  it('does not commit a reply that resolves after the client has disconnected', async () => {
+    const h = createChatHarness();
+    let finish!: (value: { reply: string }) => void;
+    h.analysis.reply.mockImplementation(() => new Promise((resolve) => { finish = resolve; }));
+    const pending = h.invoke();
+    await vi.advanceTimersByTimeAsync(1);
+    h.disconnect();
+    finish({ reply: 'late private candidate' });
+    await pending;
+    expect(h.sessions.commitTurn).not.toHaveBeenCalled();
+    expect(h.sessions.failTurn).toHaveBeenCalledWith(expect.objectContaining({ errorCode: 'TURN_CANCELLED' }));
+    expect(h.response.write.mock.calls.flat().join('')).not.toContain('late private candidate');
+  });
+
+  it('rechecks the absolute deadline before committing even if the teaching service returns late', async () => {
+    const h = createChatHarness(10_000);
+    h.analysis.reply.mockImplementation(async () => {
+      vi.setSystemTime(Date.now() + 10_001);
+      return { reply: 'late private candidate' };
+    });
+    const pending = h.invoke();
+    await vi.advanceTimersByTimeAsync(1_000);
+    await pending;
+    expect(h.sessions.commitTurn).not.toHaveBeenCalled();
+    expect(h.sessions.failTurn).toHaveBeenCalledWith(expect.objectContaining({ errorCode: 'TURN_DEADLINE_EXCEEDED' }));
+    const stream = h.response.write.mock.calls.flat().join('');
+    expect(stream).not.toContain('event: chunk');
+    expect(stream).toContain('"code":"TURN_DEADLINE_EXCEEDED"');
+  });
+
+  it('does not misreport an ordinary provider failure as a timeout or leak its message', async () => {
+    const h = createChatHarness();
+    h.analysis.reply.mockRejectedValue(new Error('private upstream diagnostic'));
+    await h.invoke();
+    expect(h.sessions.failTurn).toHaveBeenCalledWith(expect.objectContaining({ errorCode: 'Error' }));
+    const stream = h.response.write.mock.calls.flat().join('');
+    expect(stream).not.toContain('private upstream diagnostic');
+    expect(stream).not.toContain('MODEL_NODE_TIMEOUT');
+    expect(h.sessions.commitTurn).not.toHaveBeenCalled();
   });
 });

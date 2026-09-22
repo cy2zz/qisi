@@ -1,0 +1,62 @@
+{
+  "task": "B07 scoped chat version fix",
+  "baseline": "qisi-3.1",
+  "repository": "D:\\math\\qisi-dashboard",
+  "executed_at": "2026-09-22T17:53:50.965395+08:00",
+  "branch": "develop-B-v0.1",
+  "commit": "1ce544b04f8145322c732ca16567dafe360e311c",
+  "status": "implemented_waiting_review",
+  "review": "self_review",
+  "task_json_status": "in_progress unchanged",
+  "git_state": "uncommitted, not pushed/merged",
+  "root_cause": "done.version assigned inside a React messages updater and read outside before queued updater executed; second request reused stale activeRecord.version=1.",
+  "implementation": "Apply server version and finish effects in the synchronous done event handler; pure React updaters; scope version write by session ID and current chat request number. Keep backend CAS unchanged.",
+  "unit": {
+    "passed": 4,
+    "failed": 0
+  },
+  "e2e": {
+    "passed": 4,
+    "failed": 0,
+    "viewports": [
+      "1440x900",
+      "1280x800",
+      "390x844",
+      "360x800"
+    ],
+    "versions": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "model_mode": "fixture only; no real model or MySQL write"
+  },
+  "full_web": {
+    "passed": 104,
+    "failed": 2,
+    "total": 106
+  },
+  "isolated_app": {
+    "passed": 11,
+    "failed": 0,
+    "total": 11
+  },
+  "typecheck": "passed",
+  "lint": "passed",
+  "build": "passed",
+  "at_st": "Scoped UI/version regressions passed. Full B07 AT28/43/45/49 and ST07 not run; no complete acceptance claim.",
+  "limitations": [
+    "No true-model multi-turn or MySQL integration in this phase: the failure is reproduced before model invocation in the client version handshake.",
+    "Full-suite cookie/handwriting failures retained; isolated App file passes, so full-suite stability is not accepted.",
+    "Browser tests use complete API route interception and synthetic data, not the user session.",
+    "Existing conflicted page needs one reload to hydrate current DB version; copy unsent work first.",
+    "No independent review, Raven gate, deployment, or teaching-effectiveness validation."
+  ],
+  "preserved_files": {
+    "web/tsconfig.app.tsbuildinfo": true,
+    "web/tsconfig.node.tsbuildinfo": true,
+    "server/tsconfig.build.tsbuildinfo": true,
+    "server/.env.development.local": true
+  }
+}

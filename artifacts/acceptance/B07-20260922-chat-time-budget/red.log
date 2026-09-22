@@ -1,0 +1,373 @@
+
+> @qisi/server@0.1.0 test
+> vitest run src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/problem-analysis.controller.spec.ts --reporter=verbose
+
+
+ RUN  v5.0.1 D:/math/qisi-dashboard/server
+
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > uses the preparation role and validates the structured analysis 12ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > rejects malformed preparation output instead of projecting it to the student 4ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > runs Diagnosis, Strategy, Renderer and Guard as separate checked nodes 23ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > keeps an independent-check method return inside its remediation boundary 4ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > keeps an independent-check execution return inside its remediation boundary 3ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > keeps an independent-check evidence return inside its remediation boundary 2ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > uses the exact ready preparation packet bound to the learning session 3ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > does not expose a Guard-accepted message that exceeds Strategy disclosure 1ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > rejects a diagnosis that cites a nonexistent submission before persisting it as a completed node 4ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > passes persisted exposures to Strategy and enforces the two-probe budget for the same goal 5ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > reviews a valid alternative student route before Strategy uses it 10ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > keeps an unverified alternative route out of Strategy even when its Guard says accept 3ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > rejects a Strategy that exceeds the requested help depth before rendering 2ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > rejects an approved fact whose claimed source is not in the trusted Strategy context 2ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > maps a valid finished answer to a current-problem verdict without claiming mastery 2ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > treats malformed Guard output as rejection and records the failed node 3ms
+[Nest] 25496  - 2026/09/22 15:17:21    WARN [ProblemAnalysisController] Bank preparation unavailable for question 804: Error
+ ✓ src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController > authenticates the student and returns a validated analysis request result 10ms
+ ✓ src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController > rejects analysis requests from another origin before calling the model 2ms
+ ✓ src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController > loads a selected bank image by question id and analyzes its recognized stem 1ms
+ ✓ src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController > uses stored bank Markdown without downloading an image and rejects absent questions 2ms
+ ✓ src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController > prepares a selected bank question from its private solution image and binds the packet 3ms
+ ✓ src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController > keeps the selected problem and reports a neutral unavailable state when preparation fails 4ms
+ ✓ src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController > rejects empty or oversized problems without calling the model 2ms
+ ✓ src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController > streams only the checked reply after authenticating the student 87ms
+ × src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController time budget boundary > passes only the server reservation deadline to the teaching service 23ms
+   → expected { assistanceMode: 'attempt', …(9) } to match object { Object (deadlineAt) }
+(17 matching properties omitted from actual)
+ × src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > cancels a stalled node at 25 seconds and discards non-cooperative late output 5027ms
+   → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ × src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController time budget boundary > sends a safe timeout error on SSE 200 without committing or publishing a candidate 5008ms
+   → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ × src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController time budget boundary > does not commit a reply that resolves after the client has disconnected 6ms
+   → expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      Object {
+        "assistanceMode": "attempt",
+        "audit": undefined,
+        "currentVerdict": undefined,
+        "expectedVersion": 1,
+        "leaseToken": "fixture-lease",
+        "message": "fixture attempt",
+        "ownerId": "7",
+        "remediationFocus": undefined,
+        "reply": "late private candidate",
+        "requestId": "11111111-1111-4111-8111-111111111111",
+        "runId": "fixture-run",
+        "sessionId": "91",
+        "transcriptId": undefined,
+        "transcriptRevision": undefined,
+      },
+    ]
+
+
+Number of calls: 1
+
+ × src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController time budget boundary > rechecks the absolute deadline before committing even if the teaching service returns late 4ms
+   → expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      Object {
+        "assistanceMode": "attempt",
+        "audit": undefined,
+        "currentVerdict": undefined,
+        "expectedVersion": 1,
+        "leaseToken": "fixture-lease",
+        "message": "fixture attempt",
+        "ownerId": "7",
+        "remediationFocus": undefined,
+        "reply": "late private candidate",
+        "requestId": "11111111-1111-4111-8111-111111111111",
+        "runId": "fixture-run",
+        "sessionId": "91",
+        "transcriptId": undefined,
+        "transcriptRevision": undefined,
+      },
+    ]
+
+
+Number of calls: 1
+
+ ✓ src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController time budget boundary > does not misreport an ordinary provider failure as a timeout or leak its message 3ms
+ × src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > uses the reserved absolute deadline across four individually valid 24-second calls 5011ms
+   → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ × src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > rejects unusable server deadline 2026-09-22T06:25:22.000Z before model I/O 12ms
+   → promise resolved "{ audit: { …(7) }, …(1) }" instead of rejecting
+ × src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > rejects unusable server deadline not-a-date before model I/O 3ms
+   → promise resolved "{ audit: { …(7) }, …(1) }" instead of rejecting
+ × src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > shortens the first node to the remaining reserved time, keeping a finalization margin 5008ms
+   → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ × src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > interrupts a non-cooperative provider when the client cancels 5017ms
+   → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ × src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > keeps the original timeout when failure-audit persistence also rejects 5003ms
+   → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > cleans up timeouts when all four roles finish successfully 2ms
+node.exe : 
+At line:1 char:1
++ & "C:\nvm4w\nodejs/node.exe" "C:\nvm4w\nodejs/node_modules/npm/bin/np ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+⎯⎯⎯⎯⎯⎯ Failed Tests 11 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController time budget boundary > passes only the server reservation deadline to the teaching servi
+ce
+AssertionError: expected { assistanceMode: 'attempt', …(9) } to match object { Object (deadlineAt) }
+(17 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "deadlineAt": "2026-09-22T06:26:53.000Z",
++   "analysis": {
++     "firstQuestion": "fixture question",
++     "keyConditions": [
++       "fixture condition",
++     ],
++     "knowledgePoints": [
++       "fixture topic",
++     ],
++     "overview": "fixture overview",
++     "target": "fixture target",
++   },
++   "assistanceMode": "attempt",
++   "expectedVersion": 1,
++   "history": [],
++   "message": "fixture attempt",
++   "packetVersion": null,
++   "problemMd": "fixture problem",
++   "requestId": "11111111-1111-4111-8111-111111111111",
++   "sessionId": "91",
++   "teachingState": {
++     "exposures": [],
++     "probesShownByGoal": {},
++   },
+  }
+
+ ❯ src/features/analysis/problem-analysis.controller.spec.ts:550:48
+    548|     await vi.advanceTimersByTimeAsync(1_000);
+    549|     await pending;
+    550|     expect(h.analysis.reply.mock.calls[0]![0]).toMatchObject({ deadlin…
+       |                                                ^
+    551|     expect(h.sessions.commitTurn).toHaveBeenCalledOnce();
+    552|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/11]⎯
+
+ FAIL  src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController time budget boundary > sends a safe timeout error on SSE 200 without committing or publi
+shing a candidate
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/features/analysis/problem-analysis.controller.spec.ts:554:3
+    552|   });
+    553|
+    554|   it('sends a safe timeout error on SSE 200 without committing or publ…
+       |   ^
+    555|     const h = createChatHarness();
+    556|     const service = new ProblemAnalysisService({ generate: vi.fn(() =>…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/11]⎯
+
+ FAIL  src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController time budget boundary > does not commit a reply that resolves after the client has discon
+nected
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      Object {
+        "assistanceMode": "attempt",
+        "audit": undefined,
+        "currentVerdict": undefined,
+        "expectedVersion": 1,
+        "leaseToken": "fixture-lease",
+        "message": "fixture attempt",
+        "ownerId": "7",
+        "remediationFocus": undefined,
+        "reply": "late private candidate",
+        "requestId": "11111111-1111-4111-8111-111111111111",
+        "runId": "fixture-run",
+        "sessionId": "91",
+        "transcriptId": undefined,
+        "transcriptRevision": undefined,
+      },
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/features/analysis/problem-analysis.controller.spec.ts:582:39
+    580|     finish({ reply: 'late private candidate' });
+    581|     await pending;
+    582|     expect(h.sessions.commitTurn).not.toHaveBeenCalled();
+       |                                       ^
+    583|     expect(h.sessions.failTurn).toHaveBeenCalledWith(expect.objectCont…
+    584|     expect(h.response.write.mock.calls.flat().join('')).not.toContain(…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/11]⎯
+
+ FAIL  src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController time budget boundary > rechecks the absolute deadline before committing even if the teac
+hing service returns late
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      Object {
+        "assistanceMode": "attempt",
+        "audit": undefined,
+        "currentVerdict": undefined,
+        "expectedVersion": 1,
+        "leaseToken": "fixture-lease",
+        "message": "fixture attempt",
+        "ownerId": "7",
+        "remediationFocus": undefined,
+        "reply": "late private candidate",
+        "requestId": "11111111-1111-4111-8111-111111111111",
+        "runId": "fixture-run",
+        "sessionId": "91",
+        "transcriptId": undefined,
+        "transcriptRevision": undefined,
+      },
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/features/analysis/problem-analysis.controller.spec.ts:596:39
+    594|     await vi.advanceTimersByTimeAsync(1_000);
+    595|     await pending;
+    596|     expect(h.sessions.commitTurn).not.toHaveBeenCalled();
+       |                                       ^
+    597|     expect(h.sessions.failTurn).toHaveBeenCalledWith(expect.objectCont…
+    598|     const stream = h.response.write.mock.calls.flat().join('');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/11]⎯
+
+ FAIL  src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > cancels a stalled node at 25 seconds and discards non-cooperative late outp
+ut
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/features/analysis/problem-analysis.service.spec.ts:612:3
+    610|   afterEach(() => vi.useRealTimers());
+    611|
+    612|   it('cancels a stalled node at 25 seconds and discards non-cooperativ…
+       |   ^
+    613|     const model = createRoleModel();
+    614|     let finish!: (value: ModelResponse) => void;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/11]⎯
+
+ FAIL  src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > uses the reserved absolute deadline across four individually valid 24-secon
+d calls
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/features/analysis/problem-analysis.service.spec.ts:630:3
+    628|   });
+    629|
+    630|   it('uses the reserved absolute deadline across four individually val…
+       |   ^
+    631|     const model = createRoleModel();
+    632|     const immediate = model.generate;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/11]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  11 failed | 26 passed (37)
+   Start at  15:17:17
+   Duration  28.65s (tests 83%, import 14%, transform 3%)
+ FAIL  src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > rejects unusable server deadline 2026-09-22T06:25:22.000Z before model I/O
+ FAIL  src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > rejects unusable server deadline not-a-date before model I/O
+AssertionError: promise resolved "{ audit: { …(7) }, …(1) }" instead of rejecting
+
+- Expected
++ Received
+
+- Error {
+-   "message": "rejected promise",
++ {
++   "audit": {
++     "decisionIds": [
++       "session-91:conditions",
++     ],
++     "focusGoalKey": "session-91:method",
++     "intervention": "goal_backchain",
++     "probe": null,
++     "probeGoalKey": null,
++     "scaffoldLevel": 1,
++     "wholeTaskDisclosed": false,
++   },
++   "reply": "求导这个方向有依据。先写出 $f'(x)$，再说明你准备怎样用它的符号判断单调区间。",
+  }
+
+ ❯ src/features/analysis/problem-analysis.service.spec.ts:652:85
+    650|   it.each(['2026-09-22T06:25:22.000Z', 'not-a-date'])('rejects unusabl…
+    651|     const model = createRoleModel();
+    652|     await expect(new ProblemAnalysisService(model).reply(chatInput({ d…
+       |                                                                                     ^
+    653|       .rejects.toMatchObject({ code: 'TURN_DEADLINE_EXCEEDED' });
+    654|     expect(model.generate).not.toHaveBeenCalled();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/11]⎯
+
+ FAIL  src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > shortens the first node to the remaining reserved time, keeping a finalizat
+ion margin
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/features/analysis/problem-analysis.service.spec.ts:657:3
+    655|   });
+    656|
+    657|   it('shortens the first node to the remaining reserved time, keeping …
+       |   ^
+    658|     const model = { generate: vi.fn(() => new Promise<ModelResponse>((…
+    659|     const result = new ProblemAnalysisService(model).reply(chatInput({
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/11]⎯
+
+ FAIL  src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > interrupts a non-cooperative provider when the client cancels
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/features/analysis/problem-analysis.service.spec.ts:668:3
+    666|   });
+    667|
+    668|   it('interrupts a non-cooperative provider when the client cancels', …
+       |   ^
+    669|     const model = { generate: vi.fn(() => new Promise<ModelResponse>((…
+    670|     const abort = new AbortController();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/11]⎯
+
+ FAIL  src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > keeps the original timeout when failure-audit persistence also rejects
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/features/analysis/problem-analysis.service.spec.ts:680:3
+    678|   });
+    679|
+    680|   it('keeps the original timeout when failure-audit persistence also r…
+       |   ^
+    681|     const model = { generate: vi.fn(() => new Promise<ModelResponse>((…
+    682|     const onNode = vi.fn().mockRejectedValue(new Error('fixture audit …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/11]⎯
+
+

@@ -1,0 +1,59 @@
+
+> @qisi/server@0.1.0 test
+> vitest run src/features/analysis/problem-analysis.service.spec.ts -t wall-clock limit
+
+
+ RUN  v5.0.1 D:/math/qisi-dashboard/server
+
+ ❯ src/features/analysis/problem-analysis.service.spec.ts (26 tests | 1 failed | 25 skipped) 107ms
+   ❯ ProblemAnalysisService turn time budget (10)
+     × rejects a node that crosses its wall-clock limit before its timer callback runs 103ms
+node.exe : 
+At line:1 char:1
++ & "C:\nvm4w\nodejs/node.exe" "C:\nvm4w\nodejs/node_modules/npm/bin/np ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > rejects a node that crosses its wall-clock limit before its timer callback 
+runs
+AssertionError: promise resolved "{ audit: { …(7) }, …(1) }" instead of rejecting
+
+- Expected
++ Received
+
+- Error {
+-   "message": "rejected promise",
++ {
++   "audit": {
++     "decisionIds": [
++       "session-91:conditions",
++     ],
++     "focusGoalKey": "session-91:method",
++     "intervention": "goal_backchain",
++     "probe": null,
++     "probeGoalKey": null,
++     "scaffoldLevel": 1,
++     "wholeTaskDisclosed": false,
++   },
++   "reply": "求导这个方向有依据。先写出 $f'(x)$，再说明你准备怎样用它的符号判断单调区间。",
+  }
+
+ ❯ src/features/analysis/problem-analysis.service.spec.ts:697:71
+    695|       return response(validDiagnosis);
+    696|     });
+    697|     await expect(new ProblemAnalysisService(model).reply(chatInput()))
+       |                                                                       ^
+    698|       .rejects.toMatchObject({ code: 'MODEL_NODE_TIMEOUT' });
+    699|     expect(model.generate).toHaveBeenCalledTimes(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 25 skipped (26)
+   Start at  15:25:11
+   Duration  5.12s (import 80%, transform 17%, tests 2%, worker 1%)
+

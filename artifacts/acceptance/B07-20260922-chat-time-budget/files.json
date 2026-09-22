@@ -1,0 +1,32 @@
+{
+  "repository": "D:\\math\\qisi-dashboard",
+  "base_commit": "1ce544b04f8145322c732ca16567dafe360e311c",
+  "branch": "develop-B-v0.1",
+  "files": [
+    {
+      "path": "server/src/features/analysis/turn-time-budget.ts",
+      "sha256": "c1f65001d651ee92ce0ed971d0faf81892e5372297723f4d02ac635936669bf3"
+    },
+    {
+      "path": "server/src/features/analysis/problem-analysis.service.ts",
+      "sha256": "0cbd9db4be5e55d018abebbfbcbedcaf381bb69ca9462daf18594dba08a18a0e"
+    },
+    {
+      "path": "server/src/features/analysis/problem-analysis.controller.ts",
+      "sha256": "03951c66abfc7ca16ed01831cd3796fd2aa898afb613fba1a5e9402714b099f3"
+    },
+    {
+      "path": "server/src/features/analysis/problem-analysis.service.spec.ts",
+      "sha256": "c96ac1c38c93f478737b09b237076f02bbbc2be191b7184742e2a7499c822c49"
+    },
+    {
+      "path": "server/src/features/analysis/problem-analysis.controller.spec.ts",
+      "sha256": "1a5d8918ea925bf83d92d3af3e513d60b39d4af8b433de278a4516a95452e9d3"
+    },
+    {
+      "path": "server/src/features/analysis/problem-analysis.timeout.integration.spec.ts",
+      "sha256": "acb7e6c10a6e6f2dcf4e1af50880bf350460e92527ba7ac8df65ad6b35f86bc9"
+    }
+  ],
+  "note": "Hashes identify the tested working-tree files; existing whole files are not claimed as new authorship."
+}

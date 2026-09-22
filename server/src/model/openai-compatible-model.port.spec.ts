@@ -4,12 +4,13 @@ import { z } from 'zod';
 import type { AppEnvironment } from '../config/env.js';
 import { OpenAiCompatibleModelPort } from './openai-compatible-model.port.js';
 
-function createConfig() {
+function createConfig(overrides: Partial<AppEnvironment> = {}) {
   const values: Partial<AppEnvironment> = {
     AI_API_KEY: 'test-only-key',
     AI_BASE_URL: 'https://provider.example/v1',
     AI_MODEL: 'test-model',
     AI_TIMEOUT_MS: 60_000,
+    ...overrides,
   };
 
   return {
@@ -129,5 +130,68 @@ describe('OpenAiCompatibleModelPort', () => {
     expect(body.messages[0]?.content).toContain('renderer prompt');
     expect(body.messages[0]?.content).toContain('"text_md"');
     expect(body.messages[1]?.content).toBe('{"action":"ask","task_id":"task-1"}');
+  });
+});
+
+
+describe('interactive model latency settings', () => {
+  afterEach(() => vi.unstubAllGlobals());
+
+  function stubCompletion() {
+    const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({
+      choices: [{ message: { content: '{"ok":true}' }, finish_reason: 'stop' }],
+      model: 'gpt-5.5-2026-04-24',
+      usage: { prompt_tokens: 12, completion_tokens: 4 },
+    }), { status: 200, headers: { 'Content-Type': 'application/json' } }));
+    vi.stubGlobal('fetch', fetchMock);
+    return fetchMock;
+  }
+  function interactiveRequest() {
+    return { input: 'synthetic input', maxOutputTokens: 500, role: 'diagnosis' as const,
+      signal: new AbortController().signal, system: 'fixture system', latencyProfile: 'interactive' as const };
+  }
+
+  it.each(['gpt-5.5', 'gpt-5.5-2026-04-24'])('explicitly disables extra reasoning for verified interactive model %s without switching models', async (model) => {
+    const fetchMock = stubCompletion();
+    const result = await new OpenAiCompatibleModelPort(createConfig({ AI_MODEL: model })).generate(interactiveRequest());
+    const [url, init] = fetchMock.mock.calls[0] as [string, RequestInit];
+    const body = JSON.parse(String(init.body));
+    expect(url).toBe('https://provider.example/v1/chat/completions');
+    expect(body).toMatchObject({ model, reasoning_effort: 'none', verbosity: 'low', max_completion_tokens: 500 });
+    expect(fetchMock).toHaveBeenCalledOnce();
+    expect(body.messages[0].content).toContain('输出使用紧凑JSON');
+    expect(body.messages[0].content).toContain('必须完整保留Schema要求的字段');
+    expect(result).toMatchObject({ reasoningEffort: 'none', outputVerbosity: 'low', latencyProfileVersion: 'interactive-v1', model: 'gpt-5.5-2026-04-24' });
+    expect(result).not.toHaveProperty('apiKey');
+  });
+
+  it.each(['test-model', 'gpt-4.1', 'gpt-5.5-custom'])('does not guess reasoning support for %s', async (model) => {
+    const fetchMock = stubCompletion();
+    const result = await new OpenAiCompatibleModelPort(createConfig({ AI_MODEL: model })).generate(interactiveRequest());
+    const [, init] = fetchMock.mock.calls[0] as [string, RequestInit];
+    expect(JSON.parse(String(init.body))).not.toHaveProperty('reasoning_effort');
+    expect(JSON.parse(String(init.body))).not.toHaveProperty('verbosity');
+    expect(result).not.toHaveProperty('reasoningEffort');
+    expect(result).not.toHaveProperty('outputVerbosity');
+    expect(JSON.parse(String(init.body)).messages[0].content).toBe('fixture system');
+  });
+
+  it('preserves provider defaults for non-interactive requests including preparation and assessment', async () => {
+    for (const role of ['preparation', 'assessment'] as const) {
+      const fetchMock = stubCompletion();
+      const request = { ...interactiveRequest(), role, latencyProfile: undefined };
+      await new OpenAiCompatibleModelPort(createConfig({ AI_MODEL: 'gpt-5.5' })).generate(request);
+      const [, init] = fetchMock.mock.calls[0] as [string, RequestInit];
+      expect(JSON.parse(String(init.body))).not.toHaveProperty('reasoning_effort');
+      expect(JSON.parse(String(init.body))).not.toHaveProperty('verbosity');
+    }
+  });
+
+  it('does not silently retry with changed reasoning settings when a provider rejects the request', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response('{"error":"fixture failure"}', { status: 400 }));
+    vi.stubGlobal('fetch', fetchMock);
+    await expect(new OpenAiCompatibleModelPort(createConfig({ AI_MODEL: 'gpt-5.5' })).generate(interactiveRequest()))
+      .rejects.toMatchObject({ status: 502 });
+    expect(fetchMock).toHaveBeenCalledOnce();
   });
 });

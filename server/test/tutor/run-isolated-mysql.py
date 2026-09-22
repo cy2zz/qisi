@@ -17,6 +17,11 @@ sys.stdout.reconfigure(encoding='utf-8')
 sys.stderr.reconfigure(encoding='utf-8')
 
 server = Path(__file__).resolve().parents[2]
+test_file = os.environ.get('QISI_MYSQL_SPEC_FILE', 'test/tutor/learning-persistence.mysql.spec.ts')
+if test_file not in {'test/tutor/learning-persistence.mysql.spec.ts', 'test/model/chat-latency.live.spec.ts'}:
+    raise SystemExit('refusing an unregistered isolated MySQL test file')
+if test_file == 'test/model/chat-latency.live.spec.ts' and os.environ.get('QISI_LIVE_MODEL_TEST') != '1':
+    raise SystemExit('live model tests require explicit QISI_LIVE_MODEL_TEST=1')
 mysqld = shutil.which('mysqld')
 node = shutil.which('node')
 if not mysqld or not node:
@@ -70,7 +75,7 @@ try:
     version=node_code("const [rows]=await c.query('SELECT VERSION() AS version'); console.log(JSON.stringify({actual_mysql_version:rows[0].version})); await c.end();")
     print(version.stdout.decode('utf-8',errors='replace'),flush=True)
     if version.returncode: raise RuntimeError('isolated MySQL version query failed')
-    result=subprocess.run([node,'--input-type=module','-e',"process.argv=['node','vitest','run','test/tutor/learning-persistence.mysql.spec.ts','--reporter=verbose']; await import(new URL('./vitest.mjs',import.meta.resolve('vitest/package.json')).href);"],cwd=server,env=env,creationflags=hidden,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+    result=subprocess.run([node,'--input-type=module','-e',"process.argv=['node','vitest','run',process.env.QISI_MYSQL_SPEC_FILE || 'test/tutor/learning-persistence.mysql.spec.ts','--reporter=verbose']; await import(new URL('./vitest.mjs',import.meta.resolve('vitest/package.json')).href);"],cwd=server,env=env,creationflags=hidden,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
     exit_code=result.returncode
     (workspace / 'vitest.log').write_bytes(result.stdout)
     print(result.stdout.decode('utf-8', errors='replace'), flush=True)

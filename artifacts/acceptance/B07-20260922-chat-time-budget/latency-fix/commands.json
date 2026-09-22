@@ -1,0 +1,265 @@
+[
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server test -- src/model/openai-compatible-model.port.spec.ts src/features/analysis/problem-analysis.service.spec.ts --reporter=verbose",
+    "exit_code": 1,
+    "passed": 34,
+    "failed": 4,
+    "skipped": 0,
+    "total": 38,
+    "evidence": "red.log",
+    "provider_mode": "fixture"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server test -- src/model/openai-compatible-model.port.spec.ts src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/problem-analysis.controller.spec.ts src/features/analysis/problem-analysis.timeout.integration.spec.ts --reporter=verbose",
+    "exit_code": 0,
+    "passed": 54,
+    "failed": 0,
+    "skipped": 0,
+    "total": 54,
+    "evidence": "green.log",
+    "provider_mode": "fixture"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server test -- src/model/openai-compatible-model.port.spec.ts src/features/analysis/problem-analysis.service.spec.ts --reporter=verbose",
+    "exit_code": 1,
+    "passed": 35,
+    "failed": 3,
+    "skipped": 0,
+    "total": 38,
+    "evidence": "verbosity-red.log",
+    "provider_mode": "fixture"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server test -- src/model/openai-compatible-model.port.spec.ts src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/problem-analysis.controller.spec.ts src/features/analysis/problem-analysis.timeout.integration.spec.ts --reporter=verbose",
+    "exit_code": 0,
+    "passed": 54,
+    "failed": 0,
+    "skipped": 0,
+    "total": 54,
+    "evidence": "verbosity-green.log",
+    "provider_mode": "fixture"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server test -- src/features/analysis/problem-analysis.service.spec.ts --reporter=verbose",
+    "exit_code": 1,
+    "passed": 31,
+    "failed": 1,
+    "skipped": 0,
+    "total": 32,
+    "evidence": "finish-policy-red.log",
+    "provider_mode": "fixture"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server test -- src/model/openai-compatible-model.port.spec.ts src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/problem-analysis.controller.spec.ts src/features/analysis/problem-analysis.timeout.integration.spec.ts --reporter=verbose",
+    "exit_code": 0,
+    "passed": 58,
+    "failed": 0,
+    "skipped": 0,
+    "total": 58,
+    "evidence": "final-green.log",
+    "provider_mode": "fixture"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server test -- src/model/openai-compatible-model.port.spec.ts src/features/analysis/problem-analysis.service.spec.ts --reporter=verbose",
+    "exit_code": 1,
+    "passed": 39,
+    "failed": 3,
+    "skipped": 0,
+    "total": 42,
+    "evidence": "compact-red.log",
+    "provider_mode": "fixture"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server test -- src/model/openai-compatible-model.port.spec.ts src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/problem-analysis.controller.spec.ts src/features/analysis/problem-analysis.timeout.integration.spec.ts --reporter=verbose",
+    "exit_code": 0,
+    "passed": 58,
+    "failed": 0,
+    "skipped": 0,
+    "total": 58,
+    "evidence": "compact-green.log",
+    "provider_mode": "fixture"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server run typecheck -- --incremental false",
+    "exit_code": 2,
+    "total": 0,
+    "evidence": "typecheck.log",
+    "note": "Initial cookie-header typing error fixed; not a product red test."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server run typecheck -- --incremental false",
+    "exit_code": 0,
+    "total": 0,
+    "evidence": "typecheck-final.log",
+    "note": "Type check, not a product test."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server run typecheck -- --incremental false",
+    "exit_code": 0,
+    "total": 0,
+    "evidence": "typecheck-verbosity.log",
+    "note": "Type check, not a product test."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server run typecheck -- --incremental false",
+    "exit_code": 0,
+    "total": 0,
+    "evidence": "typecheck-final2.log",
+    "note": "Type check, not a product test."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server run typecheck -- --incremental false",
+    "exit_code": 0,
+    "total": 0,
+    "evidence": "typecheck-final3.log",
+    "note": "Type check, not a product test."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server run lint",
+    "exit_code": 0,
+    "total": 0,
+    "evidence": "lint.log"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server run build -- --tsBuildInfoFile C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-b07-latency-build-5e1cbfb1-7785-4619-95b5-57bfc3727a6e.tsbuildinfo",
+    "exit_code": 0,
+    "total": 0,
+    "evidence": "build.log"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server run lint",
+    "exit_code": 0,
+    "total": 0,
+    "evidence": "lint-final.log"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server run build -- --tsBuildInfoFile C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-b07-latency-final-54dc31c9-d55e-44d7-afdb-97301e679198.tsbuildinfo",
+    "exit_code": 0,
+    "total": 0,
+    "evidence": "build-final.log"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server run lint",
+    "exit_code": 0,
+    "total": 0,
+    "evidence": "lint-final3.log"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server run build -- --tsBuildInfoFile C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-b07-latency-checked-19209d8a-53f8-4760-84b9-79941f41ea37.tsbuildinfo",
+    "exit_code": 0,
+    "total": 0,
+    "evidence": "build-final3.log"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "$env:QISI_MYSQL_SPEC_FILE='test/model/chat-latency.live.spec.ts'; $env:QISI_LIVE_MODEL_TEST='1'; python server/test/tutor/run-isolated-mysql.py",
+    "exit_code": 1,
+    "passed": 0,
+    "failed": 0,
+    "skipped": 0,
+    "total": 0,
+    "evidence": "live-http-mysql.log",
+    "provider_mode": "real project provider",
+    "mysql": "8.0.26 isolated NEW qisi_spec_*",
+    "note": "Harness setup error: file not created yet; zero product tests."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "$env:QISI_MYSQL_SPEC_FILE='test/model/chat-latency.live.spec.ts'; $env:QISI_LIVE_MODEL_TEST='1'; python server/test/tutor/run-isolated-mysql.py",
+    "exit_code": 1,
+    "passed": 2,
+    "failed": 1,
+    "skipped": 0,
+    "total": 3,
+    "evidence": "live-http-mysql-2.log",
+    "provider_mode": "real project provider",
+    "mysql": "8.0.26 isolated NEW qisi_spec_*",
+    "note": "none only + attempt L1: incorrect final-answer diagnosis timed out."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "$env:QISI_MYSQL_SPEC_FILE='test/model/chat-latency.live.spec.ts'; $env:QISI_LIVE_MODEL_TEST='1'; python server/test/tutor/run-isolated-mysql.py",
+    "exit_code": 1,
+    "passed": 2,
+    "failed": 1,
+    "skipped": 0,
+    "total": 3,
+    "evidence": "live-http-mysql-3.log",
+    "provider_mode": "real project provider",
+    "mysql": "8.0.26 isolated NEW qisi_spec_*",
+    "note": "none + verbosity low: finish action mismatch caused safety fallback, not timeout."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "$env:QISI_MYSQL_SPEC_FILE='test/model/chat-latency.live.spec.ts'; $env:QISI_LIVE_MODEL_TEST='1'; python server/test/tutor/run-isolated-mysql.py",
+    "exit_code": 1,
+    "passed": 2,
+    "failed": 1,
+    "skipped": 0,
+    "total": 3,
+    "evidence": "live-http-mysql-4.log",
+    "provider_mode": "real project provider",
+    "mysql": "8.0.26 isolated NEW qisi_spec_*",
+    "note": "finish policy aligned: original attempt timed out; retained failure."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "$env:QISI_MYSQL_SPEC_FILE='test/model/chat-latency.live.spec.ts'; $env:QISI_LIVE_MODEL_TEST='1'; python server/test/tutor/run-isolated-mysql.py",
+    "exit_code": 0,
+    "passed": 3,
+    "failed": 0,
+    "skipped": 0,
+    "total": 3,
+    "evidence": "live-http-mysql-5.log",
+    "provider_mode": "real project provider",
+    "mysql": "8.0.26 isolated NEW qisi_spec_*",
+    "note": "Final interactive-v1 profile: none + low + compact JSON; all 3 cases passed."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server test -- --reporter=default",
+    "exit_code": 1,
+    "passed": 611,
+    "failed": 1,
+    "skipped": 17,
+    "total": 629,
+    "evidence": "server-full-final.log",
+    "note": "Existing A-owned database.factory.spec.ts:36 only: Windows CA path separator mismatch; unchanged. Real model tests opt out by default."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "Python subprocess negative checks: unregistered QISI_MYSQL_SPEC_FILE; missing QISI_LIVE_MODEL_TEST",
+    "exit_code": 0,
+    "passed": 2,
+    "failed": 0,
+    "total": 2,
+    "evidence": "runner-safety.json",
+    "note": "Both child commands exit 1 as expected before database creation."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "git diff --check",
+    "exit_code": 0,
+    "total": 0,
+    "note": "Own appended CRLF sections normalized; historical bytes retained."
+  }
+]
