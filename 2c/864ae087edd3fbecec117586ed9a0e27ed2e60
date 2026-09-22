@@ -1,0 +1,225 @@
+server/src/features/analysis/problem-analysis.service.ts
+  s_142b4668ab2d27::t_24364dde4bd2e1 1,27,47-48,382-383,419-433,450-452,692-707
+  s_142b4668ab2d27::t_c0f8c8b403f776 90,723
+  s_142b4668ab2d27::t_64e1222dbabad2 89,114,722
+  s_142b4668ab2d27::t_4f35d76bc6a318 91,724
+  s_142b4668ab2d27::t_9c611123541d9d 118
+artifacts/acceptance/B07-20260922-chat-time-budget/gate-e2e.log
+  s_142b4668ab2d27::t_77a5bffa3d82dd 1-11
+artifacts/acceptance/B07-20260922-chat-time-budget/typecheck-initial.log
+  s_142b4668ab2d27::t_77a5bffa3d82dd 1-7
+server/src/model/openai-compatible-model.port.spec.ts
+  s_142b4668ab2d27::t_05ba0920e33e12 7,13,135-159,161,165-172,174,177-185,187-197
+  s_142b4668ab2d27::t_c3c111d9467db0 162-164,176
+  s_142b4668ab2d27::t_c0f8c8b403f776 186
+  s_142b4668ab2d27::t_fc356a01a0a8dc 160,173,175
+artifacts/acceptance/B07-20260922-chat-time-budget/build.log
+  s_142b4668ab2d27::t_77a5bffa3d82dd 1-4
+server/src/features/analysis/problem-analysis.controller.spec.ts
+  s_142b4668ab2d27::t_d0a0164857dc8e 556
+  s_142b4668ab2d27::t_b78484a112ee51 3,14,504-555,557-613
+artifacts/acceptance/B07-20260922-chat-time-budget/red-wall-clock.log
+  s_142b4668ab2d27::t_77a5bffa3d82dd 1-59
+artifacts/acceptance/B07-20260922-chat-time-budget/manual-validation.md
+  s_142b4668ab2d27::t_1760d1e7d690e1 1-23
+artifacts/acceptance/B07-20260922-chat-time-budget/latency-fix/final-worktree-checks.json
+  s_142b4668ab2d27::t_d6df5b3b415f27 1-12
+artifacts/acceptance/B07-20260922-chat-time-budget/typecheck.log
+  s_142b4668ab2d27::t_77a5bffa3d82dd 1-4
+server/src/features/analysis/problem-analysis.controller.ts
+  s_142b4668ab2d27::t_24364dde4bd2e1 31,276,304,331-334,336,342-344,346-351
+artifacts/acceptance/B07-20260922-chat-time-budget/green.log
+  s_142b4668ab2d27::t_77a5bffa3d82dd 1-80
+artifacts/acceptance/B07-20260922-chat-time-budget/latency-fix/manual-validation.md
+  s_142b4668ab2d27::t_d6df5b3b415f27 1-14
+artifacts/acceptance/B07-20260922-chat-time-budget/preexisting-cache-hashes.json
+  s_142b4668ab2d27::t_3846c4be2e8cf8 1-4
+artifacts/acceptance/B07-20260922-chat-time-budget/lint-initial.log
+  s_142b4668ab2d27::t_77a5bffa3d82dd 1-4
+web/src/pages/bank/BankFlow.chat-version.spec.tsx
+  s_142b4668ab2d27::t_e516694dca3163 1,3-151
+  s_142b4668ab2d27::t_ff53f512a336c1 2
+artifacts/acceptance/B07-20260922-chat-time-budget/latency-fix/verbosity-low-probe.json
+  s_142b4668ab2d27::t_013ec09561ef2d 1-13
+artifacts/acceptance/B07-20260922-chat-time-budget/latency-fix/live-runs.json
+  s_142b4668ab2d27::t_d6df5b3b415f27 1-803
+server/src/model/model.port.ts
+  s_142b4668ab2d27::t_c0f8c8b403f776 33
+  s_142b4668ab2d27::t_4f35d76bc6a318 34
+  s_142b4668ab2d27::t_64e1222dbabad2 18-19,31-32
+artifacts/acceptance/B07-20260922-chat-time-budget/latency-fix/commands.json
+  s_142b4668ab2d27::t_d6df5b3b415f27 1-265
+artifacts/acceptance/B07-20260922-chat-time-budget/latency-fix/compact-json-probe.json
+  s_142b4668ab2d27::t_e7dbea3dd15ebd 1-12
+artifacts/acceptance/B07-20260922-chat-time-budget/provider-latency-none-probe.json
+  s_142b4668ab2d27::t_146548319a1a10 1-15
+artifacts/acceptance/B07-20260922-chat-version/manual-validation.md
+  s_142b4668ab2d27::t_659e42e59779cf 1-11
+server/src/features/analysis/problem-analysis.service.spec.ts
+  s_142b4668ab2d27::t_c3c111d9467db0 189,194
+  s_142b4668ab2d27::t_05ba0920e33e12 187-188,190-193,195-205
+  s_142b4668ab2d27::t_912e285f116dcb 578-609
+  s_142b4668ab2d27::t_3846c4be2e8cf8 1,655-739,766-773
+  s_142b4668ab2d27::t_d0a0164857dc8e 3,740-765
+artifacts/acceptance/B07-20260922-chat-time-budget/gate-unit.log
+  s_142b4668ab2d27::t_77a5bffa3d82dd 1-11
+artifacts/acceptance/B07-20260922-chat-time-budget/green-initial.log
+  s_142b4668ab2d27::t_77a5bffa3d82dd 1-75
+artifacts/acceptance/B07-20260922-chat-time-budget/files.json
+  s_142b4668ab2d27::t_1760d1e7d690e1 1-32
+artifacts/acceptance/B07-20260922-chat-time-budget/AT45.json
+  s_142b4668ab2d27::t_1760d1e7d690e1 1-215
+artifacts/acceptance/B07-20260922-chat-version/files.json
+  s_142b4668ab2d27::t_659e42e59779cf 1-22
+artifacts/acceptance/B07-20260922-chat-version/preserved-files.json
+  s_142b4668ab2d27::t_2b0231c92ce23e 1-6
+artifacts/acceptance/B07-20260922-chat-time-budget/lint.log
+  s_142b4668ab2d27::t_77a5bffa3d82dd 1-4
+artifacts/acceptance/B07-20260922-chat-time-budget/provider-none-full-turn-probe.json
+  s_142b4668ab2d27::t_af0b0881499e17 1-36
+artifacts/acceptance/B07-20260922-chat-version/initial-hashes.json
+  s_142b4668ab2d27::t_1b7e19b2a6f822 1-7
+artifacts/acceptance/B07-20260922-chat-version/result.json
+  s_142b4668ab2d27::t_659e42e59779cf 1-62
+server/src/model/openai-compatible-model.port.ts
+  s_142b4668ab2d27::t_4f35d76bc6a318 12-14,59,61-62,118
+  s_142b4668ab2d27::t_c0f8c8b403f776 52,85
+  s_142b4668ab2d27::t_64e1222dbabad2 47-51
+web/src/pages/bank/BankFlow.tsx
+  s_142b4668ab2d27::t_7dd79c981ba37a 695-715
+artifacts/acceptance/B07-20260922-chat-time-budget/server-full.log
+  s_142b4668ab2d27::t_77a5bffa3d82dd 1-178
+web/tsconfig.app.tsbuildinfo
+  s_142b4668ab2d27::t_d0cc813177e486 1
+qisi-sdd-v3/changes/B07.md
+  s_142b4668ab2d27::t_d6df5b3b415f27 68-83
+  s_142b4668ab2d27::t_659e42e59779cf 96-109
+  s_142b4668ab2d27::t_24364dde4bd2e1 27,29-41
+  s_142b4668ab2d27::t_3846c4be2e8cf8 25-26,28
+  s_142b4668ab2d27::t_1760d1e7d690e1 42-53
+  s_142b4668ab2d27::t_05ba0920e33e12 54-67
+  s_142b4668ab2d27::t_1b7e19b2a6f822 84-95
+artifacts/acceptance/B07-20260922-chat-time-budget/web-full-recheck.log
+  s_142b4668ab2d27::t_77a5bffa3d82dd 1-193
+artifacts/acceptance/B07-20260922-chat-time-budget/latency-fix/files.json
+  s_142b4668ab2d27::t_d6df5b3b415f27 1-54
+artifacts/acceptance/B07-20260922-chat-time-budget/gate-stack.log
+  s_142b4668ab2d27::t_77a5bffa3d82dd 1-11
+server/test/tutor/run-isolated-mysql.py
+  s_142b4668ab2d27::t_3f6dbca55d5426 23-24
+  s_142b4668ab2d27::t_921ce52d1f178b 20-22,78
+artifacts/acceptance/B07-20260922-chat-time-budget/red.log
+  s_142b4668ab2d27::t_77a5bffa3d82dd 1-373
+server/test/model/chat-latency.live.spec.ts
+  s_142b4668ab2d27::t_9c611123541d9d 123-124
+  s_142b4668ab2d27::t_4f35d76bc6a318 125-137
+  s_142b4668ab2d27::t_3f6dbca55d5426 90-91
+  s_142b4668ab2d27::t_51324e72f77828 1-89,92-122,138-146
+artifacts/acceptance/B07-20260922-chat-version/commands.json
+  s_142b4668ab2d27::t_659e42e59779cf 1-95
+artifacts/acceptance/B07-20260922-chat-time-budget/mysql-isolated.log
+  s_142b4668ab2d27::t_77a5bffa3d82dd 1-31
+server/src/features/analysis/turn-time-budget.ts
+  s_142b4668ab2d27::t_64e1222dbabad2 63,68,70
+  s_142b4668ab2d27::t_24364dde4bd2e1 1-62,64-67,69,71-98
+artifacts/acceptance/B07-20260922-chat-time-budget/ST07.json
+  s_142b4668ab2d27::t_1760d1e7d690e1 1-215
+qisi-sdd-v3/handoffs/B07.md
+  s_142b4668ab2d27::t_1760d1e7d690e1 76-111
+  s_142b4668ab2d27::t_d6df5b3b415f27 112-139
+  s_142b4668ab2d27::t_659e42e59779cf 140-162
+artifacts/acceptance/B07-20260922-chat-time-budget/web-full.log
+  s_142b4668ab2d27::t_77a5bffa3d82dd 1-336
+artifacts/acceptance/B07-20260922-chat-time-budget/latency-fix/result.json
+  s_142b4668ab2d27::t_d6df5b3b415f27 1-309
+server/src/features/analysis/problem-analysis.timeout.integration.spec.ts
+  s_142b4668ab2d27::t_26fd33c20ccacc 1-93
+artifacts/acceptance/B07-20260922-chat-time-budget/commands.json
+  s_142b4668ab2d27::t_1760d1e7d690e1 1-154
+artifacts/acceptance/B07-20260922-chat-time-budget/provider-latency-probe.json
+  s_142b4668ab2d27::t_0fcf3ee9c01353 1-25
+docs/popo-20-cards.md
+  s_2bda1447c404e4::t_d9d95404ea9fde 1-241
+artifacts/acceptance/B07-20260922-chat-time-budget/latency-fix/runner-safety.json
+  s_142b4668ab2d27::t_59941f753ff050 1-16
+artifacts/acceptance/B07-20260922-chat-time-budget/provider-none-depth-full-turn-probe.json
+  s_142b4668ab2d27::t_6cbe81009aaf8b 1-62
+artifacts/acceptance/B07-20260922-chat-version/playwright-results/.last-run.json
+  s_142b4668ab2d27::t_d26ccb5889670f 1-4
+docs/raven-setup.md
+  s_c20eb3f820531c::t_ab57c4ed1106de 1-93
+ravenspec/changes/b01-agent-workflow-foundation/.ravenspec.yaml
+  s_f788d787d69d9e::t_bb0f5ffbbd891d 1-6
+ravenspec/changes/b01-agent-workflow-foundation/PRD.md
+  s_f788d787d69d9e::t_7a8ef992865a3f 1-276
+ravenspec/config.yaml
+  s_c20eb3f820531c::t_c5c7714ca4e903 1-23
+ravenspec/schemas/cases-runtime-v1.json
+  s_c20eb3f820531c::t_d38335dbd5246d 1-85
+ravenspec/schemas/qa-context-v1.json
+  s_c20eb3f820531c::t_a62ba35b79fec5 1-249
+ravenspec/schemas/sdd/schema.yaml
+  s_c20eb3f820531c::t_aaf9d1d3d4e8dc 1-236
+ravenspec/schemas/sdd/templates/DESIGN.md
+  s_c20eb3f820531c::t_81672a890c64ec 1-73
+ravenspec/schemas/sdd/templates/PRD.md
+  s_c20eb3f820531c::t_0c68d3fb251df6 1-67
+ravenspec/schemas/sdd/templates/TASK.md
+  s_c20eb3f820531c::t_f5696734ddaaa0 1-24
+ravenspec/schemas/sdd/templates/spec.md
+  s_c20eb3f820531c::t_11ec315e78f75c 1-8
+ravenspec/schemas/ucdp.schema.json
+  s_c20eb3f820531c::t_9d8b82afa25290 1-556
+scripts/link-raven-skills.mjs
+  s_c20eb3f820531c::t_5397b7eeaf8085 1-58
+scripts/link-raven-skills.test.mjs
+  s_c20eb3f820531c::t_cd03714a85a681 1-73
+server/tsconfig.build.tsbuildinfo
+  s_142b4668ab2d27::t_44221facb18100 1
+web/tests/e2e/chat-version.spec.ts
+  s_142b4668ab2d27::t_3d481a7206da1e 1-57
+.raven/workflow-config-full.json
+  s_c20eb3f820531c::t_63118190c6cda1 1-51
+.raven/workflow-config.json
+  s_c20eb3f820531c::t_b7057317854863 1-4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "2c864ae087edd3fbecec117586ed9a0e27ed2e60",
+  "prompts": {},
+  "sessions": {
+    "s_142b4668ab2d27": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0bd99-a08c-7de0-918a-b07ee54ef41c",
+        "model": "gpt-6-astra-ga"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    },
+    "s_2bda1447c404e4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7cd1e4f4-057e-45f3-bb37-6489bbffbcc7",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    },
+    "s_c20eb3f820531c": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0a929-92ce-7e82-9215-ed5af340496f",
+        "model": "gpt-6-astra-ga"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    },
+    "s_f788d787d69d9e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0a95e-1855-7e11-9e36-fc9ef5d0a2e2",
+        "model": "gpt-6-astra-ga"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    }
+  }
+}
