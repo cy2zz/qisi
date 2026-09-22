@@ -1,0 +1,23 @@
+schema: sdd
+context: |
+  项目: qisi-dashboard（启思 AI）
+  技术栈: frontend/ 使用 React、Vite、react-markdown；backend/ 使用 Java 17、Spring Boot 3.5.5、MyBatis、H2。
+  开发服务: 前端 5173 端口，/api 代理到后端 8080 端口。
+  工作流: bigdata-sdd-workflow；配置在 .raven/，新变更在 ravenspec/changes/，归档规格在 ravenspec/specs/。
+  产品基线: qisi-sdd-v3/ 为 qisi-3.0 规格包；先读 README.md、AGENTS.md、prd.md、tasks.json 和相关 contracts/。
+  现有应用位于本仓库 frontend/、backend/；不要照搬历史 D:/math/qisi-web 路径另建应用。
+  保护发布证据: 不因工具初始化重写 qisi-sdd-v3/、manifest、ZIP 或 publication/，不自动发布或上传知识。
+  开发约束: 未经用户明确授权不启用子 Agent，不自动 commit/push 或创建 EP 任务；产品多 Agent 不是开发并行授权。
+  验证: frontend/ 下 npm run build；backend/ 下 mvn test；工具适配使用 node --test scripts/link-raven-skills.test.mjs。
+  测试诚实: 配置/静态验证不等于应用验收；不把 fixture/mock 作为真实模型、学生数据或人工复核证据。
+rules:
+  prd:
+    - 关联 qisi-sdd-v3 的需求、任务与验收条目，说明本次范围和非目标
+    - 识别受影响的 frontend/backend 模块，包含回滚计划
+  specs:
+    - 使用 SHALL/MUST 描述可验证约束，保持题池、确认输入、受控状态写入等产品不变量
+  design:
+    - 使用 Given/When/Then 格式描述行为，优先复用现有模块和契约
+    - 区分 Raven 开发工具接入和应用运行时能力，不引入无关 SDK
+  task:
+    - 列出实际测试命令与证据，明确未运行和外部阻塞项

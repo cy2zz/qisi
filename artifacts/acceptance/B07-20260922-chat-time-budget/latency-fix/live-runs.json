@@ -1,0 +1,803 @@
+[
+  {
+    "log": "live-http-mysql.log",
+    "note": "Harness setup error: file not created yet; zero product tests.",
+    "cases": []
+  },
+  {
+    "log": "live-http-mysql-2.log",
+    "note": "none only + attempt L1: incorrect final-answer diagnosis timed out.",
+    "cases": [
+      {
+        "case": "attempt endpoints",
+        "elapsedMs": 49078,
+        "eventTypes": [
+          "status",
+          "chunk",
+          "done"
+        ],
+        "nodes": [
+          {
+            "node": "diagnosis",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 1598,
+              "output": 974,
+              "provider": "openai-compatible",
+              "elapsedMs": 14734,
+              "reasoningEffort": "none",
+              "providerRequestId": "8cee4f6a-b2cb-45c5-b3b6-1ef8c42bf3fb"
+            }
+          },
+          {
+            "node": "strategy",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 3436,
+              "output": 663,
+              "provider": "openai-compatible",
+              "elapsedMs": 19355,
+              "reasoningEffort": "none",
+              "providerRequestId": "6943923a-6a88-4656-ae57-c81bd26b2fb3"
+            }
+          },
+          {
+            "node": "renderer",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 518,
+              "output": 90,
+              "provider": "openai-compatible",
+              "elapsedMs": 10671,
+              "reasoningEffort": "none",
+              "providerRequestId": "83e366dd-c63c-4da2-8d99-b80262c05716"
+            }
+          },
+          {
+            "node": "guard",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 652,
+              "output": 128,
+              "provider": "openai-compatible",
+              "elapsedMs": 3823,
+              "reasoningEffort": "none",
+              "providerRequestId": "b78baeba-3d9f-4724-a1f7-8c4b105f0a3e"
+            },
+            "guard": "accept"
+          }
+        ],
+        "checkedPublicReply": "你写的“$x=1$”和“$x=3$”分别是怎么来的？\n\n请你各用一句话说明：\n\n1. $x=1$ 是由哪里得到的？它能不能取？为什么？\n2. $x=3$ 是由哪里得到的？它能不能取？为什么？"
+      },
+      {
+        "case": "reject endpoint-only solution",
+        "elapsedMs": 25044,
+        "eventTypes": [
+          "status",
+          "error"
+        ],
+        "error": {
+          "code": "MODEL_NODE_TIMEOUT",
+          "message": "本轮核对超时，尚未生成可用反馈。你的内容已经保留，可以重试。"
+        },
+        "nodes": [
+          {
+            "node": "diagnosis",
+            "status": "failed",
+            "model": "",
+            "usage": null
+          }
+        ],
+        "checkedPublicReply": ""
+      },
+      {
+        "case": "accept open interval solution",
+        "elapsedMs": 34727,
+        "eventTypes": [
+          "status",
+          "chunk",
+          "done"
+        ],
+        "verdict": "correct",
+        "nodes": [
+          {
+            "node": "diagnosis",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 1622,
+              "output": 622,
+              "provider": "openai-compatible",
+              "elapsedMs": 11399,
+              "reasoningEffort": "none",
+              "providerRequestId": "44d93bfb-3d3b-4260-9ef1-a70ff2085dcf"
+            }
+          },
+          {
+            "node": "strategy",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 3092,
+              "output": 416,
+              "provider": "openai-compatible",
+              "elapsedMs": 9132,
+              "reasoningEffort": "none",
+              "providerRequestId": "f911a032-888a-4e25-9025-0144a3a874a0"
+            }
+          },
+          {
+            "node": "renderer",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 613,
+              "output": 109,
+              "provider": "openai-compatible",
+              "elapsedMs": 5110,
+              "reasoningEffort": "none",
+              "providerRequestId": "35955c9b-d7da-4114-868f-a7968ae85b4a"
+            }
+          },
+          {
+            "node": "guard",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 659,
+              "output": 139,
+              "provider": "openai-compatible",
+              "elapsedMs": 8568,
+              "reasoningEffort": "none",
+              "providerRequestId": "c9b10f02-dfa6-447a-80ab-bbedb560c8b1"
+            },
+            "guard": "accept"
+          }
+        ],
+        "checkedPublicReply": "对的，你的判断和结论都正确。\n\n因为分式小于 $0$ 时分子、分母异号；并且\n- $x=3$ 时分母为 $0$，不能取；\n- $x=1$ 时分式等于 $0$，不满足严格小于 $0$。\n\n所以解集可以写为：\n\n$$x\\in(1,3)$$"
+      }
+    ]
+  },
+  {
+    "log": "live-http-mysql-3.log",
+    "note": "none + verbosity low: finish action mismatch caused safety fallback, not timeout.",
+    "cases": [
+      {
+        "case": "attempt endpoints",
+        "elapsedMs": 52056,
+        "eventTypes": [
+          "status",
+          "chunk",
+          "done"
+        ],
+        "nodes": [
+          {
+            "node": "diagnosis",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 1597,
+              "output": 930,
+              "provider": "openai-compatible",
+              "elapsedMs": 23451,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "f302d668-5523-4d00-87ec-4afef1f29c96"
+            }
+          },
+          {
+            "node": "strategy",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 3392,
+              "output": 490,
+              "provider": "openai-compatible",
+              "elapsedMs": 11698,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "0e2953a5-b71c-40e2-9b06-267f075edb0d"
+            }
+          },
+          {
+            "node": "renderer",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 502,
+              "output": 45,
+              "provider": "openai-compatible",
+              "elapsedMs": 7367,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "9f168bd3-d9cc-4f8d-a1bf-2e6964faf688"
+            }
+          },
+          {
+            "node": "guard",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 605,
+              "output": 129,
+              "provider": "openai-compatible",
+              "elapsedMs": 9228,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "2ccae8b1-fd3d-4325-8e67-85124df0be88"
+            },
+            "guard": "accept"
+          }
+        ],
+        "checkedPublicReply": "你找到了两个关键点：$x=1$ 和 $x=3$。请只补充一句判断：其中哪个点不能取？为什么？"
+      },
+      {
+        "case": "reject endpoint-only solution",
+        "elapsedMs": 35134,
+        "eventTypes": [
+          "status",
+          "chunk",
+          "done"
+        ],
+        "verdict": "unknown",
+        "nodes": [
+          {
+            "node": "diagnosis",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 1607,
+              "output": 973,
+              "provider": "openai-compatible",
+              "elapsedMs": 17935,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "aaf2a3e3-b947-4fcd-b3ae-a43db0054826"
+            }
+          },
+          {
+            "node": "strategy",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 3424,
+              "output": 685,
+              "provider": "openai-compatible",
+              "elapsedMs": 16937,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "3ab3a6f7-cad5-42af-ac43-6b01d84e5070"
+            }
+          }
+        ],
+        "checkedPublicReply": "这次作答暂时无法可靠核对。先保留原结论，不把它记为正确或掌握；请补充关键一步后重试。"
+      },
+      {
+        "case": "accept open interval solution",
+        "elapsedMs": 26578,
+        "eventTypes": [
+          "status",
+          "chunk",
+          "done"
+        ],
+        "verdict": "correct",
+        "nodes": [
+          {
+            "node": "diagnosis",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 1622,
+              "output": 503,
+              "provider": "openai-compatible",
+              "elapsedMs": 6929,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "6f6aa56d-1414-40ae-9f09-210ba4f78aaa"
+            }
+          },
+          {
+            "node": "strategy",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 2973,
+              "output": 306,
+              "provider": "openai-compatible",
+              "elapsedMs": 6321,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "21c45e97-6d17-4a13-8d1b-6d04cdb10095"
+            }
+          },
+          {
+            "node": "renderer",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 503,
+              "output": 99,
+              "provider": "openai-compatible",
+              "elapsedMs": 7664,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "55006ee0-aff8-4dab-a184-9088980b2e27"
+            }
+          },
+          {
+            "node": "guard",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 647,
+              "output": 145,
+              "provider": "openai-compatible",
+              "elapsedMs": 4983,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "ae2b9bb1-5c53-4d01-a109-9a0df868cf1c"
+            },
+            "guard": "accept"
+          }
+        ],
+        "checkedPublicReply": "你的结论正确：解集为\n\n$$\n1<x<3\n$$\n\n因为分式小于 $0$ 时，分子和分母异号；同时 $x=1$ 使分子为 $0$，不满足严格小于 $0$，$x=3$ 使分母为 $0$，无意义，所以两个端点都不取。"
+      }
+    ]
+  },
+  {
+    "log": "live-http-mysql-4.log",
+    "note": "finish policy aligned: original attempt timed out; retained failure.",
+    "cases": [
+      {
+        "case": "attempt endpoints",
+        "elapsedMs": 25099,
+        "eventTypes": [
+          "status",
+          "error"
+        ],
+        "error": {
+          "code": "MODEL_NODE_TIMEOUT",
+          "message": "本轮核对超时，尚未生成可用反馈。你的内容已经保留，可以重试。"
+        },
+        "nodes": [
+          {
+            "node": "diagnosis",
+            "status": "failed",
+            "model": "",
+            "usage": null
+          }
+        ],
+        "checkedPublicReply": ""
+      },
+      {
+        "case": "reject endpoint-only solution",
+        "elapsedMs": 39203,
+        "eventTypes": [
+          "status",
+          "chunk",
+          "done"
+        ],
+        "verdict": "incorrect",
+        "nodes": [
+          {
+            "node": "diagnosis",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 1605,
+              "output": 1087,
+              "provider": "openai-compatible",
+              "elapsedMs": 18302,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "8cc7e6cc-154c-4f5e-bd6c-8cc6bb4e36cf"
+            }
+          },
+          {
+            "node": "strategy",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 3587,
+              "output": 373,
+              "provider": "openai-compatible",
+              "elapsedMs": 8132,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "3089b8b0-5c04-427b-bc4c-93061c35e20b"
+            },
+            "strategy": {
+              "action": "complete",
+              "scaffold_level": 0
+            }
+          },
+          {
+            "node": "renderer",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 563,
+              "output": 130,
+              "provider": "openai-compatible",
+              "elapsedMs": 3533,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "72a600eb-8c91-40ed-995d-b2e792472ecc"
+            }
+          },
+          {
+            "node": "guard",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 717,
+              "output": 134,
+              "provider": "openai-compatible",
+              "elapsedMs": 8605,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "68eb1d07-73e9-4a81-bb45-3d3535b48c7f"
+            },
+            "guard": "accept"
+          }
+        ],
+        "checkedPublicReply": "你这里把两个临界点当成了解，但需要注意：\n\n- $x=3$ 使分母为 $0$，分式无意义，所以不能取；\n- $x=1$ 时分式值为 $0$，但题目要求的是 $<0$，也不能取。\n\n所以解集不是 $x=1$ 或 $x=3$。接下来需要比较在这些临界点分开的区间上，分式什么时候为负。"
+      },
+      {
+        "case": "accept open interval solution",
+        "elapsedMs": 32973,
+        "eventTypes": [
+          "status",
+          "chunk",
+          "done"
+        ],
+        "verdict": "correct",
+        "nodes": [
+          {
+            "node": "diagnosis",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 1624,
+              "output": 501,
+              "provider": "openai-compatible",
+              "elapsedMs": 10802,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "e839f59d-6571-4ad0-b2ca-90d19fcf8458"
+            }
+          },
+          {
+            "node": "strategy",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 3020,
+              "output": 327,
+              "provider": "openai-compatible",
+              "elapsedMs": 5681,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "9f38c209-4ffa-43c0-974d-0c2909eba7d2"
+            },
+            "strategy": {
+              "action": "complete",
+              "scaffold_level": 0
+            }
+          },
+          {
+            "node": "renderer",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 547,
+              "output": 83,
+              "provider": "openai-compatible",
+              "elapsedMs": 7752,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "7e5869e6-2397-4bc1-9303-82493cd77bda"
+            }
+          },
+          {
+            "node": "guard",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 679,
+              "output": 145,
+              "provider": "openai-compatible",
+              "elapsedMs": 8366,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "1ec4d945-ab62-4924-9988-dbb45abbc9be"
+            },
+            "guard": "accept"
+          }
+        ],
+        "checkedPublicReply": "正确。这里分式小于 $0$，需要分子与分母异号；同时 $x=3$ 使分母为 $0$ 不能取，$x=1$ 时分式等于 $0$，也不能取。\n\n所以解集为：\n\n$$1<x<3$$"
+      }
+    ]
+  },
+  {
+    "log": "live-http-mysql-5.log",
+    "note": "Final interactive-v1 profile: none + low + compact JSON; all 3 cases passed.",
+    "cases": [
+      {
+        "case": "attempt endpoints",
+        "elapsedMs": 52545,
+        "eventTypes": [
+          "status",
+          "chunk",
+          "done"
+        ],
+        "nodes": [
+          {
+            "node": "diagnosis",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 1662,
+              "output": 634,
+              "provider": "openai-compatible",
+              "elapsedMs": 15019,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "13f83c80-e639-4411-9053-3026b5ea35a4",
+              "latencyProfileVersion": "interactive-v1"
+            }
+          },
+          {
+            "node": "strategy",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 3161,
+              "output": 528,
+              "provider": "openai-compatible",
+              "elapsedMs": 9976,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "4c3e0086-5698-45da-8163-b2f129acaca1",
+              "latencyProfileVersion": "interactive-v1"
+            },
+            "strategy": {
+              "action": "ask",
+              "scaffold_level": 1
+            }
+          },
+          {
+            "node": "renderer",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 570,
+              "output": 124,
+              "provider": "openai-compatible",
+              "elapsedMs": 9080,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "decff127-40e0-418b-9f4e-15533dd953b7",
+              "latencyProfileVersion": "interactive-v1"
+            }
+          },
+          {
+            "node": "guard",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 751,
+              "output": 123,
+              "provider": "openai-compatible",
+              "elapsedMs": 17557,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "ad1b6980-5e85-49a8-a509-19bcbfc6d1f3",
+              "latencyProfileVersion": "interactive-v1"
+            },
+            "guard": "accept"
+          }
+        ],
+        "checkedPublicReply": "你找到的 $x=1$ 和 $x=3$ 很关键。请先判断：\n\n- $x=1$ 是让哪个部分等于 $0$？它能不能直接代入原不等式作为解？\n- $x=3$ 是让哪个部分等于 $0$？它能不能直接代入原不等式作为解？\n\n注意题目是 $\\frac{x-1}{x-3}<0$，分母不能为 $0$。"
+      },
+      {
+        "case": "reject endpoint-only solution",
+        "elapsedMs": 36996,
+        "eventTypes": [
+          "status",
+          "chunk",
+          "done"
+        ],
+        "verdict": "incorrect",
+        "nodes": [
+          {
+            "node": "diagnosis",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 1666,
+              "output": 672,
+              "provider": "openai-compatible",
+              "elapsedMs": 13697,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "4c354f79-ab8c-452e-ba18-3df389f1c9aa",
+              "latencyProfileVersion": "interactive-v1"
+            }
+          },
+          {
+            "node": "strategy",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 3237,
+              "output": 279,
+              "provider": "openai-compatible",
+              "elapsedMs": 5920,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "882a6621-e7e3-90ce-88ca-ddac656684ad",
+              "latencyProfileVersion": "interactive-v1"
+            },
+            "strategy": {
+              "action": "complete",
+              "scaffold_level": 0
+            }
+          },
+          {
+            "node": "renderer",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 529,
+              "output": 190,
+              "provider": "openai-compatible",
+              "elapsedMs": 8147,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "181a977c-dc3d-4e61-ba92-edad019a8ffe",
+              "latencyProfileVersion": "interactive-v1"
+            }
+          },
+          {
+            "node": "guard",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 834,
+              "output": 116,
+              "provider": "openai-compatible",
+              "elapsedMs": 6908,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "585c245d-6e14-4592-8fc6-712598f2955c",
+              "latencyProfileVersion": "interactive-v1"
+            },
+            "guard": "accept"
+          }
+        ],
+        "checkedPublicReply": "你现在的结论“$x=1$ 或 $x=3$”需要修改。\n\n这里是不等式 $\\frac{x-1}{x-3}<0$，要求的是让分式小于 $0$ 的所有 $x$ 的范围，不是只找两个点。\n\n注意两点：\n- $x=3$ 会使分母为 $0$，不能取；\n- $x=1$ 会使分子为 $0$，分式等于 $0$，但题目要求严格小于 $0$，所以也不能取。\n\n可以把关键点 $1$ 和 $3$ 放到数轴上，分段判断分式符号。"
+      },
+      {
+        "case": "accept open interval solution",
+        "elapsedMs": 33045,
+        "eventTypes": [
+          "status",
+          "chunk",
+          "done"
+        ],
+        "verdict": "correct",
+        "nodes": [
+          {
+            "node": "diagnosis",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 1687,
+              "output": 384,
+              "provider": "openai-compatible",
+              "elapsedMs": 8690,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "88f96080-2ce4-40f8-a251-fd53f5cee3f1",
+              "latencyProfileVersion": "interactive-v1"
+            }
+          },
+          {
+            "node": "strategy",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 2968,
+              "output": 303,
+              "provider": "openai-compatible",
+              "elapsedMs": 6521,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "10b96fce-7d54-4341-86c5-0f95019a3715",
+              "latencyProfileVersion": "interactive-v1"
+            },
+            "strategy": {
+              "action": "complete",
+              "scaffold_level": 0
+            }
+          },
+          {
+            "node": "renderer",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 591,
+              "output": 111,
+              "provider": "openai-compatible",
+              "elapsedMs": 10473,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "7dc26f44-43a2-48be-af82-71e44cbbe464",
+              "latencyProfileVersion": "interactive-v1"
+            }
+          },
+          {
+            "node": "guard",
+            "status": "completed",
+            "model": "gpt-5.5-2026-04-24",
+            "usage": {
+              "kind": "reported",
+              "input": 771,
+              "output": 143,
+              "provider": "openai-compatible",
+              "elapsedMs": 6557,
+              "outputVerbosity": "low",
+              "reasoningEffort": "none",
+              "providerRequestId": "07dbc73f-b8df-45fd-aaf0-54aef6d3077f",
+              "latencyProfileVersion": "interactive-v1"
+            },
+            "guard": "accept"
+          }
+        ],
+        "checkedPublicReply": "你的结论正确：解集为 $1<x<3$，即 $(1,3)$。\n\n理由也到位：当分子 $x-1$ 与分母 $x-3$ 异号时，分式小于 $0$；同时 $x=3$ 使分母为 $0$，不能取，$x=1$ 时分式等于 $0$，也不满足严格小于 $0$。"
+      }
+    ]
+  }
+]

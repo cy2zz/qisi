@@ -1,0 +1,13 @@
+{
+  "purpose": "One bounded live capability test on the previously timed-out incorrect endpoint solution; no raw private output",
+  "elapsedMs": 20655,
+  "requestedEffort": "none",
+  "httpStatus": 200,
+  "finishReason": "stop",
+  "reasoningTokens": 0,
+  "outputTokens": 973,
+  "errorCode": null,
+  "schemaValid": true,
+  "model": "gpt-5.5-2026-04-24",
+  "judgment": "invalid"
+}

@@ -1,0 +1,15 @@
+{
+  "purpose": "Same synthetic diagnosis; one bounded real ModelPort capability call, no private output saved",
+  "result": {
+    "effort": "none",
+    "elapsedMs": 13749,
+    "httpStatus": 200,
+    "finishReason": "stop",
+    "reasoningTokens": 0,
+    "outputTokens": 954,
+    "errorType": null,
+    "errorCode": null,
+    "schemaValid": true,
+    "actualModel": "gpt-5.5-2026-04-24"
+  }
+}

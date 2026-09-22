@@ -1,0 +1,7 @@
+{
+  "web/package.json": true,
+  "web/package-lock.json": true,
+  "web/src/App.tsx": true,
+  "web/src/App.test.tsx": true,
+  "web/src/features/login/OneToOneClassroom3D.tsx": true
+}

@@ -1,0 +1,31 @@
+{"isolated_mysql": true, "host": "127.0.0.1", "port": 51051, "schema": "qisi_spec_b_turn_ae56c0fb1d42", "temporary_directory": "C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi_spec_b_turn_yig0xm61", "existing_business_database_used": false}
+{"actual_mysql_version":"8.0.26"}
+
+
+ RUN  v5.0.1 D:/math/qisi-dashboard/server
+
+stdout | test/tutor/learning-persistence.mysql.spec.ts > A/B turn conformance on real isolated MySQL (FixtureProvider)
+{"mysql_version":"8.0.26","migrations":19,"fixture_model":true,"real_student":false}
+
+ ✓ test/tutor/learning-persistence.mysql.spec.ts > A/B turn conformance on real isolated MySQL (FixtureProvider) > commits messages/nodes/probes/version/safe response together and replays across new service instances 304ms
+ ✓ test/tutor/learning-persistence.mysql.spec.ts > A/B turn conformance on real isolated MySQL (FixtureProvider) > preserves the two-probe ceiling across fresh runners and records rejection without phantom messages 140ms
+ ✓ test/tutor/learning-persistence.mysql.spec.ts > A/B turn conformance on real isolated MySQL (FixtureProvider) > isolates owners and rejects same request ID with different payload before another model call 58ms
+ ✓ test/tutor/learning-persistence.mysql.spec.ts > A/B turn conformance on real isolated MySQL (FixtureProvider) > admits only one same-session concurrent request and commits once 112ms
+ ✓ test/tutor/learning-persistence.mysql.spec.ts > A/B turn conformance on real isolated MySQL (FixtureProvider) > does not expose requested help when invalid evidence is rejected before rendering 28ms
+ ✓ test/tutor/learning-persistence.mysql.spec.ts > A/B turn conformance on real isolated MySQL (FixtureProvider) > does not reset a rejected request by retrying the same ID 36ms
+ ✓ test/tutor/learning-persistence.mysql.spec.ts > A/B turn conformance on real isolated MySQL (FixtureProvider) > does not count a help request as help exposure when checked output discloses no solution 43ms
+ ✓ test/tutor/learning-persistence.mysql.spec.ts > A/B turn conformance on real isolated MySQL (FixtureProvider) > invalidates stale handwriting evidence but never erases probes already shown 56ms
+ ✓ test/tutor/learning-persistence.mysql.spec.ts > A/B turn conformance on real isolated MySQL (FixtureProvider) > fails closed on an unmapped persisted canonical probe counter instead of resetting it 11ms
+ ✓ test/tutor/learning-persistence.mysql.spec.ts > A/B turn conformance on real isolated MySQL (FixtureProvider) > rejects session expiry during the model call at the final transaction 36ms
+ ✓ test/tutor/learning-persistence.mysql.spec.ts > A/B turn conformance on real isolated MySQL (FixtureProvider) > rejects handwriting changed while the model was running 38ms
+ ✓ test/tutor/learning-persistence.mysql.spec.ts > A/B turn conformance on real isolated MySQL (FixtureProvider) > rechecks previous handwriting used as diagnosis context even when the current turn is typed 81ms
+ ✓ test/tutor/learning-persistence.mysql.spec.ts > A/B turn conformance on real isolated MySQL (FixtureProvider) > does not resurrect a session deleted while the model was running 35ms
+ ✓ test/tutor/learning-persistence.mysql.spec.ts > A/B turn conformance on real isolated MySQL (FixtureProvider) > leaves a newer lease and its request active when an old worker reports failure 14ms
+
+ Test Files  1 passed (1)
+      Tests  14 passed (14)
+   Start at  15:27:44
+   Duration  4.49s (tests 48%, import 40%, transform 12%)
+
+
+{"test_exit_code": 0, "shutdown": "sql_shutdown", "temporary_data_retained": "C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi_spec_b_turn_yig0xm61\\data", "credentials_logged": false}

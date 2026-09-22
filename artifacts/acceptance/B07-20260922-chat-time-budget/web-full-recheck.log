@@ -1,0 +1,193 @@
+
+> @qisi/web@0.1.0 test
+> vitest run --reporter=default
+
+
+ RUN  v5.0.1 D:/math/qisi-dashboard/web
+
+ ✓ src/shared/MathMarkdown.test.tsx (10 tests) 1920ms
+   ✓ MathMarkdown (10)
+     ✓ renders Chinese Markdown with inline and block mathematics 432ms
+     ✓ repairs the bare parenthesized formula variant shown in a teaching reply 316ms
+     ✓ does not reinterpret ordinary brackets or Markdown links as mathematics 421ms
+ ✓ src/pages/bank/PaperPickerDialog.spec.tsx (4 tests) 2089ms
+   ✓ PaperPickerDialog (4)
+     ✓ loads the real paper bank and returns a question without exposing analysis 1328ms
+     ✓ keeps keyboard focus inside the dialog and restores the opener 338ms
+     ✓ renders a text-only question as mathematical Markdown 369ms
+ ✓ src/pages/bank/PaperBankPage.spec.tsx (4 tests) 2781ms
+   ✓ PaperBankPage (4)
+     ✓ filters papers and previews question images without exposing analysis 1698ms
+     ✓ keeps the selected paper and question in the URL-backed page state 420ms
+     ✓ renders a text-only question as mathematical Markdown 503ms
+ ✓ src/pages/learn/report/ReportPage.spec.tsx (8 tests) 2826ms
+   ✓ ReportPage (8)
+     ✓ shows original work, planning, execution, and remaining verification separately 1525ms
+     ✓ recovers from a temporary report failure without trapping the student 348ms
+ ✓ src/pages/history/HistoryPage.spec.tsx (5 tests) 3238ms
+   ✓ HistoryPage (5)
+     ✓ shows the student thought, disclosed help, and later independent evidence as one timeline 1572ms
+     ✓ keeps the latest record open and makes older evidence scannable before expansion 493ms
+     ✓ uses the same next-action rule for unfinished, method, evidence, and passed attempts 740ms
+ ✓ src/pages/bank/StudySidebar.spec.tsx (1 test) 1079ms
+   ✓ StudySidebar (1)
+     ✓ moves focus inside on open and restores the trigger after Escape 1074ms
+ ✓ src/pages/bank/RichComposer.spec.tsx (7 tests) 1107ms
+   ✓ richTextToMarkdown (7)
+     ✓ updates realtime speech in place and replaces it with the final LaTeX draft 714ms
+ ✓ src/features/speech/ReadAloud.spec.tsx (2 tests) 1166ms
+   ✓ ReadAloud (2)
+     ✓ starts only after a click and exposes working volume and mute controls 956ms
+ ✓ src/pages/bank/QuestionCard.spec.tsx (6 tests) 1786ms
+   ✓ QuestionCard (6)
+     ✓ keeps selection unavailable until the OSS question image is readable 860ms
+     ✓ renders mathematical Markdown without waiting for an image 427ms
+ ✓ src/pages/learn/check/AssessmentCheckPage.spec.tsx (16 tests) 10365ms
+   ✓ AssessmentCheckPage (16)
+     ✓ autosaves an unfinished plan and restores it after refresh without grading 2295ms
+     ✓ does not replace newer typing when an older autosave response arrives 1332ms
+     ✓ puts the caret inside formula slots and advances without making students hunt for braces 659ms
+     ✓ binds a confirmed handwriting revision to the locked assessment plan 2470ms
+     ✓ locks the first plan, withholds correctness during work, and grades only after finish 886ms
+     ✓ shows the irreversible help boundary and saves the current draft first 806ms
+     ✓ starts a genuinely different reassessment from the completed summary 343ms
+     ✓ keeps the completed summary when no distinct reassessment is ready 303ms
+ ✓ src/features/input/HandwritingInput.spec.tsx (1 test) 1526ms
+   ✓ HandwritingInput (1)
+     ✓ keeps uncertain handwriting out of the composer until every line is reviewed 1511ms
+ ❯ src/App.test.tsx (11 tests | 2 failed) 16058ms
+   ❯ App (11)
+     × restores an existing student from the cookie 1149ms
+     × restores structured checked verdicts and keeps incorrect work out of independent assessment 1031ms
+     ✓ restores and automatically saves the current learning draft 2924ms
+     ✓ keeps handwriting out of teaching until its confirmed revision is submitted 4614ms
+     ✓ logs in with only a username 279ms
+     ✓ sets the login moment in a meaningful mathematics context 49ms
+     ✓ starts a mathematics conversation from the paper picker and inserts formula syntax 1930ms
+     ✓ returns focus to the composer after the initial analysis finishes 979ms
+     ✓ replaces a temporary LaTeX-derived title with the persisted analysis title 529ms
+     ✓ recognizes an attached question image and starts the same analysis flow 377ms
+     ✓ streams a checked reply for each student turn 2192ms
+ ✓ src/pages/teacher/TeacherPage.test.tsx (2 tests) 1406ms
+   ✓ B06 teacher UI explicit exposure (2)
+     ✓ requires independent login plus exposure confirmation; does not put credential in trace request 1243ms
+ ✓ src/features/input/audio-capture.spec.ts (3 tests) 19ms
+ ✓ src/features/input/MathFormatButton.spec.tsx (3 tests) 1408ms
+   ✓ MathFormatButton (3)
+     ✓ formats the current manual draft and returns Markdown with LaTeX 1090ms
+     ✓ keeps the draft and offers retry when conversion fails 300ms
+ ✓ src/features/input/ImageQuestionInput.spec.tsx (2 tests) 1341ms
+   ✓ ImageQuestionInput (2)
+     ✓ recognizes a selected image and auto-submits a certain extraction 1157ms
+ ✓ src/features/input/VoiceInputButton.spec.tsx (2 tests) 827ms
+   ✓ VoiceInputButton (2)
+     ✓ shows separate long-form and realtime voice buttons without a mode dialog 738ms
+ ✓ src/features/input/VoiceInputButton.silence.spec.tsx (2 tests) 1194ms
+   ✓ VoiceInputButton realtime silence (2)
+     ✓ stops realtime recognition and explains prolonged silence 997ms
+ ✓ src/features/input/image-question-client.spec.ts (2 tests) 34ms
+ ✓ src/features/input/voice-activity.spec.ts (2 tests) 12ms
+ ✓ src/features/input/speech-client.spec.ts (1 test) 20ms
+ ✓ src/pages/learn/report/assessment-next-action.spec.ts (7 tests) 17ms
+ ✓ src/shared/MathMarkdown.spec.tsx (1 test) 12ms
+node.exe : 
+At line:1 char:1
++ & "C:\nvm4w\nodejs/node.exe" "C:\nvm4w\nodejs/node_modules/npm/bin/np ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/App.test.tsx > App > restores an existing student from the cookie
+TestingLibraryElementError: Unable to find role="heading" and name "今天想解决哪道题？"
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+
+Ignored nodes: comments, script, style
+<html>
+  <head />
+  <body>
+    <div />
+  </body>
+</html>
+ ❯ waitForWrapper ../node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ src/App.test.tsx:77:11
+     75|     renderApp();
+     76|
+     77|     await waitFor(() => {
+       |           ^
+     78|       expect(screen.getByRole('heading', { name: '今天想解决哪道题？' })).toBeI…
+     79|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/App.test.tsx > App > restores structured checked verdicts and keeps incorrect work out of independent assessment
+TestingLibraryElementError: Unable to find role="heading" and name "根式化简"
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <main
+      aria-busy="true"
+      class="route-loading"
+    >
+      <div
+        class="auth-loading"
+        role="status"
+      >
+        <span
+          aria-hidden="true"
+          class="loading-mark"
+        />
+        正在打开学习空间…
+      </div>
+    </main>
+  </div>
+</body>
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <main
+      aria-busy="true"
+      class="route-loading"
+    >
+      <div
+        class="auth-loading"
+        role="status"
+      >
+        <span
+          aria-hidden="true"
+          class="loading-mark"
+        />
+        正在打开学习空间…
+      </div>
+    </main>
+  </div>
+</body>
+ ❯ waitForWrapper ../node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ ../node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/App.test.tsx:194:25
+    192|     renderApp('/study');
+    193|
+    194|     expect(await screen.findByRole('heading', { name: '根式化简' })).toBeI…
+       |                         ^
+    195|     expect(screen.getByText('我还不确定')).toBeInTheDocument();
+    196|     expect(screen.getByLabelText('帮助深度：最小提示')).toBeInTheDocument();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed | 22 passed (23)
+      Tests  2 failed | 100 passed (102)
+   Start at  15:37:47
+   Duration  29.95s (environment 49%, tests 29%, import 9%, setup 8%, transform 4%)
+
+Environment  jsdom was created 23 times · 87.72s total, 49% of tracked time
+             create it once per worker with pool: 'vmThreads' (keeps per-file isolation) or isolate: false (shares it across files)
+             learn more: https://vitest.dev/guide/improving-performance#test-environments
+

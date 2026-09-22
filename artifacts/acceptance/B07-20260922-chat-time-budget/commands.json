@@ -1,0 +1,154 @@
+[
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server test -- src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/problem-analysis.controller.spec.ts --reporter=verbose",
+    "exit_code": 1,
+    "evidence": "red.log",
+    "passed": 26,
+    "failed": 11,
+    "skipped": 0,
+    "total": 37,
+    "note": "Failure-first: missing deadline forwarding/cancellation allowed expired work; some tests intentionally reached Vitest timeout because the old implementation never settled."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server test -- src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/problem-analysis.controller.spec.ts --reporter=verbose",
+    "exit_code": 0,
+    "evidence": "green-initial.log",
+    "passed": 37,
+    "failed": 0,
+    "skipped": 0,
+    "total": 37
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server run typecheck -- --incremental false",
+    "exit_code": 2,
+    "evidence": "typecheck-initial.log",
+    "note": "Test fixture Promise<unknown> typing corrected to Promise<never>; not a product red test."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server test -- src/features/analysis/problem-analysis.service.spec.ts -t 'wall-clock limit'",
+    "exit_code": 1,
+    "evidence": "red-wall-clock.log",
+    "passed": 0,
+    "failed": 1,
+    "skipped": 25,
+    "total": 26,
+    "note": "Additional red case: timer callback not dispatched yet, but wall clock already exceeds node limit."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server run lint",
+    "exit_code": 0,
+    "evidence": "lint-initial.log"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server test -- src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/problem-analysis.controller.spec.ts src/features/analysis/problem-analysis.timeout.integration.spec.ts --reporter=verbose",
+    "exit_code": 0,
+    "evidence": "green.log",
+    "passed": 42,
+    "failed": 0,
+    "skipped": 0,
+    "total": 42,
+    "note": "Final targeted suite: 26 service, 13 controller, 3 real Nest/Supertest HTTP tests; all model/persistence dependencies are fixtures in this suite."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "python server/test/tutor/run-isolated-mysql.py",
+    "exit_code": 0,
+    "evidence": "mysql-isolated.log",
+    "passed": 14,
+    "failed": 0,
+    "skipped": 0,
+    "total": 14,
+    "note": "Existing A/B persistence regression, real isolated MySQL 8.0.26 + FixtureProvider. Not a real model or complete /problems/chat MySQL E2E test; server was SQL SHUTDOWN afterward."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server test -- --reporter=default",
+    "exit_code": 1,
+    "evidence": "server-full.log",
+    "passed": 598,
+    "failed": 1,
+    "skipped": 14,
+    "total": 613,
+    "note": "Only failure: unchanged database.factory.spec.ts expects slash instead of Windows backslash in CA path. 14 opt-in MySQL tests separately passed above."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server run typecheck -- --incremental false",
+    "exit_code": 0,
+    "evidence": "typecheck.log"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server run lint",
+    "exit_code": 0,
+    "evidence": "lint.log"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix server run build -- --tsBuildInfoFile C:/Users/wangchaoya/AppData/Local/Temp/qisi-chat-time-budget-build-bd36fa577cbd4ebea7d3edd9c609f8bc.tsbuildinfo",
+    "exit_code": 0,
+    "evidence": "build.log",
+    "note": "Only the generated incremental metadata was redirected; pre-existing tracked tsbuildinfo contents stayed unchanged."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix web test -- --reporter=default",
+    "exit_code": 1,
+    "evidence": "web-full.log",
+    "passed": 97,
+    "failed": 5,
+    "skipped": 0,
+    "total": 102,
+    "note": "First run overlapped server validation; no web code changed and no test threshold changed."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm --prefix web test -- --reporter=default",
+    "exit_code": 1,
+    "evidence": "web-full-recheck.log",
+    "passed": 100,
+    "failed": 2,
+    "skipped": 0,
+    "total": 102,
+    "note": "Separate rerun still fails existing App cookie restore and structured checked verdict restore tests. Full frontend suite is NOT passed."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm run test:task -- B07",
+    "exit_code": 1,
+    "evidence": "gate-unit.log",
+    "passed": 0,
+    "failed": 0,
+    "skipped": 0,
+    "total": 0,
+    "note": "Task runner has not registered B07; no acceptance tests executed. Not a product test failure or passing gate."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm run test:e2e:task -- B07",
+    "exit_code": 1,
+    "evidence": "gate-e2e.log",
+    "passed": 0,
+    "failed": 0,
+    "skipped": 0,
+    "total": 0,
+    "note": "Task runner has not registered B07; no acceptance tests executed. Not a product test failure or passing gate."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard",
+    "command": "npm run test:stack -- B07",
+    "exit_code": 1,
+    "evidence": "gate-stack.log",
+    "passed": 0,
+    "failed": 0,
+    "skipped": 0,
+    "total": 0,
+    "note": "Task runner has not registered B07; no acceptance tests executed. Not a product test failure or passing gate."
+  }
+]

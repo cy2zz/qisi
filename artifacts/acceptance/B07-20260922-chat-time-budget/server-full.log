@@ -1,0 +1,178 @@
+
+> @qisi/server@0.1.0 test
+> vitest run --reporter=default
+
+
+ RUN  v5.0.1 D:/math/qisi-dashboard/server
+
+ ❯ src/database/database.factory.spec.ts (1 test | 1 failed) 147ms
+   ❯ createDatabase (1)
+     × loads the configured CA certificate for TLS connections 143ms
+ ✓ src/features/bank/paper-manifest.spec.ts (3 tests) 3025ms
+   ✓ paper manifest importer (3)
+     ✓ normalizes every online paper manifest without dropping a question 1650ms
+     ✓ derives student-facing filter fields from paper titles 666ms
+     ✓ keeps question and analysis images paired while deriving decoded OSS object keys 698ms
+ ✓ src/features/media/question-image-validation.spec.ts (4 tests) 1525ms
+   ✓ validateQuestionImage (4)
+     ✓ fully decodes a supported image and returns its trusted mime and dimensions 804ms
+     ✓ rejects decoded images above the 20 million pixel limit 319ms
+ ✓ test/teacher/teacher-http.spec.ts (6 tests) 2976ms
+   ✓ B06 teacher HTTP boundary (Nest + fake store, not MySQL) (6)
+     ✓ issues only the distinct HttpOnly, Secure teacher cookie 1892ms
+     ✓ does not allow GET prefetch or trace without the teacher cookie 500ms
+     ✓ returns only the projection after a successful exposure commit 336ms
+[Nest] 32108  - 2026/09/22 14:25:48    WARN [ProblemAnalysisService] Object(2) {
+  event: 'teaching_node_failure_audit_failed',
+  nodeKey: 'diagnosis'
+}
+ ✓ src/features/analysis/problem-analysis.service.spec.ts (26 tests) 414ms
+ ↓ test/tutor/learning-persistence.mysql.spec.ts (14 tests | 14 skipped)
+ ✓ src/features/analysis/problem-analysis.timeout.integration.spec.ts (3 tests) 1439ms
+   ✓ POST /api/problems/chat SSE time budget integration (fixture) (3)
+     ✓ ends an HTTP 200 event stream with an explicit deadline error and no answer 1131ms
+ ✓ src/contracts/domain.schema.spec.ts (41 tests) 689ms
+ ✓ src/model/budgeted.provider.spec.ts (15 tests) 92ms
+ ✓ test/strategy/admission.spec.ts (17 tests) 305ms
+ ✓ src/features/media/question-image-loader.spec.ts (2 tests) 665ms
+   ✓ QuestionImageLoader (2)
+     ✓ downloads and fully validates a trusted permanent OSS question image 653ms
+[Nest] 12416  - 2026/09/22 15:30:55    WARN [ProblemAnalysisController] Bank preparation unavailable for question 804: Error
+[Nest] 12416  - 2026/09/22 14:25:48    WARN [ProblemAnalysisController] Object(3) {
+  event: 'teaching_turn_failed',
+  code: 'MODEL_NODE_TIMEOUT',
+  runId: 'fixture-run'
+}
+[Nest] 12416  - 2026/09/22 14:25:23    WARN [ProblemAnalysisController] Object(3) {
+  event: 'teaching_turn_failed',
+  code: 'TURN_CANCELLED',
+  runId: 'fixture-run'
+}
+[Nest] 12416  - 2026/09/22 14:25:33    WARN [ProblemAnalysisController] Object(3) {
+  event: 'teaching_turn_failed',
+  code: 'TURN_DEADLINE_EXCEEDED',
+  runId: 'fixture-run'
+}
+[Nest] 12416  - 2026/09/22 14:25:23    WARN [ProblemAnalysisController] Object(3) {
+  event: 'teaching_turn_failed',
+  code: 'TURN_FAILED',
+  runId: 'fixture-run'
+}
+ ✓ src/features/analysis/problem-analysis.controller.spec.ts (13 tests) 910ms
+   ✓ ProblemAnalysisController (8)
+     ✓ streams only the checked reply after authenticating the student 499ms
+ ✓ src/database/sql-migration.provider.spec.ts (10 tests) 748ms
+   ✓ SqlMigrationProvider (10)
+     ✓ rejects an empty table SQL file 428ms
+ ✓ test/agents/at13-role-isolation.spec.ts (9 tests) 325ms
+ ✓ test/app.e2e-spec.ts (1 test) 1021ms
+ ✓ test/tutor/app-wiring.spec.ts (2 tests) 1671ms
+ ✓ src/features/speech/youdao-speech.adapter.spec.ts (4 tests) 245ms
+ ✓ src/model/fixture.provider.spec.ts (18 tests) 48ms
+ ✓ test/tutor/submit-turn-deps.spec.ts (7 tests) 279ms
+ ✓ test/diagnosis/evidence.spec.ts (14 tests) 608ms
+ ✓ src/model/openai-compatible-model.port.spec.ts (3 tests) 209ms
+ ✓ test/tutor/at27-renderer-input.spec.ts (8 tests) 342ms
+ ✓ src/features/media/media.controller.spec.ts (3 tests) 836ms
+   ✓ MediaController (3)
+     ✓ authenticates, decodes and recognizes a question image 497ms
+ ✓ test/workflows/probe-count-from-strategy.spec.ts (3 tests) 393ms
+ ✓ test/workflows/admission-failure.spec.ts (4 tests) 345ms
+ ✓ test/tutor/persistent-runner.spec.ts (8 tests) 497ms
+   ✓ A facade / B runner adapter (fixture, no MySQL) (6)
+     ✓ uses all four roles then exactly one A checked commit, never split save 312ms
+ ✓ src/model/upstream-model-bridge.spec.ts (18 tests) 398ms
+ ✓ src/features/speech/volcengine-tts.adapter.spec.ts (2 tests) 420ms
+   ✓ VolcengineTtsAdapter (2)
+     ✓ sends a TTS 2.0 SSE request and joins the returned MP3 chunks 412ms
+ ✓ test/teacher/teacher.spec.ts (11 tests) 212ms
+ ✓ test/preparation/packet-lifecycle.spec.ts (28 tests) 225ms
+ ✓ test/tutor/probe-and-projection.spec.ts (28 tests) 212ms
+ ✓ test/corrections/corrections.spec.ts (5 tests) 236ms
+ ✓ src/features/learning/learning-session.service.spec.ts (3 tests) 27ms
+ ✓ test/tutor/b09-adversarial.spec.ts (3 tests) 166ms
+ ✓ test/workflows/store-and-recovery.spec.ts (22 tests) 99ms
+ ✓ src/features/media/private-media-storage.service.spec.ts (5 tests) 990ms
+   ✓ PrivateMediaStorageService (5)
+     ✓ stores only generated private filenames and removes their bytes 437ms
+ ✓ src/features/assessment/assessment.service.spec.ts (14 tests) 253ms
+ ✓ src/contracts/semantic.spec.ts (26 tests) 50ms
+ ✓ test/preparation/route-graph.spec.ts (19 tests) 155ms
+ ✓ test/workflows/policy-gate.spec.ts (21 tests) 271ms
+ ✓ test/strategy/route-admission.spec.ts (6 tests) 45ms
+ ✓ test/tutor/submit-turn.spec.ts (15 tests) 133ms
+ ✓ test/workflows/budget-safety.spec.ts (8 tests) 36ms
+ ✓ src/features/media/handwriting-transcript.spec.ts (3 tests) 275ms
+ ✓ src/prompts/prompts.spec.ts (16 tests) 34ms
+ ✓ test/preparation/preparation.service.spec.ts (6 tests) 296ms
+ ✓ src/features/media/handwriting-recognition.service.spec.ts (4 tests) 82ms
+ ✓ src/features/speech/speech-math-formatter.service.spec.ts (4 tests) 172ms
+ ✓ src/features/media/question-image-recognition.service.spec.ts (2 tests) 70ms
+ ✓ test/strategy/ladder.spec.ts (8 tests) 26ms
+ ✓ src/config/env.spec.ts (8 tests) 49ms
+ ✓ src/model/budget.spec.ts (18 tests) 29ms
+ ✓ test/tutor/persistence-boundary.spec.ts (3 tests) 226ms
+ ✓ src/features/speech/speech.controller.spec.ts (8 tests) 87ms
+ ✓ test/workflows/actual-exposure.spec.ts (5 tests) 19ms
+ ✓ src/agents/renderer/index.spec.ts (3 tests) 196ms
+ ✓ test/tutor/learning-transaction.spec.ts (4 tests) 34ms
+ ✓ src/features/bank/bank.controller.spec.ts (4 tests) 77ms
+ ✓ test/preparation/preparation-policy.spec.ts (6 tests) 18ms
+ ✓ src/features/analysis/problem-chat.schema.spec.ts (4 tests) 19ms
+ ✓ src/features/auth/auth.service.spec.ts (3 tests) 27ms
+ ✓ src/workflows/runtime.spec.ts (5 tests) 14ms
+ ✓ test/agents/context.spec.ts (2 tests) 18ms
+ ✓ src/features/learning/learning-session.controller.spec.ts (2 tests) 22ms
+ ✓ src/features/auth/auth.controller.spec.ts (3 tests) 21ms
+ ✓ src/config/web-origin.spec.ts (2 tests) 15ms
+ ✓ src/features/history/history.service.spec.ts (3 tests) 16ms
+ ✓ src/features/assessment/assessment.schema.spec.ts (2 tests) 22ms
+ ✓ src/features/history/history.controller.spec.ts (2 tests) 46ms
+ ✓ test/diagnosis/canonical-goal.spec.ts (3 tests) 16ms
+ ✓ src/features/report/report.service.spec.ts (5 tests) 35ms
+ ✓ src/shared/retention.spec.ts (1 test) 22ms
+ ✓ src/shared/delete.spec.ts (1 test) 11ms
+node.exe : 
+At line:1 char:1
++ & "C:\nvm4w\nodejs/node.exe" "C:\nvm4w\nodejs/node_modules/npm/bin/np ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/database/database.factory.spec.ts > createDatabase > loads the configured CA certificate for TLS connections
+AssertionError: expected "vi.fn()" to be called with arguments: [ StringMatching{…}, 'utf8' ]
+
+Received:
+
+  1st vi.fn() call:
+
+  [
+-   StringMatching /certs\/ApsaraDB-CA-Chain\.pem$/,
++   "D:\\math\\qisi-dashboard\\server\\certs\\ApsaraDB-CA-Chain.pem",
+    "utf8",
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/database/database.factory.spec.ts:36:32
+     34|     const database = createDatabase(environment);
+     35|
+     36|     expect(mocks.readFileSync).toHaveBeenCalledWith(
+       |                                ^
+     37|       expect.stringMatching(/certs\/ApsaraDB-CA-Chain\.pem$/),
+     38|       'utf8',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 71 passed | 1 skipped (73)
+      Tests  1 failed | 598 passed | 14 skipped (613)
+   Start at  15:30:30
+   Duration  73.22s (import 73%, transform 18%, tests 8%, worker 1%)
+
+    Isolate  73 workers spawned · ~2.21s startup each (spawn + environment, per file)
+             at least ~20.80s faster with isolate: false — reuses workers across files instead of one per file
+

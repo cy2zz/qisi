@@ -1,0 +1,7 @@
+
+> @qisi/server@0.1.0 typecheck
+> tsc --noEmit --pretty false --incremental false
+
+src/features/analysis/problem-analysis.controller.spec.ts(556,50): error TS2322: Type 'Mock<() => Promise<unknown>>' is not assignable to type '(request: ModelRequest) => Promise<ModelResponse>'.
+  Type 'Promise<unknown>' is not assignable to type 'Promise<ModelResponse>'.
+    Type 'unknown' is not assignable to type 'ModelResponse'.

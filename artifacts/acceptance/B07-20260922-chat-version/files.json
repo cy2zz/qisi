@@ -1,0 +1,22 @@
+[
+  {
+    "path": "web/src/pages/bank/BankFlow.tsx",
+    "sha256": "38e229d7f26f43acf95844ee218f9799ca17daf3d8ff0fbbd8cfd91f032aadf8"
+  },
+  {
+    "path": "web/src/pages/bank/BankFlow.chat-version.spec.tsx",
+    "sha256": "3bf79ea7df182b288a4c97b3d79d775bfcc384f304986b352d21f8a241310686"
+  },
+  {
+    "path": "web/tests/e2e/chat-version.spec.ts",
+    "sha256": "c8d5c70e40b4e11602f3316197dfa8dcf0f3d41aa162627853d15cb4c1b726b7"
+  },
+  {
+    "path": "qisi-sdd-v3/changes/B07.md",
+    "sha256": "9833d9f5b703543abd88d792123eb29e58e5a332d22338e7acd73815e526d738"
+  },
+  {
+    "path": "qisi-sdd-v3/handoffs/B07.md",
+    "sha256": "5a4e00a746fd147cd6300c077c3dc7264f1d9fa8e1c0146fad2c924e5051df3d"
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "purpose": "Synthetic diagnosis request; two bounded live ModelPort calls; no raw prompt/output/key stored",
+  "configuredModel": "gpt-5.5",
+  "perCallLimitMs": 25000,
+  "results": [
+    {
+      "effort": "provider-default",
+      "elapsedMs": 25018,
+      "role": "diagnosis",
+      "inputChars": 4959,
+      "maxCompletionTokens": 1800,
+      "timedOut": true,
+      "errorName": "BadGatewayException"
+    },
+    {
+      "effort": "low",
+      "elapsedMs": 25002,
+      "role": "diagnosis",
+      "inputChars": 4959,
+      "maxCompletionTokens": 1800,
+      "timedOut": true,
+      "errorName": "BadGatewayException"
+    }
+  ]
+}

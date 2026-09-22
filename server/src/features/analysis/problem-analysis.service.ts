@@ -1,4 +1,4 @@
-import { BadGatewayException, Inject, Injectable, Optional } from '@nestjs/common';
+import { BadGatewayException, Inject, Injectable, Logger, Optional } from '@nestjs/common';
 import { createHash } from 'node:crypto';
 import { z } from 'zod';
 import { DiagnosisAgent } from '../../agents/diagnosis/index.js';
@@ -24,6 +24,7 @@ import type {
 import { MODEL_PORT, type ModelPort, type ModelResponse } from '../../model/model.port.js';
 import type { ModelPort as RoleModelPort } from '../../model/ports.js';
 import { PROMPT_VERSION } from '../../prompts/index.js';
+import { TurnTimeBudget } from './turn-time-budget.js';
 import { gateTurn } from '../../workflows/policy-gate.js';
 import { PreparationService } from '../preparation/preparation.service.js';
 import {
@@ -43,6 +44,8 @@ type ProblemChatInput = Pick<
   'assistanceMode' | 'history' | 'message' | 'problemMd' | 'remediationFocus' | 'requestId' | 'sessionId'
 > & {
   analysis: ProblemAnalysis;
+  /** 只由服务端 reservation 注入，客户端 Schema 不接受该字段。 */
+  deadlineAt?: string;
   packetVersion?: string | null;
   teachingState: TutorTeachingState;
 };
@@ -87,6 +90,9 @@ export interface TutorNodeRecord {
   startedAt: string;
   status: 'completed' | 'failed';
   usage: {
+    reasoningEffort?: 'none';
+    outputVerbosity?: 'low';
+    latencyProfileVersion?: 'interactive-v1';
     elapsedMs: number;
     input: number;
     kind: 'estimated' | 'reported' | 'unknown';
@@ -109,11 +115,11 @@ const SYSTEM_PROMPT = `你是面向中国高三学生的数学题目分析器。
 使用简洁中文，不输出完整答案、完整解题步骤、隐藏思维链或评分结论。条件不足或题意含糊时，在 overview 中明确说明，不自行补造条件。`;
 
 const ASSISTANCE_MODE_POLICIES: Record<AssistanceMode, string> = {
-  attempt: '尝试作答：只核对学生已有依据，保留下一项关键判断给学生。',
+  attempt: '尝试作答：最多 L1，scaffold_level 只能为 0 或 1，禁止 worked_solution；只核对学生已有依据，保留下一项关键判断给学生。',
   hint: '最小提示：最多 L1，只给一个概念线索或一个可执行问题，不给下一计算结果、端点取舍或答案。',
   explain: '局部解释：最多 L3，只解释当前卡点，停在整题下一项关键判断之前。',
   worked_solution: '直接讲解：允许 L4，清楚讲当前关键步骤，但仍需简洁且记录实际披露。',
-  finish_problem: '核对本题结论：核对当前答案和关键依据，不声称已经掌握或独立通过。',
+  finish_problem: '核对本题结论：action 只能为 complete 或 uncertain。complete 表示本轮核对完成，并不表示答案正确；证据不足用 uncertain。有依据的错误必须明确指出，不把 invalid 改成 unknown；只核对当前答案和关键依据，不再启动新的教学动作，不声称已经掌握或独立通过。',
 };
 
 const REMEDIATION_FOCUS_POLICIES: Record<RemediationFocus, string> = {
@@ -396,6 +402,8 @@ function fallback(mode: AssistanceMode): ProblemChatResponse {
 
 @Injectable()
 export class ProblemAnalysisService {
+  private readonly logger = new Logger(ProblemAnalysisService.name);
+
   constructor(
     @Inject(MODEL_PORT) private readonly model: ModelPort,
     @Optional() private readonly preparation?: PreparationService,
@@ -431,6 +439,21 @@ export class ProblemAnalysisService {
     onPhase?: (phase: TutorTurnPhase) => void,
     onNode?: (record: TutorNodeRecord) => Promise<void>,
   ): Promise<TutorTurnResult> {
+    const timeBudget = new TurnTimeBudget(input.deadlineAt, signal);
+    try {
+      return await timeBudget.run(() => this.replyWithinBudget(input, timeBudget, onPhase, onNode));
+    } finally {
+      timeBudget.dispose();
+    }
+  }
+
+  private async replyWithinBudget(
+    input: ProblemChatInput,
+    timeBudget: TurnTimeBudget,
+    onPhase?: (phase: TutorTurnPhase) => void,
+    onNode?: (record: TutorNodeRecord) => Promise<void>,
+  ): Promise<TutorTurnResult> {
+    const signal = timeBudget.signal;
     const taskId = `session-${input.sessionId}`;
     const preparedPacket = input.packetVersion && this.preparation
       ? await this.preparation.findReadyPacket(
@@ -454,7 +477,9 @@ export class ProblemAnalysisService {
       `关键条件：${input.analysis.keyConditions.join('；')}`,
       `目标：${input.analysis.target}`,
     ].join('\n');
-    const roleModel = this.model as unknown as RoleModelPort;
+    const roleModel: RoleModelPort = {
+      generate: (request) => timeBudget.generate(this.model, request),
+    };
 
     const confirmedEvidence = buildSubmissions(input);
     const diagnosisInput: DiagnosisInput = {
@@ -702,17 +727,22 @@ export class ProblemAnalysisService {
       result = await execute();
       validate?.(result.value);
     } catch (error) {
-      await onNode?.({
-        finishedAt: new Date().toISOString(),
-        inputHash,
-        modelId: '',
-        nodeKey,
-        output: null,
-        promptVersion: PROMPT_VERSION,
-        startedAt: startedAt.toISOString(),
-        status: 'failed',
-        usage: null,
-      });
+      try {
+        await onNode?.({
+          finishedAt: new Date().toISOString(),
+          inputHash,
+          modelId: '',
+          nodeKey,
+          output: null,
+          promptVersion: PROMPT_VERSION,
+          startedAt: startedAt.toISOString(),
+          status: 'failed',
+          usage: null,
+        });
+      } catch {
+        // 过期租约可能拒绝失败审计；保留主错误，不让落盘异常掩盖超时/取消。
+        this.logger.warn({ event: 'teaching_node_failure_audit_failed', nodeKey });
+      }
       throw error;
     }
 
@@ -727,6 +757,9 @@ export class ProblemAnalysisService {
       startedAt: startedAt.toISOString(),
       status: 'completed',
       usage: {
+        ...(response.reasoningEffort ? { reasoningEffort: response.reasoningEffort } : {}),
+        ...(response.outputVerbosity ? { outputVerbosity: response.outputVerbosity } : {}),
+        ...(response.latencyProfileVersion ? { latencyProfileVersion: response.latencyProfileVersion } : {}),
         elapsedMs: response.elapsedMs,
         input: response.usage.input,
         kind: response.usage.kind,

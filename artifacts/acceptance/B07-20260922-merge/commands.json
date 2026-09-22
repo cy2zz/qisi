@@ -1,0 +1,123 @@
+[
+  {
+    "cwd": "D:\\math\\qisi-dashboard-release-20260922\\web",
+    "command": "npm ci --workspaces=false",
+    "exit_code": 0,
+    "total": 0,
+    "evidence": "web-install.log"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard-release-20260922",
+    "command": "npm --prefix server test -- src/model/openai-compatible-model.port.spec.ts src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/problem-analysis.controller.spec.ts src/features/analysis/problem-analysis.timeout.integration.spec.ts --reporter=verbose",
+    "exit_code": 0,
+    "passed": 61,
+    "failed": 0,
+    "total": 61,
+    "evidence": "server-targeted.log"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard-release-20260922",
+    "command": "npm --prefix server run typecheck -- --incremental false",
+    "exit_code": 0,
+    "total": 0,
+    "evidence": "server-typecheck.log"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard-release-20260922\\web",
+    "command": "npm test -- src/pages/bank/BankFlow.chat-version.spec.tsx --reporter=verbose",
+    "exit_code": 0,
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "evidence": "web-targeted.log"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard-release-20260922\\web",
+    "command": "npm exec -- tsc -p tsconfig.app.json --noEmit --incremental false",
+    "exit_code": 2,
+    "total": 0,
+    "evidence": "web-typecheck-app.log",
+    "note": "Inherited develop OneToOneClassroom3D missing three declarations and resulting implicit any errors; no suppression."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard-release-20260922\\web",
+    "command": "npm exec -- tsc -p tsconfig.node.json --tsBuildInfoFile C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-merge-node-ba5e60bf-d7a8-4e1e-88c6-5fdc7afdbb03.tsbuildinfo",
+    "exit_code": 0,
+    "total": 0,
+    "evidence": "web-typecheck-node.log"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard-release-20260922\\web",
+    "command": "npm run lint",
+    "exit_code": 0,
+    "total": 0,
+    "evidence": "web-lint.log"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard-release-20260922\\web",
+    "command": "npm exec -- vite build",
+    "exit_code": 0,
+    "total": 0,
+    "evidence": "web-build.log",
+    "note": "Vite transpilation success is not complete TypeScript build success."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard-release-20260922",
+    "command": "npm run test:e2e -- --config artifacts/acceptance/B07-20260922-merge/playwright.config.ts chat-version.spec.ts --workers=1 --retries=0 --output=artifacts/acceptance/B07-20260922-merge/playwright-results",
+    "exit_code": 1,
+    "total": 0,
+    "evidence": "e2e.log",
+    "note": "Initial isolated CJS config import.meta setup error, no product tests; corrected with node:path resolve(__dirname)."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard-release-20260922",
+    "command": "npm run test:e2e -- --config artifacts/acceptance/B07-20260922-merge/playwright.config.ts chat-version.spec.ts --workers=1 --retries=0 --output=artifacts/acceptance/B07-20260922-merge/playwright-results",
+    "exit_code": 0,
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "evidence": "e2e-final.log",
+    "note": "Actual merged frontend served from this worktree on 5183; four viewports, API fully mocked. Did not reuse old 5173 frontend."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard-release-20260922",
+    "command": "npm --prefix server test -- --maxWorkers=2 --reporter=default",
+    "exit_code": 0,
+    "passed": 637,
+    "failed": 0,
+    "skipped": 19,
+    "total": 656,
+    "evidence": "server-full.log"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard-release-20260922",
+    "command": "npm --prefix web test -- --maxWorkers=2 --reporter=default",
+    "exit_code": 1,
+    "passed": 128,
+    "failed": 2,
+    "total": 130,
+    "evidence": "web-full.log",
+    "note": "App cookie restoration and login classroom image expectation failures. App, login source and package files byte-identical to origin/develop."
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard-release-20260922",
+    "command": "npm --prefix server run lint",
+    "exit_code": 0,
+    "total": 0,
+    "evidence": "server-lint.log"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard-release-20260922",
+    "command": "npm --prefix server run build -- --tsBuildInfoFile C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-merge-server-c8692365-d53e-4972-a4f0-bbd28b623a44.tsbuildinfo",
+    "exit_code": 0,
+    "total": 0,
+    "evidence": "server-build.log"
+  },
+  {
+    "cwd": "D:\\math\\qisi-dashboard-release-20260922",
+    "command": "git diff --cached --check -- server/src web/src web/tests qisi-sdd-v3/changes qisi-sdd-v3/handoffs",
+    "exit_code": 0,
+    "total": 0,
+    "note": "Full staged diff has existing historical log whitespace; no historical evidence rewritten."
+  }
+]

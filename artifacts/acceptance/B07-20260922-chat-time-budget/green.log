@@ -1,0 +1,80 @@
+
+> @qisi/server@0.1.0 test
+> vitest run src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/problem-analysis.controller.spec.ts src/features/analysis/problem-analysis.timeout.integration.spec.ts --reporter=verbose
+
+
+ RUN  v5.0.1 D:/math/qisi-dashboard/server
+
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > uses the preparation role and validates the structured analysis 16ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > rejects malformed preparation output instead of projecting it to the student 6ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > runs Diagnosis, Strategy, Renderer and Guard as separate checked nodes 32ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > keeps an independent-check method return inside its remediation boundary 5ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > keeps an independent-check execution return inside its remediation boundary 4ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > keeps an independent-check evidence return inside its remediation boundary 8ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > uses the exact ready preparation packet bound to the learning session 8ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > does not expose a Guard-accepted message that exceeds Strategy disclosure 7ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > rejects a diagnosis that cites a nonexistent submission before persisting it as a completed node 12ms
+[Nest] 32916  - 2026/09/22 14:25:48    WARN [ProblemAnalysisService] Object(2) {
+  event: 'teaching_node_failure_audit_failed',
+  nodeKey: 'diagnosis'
+}
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > passes persisted exposures to Strategy and enforces the two-probe budget for the same goal 10ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > reviews a valid alternative student route before Strategy uses it 22ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > keeps an unverified alternative route out of Strategy even when its Guard says accept 11ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > rejects a Strategy that exceeds the requested help depth before rendering 3ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > rejects an approved fact whose claimed source is not in the trusted Strategy context 3ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > maps a valid finished answer to a current-problem verdict without claiming mastery 3ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > treats malformed Guard output as rejection and records the failed node 5ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > cancels a stalled node at 25 seconds and discards non-cooperative late output 18ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > uses the reserved absolute deadline across four individually valid 24-second calls 10ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > rejects unusable server deadline 2026-09-22T06:25:22.000Z before model I/O 2ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > rejects unusable server deadline not-a-date before model I/O 2ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > shortens the first node to the remaining reserved time, keeping a finalization margin 2ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > interrupts a non-cooperative provider when the client cancels 2ms
+[Nest] 22268  - 2026/09/22 15:29:03    WARN [ProblemAnalysisController] Bank preparation unavailable for question 804: Error
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > keeps the original timeout when failure-audit persistence also rejects 6ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > rejects a node that crosses its wall-clock limit before its timer callback runs 3ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > also bounds preparation lookup and never starts models after its late result 4ms
+ ✓ src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService turn time budget > cleans up timeouts when all four roles finish successfully 5ms
+ ✓ src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController > authenticates the student and returns a validated analysis request result 19ms
+ ✓ src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController > rejects analysis requests from another origin before calling the model 5ms
+ ✓ src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController > loads a selected bank image by question id and analyzes its recognized stem 3ms
+ ✓ src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController > uses stored bank Markdown without downloading an image and rejects absent questions 3ms
+ ✓ src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController > prepares a selected bank question from its private solution image and binds the packet 5ms
+ ✓ src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController > keeps the selected problem and reports a neutral unavailable state when preparation fails 8ms
+ ✓ src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController > rejects empty or oversized problems without calling the model 4ms
+[Nest] 22268  - 2026/09/22 14:25:48    WARN [ProblemAnalysisController] Object(3) {
+  event: 'teaching_turn_failed',
+  code: 'MODEL_NODE_TIMEOUT',
+  runId: 'fixture-run'
+}
+[Nest] 22268  - 2026/09/22 14:25:23    WARN [ProblemAnalysisController] Object(3) {
+  event: 'teaching_turn_failed',
+  code: 'TURN_CANCELLED',
+  runId: 'fixture-run'
+}
+[Nest] 22268  - 2026/09/22 14:25:33    WARN [ProblemAnalysisController] Object(3) {
+  event: 'teaching_turn_failed',
+  code: 'TURN_DEADLINE_EXCEEDED',
+  runId: 'fixture-run'
+}
+[Nest] 22268  - 2026/09/22 14:25:23    WARN [ProblemAnalysisController] Object(3) {
+  event: 'teaching_turn_failed',
+  code: 'TURN_FAILED',
+  runId: 'fixture-run'
+}
+ ✓ src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController > streams only the checked reply after authenticating the student 88ms
+ ✓ src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController time budget boundary > passes only the server reservation deadline to the teaching service 12ms
+ ✓ src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController time budget boundary > sends a safe timeout error on SSE 200 without committing or publishing a candidate 10ms
+ ✓ src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController time budget boundary > does not commit a reply that resolves after the client has disconnected 4ms
+ ✓ src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController time budget boundary > rechecks the absolute deadline before committing even if the teaching service returns late 4ms
+ ✓ src/features/analysis/problem-analysis.controller.spec.ts > ProblemAnalysisController time budget boundary > does not misreport an ordinary provider failure as a timeout or leak its message 2ms
+ ✓ src/features/analysis/problem-analysis.timeout.integration.spec.ts > POST /api/problems/chat SSE time budget integration (fixture) > ends an HTTP 200 event stream with an explicit deadline error and no answer 510ms
+ ✓ src/features/analysis/problem-analysis.timeout.integration.spec.ts > POST /api/problems/chat SSE time budget integration (fixture) > preserves checked success chunk/done responses 85ms
+ ✓ src/features/analysis/problem-analysis.timeout.integration.spec.ts > POST /api/problems/chat SSE time budget integration (fixture) > preserves checked replay chunk/done responses 21ms
+
+ Test Files  3 passed (3)
+      Tests  42 passed (42)
+   Start at  15:28:59
+   Duration  5.24s (import 80%, transform 11%, tests 8%)
+

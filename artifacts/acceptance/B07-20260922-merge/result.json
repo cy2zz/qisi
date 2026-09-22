@@ -1,0 +1,42 @@
+{
+  "date": "2026-09-22T18:30:18.864552+08:00",
+  "baseline": "qisi-3.1",
+  "role": "B / integration of authorized chat fixes",
+  "source_branch": "develop-B-v0.1",
+  "source_commit": "2c864ae087edd3fbecec117586ed9a0e27ed2e60",
+  "remote_develop_before": "9a9255f5a37b0d98614e2340e4560ab3b2e6d689",
+  "preserved_local_develop": "31bdf15fdcee4a4efbea14b8f457a4c0dacd749b",
+  "upstream_merge_commit": "e0ecdf8",
+  "worktree": "D:\\math\\qisi-dashboard-release-20260922",
+  "business_conflict": "web/src/pages/bank/BankFlow.tsx: retain A checkedReply accumulation and B synchronous done.version handling; keep routeAttribution and draft recovery intact.",
+  "generated_conflicts": "Two tracked tsbuildinfo files retain preexisting develop merge-side version; actual checks use independent Temp cache.",
+  "review": "self_review only",
+  "state": "integration ready for authorized push; full product acceptance not passed",
+  "server_targeted": {
+    "passed": 61,
+    "failed": 0
+  },
+  "chat_version_unit": {
+    "passed": 4,
+    "failed": 0
+  },
+  "chat_version_browser": {
+    "passed": 4,
+    "failed": 0,
+    "api": "synthetic fixture",
+    "port": 5183
+  },
+  "server_full": {
+    "passed": 637,
+    "failed": 0,
+    "skipped": 19
+  },
+  "web_full": {
+    "passed": 128,
+    "failed": 2
+  },
+  "web_typecheck": "failed: upstream three declaration dependency absent; related files unchanged from origin/develop",
+  "model_mysql": "not rerun; no business database writes, no model API calls in integration verification",
+  "at_st": "No new full B07 AT/ST acceptance; previous task status unchanged.",
+  "git_policy": "No force push, no rewriting commits, no source branch deletion. Source and existing develop worktrees remain untouched. Push results must be checked against remote refs after commit."
+}
