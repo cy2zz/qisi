@@ -1,0 +1,51 @@
+artifacts/acceptance/A01-session-expiry-fix.json
+  s_142b4668ab2d27::t_4425969bb41c68 1-604
+qisi-sdd-v3/changes/A01.md
+  s_142b4668ab2d27::t_520c41367132ef 124-202
+qisi-sdd-v3/handoffs/A01.md
+  s_142b4668ab2d27::t_7dfc01727aa4a5 110-129
+server/db/assessment_tasks.sql
+  s_142b4668ab2d27::t_8424f7d86dd300 23-30
+server/db/check_attempts.sql
+  s_142b4668ab2d27::t_5ed28419a11a96 32-39
+server/db/learning_drafts.sql
+  s_142b4668ab2d27::t_76aed3f6548b1a 13-20
+server/db/media.sql
+  s_142b4668ab2d27::t_d8a41e9d78f16a 19-26
+server/db/node_runs.sql
+  s_142b4668ab2d27::t_1b75de9a39e338 20-27
+server/db/requests.sql
+  s_142b4668ab2d27::t_eeb9ff17589b9a 19-26
+server/db/runs.sql
+  s_142b4668ab2d27::t_f1a21814050b15 23-30
+server/db/seen_tasks.sql
+  s_142b4668ab2d27::t_1dea7aa966f384 18-25
+server/db/sessions.sql
+  s_142b4668ab2d27::t_2e44545629ef84 23-30
+server/db/transcripts.sql
+  s_142b4668ab2d27::t_1b6da58da1dfe3 19-26
+server/src/database/database.factory.spec.ts
+  s_142b4668ab2d27::t_6ca4751198cf45 1,38
+server/src/database/sql-migration.provider.spec.ts
+  s_142b4668ab2d27::t_3d6a8dbc1379fd 4-5,8-21,48,200-287
+server/src/database/sql-migration.provider.ts
+  s_142b4668ab2d27::t_c871c98d1cb01b 7,27-37,63-79,81,83-86,89-101
+server/test/database/timestamp-migrations.e2e-spec.ts
+  s_142b4668ab2d27::t_585fd924ad42ba 1-180
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "9a9255f5a37b0d98614e2340e4560ab3b2e6d689",
+  "prompts": {},
+  "sessions": {
+    "s_142b4668ab2d27": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0bd99-a08c-7de0-918a-b07ee54ef41c",
+        "model": "gpt-6-astra-ga"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    }
+  }
+}
