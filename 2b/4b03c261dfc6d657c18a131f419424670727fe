@@ -1,0 +1,179 @@
+artifacts/acceptance/B07-20260922-merge/commands.json
+  s_142b4668ab2d27::t_f5e5eec5cd3c5e 1-123
+artifacts/acceptance/B07-20260922-merge/playwright-results/.last-run.json
+  s_142b4668ab2d27::t_0f11d654a66953 1-4
+artifacts/acceptance/B07-20260922-merge/playwright.config.ts
+  s_142b4668ab2d27::t_e5caeb78eb24fb 1-16
+artifacts/acceptance/B07-20260922-merge/result.json
+  s_142b4668ab2d27::t_7f1c6beb6a66df 1-42
+artifacts/acceptance/B07-20260922-merge/staged-safety-check.json
+  s_142b4668ab2d27::t_a9c0ac3e79781e 1-5
+artifacts/acceptance/B07-20260922-merge/upstream-unchanged.json
+  s_142b4668ab2d27::t_398fb711370a7c 1-7
+qisi-sdd-v3/changes/B07.md
+  s_142b4668ab2d27::t_827ffdfc3471a9 25-121
+qisi-sdd-v3/handoffs/B07.md
+  s_142b4668ab2d27::t_5f4d486aa93ff9 76-174
+web/src/pages/bank/BankFlow.tsx
+  s_142b4668ab2d27::t_38ab3a1c40ffed 874-894
+.raven/workflow-config-full.json
+  s_142b4668ab2d27::t_7113ac1878b403 1-51
+.raven/workflow-config.json
+  s_142b4668ab2d27::t_cb302b839eb8c5 1-4
+artifacts/acceptance/B07-20260922-chat-time-budget/AT45.json
+  s_142b4668ab2d27::t_feff044479fb06 1-215
+artifacts/acceptance/B07-20260922-chat-time-budget/ST07.json
+  s_142b4668ab2d27::t_2674327ad50b1b 1-215
+artifacts/acceptance/B07-20260922-chat-time-budget/build.log
+  s_142b4668ab2d27::t_8d2bc0bddaf7fc 1-4
+artifacts/acceptance/B07-20260922-chat-time-budget/commands.json
+  s_142b4668ab2d27::t_05581e48d93a2e 1-154
+artifacts/acceptance/B07-20260922-chat-time-budget/files.json
+  s_142b4668ab2d27::t_4ca37fcfab2e86 1-32
+artifacts/acceptance/B07-20260922-chat-time-budget/gate-e2e.log
+  s_142b4668ab2d27::t_77bfc1729e314b 1-11
+artifacts/acceptance/B07-20260922-chat-time-budget/gate-stack.log
+  s_142b4668ab2d27::t_d90456c0c2f5b1 1-11
+artifacts/acceptance/B07-20260922-chat-time-budget/gate-unit.log
+  s_142b4668ab2d27::t_d348c68b1af79b 1-11
+artifacts/acceptance/B07-20260922-chat-time-budget/green-initial.log
+  s_142b4668ab2d27::t_6f72fa19d54afe 1-75
+artifacts/acceptance/B07-20260922-chat-time-budget/green.log
+  s_142b4668ab2d27::t_96654126fff48b 1-80
+artifacts/acceptance/B07-20260922-chat-time-budget/latency-fix/commands.json
+  s_142b4668ab2d27::t_196c8585c2e990 1-265
+artifacts/acceptance/B07-20260922-chat-time-budget/latency-fix/compact-json-probe.json
+  s_142b4668ab2d27::t_965ca57d79526a 1-12
+artifacts/acceptance/B07-20260922-chat-time-budget/latency-fix/files.json
+  s_142b4668ab2d27::t_e6887ed30daae4 1-54
+artifacts/acceptance/B07-20260922-chat-time-budget/latency-fix/final-worktree-checks.json
+  s_142b4668ab2d27::t_6bdebd99214005 1-12
+artifacts/acceptance/B07-20260922-chat-time-budget/latency-fix/live-runs.json
+  s_142b4668ab2d27::t_98cf7172607e9f 1-803
+artifacts/acceptance/B07-20260922-chat-time-budget/latency-fix/manual-validation.md
+  s_142b4668ab2d27::t_402a51c87b352f 1-14
+artifacts/acceptance/B07-20260922-chat-time-budget/latency-fix/result.json
+  s_142b4668ab2d27::t_d7d420b7137d40 1-309
+artifacts/acceptance/B07-20260922-chat-time-budget/latency-fix/runner-safety.json
+  s_142b4668ab2d27::t_ed78361c6a1eeb 1-16
+artifacts/acceptance/B07-20260922-chat-time-budget/latency-fix/verbosity-low-probe.json
+  s_142b4668ab2d27::t_dad16a9ce02b4a 1-13
+artifacts/acceptance/B07-20260922-chat-time-budget/lint-initial.log
+  s_142b4668ab2d27::t_f193669f5e0b8f 1-4
+artifacts/acceptance/B07-20260922-chat-time-budget/lint.log
+  s_142b4668ab2d27::t_78320a32835f36 1-4
+artifacts/acceptance/B07-20260922-chat-time-budget/manual-validation.md
+  s_142b4668ab2d27::t_aff5bc9bd5b326 1-23
+artifacts/acceptance/B07-20260922-chat-time-budget/mysql-isolated.log
+  s_142b4668ab2d27::t_fc6118ee5121d9 1-31
+artifacts/acceptance/B07-20260922-chat-time-budget/preexisting-cache-hashes.json
+  s_142b4668ab2d27::t_686dab4c25095a 1-4
+artifacts/acceptance/B07-20260922-chat-time-budget/provider-latency-none-probe.json
+  s_142b4668ab2d27::t_662bb4d3a37dd3 1-15
+artifacts/acceptance/B07-20260922-chat-time-budget/provider-latency-probe.json
+  s_142b4668ab2d27::t_83687c2029e473 1-25
+artifacts/acceptance/B07-20260922-chat-time-budget/provider-none-depth-full-turn-probe.json
+  s_142b4668ab2d27::t_68777577da6ed8 1-62
+artifacts/acceptance/B07-20260922-chat-time-budget/provider-none-full-turn-probe.json
+  s_142b4668ab2d27::t_8eacfa78447de8 1-36
+artifacts/acceptance/B07-20260922-chat-time-budget/red-wall-clock.log
+  s_142b4668ab2d27::t_289b26759bd5d3 1-59
+artifacts/acceptance/B07-20260922-chat-time-budget/red.log
+  s_142b4668ab2d27::t_86334bad79580a 1-373
+artifacts/acceptance/B07-20260922-chat-time-budget/server-full.log
+  s_142b4668ab2d27::t_b0ecef8c9b914e 1-178
+artifacts/acceptance/B07-20260922-chat-time-budget/typecheck-initial.log
+  s_142b4668ab2d27::t_8be25365742782 1-7
+artifacts/acceptance/B07-20260922-chat-time-budget/typecheck.log
+  s_142b4668ab2d27::t_5eb7e804cbfcfc 1-4
+artifacts/acceptance/B07-20260922-chat-time-budget/web-full-recheck.log
+  s_142b4668ab2d27::t_e1c66295aab3e5 1-193
+artifacts/acceptance/B07-20260922-chat-time-budget/web-full.log
+  s_142b4668ab2d27::t_6037b4a7b5819d 1-336
+artifacts/acceptance/B07-20260922-chat-version/commands.json
+  s_142b4668ab2d27::t_023fae07206949 1-95
+artifacts/acceptance/B07-20260922-chat-version/files.json
+  s_142b4668ab2d27::t_b50e40aa2c6dfc 1-22
+artifacts/acceptance/B07-20260922-chat-version/initial-hashes.json
+  s_142b4668ab2d27::t_e03c4e936431fb 1-7
+artifacts/acceptance/B07-20260922-chat-version/manual-validation.md
+  s_142b4668ab2d27::t_aea335ab733f01 1-11
+artifacts/acceptance/B07-20260922-chat-version/playwright-results/.last-run.json
+  s_142b4668ab2d27::t_cb97b712eb2cf0 1-4
+artifacts/acceptance/B07-20260922-chat-version/preserved-files.json
+  s_142b4668ab2d27::t_818d49511e1892 1-6
+artifacts/acceptance/B07-20260922-chat-version/result.json
+  s_142b4668ab2d27::t_be8e13c1a27085 1-62
+docs/popo-20-cards.md
+  s_142b4668ab2d27::t_fc374464a9b6a7 1-241
+docs/raven-setup.md
+  s_142b4668ab2d27::t_81339a19ce3878 1-93
+ravenspec/changes/b01-agent-workflow-foundation/.ravenspec.yaml
+  s_142b4668ab2d27::t_86fe847cdd3abd 1-6
+ravenspec/changes/b01-agent-workflow-foundation/PRD.md
+  s_142b4668ab2d27::t_e1c2410be99d3e 1-276
+ravenspec/config.yaml
+  s_142b4668ab2d27::t_9adeda348778dd 1-23
+ravenspec/schemas/cases-runtime-v1.json
+  s_142b4668ab2d27::t_9c7093f2c2c8a7 1-85
+ravenspec/schemas/qa-context-v1.json
+  s_142b4668ab2d27::t_dc9b976f179625 1-249
+ravenspec/schemas/sdd/schema.yaml
+  s_142b4668ab2d27::t_510d70293d3267 1-236
+ravenspec/schemas/sdd/templates/DESIGN.md
+  s_142b4668ab2d27::t_f76accfd00c0db 1-73
+ravenspec/schemas/sdd/templates/PRD.md
+  s_142b4668ab2d27::t_7d572237b88207 1-67
+ravenspec/schemas/sdd/templates/TASK.md
+  s_142b4668ab2d27::t_236c7f00bbc4c8 1-24
+ravenspec/schemas/sdd/templates/spec.md
+  s_142b4668ab2d27::t_6f2f3effcd205b 1-8
+ravenspec/schemas/ucdp.schema.json
+  s_142b4668ab2d27::t_300b7f6c03c38c 1-556
+scripts/link-raven-skills.mjs
+  s_142b4668ab2d27::t_500a92b46e850e 1-58
+scripts/link-raven-skills.test.mjs
+  s_142b4668ab2d27::t_22afb41f4600a4 1-73
+server/src/features/analysis/problem-analysis.controller.spec.ts
+  s_142b4668ab2d27::t_4221802cd3a952 3,14,568-677
+server/src/features/analysis/problem-analysis.controller.ts
+  s_142b4668ab2d27::t_db12a8a1734bd8 31,262,290,317-320,322,328-330,332-337
+server/src/features/analysis/problem-analysis.service.spec.ts
+  s_142b4668ab2d27::t_7cf360730e8653 1,3,187-205,726-757,803-921
+server/src/features/analysis/problem-analysis.service.ts
+  s_142b4668ab2d27::t_7e9f13d5effac3 1,27,47-48,93-95,118,122,405-406,442-456,480-482,730-745,760-762
+server/src/features/analysis/problem-analysis.timeout.integration.spec.ts
+  s_142b4668ab2d27::t_b5dcf6acfcab93 1-93
+server/src/features/analysis/turn-time-budget.ts
+  s_142b4668ab2d27::t_f3a3dcdd721430 1-98
+server/src/model/model.port.ts
+  s_142b4668ab2d27::t_59fc7a048e6b7d 18-19,31-34
+server/src/model/openai-compatible-model.port.spec.ts
+  s_142b4668ab2d27::t_20c472bdd7e6c7 7,13,135-197
+server/src/model/openai-compatible-model.port.ts
+  s_142b4668ab2d27::t_2b875ec118bf8e 12-14,47-52,59,61-62,85,118
+server/test/model/chat-latency.live.spec.ts
+  s_142b4668ab2d27::t_f58c1b2e549dc2 1-146
+server/test/tutor/run-isolated-mysql.py
+  s_142b4668ab2d27::t_e2dd377b29a0ac 20-24,78
+web/src/pages/bank/BankFlow.chat-version.spec.tsx
+  s_142b4668ab2d27::t_2ce537bc246004 1-151
+web/tests/e2e/chat-version.spec.ts
+  s_142b4668ab2d27::t_51fdc58fe12731 1-57
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "2b4b03c261dfc6d657c18a131f419424670727fe",
+  "prompts": {},
+  "sessions": {
+    "s_142b4668ab2d27": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0bd99-a08c-7de0-918a-b07ee54ef41c",
+        "model": "gpt-6-astra-ga"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    }
+  }
+}
