@@ -1,0 +1,365 @@
+server/src/workflows/policy-gate.ts
+  s_d4c9f3ee20c484::t_de5f63a0d5d441 60-64,104,112-126
+  s_2bda1447c404e4::t_455c0a8357536b 127-129
+artifacts/acceptance/B07-20260930-answer-first-citations/live-missing-multiplicity.json
+  s_d4c9f3ee20c484::t_9286d941b71e40 1-60
+artifacts/acceptance/B07-20260930-equivalent-route/diff-check.json
+  s_d4c9f3ee20c484::t_24bfa9c313dc1d 1-87
+artifacts/acceptance/B07-20260930-answer-first-citations/spec.log
+  s_d4c9f3ee20c484::t_c5c5bfb6a1c36f 1-29
+artifacts/acceptance/B07-20260930-equivalent-route/validate-spec-before-records.log
+  s_d4c9f3ee20c484::t_24bfa9c313dc1d 1-29
+docs/architecture-review-2026-09-23/README.md
+  s_9ec6005507e62c::t_e1e4e12f749080 1-208,213,279,296,335,350
+  s_9ec6005507e62c::t_c9d08f131803ac 209-212,214-278,280-295,297-334,336-349,351-412
+artifacts/acceptance/B07-20260930-equivalent-route/validate-spec-result-before-records.json
+  s_d4c9f3ee20c484::t_24bfa9c313dc1d 1-70
+docs/architecture-review-2026-09-23/popo-content.html
+  s_9ec6005507e62c::t_86a1dc8539dbef 1-150
+artifacts/acceptance/B07-20260930-answer-first-citations/targeted.log
+  s_d4c9f3ee20c484::t_477ac81ea21eee 1-871
+docs/architecture-review-2026-09-23/architecture.drawio
+  s_9ec6005507e62c::t_1da326485d1dbb 1
+artifacts/acceptance/B07-20260930-answer-first-citations/live-command.json
+  s_d4c9f3ee20c484::t_9286d941b71e40 1-13
+artifacts/acceptance/B07-20260930-equivalent-route/iteration1-live-complementary-selection.json
+  s_d4c9f3ee20c484::t_69a3f62805b924 1-106
+artifacts/acceptance/B07-20260930-equivalent-route/iteration1-live-missing-multiplicity.json
+  s_d4c9f3ee20c484::t_69a3f62805b924 1-60
+artifacts/acceptance/B07-20260930-answer-first-citations/targeted-command.json
+  s_d4c9f3ee20c484::t_477ac81ea21eee 1-14
+ravenspec/changes/chat-feedback-recovery/.ravenspec.yaml
+  s_d4c9f3ee20c484::t_197634887e779d 1-2
+  s_d4c9f3ee20c484::t_4192652db26f89 3
+  s_d4c9f3ee20c484::t_d988ff64acb860 4
+artifacts/acceptance/B07-20260930-answer-first-citations/mysql-preconditions.log
+  s_d4c9f3ee20c484::t_c5c5bfb6a1c36f 1-5
+qisi-sdd-v3/handoffs/A03.md
+  s_d4c9f3ee20c484::t_48383ee45ec68b 56-69
+  s_8b538db0b2a2d4::t_d791728271ba0c 41-55
+artifacts/acceptance/B07-20260930-answer-first-citations/gate-commands.json
+  s_d4c9f3ee20c484::t_f8c365a6be4935 1-35
+artifacts/acceptance/B07-20260930-answer-first-citations/git-status.log
+  s_d4c9f3ee20c484::t_ca5c9604c9f028 1-31
+artifacts/acceptance/B07-20260930-equivalent-route/validate-spec-result.json
+  s_d4c9f3ee20c484::t_24bfa9c313dc1d 3,69-70
+  s_d4c9f3ee20c484::t_3d6ca36585f754 1-2,4-68,71
+artifacts/acceptance/B07-20260930-answer-first-citations/red.log
+  s_d4c9f3ee20c484::t_d8731b6e8eafe2 2,4-13,15-279,282-285
+  s_d4c9f3ee20c484::t_da0b4a8f36f035 1,3,14,280-281,286
+artifacts/acceptance/B07-20260930-answer-first-citations/unit.log
+  s_d4c9f3ee20c484::t_9286d941b71e40 1-899
+artifacts/acceptance/B07-20260930-answer-first-citations/e2e-gate.log
+  s_d4c9f3ee20c484::t_f8c365a6be4935 1-5
+artifacts/acceptance/B07-20260930-chat-feedback-recovery/baseline.json
+  s_d4c9f3ee20c484::t_4192652db26f89 1-19
+artifacts/acceptance/B07-20260930-answer-first-citations/diff-check.log
+  s_d4c9f3ee20c484::t_ca5c9604c9f028 1-2
+server/src/features/analysis/turn-time-budget.ts
+  s_c760ca7e3cfc4b::t_422d18d30ef86a 3-4,34-36,40-41,54,60-73,83-93,103-114,117-118
+  s_c760ca7e3cfc4b::t_3acc9b09d27c80 119
+web/src/pages/bank/BankFlow.tsx
+  s_d4c9f3ee20c484::t_de5f63a0d5d441 201,333,356,588-594,811,855-856,859-863,1001-1006,1031,1035,1038,1042-1045
+  s_8b538db0b2a2d4::t_4ef6ece35a2977 857-858,1048-1049,1056,1204-1210
+artifacts/acceptance/B07-20260930-equivalent-route/validate-spec.log
+  s_d4c9f3ee20c484::t_24bfa9c313dc1d 3
+  s_d4c9f3ee20c484::t_3d6ca36585f754 1-2,4-29
+artifacts/acceptance/B07-20260930-equivalent-route/commands.json
+  s_d4c9f3ee20c484::t_24bfa9c313dc1d 1-381
+artifacts/acceptance/B07-20260930-answer-first-citations/task-gate.log
+  s_d4c9f3ee20c484::t_f8c365a6be4935 1-5
+artifacts/acceptance/B07-20260930-answer-first-citations/live-batch.log
+  s_d4c9f3ee20c484::t_9286d941b71e40 1-53
+artifacts/acceptance/B07-20260930-answer-first-citations/server-commands.json
+  s_d4c9f3ee20c484::t_9286d941b71e40 2-5,7-9,12-16,18-20,23-38,40-42
+  s_d4c9f3ee20c484::t_2d63ee5c2cf746 1,6,10-11,17,21-22,39,43-46
+artifacts/acceptance/B07-20260930-equivalent-route/validate-stack.log
+  s_d4c9f3ee20c484::t_24bfa9c313dc1d 487-547
+  s_d4c9f3ee20c484::t_911df444289e8e 1-486,548-551
+server/src/features/analysis/problem-analysis.service.spec.ts
+  s_d4c9f3ee20c484::t_4192652db26f89 926-934,936-959,962-970,973-981,985-994,996-1014,1018,1020-1026,1028-1059,1061-1063,1065-1066,1248,1446,1465,1511,1519,1526,1624,1695
+  s_8b538db0b2a2d4::t_a64997be91ae7f 331,402,696,699,718,721,723,758,771,798,801,1015,1060,1321
+  s_d4c9f3ee20c484::t_98810776061e2e 1,1209,1216,1223,1227,1240,1256,1258,1270,1282,1299,1301,1315,1324,1335,1345,1360,1371,1386,1396,1398,1408,1415,1428,1449,1466,1475,1483,1506,1512,1527,1543,1557,1575-1621,1632,1650,1667-1668,1679,1692,1700
+  s_c760ca7e3cfc4b::t_422d18d30ef86a 1067-1187,1244,1246,1249,1267,1276,1280,1311,1313,1320,1330,1332,1352,1354,1382,1384,1392,1394,1406,1424,1443,1447,1513,1518,1530,1539-1542,1546,1556,1623,1634,1644,1663,1675-1676,1688-1689,1694,1701
+  s_d4c9f3ee20c484::t_d5a82d4c737142 935
+  s_d4c9f3ee20c484::t_72758f82096f0e 960-961
+  s_d4c9f3ee20c484::t_cbb6f01f926e74 971-972
+  s_d4c9f3ee20c484::t_8a213c89c807e9 982-984
+  s_d4c9f3ee20c484::t_49cbbeddd3ad48 995
+  s_d4c9f3ee20c484::t_d6280244b9137b 1019
+  s_d4c9f3ee20c484::t_bfabd6ec87b5da 1027
+  s_d4c9f3ee20c484::t_f685bc0faafb1a 1064
+  s_d4c9f3ee20c484::t_93b6134b0c0b5b 1210-1215
+  s_d4c9f3ee20c484::t_5b06641137a85b 1217-1222
+  s_d4c9f3ee20c484::t_53e3ffa0b47d47 1224-1226
+  s_d4c9f3ee20c484::t_ee502bb241bdf7 1228-1230,1237-1239
+  s_c760ca7e3cfc4b::t_0f11d6cf792485 1245
+  s_d4c9f3ee20c484::t_3026aa10a4f217 1257
+  s_c760ca7e3cfc4b::t_34589048dd11c5 1277-1279
+  s_d4c9f3ee20c484::t_e95f0f9378eca2 1283-1285,1296-1298
+  s_d4c9f3ee20c484::t_2ed27baf30859e 1300
+  s_c760ca7e3cfc4b::t_b4fce13f0d2909 1312
+  s_c760ca7e3cfc4b::t_04c518c704f17f 1331
+  s_d4c9f3ee20c484::t_682702601f3fa7 1336-1338,1342-1344
+  s_c760ca7e3cfc4b::t_6bcca52af5c23b 1353
+  s_d4c9f3ee20c484::t_467e4382ed3579 1361-1363,1368-1370
+  s_c760ca7e3cfc4b::t_cfe14a757f5de1 1383
+  s_c760ca7e3cfc4b::t_5af7bcd5cf6948 1393
+  s_d4c9f3ee20c484::t_d6fab70ceb4bf6 1397
+  s_d4c9f3ee20c484::t_4cd67e760507f3 1409-1414
+  s_d4c9f3ee20c484::t_2ef55bc31e10d2 1450-1452,1462-1464
+  s_d4c9f3ee20c484::t_ae29672b28adab 1467-1469,1472-1474
+  s_d4c9f3ee20c484::t_0ab7943f3dccf2 1476-1478,1480-1482
+  s_d4c9f3ee20c484::t_5f041760418fbc 1484-1486,1503-1505
+  s_d4c9f3ee20c484::t_aa93b0930ae39c 1507-1510
+  s_c760ca7e3cfc4b::t_f88f19f56ed834 1514-1517
+  s_d4c9f3ee20c484::t_57bc1908404ac1 1520-1525
+  s_c760ca7e3cfc4b::t_3a1b68a9177508 1531-1533,1536-1538
+  s_c760ca7e3cfc4b::t_7aeb1729be069a 1547-1549,1553-1555
+  s_d4c9f3ee20c484::t_2cfad63b01473c 1558-1560,1572-1574
+  s_d4c9f3ee20c484::t_ecc043db9ff20a 1625-1627,1629-1631
+  s_c760ca7e3cfc4b::t_797e4ea2a4865e 1635-1637,1641-1643
+  s_d4c9f3ee20c484::t_dfd958e1eec0f7 1696-1699
+  s_d4c9f3ee20c484::t_52d4559f86dc94 335,349-353,360,1016-1017,1188-1208,1231-1236,1241-1243,1247,1250-1255,1259-1266,1268-1269,1271-1275,1281,1286-1295,1302-1310,1314,1316-1319,1322-1323,1325-1329,1333-1334,1339-1341,1346-1351,1355-1359,1364-1367,1372-1381,1385,1387-1391,1395,1399-1405,1407,1416-1423,1425-1427,1429-1442,1444-1445,1448,1453-1461,1470-1471,1479,1487-1502,1528-1529,1534-1535,1544-1545,1550-1552,1561-1571,1622,1628,1633,1638-1640,1645-1649,1651-1662,1664-1666,1669-1674,1677-1678,1680-1687,1690-1691,1693
+server/src/features/analysis/problem-analysis.recovery.integration.spec.ts
+  s_8b538db0b2a2d4::t_691389ab5f057c 1-23,28-30,32-45,59-63,65-66,68-162
+  s_8b538db0b2a2d4::t_9c70546c5397d3 24-27,31,46-58,64,67
+artifacts/acceptance/B07-20260930-equivalent-route/task-gate-results.json
+  s_d4c9f3ee20c484::t_e6bda0e5e05fa7 1-14
+artifacts/acceptance/B07-20260930-equivalent-route/live-missing-multiplicity.json
+  s_d4c9f3ee20c484::t_c35d38fa15c461 4-7,9-37,48,50,64-65,67,80-81,83,94-95,97,101,103
+  s_d4c9f3ee20c484::t_98810776061e2e 1-3,8,38-44,46-47,49,51-59,77,79,82,84-86,106-108
+  s_d4c9f3ee20c484::t_3be64a2079244f 45,60-63,66,68-76,78,87-93,96,98-100,102,104-105
+artifacts/acceptance/B07-20260930-answer-first-citations/stack-gate.log
+  s_d4c9f3ee20c484::t_f8c365a6be4935 1-5
+artifacts/acceptance/B07-20260930-equivalent-route/validate-stack-before-records.log
+  s_d4c9f3ee20c484::t_24bfa9c313dc1d 1-551
+server/src/features/analysis/problem-analysis.service.ts
+  s_8b538db0b2a2d4::t_9e19068cc83fc8 28,85-89,141-148,151,222,234,240-303,315-334,339,341,495-499,502-503,512-516,518-523,569-572,578-582,599-600,615-617,620-622,652,655,687,706,721,723-731,737,742-743,751-757,778,780,782,786-787,792-794,798,804,825-841,844-871,873,876-879,882-889,891,897-898,935,940,942,949-953,958,961,964,980,983
+  s_8b538db0b2a2d4::t_30a1735608775b 29-31
+  s_8b538db0b2a2d4::t_5f6b7cbfb9bc50 90
+  s_8b538db0b2a2d4::t_f3fb0706f304e5 140
+  s_8b538db0b2a2d4::t_04f0bd2e8b9d57 500-501
+  s_8b538db0b2a2d4::t_558717a06359b6 504-506,509-511
+  s_8b538db0b2a2d4::t_81f7c35f6f567d 623
+  s_8b538db0b2a2d4::t_02c20bea2d9003 649-651
+  s_8b538db0b2a2d4::t_33625e415c23bd 653-654
+  s_8b538db0b2a2d4::t_a4e1c094d60452 656
+  s_8b538db0b2a2d4::t_f9a42e210d637e 758-760,775-777
+  s_8b538db0b2a2d4::t_4515987c788693 779
+  s_8b538db0b2a2d4::t_2cf9343af20fbb 781
+  s_8b538db0b2a2d4::t_6286399a974ac9 783-785
+  s_8b538db0b2a2d4::t_f06857add2c922 788-791
+  s_8b538db0b2a2d4::t_b5375647de6216 801-803
+  s_8b538db0b2a2d4::t_ea80a1d8e74c3e 805-807
+  s_8b538db0b2a2d4::t_9341a6f3159a16 842-843
+  s_8b538db0b2a2d4::t_4cfef3a6a67ee8 880-881
+  s_8b538db0b2a2d4::t_d93aab14c1e493 894-896
+  s_d4c9f3ee20c484::t_8377d7883de261 10,26,80,127,129,507-508,630,636-642,644-648,761-774,800
+artifacts/acceptance/B07-20260930-answer-first-citations/service-first.log
+  s_d4c9f3ee20c484::t_838beac1bd105f 1-935
+artifacts/acceptance/B07-20260930-equivalent-route/git-status-final.log
+  s_d4c9f3ee20c484::t_24bfa9c313dc1d 1-26
+qisi-sdd-v3/changes/B07.md
+  s_8b538db0b2a2d4::t_95b07f16c922ab 124-126,128
+  s_8b538db0b2a2d4::t_1570b3136134bc 122-123
+  s_8b538db0b2a2d4::t_e35623dab9f079 127
+  s_8b538db0b2a2d4::t_e1a3c52ae1d5cf 129-131
+  s_d4c9f3ee20c484::t_99d65909c315bb 132-293
+docs/architecture-review-2026-09-23/orchestration.drawio
+  s_9ec6005507e62c::t_d64db5ddc271ff 1
+artifacts/acceptance/B07-20260930-equivalent-route/files.json
+  s_d4c9f3ee20c484::t_24bfa9c313dc1d 1-70
+server/test/workflows/policy-gate.spec.ts
+  s_c760ca7e3cfc4b::t_422d18d30ef86a 104,218-228
+artifacts/acceptance/B07-20260930-answer-first-citations/final-checks.json
+  s_d4c9f3ee20c484::t_ca5c9604c9f028 1-6
+docs/architecture-review-2026-09-23/learning-flow.drawio
+  s_9ec6005507e62c::t_1da326485d1dbb 1
+docs/architecture-review-2026-09-23/popo-command.json
+  s_9ec6005507e62c::t_86a1dc8539dbef 1
+qisi-sdd-v3/changes/A03.md
+  s_d4c9f3ee20c484::t_48383ee45ec68b 79-95
+  s_8b538db0b2a2d4::t_d791728271ba0c 54-68
+  s_d4c9f3ee20c484::t_6727f2aa7775ce 42-53,69-78
+artifacts/acceptance/B07-20260930-answer-first-citations/stack.log
+  s_d4c9f3ee20c484::t_c5c5bfb6a1c36f 1-551
+artifacts/acceptance/B07-20260930-answer-first-citations/spec-commands.json
+  s_d4c9f3ee20c484::t_c5c5bfb6a1c36f 1-35
+artifacts/acceptance/A03-learning-draft-local-only-2026-09-30.json
+  s_d4c9f3ee20c484::t_48383ee45ec68b 23,26-27,32-33,36-37,41-42,45-46,50-51,54-55,57,60-61,64-65,72-73,75-79,81-83,85-86,88-90,92-205
+  s_d4c9f3ee20c484::t_9a690591c10a0c 1-22,24-25,28-31,34-35,38-40,43-44,47-49,52-53,56,58-59,62-63,66-71,74,80,84,87,91,206
+server/src/features/analysis/turn-time-budget.spec.ts
+  s_d4c9f3ee20c484::t_4192652db26f89 1-45,47-50
+  s_d4c9f3ee20c484::t_dbf612d43f19cf 46
+artifacts/acceptance/A03-learning-draft-autosave-2026-09-30.json
+  s_8b538db0b2a2d4::t_d791728271ba0c 1-173
+artifacts/acceptance/B07-20260930-answer-first-citations/build.log
+  s_d4c9f3ee20c484::t_17a7ac433e8c93 1-4
+artifacts/acceptance/B07-20260930-answer-first-citations/lint.log
+  s_d4c9f3ee20c484::t_49caa9bb364dd0 1-4
+artifacts/acceptance/B07-20260930-answer-first-citations/live-complete-empty-history.json
+  s_d4c9f3ee20c484::t_e2815c0a91c758 1-87
+artifacts/acceptance/B07-20260930-answer-first-citations/live-wrong-reasoning-same-answer.json
+  s_d4c9f3ee20c484::t_c7ec8e55eced4b 1-110
+artifacts/acceptance/B07-20260930-answer-first-citations/typecheck.log
+  s_d4c9f3ee20c484::t_4988b8958b8095 1-4
+artifacts/acceptance/B07-20260930-equivalent-route/build.log
+  s_d4c9f3ee20c484::t_925974fcfa5d93 1-4
+artifacts/acceptance/B07-20260930-equivalent-route/diagnostic-live-missing-multiplicity.json
+  s_d4c9f3ee20c484::t_05a005a381e18b 1-108
+artifacts/acceptance/B07-20260930-equivalent-route/disclosure-red.log
+  s_d4c9f3ee20c484::t_fd5091eaf09abe 1-59
+artifacts/acceptance/B07-20260930-equivalent-route/iteration1-live-samples.log
+  s_d4c9f3ee20c484::t_835ea7466b3269 1-83
+artifacts/acceptance/B07-20260930-equivalent-route/iteration2-live-complementary-selection.json
+  s_d4c9f3ee20c484::t_159d068edfc1f1 1-87
+artifacts/acceptance/B07-20260930-equivalent-route/iteration2-live-missing-multiplicity.json
+  s_d4c9f3ee20c484::t_29534c9bd3f194 1-114
+artifacts/acceptance/B07-20260930-equivalent-route/lint-final.log
+  s_d4c9f3ee20c484::t_f272d6b4bf938d 1-4
+artifacts/acceptance/B07-20260930-equivalent-route/lint.log
+  s_d4c9f3ee20c484::t_3dc3403769c251 1-4
+artifacts/acceptance/B07-20260930-equivalent-route/live-complementary-selection.json
+  s_d4c9f3ee20c484::t_5c50b2a5391a2d 1-87
+artifacts/acceptance/B07-20260930-equivalent-route/live-diagnostic.log
+  s_d4c9f3ee20c484::t_99d346c0917bfb 1-13
+artifacts/acceptance/B07-20260930-equivalent-route/live-samples.log
+  s_d4c9f3ee20c484::t_ae52a49fc5e0a6 1-59
+artifacts/acceptance/B07-20260930-equivalent-route/mysql-validator-unit.log
+  s_d4c9f3ee20c484::t_4789046a0a02f0 1-11
+artifacts/acceptance/B07-20260930-equivalent-route/server-all-tests.log
+  s_d4c9f3ee20c484::t_551d0c954cbcbb 1-784
+artifacts/acceptance/B07-20260930-equivalent-route/test-e2e-task.log
+  s_d4c9f3ee20c484::t_f04e24b736ae7a 1-11
+artifacts/acceptance/B07-20260930-equivalent-route/test-stack.log
+  s_d4c9f3ee20c484::t_e4bc4e265439a6 1-11
+artifacts/acceptance/B07-20260930-equivalent-route/test-task.log
+  s_d4c9f3ee20c484::t_452c7493400435 1-11
+artifacts/acceptance/B07-20260930-equivalent-route/typecheck-current.log
+  s_d4c9f3ee20c484::t_cfa9e1e9b45f91 1-4
+artifacts/acceptance/B07-20260930-equivalent-route/typecheck-final.log
+  s_d4c9f3ee20c484::t_791803d8d5fbe9 1-4
+artifacts/acceptance/B07-20260930-equivalent-route/typecheck.log
+  s_d4c9f3ee20c484::t_07e78384c13653 1-8
+artifacts/acceptance/B07-20260930-equivalent-route/unit-green.log
+  s_d4c9f3ee20c484::t_acefadc785affb 1-760
+artifacts/acceptance/B07-20260930-equivalent-route/unit-red.log
+  s_d4c9f3ee20c484::t_6656291f50ae7f 1-160
+package-lock.json
+  s_2bda1447c404e4::t_1c0984fe19e95e 8149-8154,9518-9519
+ravenspec/changes/chat-feedback-recovery/DESIGN.md
+  s_d4c9f3ee20c484::t_805f79bcf6d83c 1-49
+ravenspec/changes/chat-feedback-recovery/PRD.md
+  s_d4c9f3ee20c484::t_41269ab557a6a3 1-31
+ravenspec/changes/chat-feedback-recovery/TASK.md
+  s_d4c9f3ee20c484::t_4b4e44efbea22f 1-26
+server/.env.development.local
+  s_2bda1447c404e4::t_92528900a88ade 13-14
+web/src/App.test.tsx
+  s_8b538db0b2a2d4::t_5b00cacd742194 3,5,65-67,71,73,224,281,283,286,288-291,836-1041
+artifacts/acceptance/B07-20260930-answer-first-citations/baseline.json
+  s_d4c9f3ee20c484::t_dc358507422029 1-52
+artifacts/acceptance/B07-20260930-answer-first-citations/files.json
+  s_d4c9f3ee20c484::t_2155a2f819139c 1-64
+artifacts/acceptance/B07-20260930-answer-first-citations/incident.json
+  s_d4c9f3ee20c484::t_54b54badc4ed81 1-16
+artifacts/acceptance/B07-20260930-answer-first-citations/summary.json
+  s_d4c9f3ee20c484::t_8d174d8aaee759 1-138
+artifacts/acceptance/B07-20260930-chat-feedback-recovery/commands.json
+  s_d4c9f3ee20c484::t_9859d1b445524e 1-188
+artifacts/acceptance/B07-20260930-chat-feedback-recovery/diff-check.log
+  s_d4c9f3ee20c484::t_2703fe88221ad2 1
+artifacts/acceptance/B07-20260930-chat-feedback-recovery/files.json
+  s_d4c9f3ee20c484::t_6b24ca27568fe1 1-76
+artifacts/acceptance/B07-20260930-chat-feedback-recovery/result.json
+  s_d4c9f3ee20c484::t_a9d951b98f47a0 1-236
+artifacts/acceptance/B07-20260930-chat-feedback-recovery/self-review.json
+  s_d4c9f3ee20c484::t_7452a2fe1f2b30 1-120
+artifacts/acceptance/B07-20260930-equivalent-route/baseline.json
+  s_d4c9f3ee20c484::t_82c7910ccfc4d9 1-47
+artifacts/acceptance/B07-20260930-equivalent-route/iteration2-live-samples.log
+  s_d4c9f3ee20c484::t_aa3278b5fb1cd4 1-59
+artifacts/acceptance/B07-20260930-equivalent-route/live-harness-parse-error.log
+  s_d4c9f3ee20c484::t_4d9d95787223c5 1-45
+artifacts/acceptance/B07-20260930-equivalent-route/self-review.json
+  s_d4c9f3ee20c484::t_714530728f3d24 1-33
+artifacts/acceptance/B07-20260930-equivalent-route/summary.json
+  s_d4c9f3ee20c484::t_f0817609958e61 1-137
+artifacts/acceptance/B07-20260930-equivalent-route/unit-object-order-failure.log
+  s_d4c9f3ee20c484::t_780538c5838279 1-808
+artifacts/acceptance/B07-answer-completion-2026-09-30.json
+  s_8b538db0b2a2d4::t_55a96d98a726e8 1-520
+docs/architecture-review-2026-09-23/create-diagrams.mjs
+  s_9ec6005507e62c::t_01c8cd1a5b20ac 1-101
+docs/architecture-review-2026-09-23/render-popo.mjs
+  s_9ec6005507e62c::t_fd73486f2044e3 1-54
+docs/architecture-review-2026-09-23/resources.json
+  s_9ec6005507e62c::t_7d84b13c374673 1-15
+docs/architecture-review-2026-09-23/verification.json
+  s_9ec6005507e62c::t_77720813729291 1-104
+qisi-sdd-v3/handoffs/B07.md
+  s_d4c9f3ee20c484::t_1987b931a29ba0 175-291
+ravenspec/changes/chat-feedback-recovery/specs/chat-feedback/spec.md
+  s_d4c9f3ee20c484::t_2e45d97688b342 1-37
+server/src/agents/diagnosis/cited-diagnosis.spec.ts
+  s_d4c9f3ee20c484::t_97ff6984ec7018 1-66
+server/src/agents/diagnosis/cited-diagnosis.ts
+  s_d4c9f3ee20c484::t_ced1cc7a533936 1-46
+server/src/agents/diagnosis/index.ts
+  s_d4c9f3ee20c484::t_8f7631066d8e43 10,37-46
+server/src/features/analysis/chat-feedback-policy.ts
+  s_d4c9f3ee20c484::t_16f05394030397 1-50
+server/src/features/analysis/problem-analysis.answer-first.live.spec.ts
+  s_d4c9f3ee20c484::t_14d7b7e7592de7 1-103
+server/src/features/analysis/problem-analysis.equivalent-route.live.spec.ts
+  s_d4c9f3ee20c484::t_0416a353587677 1-106
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "54a71cad6a6ede509cd013186609d338e10737e6",
+  "prompts": {},
+  "sessions": {
+    "s_2bda1447c404e4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7cd1e4f4-057e-45f3-bb37-6489bbffbcc7",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    },
+    "s_8b538db0b2a2d4": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0f0ef-db2f-7a43-b8a8-2f7b22e7a406",
+        "model": "gpt-6-astra-ga"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    },
+    "s_9ec6005507e62c": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0cd64-509d-7553-a296-99af31d370ec",
+        "model": "gpt-6-astra-ga"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    },
+    "s_c760ca7e3cfc4b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "89cfb69e-fc99-44ad-ac88-b953ca3d7037",
+        "model": "unknown"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    },
+    "s_d4c9f3ee20c484": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0f0f8-90a9-7611-9502-e975e2f15623",
+        "model": "gpt-6-astra-ga"
+      },
+      "human_author": "王超亚 <wangchaoya@corp.netease.com>"
+    }
+  }
+}
