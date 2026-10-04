@@ -1,0 +1,137 @@
+{
+  "date": "2026-09-30",
+  "role": "single AI / B",
+  "task": "B07 local fix",
+  "baseline": "qisi-3.1",
+  "status": "implemented_waiting_review",
+  "task_status": "in_progress",
+  "review": "self_review; independent review pending",
+  "prompt_version": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v2",
+  "incident": {
+    "confirmed": "Diagnosis rejected complementary selection because of reference indexing; strategy and repair failed before Renderer/Guard.",
+    "unknown": "Specific original strategy validation subcodes cannot be recovered from null failed output.",
+    "oracle": "C(5,3) = C(5,2); coefficient 80; (2x)^3 = 8x^3; missing multiplicity must remain invalid."
+  },
+  "deterministic": {
+    "targeted": {
+      "passed": 130,
+      "failed": 0
+    },
+    "server": {
+      "passed": 712,
+      "failed": 0,
+      "skipped": 21,
+      "total": 733
+    },
+    "typecheck": "passed",
+    "lint": "passed",
+    "build": "passed"
+  },
+  "live_model": {
+    "kind": "real configured ModelPort with synthetic IDs/context, no HTTP or DB",
+    "runs": [
+      {
+        "evidence": "iteration1-live-complementary-selection.json",
+        "case": "complementary-selection",
+        "result": "failed",
+        "elapsedMs": 20960,
+        "calls": 6,
+        "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v1",
+        "model": "gpt-5.5-2026-04-24",
+        "judgment": "valid"
+      },
+      {
+        "evidence": "iteration1-live-missing-multiplicity.json",
+        "case": "missing-multiplicity",
+        "result": "failed",
+        "elapsedMs": 19584,
+        "calls": 3,
+        "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v1",
+        "model": "gpt-5.5-2026-04-24",
+        "judgment": "invalid"
+      },
+      {
+        "evidence": "iteration2-live-complementary-selection.json",
+        "case": "complementary-selection",
+        "result": "passed",
+        "elapsedMs": 15443,
+        "calls": 4,
+        "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v2",
+        "model": "gpt-5.5-2026-04-24",
+        "judgment": "valid"
+      },
+      {
+        "evidence": "iteration2-live-missing-multiplicity.json",
+        "case": "missing-multiplicity",
+        "result": "failed",
+        "elapsedMs": 29778,
+        "calls": 6,
+        "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v2",
+        "model": "gpt-5.5-2026-04-24",
+        "judgment": "invalid"
+      },
+      {
+        "evidence": "diagnostic-live-missing-multiplicity.json",
+        "case": "missing-multiplicity",
+        "result": "passed",
+        "elapsedMs": 22256,
+        "calls": 4,
+        "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v2",
+        "model": "gpt-5.5-2026-04-24",
+        "judgment": "invalid"
+      }
+    ],
+    "latest_formal_batch": {
+      "passed": 1,
+      "failed": 1,
+      "evidence_prefix": "iteration2-"
+    },
+    "diagnostic_extra": {
+      "passed": 1,
+      "skipped": 1,
+      "not_merged_into_formal_batch": true
+    },
+    "aliases": {
+      "live-complementary-selection.json": "iteration2-live-complementary-selection.json",
+      "live-missing-multiplicity.json": "diagnostic-live-missing-multiplicity.json",
+      "live-samples.log": "iteration2-live-samples.log"
+    },
+    "conclusion": "Correct user example passed once in v2; incorrect example feedback still fluctuates at disclosure/Guard boundary. Not a stability or learning-effect pass."
+  },
+  "acceptance": {
+    "related_local_coverage": [
+      "AT22",
+      "AT25",
+      "AT27",
+      "AT28",
+      "AT45",
+      "AT49",
+      "ST07"
+    ],
+    "full_AT_ST": "not_run/incomplete; B07 runner unsupported",
+    "mysql84_runtime": "not_run",
+    "http_original_session_replay": "not_run",
+    "browser_e2e": "not_run",
+    "independent_math_teaching_review": "not_run",
+    "learning_effect": "not_evaluated"
+  },
+  "limits": [
+    "No complete original history replay; omitted user history replaced with synthetic context.",
+    "No hardcoded production answer, broadened disclosure, bypassed Guard or extra retry budget.",
+    "Real model negative feedback remains unstable; all failures retained.",
+    "No original user session state mutation; no restart/deploy/commit/push.",
+    "B07 runner missing; spec validator 864 passed/12 failed."
+  ],
+  "git": {
+    "branch": "develop",
+    "head": "2b4b03c261dfc6d657c18a131f419424670727fe",
+    "behind": 12,
+    "status": "uncommitted; not pushed/deployed; server reload unverified"
+  },
+  "next": [
+    "Independent review and controlled HTTP/browser replay after service loads new code.",
+    "Use a new requestId plus latest server version; do not require redundant student evidence.",
+    "Scope additional multi-topic model stability evaluation before more paid calls.",
+    "Shared runner owner registers B07 and completes full AT/ST."
+  ]
+}

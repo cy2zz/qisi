@@ -1,0 +1,120 @@
+{
+  "date": "2026-09-30",
+  "review_status": "self_review",
+  "independent_review": "not_run",
+  "reviewer": "single coding agent (same implementer)",
+  "checks": [
+    {
+      "item": "所有模型尝试有请求内预算；共享一次Schema/策略修复、一次重写+Guard",
+      "result": "passed_local",
+      "evidence": "turn-time-budget.spec.ts; problem-analysis.service.spec.ts; focused-tests-final.log"
+    },
+    {
+      "item": "Guard获得confirmed证据；Renderer不接收私有参考/完整诊断/Guard notes",
+      "result": "passed_local",
+      "evidence": "problem-analysis.service.spec.ts; problem-analysis.recovery.integration.spec.ts"
+    },
+    {
+      "item": "帮助深度不自动升级、allowed/reserved不为重写扩大",
+      "result": "passed_local",
+      "evidence": "problem-analysis.service.spec.ts; policy-gate.spec.ts"
+    },
+    {
+      "item": "两探针之后禁止ask+null probe、换goal追问；失败兜底不要求补依据",
+      "result": "passed_local",
+      "evidence": "problem-analysis.service.spec.ts; policy-gate.spec.ts"
+    },
+    {
+      "item": "unknown不记正确/学会，fallback无曝光audit，未经校验候选不进入chunk/done",
+      "result": "passed_local",
+      "evidence": "problem-analysis.recovery.integration.spec.ts"
+    },
+    {
+      "item": "Schema失败output=null且保留usage；取消/超时拒绝迟到结果",
+      "result": "passed_local",
+      "evidence": "problem-analysis.service.spec.ts; problem-analysis.timeout.integration.spec.ts"
+    },
+    {
+      "item": "Controller、最终CAS/lease事务、数据库、前端和依赖未改",
+      "result": "checked_diff",
+      "evidence": "本轮文件清单和git diff；不等于本轮真实数据库验收"
+    },
+    {
+      "item": "差异检查",
+      "result": "passed",
+      "exit_code": 0,
+      "evidence": "diff-check.log"
+    },
+    {
+      "item": "源文件及文档编码/空白检查（包括未跟踪文件）",
+      "result": "passed",
+      "files": [
+        {
+          "path": "server/src/features/analysis/chat-feedback-policy.ts",
+          "issues": []
+        },
+        {
+          "path": "server/src/features/analysis/problem-analysis.service.ts",
+          "issues": []
+        },
+        {
+          "path": "server/src/features/analysis/turn-time-budget.ts",
+          "issues": []
+        },
+        {
+          "path": "server/src/workflows/policy-gate.ts",
+          "issues": []
+        },
+        {
+          "path": "server/src/features/analysis/problem-analysis.service.spec.ts",
+          "issues": []
+        },
+        {
+          "path": "server/src/features/analysis/turn-time-budget.spec.ts",
+          "issues": []
+        },
+        {
+          "path": "server/src/features/analysis/problem-analysis.recovery.integration.spec.ts",
+          "issues": []
+        },
+        {
+          "path": "server/test/workflows/policy-gate.spec.ts",
+          "issues": []
+        },
+        {
+          "path": "qisi-sdd-v3/changes/B07.md",
+          "issues": []
+        },
+        {
+          "path": "qisi-sdd-v3/handoffs/B07.md",
+          "issues": []
+        },
+        {
+          "path": "ravenspec/changes/chat-feedback-recovery/.ravenspec.yaml",
+          "issues": []
+        },
+        {
+          "path": "ravenspec/changes/chat-feedback-recovery/PRD.md",
+          "issues": []
+        },
+        {
+          "path": "ravenspec/changes/chat-feedback-recovery/DESIGN.md",
+          "issues": []
+        },
+        {
+          "path": "ravenspec/changes/chat-feedback-recovery/TASK.md",
+          "issues": []
+        },
+        {
+          "path": "ravenspec/changes/chat-feedback-recovery/specs/chat-feedback/spec.md",
+          "issues": []
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "审核者就是实施者，没有独立复核。",
+    "未测真实模型误拦截频率与教学质量。",
+    "未验收重启续跑和真实MySQL8.4，完整B07门禁未登记。"
+  ]
+}

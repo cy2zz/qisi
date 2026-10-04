@@ -1,0 +1,935 @@
+
+ RUN  v5.0.1 D:/math/qisi-dashboard/server
+
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_message_validation_failed',
+  nodeKey: 'guard',
+  code: 'DISCLOSURE_NOT_ALLOWED',
+  verdict: 'accept'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_message_validation_failed',
+  nodeKey: 'final_gate',
+  code: 'DISCLOSURE_NOT_ALLOWED',
+  verdict: 'accept'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'GUARD_REJECTED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_diagnosis_validation_failed',
+  nodeKey: 'diagnosis',
+  inputHash: '60d0e62715b25af213068b3dfcdaf901b91c3f38607a9a4a6b3a0b7b01917636',
+  validationCode: 'DIAGNOSIS_EVIDENCE_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_diagnosis_validation_failed',
+  nodeKey: 'diagnosis_repair',
+  inputHash: 'f3b376c5745fe623652bb943478bfc3ebb3833ff5d2cb1536b614b3f4edc5b32',
+  validationCode: 'DIAGNOSIS_EVIDENCE_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'SCHEMA_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '3566d8057d32549610849d0cf84d8e2e85d80a8f930c706878f34cdd82d29bb6',
+  reason: 'PROBE_LIMIT_REACHED',
+  validationCode: 'PROBE_LIMIT_REACHED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: '9d7e5ddd9d250ca3d63c8ea3f52ae86ad862b3b3f35c490151eee2d9193cc8be',
+  reason: 'PROBE_LIMIT_REACHED',
+  validationCode: 'PROBE_LIMIT_REACHED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'PROBE_LIMIT_REACHED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '7cbbf847cadaeb03faac149829efa582cd9c9084e507d080d68778b1f57bc270',
+  reason: 'HELP_DEPTH_MISMATCH',
+  validationCode: 'HELP_DEPTH_MISMATCH'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: 'c52e64b3d29a52ad0a1f21585c8c21bc396d7f5dfc7cec27dac4554c4f815515',
+  reason: 'HELP_DEPTH_MISMATCH',
+  validationCode: 'HELP_DEPTH_MISMATCH'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'HELP_DEPTH_MISMATCH'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: 'b033d6f15556caf500fa34fcb23eeed291e002ff14378d04425d835eaabee9c2',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'FACT_SOURCE_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: 'f2c4507112cc367441e4d216bf82098803f4cea7c4ec26a6bd1d88dfb96fc1a7',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'FACT_SOURCE_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'STRATEGY_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '34323f164c04746aa6929ee389904b965c52e0d4f9c172f6f38ebd6ec614ca2a',
+  reason: 'HELP_DEPTH_MISMATCH',
+  validationCode: 'HELP_DEPTH_MISMATCH'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: '6e943754fda995874a36a7bf9d65b3ae3c3f02b0e2882346dae5cb95cfb3c830',
+  reason: 'HELP_DEPTH_MISMATCH',
+  validationCode: 'HELP_DEPTH_MISMATCH'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'HELP_DEPTH_MISMATCH'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '34323f164c04746aa6929ee389904b965c52e0d4f9c172f6f38ebd6ec614ca2a',
+  reason: 'HELP_DEPTH_MISMATCH',
+  validationCode: 'HELP_DEPTH_MISMATCH'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: '6e943754fda995874a36a7bf9d65b3ae3c3f02b0e2882346dae5cb95cfb3c830',
+  reason: 'HELP_DEPTH_MISMATCH',
+  validationCode: 'HELP_DEPTH_MISMATCH'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'HELP_DEPTH_MISMATCH'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'SCHEMA_INVALID'
+}
+[Nest] 28916  - 2026/09/22 14:25:48    WARN [ProblemAnalysisService] Object(2) {
+  event: 'teaching_node_failure_audit_failed',
+  nodeKey: 'diagnosis'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '65b185d2bab7b684265548dddb5345d147d56902839d53dd8e8beacf5be951b7',
+  reason: 'HELP_DEPTH_MISMATCH',
+  validationCode: 'HELP_DEPTH_MISMATCH'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '0de42f42ed89ea3b7abc3d293f6975e6d7054e4fcfed22bab007208fa7561760',
+  reason: 'PROBE_LIMIT_REACHED',
+  validationCode: 'PROBE_LIMIT_REACHED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '0de42f42ed89ea3b7abc3d293f6975e6d7054e4fcfed22bab007208fa7561760',
+  reason: 'PROBE_LIMIT_REACHED',
+  validationCode: 'PROBE_LIMIT_REACHED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: 'fec3e90ba1913f0ddce34e52156b1a08d88d469765c2c2bcbc784e9828a24a32',
+  reason: 'PROBE_LIMIT_REACHED',
+  validationCode: 'PROBE_LIMIT_REACHED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'PROBE_LIMIT_REACHED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_message_validation_failed',
+  nodeKey: 'guard',
+  code: 'GUARD_NOT_ACCEPTED',
+  verdict: 'revise'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_message_validation_failed',
+  nodeKey: 'guard',
+  code: 'GUARD_NOT_ACCEPTED',
+  verdict: 'revise'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_message_validation_failed',
+  nodeKey: 'final_gate',
+  code: 'GUARD_NOT_ACCEPTED',
+  verdict: 'revise'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'GUARD_REJECTED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_message_validation_failed',
+  nodeKey: 'guard',
+  code: 'GUARD_NOT_ACCEPTED',
+  verdict: 'unknown'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_message_validation_failed',
+  nodeKey: 'final_gate',
+  code: 'GUARD_NOT_ACCEPTED',
+  verdict: 'unknown'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'GUARD_UNKNOWN'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '65b185d2bab7b684265548dddb5345d147d56902839d53dd8e8beacf5be951b7',
+  reason: 'HELP_DEPTH_MISMATCH',
+  validationCode: 'HELP_DEPTH_MISMATCH'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'SCHEMA_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_message_validation_failed',
+  nodeKey: 'guard',
+  code: 'GUARD_NOT_ACCEPTED',
+  verdict: 'revise'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_message_validation_failed',
+  nodeKey: 'final_gate',
+  code: 'GUARD_NOT_ACCEPTED',
+  verdict: 'revise'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'GUARD_REJECTED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '0de42f42ed89ea3b7abc3d293f6975e6d7054e4fcfed22bab007208fa7561760',
+  reason: 'PROBE_LIMIT_REACHED',
+  validationCode: 'PROBE_LIMIT_REACHED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: 'fec3e90ba1913f0ddce34e52156b1a08d88d469765c2c2bcbc784e9828a24a32',
+  reason: 'PROBE_LIMIT_REACHED',
+  validationCode: 'PROBE_LIMIT_REACHED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'PROBE_LIMIT_REACHED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '65b185d2bab7b684265548dddb5345d147d56902839d53dd8e8beacf5be951b7',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'FACT_SOURCE_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '65b185d2bab7b684265548dddb5345d147d56902839d53dd8e8beacf5be951b7',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'FACT_NOT_APPROVED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: '418e4009b750e6d69f85a5a20437ad7765fe83723391f9d60170c79b29ce56be',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'FACT_NOT_APPROVED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'STRATEGY_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_message_validation_failed',
+  nodeKey: 'guard',
+  code: 'DISCLOSURE_NOT_ALLOWED',
+  verdict: 'accept'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_message_validation_failed',
+  nodeKey: 'final_gate',
+  code: 'DISCLOSURE_NOT_ALLOWED',
+  verdict: 'accept'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'GUARD_REJECTED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '65b185d2bab7b684265548dddb5345d147d56902839d53dd8e8beacf5be951b7',
+  reason: 'SCHEMA_INVALID',
+  validationCode: 'SCHEMA_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_message_validation_failed',
+  nodeKey: 'guard',
+  code: 'GUARD_NOT_ACCEPTED',
+  verdict: 'revise'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_message_validation_failed',
+  nodeKey: 'guard',
+  code: 'GUARD_NOT_ACCEPTED',
+  verdict: 'revise'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_message_validation_failed',
+  nodeKey: 'guard',
+  code: 'GUARD_NOT_ACCEPTED',
+  verdict: 'revise'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_message_validation_failed',
+  nodeKey: 'final_gate',
+  code: 'GUARD_NOT_ACCEPTED',
+  verdict: 'revise'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'GUARD_REJECTED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'BUDGET_EXHAUSTED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '45d783f2cc324610f6d5fe202e4c1e520e6d7892bd98a943e71460eddedfd4ff',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'COMPLETION_ACTION_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '9253eae47310c2904f39850bca34545a7e8d8e8392e52097c92b8c57470941ca',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: '4313e769fb9b755a5de0442bae420eda3bece395fd51c32ef894b9f04087419d',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'STRATEGY_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: 'bf3b1b7be8d37608e4cfd04b0e44b316a6dc002ef53d8c90e4eaa81b9f500bf6',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: '9f48c8c184c2d7304a8b1a8f41fe3bcba4e472a9be9d2217d651aa8f9a090141',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'STRATEGY_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: 'd4ec3eed7491bfa2ed2597c112c241c351f86a6aef5c9c4eecd590bce8e85de6',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: '2566ea7ff49b8053dc0c731a963fe1b586edf6e3de0b6020aa5a60674aecf702',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'STRATEGY_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '71ec25660958c7caf31d9b130b5fc1adbc7a1bbe8ba3450a9d71b5d76bf74b71',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: '40d437de334b0bf90f1ffe0d7c3e2dd858bbf410f0ee17d562fccd99aa6bf845',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'STRATEGY_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: 'c572c012a244e0d18acdb405e45542f8cbdc2365147274b599f7929265660887',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: '07b04b29f9f8249e7603e65c7cf9d8b7fcb8dbb9b4f2894f3b68ecb80d9efd68',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'STRATEGY_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '31b2dab4422776d634a6aa5482f45406267710881911dd723d1eb5ae24445518',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: 'e9aeefb8f9d7ae728ed859326e7c998f4fd77773c634bf4f19fb3220593df9a4',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'STRATEGY_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: 'c47153def7eead14f27e9d6f9ee837546afc6706ea7adfc9b0c8706320a46c1d',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'FACT_NOT_APPROVED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: 'e8390450d0e9e9cbaedfc2b83e7d5bf5e62f22fc7ec3fc4a6296adc0d1b5d211',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'FACT_NOT_APPROVED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'STRATEGY_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: 'c47153def7eead14f27e9d6f9ee837546afc6706ea7adfc9b0c8706320a46c1d',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'FACT_NOT_APPROVED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: 'e8390450d0e9e9cbaedfc2b83e7d5bf5e62f22fc7ec3fc4a6296adc0d1b5d211',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'FACT_NOT_APPROVED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'STRATEGY_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: 'b96237f123c1ffc6711e60f0bf3598e81a8967211af12155fcc67bd12427a135',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'FACT_NOT_APPROVED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: 'e2ecb7d52819f3b177330574e1cb9003e8f22133fa3b634af14056abfc4dae35',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'FACT_NOT_APPROVED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'STRATEGY_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: 'ab00325c2fee13c55e1c93d07cdabf25a87693d23b4be6bf0ed46625b5aa6a1e',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'FACT_NOT_APPROVED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: '0356714bbd11755cdd5972043d5cbfac2141b9d9d7aa15718815987977439ae3',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'FACT_NOT_APPROVED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'STRATEGY_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: 'f8bb412862417b31b280f0a7b974fca6ac6e1d3e675a1b4a10848dd8357f4666',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'FACT_NOT_APPROVED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: '5422249a76668fe7ed0e25cce55787ec162ff02b0ea27289b68609367cbecca1',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'FACT_NOT_APPROVED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'STRATEGY_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_message_validation_failed',
+  nodeKey: 'guard',
+  code: 'GUARD_NOT_ACCEPTED',
+  verdict: 'unknown'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_message_validation_failed',
+  nodeKey: 'final_gate',
+  code: 'GUARD_NOT_ACCEPTED',
+  verdict: 'unknown'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'GUARD_UNKNOWN'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_message_validation_failed',
+  nodeKey: 'guard',
+  code: 'DISCLOSURE_NOT_ALLOWED',
+  verdict: 'accept'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_message_validation_failed',
+  nodeKey: 'final_gate',
+  code: 'DISCLOSURE_NOT_ALLOWED',
+  verdict: 'accept'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'GUARD_REJECTED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '717e2801584f6a415bb1eddd17e6d850d1f4cdcd620d331c17b499d106362efb',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'SATISFIED_GOAL_PROBED'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '0b8c830b58ae5e6ed9dcac03b8041db546a974417dd15ebf4ee0a3103746ba22',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: 'cd8824052c367434e607474e7a59726155becddb736147c615c8012c6799f23a',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'STRATEGY_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '0b8c830b58ae5e6ed9dcac03b8041db546a974417dd15ebf4ee0a3103746ba22',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: 'cd8824052c367434e607474e7a59726155becddb736147c615c8012c6799f23a',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'STRATEGY_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '0b8c830b58ae5e6ed9dcac03b8041db546a974417dd15ebf4ee0a3103746ba22',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: 'cd8824052c367434e607474e7a59726155becddb736147c615c8012c6799f23a',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'STRATEGY_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '0b8c830b58ae5e6ed9dcac03b8041db546a974417dd15ebf4ee0a3103746ba22',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: 'cd8824052c367434e607474e7a59726155becddb736147c615c8012c6799f23a',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'STRATEGY_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '98feca1ab284e259d725a5a107bbcc031f34d139ffe84eae51d8145e344c9bb7',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: '2661b50f7727e4d9420ab4a6009ed6f4fe9326e2ba00b2c711287e12518e1ac4',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'STRATEGY_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '9b69628227dea3be6a4b4e1255fc74f4fd6989a8729f3d4044ac4491420a80f3',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: 'e221f8fb377e277ac78c05e7a0fb1729657d8dd467555b6440bfebe0cd9ef165',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'STRATEGY_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '65b185d2bab7b684265548dddb5345d147d56902839d53dd8e8beacf5be951b7',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'TASK_MISMATCH'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '088c2a37e420f48acd0c0abf12291edb06478aafd39701436e1170a8eca33c24',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'PREMATURE_COMPLETION'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_diagnosis_validation_failed',
+  nodeKey: 'diagnosis',
+  inputHash: 'c547d019f34dd41a1f4f37996709f1c583e9d66a91e80feaf15a103f29c93038',
+  validationCode: 'DIAGNOSIS_EVIDENCE_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_diagnosis_validation_failed',
+  nodeKey: 'diagnosis',
+  inputHash: '7529f02759b92c8f5c4c623feee408a780ae15973097bfed990692ac33503328',
+  validationCode: 'SCHEMA_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_diagnosis_validation_failed',
+  nodeKey: 'diagnosis_repair',
+  inputHash: '6856fef710e4ff23a97d8a0a99ff22a5bf8b812f0d0091626ecbeeb8130d8236',
+  validationCode: 'SCHEMA_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'SCHEMA_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_diagnosis_validation_failed',
+  nodeKey: 'diagnosis',
+  inputHash: 'cad3d8b2c367a1f72a618e679743c4056cac932d9afba76230bf4d7a74cf6adf',
+  validationCode: 'DIAGNOSIS_EVIDENCE_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_diagnosis_validation_failed',
+  nodeKey: 'diagnosis_repair',
+  inputHash: '843745926765a4af6bbd680a3b51df906f4fddb89fcb81c156b749e76216e977',
+  validationCode: 'DIAGNOSIS_EVIDENCE_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'SCHEMA_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_diagnosis_validation_failed',
+  nodeKey: 'diagnosis',
+  inputHash: 'f7fa7cfa2b79defba97f6300e0d5fe836f0ea99107d0a0d30bc2a1c6045bf82c',
+  validationCode: 'DIAGNOSIS_TASK_MISMATCH'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_diagnosis_validation_failed',
+  nodeKey: 'diagnosis_repair',
+  inputHash: '2976ae3a25d052003254aa2c651eea97aebff37856e8bebe1f175a3bcfc322b7',
+  validationCode: 'DIAGNOSIS_TASK_MISMATCH'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'SCHEMA_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_diagnosis_validation_failed',
+  nodeKey: 'diagnosis',
+  inputHash: 'ce767df58b1cbdbb2d5fefbaf36553e03f008d90a354d445c8ea13fe7749f8f6',
+  validationCode: 'SCHEMA_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_diagnosis_validation_failed',
+  nodeKey: 'diagnosis_repair',
+  inputHash: '4f140394988e10fdd6c08570cdd870f0bf5b81f2ca811ec319e240019e394602',
+  validationCode: 'SCHEMA_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'SCHEMA_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_diagnosis_validation_failed',
+  nodeKey: 'diagnosis',
+  inputHash: 'c7ad0e3b6608b7e9b6a0b4749827d9e95a04ce91e1a31556f46d41c508353238',
+  validationCode: 'SCHEMA_INVALID'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '600fe92007219c4ef7eb2d9e9db6bd5e5d067dc06d0132dcb65a9e0accee3fdb',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'TASK_MISMATCH'
+}
+[Nest] 28916  - 2026/09/30 18:20:09    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-111111111111',
+  sessionId: '91',
+  reason: 'STRATEGY_INVALID'
+}
+ ❯ src/features/analysis/problem-analysis.service.spec.ts (107 tests | 2 failed) 692ms
+   ❯ ProblemAnalysisService (24)
+     × rejects a diagnosis that cites a nonexistent submission before persisting it as a completed node 36ms
+   ❯ B07 answer-first citation recovery (8)
+     × binds a server evidence key to exact full-width student text before semantic checks 9ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/analysis/problem-analysis.service.spec.ts > ProblemAnalysisService > rejects a diagnosis that cites a nonexistent submission before persisting it as a completed node
+AssertionError: promise resolved "{ reply: '系统暂时未能完成这条反馈的核对，因此没有展示未经检查…' }" instead of rejecting
+
+- Expected
++ Received
+
+- Error {
+-   "message": "rejected promise",
++ {
++   "reply": "系统暂时未能完成这条反馈的核对，因此没有展示未经检查的内容。这不是判定你答错，也不表示这道题无法继续。你可以稍后重试，或选择“局部解释”“直接讲解”，不必重复补充依据。",
+  }
+
+ ❯ src/features/analysis/problem-analysis.service.spec.ts:349:75
+    347|     const onNode = vi.fn().mockResolvedValue(undefined);
+    348|
+    349|     await expect(service.reply(chatInput(), undefined, undefined, onNo…
+       |                                                                           ^
+    350|       .rejects.toThrow('diagnosis cited invalid evidence');
+    351|     expect(onNode).toHaveBeenCalledOnce();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/features/analysis/problem-analysis.service.spec.ts > B07 answer-first citation recovery > binds a server evidence key to exact full-width student text before semantic checks
+AssertionError: expected { task_id: 'session-91', …(8) } to match object { evidence_catalog: [ { …(2) } ] }
+(8 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+    "evidence_catalog": [
+      {
+        "evidence_key": "e0",
+        "quote": "C53＝10，2的3次方是8，所以系数80。",
++       "revision": 1,
++       "submission_id": "11111111-1111-4111-8111-111111111111",
++     },
++     {
++       "evidence_key": "e1",
++       "quote": "我准备先求导。",
++       "revision": 1,
++       "submission_id": "91:history:0",
+      },
+    ],
+  }
+
+ ❯ src/features/analysis/problem-analysis.service.spec.ts:1646:33
+    1644|       hypotheses: [{ evidence_refs: [{ submission_id: requestId, revis…
+    1645|     const diagnosisCall = vi.mocked(model.generate).mock.calls[0][0];
+    1646|     expect(diagnosisCall.input).toMatchObject({ evidence_catalog: [{ e…
+       |                                 ^
+    1647|     expect(diagnosisCall.system).not.toContain(quote);
+    1648|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 105 passed (107)
+   Start at  18:20:06
+   Duration  3.37s (import 57%, tests 24%, transform 19%)
+

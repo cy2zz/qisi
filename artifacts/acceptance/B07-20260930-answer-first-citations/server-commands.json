@@ -1,0 +1,46 @@
+[
+  {
+    "command": [
+      "cmd",
+      "/c",
+      "npm run typecheck"
+    ],
+    "cwd": "server",
+    "exitCode": 0,
+    "elapsedSeconds": 5.47,
+    "log": "typecheck.log"
+  },
+  {
+    "command": [
+      "cmd",
+      "/c",
+      "npm run lint"
+    ],
+    "cwd": "server",
+    "exitCode": 0,
+    "elapsedSeconds": 8.57,
+    "log": "lint.log"
+  },
+  {
+    "command": [
+      "cmd",
+      "/c",
+      "npm test"
+    ],
+    "cwd": "server",
+    "exitCode": 0,
+    "elapsedSeconds": 42.75,
+    "log": "unit.log"
+  },
+  {
+    "command": [
+      "cmd",
+      "/c",
+      "npm run build"
+    ],
+    "cwd": "server",
+    "exitCode": 0,
+    "elapsedSeconds": 21.82,
+    "log": "build.log"
+  }
+]

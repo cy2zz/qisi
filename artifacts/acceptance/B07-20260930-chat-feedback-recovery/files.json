@@ -1,0 +1,76 @@
+{
+  "date": "2026-09-30",
+  "head": "2b4b03c261dfc6d657c18a131f419424670727fe",
+  "files": [
+    {
+      "path": "server/src/features/analysis/chat-feedback-policy.ts",
+      "sha256": "0651ff2918b083ba5482b5a63e7e0a6832247252eb2911959c7adb4062f686ef"
+    },
+    {
+      "path": "server/src/features/analysis/problem-analysis.service.ts",
+      "sha256": "20d64db9dc142c05c07aa27a0e7493d4b9fba2c60090cb3bc8c8b44760eefb62"
+    },
+    {
+      "path": "server/src/features/analysis/turn-time-budget.ts",
+      "sha256": "f9e5f241be4aec6560d53310b38e7ab978c9b1010c04bed3013ad83e08aa7c4f"
+    },
+    {
+      "path": "server/src/workflows/policy-gate.ts",
+      "sha256": "12e05786b70809068b7b0f03b066f7c168db7e8b9c410781cb9da2ac9c3e0178"
+    },
+    {
+      "path": "server/src/features/analysis/problem-analysis.service.spec.ts",
+      "sha256": "f0595b3b627f9cca3ac7a5676e5d3c86a451ca7e74cdd70008c3eba346a708f4"
+    },
+    {
+      "path": "server/src/features/analysis/turn-time-budget.spec.ts",
+      "sha256": "af5b639fe88770f33feb6c7fcf89a17838fe36cf85d521654797bd4189602ea2"
+    },
+    {
+      "path": "server/src/features/analysis/problem-analysis.recovery.integration.spec.ts",
+      "sha256": "41b0ac0c054b7eb03391d414ff6fd61127f57cb654bfa3111524d543240b45b2"
+    },
+    {
+      "path": "server/test/workflows/policy-gate.spec.ts",
+      "sha256": "7d04811876525a90170cbe12e38ec70891bc42711e0d1053cb08dc2dfae32108"
+    },
+    {
+      "path": "qisi-sdd-v3/changes/B07.md",
+      "sha256": "036154cea5ac271fdcd28f48ecff655d9b29d40faded7fa152289d49c3c71960"
+    },
+    {
+      "path": "qisi-sdd-v3/handoffs/B07.md",
+      "sha256": "bfe58cbd8b40bd9bc9b1158d148ccc29c7250e3a90df5ad879c145bdb3411744"
+    },
+    {
+      "path": "ravenspec/changes/chat-feedback-recovery/.ravenspec.yaml",
+      "sha256": "57b12991630f68e05d689e2ced2f2821d4ff1accec09192ccb3abec48599fe1c"
+    },
+    {
+      "path": "ravenspec/changes/chat-feedback-recovery/PRD.md",
+      "sha256": "3ae4ae3aa203eac149ea06bf14a21c5a4d6f11bb1f91ac460118a272a9efe5e0"
+    },
+    {
+      "path": "ravenspec/changes/chat-feedback-recovery/DESIGN.md",
+      "sha256": "67e9c5fe3c0d376ff7b56f0c1b74f643684028cd7d886cc80ec155c25a296b32"
+    },
+    {
+      "path": "ravenspec/changes/chat-feedback-recovery/TASK.md",
+      "sha256": "aa9254ce50ce1030f5636707c027dc7edb46ce796b83c0009b6fff7670fcd8bd"
+    },
+    {
+      "path": "ravenspec/changes/chat-feedback-recovery/specs/chat-feedback/spec.md",
+      "sha256": "4fd3c0086c5b94064f4f9866b3186bd18cde670bfe0f9f386c0a0b85fa17098e"
+    }
+  ],
+  "unchanged_by_this_task": [
+    "web/",
+    "server/.env.development.local",
+    "package-lock.json",
+    "qisi-sdd-v3/changes/A03.md",
+    "qisi-sdd-v3/handoffs/A03.md",
+    "server/db/",
+    "qisi-sdd-v3/tasks.json"
+  ],
+  "note": "排除路径存在并行改动，不对其当前字节或他人修改作不变保证。"
+}

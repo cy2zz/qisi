@@ -1,0 +1,53 @@
+
+ RUN  v5.0.1 D:/math/qisi-dashboard/server
+
+[Nest] 15084  - 2026/09/30 18:23:33    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_diagnosis_validation_failed',
+  nodeKey: 'diagnosis',
+  inputHash: '122cb7eaafc23ebccfdf5afc267e3acfea67d9f9251795b8948634882503e38e',
+  validationCode: 'DIAGNOSIS_GOAL_INVALID'
+}
+[Nest] 15084  - 2026/09/30 18:23:47    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '8a5ecc0bb7760fd2a17fd53c1a8c1412b49e019ca2627fcbbe59cdf6534e069e',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'FACT_NOT_APPROVED'
+}
+[Nest] 15084  - 2026/09/30 18:23:47    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-000000000003',
+  sessionId: 'live-answer-first-missing-multiplicity',
+  reason: 'STRATEGY_INVALID'
+}
+ ❯ src/features/analysis/problem-analysis.answer-first.live.spec.ts (3 tests | 1 failed) 55221ms
+   ❯ B07 answer-first citation live model sample (3)
+     × missing-multiplicity 22580ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/analysis/problem-analysis.answer-first.live.spec.ts > B07 answer-first citation live model sample > missing-multiplicity
+ZodError: [
+  {
+    "expected": "object",
+    "code": "invalid_type",
+    "path": [],
+    "message": "Invalid input: expected object, received undefined"
+  }
+]
+ ❯ src/features/analysis/problem-analysis.answer-first.live.spec.ts:57:39
+     55|       }, new AbortController().signal, undefined, async node => { node…
+     56|       const diagnosis = DiagnosisSchema.parse([...nodes].reverse().fin…
+     57|       const strategy = StrategySchema.parse([...nodes].reverse().find(…
+       |                                       ^
+     58|       const guard = GuardResultSchema.parse([...nodes].reverse().find(…
+     59|       expect(diagnosis.judgment).toBe(sample.judgment);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  18:22:49
+   Duration  57.52s (tests 97%, import 3%, transform 1%)
+

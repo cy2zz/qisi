@@ -1,0 +1,11 @@
+python : .....
+At line:2 char:280
++ ... ackResult"; python -m unittest discover -s qisi-sdd-v3/scripts -p tes ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (.....:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK

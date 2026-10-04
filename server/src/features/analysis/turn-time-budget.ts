@@ -1,5 +1,7 @@
 import type { ModelPort, ModelResponse } from '../../model/model.port.js';
 import type { ModelRequest } from '../../model/ports.js';
+import { BudgetLedger } from '../../model/budget.js';
+import { estimateInputTokens } from '../../model/token-estimate.js';
 import { nodeTimeoutMs, workflowBudget } from '../../workflows/runtime.js';
 
 export type TurnTimeoutCode = 'MODEL_NODE_TIMEOUT' | 'TURN_DEADLINE_EXCEEDED';
@@ -29,10 +31,14 @@ function abortable<T>(execute: () => Promise<T>, signal: AbortSignal): Promise<T
   });
 }
 
-/** /problems/chat 的请求级时间边界；复用 runtime 常量，不引入重试或新编排器。 */
+export type TurnModelAttempt = Omit<ModelResponse, 'parsed'>;
+
+/** 请求级时间/call/token 边界；复用 BudgetLedger，不引入隐式重试。 */
 export class TurnTimeBudget {
   readonly signal: AbortSignal;
   readonly #controller = new AbortController();
+  readonly #ledger: BudgetLedger;
+  #lastAttempt: TurnModelAttempt | undefined;
   readonly #deadlineMs: number;
   readonly #timer: ReturnType<typeof setTimeout>;
 
@@ -45,10 +51,25 @@ export class TurnTimeBudget {
     if (!Number.isFinite(this.#deadlineMs) || this.#deadlineMs <= now) {
       throw new TurnTimeoutError('TURN_DEADLINE_EXCEEDED');
     }
+    this.#ledger = new BudgetLedger({ workflow: 'turn', deadlineAt: new Date(this.#deadlineMs) });
     this.signal = AbortSignal.any([parent, this.#controller.signal]);
     this.#timer = setTimeout(() => this.#expire(), this.#deadlineMs - now);
     this.#timer.unref();
   }
+
+  get callsUsed(): number { return this.#ledger.callsUsed; }
+  get remainingCalls(): number { return this.#ledger.remainingCalls; }
+  get lastAttempt(): TurnModelAttempt | undefined { return this.#lastAttempt; }
+
+  canRecover(calls: number, outputTokens: number): boolean {
+    this.#assertActive();
+    return this.#ledger.remainingCalls >= calls
+      && this.#ledger.remainingOutputTokens >= outputTokens
+      && this.#ledger.remainingInputTokens > 0;
+  }
+
+  consumeSchemaRepair(): boolean { return this.#ledger.consumeSchemaRepair(); }
+  consumeTextRewrite(): boolean { return this.#ledger.consumeTextRewrite(); }
 
   async run<T>(execute: () => Promise<T>): Promise<T> {
     this.#assertActive();
@@ -59,6 +80,17 @@ export class TurnTimeBudget {
 
   async generate(provider: ModelPort, request: ModelRequest): Promise<ModelResponse> {
     this.#assertActive();
+    request.signal.throwIfAborted();
+    const startedAt = Date.now();
+    const reservation = this.#ledger.authorizeCall({
+      inputTokens: estimateInputTokens(request.system, request.input),
+      outputTokens: request.maxOutputTokens,
+    });
+    // 不保存原始候选；失败也保留尝试的保守计费，Schema 失败不能变成零用量。
+    this.#lastAttempt = {
+      model: request.model ?? '', provider: 'unknown', elapsedMs: 0,
+      usage: { input: reservation.inputTokens, output: reservation.outputTokens, kind: 'estimated' },
+    };
     const node = new AbortController();
     const nodeDeadlineMs = Date.now() + nodeTimeoutMs('turn');
     const timer = setTimeout(() => node.abort(new TurnTimeoutError('MODEL_NODE_TIMEOUT')), nodeTimeoutMs('turn'));
@@ -68,9 +100,23 @@ export class TurnTimeBudget {
       const response = await abortable(() => provider.generate({ ...request, latencyProfile: 'interactive', signal }), signal);
       this.#assertActive();
       if (Date.now() >= nodeDeadlineMs) throw new TurnTimeoutError('MODEL_NODE_TIMEOUT');
-      return response;
+      const usage = response.usage.kind === 'unknown'
+        ? { input: reservation.inputTokens, output: reservation.outputTokens, kind: 'estimated' as const }
+        : response.usage;
+      this.#lastAttempt = {
+        model: response.model, provider: response.provider, elapsedMs: response.elapsedMs, usage,
+        ...(response.providerRequestId ? { providerRequestId: response.providerRequestId } : {}),
+        ...(response.reasoningEffort ? { reasoningEffort: response.reasoningEffort } : {}),
+        ...(response.outputVerbosity ? { outputVerbosity: response.outputVerbosity } : {}),
+        ...(response.latencyProfileVersion ? { latencyProfileVersion: response.latencyProfileVersion } : {}),
+      };
+      this.#ledger.settle(reservation, { inputTokens: usage.input, outputTokens: usage.output });
+      return { ...response, usage };
     } finally {
       clearTimeout(timer);
+      if (this.#lastAttempt?.provider === 'unknown') {
+        this.#lastAttempt = { ...this.#lastAttempt, elapsedMs: Math.max(0, Date.now() - startedAt) };
+      }
     }
   }
 

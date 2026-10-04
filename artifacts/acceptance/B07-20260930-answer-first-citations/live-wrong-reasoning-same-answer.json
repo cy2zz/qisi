@@ -1,0 +1,110 @@
+{
+  "caseId": "wrong-reasoning-same-answer",
+  "kind": "real-model-synthetic-context",
+  "startedAt": "2026-09-30T10:23:05.078Z",
+  "finishedAt": "2026-09-30T10:23:24.824Z",
+  "elapsedMs": 19746,
+  "result": "passed",
+  "expectedJudgment": "invalid",
+  "reply": "你的选项结构是对的：从 5 个因子里选 3 个提供 $2x$，另外 2 个提供 $-1$。\n\n请核对两个小计算：\n\n\n$$\n\nC_5^3=?\\qquad 2^3=?\n\n$$\n\n\n然后把含 $x^3$ 的系数乘积重新写一遍。",
+  "audit": {
+    "decisionIds": [
+      "session-live-answer-first-wrong-reasoning-same-answer:conditions",
+      "session-live-answer-first-wrong-reasoning-same-answer:method"
+    ],
+    "focusGoalKey": "session-live-answer-first-wrong-reasoning-same-answer:target",
+    "intervention": "error_localization",
+    "probe": {
+      "goal_key": "session-live-answer-first-wrong-reasoning-same-answer:target",
+      "question_md": "你的选项结构是对的：从5个因子里选3个提供\\(2x\\)，另外2个提供\\(-1\\)。但这一步有两个小计算需要核对：\\(C_5^3\\) 是多少？\\(2^3\\) 是多少？请把含\\(x^3\\)的系数乘积重新写一遍。",
+      "branches": [
+        {
+          "hypothesis_id": "h1",
+          "expected": "能改为\\(C(5,3)=10\\)、\\(2^3=8\\)，并重新得到系数乘积。",
+          "counter_evidence": "若仍写\\(C(5,3)=5\\)或\\(2^3=16\\)，说明组合数或乘方计算需要单独补救。",
+          "next_action": "确认修正后的计算，并收尾。"
+        },
+        {
+          "hypothesis_id": "h2",
+          "expected": "仍能说明\\(x^3\\)来自3个\\(2x\\)和2个\\(-1\\)。",
+          "counter_evidence": "若改成选2个\\(2x\\)或无法解释选3个，说明目标项来源还不稳。",
+          "next_action": "回到\\(x^3\\)项的来源做表示连接。"
+        }
+      ]
+    },
+    "probeGoalKey": "session-live-answer-first-wrong-reasoning-same-answer:target",
+    "scaffoldLevel": 1,
+    "wholeTaskDisclosed": false
+  },
+  "databaseWrites": 0,
+  "limitations": "Three bounded samples in one batch; empty history, synthetic IDs, not a student learning evaluation.",
+  "nodes": [
+    {
+      "nodeKey": "diagnosis",
+      "status": "completed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v2:answer-first-evidence-v1",
+      "usage": {
+        "input": 2672,
+        "output": 659,
+        "kind": "reported",
+        "elapsedMs": 8089,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      },
+      "judgment": "invalid",
+      "routeReviewNeeded": false,
+      "satisfiedDecisions": 2
+    },
+    {
+      "nodeKey": "strategy",
+      "status": "completed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v2:answer-first-evidence-v1",
+      "usage": {
+        "input": 4087,
+        "output": 590,
+        "kind": "reported",
+        "elapsedMs": 6473,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      },
+      "action": "hint",
+      "scaffoldLevel": 1
+    },
+    {
+      "nodeKey": "renderer",
+      "status": "completed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v2:answer-first-evidence-v1",
+      "usage": {
+        "input": 701,
+        "output": 101,
+        "kind": "reported",
+        "elapsedMs": 2128,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      }
+    },
+    {
+      "nodeKey": "guard",
+      "status": "completed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v2:answer-first-evidence-v1",
+      "usage": {
+        "input": 2037,
+        "output": 191,
+        "kind": "reported",
+        "elapsedMs": 3045,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      },
+      "verdict": "accept",
+      "actualDisclosedIds": [
+        "session-live-answer-first-wrong-reasoning-same-answer:conditions",
+        "session-live-answer-first-wrong-reasoning-same-answer:method"
+      ],
+      "wholeTaskDisclosed": false
+    }
+  ]
+}

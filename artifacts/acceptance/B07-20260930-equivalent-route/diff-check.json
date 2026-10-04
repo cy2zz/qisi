@@ -1,0 +1,87 @@
+[
+  {
+    "command": [
+      "git",
+      "diff",
+      "--check",
+      "--",
+      "server/src/features/analysis/problem-analysis.service.ts",
+      "server/src/features/analysis/problem-analysis.service.spec.ts",
+      "qisi-sdd-v3/changes/B07.md",
+      "qisi-sdd-v3/handoffs/B07.md"
+    ],
+    "exit_code": 0,
+    "output": "warning: in the working copy of 'server/src/features/analysis/problem-analysis.service.spec.ts', LF will be replaced by CRLF the next time Git touches it\n",
+    "result": "passed"
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--no-index",
+      "--check",
+      "--",
+      "nul",
+      "server/src/features/analysis/chat-feedback-policy.ts"
+    ],
+    "exit_code": 1,
+    "output": "warning: in the working copy of 'server/src/features/analysis/chat-feedback-policy.ts', LF will be replaced by CRLF the next time Git touches it\n",
+    "note": "--no-index implies exit-code=1 for a new/different file; warnings about LF/CRLF are not whitespace errors. Inspect output."
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--no-index",
+      "--check",
+      "--",
+      "nul",
+      "server/src/features/analysis/problem-analysis.equivalent-route.live.spec.ts"
+    ],
+    "exit_code": 1,
+    "output": "warning: in the working copy of 'server/src/features/analysis/problem-analysis.equivalent-route.live.spec.ts', LF will be replaced by CRLF the next time Git touches it\n",
+    "note": "--no-index implies exit-code=1 for a new/different file; warnings about LF/CRLF are not whitespace errors. Inspect output."
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--no-index",
+      "--check",
+      "--",
+      "nul",
+      "ravenspec/changes/chat-feedback-recovery/PRD.md"
+    ],
+    "exit_code": 1,
+    "output": "warning: in the working copy of 'ravenspec/changes/chat-feedback-recovery/PRD.md', LF will be replaced by CRLF the next time Git touches it\n",
+    "note": "--no-index implies exit-code=1 for a new/different file; warnings about LF/CRLF are not whitespace errors. Inspect output."
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--no-index",
+      "--check",
+      "--",
+      "nul",
+      "ravenspec/changes/chat-feedback-recovery/DESIGN.md"
+    ],
+    "exit_code": 1,
+    "output": "warning: in the working copy of 'ravenspec/changes/chat-feedback-recovery/DESIGN.md', LF will be replaced by CRLF the next time Git touches it\n",
+    "note": "--no-index implies exit-code=1 for a new/different file; warnings about LF/CRLF are not whitespace errors. Inspect output."
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--no-index",
+      "--check",
+      "--",
+      "nul",
+      "ravenspec/changes/chat-feedback-recovery/TASK.md"
+    ],
+    "exit_code": 1,
+    "output": "warning: in the working copy of 'ravenspec/changes/chat-feedback-recovery/TASK.md', LF will be replaced by CRLF the next time Git touches it\n",
+    "note": "--no-index implies exit-code=1 for a new/different file; warnings about LF/CRLF are not whitespace errors. Inspect output."
+  }
+]

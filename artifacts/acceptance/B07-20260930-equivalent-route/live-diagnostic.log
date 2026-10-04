@@ -1,0 +1,13 @@
+
+> @qisi/server@0.1.0 test
+> vitest run src/features/analysis/problem-analysis.equivalent-route.live.spec.ts -t missing-multiplicity
+
+
+ RUN  v5.0.1 D:/math/qisi-dashboard/server
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed | 1 skipped (2)
+   Start at  17:50:57
+   Duration  24.50s (tests 92%, import 7%, transform 2%)
+

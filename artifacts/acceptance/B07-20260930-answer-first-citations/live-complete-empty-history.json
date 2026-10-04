@@ -1,0 +1,87 @@
+{
+  "caseId": "complete-empty-history",
+  "kind": "real-model-synthetic-context",
+  "startedAt": "2026-09-30T10:22:52.202Z",
+  "finishedAt": "2026-09-30T10:23:05.075Z",
+  "elapsedMs": 12873,
+  "result": "passed",
+  "expectedJudgment": "valid",
+  "reply": "对，你的思路和结果都正确：选出 3 个 $2x$ 得到 $x^3$，系数为\n\n\n$$\n\\binom{5}{3}\\cdot 2^3\\cdot (-1)^2=10\\cdot 8\\cdot 1=80。\n$$\n\n\n所以 $x^3$ 的系数是 $80$。",
+  "audit": {
+    "decisionIds": [],
+    "focusGoalKey": "session-live-answer-first-complete-empty-history:target",
+    "intervention": "observe",
+    "probe": null,
+    "probeGoalKey": null,
+    "scaffoldLevel": 0,
+    "wholeTaskDisclosed": false
+  },
+  "databaseWrites": 0,
+  "limitations": "Three bounded samples in one batch; empty history, synthetic IDs, not a student learning evaluation.",
+  "nodes": [
+    {
+      "nodeKey": "diagnosis",
+      "status": "completed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v2:answer-first-evidence-v1",
+      "usage": {
+        "input": 2591,
+        "output": 322,
+        "kind": "reported",
+        "elapsedMs": 4227,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      },
+      "judgment": "valid",
+      "routeReviewNeeded": false,
+      "satisfiedDecisions": 3
+    },
+    {
+      "nodeKey": "strategy",
+      "status": "completed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v2:answer-first-evidence-v1",
+      "usage": {
+        "input": 3828,
+        "output": 223,
+        "kind": "reported",
+        "elapsedMs": 3219,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      },
+      "action": "complete",
+      "scaffoldLevel": 0
+    },
+    {
+      "nodeKey": "renderer",
+      "status": "completed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v2:answer-first-evidence-v1",
+      "usage": {
+        "input": 652,
+        "output": 105,
+        "kind": "reported",
+        "elapsedMs": 2327,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      }
+    },
+    {
+      "nodeKey": "guard",
+      "status": "completed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v2:answer-first-evidence-v1",
+      "usage": {
+        "input": 2085,
+        "output": 165,
+        "kind": "reported",
+        "elapsedMs": 3067,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      },
+      "verdict": "accept",
+      "actualDisclosedIds": [],
+      "wholeTaskDisclosed": false
+    }
+  ]
+}

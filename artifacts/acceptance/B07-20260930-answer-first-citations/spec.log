@@ -1,0 +1,29 @@
+{
+  "baseline": "qisi-3.1",
+  "generated_at": "2026-09-30T10:27:17.887110+00:00",
+  "scope": "specification_only",
+  "passed": 864,
+  "failed": 12,
+  "application_tests": "not_run",
+  "mysql_ddl_tests": "not_run",
+  "langgraph_runtime_tests": "not_run",
+  "real_model_tests": "not_run",
+  "student_learning_evaluation": "not_evaluated",
+  "limitations": [
+    "Semantic oracles cover the supplied cases, not all production behavior.",
+    "MySQL DDL is not executed by this validator; validate_mysql.py and application integration tests must run against real MySQL 8.4.",
+    "No official question bank, provider calls, deployment or learning experiment was executed."
+  ]
+}
+FAIL B01:card complete 
+FAIL B02:card complete 
+FAIL B03:card complete 
+FAIL B04:card complete 
+FAIL B05:card complete 
+FAIL A06:card complete 
+FAIL B06:card complete 
+FAIL B07:card complete 
+FAIL B08:card complete 
+FAIL B09:card complete 
+FAIL B10:card complete 
+FAIL reuse not pretended installed 

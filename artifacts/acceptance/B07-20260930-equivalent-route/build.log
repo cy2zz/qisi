@@ -1,0 +1,4 @@
+
+> @qisi/server@0.1.0 build
+> tsc -p tsconfig.build.json --tsBuildInfoFile C:\Users\wangchaoya\AppData\Local\Temp/qisi-b07-equivalence-build.tsbuildinfo
+

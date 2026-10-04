@@ -1,0 +1,19 @@
+{
+  "baseline": "qisi-3.1",
+  "head": "2b4b03c261dfc6d657c18a131f419424670727fe",
+  "files": {
+    "server/src/features/analysis/problem-analysis.service.ts": "55c27ebd1d280a8e31cd12e8461ba9aaa861ec6ef6f92f29a972e25a9f68fa94",
+    "server/src/features/analysis/problem-analysis.service.spec.ts": "bcc99d44d08a4285d7ee3ab55038e2d1737887159fc4c859e454d82b524b5a3d",
+    "server/src/features/analysis/turn-time-budget.ts": "a768522dd189215619e449966330e68ffcd3edbd2f1bceb880f529ef2b5a59f6",
+    "server/src/workflows/policy-gate.ts": "970513d7c989ba2dc02d0e68b5908cc6903d8dd736ea068a1814782dd457148f",
+    "server/test/workflows/policy-gate.spec.ts": "7cffadca508cd18d2a1ffe999f5446bae3309edf8fdf2ca50b1cdf2f10d1233c"
+  },
+  "not_touched": [
+    "web/src/pages/bank/BankFlow.tsx",
+    "web/src/App.test.tsx",
+    "server/.env.development.local",
+    "package-lock.json",
+    "qisi-sdd-v3/changes/A03.md",
+    "qisi-sdd-v3/handoffs/A03.md"
+  ]
+}

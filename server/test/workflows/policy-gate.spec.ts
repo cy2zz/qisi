@@ -101,7 +101,7 @@ describe('gateTurn：两探针上限', () => {
   });
 
   it('已达上限但策略不再提探针时仍可放行（转为局部解释/待定）', () => {
-    const decision = gateTurn(turnInput({ strategy: { ...strategyFixture, probe: null }, probesShownForFocusGoal: 2 }));
+    const decision = gateTurn(turnInput({ strategy: { ...strategyFixture, action: 'explain', probe: null }, probesShownForFocusGoal: 2 }));
     expect(decision.approved).toBe(true);
   });
 
@@ -213,5 +213,16 @@ describe('gateGrading：模型不得授予独立资格', () => {
   it('输出夹带 help_exposed 时否决', () => {
     const tampered = { ...assessmentFixture, help_exposed: false } as typeof assessmentFixture;
     expect(gateGrading(tampered)).toMatchObject({ approved: false, code: 'MODEL_GRANTED_INDEPENDENCE' });
+  });
+});
+
+// B07 regression: action=ask must not bypass the cap merely by omitting probe metadata.
+describe('gateTurn: null-probe asks', () => {
+  it('rejects an ask at the cap even when Guard accepts', () => {
+    expect(gateTurn(turnInput({ strategy: { ...strategyFixture, action: 'ask', probe: null }, probesShownForFocusGoal: 2 })))
+      .toMatchObject({ approved: false, code: 'PROBE_LIMIT_REACHED' });
+  });
+  it('still admits a low-risk explanation at the cap', () => {
+    expect(gateTurn(turnInput({ strategy: { ...strategyFixture, action: 'explain', probe: null }, probesShownForFocusGoal: 2 })).approved).toBe(true);
   });
 });

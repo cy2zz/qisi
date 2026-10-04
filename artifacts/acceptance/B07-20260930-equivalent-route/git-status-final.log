@@ -1,0 +1,26 @@
+## develop...origin/develop [behind 12]
+ M package-lock.json
+ M qisi-sdd-v3/changes/A03.md
+ M qisi-sdd-v3/changes/B07.md
+ M qisi-sdd-v3/handoffs/A03.md
+ M qisi-sdd-v3/handoffs/B07.md
+ M server/.env.development.local
+ M server/src/features/analysis/problem-analysis.service.spec.ts
+ M server/src/features/analysis/problem-analysis.service.ts
+ M server/src/features/analysis/turn-time-budget.ts
+ M server/src/workflows/policy-gate.ts
+ M server/test/workflows/policy-gate.spec.ts
+ M web/src/App.test.tsx
+ M web/src/pages/bank/BankFlow.tsx
+?? artifacts/acceptance/A03-learning-draft-autosave-2026-09-30.json
+?? artifacts/acceptance/A03-learning-draft-local-only-2026-09-30.json
+?? artifacts/acceptance/B07-20260930-chat-feedback-recovery/
+?? artifacts/acceptance/B07-20260930-equivalent-route/
+?? artifacts/acceptance/B07-answer-completion-2026-09-30.json
+?? docs/architecture-review-2026-09-23/
+?? qisi-sdd-v3/scripts/__pycache__/
+?? ravenspec/changes/chat-feedback-recovery/
+?? server/src/features/analysis/chat-feedback-policy.ts
+?? server/src/features/analysis/problem-analysis.equivalent-route.live.spec.ts
+?? server/src/features/analysis/problem-analysis.recovery.integration.spec.ts
+?? server/src/features/analysis/turn-time-budget.spec.ts

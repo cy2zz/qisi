@@ -1,0 +1,108 @@
+{
+  "caseId": "missing-multiplicity",
+  "kind": "real-model-synthetic-context",
+  "startedAt": "2026-09-30T09:50:59.815Z",
+  "finishedAt": "2026-09-30T09:51:22.071Z",
+  "elapsedMs": 22256,
+  "result": "passed",
+  "expectedJudgment": "invalid",
+  "reply": "你已经找对了“选3个 $2x$、2个 $-1$”这一类项。\n\n现在只检查一个点：如果把5个括号编号为1,2,3,4,5，\n\n- 选(1,2,3)取 $2x$\n- 选(1,2,4)取 $2x$\n\n这两种展开出来的 $x^3$项，是否都要计入系数？为什么？",
+  "audit": {
+    "decisionIds": [
+      "session-live-equivalence-missing-multiplicity:conditions"
+    ],
+    "focusGoalKey": "session-live-equivalence-missing-multiplicity:target",
+    "intervention": "error_localization",
+    "probe": {
+      "goal_key": "session-live-equivalence-missing-multiplicity:target",
+      "question_md": "你已经找对了“选3个 \\(2x\\)、2个 \\(-1\\)”这一类项。现在只检查一句：如果把5个括号编号为1,2,3,4,5，选(1,2,3)取\\(2x\\)和选(1,2,4)取\\(2x\\)，它们展开后得到的\\(x^3\\)项是否都要计入系数？为什么？",
+      "branches": [
+        {
+          "hypothesis_id": "H1",
+          "expected": "若认为只算一次或仍说不用乘选法数，说明尚未把不同位置选择产生的同类项重数计入系数。",
+          "counter_evidence": "若能说明每一种选法都会产生一个同类的x^3项并且要相加，则说明能修正重数问题。",
+          "next_action": "根据回答再决定是否提示用组合数统计这些位置选择。"
+        },
+        {
+          "hypothesis_id": "H2",
+          "expected": "若仍能说明单种选法的数值因子来自2^3和(-1)^2，维持算术部分无主要问题。",
+          "counter_evidence": "若出现幂次、符号或单项乘积错误，则先定位单种选法的乘积。",
+          "next_action": "先确认单种选法对应项，再回到是否需要乘选法数。"
+        }
+      ]
+    },
+    "probeGoalKey": "session-live-equivalence-missing-multiplicity:target",
+    "scaffoldLevel": 1,
+    "wholeTaskDisclosed": false
+  },
+  "databaseWrites": 0,
+  "limitations": "Two bounded samples; synthetic context, not full session replay or student learning evaluation.",
+  "nodes": [
+    {
+      "nodeKey": "diagnosis",
+      "status": "completed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v2",
+      "usage": {
+        "input": 2432,
+        "output": 815,
+        "kind": "reported",
+        "elapsedMs": 9576,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      },
+      "judgment": "invalid",
+      "routeReviewNeeded": false,
+      "satisfiedDecisions": 2
+    },
+    {
+      "nodeKey": "strategy",
+      "status": "completed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v2",
+      "usage": {
+        "input": 3999,
+        "output": 561,
+        "kind": "reported",
+        "elapsedMs": 6508,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      },
+      "action": "ask",
+      "scaffoldLevel": 1
+    },
+    {
+      "nodeKey": "renderer",
+      "status": "completed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v2",
+      "usage": {
+        "input": 765,
+        "output": 128,
+        "kind": "reported",
+        "elapsedMs": 2821,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      }
+    },
+    {
+      "nodeKey": "guard",
+      "status": "completed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v2",
+      "usage": {
+        "input": 2074,
+        "output": 159,
+        "kind": "reported",
+        "elapsedMs": 3325,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      },
+      "verdict": "accept",
+      "actualDisclosedIds": [
+        "session-live-equivalence-missing-multiplicity:conditions"
+      ],
+      "wholeTaskDisclosed": false
+    }
+  ]
+}

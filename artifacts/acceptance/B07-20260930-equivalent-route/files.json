@@ -1,0 +1,70 @@
+{
+  "baseline": "qisi-3.1",
+  "files": [
+    {
+      "path": "server/src/features/analysis/problem-analysis.service.ts",
+      "sha256": "0968007458e29aedf6f56c4acafae15c84f2e32e19b597e7171ae0443a4806d9",
+      "before_sha256": "33ae1a2b597d4386f9239afb168f1666d47e2a958c7a78a0dca9407a7106e547",
+      "bytes": 48643
+    },
+    {
+      "path": "server/src/features/analysis/problem-analysis.service.spec.ts",
+      "sha256": "47a11665b862e79687212445d3c1bec71c67e001896945d941c1805015119882",
+      "before_sha256": "fd806b440c29862b1c937a027508dbcd0be7babbc0d4d0260f192aa94526d7a2",
+      "bytes": 83866
+    },
+    {
+      "path": "server/src/features/analysis/chat-feedback-policy.ts",
+      "sha256": "d5e4d36f99ee2d0d74681f5b3a7b01cfe185b44d22c8f9bc724028436d4f4c89",
+      "before_sha256": "0651ff2918b083ba5482b5a63e7e0a6832247252eb2911959c7adb4062f686ef",
+      "bytes": 5971
+    },
+    {
+      "path": "server/src/features/analysis/problem-analysis.equivalent-route.live.spec.ts",
+      "sha256": "c01af9be0b8fbacee72993c1efe4744271a2a56c3070751e2ba6ce87f82024ae",
+      "before_sha256": null,
+      "bytes": 7394
+    },
+    {
+      "path": "qisi-sdd-v3/changes/B07.md",
+      "sha256": "01a1ef16a5cd0c3aa2e3044eb20a2d9c8ee96cf69b360bbe92e8d8e35f59e381",
+      "before_sha256": "f439451bf233b7ba668a9bdd365e3e3bba53314cccdd13655ca0ad4e5c6e7ac3",
+      "bytes": 41141
+    },
+    {
+      "path": "qisi-sdd-v3/handoffs/B07.md",
+      "sha256": "ec08a8c8a53011b841c7501c76d67f997dc3d20b5a008170c559b8aec026a0cc",
+      "before_sha256": "ae4ba0a4376e2cb2ffd9481d0a7f330789a22cb62381923e0b64393e0ed3722d",
+      "bytes": 35077
+    },
+    {
+      "path": "ravenspec/changes/chat-feedback-recovery/PRD.md",
+      "sha256": "c8ea5f8b59ec666a05ed4ea33c8ddf943cebfa92aa2cf7d2a96343737de972c1",
+      "before_sha256": "3ae4ae3aa203eac149ea06bf14a21c5a4d6f11bb1f91ac460118a272a9efe5e0",
+      "bytes": 2486
+    },
+    {
+      "path": "ravenspec/changes/chat-feedback-recovery/DESIGN.md",
+      "sha256": "dd9dc9ff456959573159324100e384d3954a4e7ea3aab6be3f3f6df5193c7ee0",
+      "before_sha256": "67e9c5fe3c0d376ff7b56f0c1b74f643684028cd7d886cc80ec155c25a296b32",
+      "bytes": 4253
+    },
+    {
+      "path": "ravenspec/changes/chat-feedback-recovery/TASK.md",
+      "sha256": "5fa984236917bfec615ac481f05d837517dba1c89f4a482ae75cdddfe9106b46",
+      "before_sha256": "aa9254ce50ce1030f5636707c027dc7edb46ce796b83c0009b6fff7670fcd8bd",
+      "bytes": 1254
+    }
+  ],
+  "evidence_directory": "artifacts/acceptance/B07-20260930-equivalent-route/",
+  "not_changed_this_subround": [
+    "web/",
+    "server/.env.development.local",
+    "package-lock.json",
+    "A03 records",
+    "server/db/",
+    "server/src/agents/assessment/",
+    "server/src/features/analysis/turn-time-budget.ts",
+    "server/src/workflows/policy-gate.ts"
+  ]
+}

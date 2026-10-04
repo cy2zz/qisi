@@ -1,0 +1,83 @@
+
+> @qisi/server@0.1.0 test
+> vitest run src/features/analysis/problem-analysis.equivalent-route.live.spec.ts
+
+
+ RUN  v5.0.1 D:/math/qisi-dashboard/server
+
+[Nest] 16452  - 2026/09/30 17:46:27    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-000000000001',
+  sessionId: 'live-equivalence-complementary-selection',
+  reason: 'GUARD_REJECTED'
+}
+[Nest] 16452  - 2026/09/30 17:46:43    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy',
+  inputHash: '91b91d860c244cf62416a63bed6c6af1468b99720721ca8cdc34a1ea040c1907',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'FACT_NOT_APPROVED'
+}
+[Nest] 16452  - 2026/09/30 17:46:47    WARN [ProblemAnalysisService] Object(5) {
+  event: 'chat_strategy_validation_failed',
+  nodeKey: 'strategy_repair',
+  inputHash: '6017d150d4229aed8f5470f20710389ac4199e3799d8971c35706f2b107fa55e',
+  reason: 'STRATEGY_INVALID',
+  validationCode: 'FACT_NOT_APPROVED'
+}
+[Nest] 16452  - 2026/09/30 17:46:47    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-000000000002',
+  sessionId: 'live-equivalence-missing-multiplicity',
+  reason: 'STRATEGY_INVALID'
+}
+ ❯ src/features/analysis/problem-analysis.equivalent-route.live.spec.ts (2 tests | 2 failed) 40584ms
+   ❯ B07 equivalent-route live model sample (2)
+     × complementary-selection 20976ms
+     × missing-multiplicity 19589ms
+node.exe : 
+At line:1 char:1
++ & "C:\nvm4w\nodejs/node.exe" "C:\nvm4w\nodejs/node_modules/npm/bin/np ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/analysis/problem-analysis.equivalent-route.live.spec.ts > B07 equivalent-route live model sample > complementary-selection
+AssertionError: expected undefined to be defined
+ ❯ src/features/analysis/problem-analysis.equivalent-route.live.spec.ts:65:28
+     63|       expect(diagnosis.route_review_needed).toBe(false);
+     64|       expect(guard.verdict).toBe('accept');
+     65|       expect(result.audit).toBeDefined();
+       |                            ^
+     66|       expect(result.reply).not.toContain('系统暂时未能');
+     67|       expect(nodes.length).toBeLessThanOrEqual(7);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/features/analysis/problem-analysis.equivalent-route.live.spec.ts > B07 equivalent-route live model sample > missing-multiplicity
+ZodError: [
+  {
+    "expected": "object",
+    "code": "invalid_type",
+    "path": [],
+    "message": "Invalid input: expected object, received undefined"
+  }
+]
+ ❯ src/features/analysis/problem-analysis.equivalent-route.live.spec.ts:60:39
+     58|       }, new AbortController().signal, undefined, async node => { node…
+     59|       const diagnosis = DiagnosisSchema.parse(nodes.find(node => node.…
+     60|       const strategy = StrategySchema.parse(nodes.findLast(node => nod…
+       |                                       ^
+     61|       const guard = GuardResultSchema.parse(nodes.findLast(node => nod…
+     62|       expect(diagnosis.judgment).toBe(sample.judgment);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed (2)
+   Start at  17:46:04
+   Duration  42.84s (tests 95%, import 4%, transform 1%)
+

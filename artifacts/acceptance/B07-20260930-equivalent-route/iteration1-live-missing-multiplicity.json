@@ -1,0 +1,60 @@
+{
+  "caseId": "missing-multiplicity",
+  "kind": "real-model-synthetic-context",
+  "startedAt": "2026-09-30T09:46:27.930Z",
+  "finishedAt": "2026-09-30T09:46:47.514Z",
+  "elapsedMs": 19584,
+  "result": "failed",
+  "expectedJudgment": "invalid",
+  "reply": "系统暂时未能完成这条反馈的核对，因此没有展示未经检查的内容。这不是判定你答错，也不表示这道题无法继续。你可以稍后重试，或选择“局部解释”“直接讲解”，不必重复补充依据。",
+  "audit": null,
+  "databaseWrites": 0,
+  "limitations": "Two bounded samples; synthetic context, not full session replay or student learning evaluation.",
+  "nodes": [
+    {
+      "nodeKey": "diagnosis",
+      "status": "completed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v1",
+      "usage": {
+        "input": 2432,
+        "output": 932,
+        "kind": "reported",
+        "elapsedMs": 9830,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      },
+      "judgment": "invalid",
+      "routeReviewNeeded": false,
+      "satisfiedDecisions": 2
+    },
+    {
+      "nodeKey": "strategy",
+      "status": "failed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v1",
+      "usage": {
+        "input": 3983,
+        "output": 543,
+        "kind": "reported",
+        "elapsedMs": 6094,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      }
+    },
+    {
+      "nodeKey": "strategy_repair",
+      "status": "failed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v1",
+      "usage": {
+        "input": 4094,
+        "output": 268,
+        "kind": "reported",
+        "elapsedMs": 3651,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      }
+    }
+  ]
+}

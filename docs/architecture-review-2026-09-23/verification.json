@@ -1,0 +1,104 @@
+{
+  "date": "2026-09-23",
+  "baseline": "qisi-3.1",
+  "commit": "2b4b03c",
+  "role": "documentation_review",
+  "taskId": "not_a_product_task",
+  "review": "self_review",
+  "publication": {
+    "status": "published_readback_verified",
+    "docId": "ef2ba887c61e4c67986bd4a01f052e05",
+    "url": "https://docs.popo.netease.com/lingxi/ef2ba887c61e4c67986bd4a01f052e05",
+    "space": "personal_root",
+    "title": "启思 qisi-3.1｜A/B进度、接口与多Agent设计全解（2026-09-23）",
+    "ownerName": "王超亚",
+    "type": 1,
+    "headingsExpected": 37,
+    "headingsReturned": 37,
+    "headingsMatch": true,
+    "images": 3,
+    "attachments": 3,
+    "tables": 14,
+    "codeBlocks": 2,
+    "hasFinalConclusion": true,
+    "resourceUrlsRetained": true,
+    "contentBytes": 66361,
+    "allParagraphsRetained": true
+  },
+  "checks": [
+    {
+      "command": "npm --prefix server test -- --maxWorkers=2",
+      "cwd": "D:/math/qisi-dashboard",
+      "environment": {
+        "QISI_MYSQL_SPEC_TEST": "0"
+      },
+      "exitCode": 0,
+      "passed": 637,
+      "failed": 0,
+      "skipped": 19,
+      "filesPassed": 73,
+      "filesSkipped": 3,
+      "log": "checks/server-unit.log"
+    },
+    {
+      "command": "npm --prefix web test -- --maxWorkers=1",
+      "cwd": "D:/math/qisi-dashboard",
+      "exitCode": 1,
+      "passed": 128,
+      "failed": 2,
+      "skipped": 0,
+      "filesPassed": 25,
+      "filesFailed": 1,
+      "log": "checks/web-unit.log"
+    },
+    {
+      "command": "npm run typecheck",
+      "cwd": "D:/math/qisi-dashboard",
+      "exitCode": 1,
+      "server": "passed",
+      "web": "failed_three_declarations_and_two_implicit_any",
+      "log": "checks/typecheck.log"
+    },
+    {
+      "command": "drawio-skill/scripts/validate.py <each of three .drawio files>",
+      "cwd": "D:/math/qisi-dashboard",
+      "exitCode": 0,
+      "errors": 0,
+      "warnings": 0,
+      "files": 3
+    },
+    {
+      "command": "node docs/architecture-review-2026-09-23/render-popo.mjs",
+      "cwd": "D:/math/qisi-dashboard",
+      "exitCode": 0
+    },
+    {
+      "command": "popo-cli popo doc_update_doc ...",
+      "exitCode": 0,
+      "downstreamStatus": 1
+    },
+    {
+      "command": "popo-cli popo doc_get_doc_detail ...",
+      "exitCode": 0,
+      "log": "checks/popo-readback.log"
+    }
+  ],
+  "notRun": [
+    "MySQL integration",
+    "real model provider",
+    "Playwright",
+    "lint",
+    "build",
+    "human mathematical review",
+    "real student learning evaluation",
+    "formal AT/ST",
+    "independent review"
+  ],
+  "git": {
+    "businessCodeModified": false,
+    "existingUserChange": "package-lock.json",
+    "restoredOnlyOwnGeneratedFile": "web/tsconfig.app.tsbuildinfo",
+    "committed": false,
+    "pushed": false
+  }
+}

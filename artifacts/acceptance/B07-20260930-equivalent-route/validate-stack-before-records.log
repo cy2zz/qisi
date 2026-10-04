@@ -1,0 +1,551 @@
+{
+  "scope": "static_specification_only",
+  "passed": 136,
+  "failed": 0,
+  "checks": [
+    {
+      "check": "stack:baseline",
+      "passed": true
+    },
+    {
+      "check": "stack:node",
+      "passed": true
+    },
+    {
+      "check": "stack:node_patch",
+      "passed": true
+    },
+    {
+      "check": "stack:react",
+      "passed": true
+    },
+    {
+      "check": "stack:frontend_framework",
+      "passed": true
+    },
+    {
+      "check": "stack:frontend_build_tool",
+      "passed": true
+    },
+    {
+      "check": "stack:backend_framework",
+      "passed": true
+    },
+    {
+      "check": "stack:language",
+      "passed": true
+    },
+    {
+      "check": "stack:database",
+      "passed": true
+    },
+    {
+      "check": "stack:database_driver",
+      "passed": true
+    },
+    {
+      "check": "stack:data_access",
+      "passed": true
+    },
+    {
+      "check": "stack:orchestration",
+      "passed": true
+    },
+    {
+      "check": "stack:model_sdk",
+      "passed": true
+    },
+    {
+      "check": "patch versions honestly pending",
+      "passed": true
+    },
+    {
+      "check": "runtime NestJS worker",
+      "passed": true
+    },
+    {
+      "check": "runtime mysql only",
+      "passed": true
+    },
+    {
+      "check": "domain owns final transaction",
+      "passed": true
+    },
+    {
+      "check": "no model sdk automatic retries",
+      "passed": true
+    },
+    {
+      "check": "API and worker separated",
+      "passed": true
+    },
+    {
+      "check": "single recovery worker",
+      "passed": true
+    },
+    {
+      "check": "dependency:@nestjs/core",
+      "passed": true
+    },
+    {
+      "check": "dependency:@nestjs/common",
+      "passed": true
+    },
+    {
+      "check": "dependency:vite",
+      "passed": true
+    },
+    {
+      "check": "dependency:@vitejs/plugin-react",
+      "passed": true
+    },
+    {
+      "check": "dependency:react",
+      "passed": true
+    },
+    {
+      "check": "dependency:mysql2",
+      "passed": true
+    },
+    {
+      "check": "dependency:kysely",
+      "passed": true
+    },
+    {
+      "check": "dependency:@langchain/langgraph",
+      "passed": true
+    },
+    {
+      "check": "dependency:ai",
+      "passed": true
+    },
+    {
+      "check": "dependency:tailwindcss",
+      "passed": true
+    },
+    {
+      "check": "dependency:zod",
+      "passed": true
+    },
+    {
+      "check": "dependency:@playwright/test",
+      "passed": true
+    },
+    {
+      "check": "removed full-stack framework absent",
+      "passed": true
+    },
+    {
+      "check": "no sqlite runtime dependency",
+      "passed": true
+    },
+    {
+      "check": "mysql 19 unique tables",
+      "passed": true
+    },
+    {
+      "check": "all tables InnoDB",
+      "passed": true
+    },
+    {
+      "check": "native JSON columns",
+      "passed": true
+    },
+    {
+      "check": "mysql explicit foreign keys",
+      "passed": true
+    },
+    {
+      "check": "probe cap enforced contract",
+      "passed": true
+    },
+    {
+      "check": "no sqlite SQL",
+      "passed": true
+    },
+    {
+      "check": "table:workflow_checkpoints",
+      "passed": true
+    },
+    {
+      "check": "table:workflow_writes",
+      "passed": true
+    },
+    {
+      "check": "table:schema_migrations",
+      "passed": true
+    },
+    {
+      "check": "file:adr/ADR-001-stack.md",
+      "passed": true
+    },
+    {
+      "check": "file:contracts/workflow-persistence.md",
+      "passed": true
+    },
+    {
+      "check": "file:contracts/mysql.md",
+      "passed": true
+    },
+    {
+      "check": "file:acceptance/stack-cases.json",
+      "passed": true
+    },
+    {
+      "check": "file:scripts/validate_mysql.py",
+      "passed": true
+    },
+    {
+      "check": "file:publication/local-revision-status.json",
+      "passed": true
+    },
+    {
+      "check": "stack cases unique",
+      "passed": true
+    },
+    {
+      "check": "stack runtime acceptance not fabricated",
+      "passed": true
+    },
+    {
+      "check": "baseline:README.md",
+      "passed": true
+    },
+    {
+      "check": "no active old app directory:README.md",
+      "passed": true
+    },
+    {
+      "check": "stack reference:README.md",
+      "passed": true
+    },
+    {
+      "check": "baseline:AGENTS.md",
+      "passed": true
+    },
+    {
+      "check": "no active old app directory:AGENTS.md",
+      "passed": true
+    },
+    {
+      "check": "stack reference:AGENTS.md",
+      "passed": true
+    },
+    {
+      "check": "baseline:prd.md",
+      "passed": true
+    },
+    {
+      "check": "no active old app directory:prd.md",
+      "passed": true
+    },
+    {
+      "check": "stack reference:prd.md",
+      "passed": true
+    },
+    {
+      "check": "baseline:plan.md",
+      "passed": true
+    },
+    {
+      "check": "no active old app directory:plan.md",
+      "passed": true
+    },
+    {
+      "check": "stack reference:plan.md",
+      "passed": true
+    },
+    {
+      "check": "baseline:design-v6.md",
+      "passed": true
+    },
+    {
+      "check": "no active old app directory:design-v6.md",
+      "passed": true
+    },
+    {
+      "check": "stack reference:design-v6.md",
+      "passed": true
+    },
+    {
+      "check": "baseline:contracts/README.md",
+      "passed": true
+    },
+    {
+      "check": "no active old app directory:contracts/README.md",
+      "passed": true
+    },
+    {
+      "check": "stack reference:contracts/README.md",
+      "passed": true
+    },
+    {
+      "check": "baseline:prompts/developer-a.md",
+      "passed": true
+    },
+    {
+      "check": "no active old app directory:prompts/developer-a.md",
+      "passed": true
+    },
+    {
+      "check": "stack reference:prompts/developer-a.md",
+      "passed": true
+    },
+    {
+      "check": "baseline:prompts/developer-b.md",
+      "passed": true
+    },
+    {
+      "check": "no active old app directory:prompts/developer-b.md",
+      "passed": true
+    },
+    {
+      "check": "stack reference:prompts/developer-b.md",
+      "passed": true
+    },
+    {
+      "check": "baseline:prompts/developer-single.md",
+      "passed": true
+    },
+    {
+      "check": "no active old app directory:prompts/developer-single.md",
+      "passed": true
+    },
+    {
+      "check": "stack reference:prompts/developer-single.md",
+      "passed": true
+    },
+    {
+      "check": "unique task cards:plan.md",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:plan.md:A01",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:plan.md:B01",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:plan.md:A02",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:plan.md:B02",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:plan.md:A03",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:plan.md:B03",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:plan.md:A04",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:plan.md:B04",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:plan.md:A05",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:plan.md:B05",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:plan.md:A06",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:plan.md:B06",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:plan.md:A07",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:plan.md:B07",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:plan.md:A08",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:plan.md:B08",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:plan.md:A09",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:plan.md:B09",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:plan.md:A10",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:plan.md:B10",
+      "passed": true
+    },
+    {
+      "check": "unique task cards:prd.md",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:prd.md:A01",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:prd.md:B01",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:prd.md:A02",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:prd.md:B02",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:prd.md:A03",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:prd.md:B03",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:prd.md:A04",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:prd.md:B04",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:prd.md:A05",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:prd.md:B05",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:prd.md:A06",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:prd.md:B06",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:prd.md:A07",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:prd.md:B07",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:prd.md:A08",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:prd.md:B08",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:prd.md:A09",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:prd.md:B09",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:prd.md:A10",
+      "passed": true
+    },
+    {
+      "check": "task steps synchronized:prd.md:B10",
+      "passed": true
+    },
+    {
+      "check": "no stale directive:plan.md:SQLiteǨ��",
+      "passed": true
+    },
+    {
+      "check": "no stale directive:plan.md:Ĭ��ԭ��TS����ADR",
+      "passed": true
+    },
+    {
+      "check": "no stale directive:plan.md:LangGraph.jsΪ��ѡ�Ǳ�װ",
+      "passed": true
+    },
+    {
+      "check": "no stale directive:plan.md:��ѡ�ݲ���Ϊ��������",
+      "passed": true
+    },
+    {
+      "check": "no stale directive:prd.md:SQLiteǨ��",
+      "passed": true
+    },
+    {
+      "check": "no stale directive:prd.md:Ĭ��ԭ��TS����ADR",
+      "passed": true
+    },
+    {
+      "check": "no stale directive:prd.md:LangGraph.jsΪ��ѡ�Ǳ�װ",
+      "passed": true
+    },
+    {
+      "check": "no stale directive:prd.md:��ѡ�ݲ���Ϊ��������",
+      "passed": true
+    },
+    {
+      "check": "no stale directive:reuse.md:SQLiteǨ��",
+      "passed": true
+    },
+    {
+      "check": "no stale directive:reuse.md:Ĭ��ԭ��TS����ADR",
+      "passed": true
+    },
+    {
+      "check": "no stale directive:reuse.md:LangGraph.jsΪ��ѡ�Ǳ�װ",
+      "passed": true
+    },
+    {
+      "check": "no stale directive:reuse.md:��ѡ�ݲ���Ϊ��������",
+      "passed": true
+    },
+    {
+      "check": "no stale directive:prompts/developer-b.md:SQLiteǨ��",
+      "passed": true
+    },
+    {
+      "check": "no stale directive:prompts/developer-b.md:Ĭ��ԭ��TS����ADR",
+      "passed": true
+    },
+    {
+      "check": "no stale directive:prompts/developer-b.md:LangGraph.jsΪ��ѡ�Ǳ�װ",
+      "passed": true
+    },
+    {
+      "check": "no stale directive:prompts/developer-b.md:��ѡ�ݲ���Ϊ��������",
+      "passed": true
+    }
+  ]
+}

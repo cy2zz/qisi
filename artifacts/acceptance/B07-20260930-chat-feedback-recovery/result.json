@@ -1,0 +1,236 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "B07-chat-feedback-recovery-local",
+  "result": "implemented_waiting_review",
+  "executed_at": "2026-09-30T07:49:40.094Z",
+  "executed_by": "single coding agent",
+  "application_commit": "2b4b03c261dfc6d657c18a131f419424670727fe",
+  "working_tree": "uncommitted changes; HEAD is base, not a tested release commit",
+  "layer": "server unit + real Nest/Supertest/SSE with mock model/store; typecheck/lint/build",
+  "environment": {
+    "cwd": "D:/math/qisi-dashboard",
+    "os": "Windows",
+    "date": "2026-09-30",
+    "database": "not_run"
+  },
+  "bank_version": null,
+  "scope_hash": "ede2a283d235596e284b80a6965a0a6259660a1ec607459860b116228f25e2be",
+  "model_version": "fixture/mock only",
+  "prompt_version_suffix": "chat-recovery-v1",
+  "provider_mode": "mock",
+  "commands": [
+    {
+      "command": "npm --prefix server test -- src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/turn-time-budget.spec.ts",
+      "exit_code": 1,
+      "status": "failed_expected_red",
+      "tests": {
+        "passed": 34,
+        "failed": 14,
+        "skipped": 0,
+        "total": 48
+      },
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/red-tests-utf8.log"
+    },
+    {
+      "command": "npm --prefix server test -- src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/turn-time-budget.spec.ts test/workflows/policy-gate.spec.ts src/features/analysis/problem-analysis.controller.spec.ts src/features/analysis/problem-analysis.timeout.integration.spec.ts",
+      "exit_code": 0,
+      "status": "passed",
+      "tests": {
+        "passed": 95,
+        "failed": 0,
+        "skipped": 0,
+        "total": 95
+      },
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/focused-tests-1.log"
+    },
+    {
+      "command": "npm --prefix server test -- src/features/analysis/problem-analysis.recovery.integration.spec.ts",
+      "exit_code": 0,
+      "status": "passed",
+      "tests": {
+        "passed": 4,
+        "failed": 0,
+        "skipped": 0,
+        "total": 4
+      },
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/http-recovery-tests.log"
+    },
+    {
+      "command": "npm --prefix server test -- src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/turn-time-budget.spec.ts test/workflows/policy-gate.spec.ts src/features/analysis/problem-analysis.controller.spec.ts src/features/analysis/problem-analysis.timeout.integration.spec.ts src/features/analysis/problem-analysis.recovery.integration.spec.ts",
+      "exit_code": 0,
+      "status": "passed",
+      "tests": {
+        "passed": 101,
+        "failed": 0,
+        "skipped": 0,
+        "total": 101
+      },
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/focused-tests-final.log"
+    },
+    {
+      "command": "npm --prefix server test",
+      "exit_code": 0,
+      "status": "passed",
+      "tests": {
+        "passed": 666,
+        "failed": 0,
+        "skipped": 19,
+        "total": 685
+      },
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/server-full-tests-final.log"
+    },
+    {
+      "command": "npm --prefix server run typecheck -- --incremental false",
+      "exit_code": 0,
+      "status": "passed",
+      "tests": {
+        "total": 0
+      },
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/typecheck-final.log"
+    },
+    {
+      "command": "npm --prefix server run lint",
+      "exit_code": 0,
+      "status": "passed",
+      "tests": {
+        "total": 0
+      },
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/lint-final.log"
+    },
+    {
+      "command": "npm --prefix server run build -- --tsBuildInfoFile \"C:\\Users\\wangchaoya\\AppData\\Local\\Temp/qisi-b07-chat-recovery-20260930.tsbuildinfo\"",
+      "exit_code": 0,
+      "status": "passed",
+      "tests": {
+        "total": 0
+      },
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/build-final.log"
+    },
+    {
+      "command": "npm run test:task -- B07",
+      "exit_code": 1,
+      "status": "failed",
+      "tests": {
+        "total": 0
+      },
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/task-unit-gate.log"
+    },
+    {
+      "command": "npm run test:e2e:task -- B07",
+      "exit_code": 1,
+      "status": "failed",
+      "tests": {
+        "total": 0
+      },
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/task-e2e-gate.log"
+    },
+    {
+      "command": "npm run test:stack -- B07",
+      "exit_code": 1,
+      "status": "failed",
+      "tests": {
+        "total": 0
+      },
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/task-stack-gate.log"
+    },
+    {
+      "command": "raven spec status --change chat-feedback-recovery --json",
+      "exit_code": 0,
+      "status": "passed_artifact_inventory_only",
+      "tests": {
+        "total": 0
+      },
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/raven-status-final.log"
+    },
+    {
+      "command": "git diff --check -- server/src/features/analysis/chat-feedback-policy.ts server/src/features/analysis/problem-analysis.service.ts server/src/features/analysis/turn-time-budget.ts server/src/workflows/policy-gate.ts server/src/features/analysis/problem-analysis.service.spec.ts server/src/features/analysis/turn-time-budget.spec.ts server/src/features/analysis/problem-analysis.recovery.integration.spec.ts server/test/workflows/policy-gate.spec.ts qisi-sdd-v3/changes/B07.md qisi-sdd-v3/handoffs/B07.md ravenspec/changes/chat-feedback-recovery/.ravenspec.yaml ravenspec/changes/chat-feedback-recovery/PRD.md ravenspec/changes/chat-feedback-recovery/DESIGN.md ravenspec/changes/chat-feedback-recovery/TASK.md ravenspec/changes/chat-feedback-recovery/specs/chat-feedback/spec.md",
+      "exit_code": 0,
+      "status": "passed",
+      "tests": {
+        "total": 0
+      },
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/diff-check.log"
+    }
+  ],
+  "expected": "有界内部恢复、明确中性出口；不把系统失败判成学生错误，不牺牲探针/帮助深度/私有隔离/预算与最终校验边界。",
+  "actual": {
+    "final_focused": {
+      "passed": 101,
+      "failed": 0
+    },
+    "full_server": {
+      "passed": 666,
+      "skipped": 19,
+      "failed": 0,
+      "total": 685
+    },
+    "typecheck": "passed",
+    "lint": "passed",
+    "build": "passed",
+    "b07_gates": "failed_unsupported_task_zero_tests",
+    "review": "self_review"
+  },
+  "acceptance_scope": [
+    {
+      "id": "AT22",
+      "full_acceptance": "not_run",
+      "local_regression": "passed_relevant_subset_only"
+    },
+    {
+      "id": "AT25",
+      "full_acceptance": "not_run",
+      "local_regression": "passed_relevant_subset_only"
+    },
+    {
+      "id": "AT27",
+      "full_acceptance": "not_run",
+      "local_regression": "passed_relevant_subset_only"
+    },
+    {
+      "id": "AT28",
+      "full_acceptance": "not_run",
+      "local_regression": "passed_relevant_subset_only"
+    },
+    {
+      "id": "AT45",
+      "full_acceptance": "not_run",
+      "local_regression": "passed_relevant_subset_only"
+    },
+    {
+      "id": "ST07",
+      "full_acceptance": "not_run",
+      "local_regression": "passed_relevant_subset_only"
+    }
+  ],
+  "evidence_files": [
+    "artifacts/acceptance/B07-20260930-chat-feedback-recovery/commands.json",
+    "artifacts/acceptance/B07-20260930-chat-feedback-recovery/files.json",
+    "artifacts/acceptance/B07-20260930-chat-feedback-recovery/self-review.json",
+    "artifacts/acceptance/B07-20260930-chat-feedback-recovery/red-tests-utf8.log",
+    "artifacts/acceptance/B07-20260930-chat-feedback-recovery/focused-tests-final.log",
+    "artifacts/acceptance/B07-20260930-chat-feedback-recovery/server-full-tests-final.log",
+    "artifacts/acceptance/B07-20260930-chat-feedback-recovery/http-recovery-tests.log",
+    "artifacts/acceptance/B07-20260930-chat-feedback-recovery/typecheck-final.log",
+    "artifacts/acceptance/B07-20260930-chat-feedback-recovery/lint-final.log",
+    "artifacts/acceptance/B07-20260930-chat-feedback-recovery/build-final.log",
+    "artifacts/acceptance/B07-20260930-chat-feedback-recovery/task-unit-gate.log",
+    "artifacts/acceptance/B07-20260930-chat-feedback-recovery/task-e2e-gate.log",
+    "artifacts/acceptance/B07-20260930-chat-feedback-recovery/task-stack-gate.log",
+    "artifacts/acceptance/B07-20260930-chat-feedback-recovery/diff-check.log",
+    "artifacts/acceptance/B07-20260930-chat-feedback-recovery/raven-status-final.log"
+  ],
+  "limitations": [
+    "没有调用真实模型，不能量化线上误拦截率改善。",
+    "没有执行真实MySQL8.4、浏览器E2E、人工教学或学生学习效果评估。",
+    "B07完整task/e2e/stack门禁未登记，三命令exit1且0测试。",
+    "请求内预算与恢复不等于持久崩溃恢复。",
+    "没有独立复核、Spec Tracker上传、发布或归档；Raven状态仅工件齐全。",
+    "当前分支落后origin/develop 12提交；未同步/合并。",
+    "未重启应用、未提交、未推送、未部署；不保证正在运行的服务已加载源码。"
+  ],
+  "next_conditions": [
+    "独立复核本次局部补丁",
+    "获得授权后真实模型脱敏样本复验",
+    "共享门禁owner补B07映射后执行完整验收"
+  ]
+}

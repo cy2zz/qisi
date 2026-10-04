@@ -1,0 +1,13 @@
+{
+  "command": [
+    "node",
+    "../node_modules/vitest/vitest.mjs",
+    "run",
+    "src/features/analysis/problem-analysis.answer-first.live.spec.ts"
+  ],
+  "cwd": "server",
+  "env": {
+    "QISI_ANSWER_FIRST_LIVE": "1"
+  },
+  "exitCode": 1
+}

@@ -1,0 +1,138 @@
+{
+  "date": "2026-09-30",
+  "role": "single-AI/B",
+  "taskId": "B07 local (B03/B04 related)",
+  "baseline": "qisi-3.1",
+  "change": "chat-feedback-recovery",
+  "status": "implemented_waiting_review",
+  "review": "self_review",
+  "incident": "DiagnosisEvidenceInvalid before strategy/renderer/guard; failed output is null, exact field unknown",
+  "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v2:answer-first-evidence-v1",
+  "implementation": [
+    "Answer-first then reasoning/equivalent-method diagnosis; no hard-coded math answers",
+    "Server-owned citation catalog, strict wire keys and exact canonical reference restoration",
+    "Chat task binding and bounded diagnosis validation repair using the existing single shared allowance",
+    "Static safe validation logs, failed node output=null, usage recorded"
+  ],
+  "validation": {
+    "red": {
+      "failed": 8,
+      "skipped": 99,
+      "log": "red.log",
+      "wrapperExitCode": 1,
+      "childExitCode": null,
+      "note": "First npm filter invocation skipped all tests; direct Vitest then ran 8 actual failing behavioral tests. Python GBK console printing failed after saving test output before printing child exit code."
+    },
+    "targeted": {
+      "passed": 153,
+      "failed": 0,
+      "files": 5,
+      "exitCode": 0
+    },
+    "server": {
+      "passed": 735,
+      "skipped": 24,
+      "total": 759,
+      "filesPassed": 76,
+      "filesSkipped": 5,
+      "exitCode": 0
+    },
+    "typecheck": 0,
+    "lint": 0,
+    "build": 0,
+    "httpSse": {
+      "kind": "real Nest/Supertest with fixture ModelPort/Store",
+      "tests": 6,
+      "newTests": 2,
+      "passed": 6,
+      "databaseWrites": 0
+    },
+    "live": {
+      "kind": "real model, synthetic IDs, empty history; one bounded batch",
+      "passed": 2,
+      "failed": 1,
+      "exitCode": 1,
+      "model": "gpt-5.5-2026-04-24",
+      "cases": [
+        {
+          "id": "complete-empty-history",
+          "result": "passed",
+          "calls": 4,
+          "elapsedMs": 12873
+        },
+        {
+          "id": "wrong-reasoning-same-answer",
+          "result": "passed",
+          "calls": 4,
+          "elapsedMs": 19746
+        },
+        {
+          "id": "missing-multiplicity",
+          "result": "failed",
+          "calls": 3,
+          "elapsedMs": 22571,
+          "reason": "DIAGNOSIS_GOAL_INVALID recovered; later strategy FACT_NOT_APPROVED, shared repair consumed"
+        }
+      ],
+      "repeatSampling": 0,
+      "databaseWrites": 0
+    },
+    "rootB07Gates": {
+      "exitCodes": [
+        1,
+        1,
+        1
+      ],
+      "tests": 0,
+      "reason": "B07 is not in SUPPORTED_TASKS"
+    },
+    "spec": {
+      "passed": 864,
+      "failed": 12,
+      "exitCode": 1,
+      "temporaryCopy": true
+    },
+    "stack": {
+      "passed": 136,
+      "failed": 0,
+      "exitCode": 0
+    },
+    "mysqlPreconditions": {
+      "passed": 5,
+      "failed": 0,
+      "exitCode": 0,
+      "databaseConnections": 0
+    }
+  },
+  "acceptance": {
+    "partialFixtureCoverage": [
+      "AT22",
+      "AT25",
+      "AT27",
+      "AT28",
+      "AT45",
+      "AT49",
+      "ST07"
+    ],
+    "fullATST": "not_run/not_complete",
+    "realMySQL84": "not_run",
+    "browser": "not_run",
+    "humanTeachingEvaluation": "not_run",
+    "independentReview": "not_run"
+  },
+  "remainingRisks": [
+    "Wrong-answer feedback still has multi-node validation instability (1/3 live batch failed)",
+    "Original business HTTP/session persistence was not replayed; no production deployment or reload verified",
+    "Full B07 gates remain unregistered; existing spec validation contradictions remain"
+  ],
+  "git": {
+    "branch": "develop",
+    "behindRemote": 12,
+    "committed": false,
+    "pushed": false,
+    "deployed": false,
+    "restarted": false
+  },
+  "recovery": "Load new backend prompt version and test with new requestId/latest expectedVersion; preserve existing idempotency, no need to add already-sufficient mathematical evidence",
+  "rollback": "Reverse only this round incremental diff against baseline.json snapshots; preserve pre-existing edits"
+}

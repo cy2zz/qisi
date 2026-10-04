@@ -1,0 +1,188 @@
+{
+  "date": "2026-09-30",
+  "baseline": "qisi-3.1",
+  "task_id": "B07",
+  "scope": "chat-feedback-recovery",
+  "execution_mode": "local single agent",
+  "commands": [
+    {
+      "command": "npm --prefix server test -- src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/turn-time-budget.spec.ts",
+      "exit_code": 1,
+      "status": "failed_expected_red",
+      "tests": {
+        "passed": 34,
+        "failed": 14,
+        "skipped": 0,
+        "total": 48
+      },
+      "log": "red-tests-utf8.log",
+      "stage": "before_implementation",
+      "cwd": "D:/math/qisi-dashboard",
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/red-tests-utf8.log"
+    },
+    {
+      "command": "npm --prefix server test -- src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/turn-time-budget.spec.ts test/workflows/policy-gate.spec.ts src/features/analysis/problem-analysis.controller.spec.ts src/features/analysis/problem-analysis.timeout.integration.spec.ts",
+      "exit_code": 0,
+      "status": "passed",
+      "tests": {
+        "passed": 95,
+        "failed": 0,
+        "skipped": 0,
+        "total": 95
+      },
+      "log": "focused-tests-1.log",
+      "stage": "intermediate_green",
+      "cwd": "D:/math/qisi-dashboard",
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/focused-tests-1.log"
+    },
+    {
+      "command": "npm --prefix server test -- src/features/analysis/problem-analysis.recovery.integration.spec.ts",
+      "exit_code": 0,
+      "status": "passed",
+      "tests": {
+        "passed": 4,
+        "failed": 0,
+        "skipped": 0,
+        "total": 4
+      },
+      "log": "http-recovery-tests.log",
+      "cwd": "D:/math/qisi-dashboard",
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/http-recovery-tests.log"
+    },
+    {
+      "command": "npm --prefix server test -- src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/turn-time-budget.spec.ts test/workflows/policy-gate.spec.ts src/features/analysis/problem-analysis.controller.spec.ts src/features/analysis/problem-analysis.timeout.integration.spec.ts src/features/analysis/problem-analysis.recovery.integration.spec.ts",
+      "exit_code": 0,
+      "status": "passed",
+      "tests": {
+        "passed": 101,
+        "failed": 0,
+        "skipped": 0,
+        "total": 101
+      },
+      "files": {
+        "passed": 6,
+        "skipped": 0,
+        "total": 6
+      },
+      "log": "focused-tests-final.log",
+      "cwd": "D:/math/qisi-dashboard",
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/focused-tests-final.log"
+    },
+    {
+      "command": "npm --prefix server test",
+      "exit_code": 0,
+      "status": "passed",
+      "tests": {
+        "passed": 666,
+        "failed": 0,
+        "skipped": 19,
+        "total": 685
+      },
+      "files": {
+        "passed": 75,
+        "skipped": 3,
+        "total": 78
+      },
+      "log": "server-full-tests-final.log",
+      "cwd": "D:/math/qisi-dashboard",
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/server-full-tests-final.log"
+    },
+    {
+      "command": "npm --prefix server run typecheck -- --incremental false",
+      "exit_code": 0,
+      "status": "passed",
+      "test_count": 0,
+      "kind": "typecheck",
+      "log": "typecheck-final.log",
+      "cwd": "D:/math/qisi-dashboard",
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/typecheck-final.log"
+    },
+    {
+      "command": "npm --prefix server run lint",
+      "exit_code": 0,
+      "status": "passed",
+      "test_count": 0,
+      "kind": "lint",
+      "log": "lint-final.log",
+      "cwd": "D:/math/qisi-dashboard",
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/lint-final.log"
+    },
+    {
+      "command": "npm --prefix server run build -- --tsBuildInfoFile \"C:\\Users\\wangchaoya\\AppData\\Local\\Temp/qisi-b07-chat-recovery-20260930.tsbuildinfo\"",
+      "exit_code": 0,
+      "status": "passed",
+      "test_count": 0,
+      "kind": "build",
+      "log": "build-final.log",
+      "cwd": "D:/math/qisi-dashboard",
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/build-final.log"
+    },
+    {
+      "command": "npm run test:task -- B07",
+      "exit_code": 1,
+      "status": "failed",
+      "test_count": 0,
+      "reason": "Unsupported task gate: B07; 未运行产品测试，不改共享门禁绕过。",
+      "log": "task-unit-gate.log",
+      "cwd": "D:/math/qisi-dashboard",
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/task-unit-gate.log"
+    },
+    {
+      "command": "npm run test:e2e:task -- B07",
+      "exit_code": 1,
+      "status": "failed",
+      "test_count": 0,
+      "reason": "Unsupported task gate: B07; 未运行产品测试，不改共享门禁绕过。",
+      "log": "task-e2e-gate.log",
+      "cwd": "D:/math/qisi-dashboard",
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/task-e2e-gate.log"
+    },
+    {
+      "command": "npm run test:stack -- B07",
+      "exit_code": 1,
+      "status": "failed",
+      "test_count": 0,
+      "reason": "Unsupported task gate: B07; 未运行产品测试，不改共享门禁绕过。",
+      "log": "task-stack-gate.log",
+      "cwd": "D:/math/qisi-dashboard",
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/task-stack-gate.log"
+    },
+    {
+      "command": "raven spec status --change chat-feedback-recovery --json",
+      "exit_code": 0,
+      "status": "passed_artifact_inventory_only",
+      "test_count": 0,
+      "log": "raven-status-final.log",
+      "limitations": [
+        "isComplete表示文档工件齐全，不代表外部验收或独立复核通过。"
+      ],
+      "cwd": "D:/math/qisi-dashboard",
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/raven-status-final.log"
+    },
+    {
+      "command": "git diff --check -- server/src/features/analysis/chat-feedback-policy.ts server/src/features/analysis/problem-analysis.service.ts server/src/features/analysis/turn-time-budget.ts server/src/workflows/policy-gate.ts server/src/features/analysis/problem-analysis.service.spec.ts server/src/features/analysis/turn-time-budget.spec.ts server/src/features/analysis/problem-analysis.recovery.integration.spec.ts server/test/workflows/policy-gate.spec.ts qisi-sdd-v3/changes/B07.md qisi-sdd-v3/handoffs/B07.md ravenspec/changes/chat-feedback-recovery/.ravenspec.yaml ravenspec/changes/chat-feedback-recovery/PRD.md ravenspec/changes/chat-feedback-recovery/DESIGN.md ravenspec/changes/chat-feedback-recovery/TASK.md ravenspec/changes/chat-feedback-recovery/specs/chat-feedback/spec.md",
+      "exit_code": 0,
+      "status": "passed",
+      "test_count": 0,
+      "log": "diff-check.log",
+      "limitations": [
+        "git diff不检查未跟踪文件；新源文件另做本地编码与空白扫描。"
+      ],
+      "cwd": "D:/math/qisi-dashboard",
+      "evidence_file": "artifacts/acceptance/B07-20260930-chat-feedback-recovery/diff-check.log"
+    }
+  ],
+  "not_run": [
+    "真实模型抽样",
+    "真实MySQL8.4",
+    "人工数学/教学评估",
+    "真实学生学习效果",
+    "浏览器E2E",
+    "独立复核"
+  ],
+  "notes": [
+    "本摘要不覆盖所有探索命令；列出失败先行、关键回归、静态检查与任务门禁。",
+    "日志中的模型、学生内容均为合成fixture。旧编码损坏red-tests.log保留但不作为有效红测。",
+    "全量测试含既有测试；19项跳过不视为通过。"
+  ]
+}

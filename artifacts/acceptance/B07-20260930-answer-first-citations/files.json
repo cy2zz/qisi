@@ -1,0 +1,64 @@
+{
+  "files": [
+    {
+      "path": "server/src/agents/diagnosis/index.ts",
+      "sha256": "834790783301456425cb8434251e574a38e9977c510add0a5790d2e9864c51fd"
+    },
+    {
+      "path": "server/src/agents/diagnosis/cited-diagnosis.ts",
+      "sha256": "56668e76302066eddb438a00058d001f66ce94cfad2c36eeed4e71fe3bf6ae5d"
+    },
+    {
+      "path": "server/src/agents/diagnosis/cited-diagnosis.spec.ts",
+      "sha256": "2d0d1593da7673cae2e9952748ccd9ac0e1e00b3838f4f23e71992e6f89a0175"
+    },
+    {
+      "path": "server/src/features/analysis/problem-analysis.service.ts",
+      "sha256": "b21bcb40b1500ba236663b034f783a259b595990a4fc9ebfd144139c7de89552"
+    },
+    {
+      "path": "server/src/features/analysis/problem-analysis.service.spec.ts",
+      "sha256": "d65aecbf8911825fb6894fba97be753771ea210c1b89dbdc056fb42c7fa058fe"
+    },
+    {
+      "path": "server/src/features/analysis/problem-analysis.recovery.integration.spec.ts",
+      "sha256": "0267f6e1a6cccb868320d7d904cbd15a797cf725dee6ddea7a93c5952cd24b8a"
+    },
+    {
+      "path": "server/src/features/analysis/problem-analysis.answer-first.live.spec.ts",
+      "sha256": "c4731876bb9eba333b60a30d68e9ae919dc1eb5809fb5a7a26393c377d976b35"
+    },
+    {
+      "path": "qisi-sdd-v3/changes/B07.md",
+      "sha256": "acf425579427ed5dd83804abb3002d08c7e992b9489afcb6dbdcf5c838d51d9c"
+    },
+    {
+      "path": "qisi-sdd-v3/handoffs/B07.md",
+      "sha256": "6d32e0ee3db08c398e1626f9572ec3fcdb0a693f03c08d089641e84dbb297760"
+    },
+    {
+      "path": "ravenspec/changes/chat-feedback-recovery/PRD.md",
+      "sha256": "94c2e1ec7a585159c5ab990bddfb360616eb20bb3f8dec5fa5c0970e182d215b"
+    },
+    {
+      "path": "ravenspec/changes/chat-feedback-recovery/DESIGN.md",
+      "sha256": "f7f503ca7b4ef756730c0e7bf491d04c992caabb5ea655b31cc6d86372d82133"
+    },
+    {
+      "path": "ravenspec/changes/chat-feedback-recovery/TASK.md",
+      "sha256": "3f0f22c628e896dc1f5b116f8b9705c9251cf40033976e30bc493045723aecdd"
+    }
+  ],
+  "preserved": [
+    {
+      "path": "server/src/features/analysis/chat-feedback-policy.ts",
+      "unchangedSinceSnapshot": true
+    },
+    {
+      "path": "server/src/features/analysis/problem-analysis.equivalent-route.live.spec.ts",
+      "unchangedSinceSnapshot": true
+    }
+  ],
+  "additionalArtifacts": "This evidence directory; no secrets or original private session stored",
+  "generatedCache": "tsconfig.build.tsbuildinfo was initially clean; only this build-generated change was restored to its original HEAD bytes"
+}

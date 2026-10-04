@@ -1,0 +1,47 @@
+{
+  "date": "2026-09-30",
+  "head": "2b4b03c261dfc6d657c18a131f419424670727fe",
+  "files": [
+    {
+      "path": "server/src/features/analysis/problem-analysis.service.ts",
+      "sha256": "33ae1a2b597d4386f9239afb168f1666d47e2a958c7a78a0dca9407a7106e547"
+    },
+    {
+      "path": "server/src/features/analysis/problem-analysis.service.spec.ts",
+      "sha256": "fd806b440c29862b1c937a027508dbcd0be7babbc0d4d0260f192aa94526d7a2"
+    },
+    {
+      "path": "server/src/features/analysis/chat-feedback-policy.ts",
+      "sha256": "0651ff2918b083ba5482b5a63e7e0a6832247252eb2911959c7adb4062f686ef"
+    },
+    {
+      "path": "qisi-sdd-v3/changes/B07.md",
+      "sha256": "f439451bf233b7ba668a9bdd365e3e3bba53314cccdd13655ca0ad4e5c6e7ac3"
+    },
+    {
+      "path": "qisi-sdd-v3/handoffs/B07.md",
+      "sha256": "ae4ba0a4376e2cb2ffd9481d0a7f330789a22cb62381923e0b64393e0ed3722d"
+    },
+    {
+      "path": "ravenspec/changes/chat-feedback-recovery/PRD.md",
+      "sha256": "3ae4ae3aa203eac149ea06bf14a21c5a4d6f11bb1f91ac460118a272a9efe5e0"
+    },
+    {
+      "path": "ravenspec/changes/chat-feedback-recovery/DESIGN.md",
+      "sha256": "67e9c5fe3c0d376ff7b56f0c1b74f643684028cd7d886cc80ec155c25a296b32"
+    },
+    {
+      "path": "ravenspec/changes/chat-feedback-recovery/TASK.md",
+      "sha256": "aa9254ce50ce1030f5636707c027dc7edb46ce796b83c0009b6fff7670fcd8bd"
+    }
+  ],
+  "snapshot": "C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-b07-equivalence-WqGs2I",
+  "excludes": [
+    "web/",
+    "server/.env.development.local",
+    "package-lock.json",
+    "A03 records",
+    "server/db/"
+  ],
+  "authorization": "继续修复用户反馈的同一chat问题；不提交/部署/写业务库/启动子Agent"
+}

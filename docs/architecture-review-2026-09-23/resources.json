@@ -1,0 +1,15 @@
+{
+  "docId": "ef2ba887c61e4c67986bd4a01f052e05",
+  "url": "https://docs.popo.netease.com/lingxi/ef2ba887c61e4c67986bd4a01f052e05",
+  "space": "personal_root",
+  "images": {
+    "architecture.png": "https://office.netease.com/api/admin/file/download?path=popo/2026/09/23/f90f9dad14384c138ed7863b4e7dba2b.png&extraParams",
+    "learning-flow.png": "https://office.netease.com/api/admin/file/download?path=popo/2026/09/23/9f3bf9cd5e374740a3ec7b3ffbe7dc98.png&extraParams",
+    "orchestration.png": "https://office.netease.com/api/admin/file/download?path=popo/2026/09/23/ab9c017e898042628c35fc4951322b87.png&extraParams"
+  },
+  "attachments": {
+    "architecture.drawio": "https://office.netease.com/api/admin/file/download?path=5ea34aa011d445e297630c4a0f3fa014&type=attachment&identity=ef2ba887c61e4c67986bd4a01f052e05&fileName=architecture.drawio",
+    "learning-flow.drawio": "https://office.netease.com/api/admin/file/download?path=763cca186c574742b4565d32e406c3c2&type=attachment&identity=ef2ba887c61e4c67986bd4a01f052e05&fileName=learning-flow.drawio",
+    "orchestration.drawio": "https://office.netease.com/api/admin/file/download?path=993154c84f5d41eda07ac4fec7e3ec89&type=attachment&identity=ef2ba887c61e4c67986bd4a01f052e05&fileName=orchestration.drawio"
+  }
+}

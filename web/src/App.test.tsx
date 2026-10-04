@@ -1,7 +1,8 @@
 import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import { App } from './App';
+import { readCachedLearningDraft } from './pages/bank/learning-draft-cache';
 
 const paperSummary = {
   examType: '高考',
@@ -61,10 +62,15 @@ function renderApp(initialEntry = '/') {
   );
 }
 
+// Load the lazy route before asserting UI behavior, not inside the 1s query window.
+beforeAll(async () => { await import('./pages/bank/BankFlow'); });
+
 describe('App', () => {
   afterEach(() => {
     cleanup();
+    vi.useRealTimers();
     vi.restoreAllMocks();
+    window.localStorage.clear();
   });
 
   it('restores an existing student from the cookie', async () => {
@@ -215,7 +221,7 @@ describe('App', () => {
     expect(document.querySelectorAll('.chat-message-guide .katex')).not.toHaveLength(0);
   });
 
-  it('restores and automatically saves the current learning draft', async () => {
+  it('restores legacy learning drafts and keeps further edits local', async () => {
     const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation((input) => {
       const url = String(input);
       if (url === '/api/auth/me') {
@@ -272,22 +278,17 @@ describe('App', () => {
     await waitFor(() => {
       expect(editor).toHaveTextContent('我准备先移项，再配成 $(a-b)^2$。');
     });
-    expect(screen.getByRole('status', { name: '草稿保存状态' })).toHaveTextContent('已自动保存');
+    expect(screen.getByRole('status', { name: '草稿保存状态' })).toHaveTextContent('已恢复草稿，点击发送后提交');
 
+    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] });
     editor.textContent = '我准备先移项，得到 $a^2-2ab+b^2$。';
     fireEvent.input(editor);
+    await act(async () => { await vi.advanceTimersByTimeAsync(30_000); });
 
-    await waitFor(() => {
-      expect(fetchMock).toHaveBeenCalledWith(
-        '/api/learning/sessions/91/draft',
-        expect.objectContaining({
-          body: JSON.stringify({ markdown: '我准备先移项，得到 $a^2-2ab+b^2$。' }),
-          credentials: 'include',
-          method: 'PATCH',
-        }),
-      );
-    });
-    expect(screen.getByRole('status', { name: '草稿保存状态' })).toHaveTextContent('已自动保存');
+    expect(fetchMock.mock.calls.filter(([url]) => String(url).endsWith('/draft'))).toEqual([]);
+    expect(readCachedLearningDraft(window.localStorage, '91')?.markdown)
+      .toBe('我准备先移项，得到 $a^2-2ab+b^2$。');
+    expect(screen.getByRole('status', { name: '草稿保存状态' })).toHaveTextContent('草稿已保存在本机，尚未提交');
   });
 
   it('keeps handwriting out of teaching until its confirmed revision is submitted', async () => {
@@ -830,5 +831,211 @@ describe('App', () => {
         method: 'POST',
       }),
     );
+  });
+});
+
+
+describe('learning local drafts', () => {
+  const sessionId = '9101';
+  const draftUrl = '/api/learning/sessions/' + sessionId + '/draft';
+
+  afterEach(() => {
+    cleanup();
+    vi.useRealTimers();
+    vi.restoreAllMocks();
+    window.localStorage.clear();
+  });
+
+  function completedChat() {
+    return Promise.resolve(new Response(
+      'event: chunk\ndata: {"text":"已核对本次提交。"}\n\n'
+      + 'event: done\ndata: {"version":2}\n\n',
+      { headers: { 'Content-Type': 'text/event-stream' } },
+    ));
+  }
+
+  async function mountDraft(expectedText: string) {
+    vi.useRealTimers();
+    const view = renderApp('/study?session=' + sessionId);
+    const editor = await screen.findByRole('textbox', { name: '输入题目或想法' });
+    await waitFor(() => {
+      expect(editor).toHaveFocus();
+      expect(editor.textContent).toBe(expectedText);
+    });
+    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] });
+    return { ...view, editor };
+  }
+
+  async function openDraft(chat = completedChat) {
+    window.localStorage.clear();
+    const record = {
+      content: '化简 $(a-b)^2$。',
+      id: sessionId,
+      problemMd: '化简 $(a-b)^2$。',
+      title: '输入保存测试夹具',
+      topic: '多项式',
+      version: 1,
+    };
+    const draftRequests: string[] = [];
+    const chatBodies: Array<Record<string, unknown>> = [];
+    vi.spyOn(globalThis, 'fetch').mockImplementation((input, init) => {
+      const url = String(input);
+      if (url === '/api/auth/me') return jsonResponse({ user: { id: '7', username: '测试学生' } });
+      if (url === '/api/learning/sessions') return jsonResponse({ sessions: [record] });
+      if (url === '/api/learning/sessions/' + sessionId) {
+        return jsonResponse({
+          analysis: { firstQuestion: '你准备从哪里入手？', keyConditions: [], knowledgePoints: [], overview: '化简多项式。', target: '化简' },
+          draftMarkdown: '原有草稿',
+          messages: [],
+          record,
+        });
+      }
+      if (url === draftUrl) {
+        draftRequests.push(String(init?.body));
+        return jsonResponse({ savedAt: '2026-09-30T00:00:00.000Z' });
+      }
+      if (url === '/api/problems/chat') {
+        chatBodies.push(JSON.parse(String(init?.body)) as Record<string, unknown>);
+        return chat();
+      }
+      return jsonResponse({});
+    });
+    return { ...await mountDraft('原有草稿'), draftRequests, chatBodies };
+  }
+
+  function edit(editor: HTMLElement, markdown: string) {
+    editor.textContent = markdown;
+    fireEvent.input(editor);
+  }
+
+  async function advance(milliseconds: number) {
+    await act(async () => { await vi.advanceTimersByTimeAsync(milliseconds); });
+  }
+
+  it('keeps every edit local even after long typing pauses', async () => {
+    const { editor, draftRequests, chatBodies } = await openDraft();
+    for (const text of ['先', '先展开', '先展开平方']) {
+      edit(editor, text);
+      expect(editor).toHaveTextContent(text);
+      expect(readCachedLearningDraft(window.localStorage, sessionId)?.markdown).toBe(text);
+      await advance(30_000);
+      expect(draftRequests).toEqual([]);
+      expect(chatBodies).toEqual([]);
+    }
+    expect(screen.getByRole('status', { name: '草稿保存状态' })).toHaveTextContent('草稿已保存在本机，尚未提交');
+    expect(screen.queryByRole('button', { name: '立即同步' })).not.toBeInTheDocument();
+  });
+
+  it('does not upload unchanged input or restored drafts', async () => {
+    const { editor, draftRequests } = await openDraft();
+    edit(editor, '原有草稿');
+    await advance(30_000);
+    fireEvent.online(window);
+    expect(draftRequests).toEqual([]);
+    expect(screen.getByRole('status', { name: '草稿保存状态' })).toHaveTextContent('已恢复草稿，点击发送后提交');
+  });
+
+  it('retains offline edits without uploading on reconnect', async () => {
+    const online = vi.spyOn(window.navigator, 'onLine', 'get').mockReturnValue(false);
+    const { editor, draftRequests } = await openDraft();
+    edit(editor, '离线编辑');
+    await advance(30_000);
+    expect(readCachedLearningDraft(window.localStorage, sessionId)?.markdown).toBe('离线编辑');
+    online.mockReturnValue(true);
+    fireEvent.online(window);
+    fireEvent.online(window);
+    await advance(30_000);
+    expect(draftRequests).toEqual([]);
+    expect(readCachedLearningDraft(window.localStorage, sessionId)?.markdown).toBe('离线编辑');
+    expect(screen.getByRole('status', { name: '草稿保存状态' })).not.toHaveTextContent(/等待网络|同步/);
+  });
+
+  it.each(['本机修改后的草稿', '', '原有草稿'])('restores local text %j over the legacy server draft without deleting the local copy', async (markdown) => {
+    const { editor: originalEditor, unmount, draftRequests } = await openDraft();
+    edit(originalEditor, markdown);
+    unmount();
+    const { editor } = await mountDraft(markdown);
+    await advance(30_000);
+    expect(editor.textContent).toBe(markdown);
+    expect(readCachedLearningDraft(window.localStorage, sessionId)?.markdown).toBe(markdown);
+    expect(draftRequests).toEqual([]);
+  });
+
+  it('keeps text editable when local storage fails without falling back to network saves', async () => {
+    const { editor, draftRequests } = await openDraft();
+    vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => { throw new Error('storage unavailable fixture'); });
+    edit(editor, '只在本页的输入');
+    await advance(30_000);
+    fireEvent.online(window);
+    expect(draftRequests).toEqual([]);
+    expect(editor).toHaveTextContent('只在本页的输入');
+    expect(screen.getByRole('status', { name: '草稿保存状态' })).toHaveTextContent('无法保存到本机，内容仅保留在本页');
+  });
+
+  it('sends the latest text only on explicit submit and suppresses stale legacy drafts after success', async () => {
+    const { editor, unmount, draftRequests, chatBodies } = await openDraft();
+    edit(editor, '第一版');
+    edit(editor, '最终作答');
+    expect(chatBodies).toEqual([]);
+    fireEvent.click(screen.getByRole('button', { name: '发送' }));
+    await advance(0);
+    expect(chatBodies).toEqual([expect.objectContaining({ message: '最终作答', sessionId, expectedVersion: 1 })]);
+    expect(draftRequests).toEqual([]);
+    expect(readCachedLearningDraft(window.localStorage, sessionId)?.markdown).toBe('');
+    unmount();
+    const restored = await mountDraft('');
+    expect(restored.editor.textContent).toBe('');
+  });
+
+  it('preserves a failed submission locally for refresh and retry', async () => {
+    const { editor, unmount, draftRequests, chatBodies } = await openDraft(() => Promise.reject(new TypeError('offline fixture')));
+    edit(editor, '提交失败不能丢失');
+    fireEvent.click(screen.getByRole('button', { name: '发送' }));
+    await advance(0);
+    expect(chatBodies).toHaveLength(1);
+    expect(screen.getByText('暂时无法回应这一步。你的内容已经保留，可以重试。')).toBeInTheDocument();
+    expect(readCachedLearningDraft(window.localStorage, sessionId)?.markdown).toBe('提交失败不能丢失');
+    expect(draftRequests).toEqual([]);
+    unmount();
+    await mountDraft('提交失败不能丢失');
+  });
+
+  it('does not clear edits made while a submission is still pending', async () => {
+    let finishChat!: (response: Response) => void;
+    const { editor, draftRequests } = await openDraft(() => new Promise<Response>((resolve) => { finishChat = resolve; }));
+    edit(editor, '本次提交');
+    fireEvent.click(screen.getByRole('button', { name: '发送' }));
+    expect(readCachedLearningDraft(window.localStorage, sessionId)?.markdown).toBe('本次提交');
+    edit(editor, '下一条草稿');
+    await act(async () => { finishChat(await completedChat()); });
+    await advance(30_000);
+    expect(editor).toHaveTextContent('下一条草稿');
+    expect(readCachedLearningDraft(window.localStorage, sessionId)?.markdown).toBe('下一条草稿');
+    expect(draftRequests).toEqual([]);
+  });
+
+  it('does not discard a newly composed identical draft when retrying an older submission', async () => {
+    let attempts = 0;
+    const { editor, draftRequests } = await openDraft(() => ++attempts === 1
+      ? Promise.reject(new TypeError('offline fixture'))
+      : completedChat());
+    edit(editor, '相同内容');
+    fireEvent.click(screen.getByRole('button', { name: '发送' }));
+    await advance(0);
+    edit(editor, '相同内容');
+    fireEvent.click(screen.getByRole('button', { name: '重新回答' }));
+    await advance(0);
+    expect(editor).toHaveTextContent('相同内容');
+    expect(readCachedLearningDraft(window.localStorage, sessionId)?.markdown).toBe('相同内容');
+    expect(draftRequests).toEqual([]);
+  });
+
+  it('does not upload on unmount and retains the last local edit', async () => {
+    const { editor, unmount, draftRequests } = await openDraft();
+    edit(editor, '离开前最后输入');
+    unmount();
+    await advance(30_000);
+    expect(draftRequests).toEqual([]);
+    expect(readCachedLearningDraft(window.localStorage, sessionId)?.markdown).toBe('离开前最后输入');
   });
 });

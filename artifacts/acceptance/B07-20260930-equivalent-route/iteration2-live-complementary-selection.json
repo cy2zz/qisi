@@ -1,0 +1,87 @@
+{
+  "caseId": "complementary-selection",
+  "kind": "real-model-synthetic-context",
+  "startedAt": "2026-09-30T09:49:05.808Z",
+  "finishedAt": "2026-09-30T09:49:21.252Z",
+  "elapsedMs": 15443,
+  "result": "passed",
+  "expectedJudgment": "valid",
+  "reply": "你的思路是对的：要得到 $x^3$，就是从 5 个因式里选 3 个提供 $2x$，其余 2 个提供 $-1$。所以系数为 $C_5^3\\cdot 2^3\\cdot(-1)^2=10\\cdot8\\cdot1=80$。",
+  "audit": {
+    "decisionIds": [],
+    "focusGoalKey": "session-live-equivalence-complementary-selection:target",
+    "intervention": "observe",
+    "probe": null,
+    "probeGoalKey": null,
+    "scaffoldLevel": 0,
+    "wholeTaskDisclosed": false
+  },
+  "databaseWrites": 0,
+  "limitations": "Two bounded samples; synthetic context, not full session replay or student learning evaluation.",
+  "nodes": [
+    {
+      "nodeKey": "diagnosis",
+      "status": "completed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v2",
+      "usage": {
+        "input": 2407,
+        "output": 727,
+        "kind": "reported",
+        "elapsedMs": 7381,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      },
+      "judgment": "valid",
+      "routeReviewNeeded": false,
+      "satisfiedDecisions": 3
+    },
+    {
+      "nodeKey": "strategy",
+      "status": "completed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v2",
+      "usage": {
+        "input": 4040,
+        "output": 231,
+        "kind": "reported",
+        "elapsedMs": 2802,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      },
+      "action": "complete",
+      "scaffoldLevel": 0
+    },
+    {
+      "nodeKey": "renderer",
+      "status": "completed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v2",
+      "usage": {
+        "input": 732,
+        "output": 94,
+        "kind": "reported",
+        "elapsedMs": 2465,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      }
+    },
+    {
+      "nodeKey": "guard",
+      "status": "completed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v2",
+      "usage": {
+        "input": 2167,
+        "output": 158,
+        "kind": "reported",
+        "elapsedMs": 2775,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      },
+      "verdict": "accept",
+      "actualDisclosedIds": [],
+      "wholeTaskDisclosed": false
+    }
+  ]
+}

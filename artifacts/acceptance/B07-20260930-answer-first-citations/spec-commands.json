@@ -1,0 +1,35 @@
+[
+  {
+    "command": [
+      "python",
+      "C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-b07-answer-first-spec-s0we656m\\qisi-sdd-v3\\scripts\\validate_spec.py"
+    ],
+    "cwd": "C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-b07-answer-first-spec-s0we656m",
+    "exitCode": 1,
+    "log": "spec.log"
+  },
+  {
+    "command": [
+      "python",
+      "C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-b07-answer-first-spec-s0we656m\\qisi-sdd-v3\\scripts\\validate_stack.py"
+    ],
+    "cwd": "C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-b07-answer-first-spec-s0we656m",
+    "exitCode": 0,
+    "log": "stack.log"
+  },
+  {
+    "command": [
+      "python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-b07-answer-first-spec-s0we656m\\qisi-sdd-v3\\scripts",
+      "-p",
+      "test_validate_mysql.py"
+    ],
+    "cwd": "C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-b07-answer-first-spec-s0we656m",
+    "exitCode": 0,
+    "log": "mysql-preconditions.log"
+  }
+]

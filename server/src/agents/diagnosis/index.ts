@@ -7,6 +7,7 @@
 // 保证（server/src/agents/context.ts），而非由提示词自律。
 
 import { assertDiagnosisEvidence, currentEvidence } from '../../features/tutor/evidence.js';
+import { citedDiagnosisProtocol, CITED_DIAGNOSIS_INSTRUCTION } from './cited-diagnosis.js';
 import { Injectable } from '@nestjs/common';
 import { DiagnosisInputSchema, DiagnosisSchema, type Diagnosis, type DiagnosisInput } from '../../contracts/domain.schema.js';
 import { ROLE_PROMPTS } from '../../prompts/index.js';
@@ -32,6 +33,16 @@ export class DiagnosisAgent {
     });
     assertDiagnosisEvidence(result.value, safeInput);
     return result;
+  }
+  /** Chat wire entry: bind server-owned citation keys; caller retains all semantic/PolicyGate checks. */
+  async runCited(input: DiagnosisInput, port: ModelPort, options: AgentCallOptions): Promise<AgentCallResult<Diagnosis>> {
+    const protocol = citedDiagnosisProtocol(DiagnosisInputSchema.parse(input));
+    const result = await callRoleModel({
+      role: this.role,
+      prompt: { ...ROLE_PROMPTS.diagnosis, body: ROLE_PROMPTS.diagnosis.body + '\n' + CITED_DIAGNOSIS_INSTRUCTION },
+      schema: protocol.schema, input: protocol.input, port, options,
+    });
+    return { value: protocol.resolve(result.value), response: result.response };
   }
   /** Legacy schema-only entry; retained for A's analysis adapter until its task/revision contract is aligned. */
   async run(input: DiagnosisInput, port: ModelPort, options: AgentCallOptions): Promise<AgentCallResult<Diagnosis>> {

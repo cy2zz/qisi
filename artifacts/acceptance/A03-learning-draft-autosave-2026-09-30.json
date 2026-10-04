@@ -1,0 +1,173 @@
+{
+  "task_id": "A03",
+  "baseline": "qisi-3.1",
+  "date": "2026-09-30",
+  "scope": "Learning draft client-side request scheduling only",
+  "status": "implemented_waiting_review",
+  "review": "self_review",
+  "data_mode": "synthetic fixture; all browser API calls intercepted; session 45 untouched",
+  "changed_files": [
+    "web/src/pages/bank/BankFlow.tsx",
+    "web/src/App.test.tsx",
+    "qisi-sdd-v3/changes/A03.md",
+    "qisi-sdd-v3/handoffs/A03.md",
+    "artifacts/acceptance/A03-learning-draft-autosave-2026-09-30.json"
+  ],
+  "failure_first": {
+    "command": "npm --prefix web test -- src/App.test.tsx -t \"learning draft scheduling\"",
+    "cwd": "D:/math/qisi-dashboard",
+    "exit_code": 1,
+    "tests": 7,
+    "passed": 2,
+    "failed": 5,
+    "skipped": 11,
+    "failures": [
+      "request sent after 900ms pause",
+      "unchanged text saved again",
+      "multiple writes overlap while first is pending",
+      "draft request attempted offline",
+      "late response after unmount clears newer cache"
+    ],
+    "note": "Earlier setup-only failures caused by PowerShell Unicode encoding and route lazy load were corrected before recording these behavioral failures."
+  },
+  "verification": [
+    {
+      "command": "npm --prefix web test -- src/App.test.tsx -t \"learning draft scheduling\"",
+      "cwd": "D:/math/qisi-dashboard",
+      "exit_code": 0,
+      "tests": 7,
+      "passed": 7,
+      "failed": 0,
+      "skipped": 11
+    },
+    {
+      "command": "npm --prefix web test",
+      "cwd": "D:/math/qisi-dashboard",
+      "exit_code": 1,
+      "tests": 137,
+      "passed": 133,
+      "failed": 4,
+      "note": "Initial full run: route lazy-load timeout, test waitFor with fake timers, login SVG label mismatch, assessment reconnect timeout. This patch corrected its own timer-test setup; other assertions unchanged."
+    },
+    {
+      "command": "npm --prefix web test -- --maxWorkers=1",
+      "cwd": "D:/math/qisi-dashboard",
+      "exit_code": 1,
+      "tests": 137,
+      "passed": 134,
+      "failed": 3,
+      "failures": [
+        "existing login classroom image label mismatch",
+        "consecutive chat versions single chunk: 5000ms timeout",
+        "consecutive chat versions split chunk/StrictMode: 5000ms timeout"
+      ]
+    },
+    {
+      "command": "npm --prefix web test -- src/App.test.tsx src/pages/bank/BankFlow.chat-version.spec.tsx -t \"learning draft scheduling|restores and automatically saves|sends server versions\" --maxWorkers=1",
+      "cwd": "D:/math/qisi-dashboard",
+      "exit_code": 0,
+      "tests": 10,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 12,
+      "note": "Includes the two chat tests that timed out in the full run; no timeout thresholds changed."
+    },
+    {
+      "command": "npm --prefix web run typecheck",
+      "cwd": "D:/math/qisi-dashboard",
+      "exit_code": 1,
+      "tests": 0,
+      "note": "OneToOneClassroom3D.tsx missing three declaration TS7016 at line 7, implicit any TS7006 at lines 256 and 260; outside patch."
+    },
+    {
+      "command": "npm --prefix web run build",
+      "cwd": "D:/math/qisi-dashboard",
+      "exit_code": 1,
+      "tests": 0,
+      "note": "Blocked at TypeScript by the same three login-page errors; Vite production build not reached."
+    },
+    {
+      "command": "npm --prefix web run lint",
+      "cwd": "D:/math/qisi-dashboard",
+      "exit_code": 0,
+      "tests": 0
+    },
+    {
+      "command": "git diff --check",
+      "cwd": "D:/math/qisi-dashboard",
+      "exit_code": 0,
+      "tests": 0
+    }
+  ],
+  "browser": {
+    "runner": "Playwright project-installed Chromium, headless via Node REPL; actual Vite frontend; route-mocked API",
+    "browser_version": "153.0.8010.12",
+    "exit_code": null,
+    "passed": 4,
+    "failed": 0,
+    "results": [
+      {
+        "width": 1440,
+        "status": "passed",
+        "draftRequests": 3,
+        "typingBurstRequests": 1,
+        "overlappingRequests": 0,
+        "editorUsableDuringSave": true,
+        "horizontalOverflow": false,
+        "pageErrors": []
+      },
+      {
+        "width": 1280,
+        "status": "passed",
+        "draftRequests": 3,
+        "typingBurstRequests": 1,
+        "overlappingRequests": 0,
+        "editorUsableDuringSave": true,
+        "horizontalOverflow": false,
+        "pageErrors": []
+      },
+      {
+        "width": 390,
+        "status": "passed",
+        "draftRequests": 3,
+        "typingBurstRequests": 1,
+        "overlappingRequests": 0,
+        "editorUsableDuringSave": true,
+        "horizontalOverflow": false,
+        "pageErrors": []
+      },
+      {
+        "width": 360,
+        "status": "passed",
+        "draftRequests": 3,
+        "typingBurstRequests": 1,
+        "overlappingRequests": 0,
+        "editorUsableDuringSave": true,
+        "horizontalOverflow": false,
+        "pageErrors": []
+      }
+    ],
+    "steps": [
+      "Open /study?session=9101 with synthetic restored session and draft",
+      "For 先 / 先展开 / 先展开平方: fill editor, wait 900ms, assert 0 draft requests",
+      "After last idle period reaches 2s, assert only final text sent once",
+      "Hold next PATCH response; edit again and wait >2s; assert no additional PATCH and editor remains editable",
+      "Release held response; after debounce assert latest text saved, then saved status",
+      "Assert no pageerror and no viewport horizontal overflow"
+    ],
+    "screenshots": "1440/360 screenshots inspected in tool output; not written to repository"
+  },
+  "acceptance": {
+    "AT09": "not_run: unrelated handwriting/model correctness gate",
+    "AT38": "partial: local drafts and responsive client behavior covered by fixture only; full persistence not rerun",
+    "ST": "not_run: no backend/database changes; no real MySQL/model acceptance"
+  },
+  "limitations": [
+    "No real-session latency measurement; cannot attribute all perceived typing lag to draft requests",
+    "No backend/CAS/API schema changes; cross-tab writes and server-side draft/chat commit races not addressed",
+    "Single in-flight request has no added timeout; if network never settles, latest draft remains local",
+    "No new dependency, migration, commit, push, publication or deployment",
+    "Raven independent gates not executed; no task status promoted to done"
+  ],
+  "next_step": "Refresh the running learning page, filter Network by /draft, continuously type then pause 2 seconds. If it still lags, profile input rendering and measure actual draft API latency separately."
+}

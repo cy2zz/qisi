@@ -1,0 +1,8 @@
+
+> @qisi/server@0.1.0 typecheck
+> tsc --noEmit --pretty false --incremental false
+
+src/features/analysis/problem-analysis.equivalent-route.live.spec.ts(60,51): error TS2550: Property 'findLast' does not exist on type 'TutorNodeRecord[]'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2023' or later.
+src/features/analysis/problem-analysis.equivalent-route.live.spec.ts(60,60): error TS7006: Parameter 'node' implicitly has an 'any' type.
+src/features/analysis/problem-analysis.equivalent-route.live.spec.ts(61,51): error TS2550: Property 'findLast' does not exist on type 'TutorNodeRecord[]'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2023' or later.
+src/features/analysis/problem-analysis.equivalent-route.live.spec.ts(61,60): error TS7006: Parameter 'node' implicitly has an 'any' type.

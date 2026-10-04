@@ -1,0 +1,106 @@
+{
+  "caseId": "complementary-selection",
+  "kind": "real-model-synthetic-context",
+  "startedAt": "2026-09-30T09:46:06.955Z",
+  "finishedAt": "2026-09-30T09:46:27.915Z",
+  "elapsedMs": 20960,
+  "result": "failed",
+  "expectedJudgment": "valid",
+  "reply": "系统暂时未能完成这条反馈的核对，因此没有展示未经检查的内容。这不是判定你答错，也不表示这道题无法继续。你可以稍后重试，或选择“局部解释”“直接讲解”，不必重复补充依据。",
+  "audit": null,
+  "databaseWrites": 0,
+  "limitations": "Two bounded samples; synthetic context, not full session replay or student learning evaluation.",
+  "nodes": [
+    {
+      "nodeKey": "diagnosis",
+      "status": "completed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v1",
+      "usage": {
+        "input": 2407,
+        "output": 479,
+        "kind": "reported",
+        "elapsedMs": 5899,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      },
+      "judgment": "valid",
+      "routeReviewNeeded": false,
+      "satisfiedDecisions": 3
+    },
+    {
+      "nodeKey": "strategy",
+      "status": "completed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v1",
+      "usage": {
+        "input": 3659,
+        "output": 237,
+        "kind": "reported",
+        "elapsedMs": 3345,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      },
+      "action": "complete",
+      "scaffoldLevel": 0
+    },
+    {
+      "nodeKey": "renderer",
+      "status": "completed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v1",
+      "usage": {
+        "input": 732,
+        "output": 108,
+        "kind": "reported",
+        "elapsedMs": 2304,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      }
+    },
+    {
+      "nodeKey": "guard",
+      "status": "completed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v1",
+      "usage": {
+        "input": 1913,
+        "output": 166,
+        "kind": "reported",
+        "elapsedMs": 3485,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      },
+      "verdict": "accept"
+    },
+    {
+      "nodeKey": "renderer_rewrite",
+      "status": "completed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v1",
+      "usage": {
+        "input": 797,
+        "output": 101,
+        "kind": "reported",
+        "elapsedMs": 2856,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      }
+    },
+    {
+      "nodeKey": "guard_recheck",
+      "status": "completed",
+      "modelId": "gpt-5.5-2026-04-24",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v1",
+      "usage": {
+        "input": 1891,
+        "output": 169,
+        "kind": "reported",
+        "elapsedMs": 3045,
+        "provider": "openai-compatible",
+        "reasoningEffort": "none"
+      },
+      "verdict": "accept"
+    }
+  ]
+}

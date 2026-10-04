@@ -1,0 +1,71 @@
+{
+  "command": "python qisi-sdd-v3/scripts/validate_spec.py",
+  "cwd": "C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-b07-equivalent-final-spec-v4rs6l7r",
+  "exit_code": 1,
+  "passed": 864,
+  "failed": 12,
+  "failures": [
+    {
+      "check": "B01:card complete",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "check": "B02:card complete",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "check": "B03:card complete",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "check": "B04:card complete",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "check": "B05:card complete",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "check": "A06:card complete",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "check": "B06:card complete",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "check": "B07:card complete",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "check": "B08:card complete",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "check": "B09:card complete",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "check": "B10:card complete",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "check": "reuse not pretended installed",
+      "passed": false,
+      "detail": ""
+    }
+  ],
+  "repository_report_modified": false,
+  "log": "validate-spec.log"
+}

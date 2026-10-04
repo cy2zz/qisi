@@ -35,7 +35,6 @@ import {
   problemIdFromFixtureSession,
 } from './fixture-bank';
 import {
-  clearCachedLearningDraft,
   readCachedLearningDraft,
   writeCachedLearningDraft,
 } from './learning-draft-cache';
@@ -199,7 +198,7 @@ function getRemediationFocus(search: string): RemediationFocus | null {
 }
 
 type SessionRecord = StudyRecord;
-type DraftSaveState = 'dirty' | 'error' | 'local' | 'recovered' | 'saved' | 'saving';
+type DraftSaveState = 'empty' | 'error' | 'local' | 'recovered';
 
 function getDraftStorage() {
   try {
@@ -331,7 +330,7 @@ export function BankPage({ username }: StudentPageProps) {
   const composerFormRef = useRef<HTMLFormElement>(null);
   const composerRef = useRef<RichComposerHandle>(null);
   const draftRevisionRef = useRef(0);
-  const draftSaveRequestRef = useRef(0);
+  const composerDraftRef = useRef('');
   const formulaToolsRef = useRef<HTMLDivElement>(null);
   const formulaTriggerRef = useRef<HTMLButtonElement>(null);
   const highImpactHelpConfirmRef = useRef<HTMLButtonElement>(null);
@@ -354,7 +353,7 @@ export function BankPage({ username }: StudentPageProps) {
   const [questionFocusMode, setQuestionFocusMode] = useState(false);
   const [draft, setDraft] = useState('');
   const [confirmedHandwriting, setConfirmedHandwriting] = useState<ConfirmedHandwriting | null>(null);
-  const [draftSaveState, setDraftSaveState] = useState<DraftSaveState>('saved');
+  const [draftSaveState, setDraftSaveState] = useState<DraftSaveState>('empty');
   const [isReplying, setIsReplying] = useState(false);
   const [finishIntent, setFinishIntent] = useState(false);
   const [stuckPointOpen, setStuckPointOpen] = useState(false);
@@ -395,27 +394,6 @@ export function BankPage({ username }: StudentPageProps) {
 
     return () => abortController.abort();
   }, [requestedSessionId]);
-
-  useEffect(() => {
-    if (!activeRecord?.version || draftSaveState !== 'dirty') return;
-    const timeout = window.setTimeout(() => {
-      void persistDraft(activeRecord.id, draft, draftRevisionRef.current);
-    }, 800);
-    return () => window.clearTimeout(timeout);
-  }, [activeRecord?.id, activeRecord?.version, draft, draftSaveState]);
-
-  useEffect(() => {
-    function syncRecoveredDraft() {
-      if (
-        !activeRecord?.version
-        || !['error', 'local', 'recovered'].includes(draftSaveState)
-      ) return;
-      void persistDraft(activeRecord.id, draft, draftRevisionRef.current);
-    }
-
-    window.addEventListener('online', syncRecoveredDraft);
-    return () => window.removeEventListener('online', syncRecoveredDraft);
-  }, [activeRecord?.id, activeRecord?.version, draft, draftSaveState]);
 
   useLayoutEffect(() => {
     const scrollArea = chatScrollRef.current;
@@ -607,12 +585,13 @@ export function BankPage({ username }: StudentPageProps) {
           const localDraft = storage
             ? readCachedLearningDraft(storage, detail.record.id)
             : null;
-          if (storage && localDraft?.markdown === serverDraft) {
-            clearCachedLearningDraft(storage, detail.record.id);
-          }
-          replaceComposerDraft(localDraft?.markdown ?? serverDraft, !remediation);
-          if (localDraft && localDraft.markdown !== serverDraft) {
-            setDraftSaveState('recovered');
+          const restoredDraft = localDraft?.markdown ?? serverDraft;
+          replaceComposerDraft(restoredDraft, !remediation);
+          if (restoredDraft) {
+            // Keep legacy drafts readable, but all further draft storage is local only.
+            const cached = localDraft || (storage
+              && writeCachedLearningDraft(storage, detail.record.id, restoredDraft));
+            setDraftSaveState(cached ? 'recovered' : 'error');
           }
         }
         if (!remediation) composerRef.current?.focus();
@@ -829,6 +808,7 @@ export function BankPage({ username }: StudentPageProps) {
     if (!activeRecord) return;
 
     let checkedReply = '';
+    const submittedDraftRevision = draftRevisionRef.current;
 
     chatAbortRef.current?.abort();
     const abortController = new AbortController();
@@ -872,6 +852,15 @@ export function BankPage({ username }: StudentPageProps) {
           if (chatRequestRef.current !== requestNumber) return;
           if (event.type === 'chunk') checkedReply += event.text;
           if (event.type === 'done') {
+            const storage = getDraftStorage();
+            const cachedDraft = storage ? readCachedLearningDraft(storage, activeRecord.id) : null;
+            if (storage && composerDraftRef.current === ''
+              && draftRevisionRef.current === submittedDraftRevision
+              && cachedDraft?.markdown.trim() === studentMessage) {
+              // Keep an empty local value so an older server draft cannot reappear.
+              // Never remove edits made while this submission was pending.
+              writeCachedLearningDraft(storage, activeRecord.id, '');
+            }
             // SSE完成回执是版本事实；不要依赖稍后才运行的React updater产生副作用。
             const committedVersion = event.version;
             if (typeof committedVersion === 'number') {
@@ -1009,7 +998,12 @@ export function BankPage({ username }: StudentPageProps) {
         state: 'reply-loading',
       },
     ]);
-    clearComposerWithoutSaving(true);
+    const storage = getDraftStorage();
+    if (storage && activeRecord?.id) {
+      // Retain the submitted text until a successful receipt, including across refresh.
+      writeCachedLearningDraft(storage, activeRecord.id, rawContent);
+    }
+    clearComposerWithoutSaving();
     setFormulaOpen(false);
     setStuckPointOpen(false);
     if (assistanceMode === 'finish_problem') setFinishIntent(false);
@@ -1034,65 +1028,35 @@ export function BankPage({ username }: StudentPageProps) {
   }
 
   function updateDraft(markdown: string) {
+    composerDraftRef.current = markdown;
     setDraft(markdown);
     if (suppressNextDraftChangeRef.current) {
       suppressNextDraftChangeRef.current = false;
-      setDraftSaveState('saved');
+      setDraftSaveState('empty');
       return;
     }
+    if (markdown === draft) return;
     setConfirmedHandwriting(null);
     draftRevisionRef.current += 1;
     const storage = getDraftStorage();
-    if (storage && activeRecord?.id) {
-      writeCachedLearningDraft(storage, activeRecord.id, markdown);
-    }
-    setDraftSaveState('dirty');
+    const cached = storage && activeRecord?.id
+      ? writeCachedLearningDraft(storage, activeRecord.id, markdown)
+      : false;
+    setDraftSaveState(cached ? 'local' : 'error');
   }
 
-  function clearComposerWithoutSaving(clearLocalDraft = false) {
-    if (clearLocalDraft) {
-      const storage = getDraftStorage();
-      if (storage && activeRecord?.id) clearCachedLearningDraft(storage, activeRecord.id);
-    }
+  function clearComposerWithoutSaving() {
+    draftRevisionRef.current += 1;
     setConfirmedHandwriting(null);
     suppressNextDraftChangeRef.current = true;
     composerRef.current?.clear();
   }
 
   function replaceComposerDraft(markdown: string, focus = true) {
+    draftRevisionRef.current += 1;
     setConfirmedHandwriting(null);
     suppressNextDraftChangeRef.current = true;
     composerRef.current?.replaceText(markdown, { focus });
-  }
-
-  async function persistDraft(sessionId: string, markdown: string, revision: number) {
-    const requestNumber = ++draftSaveRequestRef.current;
-    setDraftSaveState('saving');
-    try {
-      await apiFetch<{ savedAt: string }>(`/api/learning/sessions/${sessionId}/draft`, {
-        body: JSON.stringify({ markdown }),
-        method: 'PATCH',
-      });
-      if (
-        draftSaveRequestRef.current === requestNumber
-        && draftRevisionRef.current === revision
-      ) {
-        const storage = getDraftStorage();
-        if (storage) clearCachedLearningDraft(storage, sessionId);
-        setDraftSaveState('saved');
-      }
-    } catch {
-      if (
-        draftSaveRequestRef.current === requestNumber
-        && draftRevisionRef.current === revision
-      ) {
-        const storage = getDraftStorage();
-        const cached = storage
-          ? writeCachedLearningDraft(storage, sessionId, markdown)
-          : false;
-        setDraftSaveState(cached ? 'local' : 'error');
-      }
-    }
   }
 
   function insertFormula(syntax: string) {
@@ -1237,19 +1201,13 @@ export function BankPage({ username }: StudentPageProps) {
           : learningStages[1];
   const draftSaveLabel = !hasProblem
     ? '发送后建立学习记录'
-    : !activeRecord?.version
-      ? '正在建立草稿记录'
-      : draftSaveState === 'saved'
-        ? '已自动保存'
-        : draftSaveState === 'saving'
-          ? '正在自动保存'
-          : draftSaveState === 'local'
-            ? '已保存在本机，等待网络恢复'
-            : draftSaveState === 'recovered'
-              ? '已恢复本机草稿，尚未同步'
-          : draftSaveState === 'error'
-            ? '自动保存失败，输入仍在本页'
-            : '尚未保存';
+    : draftSaveState === 'local'
+      ? '草稿已保存在本机，尚未提交'
+      : draftSaveState === 'recovered'
+        ? '已恢复草稿，点击发送后提交'
+        : draftSaveState === 'error'
+          ? '无法保存到本机，内容仅保留在本页'
+          : '编辑内容后，点击发送提交';
   const hasMultistepDraft = draft.includes('\n');
 
   useLayoutEffect(() => {
@@ -2249,19 +2207,6 @@ export function BankPage({ username }: StudentPageProps) {
                     aria-label="草稿保存状态"
                   >
                     {draftSaveLabel}
-                    {['error', 'local', 'recovered'].includes(draftSaveState)
-                    && activeRecord?.version ? (
-                      <button
-                        type="button"
-                        onClick={() => void persistDraft(
-                          activeRecord.id,
-                          draft,
-                          draftRevisionRef.current,
-                        )}
-                      >
-                        立即同步
-                      </button>
-                    ) : null}
                   </span>
                   <span className="composer-guidance composer-note-desktop">
                     {confirmedHandwriting

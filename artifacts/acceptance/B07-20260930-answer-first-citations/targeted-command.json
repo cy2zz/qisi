@@ -1,0 +1,14 @@
+{
+  "command": [
+    "node",
+    "../node_modules/vitest/vitest.mjs",
+    "run",
+    "src/features/analysis/problem-analysis.service.spec.ts",
+    "src/agents/diagnosis/cited-diagnosis.spec.ts",
+    "src/features/analysis/problem-analysis.recovery.integration.spec.ts",
+    "src/features/analysis/turn-time-budget.spec.ts",
+    "test/workflows/policy-gate.spec.ts"
+  ],
+  "cwd": "server",
+  "exitCode": 0
+}

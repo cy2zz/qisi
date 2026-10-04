@@ -57,8 +57,11 @@ const PROBE_LIMIT_PER_CANONICAL_GOAL = 2;
  * 顺序要点：先做披露边界与探针预算的**代码**检查，再接纳 Guard 的意见。这样即使
  * Guard 返回 accept，代码边界仍可独立否决——反过来不成立。
  */
-export function gateTurn(input: TurnGateInput): PolicyDecision {
-  const { strategy, guard, knownDecisionIds, knownGoalKeys, probesShownForFocusGoal } = input;
+export type StrategyGateDecision = { readonly approved: true } | Extract<PolicyDecision, { approved: false }>;
+
+/** 渲染前仅检查代码不变量，不以伪造 Guard accept 代替最终审核。 */
+export function gateStrategy(input: Omit<TurnGateInput, 'guard'>): StrategyGateDecision {
+  const { strategy, knownDecisionIds, knownGoalKeys, probesShownForFocusGoal } = input;
 
   if (!Number.isSafeInteger(probesShownForFocusGoal) || probesShownForFocusGoal < 0) {
     return { approved: false, code: 'PROBE_COUNT_INVALID', reason: '持久探针计数无效' };
@@ -85,15 +88,6 @@ export function gateTurn(input: TurnGateInput): PolicyDecision {
     };
   }
 
-  const unapprovedActualDisclosures = guard.actual_disclosed_ids.filter((id) => !allowed.has(id));
-  if (unapprovedActualDisclosures.length > 0) {
-    return {
-      approved: false,
-      code: 'DISCLOSURE_NOT_ALLOWED',
-      reason: `实际披露超出 Strategy 批准范围：${unapprovedActualDisclosures.join(', ')}`,
-    };
-  }
-
   if (
     !knownGoalKeys.has(strategy.focus_goal_key)
     || (strategy.probe !== null && strategy.probe.goal_key !== strategy.focus_goal_key)
@@ -107,11 +101,29 @@ export function gateTurn(input: TurnGateInput): PolicyDecision {
 
   // 两探针上限是教学红线（AGENTS.md §6 第 5 条）。已满时不得换 ID 继续追问，
   // 只能转为局部解释、低风险帮助或明确待定——由策略侧改动作，此处直接否决探针。
-  if (strategy.probe !== null && probesShownForFocusGoal >= PROBE_LIMIT_PER_CANONICAL_GOAL) {
+  if ((strategy.probe !== null || strategy.action === 'ask') && probesShownForFocusGoal >= PROBE_LIMIT_PER_CANONICAL_GOAL) {
     return {
       approved: false,
       code: 'PROBE_LIMIT_REACHED',
       reason: `目标 ${strategy.focus_goal_key} 已显示 ${probesShownForFocusGoal} 次探针，达到上限`,
+    };
+  }
+
+  return { approved: true };
+}
+
+/** 只有代码预检和真实 Guard 都通过，才准许展示/提交。 */
+export function gateTurn(input: TurnGateInput): PolicyDecision {
+  const preflight = gateStrategy(input);
+  if (!preflight.approved) return preflight;
+  const { strategy, guard } = input;
+  const allowed = new Set(strategy.allowed_disclosures);
+  const unapprovedActualDisclosures = guard.actual_disclosed_ids.filter((id) => !allowed.has(id));
+  if (unapprovedActualDisclosures.length > 0) {
+    return {
+      approved: false,
+      code: 'DISCLOSURE_NOT_ALLOWED',
+      reason: `实际披露超出 Strategy 批准范围：${unapprovedActualDisclosures.join(', ')}`,
     };
   }
 

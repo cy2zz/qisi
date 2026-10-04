@@ -1,0 +1,16 @@
+{
+  "source": "One scoped read-only SELECT on supplied session/request; credentials and original private content not saved",
+  "runStatus": "failed",
+  "errorCode": "DiagnosisEvidenceInvalid",
+  "nodes": [
+    {
+      "key": "diagnosis",
+      "status": "failed",
+      "promptVersion": "prompt-v3.0:chat-recovery-v1:answer-progress-v1:equivalent-route-v2",
+      "model": "gpt-5.5-2026-04-24",
+      "output": null,
+      "elapsedMs": 3753
+    }
+  ],
+  "limit": "Cannot determine which reference field failed from null output; no mathematical invalid judgment was persisted; no later nodes executed."
+}

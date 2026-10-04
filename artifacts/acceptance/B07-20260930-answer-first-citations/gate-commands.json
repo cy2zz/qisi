@@ -1,0 +1,35 @@
+[
+  {
+    "command": [
+      "cmd",
+      "/c",
+      "npm run test:task -- B07"
+    ],
+    "cwd": ".",
+    "exitCode": 1,
+    "tests": 0,
+    "log": "task-gate.log"
+  },
+  {
+    "command": [
+      "cmd",
+      "/c",
+      "npm run test:e2e:task -- B07"
+    ],
+    "cwd": ".",
+    "exitCode": 1,
+    "tests": 0,
+    "log": "e2e-gate.log"
+  },
+  {
+    "command": [
+      "cmd",
+      "/c",
+      "npm run test:stack -- B07"
+    ],
+    "cwd": ".",
+    "exitCode": 1,
+    "tests": 0,
+    "log": "stack-gate.log"
+  }
+]

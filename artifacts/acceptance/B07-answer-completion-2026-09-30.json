@@ -1,0 +1,520 @@
+{
+  "baseline": "qisi-3.1",
+  "acceptance_id": "B07-local-answer-completion",
+  "result": "implemented_waiting_review",
+  "executed_at": "2026-09-30T08:32:20.960Z",
+  "executed_by": "single_ai_self_review",
+  "application_commit": "2b4b03c261dfc6d657c18a131f419424670727fe",
+  "working_tree_dirty": true,
+  "layer": "service_unit_and_existing_mock_store_http_integration",
+  "environment": {
+    "os": "Windows",
+    "shell": "PowerShell",
+    "node": "v24.21.0",
+    "npm": "11.19.0",
+    "vitest": "5.0.1",
+    "database_engine": "not_used_in_this_validation"
+  },
+  "bank_version": "synthetic_fixture_only",
+  "scope_hash": "f9bc6bafaf0c50771103a5ffa280b663a9c0de8253e9b6798dac2b81ce6204a7",
+  "scope_hash_definition": "SHA-256 of JSON array of the two server code paths and their current SHA-256 values",
+  "model_version": "fixture_role_outputs_not_live_provider",
+  "prompt_version": "prompt-v3.0:chat-recovery-v1:answer-progress-v1",
+  "provider_mode": "mock_ModelPort",
+  "commands": [
+    {
+      "command": "npm --prefix server test -- src/features/analysis/problem-analysis.service.spec.ts",
+      "phase": "failure_first",
+      "exit_code": 1,
+      "tests": {
+        "passed": 58,
+        "failed": 12,
+        "skipped": 0,
+        "total": 70
+      },
+      "log": "red-tests.log",
+      "cwd": "D:/math/qisi-dashboard",
+      "result": "failed",
+      "stdout_stderr": "\r\n> @qisi/server@0.1.0 test\r\n> vitest run src/features/analysis/problem-analysis.service.spec.ts\r\n\r\n\r\n RUN  v5.0.1 D:/math/qisi-dashboard/server\r\n\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'PROBE_LIMIT_REACHED'\r\n}\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'HELP_DEPTH_MISMATCH'\r\n}\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'HELP_DEPTH_MISMATCH'\r\n}\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'HELP_DEPTH_MISMATCH'\r\n}\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'SCHEMA_INVALID'\r\n}\r\n[Nest] 25828  - 2026/09/22 14:25:48    WARN [ProblemAnalysisService] Object(2) {\r\n  event: 'teaching_node_failure_audit_failed',\r\n  nodeKey: 'diagnosis'\r\n}\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'PROBE_LIMIT_REACHED'\r\n}\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_UNKNOWN'\r\n}\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'SCHEMA_INVALID'\r\n}\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'PROBE_LIMIT_REACHED'\r\n}\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'BUDGET_EXHAUSTED'\r\n}\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25828  - 2026/09/30 16:08:19    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n ❯ src/features/analysis/problem-analysis.service.spec.ts (70 tests | 12 failed) 244ms\r\n   ❯ chat answer completion and acknowledgement (B07) (17)\r\n     × confirms the checked verbatim student solution without requiring new-disclosure permission or another model call 19ms\r\n     × repairs a stale ask after complete evidence before it can be rendered 3ms\r\n     × does not turn valid but partial into a completed ordinary answer 2ms\r\n     × does not turn missing prerequisite into a completed ordinary answer 3ms\r\n     × does not turn invalid answer into a completed ordinary answer 2ms\r\n     × does not turn unknown answer into a completed ordinary answer 2ms\r\n     × does not turn unreviewed alternative into a completed ordinary answer 6ms\r\n     × requires evidence for the current submission rather than accepting only an older correct answer 4ms\r\n     × carries guide context as non-evidence data and keeps it out of system instructions 5ms\r\n     × still requires a real Guard acceptance for a completed solution 3ms\r\n     × never subtracts actual new help from the Guard audit just because the student previously solved the task 2ms\r\n     × does not clear existing assistance or probe counts when acknowledging completion 2ms\r\nnode.exe : \r\nAt line:1 char:1\r\n+ & \"C:\\nvm4w\\nodejs/node.exe\" \"C:\\nvm4w\\nodejs/node_modules/npm/bin/np ...\r\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (:String) [], RemoteException\r\n    + FullyQualifiedErrorId : NativeCommandError\r\n \r\n⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯\r\n\r\n FAIL  src/features/analysis/problem-analysis.service.spec.ts > chat answer completion and acknowledgement (B07) > confirms the checked verbatim stu\r\ndent solution without requiring new-disclosure permission or another model call\r\nAssertionError: expected { Object (reply) } to match object { …(2) }\r\n\r\n- Expected\r\n+ Received\r\n\r\n  {\r\n-   \"audit\": {\r\n-     \"decisionIds\": [],\r\n-     \"probe\": null,\r\n-     \"scaffoldLevel\": 0,\r\n-     \"wholeTaskDisclosed\": false,\r\n-   },\r\n-   \"reply\": \"对，选法数和每种选法的贡献都考虑到了，系数是80，本题解答完整。\",\r\n+   \"reply\": \"系统暂时未能完成这条反馈的核对，因此没有展示未经检查的内容。这不是判定你答错，也不表示这道题无法继续。你可以稍后重试，或选择“局部解释”“直接讲解”，不必重复补充依据。\",\r\n  }\r\n\r\n ❯ src/features/analysis/problem-analysis.service.spec.ts:1230:20\r\n    1228|     const model = modelFor();\r\n    1229|     const result = await new ProblemAnalysisService(model).reply(input…\r\n    1230|     expect(result).toMatchObject({ reply: acknowledgement, audit: { de…\r\n       |                    ^\r\n    1231|     expect(result).not.toHaveProperty('currentVerdict'); // Explicit f…\r\n    1232|     expect(requestsOf(model).map(r => r.role)).toEqual(['diagnosis', '…\r\n\r\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/12]⎯\r\n\r\n FAIL  src/features/analysis/problem-analysis.service.spec.ts > chat answer completion and acknowledgement (B07) > repairs a stale ask after complet\r\ne evidence before it can be rendered\r\nAssertionError: expected 1 to be 2 // Object.is equality\r\n\r\n- Expected\r\n+ Received\r\n\r\n- 2\r\n+ 1\r\n\r\n ❯ src/features/analysis/problem-analysis.service.spec.ts:1249:27\r\n    1247|     const result = await new ProblemAnalysisService(model).reply(input…\r\n    1248|     expect(result.reply).toBe(acknowledgement);\r\n    1249|     expect(strategyCalls).toBe(2);\r\n       |                           ^\r\n    1250|     expect(onNode).toHaveBeenCalledWith(expect.objectContaining({ node…\r\n    1251|     expect(requestsOf(model).find(r => r.role === 'renderer')?.input).…\r\n\r\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/12]⎯\r\n\r\n FAIL  src/features/analysis/problem-analysis.service.spec.ts > chat answer completion and acknowledgement (B07) > does not turn valid but partial i\r\nnto a completed ordinary answer\r\n FAIL  src/features/analysis/problem-analysis.service.spec.ts > chat answer completion and acknowledgement (B07) > does not turn missing prerequisit\r\ne into a completed ordinary answer\r\n FAIL  src/features/analysis/problem-analysis.service.spec.ts > chat answer completion and acknowledgement (B07) > does not turn invalid answer into\r\n a completed ordinary answer\r\n FAIL  src/features/analysis/problem-analysis.service.spec.ts > chat answer completion and acknowledgement (B07) > does not turn unknown answer into\r\n a completed ordinary answer\r\n FAIL  src/features/analysis/problem-analysis.service.spec.ts > chat answer completion and acknowledgement (B07) > does not turn unreviewed alternat\r\nive into a completed ordinary answer\r\nAssertionError: expected { decisionIds: [], …(6) } to be undefined\r\n\r\n- Expected:\r\nundefined\r\n\r\n+ Received:\r\n{\r\n  \"decisionIds\": [],\r\n  \"focusGoalKey\": \"session-91:target\",\r\n  \"intervention\": \"observe\",\r\n  \"probe\": null,\r\n  \"probeGoalKey\": null,\r\n  \"scaffoldLevel\": 0,\r\n  \"wholeTaskDisclosed\": false,\r\n}\r\n\r\n ❯ src/features/analysis/problem-analysis.service.spec.ts:1264:26\r\n    1262|     const model = modelFor({ diagnosis: diagnosisFor(changes), strateg…\r\n    1263|     const result = await new ProblemAnalysisService(model).reply(input…\r\n    1264|     expect(result.audit).toBeUndefined();\r\n       |                          ^\r\n    1265|     expect(result.reply).not.toBe(acknowledgement);\r\n    1266|     expect(requestsOf(model).some(r => r.role === 'renderer')).toBe(fa…\r\n\r\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/12]⎯\r\n\r\n FAIL  src/features/analysis/problem-analysis.service.spec.ts > chat answer completion and acknowledgement (B07) > requires evidence for the current\r\n submission rather than accepting only an older correct answer\r\nAssertionError: expected { decisionIds: [], …(6) } to be undefined\r\n\r\n- Expected:\r\nundefined\r\n\r\n+ Received:\r\n{\r\n  \"decisionIds\": [],\r\n  \"focusGoalKey\": \"session-91:target\",\r\n  \"intervention\": \"observe\",\r\n  \"probe\": null,\r\n  \"probeGoalKey\": null,\r\n  \"scaffoldLevel\": 0,\r\n  \"wholeTaskDisclosed\": false,\r\n}\r\n\r\n ❯ src/features/analysis/problem-analysis.service.spec.ts:1277:26\r\n    1275|       history: [{ role: 'student', content: completeWork }], message: …\r\n    1276|     }));\r\n    1277|     expect(result.audit).toBeUndefined();\r\n       |                          ^\r\n    1278|     expect(requestsOf(model).some(r => r.role === 'renderer')).toBe(fa…\r\n    1279|   });\r\n\r\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/12]⎯\r\n\r\n FAIL  src/features/analysis/problem-analysis.service.spec.ts > chat answer completion and acknowledgement (B07) > carries guide context as non-evid\r\nence data and keeps it out of system instructions\r\nAssertionError: expected '题目：求 $(2x-1)^5$ 中 $x^3$ 的系数。\\n初步分析（未替…' to contain '得到x的三次项，应选几个2x、几个-1？'\r\n\r\n- Expected\r\n+ Received\r\n\r\n- 得到x的三次项，应选几个2x、几个-1？\r\n+ 题目：求 $(2x-1)^5$ 中 $x^3$ 的系数。\r\n+ 初步分析（未替代正式参考答案）：用项的选择和组合数计算指定项的系数。\r\n+ 关键条件：五个相同的二项式相乘\r\n+ 目标：求x的三次项的系数。\r\n\r\n ❯ src/features/analysis/problem-analysis.service.spec.ts:1287:50\r\n    1285|     const diagnosisRequest = requestsOf(model).find(r => r.role === 'd…\r\n    1286|     const diagnosticInput = diagnosisRequest.input as { confirmed_evid…\r\n    1287|     expect(diagnosticInput.private_reference_md).toContain(guide);\r\n       |                                                  ^\r\n    1288|     expect(diagnosticInput.confirmed_evidence.map(e => e.text_md)).not…\r\n    1289|     expect(diagnosisRequest.system).not.toContain(guide);\r\n\r\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/12]⎯\r\n\r\n FAIL  src/features/analysis/problem-analysis.service.spec.ts > chat answer completion and acknowledgement (B07) > still requires a real Guard accep\r\ntance for a completed solution\r\n\r\n Test Files  1 failed (1)\r\n      Tests  12 failed | 58 passed (70)\r\n   Start at  16:08:17\r\n   Duration  2.00s (import 67%, transform 19%, tests 14%)\r\n\r\nAssertionError: expected [ 'diagnosis', 'strategy', 'strategy' ] to deeply equal [ 'diagnosis', 'strategy', …(2) ]\r\n\r\n- Expected\r\n+ Received\r\n\r\n  [\r\n    \"diagnosis\",\r\n    \"strategy\",\r\n-   \"renderer\",\r\n-   \"guard\",\r\n+   \"strategy\",\r\n  ]\r\n\r\n ❯ src/features/analysis/problem-analysis.service.spec.ts:1320:48\r\n    1318|     expect(result.reply).toContain('系统');\r\n    1319|     expect(result.reply).not.toContain('请把你使用的依据再写一行');\r\n    1320|     expect(requestsOf(model).map(r => r.role)).toEqual(['diagnosis', '…\r\n       |                                                ^\r\n    1321|   });\r\n    1322|\r\n\r\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/12]⎯\r\n\r\n FAIL  src/features/analysis/problem-analysis.service.spec.ts > chat answer completion and acknowledgement (B07) > never subtracts actual new help f\r\nrom the Guard audit just because the student previously solved the task\r\nAssertionError: expected { …(7) } to be undefined\r\n\r\n- Expected:\r\nundefined\r\n\r\n+ Received:\r\n{\r\n  \"decisionIds\": [\r\n    \"session-91:target\",\r\n  ],\r\n  \"focusGoalKey\": \"session-91:target\",\r\n  \"intervention\": \"observe\",\r\n  \"probe\": null,\r\n  \"probeGoalKey\": null,\r\n  \"scaffoldLevel\": 0,\r\n  \"wholeTaskDisclosed\": false,\r\n}\r\n\r\n ❯ src/features/analysis/problem-analysis.service.spec.ts:1329:26\r\n    1327|     });\r\n    1328|     const result = await new ProblemAnalysisService(model).reply(input…\r\n    1329|     expect(result.audit).toBeUndefined();\r\n       |                          ^\r\n    1330|     expect(result.reply).not.toBe(acknowledgement);\r\n    1331|     expect(requestsOf(model).filter(r => r.role === 'guard')).toHaveLe…\r\n\r\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/12]⎯\r\n\r\n FAIL  src/features/analysis/problem-analysis.service.spec.ts > chat answer completion and acknowledgement (B07) > does not clear existing assistanc\r\ne or probe counts when acknowledging completion\r\nAssertionError: expected undefined to be null\r\n\r\n- Expected:\r\nnull\r\n\r\n+ Received:\r\nundefined\r\n\r\n ❯ src/features/analysis/problem-analysis.service.spec.ts:1339:33\r\n    1337|     const model = modelFor();\r\n    1338|     const result = await new ProblemAnalysisService(model).reply(input…\r\n    1339|     expect(result.audit?.probe).toBeNull();\r\n       |                                 ^\r\n    1340|     expect(result.reply).toBe(acknowledgement);\r\n    1341|     expect(teachingState).toEqual(before);\r\n\r\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/12]⎯\r\n\r\n",
+      "log_capture": "PowerShell Tee-Object temporary UTF-16LE file, decoded below as UTF-8 JSON text"
+    },
+    {
+      "command": "npm --prefix server test -- src/features/analysis/problem-analysis.service.spec.ts",
+      "phase": "first_implementation",
+      "exit_code": 0,
+      "tests": {
+        "passed": 70,
+        "failed": 0,
+        "skipped": 0,
+        "total": 70
+      },
+      "log": "focused-tests-1.log",
+      "cwd": "D:/math/qisi-dashboard",
+      "result": "passed",
+      "stdout_stderr": "\r\n> @qisi/server@0.1.0 test\r\n> vitest run src/features/analysis/problem-analysis.service.spec.ts\r\n\r\n\r\n RUN  v5.0.1 D:/math/qisi-dashboard/server\r\n\r\n[Nest] 19692  - 2026/09/30 16:09:56    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:56    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'PROBE_LIMIT_REACHED'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:56    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'HELP_DEPTH_MISMATCH'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:56    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:56    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'HELP_DEPTH_MISMATCH'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:56    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'HELP_DEPTH_MISMATCH'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:56    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'SCHEMA_INVALID'\r\n}\r\n[Nest] 19692  - 2026/09/22 14:25:48    WARN [ProblemAnalysisService] Object(2) {\r\n  event: 'teaching_node_failure_audit_failed',\r\n  nodeKey: 'diagnosis'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:56    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'PROBE_LIMIT_REACHED'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:56    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:56    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_UNKNOWN'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:56    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'SCHEMA_INVALID'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:56    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:56    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'PROBE_LIMIT_REACHED'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:57    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:57    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:57    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:57    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'BUDGET_EXHAUSTED'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:57    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:57    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:57    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:57    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:57    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:57    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:57    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:57    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:57    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:57    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:57    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:57    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_UNKNOWN'\r\n}\r\n[Nest] 19692  - 2026/09/30 16:09:57    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n\r\n Test Files  1 passed (1)\r\n      Tests  70 passed (70)\r\n   Start at  16:09:55\r\n   Duration  1.81s (import 64%, transform 23%, tests 13%)\r\n\r\n",
+      "log_capture": "PowerShell Tee-Object temporary UTF-16LE file, decoded below as UTF-8 JSON text"
+    },
+    {
+      "command": "npm --prefix server test -- src/features/analysis/problem-analysis.service.spec.ts",
+      "phase": "partial_goal_failure_first",
+      "exit_code": 1,
+      "tests": {
+        "passed": 82,
+        "failed": 1,
+        "skipped": 0,
+        "total": 83
+      },
+      "log": "focused-tests-2-red.log",
+      "cwd": "D:/math/qisi-dashboard",
+      "result": "failed",
+      "stdout_stderr": "\r\n> @qisi/server@0.1.0 test\r\n> vitest run src/features/analysis/problem-analysis.service.spec.ts\r\n\r\n\r\n RUN  v5.0.1 D:/math/qisi-dashboard/server\r\n\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'PROBE_LIMIT_REACHED'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'HELP_DEPTH_MISMATCH'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'HELP_DEPTH_MISMATCH'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'HELP_DEPTH_MISMATCH'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'SCHEMA_INVALID'\r\n}\r\n[Nest] 5240  - 2026/09/22 14:25:48    WARN [ProblemAnalysisService] Object(2) {\r\n  event: 'teaching_node_failure_audit_failed',\r\n  nodeKey: 'diagnosis'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'PROBE_LIMIT_REACHED'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_UNKNOWN'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'SCHEMA_INVALID'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'PROBE_LIMIT_REACHED'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'BUDGET_EXHAUSTED'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_UNKNOWN'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 5240  - 2026/09/30 16:17:08    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n ❯ src/features/analysis/problem-analysis.service.spec.ts (83 tests | 1 failed) 201ms\r\n   ❯ chat answer completion and acknowledgement (B07) (30)\r\n     × repairs a question about an already satisfied goal instead of reteaching that step 11ms\r\nnode.exe : \r\nAt line:1 char:1\r\n+ & \"C:\\nvm4w\\nodejs/node.exe\" \"C:\\nvm4w\\nodejs/node_modules/npm/bin/np ...\r\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (:String) [], RemoteException\r\n    + FullyQualifiedErrorId : NativeCommandError\r\n \r\n⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯\r\n\r\n FAIL  src/features/analysis/problem-analysis.service.spec.ts > chat answer completion and acknowledgement (B07) > repairs a question about an alrea\r\ndy satisfied goal instead of reteaching that step\r\nAssertionError: expected 1 to be 2 // Object.is equality\r\n\r\n- Expected\r\n+ Received\r\n\r\n- 2\r\n+ 1\r\n\r\n ❯ src/features/analysis/problem-analysis.service.spec.ts:1354:19\r\n    1352|       ? Promise.resolve(response(++plans === 1 ? { ...followup, focus_…\r\n    1353|     await new ProblemAnalysisService(model).reply(inputFor());\r\n    1354|     expect(plans).toBe(2);\r\n       |                   ^\r\n    1355|     const guardInput = requestsOf(model).find(r => r.role === 'guard')…\r\n    1356|     expect(guardInput.reference_md).toContain('\"status\":\"incomplete\"');\r\n\r\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯\r\n\r\n\r\n Test Files  1 failed (1)\r\n      Tests  1 failed | 82 passed (83)\r\n   Start at  16:17:06\r\n   Duration  1.99s (import 66%, transform 22%, tests 11%)\r\n\r\n",
+      "log_capture": "PowerShell Tee-Object temporary UTF-16LE file, decoded below as UTF-8 JSON text"
+    },
+    {
+      "command": "npm --prefix server test -- src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/problem-analysis.recovery.integration.spec.ts src/features/analysis/turn-time-budget.spec.ts test/workflows/policy-gate.spec.ts",
+      "phase": "final_targeted",
+      "exit_code": 0,
+      "tests": {
+        "passed": 116,
+        "failed": 0,
+        "skipped": 0,
+        "total": 116
+      },
+      "test_files": {
+        "passed": 4,
+        "failed": 0,
+        "skipped": 0,
+        "total": 4
+      },
+      "log": "targeted-tests.log",
+      "cwd": "D:/math/qisi-dashboard",
+      "result": "passed",
+      "stdout_stderr": "\r\n> @qisi/server@0.1.0 test\r\n> vitest run src/features/analysis/problem-analysis.service.spec.ts src/features/analysis/problem-analysis.recovery.integration.spec.ts src/features/analysis/turn-time-budget.spec.ts test/workflows/policy-gate.spec.ts\r\n\r\n\r\n RUN  v5.0.1 D:/math/qisi-dashboard/server\r\n\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'PROBE_LIMIT_REACHED'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'HELP_DEPTH_MISMATCH'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'HELP_DEPTH_MISMATCH'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'HELP_DEPTH_MISMATCH'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'SCHEMA_INVALID'\r\n}\r\n[Nest] 25616  - 2026/09/22 14:25:48    WARN [ProblemAnalysisService] Object(2) {\r\n  event: 'teaching_node_failure_audit_failed',\r\n  nodeKey: 'diagnosis'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'PROBE_LIMIT_REACHED'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_UNKNOWN'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'SCHEMA_INVALID'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'PROBE_LIMIT_REACHED'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'BUDGET_EXHAUSTED'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_UNKNOWN'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 25616  - 2026/09/30 16:20:48    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n\r\n Test Files  4 passed (4)\r\n      Tests  116 passed (116)\r\n   Start at  16:20:43\r\n   Duration  6.54s (import 66%, tests 17%, transform 17%)\r\n\r\n",
+      "log_capture": "PowerShell Tee-Object temporary UTF-16LE file, decoded below as UTF-8 JSON text"
+    },
+    {
+      "command": "npm --prefix server test",
+      "phase": "final_full_server",
+      "exit_code": 0,
+      "tests": {
+        "passed": 698,
+        "failed": 0,
+        "skipped": 19,
+        "total": 717
+      },
+      "test_files": {
+        "passed": 75,
+        "failed": 0,
+        "skipped": 3,
+        "total": 78
+      },
+      "log": "full-server-tests.log",
+      "cwd": "D:/math/qisi-dashboard",
+      "result": "passed",
+      "stdout_stderr": "\r\n> @qisi/server@0.1.0 test\r\n> vitest run\r\n\r\n\r\n RUN  v5.0.1 D:/math/qisi-dashboard/server\r\n\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'PROBE_LIMIT_REACHED'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'HELP_DEPTH_MISMATCH'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'HELP_DEPTH_MISMATCH'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'HELP_DEPTH_MISMATCH'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'SCHEMA_INVALID'\r\n}\r\n[Nest] 18296  - 2026/09/22 14:25:48    WARN [ProblemAnalysisService] Object(2) {\r\n  event: 'teaching_node_failure_audit_failed',\r\n  nodeKey: 'diagnosis'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'PROBE_LIMIT_REACHED'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_UNKNOWN'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'SCHEMA_INVALID'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'PROBE_LIMIT_REACHED'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'BUDGET_EXHAUSTED'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_UNKNOWN'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'GUARD_REJECTED'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 18296  - 2026/09/30 16:22:59    WARN [ProblemAnalysisService] Object(4) {\r\n  event: 'chat_feedback_unavailable',\r\n  requestId: '11111111-1111-4111-8111-111111111111',\r\n  sessionId: '91',\r\n  reason: 'STRATEGY_INVALID'\r\n}\r\n[Nest] 10432  - 2026/09/30 16:23:06    WARN [ProblemAnalysisController] Bank preparation unavailable for question 804: Error\r\n[Nest] 10432  - 2026/09/22 14:25:48    WARN [ProblemAnalysisController] Object(3) {\r\n  event: 'teaching_turn_failed',\r\n  code: 'MODEL_NODE_TIMEOUT',\r\n  runId: 'fixture-run'\r\n}\r\n[Nest] 10432  - 2026/09/22 14:25:23    WARN [ProblemAnalysisController] Object(3) {\r\n  event: 'teaching_turn_failed',\r\n  code: 'TURN_CANCELLED',\r\n  runId: 'fixture-run'\r\n}\r\n[Nest] 10432  - 2026/09/22 14:25:33    WARN [ProblemAnalysisController] Object(3) {\r\n  event: 'teaching_turn_failed',\r\n  code: 'TURN_DEADLINE_EXCEEDED',\r\n  runId: 'fixture-run'\r\n}\r\n[Nest] 10432  - 2026/09/22 14:25:23    WARN [ProblemAnalysisController] Object(3) {\r\n  event: 'teaching_turn_failed',\r\n  code: 'TURN_FAILED',\r\n  runId: 'fixture-run'\r\n}\r\n\r\n Test Files  75 passed | 3 skipped (78)\r\n      Tests  698 passed | 19 skipped (717)\r\n   Start at  16:22:52\r\n   Duration  29.22s (import 73%, tests 13%, transform 12%, worker 1%)\r\n\r\n    Isolate  78 workers spawned · ~630ms startup each (spawn + environment, per file)\r\n             at least ~6.39s faster with isolate: false — reuses workers across files instead of one per file\r\n\r\n",
+      "log_capture": "PowerShell Tee-Object temporary UTF-16LE file, decoded below as UTF-8 JSON text"
+    },
+    {
+      "command": "npm --prefix server run typecheck -- --incremental false",
+      "phase": "typecheck",
+      "exit_code": 0,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0,
+        "total": 0
+      },
+      "log": "typecheck.log",
+      "cwd": "D:/math/qisi-dashboard",
+      "result": "passed",
+      "stdout_stderr": "\r\n> @qisi/server@0.1.0 typecheck\r\n> tsc --noEmit --pretty false --incremental false\r\n\r\n",
+      "log_capture": "PowerShell Tee-Object temporary UTF-16LE file, decoded below as UTF-8 JSON text"
+    },
+    {
+      "command": "npm --prefix server run lint",
+      "phase": "lint",
+      "exit_code": 0,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0,
+        "total": 0
+      },
+      "log": "lint.log",
+      "cwd": "D:/math/qisi-dashboard",
+      "result": "passed",
+      "stdout_stderr": "\r\n> @qisi/server@0.1.0 lint\r\n> eslint src test --max-warnings=0\r\n\r\n",
+      "log_capture": "PowerShell Tee-Object temporary UTF-16LE file, decoded below as UTF-8 JSON text"
+    },
+    {
+      "command": "npm --prefix server run build -- --tsBuildInfoFile C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-b07-answer-completion-hzuqGl\\server-build.tsbuildinfo",
+      "phase": "build",
+      "exit_code": 0,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0,
+        "total": 0
+      },
+      "log": "build.log",
+      "cwd": "D:/math/qisi-dashboard",
+      "result": "passed",
+      "stdout_stderr": "\r\n> @qisi/server@0.1.0 build\r\n> tsc -p tsconfig.build.json --tsBuildInfoFile C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-b07-answer-completion-hzuqGl\\server-build.tsbuildinfo\r\n\r\n",
+      "log_capture": "PowerShell Tee-Object temporary UTF-16LE file, decoded below as UTF-8 JSON text"
+    },
+    {
+      "command": "npm run test:task -- B07",
+      "phase": "task_gate",
+      "exit_code": 1,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0,
+        "total": 0
+      },
+      "log": "test-task.log",
+      "reason": "Unsupported task gate: B07",
+      "cwd": "D:/math/qisi-dashboard",
+      "result": "failed",
+      "stdout_stderr": "\r\n> qisi-ai@0.1.0 test:task\r\n> node scripts/run-task-gate.mjs unit B07\r\n\r\nnode.exe : Unsupported task gate: B07. Add it to SUPPORTED_TASKS in scripts/run-task-gate.mjs first.\r\nAt line:1 char:1\r\n+ & \"C:\\nvm4w\\nodejs/node.exe\" \"C:\\nvm4w\\nodejs/node_modules/npm/bin/np ...\r\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (Unsupported tas...gate.mjs first.:String) [], RemoteException\r\n    + FullyQualifiedErrorId : NativeCommandError\r\n \r\n",
+      "log_capture": "PowerShell Tee-Object temporary UTF-16LE file, decoded below as UTF-8 JSON text"
+    },
+    {
+      "command": "npm run test:e2e:task -- B07",
+      "phase": "e2e_gate",
+      "exit_code": 1,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0,
+        "total": 0
+      },
+      "log": "test-e2e-task.log",
+      "reason": "Unsupported task gate: B07",
+      "cwd": "D:/math/qisi-dashboard",
+      "result": "failed",
+      "stdout_stderr": "\r\n> qisi-ai@0.1.0 test:e2e:task\r\n> node scripts/run-task-gate.mjs e2e B07\r\n\r\nnode.exe : Unsupported task gate: B07. Add it to SUPPORTED_TASKS in scripts/run-task-gate.mjs first.\r\nAt line:1 char:1\r\n+ & \"C:\\nvm4w\\nodejs/node.exe\" \"C:\\nvm4w\\nodejs/node_modules/npm/bin/np ...\r\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (Unsupported tas...gate.mjs first.:String) [], RemoteException\r\n    + FullyQualifiedErrorId : NativeCommandError\r\n \r\n",
+      "log_capture": "PowerShell Tee-Object temporary UTF-16LE file, decoded below as UTF-8 JSON text"
+    },
+    {
+      "command": "npm run test:stack -- B07",
+      "phase": "stack_gate",
+      "exit_code": 1,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0,
+        "total": 0
+      },
+      "log": "test-stack.log",
+      "reason": "Unsupported task gate: B07",
+      "cwd": "D:/math/qisi-dashboard",
+      "result": "failed",
+      "stdout_stderr": "\r\n> qisi-ai@0.1.0 test:stack\r\n> node scripts/run-task-gate.mjs stack B07\r\n\r\nnode.exe : Unsupported task gate: B07. Add it to SUPPORTED_TASKS in scripts/run-task-gate.mjs first.\r\nAt line:1 char:1\r\n+ & \"C:\\nvm4w\\nodejs/node.exe\" \"C:\\nvm4w\\nodejs/node_modules/npm/bin/np ...\r\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (Unsupported tas...gate.mjs first.:String) [], RemoteException\r\n    + FullyQualifiedErrorId : NativeCommandError\r\n \r\n",
+      "log_capture": "PowerShell Tee-Object temporary UTF-16LE file, decoded below as UTF-8 JSON text"
+    },
+    {
+      "command": "python qisi-sdd-v3/scripts/validate_spec.py",
+      "phase": "static_spec",
+      "cwd": "C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-b07-answer-completion-hzuqGl\\spec-check",
+      "exit_code": 1,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0,
+        "total": 0
+      },
+      "static_checks": {
+        "passed": 864,
+        "failed": 12,
+        "skipped": 0,
+        "total": 876
+      },
+      "log": "validate-spec.log",
+      "reason": "Existing validator requires all tasks planned and all reuse dependencies uninstalled; relevant source files unchanged from HEAD.",
+      "result": "failed",
+      "stdout_stderr": "{\r\n  \"baseline\": \"qisi-3.1\",\r\n  \"generated_at\": \"2026-09-30T08:27:55.278658+00:00\",\r\n  \"scope\": \"specification_only\",\r\n  \"passed\": 864,\r\n  \"failed\": 12,\r\n  \"application_tests\": \"not_run\",\r\n  \"mysql_ddl_tests\": \"not_run\",\r\n  \"langgraph_runtime_tests\": \"not_run\",\r\n  \"real_model_tests\": \"not_run\",\r\n  \"student_learning_evaluation\": \"not_evaluated\",\r\n  \"limitations\": [\r\n    \"Semantic oracles cover the supplied cases, not all production behavior.\",\r\n    \"MySQL DDL is not executed by this validator; validate_mysql.py and application integration tests must run against real MySQL 8.4.\",\r\n    \"No official question bank, provider calls, deployment or learning experiment was executed.\"\r\n  ]\r\n}\r\nFAIL B01:card complete \r\nFAIL B02:card complete \r\nFAIL B03:card complete \r\nFAIL B04:card complete \r\nFAIL B05:card complete \r\nFAIL A06:card complete \r\nFAIL B06:card complete \r\nFAIL B07:card complete \r\nFAIL B08:card complete \r\nFAIL B09:card complete \r\nFAIL B10:card complete \r\nFAIL reuse not pretended installed \r\n",
+      "log_capture": "PowerShell Tee-Object temporary UTF-16LE file, decoded below as UTF-8 JSON text"
+    },
+    {
+      "command": "python qisi-sdd-v3/scripts/validate_stack.py | Tee-Object -FilePath <temp>/validate-stack.log | Select-Object -First 12",
+      "phase": "static_stack_incomplete_capture",
+      "cwd": "C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-b07-answer-completion-hzuqGl\\spec-check",
+      "exit_code": -1,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0,
+        "total": 0
+      },
+      "log": "validate-stack-incomplete.log",
+      "reason": "Output pipeline terminated early; not accepted as passing evidence. Repeated with complete capture.",
+      "result": "failed",
+      "stdout_stderr": "{\r\n  \"scope\": \"static_specification_only\",\r\n  \"passed\": 136,\r\n  \"failed\": 0,\r\n  \"checks\": [\r\n    {\r\n      \"check\": \"stack:baseline\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"stack:node\",\r\n      \"passed\": true\r\n",
+      "log_capture": "PowerShell Tee-Object temporary UTF-16LE file, decoded below as UTF-8 JSON text"
+    },
+    {
+      "command": "python qisi-sdd-v3/scripts/validate_stack.py",
+      "phase": "static_stack_final",
+      "cwd": "C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-b07-answer-completion-hzuqGl\\spec-check",
+      "exit_code": 0,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0,
+        "total": 0
+      },
+      "static_checks": {
+        "passed": 136,
+        "failed": 0,
+        "skipped": 0,
+        "total": 136
+      },
+      "log": "validate-stack-final.log",
+      "result": "passed",
+      "stdout_stderr": "{\r\n  \"scope\": \"static_specification_only\",\r\n  \"passed\": 136,\r\n  \"failed\": 0,\r\n  \"checks\": [\r\n    {\r\n      \"check\": \"stack:baseline\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"stack:node\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"stack:node_patch\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"stack:react\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"stack:frontend_framework\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"stack:frontend_build_tool\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"stack:backend_framework\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"stack:language\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"stack:database\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"stack:database_driver\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"stack:data_access\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"stack:orchestration\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"stack:model_sdk\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"patch versions honestly pending\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"runtime NestJS worker\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"runtime mysql only\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"domain owns final transaction\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no model sdk automatic retries\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"API and worker separated\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"single recovery worker\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"dependency:@nestjs/core\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"dependency:@nestjs/common\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"dependency:vite\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"dependency:@vitejs/plugin-react\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"dependency:react\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"dependency:mysql2\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"dependency:kysely\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"dependency:@langchain/langgraph\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"dependency:ai\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"dependency:tailwindcss\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"dependency:zod\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"dependency:@playwright/test\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"removed full-stack framework absent\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no sqlite runtime dependency\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"mysql 19 unique tables\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"all tables InnoDB\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"native JSON columns\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"mysql explicit foreign keys\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"probe cap enforced contract\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no sqlite SQL\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"table:workflow_checkpoints\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"table:workflow_writes\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"table:schema_migrations\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"file:adr/ADR-001-stack.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"file:contracts/workflow-persistence.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"file:contracts/mysql.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"file:acceptance/stack-cases.json\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"file:scripts/validate_mysql.py\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"file:publication/local-revision-status.json\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"stack cases unique\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"stack runtime acceptance not fabricated\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"baseline:README.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no active old app directory:README.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"stack reference:README.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"baseline:AGENTS.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no active old app directory:AGENTS.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"stack reference:AGENTS.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"baseline:prd.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no active old app directory:prd.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"stack reference:prd.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"baseline:plan.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no active old app directory:plan.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"stack reference:plan.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"baseline:design-v6.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no active old app directory:design-v6.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"stack reference:design-v6.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"baseline:contracts/README.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no active old app directory:contracts/README.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"stack reference:contracts/README.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"baseline:prompts/developer-a.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no active old app directory:prompts/developer-a.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"stack reference:prompts/developer-a.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"baseline:prompts/developer-b.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no active old app directory:prompts/developer-b.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"stack reference:prompts/developer-b.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"baseline:prompts/developer-single.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no active old app directory:prompts/developer-single.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"stack reference:prompts/developer-single.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"unique task cards:plan.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:plan.md:A01\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:plan.md:B01\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:plan.md:A02\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:plan.md:B02\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:plan.md:A03\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:plan.md:B03\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:plan.md:A04\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:plan.md:B04\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:plan.md:A05\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:plan.md:B05\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:plan.md:A06\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:plan.md:B06\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:plan.md:A07\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:plan.md:B07\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:plan.md:A08\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:plan.md:B08\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:plan.md:A09\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:plan.md:B09\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:plan.md:A10\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:plan.md:B10\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"unique task cards:prd.md\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:prd.md:A01\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:prd.md:B01\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:prd.md:A02\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:prd.md:B02\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:prd.md:A03\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:prd.md:B03\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:prd.md:A04\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:prd.md:B04\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:prd.md:A05\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:prd.md:B05\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:prd.md:A06\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:prd.md:B06\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:prd.md:A07\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:prd.md:B07\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:prd.md:A08\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:prd.md:B08\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:prd.md:A09\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:prd.md:B09\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:prd.md:A10\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"task steps synchronized:prd.md:B10\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no stale directive:plan.md:SQLite迁移\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no stale directive:plan.md:默认原生TS编排ADR\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no stale directive:plan.md:LangGraph.js为候选非必装\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no stale directive:plan.md:候选暂不作为基线依赖\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no stale directive:prd.md:SQLite迁移\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no stale directive:prd.md:默认原生TS编排ADR\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no stale directive:prd.md:LangGraph.js为候选非必装\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no stale directive:prd.md:候选暂不作为基线依赖\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no stale directive:reuse.md:SQLite迁移\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no stale directive:reuse.md:默认原生TS编排ADR\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no stale directive:reuse.md:LangGraph.js为候选非必装\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no stale directive:reuse.md:候选暂不作为基线依赖\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no stale directive:prompts/developer-b.md:SQLite迁移\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no stale directive:prompts/developer-b.md:默认原生TS编排ADR\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no stale directive:prompts/developer-b.md:LangGraph.js为候选非必装\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"no stale directive:prompts/developer-b.md:候选暂不作为基线依赖\",\r\n      \"passed\": true\r\n    }\r\n  ]\r\n}\r\n",
+      "log_capture": "PowerShell Tee-Object temporary UTF-16LE file, decoded below as UTF-8 JSON text"
+    },
+    {
+      "command": "python -m unittest discover -s qisi-sdd-v3/scripts -p test_validate_mysql.py",
+      "phase": "mysql_preflight_unit_no_database",
+      "cwd": "C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-b07-answer-completion-hzuqGl\\spec-check",
+      "exit_code": 0,
+      "tests": {
+        "passed": 5,
+        "failed": 0,
+        "skipped": 0,
+        "total": 5
+      },
+      "log": "mysql-safety-tests.log",
+      "result": "passed",
+      "stdout_stderr": "python : .....\r\nAt line:2 char:32\r\n+ ... NG='utf-8'; python -m unittest discover -s qisi-sdd-v3/scripts -p tes ...\r\n+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (.....:String) [], RemoteException\r\n    + FullyQualifiedErrorId : NativeCommandError\r\n \r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.001s\r\n\r\nOK\r\n",
+      "log_capture": "PowerShell Tee-Object temporary UTF-16LE file, decoded below as UTF-8 JSON text"
+    },
+    {
+      "command": "git diff --check -- server/src/features/analysis/problem-analysis.service.ts server/src/features/analysis/problem-analysis.service.spec.ts qisi-sdd-v3/changes/B07.md qisi-sdd-v3/handoffs/B07.md",
+      "phase": "diff_check_before_format_fix",
+      "exit_code": 2,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0,
+        "total": 0
+      },
+      "log": "diff-check-before-format-fix.log",
+      "reason": "Only newly appended change section used CRLF instead of existing LF; corrected that suffix without altering historical bytes.",
+      "cwd": "D:/math/qisi-dashboard",
+      "result": "failed",
+      "stdout_stderr": "qisi-sdd-v3/changes/B07.md:142: trailing whitespace.\r\n+\r\nqisi-sdd-v3/changes/B07.md:143: trailing whitespace.\r\n+\r\nqisi-sdd-v3/changes/B07.md:144: trailing whitespace.\r\n+## 2026-09-30 普通作答完成识别与证据确认：Specify\r\nqisi-sdd-v3/changes/B07.md:145: trailing whitespace.\r\n+\r\nqisi-sdd-v3/changes/B07.md:146: trailing whitespace.\r\n+- 单 AI / B07 局部教学反馈修复（关联 B03/B04 已会不教）/ qisi-3.1。用户在完成方案后授权“开始吧”；延续 chat-feedback-recovery 现有补丁，保留所有既有未提交改动。前置未全部 done，仅修当前已存在的适配链路，不更改任务整卡状态。\r\nqisi-sdd-v3/changes/B07.md:147: trailing whitespace.\r\n+- 假设：当前代码没有“完整有效作答不得继续追问”的策略不变量；所有 approved_facts 的 decision_ids 都要求列入新增披露集合，使已核验学生原话的确认也进入失败修复。用可控 fixture 断言验证，不声称已取得用户真实 request 的 Guard 根因。\r\nqisi-sdd-v3/changes/B07.md:148: trailing whitespace.\r\n+- 写集严格为 problem-analysis.service.ts、其同名 spec.ts、本 change、handoffs/B07.md 和 artifacts/acceptance/B07-answer-completion-2026-09-30.json。关联已有 ravenspec/changes/chat-feedback-recovery/，不重建远端任务、归档或改共享 Schema、提示注册表、UI/DDL/依赖/env。\r\nqisi-sdd-v3/changes/B07.md:149: trailing whitespace.\r\n+- 输入：服务端 reservation 的当前输入和历史、已确认 revision、诊断、主任务路线。输出：经过 Strategy/Renderer/Guard 与既有 PolicyGate 的公开回复。只作对话收尾；不改变 finish_problem 的公共 verdict/领域提交语义，不授予独立掌握。\r\nqisi-sdd-v3/changes/B07.md:150: trailing whitespace.\r\n+- 不变量：valid 的局部步骤不等于完整；空/无效路线、缺终点/前置、仅旧证据、unknown/invalid、仅异解子路线不能触发自动收尾。当前完整证据时 attempt 必须 complete/observe、无探针、无新作答要求。确认豁免仅用于经过引用校验的原文事实且对应已满足决策；Guard 仍独立核对数学和新增披露，不能从 actual_disclosed_ids 中扣除帮助或擦除曝光。\r\nqisi-sdd-v3/changes/B07.md:151: trailing whitespace.\r\n+- 上下文：在现有 Diagnosis 私有参考字符串的长度限额内补充标明为非证据的导师语境；不重复学生全文，不把导师话变成 confirmed_evidence，不截掉原私有参考。复用现有 Schema 字段向 Strategy/Guard 传递当前进度，Renderer 不获得私有诊断。\r\nqisi-sdd-v3/changes/B07.md:152: trailing whitespace.\r\n+- 失败先行：完整后仍追问、学生原文确认误拦、valid 但缺决策/终点仍收尾、旧证据/子路线/unknown 误收尾；负例包含引用伪造、扩写原文、未满足决策、真实新增帮助、Guard unknown。连续合成场景覆盖选项正确→漏组合数→完整答案→再次确认→改错答案。\r\nqisi-sdd-v3/changes/B07.md:153: trailing whitespace.\r\n+- 验证：server 定向 Vitest、全量 test、typecheck --incremental false、lint、build（Temp tsbuildinfo）；既有 HTTP/SSE 回归；根 B07 任务门禁按实际命令尝试并如实记录。真实模型/业务库/浏览器真人会话不自动调用；真模型误拦截率与教学效果 not_run。\r\nqisi-sdd-v3/changes/B07.md:154: trailing whitespace.\r\n+- 回滚：仅反向本轮相对开始快照的增量；不覆盖既有 B07/A03 或其他协作者修改。审查 self_review，最终保留 implemented_waiting_review。\r\n",
+      "log_capture": "PowerShell Tee-Object temporary UTF-16LE file, decoded below as UTF-8 JSON text"
+    },
+    {
+      "command": "git diff --check -- server/src/features/analysis/problem-analysis.service.ts server/src/features/analysis/problem-analysis.service.spec.ts qisi-sdd-v3/changes/B07.md qisi-sdd-v3/handoffs/B07.md",
+      "cwd": "D:/math/qisi-dashboard",
+      "phase": "final_diff_check",
+      "exit_code": 0,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0,
+        "total": 0
+      },
+      "result": "passed",
+      "stdout_stderr": ""
+    }
+  ],
+  "expected": [
+    "Ordinary complete attempt acknowledges checked student reasoning without another question or new help.",
+    "Partial valid work is not whole-task completion; ask only unsatisfied canonical goals.",
+    "Only exact validated student evidence may enter acknowledgment without new-disclosure permission; independent Guard still decides.",
+    "Current corrections supersede older correctness; guide context is not student evidence or a system instruction.",
+    "Unknown/rejected Guard, forged references, unsatisfied prerequisites and student subroutes cannot bypass policy."
+  ],
+  "actual": {
+    "targeted_tests": {
+      "passed": 116,
+      "failed": 0,
+      "skipped": 0,
+      "total": 116
+    },
+    "full_server_tests": {
+      "passed": 698,
+      "failed": 0,
+      "skipped": 19,
+      "total": 717
+    },
+    "typecheck": "passed",
+    "lint": "passed",
+    "build": "passed",
+    "formal_B07_gates": "failed_unsupported_0_tests",
+    "static_spec": "failed_864_passed_12_existing_status_assertions",
+    "static_stack": "passed_136",
+    "mysql_safety_unit": "passed_5_no_database",
+    "normal_completion_model_calls": 4,
+    "latency_measurement": "not_run",
+    "formal_session_finish_unchanged": true,
+    "draft_path_modified_this_turn": false,
+    "final_diff_check": "passed"
+  },
+  "evidence_files": [
+    "artifacts/acceptance/B07-answer-completion-2026-09-30.json"
+  ],
+  "changed_files": [
+    {
+      "path": "server/src/features/analysis/problem-analysis.service.ts",
+      "before_sha256": "20d64db9dc142c05c07aa27a0e7493d4b9fba2c60090cb3bc8c8b44760eefb62",
+      "after_sha256": "33ae1a2b597d4386f9239afb168f1666d47e2a958c7a78a0dca9407a7106e547",
+      "snapshot": "C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-b07-answer-completion-hzuqGl\\server__src__features__analysis__problem-analysis.service.ts.before"
+    },
+    {
+      "path": "server/src/features/analysis/problem-analysis.service.spec.ts",
+      "before_sha256": "f0595b3b627f9cca3ac7a5676e5d3c86a451ca7e74cdd70008c3eba346a708f4",
+      "after_sha256": "fd806b440c29862b1c937a027508dbcd0be7babbc0d4d0260f192aa94526d7a2",
+      "snapshot": "C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-b07-answer-completion-hzuqGl\\server__src__features__analysis__problem-analysis.service.spec.ts.before"
+    },
+    {
+      "path": "qisi-sdd-v3/changes/B07.md",
+      "before_sha256": "036154cea5ac271fdcd28f48ecff655d9b29d40faded7fa152289d49c3c71960",
+      "after_sha256": "f439451bf233b7ba668a9bdd365e3e3bba53314cccdd13655ca0ad4e5c6e7ac3",
+      "snapshot": "C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-b07-answer-completion-hzuqGl\\qisi-sdd-v3__changes__B07.md.before"
+    },
+    {
+      "path": "qisi-sdd-v3/handoffs/B07.md",
+      "before_sha256": "bfe58cbd8b40bd9bc9b1158d148ccc29c7250e3a90df5ad879c145bdb3411744",
+      "after_sha256": "ae4ba0a4376e2cb2ffd9481d0a7f330789a22cb62381923e0b64393e0ed3722d",
+      "snapshot": "C:\\Users\\wangchaoya\\AppData\\Local\\Temp\\qisi-b07-answer-completion-hzuqGl\\qisi-sdd-v3__handoffs__B07.md.before"
+    },
+    {
+      "path": "artifacts/acceptance/B07-answer-completion-2026-09-30.json",
+      "before_sha256": null,
+      "after_sha256": null,
+      "note": "Self-contained evidence; own hash omitted to avoid circularity."
+    }
+  ],
+  "linked_change": "ravenspec/changes/chat-feedback-recovery/",
+  "review": {
+    "status": "self_review",
+    "independent_review": "not_run",
+    "checks": [
+      "Reviewed this-turn diff against pre-turn snapshots, not against HEAD alone.",
+      "No hardcoded coefficient or answer-number completion shortcut in production.",
+      "Whole-task original routes are OR alternatives; each requires its entire prerequisite closure; malformed/cyclic routes block completion.",
+      "The fallback unknown route is a structural target skeleton only; current diagnosis and final Guard remain required for correctness.",
+      "Student quotation exemption is exact and validated, not a semantic approximation; actual Guard disclosure output is never subtracted.",
+      "No extra normal-path model calls; existing time/token/call recovery bounds remain intact.",
+      "Renderer receives no raw diagnosis/private progress object; guide data stays out of system messages.",
+      "Remediation, explicit finish verdict, exposure accounting and final CAS/lease/owner commit paths unchanged."
+    ],
+    "issues": [
+      "Live provider adherence to exact-evidence instructions and false-block rate are unmeasured.",
+      "A fresh alternative route still requires existing route review; it cannot immediately bypass completion evidence checks.",
+      "The original real request rejection node is unproven without actual node logs."
+    ],
+    "preserved_document_prefixes": {
+      "qisi-sdd-v3/changes/B07.md": true,
+      "qisi-sdd-v3/handoffs/B07.md": true
+    }
+  },
+  "acceptance": [
+    {
+      "id": "AT22",
+      "result": "not_run",
+      "local_related_checks": "passed",
+      "note": "Related unit/fixture HTTP assertions only; not full acceptance sign-off."
+    },
+    {
+      "id": "AT25",
+      "result": "not_run",
+      "local_related_checks": "passed",
+      "note": "Related unit/fixture HTTP assertions only; not full acceptance sign-off."
+    },
+    {
+      "id": "AT27",
+      "result": "not_run",
+      "local_related_checks": "passed",
+      "note": "Related unit/fixture HTTP assertions only; not full acceptance sign-off."
+    },
+    {
+      "id": "AT28",
+      "result": "not_run",
+      "local_related_checks": "passed",
+      "note": "Related unit/fixture HTTP assertions only; not full acceptance sign-off."
+    },
+    {
+      "id": "AT45",
+      "result": "not_run",
+      "local_related_checks": "passed",
+      "note": "Related unit/fixture HTTP assertions only; not full acceptance sign-off."
+    },
+    {
+      "id": "AT49",
+      "result": "not_run",
+      "local_related_checks": "passed",
+      "note": "Related unit/fixture HTTP assertions only; not full acceptance sign-off."
+    },
+    {
+      "id": "ST07",
+      "result": "not_run",
+      "local_related_checks": "passed",
+      "note": "Related unit/fixture HTTP assertions only; not full acceptance sign-off."
+    },
+    {
+      "id": "AT14",
+      "result": "not_run"
+    },
+    {
+      "id": "AT16",
+      "result": "not_run"
+    },
+    {
+      "id": "AT43",
+      "result": "not_run"
+    },
+    {
+      "id": "ST06",
+      "result": "not_run"
+    },
+    {
+      "id": "ST08",
+      "result": "not_run"
+    },
+    {
+      "id": "ST09",
+      "result": "not_run"
+    },
+    {
+      "id": "ST12",
+      "result": "not_run"
+    }
+  ],
+  "synthetic_replay": {
+    "steps": [
+      "valid selection of three variable terms and two constants",
+      "incomplete/wrong total omitting multiplicity",
+      "full reasoning with coefficient",
+      "confirmation after complete reasoning",
+      "later wrong-sign correction"
+    ],
+    "all_roles": "mocked",
+    "checks": "Current-evidence routing, completion guard, approved response and 4 calls per turn; not model mathematical capability or pedagogical efficacy."
+  },
+  "limitations": [
+    "No live model, business database, MySQL 8.4 fault-recovery, browser E2E, original user-session replay or human teaching evaluation was performed.",
+    "19 skipped server tests are not counted as passing.",
+    "Three B07 task-gate entry points fail because the shared runner supports other task IDs only.",
+    "Specification checks ran on a temp copy; original reports/manifest/ZIP were not regenerated.",
+    "No process restart or deployment; whether a running instance has loaded current code was not verified.",
+    "No commit/push/merge/branch change or credential reads; unrelated A03, environment and dependency changes preserved.",
+    "B07 full-task prerequisites/review remain incomplete; this patch is not a done or release claim."
+  ],
+  "git": {
+    "branch": "develop",
+    "behind_origin_develop": 12,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "deployed": false,
+    "final_status_output": "## develop...origin/develop [behind 12]\r\n M package-lock.json\r\n M qisi-sdd-v3/changes/A03.md\r\n M qisi-sdd-v3/changes/B07.md\r\n M qisi-sdd-v3/handoffs/A03.md\r\n M qisi-sdd-v3/handoffs/B07.md\r\n M server/.env.development.local\r\n M server/src/features/analysis/problem-analysis.service.spec.ts\r\n M server/src/features/analysis/problem-analysis.service.ts\r\n M server/src/features/analysis/turn-time-budget.ts\r\n M server/src/workflows/policy-gate.ts\r\n M server/test/workflows/policy-gate.spec.ts\r\n M web/src/App.test.tsx\r\n M web/src/pages/bank/BankFlow.tsx\r\n?? artifacts/acceptance/A03-learning-draft-autosave-2026-09-30.json\r\n?? artifacts/acceptance/A03-learning-draft-local-only-2026-09-30.json\r\n?? artifacts/acceptance/B07-20260930-chat-feedback-recovery/\r\n?? artifacts/acceptance/B07-answer-completion-2026-09-30.json\r\n?? docs/architecture-review-2026-09-23/\r\n?? ravenspec/changes/chat-feedback-recovery/\r\n?? server/src/features/analysis/chat-feedback-policy.ts\r\n?? server/src/features/analysis/problem-analysis.recovery.integration.spec.ts\r\n?? server/src/features/analysis/turn-time-budget.spec.ts\r\n"
+  },
+  "rollback": "Reverse only this-turn changes relative to the saved path-qualified pre-turn snapshots; preserve all earlier B07/A03 and collaborator changes. No database rollback required."
+}

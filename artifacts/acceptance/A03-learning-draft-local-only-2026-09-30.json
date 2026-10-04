@@ -1,0 +1,206 @@
+{
+  "task": "A03",
+  "baseline": "qisi-3.1",
+  "date": "2026-09-30",
+  "status": "implemented_waiting_review",
+  "review": "self_review",
+  "supersedes": "artifacts/acceptance/A03-learning-draft-autosave-2026-09-30.json",
+  "userDecision": "学习页编辑时不调用 learning draft；只在点击发送时提交，本机保留可恢复草稿。",
+  "files": [
+    "web/src/pages/bank/BankFlow.tsx",
+    "web/src/App.test.tsx",
+    "qisi-sdd-v3/changes/A03.md",
+    "qisi-sdd-v3/handoffs/A03.md",
+    "artifacts/acceptance/A03-learning-draft-local-only-2026-09-30.json"
+  ],
+  "behavior": [
+    "删除学习页 draft PATCH、定时同步、online 同步和立即同步按钮",
+    "保留24小时/12000字符限制内的本机草稿；旧服务端草稿仅兼容读取，不再编辑上传",
+    "空编辑也覆盖旧草稿；发送成功后保存空本机值以防旧服务端草稿恢复",
+    "提交失败保留本机副本；成功回执不清除新编辑，包括重新输入相同文本后重试旧提交"
+  ],
+  "commands": [
+    {
+      "command": "npm --prefix web test -- src/App.test.tsx -t \"learning local drafts|restores legacy learning drafts\" --maxWorkers=1",
+      "phase": "failure_first",
+      "cwd": "D:/math/qisi-dashboard",
+      "exit": 1,
+      "passed": 3,
+      "failed": 9,
+      "skipped": 10,
+      "reason": "旧实现仍在停顿/重连上传，清除本机副本，状态文案与显式提交需求不符。"
+    },
+    {
+      "command": "npm --prefix web test -- src/App.test.tsx -t \"learning local drafts|restores legacy learning drafts\" --maxWorkers=1",
+      "phase": "intermediate_incomplete_patch",
+      "cwd": "D:/math/qisi-dashboard",
+      "exit": 1,
+      "failed": 6,
+      "unhandledErrors": 1,
+      "reason": "补丁应用不完整导致残留 clearCachedLearningDraft 引用；已修复，不作为验收通过。"
+    },
+    {
+      "command": "npm --prefix web test -- src/App.test.tsx -t \"learning local drafts|restores legacy learning drafts\" --maxWorkers=1",
+      "phase": "initial_green",
+      "cwd": "D:/math/qisi-dashboard",
+      "exit": 0,
+      "passed": 12,
+      "failed": 0,
+      "skipped": 10
+    },
+    {
+      "command": "npm --prefix web test -- src/App.test.tsx -t \"newly composed identical draft\" --maxWorkers=1",
+      "phase": "additional_failure_first",
+      "cwd": "D:/math/qisi-dashboard",
+      "exit": 1,
+      "passed": 0,
+      "failed": 1,
+      "skipped": 22,
+      "reason": "重试旧提交会清除新输入的相同文本；后续以编辑器当前内容与revision共同保护。"
+    },
+    {
+      "command": "npm --prefix web test -- src/App.test.tsx src/pages/bank/BankFlow.chat-version.spec.tsx src/pages/bank/learning-draft-cache.spec.ts src/pages/bank/RichComposer.spec.tsx -t \"learning local drafts|restores legacy learning drafts|handwriting|committed chat versions|learning draft cache|RichComposer\" --maxWorkers=1",
+      "phase": "final_focused",
+      "cwd": "D:/math/qisi-dashboard",
+      "exit": 0,
+      "passed": 20,
+      "failed": 0,
+      "skipped": 19,
+      "filesPassed": 3,
+      "filesSkipped": 1,
+      "limitation": "名称筛选导致 learning-draft-cache 文件未匹配；完整套件另行覆盖。"
+    },
+    {
+      "command": "npm --prefix web run lint",
+      "cwd": "D:/math/qisi-dashboard",
+      "exit": 0,
+      "testCount": null
+    },
+    {
+      "command": "npm --prefix web run typecheck",
+      "cwd": "D:/math/qisi-dashboard",
+      "exit": 1,
+      "testCount": null,
+      "reason": "既有 OneToOneClassroom3D.tsx:7 three 缺声明 TS7016，:256/:260 TS7006。"
+    },
+    {
+      "command": "npm --prefix web run build",
+      "cwd": "D:/math/qisi-dashboard",
+      "exit": 1,
+      "testCount": null,
+      "reason": "同上述既有 three 类型错误；未安装依赖或放宽类型检查。"
+    },
+    {
+      "command": "npm --prefix web test -- --maxWorkers=1",
+      "cwd": "D:/math/qisi-dashboard",
+      "phase": "final_full_suite",
+      "exit": 1,
+      "passed": 141,
+      "failed": 1,
+      "skipped": 0,
+      "filesPassed": 25,
+      "filesFailed": 1,
+      "reason": "唯一失败为 App > sets the login moment in a meaningful mathematics context：登录插图 accessible name 与既有断言不符。本次草稿、手写、缓存、连续提交及其余回归通过。"
+    },
+    {
+      "command": "git diff --check",
+      "cwd": "D:/math/qisi-dashboard",
+      "exit": 1,
+      "testCount": null,
+      "reason": "协作者并行修改的 qisi-sdd-v3/changes/B07.md 有 trailing whitespace；未改动该文件。"
+    },
+    {
+      "command": "git diff --check -- web/src/pages/bank/BankFlow.tsx web/src/App.test.tsx qisi-sdd-v3/changes/A03.md qisi-sdd-v3/handoffs/A03.md",
+      "cwd": "D:/math/qisi-dashboard",
+      "exit": 0,
+      "testCount": null
+    }
+  ],
+  "browser": {
+    "command": "mcp__node_repl.js: project Playwright chromium.launch(headless:true), route **/api/** fixtures, real Vite http://127.0.0.1:5173/study?session=9101",
+    "version": "153.0.8010.12",
+    "passed": 4,
+    "failed": 0,
+    "results": [
+      {
+        "width": 1440,
+        "draftRequests": 0,
+        "chatRequests": 1,
+        "offlineRecovery": true,
+        "emptyEditRecovery": true,
+        "horizontalOverflow": false,
+        "pageErrors": [],
+        "status": "passed"
+      },
+      {
+        "width": 1280,
+        "draftRequests": 0,
+        "chatRequests": 1,
+        "offlineRecovery": true,
+        "emptyEditRecovery": true,
+        "horizontalOverflow": false,
+        "pageErrors": [],
+        "status": "passed"
+      },
+      {
+        "width": 390,
+        "draftRequests": 0,
+        "chatRequests": 1,
+        "offlineRecovery": true,
+        "emptyEditRecovery": true,
+        "horizontalOverflow": false,
+        "pageErrors": [],
+        "status": "passed"
+      },
+      {
+        "width": 360,
+        "draftRequests": 0,
+        "chatRequests": 1,
+        "offlineRecovery": true,
+        "emptyEditRecovery": true,
+        "horizontalOverflow": false,
+        "pageErrors": [],
+        "status": "passed"
+      }
+    ],
+    "steps": [
+      "每个视口三次900ms间隔编辑，再等待2500ms",
+      "设置offline，继续编辑并等待2500ms，online事件后再等待500ms",
+      "全程draft=0、chat=0，本机缓存为最新文本",
+      "刷新恢复后清空输入，再刷新仍为空",
+      "填写最终作答，点击发送，chat=1且内容匹配，draft=0，成功回执后缓存为空",
+      "无pageerror、无水平溢出；1440/360截图通过工具查看，未存真实用户内容"
+    ],
+    "screenshots": "仅工具内查看fixture截图，不保存真实学生会话"
+  },
+  "acceptance": {
+    "AT38": "仅本机草稿恢复辅助场景fixture通过；完整历史/owner隔离/帮助恢复AT38未执行",
+    "fullATST": "not_run",
+    "realMySQL": "not_run",
+    "realModel": "not_run",
+    "realStudentObservation": "not_run",
+    "ravenGate": "not_run"
+  },
+  "limitations": [
+    "无跨设备草稿同步；仅当前浏览器本机草稿，清理浏览器数据或超过现有TTL/容量限制不能保证恢复",
+    "未创建学习会话之前的首题输入维持原有行为，本补丁不增加其本机缓存",
+    "不声称所有输入卡顿已消除；未测用户真实接口延迟或完整长会话渲染成本",
+    "服务端API和独立检验draft均保持不变；未修改数据库或服务端业务",
+    "单AI self_review，不冒充独立评审；tasks.json状态未更新"
+  ],
+  "git": {
+    "branch": "develop",
+    "behindRemote": 12,
+    "committed": false,
+    "pushed": false,
+    "deployed": false,
+    "otherWork": "保留并行协作者的server/B07等修改；不切换、合并、暂存或覆盖。"
+  },
+  "reviewNotes": [
+    "复查 BankFlow 已不存在 learning draft URL、persistDraft、online同步、同步按钮与自动保存状态。",
+    "编辑本机缓存失败会显示仅本页状态，不退回网络自动保存。",
+    "本轮新增测试覆盖编辑与空编辑恢复、离线重连、旧服务端草稿兼容、失败提交、在途新输入及同内容重试；没有降低断言或加长超时。",
+    "后台API/assessment草稿未改；未触碰B07/server/锁文件/环境文件。",
+    "web/tsconfig.app.tsbuildinfo 已恢复本轮检查前的字节内容。"
+  ]
+}

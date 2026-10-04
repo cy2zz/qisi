@@ -1,0 +1,59 @@
+
+> @qisi/server@0.1.0 test
+> vitest run src/features/analysis/problem-analysis.equivalent-route.live.spec.ts
+
+
+ RUN  v5.0.1 D:/math/qisi-dashboard/server
+
+[Nest] 15076  - 2026/09/30 17:49:45    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_message_validation_failed',
+  nodeKey: 'guard',
+  code: 'DISCLOSURE_NOT_ALLOWED',
+  verdict: 'revise'
+}
+[Nest] 15076  - 2026/09/30 17:49:51    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_message_validation_failed',
+  nodeKey: 'final_gate',
+  code: 'DISCLOSURE_NOT_ALLOWED',
+  verdict: 'revise'
+}
+[Nest] 15076  - 2026/09/30 17:49:51    WARN [ProblemAnalysisService] Object(4) {
+  event: 'chat_feedback_unavailable',
+  requestId: '11111111-1111-4111-8111-000000000002',
+  sessionId: 'live-equivalence-missing-multiplicity',
+  reason: 'GUARD_REJECTED'
+}
+ ❯ src/features/analysis/problem-analysis.equivalent-route.live.spec.ts (2 tests | 1 failed) 45254ms
+   ❯ B07 equivalent-route live model sample (2)
+     × missing-multiplicity 29794ms
+node.exe : 
+At line:1 char:1
++ & "C:\nvm4w\nodejs/node.exe" "C:\nvm4w\nodejs/node_modules/npm/bin/np ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/analysis/problem-analysis.equivalent-route.live.spec.ts > B07 equivalent-route live model sample > missing-multiplicity
+AssertionError: expected 'revise' to be 'accept' // Object.is equality
+
+Expected: "accept"
+Received: "revise"
+
+ ❯ src/features/analysis/problem-analysis.equivalent-route.live.spec.ts:64:29
+     62|       expect(diagnosis.judgment).toBe(sample.judgment);
+     63|       expect(diagnosis.route_review_needed).toBe(false);
+     64|       expect(guard.verdict).toBe('accept');
+       |                             ^
+     65|       expect(result.audit).toBeDefined();
+     66|       expect(result.reply).not.toContain('系统暂时未能');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  17:49:03
+   Duration  47.77s (tests 95%, import 4%, transform 1%)
+

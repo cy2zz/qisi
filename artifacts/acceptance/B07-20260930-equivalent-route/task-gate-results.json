@@ -1,0 +1,14 @@
+﻿[
+    {
+        "command":  "npm run test:task -- B07",
+        "exit_code":  1
+    },
+    {
+        "command":  "npm run test:e2e:task -- B07",
+        "exit_code":  1
+    },
+    {
+        "command":  "npm run test:stack -- B07",
+        "exit_code":  1
+    }
+]
